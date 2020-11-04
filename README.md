@@ -1,2 +1,1 @@
-# compile_openMINDS
-coming soon...
+# Future home of the main openMINDS repository
