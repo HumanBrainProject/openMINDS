@@ -39,7 +39,7 @@ def test_examples():
     script_path = os.path.dirname(os.path.realpath(__file__))
     for schema_group in find_resource_directories(script_path):
         schema_group_dir = os.path.join(script_path, schema_group)
-        for example in glob.glob(os.path.join(schema_group_dir, '**/tests/*.json'), recursive=True):
+        for example in glob.glob(os.path.join(schema_group_dir, '**/test/*.json'), recursive=True):
             relative_example_path = os.path.realpath(example)[len(schema_group_dir) + 1:]
             file_name = os.path.basename(relative_example_path)
             schema_name, expect_failure = _parse_example_filename(file_name)
