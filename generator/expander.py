@@ -3,7 +3,7 @@ import json
 import os
 import shutil
 
-from .commons import TEMPLATE_PROPERTY_EXTENDS, TEMPLATE_PROPERTY_TYPE, find_resource_directories, EXPANDED_DIR
+from .commons import TEMPLATE_PROPERTY_EXTENDS, TEMPLATE_PROPERTY_TYPE, find_resource_directories, EXPANDED_DIR, SCHEMA_FILE_ENDING
 
 DEEP_MERGE_PROPERTIES = ["properties", "required"]
 root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
@@ -21,7 +21,7 @@ class Expander(object):
             absolute_schema_group_target_dir = os.path.realpath(os.path.join(absolute_target_dir, schema_group))
             absolute_schema_group_src_dir = os.path.join(root_path, schema_group)
             os.makedirs(absolute_schema_group_target_dir)
-            for schema_path in glob.glob(os.path.join(root_path, schema_group, '**/*.schema.json'), recursive=True):
+            for schema_path in glob.glob(os.path.join(root_path, schema_group, f'**/*{SCHEMA_FILE_ENDING}'), recursive=True):
                 relative_schema_path = schema_path[len(absolute_schema_group_src_dir)+1:]
                 print(f"process {relative_schema_path}")
                 with open(schema_path, "r") as schema_file:

@@ -5,7 +5,7 @@ import json
 
 
 def main():
-    for filename in Path('.').glob('**/*.schema.json'):
+    for filename in Path('.').glob('**/*.schema.tpl.json'):
         with open(filename, 'r') as f:
             try:
                 Draft7Validator.check_schema(json.loads(f.read()))

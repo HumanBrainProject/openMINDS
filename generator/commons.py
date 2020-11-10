@@ -11,10 +11,12 @@ TEMPLATE_PROPERTY_LINKED_TYPES = "_linkedTypes"
 
 EXPANDED_DIR = "expanded"
 
+SCHEMA_FILE_ENDING = ".schema.tpl.json"
+
 
 def find_resource_directories(root_path):
     resource_directories = set()
-    for schema_source in glob.glob(os.path.join(root_path, '**/*.schema.json'), recursive=True):
+    for schema_source in glob.glob(os.path.join(root_path, f'**/*{SCHEMA_FILE_ENDING}'), recursive=True):
         schema_resource_dir = os.path.dirname(schema_source)[len(root_path) + 1:]
         if "target" not in schema_resource_dir and EXPANDED_DIR not in schema_resource_dir:
             path_split = schema_resource_dir.split("/")
@@ -26,14 +28,14 @@ def type_to_schema_url(version, t):
     type_base = os.path.dirname(t)
     type_name = os.path.basename(t)
     schema_name = type_name[0].lower()+type_name[1:]
-    return f"{type_base}/{version}/{schema_name}.schema.json"
+    return f"{type_base}/{version}/{schema_name}?format=json-schema"
 
 
 def type_to_html_url(version, t):
     type_base = os.path.dirname(t)
     type_name = os.path.basename(t)
     schema_name = type_name[0].lower()+type_name[1:]
-    return f"{type_base}/{version}/{schema_name}.html"
+    return f"{type_base}/{version}/{schema_name}?format=html"
 
 
 class Generator(object):
@@ -52,16 +54,14 @@ class Generator(object):
             print(f"handle {schema_group}")
             schema_group_path = os.path.join(expanded_path, schema_group)
             version_number = os.path.basename(schema_group_path)
-            for schema_path in glob.glob(os.path.join(schema_group_path, '**/*.schema.json'), recursive=True):
-                relative_schema_path = os.path.dirname(schema_path[len(schema_group_path) + 1:])
+            for schema_path in glob.glob(os.path.join(schema_group_path, f'**/*{SCHEMA_FILE_ENDING}'), recursive=True):
                 schema_file_name = os.path.basename(schema_path)
-                schema_file_name_non_prefixed = schema_file_name[:-len(".schema.json")]
+                schema_file_name_without_extension = schema_file_name[:-len(SCHEMA_FILE_ENDING)]
                 with open(schema_path, "r") as schema_file:
                     schema = json.load(schema_file)
                 self._pre_process_template(schema, version_number)
-                os.makedirs(os.path.join(self.target_path, schema_group, relative_schema_path), exist_ok=True)
-                target_file_path = os.path.join(self.target_path, schema_group, relative_schema_path,
-                                                f"{schema_file_name_non_prefixed}.{self.format}")
+                os.makedirs(os.path.join(self.target_path, version_number), exist_ok=True)
+                target_file_path = os.path.join(self.target_path, version_number, f"{schema_file_name_without_extension}.{self.format}")
                 print(f"Rendering {target_file_path}")
                 with open(target_file_path, "w") as target_file:
                     self._process_template(schema, target_file, version_number)
