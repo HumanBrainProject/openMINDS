@@ -38,15 +38,14 @@ def _do_validate(schema_path, example_path, expect_failure):
 def test_examples():
     script_path = os.path.dirname(os.path.realpath(__file__))
     for schema_group in find_resource_directories(script_path):
-        schema_group_examples_dir = os.path.join(script_path, f"{schema_group}-examples")
-        if os.path.exists(schema_group_examples_dir):
-            for example in glob.glob(os.path.join(schema_group_examples_dir, '**/*.json'), recursive=True):
-                relative_example_path = os.path.realpath(example)[len(schema_group_examples_dir) + 1:]
-                file_name = os.path.basename(relative_example_path)
-                schema_name, expect_failure = _parse_example_filename(file_name)
-                json_schema = os.path.join(script_path, "target/schema.json",
-                                           schema_group, os.path.dirname(relative_example_path), schema_name)
-                _do_validate(json_schema, example, expect_failure)
+        schema_group_dir = os.path.join(script_path, schema_group)
+        for example in glob.glob(os.path.join(schema_group_dir, '**/tests/*.json'), recursive=True):
+            relative_example_path = os.path.realpath(example)[len(schema_group_dir) + 1:]
+            file_name = os.path.basename(relative_example_path)
+            schema_name, expect_failure = _parse_example_filename(file_name)
+            json_schema = os.path.join(script_path, "target/schema.json",
+                                       schema_group, os.path.dirname(os.path.dirname(relative_example_path)), schema_name)
+            _do_validate(json_schema, example, expect_failure)
 
 
 if __name__ == "__main__":

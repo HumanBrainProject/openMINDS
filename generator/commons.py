@@ -55,13 +55,15 @@ class Generator(object):
             schema_group_path = os.path.join(expanded_path, schema_group)
             version_number = os.path.basename(schema_group_path)
             for schema_path in glob.glob(os.path.join(schema_group_path, f'**/*{SCHEMA_FILE_ENDING}'), recursive=True):
+                relative_schema_path = os.path.dirname(schema_path[len(schema_group_path) + 1:])
                 schema_file_name = os.path.basename(schema_path)
                 schema_file_name_without_extension = schema_file_name[:-len(SCHEMA_FILE_ENDING)]
                 with open(schema_path, "r") as schema_file:
                     schema = json.load(schema_file)
                 self._pre_process_template(schema, version_number)
-                os.makedirs(os.path.join(self.target_path, version_number), exist_ok=True)
-                target_file_path = os.path.join(self.target_path, version_number, f"{schema_file_name_without_extension}.{self.format}")
+                os.makedirs(os.path.join(self.target_path, schema_group, relative_schema_path), exist_ok=True)
+                target_file_path = os.path.join(self.target_path, schema_group, relative_schema_path,
+                                                f"{schema_file_name_without_extension}.{self.format}")
                 print(f"Rendering {target_file_path}")
                 with open(target_file_path, "w") as target_file:
                     self._process_template(schema, target_file, version_number)
