@@ -1,7 +1,7 @@
 import json
 import copy
 
-from commons import TEMPLATE_PROPERTY_TYPE, type_to_schema_url, \
+from .commons import TEMPLATE_PROPERTY_TYPE, type_to_schema_url, \
     TEMPLATE_PROPERTY_LINKED_TYPES, Generator
 
 
