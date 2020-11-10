@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>{{ _type }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .property{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ simpleTypeName }} ({{ schemaVersion }})</h1>
+    <h3>{{ _type }} - <a href="{{ schemaId }}">JSON Schema</a></h3>
+    <table>
+        {% for property, propertyValue in properties.items() %}
+        <tr>
+            <td class="property">{{ property }}</td>
+            <td>{% for type in propertyValue["typeInformation"] %}{% if "url" in type %}<a href="{{ type['url'] }}">{{type['label']}}</a>{% else %}{{type['label']}}{% endif %}{% endfor %}</td>
+            <td>{{propertyValue["description"]}}</td>
+            <td>{{propertyValue["instruction"]}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
