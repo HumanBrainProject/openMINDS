@@ -6,23 +6,22 @@ import shutil
 from commons import TEMPLATE_PROPERTY_EXTENDS, TEMPLATE_PROPERTY_TYPE, find_resource_directories, EXPANDED_DIR
 
 DEEP_MERGE_PROPERTIES = ["properties", "required"]
-script_path = os.path.dirname(os.path.realpath(__file__))
-
+root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
 
 class Expander(object):
 
     @staticmethod
     def expand():
-        absolute_target_dir = os.path.realpath(os.path.join(script_path, EXPANDED_DIR))
+        absolute_target_dir = os.path.realpath(os.path.join(root_path, EXPANDED_DIR))
         if os.path.exists(absolute_target_dir):
             print("clearing previously generated expanded sources")
             shutil.rmtree(absolute_target_dir)
-        for schema_group in find_resource_directories(script_path):
+        for schema_group in find_resource_directories(root_path):
             print(f"handling schemas of {schema_group}")
             absolute_schema_group_target_dir = os.path.realpath(os.path.join(absolute_target_dir, schema_group))
-            absolute_schema_group_src_dir = os.path.join(script_path, schema_group)
+            absolute_schema_group_src_dir = os.path.join(root_path, schema_group)
             os.makedirs(absolute_schema_group_target_dir)
-            for schema_path in glob.glob(os.path.join(script_path, schema_group, '**/*.schema.json'), recursive=True):
+            for schema_path in glob.glob(os.path.join(root_path, schema_group, '**/*.schema.json'), recursive=True):
                 relative_schema_path = schema_path[len(absolute_schema_group_src_dir)+1:]
                 print(f"process {relative_schema_path}")
                 with open(schema_path, "r") as schema_file:

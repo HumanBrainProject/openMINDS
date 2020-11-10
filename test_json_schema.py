@@ -5,7 +5,7 @@ import os
 import jsonschema
 from jsonschema import Draft7Validator, ValidationError
 
-from commons import find_resource_directories
+from generator.commons import find_resource_directories
 
 
 def _parse_example_filename(file_name):

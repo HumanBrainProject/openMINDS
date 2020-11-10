@@ -1,6 +1,6 @@
-from expander import Expander
-from generate_html import HTMLGenerator
-from generate_json_schema import JsonSchemaGenerator
+from generator.expander import Expander
+from generator.generate_html import HTMLGenerator
+from generator.generate_json_schema import JsonSchemaGenerator
 
 
 def main():

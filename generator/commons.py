@@ -40,14 +40,14 @@ class Generator(object):
 
     def __init__(self, format):
         self.format = format
-        self.script_path = os.path.dirname(os.path.realpath(__file__))
-        self.target_path = os.path.join(self.script_path, "target", self.format)
+        self.root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
+        self.target_path = os.path.join(self.root_path, "target", self.format)
 
     def generate(self):
         if os.path.exists(self.target_path):
             print("clearing previously generated files")
             shutil.rmtree(self.target_path)
-        expanded_path = os.path.join(self.script_path, EXPANDED_DIR)
+        expanded_path = os.path.join(self.root_path, EXPANDED_DIR)
         for schema_group in find_resource_directories(expanded_path):
             print(f"handle {schema_group}")
             schema_group_path = os.path.join(expanded_path, schema_group)
@@ -79,7 +79,7 @@ class JinjaGenerator(Generator):
         super().__init__(format)
         self.template_name = template_name
         self.env = Environment(
-            loader=FileSystemLoader(self.script_path),
+            loader=FileSystemLoader(os.path.dirname(os.path.realpath(__file__))),
             autoescape=select_autoescape(autoescape) if autoescape is not None else select_autoescape()
         )
 
