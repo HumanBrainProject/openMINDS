@@ -3,7 +3,7 @@ import json
 import os
 import shutil
 
-from .commons import TEMPLATE_PROPERTY_EXTENDS, TEMPLATE_PROPERTY_TYPE, find_resource_directories, EXPANDED_DIR, SCHEMA_FILE_ENDING
+from generator.commons import TEMPLATE_PROPERTY_EXTENDS, TEMPLATE_PROPERTY_TYPE, find_resource_directories, EXPANDED_DIR, SCHEMA_FILE_ENDING
 
 DEEP_MERGE_PROPERTIES = ["properties", "required"]
 root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))

@@ -51,3 +51,10 @@ jobs:
         name: target files
         path: |
           target
+    - uses: actions/checkout@v2
+    - run: |
+        git config user.name openMINDS
+        git config user.email openMINDS@ebrains.eu
+        git add .
+        git commit -m "Automated vocabulary extraction"
+        git push

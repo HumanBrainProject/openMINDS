@@ -43,6 +43,7 @@ def test_examples():
             relative_example_path = os.path.realpath(example)[len(schema_group_dir) + 1:]
             file_name = os.path.basename(relative_example_path)
             schema_name, expect_failure = _parse_example_filename(file_name)
+            print(f"Testing {example} against the schema {schema_name}")
             json_schema = os.path.join(script_path, "target/schema.json",
                                        schema_group, os.path.dirname(os.path.dirname(relative_example_path)), schema_name)
             _do_validate(json_schema, example, expect_failure)
