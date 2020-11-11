@@ -19,10 +19,9 @@ class VocabExtractor(object):
         if os.path.exists(properties_file):
             with open(properties_file, "r") as properties_f:
                 self.properties = json.load(properties_f)
-                for p in self.properties:
-                    # We want to make sure that only current (not previously existing) type definitions are reported. This is why we need to clear the array first
-                    if "types" in self.properties[p]:
-                        self.properties[p]["types"] = []
+            for p in self.properties:
+                # We want to make sure that only current (not previously existing) schema definitions are reported. This is why we need to clear the array first
+                self.properties[p]["schemas"] = []
         else:
             self.properties = {}
 
@@ -33,11 +32,11 @@ class VocabExtractor(object):
         else:
             self.types = {}
 
-    def _handle_property(self, p, type):
+    def _handle_property(self, p, schema):
         if p not in self.properties:
-            self.properties[p] = {"name": _camel_case_to_human_readable(p), "description": None, "types": []}
-        self.properties[p]["types"].append(type)
-        self.properties[p]["types"] = sorted(set(self.properties[p]["types"]))
+            self.properties[p] = {"name": _camel_case_to_human_readable(p), "description": None, "schemas": []}
+        self.properties[p]["schemas"].append(schema)
+        self.properties[p]["schemas"] = sorted(set(self.properties[p]["schemas"]))
         self.properties[p]["found"] = True
 
     def _handle_type(self, type):
@@ -64,13 +63,14 @@ class VocabExtractor(object):
         self._load_properties()
         expanded_path = os.path.join(root_path, EXPANDED_DIR)
         for schema_path in glob.glob(os.path.join(expanded_path, f'**/*{SCHEMA_FILE_ENDING}'), recursive=True):
+            relative_schema_path = schema_path[len(expanded_path)+1:-len(SCHEMA_FILE_ENDING)]
             with open(schema_path, "r") as schema_file:
                 schema = json.load(schema_file)
             type = schema[TEMPLATE_PROPERTY_TYPE]
             self._handle_type(type)
             if "properties" in schema:
                 for p in schema["properties"]:
-                    self._handle_property(p, type)
+                    self._handle_property(p, relative_schema_path)
         self._cleanup_types()
         self._cleanup_properties()
 
