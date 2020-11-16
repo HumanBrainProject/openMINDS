@@ -7,18 +7,22 @@ Currently, openMINDS is comprised of the following repositories:
 - [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS) contains a collection of metadata schemas that can be used to identify and describe brain atlases, as well as describe the anatomical anchoring or registration of datasets to these brain atlases. The openMINDS_SANDS schemas cover the spatial integration of research products (in particular datasets) into the EBRAINS Atlases.
 - [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms) contains a collection of metadata schemas and corresponding terms (JSON-LDs) for terminologies that are centrally controlled and (if applicable) connected to a neuroscience ontology. Schemas of openMINDS_core as well as openMINDS_SANDS reference to these controlled terms. 
 
-The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
+The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
 
-## Template processing
-The openMINDS repositories are defining JSON-schema inspired templates with a few custom properties (prefixed with "_") which allow us to simplify the readability and increase the reusability. 
-To make sure those templates can be used as standard-compliant JSON-schema templates as well as translated into other target formats, we've introduced a small template processing pipeline.
+## Schema processing pipeline
+The metadata schemas in the openMINDS repositories are first defined as JSON-schema inspired templates with a few custom properties (prefixed with `"_"`) which allow us to simplify their readability and increase their reusability. 
+
+To make sure those templates can be used as standard-compliant JSON-schemas or translated into other target formats (e.g., HTML), we've introduced a small schema processing pipeline.
 
 ### Prerequisites
-As pre-requisites, we expect in this repository the template structure to be grouped in a **subdirectory by topic** (e.g. "core" or "SANDS" -> this usually is a GIT submodule to allow an easy, individual development of the separate parts of the standards) which contain one **version directory** (e.g. "v1.0") followed by an arbitrary directory structure allowing to group the templates by topic or anything which allows to simplify the navigation inside the templates. If it is a simple structure, you can also put the templates immediately to the root level of the version directory. Additionally, we expect the templates to contain the file-ending 
-**.schema.json**. Please note that only templates including a **_type** property (see below) will be processed. Templates not containing this property are usually seen as "abstract" e.g. for the use of the *expansion*.
+As prerequisites, we expect in this repository the templates to be grouped in a **subdirectory by topic** (e.g., the openMINDS_core or openMINDS_SANDS collection). These subdirectories are managed as GIT submodules to allow an easy, individual development of the separate parts of the standards. 
+
+Each subdirectory has to contain a **version directory** (e.g. "v1.0") followed by an arbitrary directory structure. A version directory can either further group the templates to simplify navitation, or list all templates at its root level of the version directory. 
+
+All templates in the subdirectories need to contain the file-ending **.schema.tpl.json**. Please note that only templates including a **`"_type"`** property (see below) will be processed. Templates not containing this property are usually seen as "abstract", e.g., for the use of the *expansion*.
 
 ### 1. Expansion
-One of the custom elements introduced is the **_extends** property. It allows to define another (partial) template file (with its relative path to the *version directory*) to be taken into account as its expansion point. Please note that all defined properties of the referenced template file will be taken into account unless they are overwritten by the template extending them. This is true for all properties except for **properties** and **required** -> the resulting document will contain a merge of the two documents allowing to define a basic set of properties and/or required properties in the abstract template and to extend them later on.
+One of the custom elements introduced is the **`"_extends"`** property. It allows to define another (partial) template file (with its relative path to the *version directory*) to be taken into account as its expansion point. Please note that all defined properties of the referenced template file will be taken into account unless they are overwritten by the template extending them. This is true for all properties except for **properties** and **required** -> the resulting document will contain a merge of the two documents allowing to define a basic set of properties and/or required properties in the abstract template and to extend them later on.
 
 The expansion is handled in the **expander.py** which produces a temporary directory called "expanded" which contains the resulting templates. It shall be regarded the source for all further generation of code.
 
