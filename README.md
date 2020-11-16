@@ -31,9 +31,9 @@ The expansion processing is handled in the **expander.py** which produces a temp
 ### 2. Generation
 In a second step, the generation of valid JSON-Schemas, HTML documentation, and other wrapper code is executed. The extension points of the JSON-schema standards are the following:
 
-- **`"_type"`**: This template-property expects a single value containing the "type" declaration of a JSON-LD entity. It can be seen as a shortcut for not needing to state the JSON-schema properties **`"$schema"`**, **`"$id"`** and **`"type"`** as well as the JSON-LD properties **`"@type"`** and **`"@id"`** in the schema-templates - since they can be automatically defined by the applied conventions.
+- **`"_type"`**: This template-property expects a single value containing the "type" declaration of a JSON-LD entity. It can be seen as a shortcut for not needing to state the JSON-schema properties `"$schema"`, `"$id"` and `"type"` as well as the JSON-LD properties `"@type"` and `"@id"` in the schema-templates - since they can be automatically defined by the applied conventions.
 
-- **`"_linkedTypes"`**: This template-property allows to define a JSON-LD link to a restricted set of elements. It expects an array of strings defining potential target types of this link. The default interpretation of this array is **`"anyOf"`** allowing the value to be mixed arrays. Please note, that there is also a default to *type: object* - allowing to add only one link. If you want to specify an array of links, please specify so by declaring *type: array* explicitly.
+- **`"_linkedTypes"`**: This template-property allows to define a JSON-LD link to a restricted set of elements. It expects an array of strings defining potential target types of this link. The default interpretation of this array is `"anyOf"` allowing the value to be mixed arrays. Please note, that there is also a default to `"type": "object"` - allowing to add only one link. If you want to specify an array of links, please specify so by declaring `"type": "array"` explicitly.
 
 
 There are multiple generators which can be applied to generate various formats such as valid JSON schemas, HTML documentation, wrapper code, etc.
