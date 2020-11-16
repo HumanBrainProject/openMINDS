@@ -1,4 +1,4 @@
-# Future home of the main openMINDS repository
+# open Metadata Initiative for Neuroscience Data Structures
 
 openMINDS is currently comprised of the following collections of schemas:
 - **openMINDS core**: https://github.com/HumanBrainProject/openMINDS_core
