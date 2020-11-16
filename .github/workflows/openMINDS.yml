@@ -52,10 +52,9 @@ jobs:
         path: |
           target
     - run: |
-        git diff-index --name-only HEAD
-        if [[ $(git diff-index --name-only HEAD | wc -l) -gt 0 ]]; then
-            git config user.name openMINDS
-            git config user.email openMINDS@ebrains.eu
+        git config user.name openMINDS
+        git config user.email openMINDS@ebrains.eu
+        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then           
             git add .
             git commit -m "Automated vocabulary extraction"
             git push
