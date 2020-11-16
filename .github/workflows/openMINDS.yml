@@ -52,6 +52,7 @@ jobs:
         path: |
           target
     - run: |
+        git diff-index --name-only HEAD
         if [[ $(git diff-index --name-only HEAD | wc -l) -gt 0 ]]; then
             git config user.name openMINDS
             git config user.email openMINDS@ebrains.eu
