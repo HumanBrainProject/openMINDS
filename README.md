@@ -7,7 +7,7 @@ Currently, openMINDS is comprised of the following collections of metadata schem
 - **openMINDS SANDS**: https://github.com/HumanBrainProject/openMINDS_SANDS
 - **openMINDS controlledTerms**: https://github.com/HumanBrainProject/openMINDS_controlledTerms
 
-The openMINDS project is powered by HBP (Human Brain Project) and EBRAINS (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
+The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
 
 ## Template processing
 The openMINDS repositories are defining JSON-schema inspired templates with a few custom properties (prefixed with "\_") which allow us to simplify the readability and increase the reusability. 
