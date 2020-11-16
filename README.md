@@ -9,7 +9,7 @@ Currently, openMINDS is comprised of the following repositories:
 
 The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
 
-## Schema processing pipeline
+## Processing pipeline
 The metadata schemas in the openMINDS repositories are first defined as JSON-schema inspired templates with a few custom properties (prefixed with `"_"`) which allow us to simplify their readability and increase their reusability. 
 
 To make sure those templates can be used as standard-compliant JSON-schemas or translated into other target formats (e.g., HTML), we've introduced a small schema processing pipeline.
