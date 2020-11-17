@@ -22,6 +22,8 @@ class VocabExtractor(object):
             for p in self.properties:
                 # We want to make sure that only current (not previously existing) schema definitions are reported. This is why we need to clear the array first
                 self.properties[p]["schemas"] = []
+                # Same goes for linked types
+                self.properties[p]["linkedTypes"] = []
         else:
             self.properties = {}
 
@@ -32,12 +34,16 @@ class VocabExtractor(object):
         else:
             self.types = {}
 
-    def _handle_property(self, p, schema):
+    def _handle_property(self, p, schema, property):
         if p not in self.properties:
-            self.properties[p] = {"name": _camel_case_to_human_readable(p), "description": None, "schemas": []}
+            self.properties[p] = {"name": _camel_case_to_human_readable(p), "description": None, "schemas": [], "linkedTypes": []}
         self.properties[p]["schemas"].append(schema)
         self.properties[p]["schemas"] = sorted(set(self.properties[p]["schemas"]))
         self.properties[p]["found"] = True
+        if "_linkedTypes" in property:
+            for type in property["_linkedTypes"]:
+                self.properties[p]["linkedTypes"].append(type)
+        self.properties[p]["linkedTypes"] = sorted(set(self.properties[p]["linkedTypes"]))
 
     def _handle_type(self, type):
         if type not in self.types:
@@ -70,7 +76,7 @@ class VocabExtractor(object):
             self._handle_type(type)
             if "properties" in schema:
                 for p in schema["properties"]:
-                    self._handle_property(p, relative_schema_path)
+                    self._handle_property(p, relative_schema_path, schema["properties"][p])
         self._cleanup_types()
         self._cleanup_properties()
 
