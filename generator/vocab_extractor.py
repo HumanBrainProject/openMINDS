@@ -52,6 +52,8 @@ class VocabExtractor(object):
 
     def _cleanup_properties(self):
         for p in self.properties:
+            if "linkedTypes" in self.properties[p] and self.properties[p]["linkedTypes"] == []:
+                del self.properties[p]["linkedTypes"]
             if "found" in self.properties[p] and self.properties[p]["found"]:
                 del self.properties[p]["found"]
             else:
