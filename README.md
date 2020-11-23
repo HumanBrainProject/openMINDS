@@ -42,3 +42,6 @@ Currently, the following generators are available:
 - *generate_json_schema.py*
 - *generate_python.py*
 - *generate_html.py*
+
+## License
+This work is licensed under the MIT License.
