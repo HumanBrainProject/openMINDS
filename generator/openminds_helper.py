@@ -5,8 +5,8 @@ class OpenMINDS_helper:
     '''
     Helper class for openMINDS schemas
 
-    This class offers easy discoverability for the schemas of openMINDS core,
-    SANDS and the controlledTerms.
+    This class offers easy discoverability for the schemas of openMINDS core
+    and SANDS.
     '''
 
     def __init__(self):
