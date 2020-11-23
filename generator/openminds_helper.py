@@ -19,9 +19,7 @@ class OpenMINDS_helper:
         # Set up the folder for schema discovery
         core_folder = "./target/schema.json/core/v3.0/"
         sands_folder = "./target/schema.json/SANDS/v1.0/"
-        controlledTerms_folder = "./target/schema.json/controlledTerms/v1.0/"
 
         # Discover schemas available in the folders defined above
         self.core = Schema_Discovery(core_folder)
         self.SANDS = Schema_Discovery(sands_folder)
-        self.controlledTerms = Schema_Discovery(controlledTerms_folder)
