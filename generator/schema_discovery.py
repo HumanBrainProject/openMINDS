@@ -37,7 +37,8 @@ class Schema_Discovery:
                         {
                             "filename": schema_filename,
                             "name": stripped_filename,
-                            "namespace": namespace
+                            "namespace": namespace,
+                            "substructure": schema_filename.split('/')[-2]
                         }
                 )
             else:
