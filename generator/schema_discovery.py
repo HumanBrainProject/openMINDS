@@ -10,7 +10,7 @@ class Schema_Discovery:
     The idea is to offer an easy programmatical way to the schemas available.
     '''
 
-    def __init__(self, folder):
+    def __init__(self, folder, namespace):
         schemas = []
         subfolder = False
         for root, dirs, files in os.walk(folder):
@@ -34,13 +34,18 @@ class Schema_Discovery:
             if subfolder:
                 setattr(self,
                         schema_filename.split('/')[-2].upper() + "__" + stripped_filename.upper(),
-                        {"filename": schema_filename, "name": stripped_filename}
+                        {
+                            "filename": schema_filename,
+                            "name": stripped_filename,
+                            "namespace": namespace
+                        }
                 )
             else:
                 setattr(self,
                         stripped_filename.upper(),
                         {
                             "filename": schema_filename,
-                            "name": stripped_filename
+                            "name": stripped_filename,
+                            "namespace": namespace
                         }
                        )

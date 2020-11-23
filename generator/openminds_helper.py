@@ -21,5 +21,5 @@ class OpenMINDS_helper:
         sands_folder = "./target/schema.json/SANDS/v1.0/"
 
         # Discover schemas available in the folders defined above
-        self.core = Schema_Discovery(core_folder)
-        self.SANDS = Schema_Discovery(sands_folder)
+        self.core = Schema_Discovery(core_folder, "core")
+        self.SANDS = Schema_Discovery(sands_folder, "SANDS")
