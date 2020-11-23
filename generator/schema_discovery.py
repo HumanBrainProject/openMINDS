@@ -11,11 +11,12 @@ class Schema_Discovery:
     '''
 
     def __init__(self, folder, namespace):
-        schemas = []
+        self.schemas = {}
+        schema_files = []
         subfolder = False
         for root, dirs, files in os.walk(folder):
             for name in files:
-                schemas.append(os.path.join(root, name))
+                schema_files.append(os.path.join(root, name))
 
                 # Right now we assume that we don't have a mixed situation with
                 # schema files in root and in subfolders.
@@ -24,7 +25,7 @@ class Schema_Discovery:
                 if root is not folder:
                     subfolder = True
 
-        for schema_filename in schemas:
+        for schema_filename in schema_files:
             stripped_filename = os.path.splitext(
                                     os.path.splitext(
                                         os.path.basename(schema_filename)
@@ -41,6 +42,7 @@ class Schema_Discovery:
                             "substructure": schema_filename.split('/')[-2]
                         }
                 )
+                self.schemas[schema_filename.split('/')[-2].upper() + "__" + stripped_filename.upper()] = {"filename": schema_filename,"name": stripped_filename,"namespace": namespace,"substructure": schema_filename.split('/')[-2]}
             else:
                 setattr(self,
                         stripped_filename.upper(),
@@ -50,3 +52,4 @@ class Schema_Discovery:
                             "namespace": namespace
                         }
                        )
+                self.schemas[stripped_filename.upper()] = {"filename": schema_filename,"name": stripped_filename,"namespace": namespace}
