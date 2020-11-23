@@ -2,6 +2,7 @@ from generator.expander import Expander
 from generator.generate_html import HTMLGenerator
 from generator.generate_json_schema import JsonSchemaGenerator
 from generator.vocab_extractor import VocabExtractor
+from generator.generate_python import generate_all_schemas
 
 
 def main():
@@ -17,7 +18,8 @@ def main():
     JsonSchemaGenerator().generate()
     print("Generating HTML documentation...")
     HTMLGenerator().generate()
-
+    print("Generating Python classes...")
+    generate_all_schemas()
 
 
 
