@@ -6,8 +6,9 @@ import re
 from generator.commons import EXPANDED_DIR, SCHEMA_FILE_ENDING, TEMPLATE_PROPERTY_TYPE
 
 root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
-properties_file = os.path.join(root_path, "properties.json")
-types_file = os.path.join(root_path, "types.json")
+vocab_path = os.path.join(root_path, "vocab")
+properties_file = os.path.join(vocab_path, "properties.json")
+types_file = os.path.join(vocab_path, "types.json")
 
 
 def _camel_case_to_human_readable(value:str):
