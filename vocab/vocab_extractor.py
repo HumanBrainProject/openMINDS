@@ -3,7 +3,9 @@ import json
 import os
 import re
 
-from generator.commons import EXPANDED_DIR, SCHEMA_FILE_ENDING, TEMPLATE_PROPERTY_TYPE
+EXPANDED_DIR = "expanded"
+SCHEMA_FILE_ENDING = ".schema.tpl.json"
+TEMPLATE_PROPERTY_TYPE = "_type"
 
 root_path = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
 vocab_path = os.path.join(root_path, "vocab")
