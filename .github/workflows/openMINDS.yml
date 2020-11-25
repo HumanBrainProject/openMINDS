@@ -13,10 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: true
     - run: |
-        git pull --recurse-submodules
         git submodule sync
         git submodule update --init --recursive --remote
     - name: Set up Python 3.8
