@@ -37,12 +37,24 @@
             "core/v3.0/miscellaneous/funding"
         ]
     },
+    "additionalRemarks": {
+        "description": null,
+        "name": "Additional remarks",
+        "schemas": [
+            "core/v3.0/research/subjectGroupState",
+            "core/v3.0/research/subjectState",
+            "core/v3.0/research/tissueSampleCollectionState",
+            "core/v3.0/research/tissueSampleState"
+        ]
+    },
     "age": {
         "description": null,
         "name": "Age",
         "sameAs": null,
         "schemas": [
+            "core/v3.0/research/subjectGroupState",
             "core/v3.0/research/subjectState",
+            "core/v3.0/research/tissueSampleCollectionState",
             "core/v3.0/research/tissueSampleState"
         ]
     },
@@ -54,6 +66,7 @@
         "name": "Age category",
         "sameAs": null,
         "schemas": [
+            "core/v3.0/research/subjectGroupState",
             "core/v3.0/research/subjectState"
         ]
     },
@@ -202,7 +215,10 @@
         "name": "Biological sex",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/research/subject"
+            "core/v3.0/research/subject",
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "category": {
@@ -218,11 +234,10 @@
         ]
     },
     "condition": {
+        "deprecated": true,
         "description": null,
         "name": "Condition",
-        "schemas": [
-            "core/v3.0/research/tissueSampleState"
-        ]
+        "schemas": []
     },
     "confidence": {
         "description": null,
@@ -665,12 +680,11 @@
         ]
     },
     "functionalImpairments": {
+        "deprecated": true,
         "description": null,
         "name": "Functional impairments",
         "sameAs": null,
-        "schemas": [
-            "core/v3.0/research/subjectState"
-        ]
+        "schemas": []
     },
     "funder": {
         "description": null,
@@ -704,7 +718,10 @@
         "name": "Genotype",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/research/subject"
+            "core/v3.0/research/subject",
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "givenName": {
@@ -724,6 +741,17 @@
         "sameAs": null,
         "schemas": [
             "core/v3.0/data/fileBundle"
+        ]
+    },
+    "handedness": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/Laterality"
+        ],
+        "name": "Handedness",
+        "schemas": [
+            "core/v3.0/research/subjectGroupState",
+            "core/v3.0/research/subjectState"
         ]
     },
     "hasAlternativeVersions": {
@@ -873,8 +901,7 @@
         "name": "Identifier",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/miscellaneous/digitalIdentifier",
-            "core/v3.0/research/subject"
+            "core/v3.0/miscellaneous/digitalIdentifier"
         ]
     },
     "identifierPattern": {
@@ -912,7 +939,9 @@
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/FileBundle",
             "https://openminds.ebrains.eu/core/FileInstance",
+            "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
+            "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "Input",
@@ -968,7 +997,11 @@
         "schemas": [
             "SANDS/v1.0/electrode",
             "SANDS/v1.0/electrodeArray",
-            "SANDS/v1.0/electrodeContact"
+            "SANDS/v1.0/electrodeContact",
+            "core/v3.0/research/subject",
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "isNewVersionOf": {
@@ -1256,25 +1289,25 @@
         ]
     },
     "organOfOrigin": {
+        "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/OrganOfOrigin"
-        ],
         "name": "Organ of origin",
         "sameAs": null,
-        "schemas": [
-            "core/v3.0/research/tissueSample"
-        ]
+        "schemas": []
     },
     "origin": {
         "description": null,
         "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/CellType",
+            "https://openminds.ebrains.eu/controlledTerms/Organ",
             "https://openminds.ebrains.eu/core/QuantitativeValue"
         ],
         "name": "Origin",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1.0/coordinateSpace"
+            "SANDS/v1.0/coordinateSpace",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "otherAnatomicalRelations": {
@@ -1305,7 +1338,9 @@
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/FileBundle",
             "https://openminds.ebrains.eu/core/FileInstance",
+            "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
+            "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "Output",
@@ -1370,12 +1405,15 @@
     "pathology": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/Pathology"
+            "https://openminds.ebrains.eu/controlledTerms/Disease",
+            "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
         ],
         "name": "Pathology",
         "sameAs": null,
         "schemas": [
+            "core/v3.0/research/subjectGroupState",
             "core/v3.0/research/subjectState",
+            "core/v3.0/research/tissueSampleCollectionState",
             "core/v3.0/research/tissueSampleState"
         ]
     },
@@ -1399,7 +1437,10 @@
         "name": "Phenotype",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/research/subject"
+            "core/v3.0/research/subject",
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "programmingLanguage": {
@@ -1447,8 +1488,8 @@
         "name": "Quantity",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/research/subject",
-            "core/v3.0/research/tissueSample"
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "relatedAtlasTerm": {
@@ -1648,7 +1689,9 @@
         "sameAs": null,
         "schemas": [
             "core/v3.0/research/subject",
-            "core/v3.0/research/tissueSample"
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "specificRole": {
@@ -1689,20 +1732,27 @@
         "name": "Strain",
         "sameAs": null,
         "schemas": [
-            "core/v3.0/research/subject"
+            "core/v3.0/research/subject",
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "studiedStates": {
         "description": null,
         "linkedTypes": [
+            "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
+            "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "Studied states",
         "sameAs": null,
         "schemas": [
             "core/v3.0/research/subject",
-            "core/v3.0/research/tissueSample"
+            "core/v3.0/research/subjectGroup",
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "studyTarget": {
@@ -1776,16 +1826,11 @@
         "schemas": []
     },
     "tissueWeight": {
+        "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/QuantitativeValue",
-            "https://openminds.ebrains.eu/core/QuantitativeValueRange"
-        ],
         "name": "Tissue weight",
         "sameAs": null,
-        "schemas": [
-            "core/v3.0/research/tissueSampleState"
-        ]
+        "schemas": []
     },
     "type": {
         "description": null,
@@ -1798,7 +1843,8 @@
         "schemas": [
             "core/v3.0/miscellaneous/digitalIdentifierSchema",
             "core/v3.0/products/datasetVersion",
-            "core/v3.0/research/tissueSample"
+            "core/v3.0/research/tissueSample",
+            "core/v3.0/research/tissueSampleCollection"
         ]
     },
     "uncertainty": {
@@ -1894,6 +1940,16 @@
         "sameAs": null,
         "schemas": [
             "SANDS/v1.0/image"
+        ]
+    },
+    "weight": {
+        "description": null,
+        "name": "Weight",
+        "schemas": [
+            "core/v3.0/research/subjectGroupState",
+            "core/v3.0/research/subjectState",
+            "core/v3.0/research/tissueSampleCollectionState",
+            "core/v3.0/research/tissueSampleState"
         ]
     },
     "year": {
