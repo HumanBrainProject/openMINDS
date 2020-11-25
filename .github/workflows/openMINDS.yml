@@ -16,9 +16,6 @@ jobs:
       with:
         submodules: true
     - run: |
-        rm -rf controlledTerms
-        rm -rf core
-        rm -rf SANDS
         git pull --recurse-submodules
         git submodule sync
         git submodule update --init --recursive --remote
