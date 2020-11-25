@@ -16,6 +16,7 @@ jobs:
       with:
         submodules: true
     - run: |
+        git pull --recurse-submodules
         git submodule sync
         git submodule update --init --recursive --remote
     - name: Set up Python 3.8
