@@ -265,7 +265,6 @@
     "coordinateSpace": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/CoordinateSpace",
             "https://openminds.ebrains.eu/sands/CoordinateSpace"
         ],
         "name": "Coordinate space",
@@ -425,7 +424,6 @@
             "controlledTerms/v1/behavioralTask",
             "controlledTerms/v1/biologicalSex",
             "controlledTerms/v1/cellType",
-            "controlledTerms/v1/confidence",
             "controlledTerms/v1/contributionType",
             "controlledTerms/v1/criteriaQualityType",
             "controlledTerms/v1/datasetType",
@@ -444,7 +442,6 @@
             "controlledTerms/v1/operatingDevice",
             "controlledTerms/v1/operatingSystem",
             "controlledTerms/v1/organ",
-            "controlledTerms/v1/pathology",
             "controlledTerms/v1/phenotype",
             "controlledTerms/v1/preparationType",
             "controlledTerms/v1/productAccessibility",
@@ -829,6 +826,9 @@
         "name": "Homepage",
         "sameAs": null,
         "schemas": [
+            "SANDS/v1/brainAtlas",
+            "SANDS/v1/brainAtlasVersion",
+            "SANDS/v1/coordinateSpace",
             "core/v3/actors/organization",
             "core/v3/products/dataset",
             "core/v3/products/datasetVersion",
@@ -861,12 +861,11 @@
         ]
     },
     "ianaRef": {
+        "deprecated": true,
         "description": null,
         "name": "Internet Assigned Numbers Authority (IANA) reference",
         "sameAs": null,
-        "schemas": [
-            "core/v3/data/contentType"
-        ]
+        "schemas": []
     },
     "identifier": {
         "description": null,
@@ -1029,7 +1028,9 @@
         "name": "Laterality",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation"
+            "SANDS/v1/annotation",
+            "core/v3/research/tissueSample",
+            "core/v3/research/tissueSampleCollection"
         ]
     },
     "legalCode": {
@@ -1094,7 +1095,6 @@
             "controlledTerms/v1/behavioralTask",
             "controlledTerms/v1/biologicalSex",
             "controlledTerms/v1/cellType",
-            "controlledTerms/v1/confidence",
             "controlledTerms/v1/contributionType",
             "controlledTerms/v1/criteriaQualityType",
             "controlledTerms/v1/datasetType",
@@ -1113,7 +1113,6 @@
             "controlledTerms/v1/operatingDevice",
             "controlledTerms/v1/operatingSystem",
             "controlledTerms/v1/organ",
-            "controlledTerms/v1/pathology",
             "controlledTerms/v1/phenotype",
             "controlledTerms/v1/preparationType",
             "controlledTerms/v1/productAccessibility",
@@ -1173,7 +1172,6 @@
             "controlledTerms/v1/behavioralTask",
             "controlledTerms/v1/biologicalSex",
             "controlledTerms/v1/cellType",
-            "controlledTerms/v1/confidence",
             "controlledTerms/v1/contributionType",
             "controlledTerms/v1/criteriaQualityType",
             "controlledTerms/v1/datasetType",
@@ -1192,7 +1190,6 @@
             "controlledTerms/v1/operatingDevice",
             "controlledTerms/v1/operatingSystem",
             "controlledTerms/v1/organ",
-            "controlledTerms/v1/pathology",
             "controlledTerms/v1/phenotype",
             "controlledTerms/v1/preparationType",
             "controlledTerms/v1/productAccessibility",
@@ -1409,6 +1406,13 @@
         "sameAs": null,
         "schemas": [
             "SANDS/v1/annotation"
+        ]
+    },
+    "relatedMediaType": {
+        "description": null,
+        "name": "Related media type",
+        "schemas": [
+            "core/v3/data/contentType"
         ]
     },
     "relatedPublication": {
