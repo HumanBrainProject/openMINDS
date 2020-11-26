@@ -472,7 +472,8 @@
             "core/v3/products/softwareFeature",
             "core/v3/products/softwareVersion",
             "core/v3/research/parameterSetting",
-            "core/v3/research/protocol"
+            "core/v3/research/protocol",
+            "core/v3/research/protocolExecution"
         ]
     },
     "developers": {
@@ -739,10 +740,12 @@
     "hasParent": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/Organization"
+            "https://openminds.ebrains.eu/core/Organization",
+            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
         ],
         "name": "Has parent",
         "schemas": [
+            "SANDS/v1/anatomicalEntity",
             "core/v3/actors/organization"
         ]
     },
@@ -1125,6 +1128,7 @@
         "name": "Name",
         "sameAs": null,
         "schemas": [
+            "SANDS/v1/anatomicalEntity",
             "controlledTerms/v1/ageCategory",
             "controlledTerms/v1/anatomicalAxesOrientation",
             "controlledTerms/v1/behavioralTask",
@@ -1171,12 +1175,11 @@
         ]
     },
     "nameOfLocation": {
+        "deprecated": true,
         "description": null,
         "name": "Name of location",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/anatomicalEntity"
-        ]
+        "schemas": []
     },
     "namingTerm": {
         "description": null,
@@ -1291,16 +1294,22 @@
             "core/v3/research/tissueSampleCollection"
         ]
     },
-    "otherAnatomicalRelations": {
+    "otherAnatomicalRelation": {
         "description": null,
         "linkedTypes": [
             "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation"
         ],
-        "name": "Other anatomical relations",
-        "sameAs": null,
+        "name": "Other anatomical relation",
         "schemas": [
             "SANDS/v1/anatomicalEntity"
         ]
+    },
+    "otherAnatomicalRelations": {
+        "deprecated": true,
+        "description": null,
+        "name": "Other anatomical relations",
+        "sameAs": null,
+        "schemas": []
     },
     "otherContributions": {
         "description": null,
@@ -1376,15 +1385,11 @@
         "schemas": []
     },
     "parentStructure": {
+        "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Parent structure",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/anatomicalEntity"
-        ]
+        "schemas": []
     },
     "pathology": {
         "description": null,
