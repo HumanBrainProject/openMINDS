@@ -29,7 +29,14 @@ and updated
 
     git submodule update
 
+After completion of this step your local repository is on the current state of
+all collections.
+Now you are able to run the script to generate the JSON-schema-files,
+HTML-files and Python files.
 
+    python openMINDS.py
+
+The generated files can be found in the `target` folder.
 
 ## Processing pipeline
 The metadata schemas in the openMINDS repositories are first defined as JSON-schema inspired schema-templates with a few custom template-properties (prefixed with `"_"`) which allow us to simplify their readability and increase their reusability.
