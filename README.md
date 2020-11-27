@@ -72,5 +72,8 @@ Currently, the following generators are available:
 - *generate_python.py*
 - *generate_html.py*
 
+## How to contribute
+Please check our [contribution document](./CONTRIBUTING.md).
+
 ## License
 This work is licensed under the MIT License.
