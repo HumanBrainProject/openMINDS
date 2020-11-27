@@ -10,7 +10,7 @@ Currently, openMINDS is comprised of the following metadata schema collections:
 The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases.
 
 ## How to get started
-To get started the first step is to clone the repository either download a
+To get started the first step is to either clone the repository or download a
 release.
 
     git clone https://github.com/HumanBrainProject/openMINDS.git
