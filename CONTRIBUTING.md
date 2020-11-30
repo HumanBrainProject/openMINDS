@@ -1,8 +1,8 @@
 This repository is a meta repository to bring together the different metadata
 schema collections and maintaining the python code-base.
 
-If you want to contribute to the schemas themselves please use the repository
-of the corresponding collection:
+If you want to contribute to the schemas themselves please do so in the
+repository of the corresponding collection:
 
 - [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core)
 - [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS)
