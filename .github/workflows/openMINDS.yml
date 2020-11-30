@@ -6,7 +6,16 @@
 
 name: openMINDS
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - v3
+  pull_request:
+    branches:
+      - v3
+  workflow_dispatch:
+    branches:
+      - v3
 
 jobs:
   build:
