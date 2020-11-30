@@ -13,8 +13,6 @@ pull request with your changes.
 You are also welcome to contribute to discussion in the issue tracker and of
 course to report issues you are facing yourself.
 
-Another important contribution is to spread the word about this project.
-
 If you find our project helpful you can reference it in articles,
 posters, etc.
 
