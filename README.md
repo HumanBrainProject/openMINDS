@@ -1,6 +1,6 @@
 # Welcome to openMINDS!
 
-The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), and metadata or data models (metaDataModels).
+The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), as well as metadata/data models (metaDataModels).
 
 Currently, openMINDS is comprised of the following metadata graph models:  
 - [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core) metadata model contains schemas that can be used to describe the general origin, location and content of research products. The openMINDS_core schemas cover the basic integration of research products into the EBRAINS Knowledge Graph.
