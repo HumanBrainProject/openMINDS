@@ -8,6 +8,9 @@ repository of the corresponding collection:
 - [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS)
 - [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms)
 
+The Python code is available in
+[**openMINDS_generator**](https://github.com/HumanBrainProject/openMINDS_generator)
+
 If you want to contribute to this repository, feel free to fork it and open a
 pull request with your changes.
 You are also welcome to contribute to discussion in the issue tracker and of
