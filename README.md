@@ -3,21 +3,50 @@
 The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains collections of metadata schemas for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), and software tools (software).
 
 Currently, openMINDS is comprised of the following metadata schema collections:  
-- [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core) contains a metadata schema collection that can be used to describe the general origin, location and content of research products. The openMINDS_core schemas cover the basic integration of research products into the EBRAINS Knowledge Graph. 
+- [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core) contains a metadata schema collection that can be used to describe the general origin, location and content of research products. The openMINDS_core schemas cover the basic integration of research products into the EBRAINS Knowledge Graph.
 - [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS) contains a metadata schema collection that can be used to identify and describe brain atlases, as well as describe the anatomical anchoring or registration of datasets to these brain atlases. The openMINDS_SANDS schemas cover the spatial integration of research products (in particular datasets) into the EBRAINS Atlases.
-- [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms) contains a metadata schema collection and correspondingly created instances (JSON-LDs) for terminologies that are centrally controlled and (if applicable) connected to a neuroscience ontology. Schemas of openMINDS_core as well as openMINDS_SANDS reference to these controlled terms. 
+- [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms) contains a metadata schema collection and correspondingly created instances (JSON-LDs) for terminologies that are centrally controlled and (if applicable) connected to a neuroscience ontology. Schemas of openMINDS_core as well as openMINDS_SANDS reference to these controlled terms.
 
-The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases. 
+The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases.
+
+## How to get started
+To get started the first step is to either clone the repository or download a
+release.
+
+    git clone https://github.com/HumanBrainProject/openMINDS.git
+
+The repository is structured in a way that the different metadata schema
+collections are provided via the following submodules
+* openMINDS_core
+* openMINDS_SANDS
+* openMINDS_controlledTerms
+
+To be able to use the collection the submodules need to be initialised
+
+    git submodule init
+
+and updated
+
+    git submodule update
+
+After completion of this step your local repository is on the current state of
+all collections.
+Now you are able to run the script to generate the JSON-schema-files,
+HTML-files and Python files.
+
+    python openMINDS.py
+
+The generated files can be found in the `target` folder.
 
 ## Processing pipeline
-The metadata schemas in the openMINDS repositories are first defined as JSON-schema inspired schema-templates with a few custom template-properties (prefixed with `"_"`) which allow us to simplify their readability and increase their reusability. 
+The metadata schemas in the openMINDS repositories are first defined as JSON-schema inspired schema-templates with a few custom template-properties (prefixed with `"_"`) which allow us to simplify their readability and increase their reusability.
 
 To make sure those schema-templates can be used as standard-compliant JSON-schemas or translated into other target formats (e.g., HTML), we've introduced a small processing pipeline.
 
 ### Prerequisites
-As prerequisites, we expect the schema-templates to be grouped in **schema collections** (e.g., the openMINDS_core or openMINDS_SANDS) and managed as GIT submodules to allow an easy, individual development of the separate parts of the standards. 
+As prerequisites, we expect the schema-templates to be grouped in **schema collections** (e.g., the openMINDS_core or openMINDS_SANDS) and managed as GIT submodules to allow an easy, individual development of the separate parts of the standards.
 
-Each schema collection has to contain a **version directory** (e.g. "v1.0") followed by an arbitrary directory structure. Within a version directory, the schema-templates can either be further grouped for simplifying navitation, or listed directly at the root level. 
+Each schema collection has to contain a **version directory** (e.g. "v1.0") followed by an arbitrary directory structure. Within a version directory, the schema-templates can either be further grouped for simplifying navitation, or listed directly at the root level.
 
 All schema-templates in the openMINDS collections need to contain the file-ending **.schema.tpl.json**. In addition, please note that only templates including a **`"_type"`** property (see below) will be processed. Schema-templates not containing this property are interpreted as "abstract", which need to be extended by other (partial) schema-templates (cf. *1. Expansion*).
 
@@ -42,6 +71,9 @@ Currently, the following generators are available:
 - *generate_json_schema.py*
 - *generate_python.py*
 - *generate_html.py*
+
+## How to contribute
+Please check our [contribution document](./CONTRIBUTING.md).
 
 ## License
 This work is licensed under the MIT License.
