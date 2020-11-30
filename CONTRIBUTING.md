@@ -20,4 +20,4 @@ posters, etc.
 
 You can also star the project to show us that you are using it.
 
-To get in contact with us, you can also reach us with openminds@ebrains.eu
+To get in contact with us, you can reach us with openminds@ebrains.eu
