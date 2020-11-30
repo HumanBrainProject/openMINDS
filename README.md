@@ -1,13 +1,13 @@
 # Welcome to openMINDS!
 
-The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains collections of metadata schemas for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), and software tools (software).
+The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), and metadata or data models (metaDataModels).
 
-Currently, openMINDS is comprised of the following metadata schema collections:  
-- [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core) contains a metadata schema collection that can be used to describe the general origin, location and content of research products. The openMINDS_core schemas cover the basic integration of research products into the EBRAINS Knowledge Graph.
-- [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS) contains a metadata schema collection that can be used to identify and describe brain atlases, as well as describe the anatomical anchoring or registration of datasets to these brain atlases. The openMINDS_SANDS schemas cover the spatial integration of research products (in particular datasets) into the EBRAINS Atlases.
-- [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms) contains a metadata schema collection and correspondingly created instances (JSON-LDs) for terminologies that are centrally controlled and (if applicable) connected to a neuroscience ontology. Schemas of openMINDS_core as well as openMINDS_SANDS reference to these controlled terms.
+Currently, openMINDS is comprised of the following metadata graph models:  
+- [**openMINDS_core**](https://github.com/HumanBrainProject/openMINDS_core) metadata model contains schemas that can be used to describe the general origin, location and content of research products. The openMINDS_core schemas cover the basic integration of research products into the EBRAINS Knowledge Graph.
+- [**openMINDS_SANDS**](https://github.com/HumanBrainProject/openMINDS_SANDS) metadata model contains schemas that can be used to identify and describe brain atlases, as well as describe the anatomical anchoring or registration of datasets to these brain atlases. The openMINDS_SANDS schemas cover the spatial integration of research products (in particular datasets) into the EBRAINS Atlases.
+- [**openMINDS_controlledTerms**](https://github.com/HumanBrainProject/openMINDS_controlledTerms) metadata model contains schemas and the corresponding terminologies (as JSON-LDs) to be use (within the EBRAINS Knowledge Graph and Atlases). Where applicable, the defined terms are connected to a matching ontological term. Schemas of openMINDS_core as well as openMINDS_SANDS reference to these controlled terms.
 
-The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS schemas are the assumed metadata standard for the EBRAINS Knowledge Graph and Atlases.
+The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/) (European Brain ReseArch INfraStructure) and maintained by a small development team. Within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Atlases.
 
 ## How to get started
 To get started the first step is to either clone the repository or download a
@@ -15,8 +15,7 @@ release.
 
     git clone https://github.com/HumanBrainProject/openMINDS.git
 
-The repository is structured in a way that the different metadata schema
-collections are provided via the following submodules
+The repository is structured in a way that the different metadata models are provided via the following submodules
 * openMINDS_core
 * openMINDS_SANDS
 * openMINDS_controlledTerms
