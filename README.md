@@ -1,3 +1,7 @@
+<a href="https://github.com/HumanBrainProject/openMINDS/blob/v1/img/openMINDS_logo.png">
+    <img src="https://github.com/HumanBrainProject/openMINDS/blob/v1/img/openMINDS_logo.png" alt="openMINDS logo" title="openMINDS" align="right" height="100" />
+</a>
+
 # Welcome to openMINDS!
 
 The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), as well as metadata/data models (metaDataModels).
