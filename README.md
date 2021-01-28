@@ -49,7 +49,7 @@ To make sure those schema-templates can be used as standard-compliant JSON-schem
 ### Prerequisites
 As prerequisites, we expect the schema-templates to be grouped in **schema collections** (e.g., the openMINDS_core or openMINDS_SANDS) and managed as GIT submodules to allow an easy, individual development of the separate parts of the standards.
 
-Each schema collection has to contain a **version directory** (e.g. "v1.0") followed by an arbitrary directory structure. Within a version directory, the schema-templates can either be further grouped for simplifying navitation, or listed directly at the root level.
+Each schema collection has to contain a **version directory** (e.g. "v1.0") followed by an arbitrary directory structure. Within a version directory, the schema-templates can either be further grouped for simplifying navigation, or listed directly at the root level.
 
 All schema-templates in the openMINDS collections need to contain the file-ending **.schema.tpl.json**. In addition, please note that only templates including a **`"_type"`** property (see below) will be processed. Schema-templates not containing this property are interpreted as "abstract", which need to be extended by other (partial) schema-templates (cf. *1. Expansion*).
 
@@ -80,3 +80,6 @@ Please check our [contribution document](./CONTRIBUTING.md).
 
 ## License
 This work is licensed under the MIT License.
+
+## Logo
+The openMINDS logo was created by U. Schlegel, based on an original sketch by C. Hagen Blixhavn and feedback by L. Zehl.
