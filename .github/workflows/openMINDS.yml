@@ -61,16 +61,15 @@ jobs:
         cp -r target/html/* documentation
         cp -r target/uml/* documentation
         cp -r target/schema.json/* documentation
-        ls documentation
-#        git config user.name openMINDS
-#        git config user.email openMINDS@ebrains.eu
-#        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
-#            git add .
-#            git commit -m "Update of documentation"
-#            git push
-#        else
-#            echo "Nothing to commit"
-#        fi
+        git config user.name openMINDS
+        git config user.email openMINDS@ebrains.eu
+        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
+            git add .
+            git commit -m "Update of documentation"
+            git push
+        else
+            echo "Nothing to commit"
+        fi
 #    - name: Archive expanded version
 #      uses: actions/upload-artifact@v2
 #      with:
