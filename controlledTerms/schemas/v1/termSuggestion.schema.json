@@ -13,19 +13,23 @@
         },
         "definition": {
             "_instruction": "Enter one sentence for defining this term.",
+            "title": "Definition",
             "type": "string"
         },
         "description": {
             "_instruction": "Enter a short text describing this term.",
+            "title": "Description",
             "type": "string"
         },
         "name": {
             "_instruction": "Controlled term originating from a defined terminology.",
+            "title": "Name",
             "type": "string"
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
             "format": "iri",
+            "title": "Ontology identifier",
             "type": "string"
         },
         "terminology": {
@@ -64,14 +68,16 @@
                     "@id"
                 ]
             },
+            "title": "Terminology",
             "type": "object"
         }
     },
     "required": [
-        "name",
         "@type",
-        "@id",
-        "relatedTerminology"
+        "relatedTerminology",
+        "name",
+        "@id"
     ],
+    "title": "Term suggestion",
     "type": "object"
 }

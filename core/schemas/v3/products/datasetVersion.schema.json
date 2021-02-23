@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/datasetVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/DatasetVersion",
+    "description": "Structured information on data originating from human/animal studies or simulations (version level).",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Accessibility",
             "type": "object"
         },
         "author": {
@@ -89,11 +91,13 @@
                 }
             },
             "minItems": 1,
+            "title": "Author",
             "type": "array",
             "uniqueItems": true
         },
         "copyright": {
             "_type": "https://openminds.ebrains.eu/core/Copyright",
+            "description": "Structured information on the copyright.",
             "properties": {
                 "holder": {
                     "_instruction": "Add one or several persons or organisations that hold the copyright.",
@@ -102,12 +106,14 @@
                         "https://openminds.ebrains.eu/core/Person"
                     ],
                     "minItems": 1,
+                    "title": "Holder",
                     "type": "array",
                     "uniqueItems": true
                 },
                 "year": {
                     "_instruction": "Enter the year during which the copyright was first asserted.",
                     "pattern": "([0-9]{4})",
+                    "title": "Year",
                     "type": "string"
                 }
             },
@@ -115,6 +121,7 @@
                 "holder",
                 "year"
             ],
+            "title": "Copyright",
             "type": "object"
         },
         "custodian": {
@@ -157,12 +164,14 @@
                 }
             },
             "minItems": 1,
+            "title": "Custodian",
             "type": "array",
             "uniqueItems": true
         },
         "description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
             "maxLength": 2000,
+            "title": "Description",
             "type": "string"
         },
         "developer": {
@@ -205,6 +214,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Developer",
             "type": "array",
             "uniqueItems": true
         },
@@ -244,6 +254,7 @@
                     "@id"
                 ]
             },
+            "title": "Digital identifier",
             "type": "object"
         },
         "ethicsAssessment": {
@@ -282,6 +293,7 @@
                     "@id"
                 ]
             },
+            "title": "Ethics assessment",
             "type": "object"
         },
         "fullDocumentation": {
@@ -320,10 +332,12 @@
                     "@id"
                 ]
             },
+            "title": "Full documentation",
             "type": "object"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product version.",
+            "title": "Full name",
             "type": "string"
         },
         "funding": {
@@ -365,6 +379,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Funding",
             "type": "array",
             "uniqueItems": true
         },
@@ -407,6 +422,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Has alternative version",
             "type": "array",
             "uniqueItems": true
         },
@@ -449,12 +465,14 @@
                 }
             },
             "minItems": 1,
+            "title": "Has supplement version",
             "type": "array",
             "uniqueItems": true
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "isNewVersionOf": {
@@ -493,6 +511,7 @@
                     "@id"
                 ]
             },
+            "title": "Is new version of",
             "type": "object"
         },
         "keyword": {
@@ -502,6 +521,7 @@
             },
             "maxItems": 5,
             "minItems": 1,
+            "title": "Keyword",
             "type": "array",
             "uniqueItems": true
         },
@@ -541,6 +561,7 @@
                     "@id"
                 ]
             },
+            "title": "License",
             "type": "object"
         },
         "modality": {
@@ -582,6 +603,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Modality",
             "type": "array",
             "uniqueItems": true
         },
@@ -624,6 +646,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Other contribution",
             "type": "array",
             "uniqueItems": true
         },
@@ -666,12 +689,14 @@
                 }
             },
             "minItems": 1,
+            "title": "Related publication",
             "type": "array",
             "uniqueItems": true
         },
         "releaseDate": {
             "_instruction": "Enter the date (actual or intended) of the first broadcast/publication of this research product version.",
             "format": "date",
+            "title": "Release date",
             "type": "string"
         },
         "repository": {
@@ -710,11 +735,13 @@
                     "@id"
                 ]
             },
+            "title": "Repository",
             "type": "object"
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product version (max. 30 characters, no space).",
             "maxLength": 30,
+            "title": "Short name",
             "type": "string"
         },
         "type": {
@@ -756,37 +783,41 @@
                 }
             },
             "minItems": 1,
+            "title": "Type",
             "type": "array",
             "uniqueItems": true
         },
         "versionIdentifier": {
             "_instruction": "Enter the version identifier of this research product version.",
+            "title": "Version identifier",
             "type": "string"
         },
         "versionInnovation": {
             "_instruction": "Enter a short summary of the novelties/peculiarities of this research product version.",
+            "title": "Version innovation",
             "type": "string"
         }
     },
     "required": [
-        "@type",
-        "custodian",
-        "digitalIdentifier",
-        "releaseDate",
-        "accessibility",
-        "versionIdentifier",
-        "fullName",
-        "@id",
-        "fullDocumentation",
-        "type",
         "funding",
-        "shortName",
         "modality",
-        "repository",
+        "type",
+        "versionIdentifier",
+        "fullDocumentation",
+        "fullName",
         "author",
+        "accessibility",
+        "ethicsAssessment",
+        "custodian",
         "description",
+        "shortName",
         "license",
-        "ethicsAssessment"
+        "@type",
+        "repository",
+        "digitalIdentifier",
+        "@id",
+        "releaseDate"
     ],
+    "title": "Dataset version",
     "type": "object"
 }

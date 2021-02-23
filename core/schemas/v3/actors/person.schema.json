@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/person?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Person",
+    "description": "Structured information on a person.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -50,6 +51,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Affiliation",
             "type": "array",
             "uniqueItems": true
         },
@@ -90,6 +92,7 @@
                     "@id"
                 ]
             },
+            "title": "Contact information",
             "type": "object"
         },
         "digitalIdentifier": {
@@ -131,15 +134,18 @@
                 }
             },
             "minItems": 1,
+            "title": "Digital identifier",
             "type": "array",
             "uniqueItems": true
         },
         "familyName": {
             "_instruction": "Enter the family name of this person.",
+            "title": "Family name",
             "type": "string"
         },
         "givenName": {
             "_instruction": "Enter the given name of this person.",
+            "title": "Given name",
             "type": "string"
         }
     },
@@ -148,5 +154,6 @@
         "@type",
         "@id"
     ],
+    "title": "Person",
     "type": "object"
 }

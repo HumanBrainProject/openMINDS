@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/annotation?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/Annotation",
+    "description": "Structured information on an image annotation.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Best view point",
             "type": "object"
         },
         "criteria": {
@@ -85,6 +87,7 @@
                     "@id"
                 ]
             },
+            "title": "Criteria",
             "type": "object"
         },
         "criteriaQualityType": {
@@ -123,6 +126,7 @@
                     "@id"
                 ]
             },
+            "title": "Criteria quality type",
             "type": "object"
         },
         "displayColor": {
@@ -134,6 +138,7 @@
             },
             "maxItems": 3,
             "minItems": 3,
+            "title": "Display color",
             "type": "array"
         },
         "inspiredBy": {
@@ -175,11 +180,13 @@
                 }
             },
             "minItems": 1,
+            "title": "Inspired by",
             "type": "array",
             "uniqueItems": true
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
+            "title": "Internal identifier",
             "type": "string"
         },
         "laterality": {
@@ -222,6 +229,7 @@
             },
             "maxItems": 2,
             "minItems": 1,
+            "title": "Laterality",
             "type": "array",
             "uniqueItems": true
         },
@@ -264,6 +272,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Naming term",
             "type": "array",
             "uniqueItems": true
         },
@@ -306,6 +315,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Related atlas term",
             "type": "array",
             "unqiueItems": true
         },
@@ -345,16 +355,18 @@
                     "@id"
                 ]
             },
+            "title": "Visualized in",
             "type": "object"
         }
     },
     "required": [
-        "laterality",
-        "@type",
-        "@id",
         "internalIdentifier",
+        "namingTerm",
+        "laterality",
         "criteriaQualityType",
-        "namingTerm"
+        "@type",
+        "@id"
     ],
+    "title": "Annotation",
     "type": "object"
 }

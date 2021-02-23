@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/anatomicalEntity?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
+    "description": "Structured information on an anatomical entity.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,15 +48,18 @@
                     "@id"
                 ]
             },
+            "title": "Has parent",
             "type": "object"
         },
         "name": {
             "_instruction": "Enter a descriptive name for this anatomical entity based on anatomical location or characteristics.",
+            "title": "Name",
             "type": "string"
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this anatomical entity.",
             "format": "iri",
+            "title": "Ontology identifier",
             "type": "string"
         },
         "otherAnatomicalRelation": {
@@ -97,14 +101,16 @@
                 }
             },
             "minItems": 1,
+            "title": "Other anatomical relation",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
-        "name",
         "@type",
+        "name",
         "@id"
     ],
+    "title": "Anatomical entity",
     "type": "object"
 }

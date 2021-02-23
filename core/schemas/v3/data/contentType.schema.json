@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/contentType?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/ContentType",
+    "description": "Structured information on the content type of a file instance, bundle or repository.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -17,25 +18,30 @@
                 "type": "string"
             },
             "minItems": 1,
+            "title": "Associated file extension",
             "type": "array",
             "uniqueItems": true
         },
         "description": {
             "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
+            "title": "Description",
             "type": "string"
         },
         "name": {
             "_instruction": "Enter the name (iana-inspired convention) of this content type.",
+            "title": "Name",
             "type": "string"
         },
         "relatedMediaType": {
             "_instruction": "Enter the iternationalized resource identifier (IRI) of the official registered media type (e.g. on IANA.org) matching this content type.",
             "format": "iri",
+            "title": "Related media type",
             "type": "string"
         },
         "specification": {
             "_instruction": "Enter the iternationalized resource identifier (IRI) of the official specification of this content type. Leave blank and use 'description' to provide some specification if an official specification is not available.",
             "format": "iri",
+            "title": "Specification",
             "type": "string"
         },
         "synonym": {
@@ -44,14 +50,16 @@
                 "type": "string"
             },
             "minItems": 1,
+            "title": "Synonym",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
-        "name",
         "@type",
+        "name",
         "@id"
     ],
+    "title": "Content type",
     "type": "object"
 }

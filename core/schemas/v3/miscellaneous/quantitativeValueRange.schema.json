@@ -13,6 +13,7 @@
         },
         "maxValue": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quanitative value.",
             "properties": {
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -21,26 +22,31 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
+                    "title": "Uncertainty",
                     "type": "array"
                 },
                 "unit": {
                     "_instruction": "Add the unit of measurement of this quantitative value.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ]
+                    ],
+                    "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "title": "Value",
                     "type": "number"
                 }
             },
             "required": [
                 "value"
             ],
+            "title": "Quantitative value",
             "type": "object"
         },
         "minValue": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quanitative value.",
             "properties": {
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -49,30 +55,35 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
+                    "title": "Uncertainty",
                     "type": "array"
                 },
                 "unit": {
                     "_instruction": "Add the unit of measurement of this quantitative value.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ]
+                    ],
+                    "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "title": "Value",
                     "type": "number"
                 }
             },
             "required": [
                 "value"
             ],
+            "title": "Quantitative value",
             "type": "object"
         }
     },
     "required": [
         "@type",
-        "minValue",
         "maxValue",
+        "minValue",
         "@id"
     ],
+    "title": "Quantitative value range",
     "type": "object"
 }

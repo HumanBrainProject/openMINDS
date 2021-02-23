@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/model?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Model",
+    "description": "Structured information on a computational model (concept level).",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,6 +14,7 @@
         },
         "abstractionLevel": {
             "_instruction": "Add the abstraction level of this model version.",
+            "description": "The abstraction level indicates the extend of simplification of physical, spatial, or temporal details or attributes in the study of objects or systems.",
             "else": {
                 "properties": {
                     "@id": {
@@ -47,11 +49,13 @@
                     "@id"
                 ]
             },
+            "title": "Abstraction level",
             "type": "object"
         },
         "description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
             "maxLength": 2000,
+            "title": "Description",
             "type": "string"
         },
         "digitalIdentifier": {
@@ -90,10 +94,12 @@
                     "@id"
                 ]
             },
+            "title": "Digital identifier",
             "type": "object"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product.",
+            "title": "Full name",
             "type": "string"
         },
         "hasVersion": {
@@ -135,12 +141,14 @@
                 }
             },
             "minItems": 1,
+            "title": "Has version",
             "type": "array",
             "uniqueItems": true
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "scope": {
@@ -179,11 +187,13 @@
                     "@id"
                 ]
             },
+            "title": "Scope",
             "type": "object"
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
             "maxLength": 30,
+            "title": "Short name",
             "type": "string"
         },
         "studyTarget": {
@@ -231,20 +241,22 @@
                 }
             },
             "minItems": 1,
+            "title": "Study target",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
+        "fullName",
+        "abstractionLevel",
+        "scope",
+        "studyTarget",
+        "description",
+        "shortName",
         "@type",
         "digitalIdentifier",
-        "@id",
-        "abstractionLevel",
-        "fullName",
-        "shortName",
-        "description",
-        "studyTarget",
-        "scope"
+        "@id"
     ],
+    "title": "Model",
     "type": "object"
 }

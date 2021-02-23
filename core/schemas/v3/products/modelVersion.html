@@ -1,198 +1,278 @@
 <html>
 <head>
     <title>https://openminds.ebrains.eu/core/ModelVersion</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
 
-        .property{
-            font-weight: bold;
-        }
-    </style>
+a {
+   color: #4a5568;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td{
+vertical-align:top;
+padding-left: 1em;
+padding-right: 1em;
+ border: 1px solid #ddd;
+    line-height: 1.5;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+tr.header{
+font-weight: bold;
+
+}
+table{
+  border-collapse: collapse;
+  }
+
+tr.header td.property{
+    font-weight: bold;
+}
+
+td.property{
+padding-left:0;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+.property{
+}</style>
 </head>
 <body>
     <h1>ModelVersion (core - v3)</h1>
-    <h3>https://openminds.ebrains.eu/core/ModelVersion - <a href="products/modelVersion.schema.json">JSON Schema</a></h3>
+    <h4>https://openminds.ebrains.eu/core/ModelVersion - <a href="modelVersion.schema.json">JSON Schema</a></h4>
     <table>
+        <tr class="header"><td class="property">Property*</td><td>Name</td><td>Content type(s)</td><td>Description</td><td>Instructions</td></tr>
         
         <tr>
-            <td class="property">format</td>
+            <td class="property nowrap">format</td>
+            <td class="nowrap">Format</td>
             <td><a href="../../../../core/schemas/v3/data/contentType.html">ContentType</a></td>
             <td></td>
             <td>Add the used content type of this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">hasAlternativeVersion</td>
+            <td class="property nowrap">hasAlternativeVersion</td>
+            <td class="nowrap">Has alternative version</td>
             <td><a href="../../../../core/schemas/v3/products/modelVersion.html">ModelVersion</a></td>
             <td></td>
             <td>Add all model versions that can be used alternatively to this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">hasSupplementVersion</td>
+            <td class="property nowrap">hasSupplementVersion</td>
+            <td class="nowrap">Has supplement version</td>
             <td><a href="../../../../core/schemas/v3/products/modelVersion.html">ModelVersion</a></td>
             <td></td>
             <td>Add all model versions that supplement this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">inputData</td>
+            <td class="property nowrap">inputData</td>
+            <td class="nowrap">Input data</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/digitalIdentifier.html">DigitalIdentifier</a></td>
             <td></td>
             <td>Add the data that was used as input for this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">isNewVersionOf</td>
+            <td class="property nowrap">isNewVersionOf</td>
+            <td class="nowrap">Is new version of</td>
             <td><a href="../../../../core/schemas/v3/products/modelVersion.html">ModelVersion</a></td>
             <td></td>
             <td>Add the model version preceding this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">outputData</td>
+            <td class="property nowrap">outputData</td>
+            <td class="nowrap">Output data</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/digitalIdentifier.html">DigitalIdentifier</a></td>
             <td></td>
             <td>Add the data that was generated as output of this model version.</td>
         </tr>
         
         <tr>
-            <td class="property">accessibility</td>
+            <td class="property nowrap">accessibility</td>
+            <td class="nowrap">Accessibility</td>
             <td><a href="../../../../controlledTerms/schemas/v1/productAccessibility.html">ProductAccessibility</a></td>
             <td></td>
             <td>Add the accessibility of the data for this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">author</td>
+            <td class="property nowrap">author</td>
+            <td class="nowrap">Author</td>
             <td><a href="../../../../core/schemas/v3/actors/organization.html">Organization</a> or <a href="../../../../core/schemas/v3/actors/person.html">Person</a></td>
             <td></td>
             <td>Add one or several authors (person or organization) that contributed to the production and publication of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">copyright</td>
+            <td class="property nowrap">copyright</td>
+            <td class="nowrap">Copyright</td>
             <td><a href="../../../../core/schemas/v3/data/copyright.html">Copyright (embedded)</a></td>
             <td></td>
             <td>Add the copyright information of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">custodian</td>
+            <td class="property nowrap">custodian</td>
+            <td class="nowrap">Custodian</td>
             <td><a href="../../../../core/schemas/v3/actors/organization.html">Organization</a> or <a href="../../../../core/schemas/v3/actors/person.html">Person</a></td>
             <td></td>
             <td>Add one or several custodians (person or organization) that are responsible for this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">description</td>
+            <td class="property nowrap">description</td>
+            <td class="nowrap">Description</td>
             <td>string</td>
             <td></td>
             <td>Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).</td>
         </tr>
         
         <tr>
-            <td class="property">developer</td>
+            <td class="property nowrap">developer</td>
+            <td class="nowrap">Developer</td>
             <td><a href="../../../../core/schemas/v3/actors/organization.html">Organization</a> or <a href="../../../../core/schemas/v3/actors/person.html">Person</a></td>
             <td></td>
             <td>Add one or several developers (person or organization) that contributed to the code implementation of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">digitalIdentifier</td>
+            <td class="property nowrap">digitalIdentifier</td>
+            <td class="nowrap">Digital identifier</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/digitalIdentifier.html">DigitalIdentifier</a></td>
             <td></td>
             <td>Add the globally unique and persistent digital identifier of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">fullDocumentation</td>
+            <td class="property nowrap">fullDocumentation</td>
+            <td class="nowrap">Full documentation</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/digitalIdentifier.html">DigitalIdentifier</a></td>
             <td></td>
             <td>Add the globally unique and persistent digital identifier of a full documentation of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">fullName</td>
+            <td class="property nowrap">fullName</td>
+            <td class="nowrap">Full name</td>
             <td>string</td>
             <td></td>
             <td>Enter a descriptive full name (title) for this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">funding</td>
+            <td class="property nowrap">funding</td>
+            <td class="nowrap">Funding</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/funding.html">Funding</a></td>
             <td></td>
             <td>Add all funding information of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">homepage</td>
+            <td class="property nowrap">homepage</td>
+            <td class="nowrap">Homepage</td>
             <td>string (iri)</td>
             <td></td>
             <td>Enter the internationalized resource identifier (IRI) to the homepage of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">keyword</td>
+            <td class="property nowrap">keyword</td>
+            <td class="nowrap">Keyword</td>
             <td>array</td>
             <td></td>
             <td>Enter custom keywords to this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">license</td>
+            <td class="property nowrap">license</td>
+            <td class="nowrap">License</td>
             <td><a href="../../../../core/schemas/v3/data/license.html">License</a></td>
             <td></td>
             <td>Add the license of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">otherContribution</td>
+            <td class="property nowrap">otherContribution</td>
+            <td class="nowrap">Other contribution</td>
             <td><a href="../../../../core/schemas/v3/actors/contribution.html">Contribution</a></td>
             <td></td>
             <td>Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">relatedPublication</td>
+            <td class="property nowrap">relatedPublication</td>
+            <td class="nowrap">Related publication</td>
             <td><a href="../../../../core/schemas/v3/miscellaneous/digitalIdentifier.html">DigitalIdentifier</a></td>
             <td></td>
             <td>Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">releaseDate</td>
+            <td class="property nowrap">releaseDate</td>
+            <td class="nowrap">Release date</td>
             <td>string (date)</td>
             <td></td>
             <td>Enter the date (actual or intended) of the first broadcast/publication of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">repository</td>
+            <td class="property nowrap">repository</td>
+            <td class="nowrap">Repository</td>
             <td><a href="../../../../core/schemas/v3/data/fileRepository.html">FileRepository</a></td>
             <td></td>
             <td>Add the file repository of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">shortName</td>
+            <td class="property nowrap">shortName</td>
+            <td class="nowrap">Short name</td>
             <td>string</td>
             <td></td>
             <td>Enter a short name (alias) for this research product version (max. 30 characters, no space).</td>
         </tr>
         
         <tr>
-            <td class="property">versionIdentifier</td>
+            <td class="property nowrap">versionIdentifier</td>
+            <td class="nowrap">Version identifier</td>
             <td>string</td>
             <td></td>
             <td>Enter the version identifier of this research product version.</td>
         </tr>
         
         <tr>
-            <td class="property">versionInnovation</td>
+            <td class="property nowrap">versionInnovation</td>
+            <td class="nowrap">Version innovation</td>
             <td>string</td>
             <td></td>
             <td>Enter a short summary of the novelties/peculiarities of this research product version.</td>
@@ -200,7 +280,7 @@
         
 
     </table>
-
+    <div style="margin-top: 2em;">*This is the simplified property name - for use of the openMINDS vocabularies in a semantically correct way, please make use of the namespace <span style="font-weight: bold">https://openminds.ebrains.eu/vocab/</span> - so your fully qualified property name would look like "https://openminds.ebrains.eu/vocab/yourProperty"</div>
 </body>
 
 </html>

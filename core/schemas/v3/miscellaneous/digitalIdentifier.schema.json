@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/digitalIdentifier?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/DigitalIdentifier",
+    "description": "Structured information on a digital identifier.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,10 +14,12 @@
         },
         "howToCite": {
             "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "title": "How to cite",
             "type": "string"
         },
         "identifier": {
             "_instruction": "Enter the digital identifier of a resource.",
+            "title": "Identifier",
             "type": "string"
         },
         "identifierSchema": {
@@ -55,14 +58,16 @@
                     "@id"
                 ]
             },
+            "title": "Identifier schema",
             "type": "object"
         }
     },
     "required": [
         "@type",
-        "identifier",
+        "@id",
         "identifierSchema",
-        "@id"
+        "identifier"
     ],
+    "title": "Digital identifier",
     "type": "object"
 }

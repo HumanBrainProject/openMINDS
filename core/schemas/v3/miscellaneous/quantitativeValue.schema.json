@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/quantitativeValue?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+    "description": "Structured information on a quanitative value.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -18,6 +19,7 @@
             },
             "maxItems": 2,
             "minItems": 2,
+            "title": "Uncertainty",
             "type": "array"
         },
         "unit": {
@@ -56,17 +58,20 @@
                     "@id"
                 ]
             },
+            "title": "Unit",
             "type": "object"
         },
         "value": {
             "_instruction": "Enter the measurement value of this quantitative value.",
+            "title": "Value",
             "type": "number"
         }
     },
     "required": [
         "@type",
-        "@id",
-        "value"
+        "value",
+        "@id"
     ],
+    "title": "Quantitative value",
     "type": "object"
 }

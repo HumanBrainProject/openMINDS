@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/protocol?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Protocol",
+    "description": "Structured information on a research project.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -50,15 +51,18 @@
                 }
             },
             "minItems": 1,
+            "title": "Behavioral task",
             "type": "array",
             "uniqueItems": true
         },
         "description": {
             "_instruction": "Enter a description of this protocol.",
+            "title": "Description",
             "type": "string"
         },
         "name": {
             "_instruction": "Enter a descriptive name for this protocol.",
+            "title": "Name",
             "type": "string"
         },
         "studyTarget": {
@@ -106,6 +110,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Study target",
             "type": "array",
             "uniqueItems": true
         },
@@ -148,16 +153,18 @@
                 }
             },
             "minItems": 1,
+            "title": "Technique",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
         "technique",
-        "@type",
-        "@id",
+        "description",
         "name",
-        "description"
+        "@type",
+        "@id"
     ],
+    "title": "Protocol",
     "type": "object"
 }

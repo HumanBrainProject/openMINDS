@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/copyright?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Copyright",
+    "description": "Structured information on the copyright.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -51,20 +52,23 @@
                 }
             },
             "minItems": 1,
+            "title": "Holder",
             "type": "array",
             "uniqueItems": true
         },
         "year": {
             "_instruction": "Enter the year during which the copyright was first asserted.",
             "pattern": "([0-9]{4})",
+            "title": "Year",
             "type": "string"
         }
     },
     "required": [
-        "year",
         "@type",
         "holder",
+        "year",
         "@id"
     ],
+    "title": "Copyright",
     "type": "object"
 }

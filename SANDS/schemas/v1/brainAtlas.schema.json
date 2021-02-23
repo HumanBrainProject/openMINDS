@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/brainAtlas?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/BrainAtlas",
+    "description": "Structured information on a brain atlas (concept level).",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,10 +14,12 @@
         },
         "description": {
             "_instruction": "Enter a short description for this brain atlas.",
+            "title": "Description",
             "type": "string"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name for this brain atlas.",
+            "title": "Full name",
             "type": "string"
         },
         "hasVersion": {
@@ -58,26 +61,30 @@
                 }
             },
             "minItems": 1,
+            "title": "Has version",
             "type": "array",
             "uniqueItems": true
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a descriptive short name for this brain atlas.",
+            "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "@type",
-        "@id",
         "fullName",
-        "hasVersion",
+        "description",
         "shortName",
-        "description"
+        "@type",
+        "hasVersion",
+        "@id"
     ],
+    "title": "Brain atlas",
     "type": "object"
 }

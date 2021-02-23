@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/coordinatePoint?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
+    "description": "Structured information on a coordinate point.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,10 +48,12 @@
                     "@id"
                 ]
             },
+            "title": "Coordinate space",
             "type": "object"
         },
         "coordinates": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quanitative value.",
             "properties": {
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -59,30 +62,35 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
+                    "title": "Uncertainty",
                     "type": "array"
                 },
                 "unit": {
                     "_instruction": "Add the unit of measurement of this quantitative value.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ]
+                    ],
+                    "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "title": "Value",
                     "type": "number"
                 }
             },
             "required": [
                 "value"
             ],
+            "title": "Quantitative value",
             "type": "object"
         }
     },
     "required": [
+        "@type",
         "coordinateSpace",
         "coordinates",
-        "@type",
         "@id"
     ],
+    "title": "Coordinate point",
     "type": "object"
 }

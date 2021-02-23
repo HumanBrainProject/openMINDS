@@ -14,6 +14,7 @@
         "description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
             "maxLength": 2000,
+            "title": "Description",
             "type": "string"
         },
         "digitalIdentifier": {
@@ -52,10 +53,12 @@
                     "@id"
                 ]
             },
+            "title": "Digital identifier",
             "type": "object"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product.",
+            "title": "Full name",
             "type": "string"
         },
         "hasVersion": {
@@ -97,27 +100,31 @@
                 }
             },
             "minItems": 1,
+            "title": "Has version",
             "type": "array",
             "uniqueItems": true
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
             "maxLength": 30,
+            "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "@type",
-        "@id",
-        "digitalIdentifier",
         "fullName",
+        "description",
         "shortName",
-        "description"
+        "@type",
+        "digitalIdentifier",
+        "@id"
     ],
+    "title": "Meta data model",
     "type": "object"
 }

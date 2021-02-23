@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/project?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Project",
+    "description": "Structured information on a research project.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,10 +14,12 @@
         },
         "description": {
             "_instruction": "Enter a description of this project.",
+            "title": "Description",
             "type": "string"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this project.",
+            "title": "Full name",
             "type": "string"
         },
         "hasResearchProducts": {
@@ -65,12 +68,14 @@
                 }
             },
             "minItems": 2,
+            "title": "Has research products",
             "type": "array",
             "uniqueItems": true
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this model version.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "projectLeader": {
@@ -113,21 +118,24 @@
                 }
             },
             "minItems": 1,
+            "title": "Project leader",
             "type": "array",
             "uniqueItems": true
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this project.",
+            "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "@type",
-        "@id",
         "fullName",
-        "shortName",
         "hasResearchProducts",
-        "description"
+        "description",
+        "shortName",
+        "@type",
+        "@id"
     ],
+    "title": "Project",
     "type": "object"
 }

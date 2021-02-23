@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/anatomicalEntityRelation?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation",
+    "description": "Structured information on the relation between one anatomical entity and another.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Criteria",
             "type": "object"
         },
         "criteriaQualityType": {
@@ -85,6 +87,7 @@
                     "@id"
                 ]
             },
+            "title": "Criteria quality type",
             "type": "object"
         },
         "inRelationTo": {
@@ -123,6 +126,7 @@
                     "@id"
                 ]
             },
+            "title": "In relation to",
             "type": "object"
         },
         "qualitativeOverlap": {
@@ -161,12 +165,14 @@
                     "@id"
                 ]
             },
+            "title": "Qualitative overlap",
             "type": "object"
         },
         "quantitativeOverlap": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quanitative value.",
                     "properties": {
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -175,22 +181,26 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
+                            "title": "Uncertainty",
                             "type": "array"
                         },
                         "unit": {
                             "_instruction": "Add the unit of measurement of this quantitative value.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                            ]
+                            ],
+                            "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
+                            "title": "Value",
                             "type": "number"
                         }
                     },
                     "required": [
                         "value"
                     ],
+                    "title": "Quantitative value",
                     "type": "object"
                 },
                 {
@@ -198,6 +208,7 @@
                     "properties": {
                         "maxValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -206,26 +217,31 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         },
                         "minValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -234,22 +250,26 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         }
                     },
@@ -257,17 +277,19 @@
                         "maxValue",
                         "minValue"
                     ],
+                    "title": "Quantitative value range",
                     "type": "object"
                 }
             ]
         }
     },
     "required": [
-        "@type",
-        "@id",
-        "criteriaQualityType",
         "qualitativeOverlap",
-        "inRelationTo"
+        "inRelationTo",
+        "@id",
+        "@type",
+        "criteriaQualityType"
     ],
+    "title": "Anatomical entity relation",
     "type": "object"
 }

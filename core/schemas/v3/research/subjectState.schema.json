@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/subjectState?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/SubjectState",
+    "description": "Structured information on a temporary state of a subject.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,12 +14,14 @@
         },
         "additionalRemarks": {
             "_instruction": "Enter additional remarks about the specimen (set) in this state.",
+            "title": "Additional remarks",
             "type": "string"
         },
         "age": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quanitative value.",
                     "properties": {
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -27,22 +30,26 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
+                            "title": "Uncertainty",
                             "type": "array"
                         },
                         "unit": {
                             "_instruction": "Add the unit of measurement of this quantitative value.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                            ]
+                            ],
+                            "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
+                            "title": "Value",
                             "type": "number"
                         }
                     },
                     "required": [
                         "value"
                     ],
+                    "title": "Quantitative value",
                     "type": "object"
                 },
                 {
@@ -50,6 +57,7 @@
                     "properties": {
                         "maxValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -58,26 +66,31 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         },
                         "minValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -86,22 +99,26 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         }
                     },
@@ -109,6 +126,7 @@
                         "maxValue",
                         "minValue"
                     ],
+                    "title": "Quantitative value range",
                     "type": "object"
                 }
             ]
@@ -149,6 +167,7 @@
                     "@id"
                 ]
             },
+            "title": "Age category",
             "type": "object"
         },
         "handedness": {
@@ -187,6 +206,7 @@
                     "@id"
                 ]
             },
+            "title": "Handedness",
             "type": "object"
         },
         "pathology": {
@@ -229,6 +249,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Pathology",
             "type": "array",
             "uniqueItems": true
         },
@@ -236,6 +257,7 @@
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quanitative value.",
                     "properties": {
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -244,22 +266,26 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
+                            "title": "Uncertainty",
                             "type": "array"
                         },
                         "unit": {
                             "_instruction": "Add the unit of measurement of this quantitative value.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                            ]
+                            ],
+                            "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
+                            "title": "Value",
                             "type": "number"
                         }
                     },
                     "required": [
                         "value"
                     ],
+                    "title": "Quantitative value",
                     "type": "object"
                 },
                 {
@@ -267,6 +293,7 @@
                     "properties": {
                         "maxValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -275,26 +302,31 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         },
                         "minValue": {
                             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quanitative value.",
                             "properties": {
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -303,22 +335,26 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
+                                    "title": "Uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
                                     "_instruction": "Add the unit of measurement of this quantitative value.",
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ]
+                                    ],
+                                    "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "title": "Value",
                                     "type": "number"
                                 }
                             },
                             "required": [
                                 "value"
                             ],
+                            "title": "Quantitative value",
                             "type": "object"
                         }
                     },
@@ -326,15 +362,17 @@
                         "maxValue",
                         "minValue"
                     ],
+                    "title": "Quantitative value range",
                     "type": "object"
                 }
             ]
         }
     },
     "required": [
-        "ageCategory",
         "@type",
+        "ageCategory",
         "@id"
     ],
+    "title": "Subject state",
     "type": "object"
 }

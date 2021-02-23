@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/contribution?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Contribution",
+    "description": "Structured information on the contribution made to a research product.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -50,6 +51,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Contribution type",
             "type": "array",
             "uniqueItems": true
         },
@@ -90,14 +92,16 @@
                     "@id"
                 ]
             },
+            "title": "Contributor",
             "type": "object"
         }
     },
     "required": [
         "contributionType",
-        "contributor",
         "@type",
-        "@id"
+        "@id",
+        "contributor"
     ],
+    "title": "Contribution",
     "type": "object"
 }

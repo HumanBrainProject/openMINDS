@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/tissueSample?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/TissueSample",
+    "description": "Structured information on a tissue sample.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Biological sex",
             "type": "object"
         },
         "genotype": {
@@ -85,10 +87,12 @@
                     "@id"
                 ]
             },
+            "title": "Genotype",
             "type": "object"
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
+            "title": "Internal identifier",
             "type": "string"
         },
         "isPartOf": {
@@ -130,6 +134,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Is part of",
             "type": "array",
             "uniqueItems": true
         },
@@ -173,6 +178,7 @@
             },
             "maxItems": 2,
             "minItems": 1,
+            "title": "Laterality",
             "type": "array",
             "uniqueItems": true
         },
@@ -213,6 +219,7 @@
                     "@id"
                 ]
             },
+            "title": "Origin",
             "type": "object"
         },
         "phenotype": {
@@ -251,6 +258,7 @@
                     "@id"
                 ]
             },
+            "title": "Phenotype",
             "type": "object"
         },
         "species": {
@@ -289,6 +297,7 @@
                     "@id"
                 ]
             },
+            "title": "Species",
             "type": "object"
         },
         "strain": {
@@ -327,6 +336,7 @@
                     "@id"
                 ]
             },
+            "title": "Strain",
             "type": "object"
         },
         "studiedState": {
@@ -368,6 +378,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Studied state",
             "type": "array",
             "uniqueItems": true
         },
@@ -407,18 +418,20 @@
                     "@id"
                 ]
             },
+            "title": "Type",
             "type": "object"
         }
     },
     "required": [
+        "biologicalSex",
+        "origin",
+        "type",
+        "internalIdentifier",
         "studiedState",
         "@type",
-        "@id",
-        "origin",
-        "internalIdentifier",
         "species",
-        "type",
-        "biologicalSex"
+        "@id"
     ],
+    "title": "Tissue sample",
     "type": "object"
 }

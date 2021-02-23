@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/electrodeArray?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/ElectrodeArray",
+    "description": "Structured information on an electrode array.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -50,19 +51,22 @@
                 }
             },
             "minItems": 2,
+            "title": "Electrodes",
             "type": "array",
             "uniqueItems": true
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode array within the file it is stored in.",
+            "title": "Internal identifier",
             "type": "string"
         }
     },
     "required": [
+        "@type",
         "electrodes",
         "internalIdentifier",
-        "@type",
         "@id"
     ],
+    "title": "Electrode array",
     "type": "object"
 }

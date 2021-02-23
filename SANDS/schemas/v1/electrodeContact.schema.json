@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/electrodeContact?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/ElectrodeContact",
+    "description": "Structured information on an electrode contact.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Coordinate point",
             "type": "object"
         },
         "definedIn": {
@@ -88,11 +90,13 @@
                 }
             },
             "minItems": 1,
+            "title": "Defined in",
             "type": "array",
             "uniqueItems": true
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
+            "title": "Internal identifier",
             "type": "string"
         },
         "relatedRecording": {
@@ -134,6 +138,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Related recording",
             "type": "array",
             "uniqueItems": true
         },
@@ -176,6 +181,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Related stimulation",
             "type": "array",
             "uniqueItems": true
         },
@@ -218,15 +224,17 @@
                 }
             },
             "minItems": 1,
+            "title": "Visualized in",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
         "internalIdentifier",
-        "coordinatePoint",
         "@type",
+        "coordinatePoint",
         "@id"
     ],
+    "title": "Electrode contact",
     "type": "object"
 }

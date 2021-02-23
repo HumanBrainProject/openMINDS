@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/funding?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Funding",
+    "description": "Structured information on used funding.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,14 +14,17 @@
         },
         "acknowledgement": {
             "_instruction": "Enter the acknowledgement that should be used with this funding.",
+            "title": "Acknowledgement",
             "type": "string"
         },
         "awardNumber": {
             "_instruction": "Enter the associated award number of this funding.",
+            "title": "Award number",
             "type": "string"
         },
         "awardTitle": {
             "_instruction": "Enter the award title of this funding.",
+            "title": "Award title",
             "type": "string"
         },
         "funder": {
@@ -59,13 +63,15 @@
                     "@id"
                 ]
             },
+            "title": "Funder",
             "type": "object"
         }
     },
     "required": [
         "@type",
-        "@id",
-        "funder"
+        "funder",
+        "@id"
     ],
+    "title": "Funding",
     "type": "object"
 }

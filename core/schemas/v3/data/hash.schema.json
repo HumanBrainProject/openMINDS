@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/hash?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Hash",
+    "description": "Structured information on a hash.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,18 +14,21 @@
         },
         "algorithm": {
             "_instruction": "Enter the algorithm used to generate this hash.",
+            "title": "Algorithm",
             "type": "string"
         },
         "digest": {
             "_instruction": "Enter the digest of this hash.",
+            "title": "Digest",
             "type": "string"
         }
     },
     "required": [
-        "digest",
         "@type",
-        "@id",
-        "algorithm"
+        "digest",
+        "algorithm",
+        "@id"
     ],
+    "title": "Hash",
     "type": "object"
 }

@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/parameterSetting?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/ParameterSetting",
+    "description": "Structured information on a used parameter setting.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,10 +14,12 @@
         },
         "description": {
             "_instruction": "Enter a description of this parameter setting.",
+            "title": "Description",
             "type": "string"
         },
         "name": {
             "_instruction": "Enter the name of this parameter setting.",
+            "title": "Name",
             "type": "string"
         },
         "relevantFor": {
@@ -56,6 +59,7 @@
                     "@id"
                 ]
             },
+            "title": "Relevant for",
             "type": "object"
         },
         "unit": {
@@ -94,10 +98,12 @@
                     "@id"
                 ]
             },
+            "title": "Unit",
             "type": "object"
         },
         "value": {
             "_instruction": "Enter the value of this parameter setting.",
+            "title": "Value",
             "type": [
                 "number",
                 "string"
@@ -105,12 +111,13 @@
         }
     },
     "required": [
+        "description",
+        "name",
+        "value",
         "@type",
         "@id",
-        "relevantFor",
-        "name",
-        "description",
-        "value"
+        "relevantFor"
     ],
+    "title": "Parameter setting",
     "type": "object"
 }

@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/coordinateSpace?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/sands/CoordinateSpace",
+    "description": "Structured information on a coordinate space.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -47,6 +48,7 @@
                     "@id"
                 ]
             },
+            "title": "Anatomical axes orientation",
             "type": "object"
         },
         "axesOrigin": {
@@ -89,6 +91,7 @@
             },
             "maxItems": 3,
             "minItems": 2,
+            "title": "Axes origin",
             "type": "array",
             "uniqueItems": true
         },
@@ -131,6 +134,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Default image",
             "type": "array",
             "uniqueItems": true
         },
@@ -170,15 +174,18 @@
                     "@id"
                 ]
             },
+            "title": "Digital identifier",
             "type": "object"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name for this coordinate space.",
+            "title": "Full name",
             "type": "string"
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "nativeUnit": {
@@ -217,37 +224,43 @@
                     "@id"
                 ]
             },
+            "title": "Native unit",
             "type": "object"
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the identifier (IRI) of the related ontological term matching this coordinate space.",
             "format": "iri",
+            "title": "Ontology identifier",
             "type": "string"
         },
         "releaseDate": {
             "_instruction": "Enter the date of first publication of this coordinate space.",
             "format": "date",
+            "title": "Release date",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a descriptive short name for this coordinate space.",
+            "title": "Short name",
             "type": "string"
         },
         "versionIdentifier": {
             "_instruction": "Enter the version identifier of this coordinate space.",
+            "title": "Version identifier",
             "type": "string"
         }
     },
     "required": [
         "axesOrigin",
-        "anatomicalAxesOrientation",
-        "@type",
-        "releaseDate",
-        "@id",
         "nativeUnit",
+        "versionIdentifier",
         "fullName",
+        "@type",
         "shortName",
-        "versionIdentifier"
+        "anatomicalAxesOrientation",
+        "releaseDate",
+        "@id"
     ],
+    "title": "Coordinate space",
     "type": "object"
 }

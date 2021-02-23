@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/digitalIdentifierSchema?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/DigitalIdentifierSchema",
+    "description": "Structured information on a digital identifier schema.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,22 +14,27 @@
         },
         "IRI": {
             "_instruction": "Enter the internationalized resource identifier (IRI) of this digital identifier schema.",
+            "description": "The Internationalized Resource Identifier (IRI) is and internet protocol standard that builds on the Uniform Resource Identifier (URI) protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
+            "title": "IRI",
             "type": "string"
         },
         "identifierPattern": {
             "_instruction": "Enter the required pattern (regular expression) for the identifiers of this digital identifier schema.",
+            "title": "Identifier pattern",
             "type": "string"
         },
         "type": {
             "_instruction": "Enter the type of this digital identifier schema.",
+            "title": "Type",
             "type": "string"
         }
     },
     "required": [
-        "type",
         "@type",
-        "@id"
+        "@id",
+        "type"
     ],
+    "title": "Digital identifier schema",
     "type": "object"
 }

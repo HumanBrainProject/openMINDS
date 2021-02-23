@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/protocolExecution?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/ProtocolExecution",
+    "description": "Structured information on a protocol execution.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,6 +14,7 @@
         },
         "description": {
             "_instruction": "Enter a description of this protocol execution.",
+            "title": "Description",
             "type": "string"
         },
         "input": {
@@ -59,6 +61,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Input",
             "type": "array",
             "uniqueItems": true
         },
@@ -106,6 +109,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Output",
             "type": "array",
             "uniqueItems": true
         },
@@ -148,6 +152,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Parameter setting",
             "type": "array",
             "uniqueItems": true
         },
@@ -187,6 +192,7 @@
                     "@id"
                 ]
             },
+            "title": "Preparation type",
             "type": "object"
         },
         "protocol": {
@@ -225,6 +231,7 @@
                     "@id"
                 ]
             },
+            "title": "Protocol",
             "type": "object"
         },
         "semanticallyAnchoredTo": {
@@ -266,6 +273,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Semantically anchored to",
             "type": "array",
             "uniqueItems": true
         },
@@ -314,16 +322,18 @@
                 }
             },
             "minItems": 1,
+            "title": "Study target",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
-        "@type",
-        "@id",
+        "protocol",
         "output",
         "input",
-        "protocol"
+        "@type",
+        "@id"
     ],
+    "title": "Protocol execution",
     "type": "object"
 }

@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/organization?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Organization",
+    "description": "Structured information on an organization.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -50,11 +51,13 @@
                 }
             },
             "minItems": 1,
+            "title": "Digital identifier",
             "type": "array",
             "uniqueItems": true
         },
         "fullName": {
             "_instruction": "Enter the full name of the organization.",
+            "title": "Full name",
             "type": "string"
         },
         "hasParent": {
@@ -93,22 +96,26 @@
                     "@id"
                 ]
             },
+            "title": "Has parent",
             "type": "object"
         },
         "homepage": {
             "_instruction": "Enter a internationalized resource identifier (IRI) to the homepage of this organization.",
             "format": "iri",
+            "title": "Homepage",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter the short name of this organization.",
+            "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "fullName",
         "@type",
+        "fullName",
         "@id"
     ],
+    "title": "Organization",
     "type": "object"
 }

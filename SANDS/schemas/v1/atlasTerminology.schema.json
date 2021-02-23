@@ -50,6 +50,7 @@
                 }
             },
             "minItems": 1,
+            "title": "Anatomical entity",
             "type": "array",
             "uniqueItems": true
         },
@@ -92,29 +93,34 @@
                 }
             },
             "minItems": 1,
+            "title": "Defined in",
             "type": "array",
             "uniqueItems": true
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name for this atlas terminology.",
+            "title": "Full name",
             "type": "string"
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the identifier (IRI) of the related ontological term matching this atlas terminology.",
             "format": "iri",
+            "title": "Ontology identifier",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a descriptive short name for this atlas terminology.",
+            "title": "Short name",
             "type": "string"
         }
     },
     "required": [
+        "fullName",
+        "shortName",
         "anatomicalEntity",
         "@type",
-        "@id",
-        "fullName",
-        "shortName"
+        "@id"
     ],
+    "title": "Atlas terminology",
     "type": "object"
 }

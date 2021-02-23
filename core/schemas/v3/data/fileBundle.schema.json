@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/fileBundle?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/FileBundle",
+    "description": "Structured information on a bundle of file instances.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -13,7 +14,9 @@
         },
         "IRI": {
             "_instruction": "Enter the internationalized resource identifier (IRI) of this file bundle.",
+            "description": "The Internationalized Resource Identifier (IRI) is and internet protocol standard that builds on the Uniform Resource Identifier (URI) protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
+            "title": "IRI",
             "type": "string"
         },
         "format": {
@@ -52,6 +55,7 @@
                     "@id"
                 ]
             },
+            "title": "Format",
             "type": "object"
         },
         "groupedBy": {
@@ -90,6 +94,7 @@
                     "@id"
                 ]
             },
+            "title": "Grouped by",
             "type": "object"
         },
         "hash": {
@@ -128,6 +133,7 @@
                     "@id"
                 ]
             },
+            "title": "Hash",
             "type": "object"
         },
         "isPartOf": {
@@ -167,14 +173,17 @@
                     "@id"
                 ]
             },
+            "title": "Is part of",
             "type": "object"
         },
         "name": {
             "_instruction": "Enter the name of this file bundle.",
+            "title": "Name",
             "type": "string"
         },
         "storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quanitative value.",
             "properties": {
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -183,31 +192,36 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
+                    "title": "Uncertainty",
                     "type": "array"
                 },
                 "unit": {
                     "_instruction": "Add the unit of measurement of this quantitative value.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ]
+                    ],
+                    "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "title": "Value",
                     "type": "number"
                 }
             },
             "required": [
                 "value"
             ],
+            "title": "Quantitative value",
             "type": "object"
         }
     },
     "required": [
-        "@type",
-        "@id",
         "IRI",
+        "isPartOf",
         "name",
-        "isPartOf"
+        "@type",
+        "@id"
     ],
+    "title": "File bundle",
     "type": "object"
 }
