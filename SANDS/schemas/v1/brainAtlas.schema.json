@@ -1,0 +1,83 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/brainAtlas?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/BrainAtlas",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/BrainAtlas",
+            "type": "string"
+        },
+        "description": {
+            "_instruction": "Enter a short description for this brain atlas.",
+            "type": "string"
+        },
+        "fullName": {
+            "_instruction": "Enter a descriptive full name for this brain atlas.",
+            "type": "string"
+        },
+        "hasVersion": {
+            "_instruction": "Add one or several brain atlas versions that belong to this brain atlas.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
+            "format": "iri",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter a descriptive short name for this brain atlas.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "shortName",
+        "fullName",
+        "hasVersion",
+        "description",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

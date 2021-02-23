@@ -1,0 +1,34 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/digitalIdentifierSchema?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/DigitalIdentifierSchema",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DigitalIdentifierSchema",
+            "type": "string"
+        },
+        "IRI": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) of this digital identifier schema.",
+            "format": "iri",
+            "type": "string"
+        },
+        "identifierPattern": {
+            "_instruction": "Enter the required pattern (regular expression) for the identifiers of this digital identifier schema.",
+            "type": "string"
+        },
+        "type": {
+            "_instruction": "Enter the type of this digital identifier schema.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "type",
+        "@type"
+    ],
+    "type": "object"
+}

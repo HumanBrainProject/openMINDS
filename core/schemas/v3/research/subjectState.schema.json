@@ -1,0 +1,340 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/subjectState?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/SubjectState",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/SubjectState",
+            "type": "string"
+        },
+        "additionalRemarks": {
+            "_instruction": "Enter additional remarks about the specimen (set) in this state.",
+            "type": "string"
+        },
+        "age": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "properties": {
+                        "uncertainty": {
+                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ]
+                        },
+                        "value": {
+                            "_instruction": "Enter the measurement value of this quantitative value.",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "properties": {
+                        "maxValue": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "properties": {
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ]
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        "minValue": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "properties": {
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ]
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "ageCategory": {
+            "_instruction": "Add the age category of the subject in this state.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AgeCategory"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "handedness": {
+            "_instruction": "Add the preferred hand of the subject in this state.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/Laterality"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "pathology": {
+            "_instruction": "Add the pathology of the specimen (set) in this state.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "weight": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "properties": {
+                        "uncertainty": {
+                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ]
+                        },
+                        "value": {
+                            "_instruction": "Enter the measurement value of this quantitative value.",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "properties": {
+                        "maxValue": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "properties": {
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ]
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        "minValue": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "properties": {
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ]
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@id",
+        "ageCategory",
+        "@type"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,253 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/coordinateSpace?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/CoordinateSpace",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/CoordinateSpace",
+            "type": "string"
+        },
+        "anatomicalAxesOrientation": {
+            "_instruction": "Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ).",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AnatomicalAxesOrientation"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "axesOrigin": {
+            "_instruction": "Enter the origin of the coordinate system (central point where axes intersect; 2D: [x, y] or 3D:[x, y, z]).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/QuantitativeValue"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "maxItems": 3,
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "defaultImage": {
+            "_instruction": "Add one or several images used as visual representation of this coordinate space.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/Image"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this coordinate space.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "fullName": {
+            "_instruction": "Enter a descriptive full name for this coordinate space.",
+            "type": "string"
+        },
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
+            "format": "iri",
+            "type": "string"
+        },
+        "nativeUnit": {
+            "_instruction": "Add the native unit that is used for this coordinate space.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this coordinate space.",
+            "format": "iri",
+            "type": "string"
+        },
+        "releaseDate": {
+            "_instruction": "Enter the date of first publication of this coordinate space.",
+            "format": "date",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter a descriptive short name for this coordinate space.",
+            "type": "string"
+        },
+        "versionIdentifier": {
+            "_instruction": "Enter the version identifier of this coordinate space.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "nativeUnit",
+        "releaseDate",
+        "shortName",
+        "fullName",
+        "anatomicalAxesOrientation",
+        "@type",
+        "axesOrigin",
+        "@id",
+        "versionIdentifier"
+    ],
+    "type": "object"
+}

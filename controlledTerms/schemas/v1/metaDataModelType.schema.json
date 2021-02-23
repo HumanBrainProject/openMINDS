@@ -1,0 +1,38 @@
+{
+    "$id": "https://openminds.ebrains.eu/controlledTerms/metaDataModelType?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/controlledTerms/MetaDataModelType",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/controlledTerms/MetaDataModelType",
+            "type": "string"
+        },
+        "definition": {
+            "_instruction": "Enter one sentence for defining this term.",
+            "type": "string"
+        },
+        "description": {
+            "_instruction": "Enter a short text describing this term.",
+            "type": "string"
+        },
+        "name": {
+            "_instruction": "Controlled term originating from a defined terminology.",
+            "type": "string"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
+            "format": "iri",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "name",
+        "@type"
+    ],
+    "type": "object"
+}

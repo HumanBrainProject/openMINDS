@@ -1,0 +1,68 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/electrodeArray?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/ElectrodeArray",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/ElectrodeArray",
+            "type": "string"
+        },
+        "electrodes": {
+            "_instruction": "Add two or more electrodes which build this array.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/Electrode"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "internalIdentifier": {
+            "_instruction": "Enter the identifier used for this electrode array within the file it is stored in.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "electrodes",
+        "@id",
+        "internalIdentifier",
+        "@type"
+    ],
+    "type": "object"
+}

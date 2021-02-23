@@ -1,0 +1,53 @@
+@startuml
+class ModelVersion {
++format
++hasAlternativeVersion
++hasSupplementVersion
++inputData
++isNewVersionOf
++outputData
++accessibility
++author
++copyright
++custodian
++description
++developer
++digitalIdentifier
++fullDocumentation
++fullName
++funding
++homepage
++keyword
++license
++otherContribution
++relatedPublication
++releaseDate
++repository
++shortName
++versionIdentifier
++versionInnovation
+
+}
+ModelVersion -d-> "format" ContentType
+ModelVersion -d-> "hasAlternativeVersion" ModelVersion
+ModelVersion -d-> "hasSupplementVersion" ModelVersion
+ModelVersion -d-> "inputData" DigitalIdentifier
+ModelVersion -d-> "isNewVersionOf" ModelVersion
+ModelVersion -d-> "outputData" DigitalIdentifier
+ModelVersion -d-> "accessibility" ProductAccessibility
+ModelVersion -d-> "author" Organization
+ModelVersion -d-> "author" Person
+ModelVersion -d-> "copyright" Copyright
+ModelVersion -d-> "custodian" Organization
+ModelVersion -d-> "custodian" Person
+ModelVersion -d-> "developer" Organization
+ModelVersion -d-> "developer" Person
+ModelVersion -d-> "digitalIdentifier" DigitalIdentifier
+ModelVersion -d-> "fullDocumentation" DigitalIdentifier
+ModelVersion -d-> "funding" Funding
+ModelVersion -d-> "license" License
+ModelVersion -d-> "otherContribution" Contribution
+ModelVersion -d-> "relatedPublication" DigitalIdentifier
+ModelVersion -d-> "repository" FileRepository
+
+@enduml

@@ -1,0 +1,30 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/hash?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Hash",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Hash",
+            "type": "string"
+        },
+        "algorithm": {
+            "_instruction": "Enter the algorithm used to generate this hash.",
+            "type": "string"
+        },
+        "digest": {
+            "_instruction": "Enter the digest of this hash.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "algorithm",
+        "digest"
+    ],
+    "type": "object"
+}

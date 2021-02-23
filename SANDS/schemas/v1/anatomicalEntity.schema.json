@@ -1,0 +1,110 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/anatomicalEntity?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
+            "type": "string"
+        },
+        "hasParent": {
+            "_instruction": "Add another anatomical entity representing the anatomical parent structure of this anatomical entity.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "name": {
+            "_instruction": "Enter a descriptive name for this anatomical entity based on anatomical location or characteristics.",
+            "type": "string"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this anatomical entity.",
+            "format": "iri",
+            "type": "string"
+        },
+        "otherAnatomicalRelation": {
+            "_instruction": "Add one or several relations of this anatomical entity to other anatomical entities that are used elsewhere to describe (roughly) the same anatomical location.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@id",
+        "name",
+        "@type"
+    ],
+    "type": "object"
+}

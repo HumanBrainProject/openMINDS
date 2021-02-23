@@ -1,0 +1,295 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/brainAtlasVersion?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+            "type": "string"
+        },
+        "annotationSet": {
+            "_instruction": "Add all annotations that belong to this brain atlas version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/Annotation"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "coordinateSpace": {
+            "_instruction": "Add the coordinate space in which this brain atlas version exists in.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/CoordinateSpace"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas version.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "fullName": {
+            "_instruction": "Enter a descriptive full name for this brain atlas version.",
+            "type": "string"
+        },
+        "hasAlternativeVersion": {
+            "_instruction": "Add one or several alternative versions to this brain atlas version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
+            "format": "iri",
+            "type": "string"
+        },
+        "isNewVersionOf": {
+            "_instruction": "Add the earlier version of this brain atlas version.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this brain atlas version.",
+            "format": "iri",
+            "type": "string"
+        },
+        "releaseDate": {
+            "_instruction": "Enter the date of first publication of this brain atlas version.",
+            "format": "date",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter a descriptive short name for this brain atlas version.",
+            "type": "string"
+        },
+        "terminology": {
+            "_instruction": "Add the terminology used for this brain atlas version.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/AtlasTerminology"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "versionIdentifier": {
+            "_instruction": "Enter the version identifier of this brain atlas version.",
+            "type": "string"
+        },
+        "versionInnovation": {
+            "_instruction": "Enter a short description of the novelties/peculiarities of this brain atlas version.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "shortName",
+        "releaseDate",
+        "fullName",
+        "terminology",
+        "coordinateSpace",
+        "@type",
+        "annotationSet",
+        "versionInnovation",
+        "@id",
+        "versionIdentifier"
+    ],
+    "type": "object"
+}

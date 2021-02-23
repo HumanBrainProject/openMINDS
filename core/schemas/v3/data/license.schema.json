@@ -1,0 +1,41 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/license?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/License",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/License",
+            "type": "string"
+        },
+        "deed": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the deed of this license.",
+            "format": "iri",
+            "type": "string"
+        },
+        "fullName": {
+            "_instruction": "Enter the full name of this license.",
+            "type": "string"
+        },
+        "legalCode": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the legal code of this license.",
+            "format": "iri",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter the short name of this license.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "shortName",
+        "legalCode",
+        "fullName",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

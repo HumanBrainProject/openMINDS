@@ -1,0 +1,68 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/digitalIdentifier?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/DigitalIdentifier",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "type": "string"
+        },
+        "howToCite": {
+            "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "type": "string"
+        },
+        "identifier": {
+            "_instruction": "Enter the digital identifier of a resource.",
+            "type": "string"
+        },
+        "identifierSchema": {
+            "_instruction": "Add the used schema of this digital identifier.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifierSchema"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        }
+    },
+    "required": [
+        "identifierSchema",
+        "identifier",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

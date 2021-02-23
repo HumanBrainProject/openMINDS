@@ -1,0 +1,120 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/atlasTerminology?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/AtlasTerminology",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/AtlasTerminology",
+            "type": "string"
+        },
+        "anatomicalEntity": {
+            "_instruction": "Add all anatomical entities that belong to this atlas terminology.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "definedIn": {
+            "_instruction": "Add one or several files in which this atlas terminology is stored in.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/FileInstance"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "fullName": {
+            "_instruction": "Enter a descriptive full name for this atlas terminology.",
+            "type": "string"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this atlas terminology.",
+            "format": "iri",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter a descriptive short name for this atlas terminology.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "shortName",
+        "anatomicalEntity",
+        "fullName",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

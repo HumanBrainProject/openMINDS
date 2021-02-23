@@ -1,0 +1,57 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/contentType?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ContentType",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ContentType",
+            "type": "string"
+        },
+        "associatedFileExtension": {
+            "_instruction": "Enter one or several file extensions associated with this content type.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "description": {
+            "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
+            "type": "string"
+        },
+        "name": {
+            "_instruction": "Enter the name (iana-inspired convention) of this content type.",
+            "type": "string"
+        },
+        "relatedMediaType": {
+            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official registered media type (e.g. on IANA.org) matching this content type.",
+            "format": "iri",
+            "type": "string"
+        },
+        "specification": {
+            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official specification of this content type. Leave blank and use 'description' to provide some specification if an official specification is not available.",
+            "format": "iri",
+            "type": "string"
+        },
+        "synonym": {
+            "_instruction": "Enter one or several synonyms of this content type.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@id",
+        "name",
+        "@type"
+    ],
+    "type": "object"
+}

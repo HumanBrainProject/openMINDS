@@ -1,0 +1,123 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/metaDataModel?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/MetaDataModel",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/MetaDataModel",
+            "type": "string"
+        },
+        "description": {
+            "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
+            "maxLength": 2000,
+            "type": "string"
+        },
+        "digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "type": "object"
+        },
+        "fullName": {
+            "_instruction": "Enter a descriptive full name (title) for this research product.",
+            "type": "string"
+        },
+        "hasVersion": {
+            "_instruction": "Add one or several versions of this (meta)data model.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/MetaDataModelVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+        },
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product.",
+            "format": "iri",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
+            "maxLength": 30,
+            "type": "string"
+        }
+    },
+    "required": [
+        "shortName",
+        "fullName",
+        "digitalIdentifier",
+        "description",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}
