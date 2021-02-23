@@ -33,7 +33,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: HumanBrainProject/openMINDS_generator
-        ref: main
+        ref: generator_update #To be changed back to main as soon as the branch is merged
         path: generator
     - name: Install dependencies
       run: |
@@ -48,45 +48,27 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run generation
       run: |
-        cd core
-        python ../generator/openMINDS.py --version v3
-        cd ../SANDS
-        python ../generator/openMINDS.py --version v1
-        cd ../controlledTerms
-        python ../generator/openMINDS.py --version v1
-        cd ..
-        mkdir -p expanded/core/v3
-        mkdir -p expanded/SANDS/v1
-        mkdir -p expanded/controlledTerms/v1
-        mkdir -p target/core/v3
-        mkdir -p target/SANDS/v1
-        mkdir -p target/controlledTerms/v1
-        mv core/expanded/* expanded/core/v3
-        mv core/target/* target/core/v3
-        mv SANDS/expanded/* expanded/SANDS/v1
-        mv SANDS/target/* target/SANDS/v1
-        mv controlledTerms/expanded/* expanded/controlledTerms/v1
-        mv controlledTerms/target/* target/controlledTerms/v1
+        python generator/openMINDS.py
         python vocab/vocab_extractor.py
-    - name: Archive expanded version
-      uses: actions/upload-artifact@v2
-      with:
-        name: expanded schema templates
-        path: |
-          expanded
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: target files
-        path: |
-          target
-    - run: |
-        git config user.name openMINDS
-        git config user.email openMINDS@ebrains.eu
-        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then           
-            git add .
-            git commit -m "Automated vocabulary extraction"
-            git push
-        else
-            echo "Nothing to commit"
-        fi
+#    - name: Archive expanded version
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: expanded schema templates
+#        path: |
+#          expanded
+#    - name: Archive artifacts
+#      uses: actions/upload-artifact@v2
+#      with:
+#        name: target files
+#        path: |
+#          target
+#    - run: |
+#        git config user.name openMINDS
+#        git config user.email openMINDS@ebrains.eu
+#        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
+#            git add .
+#            git commit -m "Automated vocabulary extraction"
+#            git push
+#        else
+#            echo "Nothing to commit"
+#        fi
