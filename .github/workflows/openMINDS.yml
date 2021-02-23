@@ -58,9 +58,9 @@ jobs:
         path: documentation
     - name: Push documentation
       run: |
-        cp target/html/* documentation
-        cp target/uml/* documentation
-        cp target/schema.json/* documentation
+        cp -r target/html/* documentation
+        cp -r target/uml/* documentation
+        cp -r target/schema.json/* documentation
         ls documentation
 #        git config user.name openMINDS
 #        git config user.email openMINDS@ebrains.eu
