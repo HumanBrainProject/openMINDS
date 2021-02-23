@@ -50,6 +50,27 @@ jobs:
       run: |
         python generator/openMINDS.py
         python vocab/vocab_extractor.py
+    - name: Checkout documentation branch
+      uses: actions/checkout@v2
+      with:
+        repository: HumanBrainProject/openMINDS
+        ref: documentation
+        path: documentation
+    - name: Push documentation
+      run: |
+        cp target/html/* documentation
+        cp target/uml/* documentation
+        cp target/schema.json/* documentation
+        ls documentation
+#        git config user.name openMINDS
+#        git config user.email openMINDS@ebrains.eu
+#        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
+#            git add .
+#            git commit -m "Update of documentation"
+#            git push
+#        else
+#            echo "Nothing to commit"
+#        fi
 #    - name: Archive expanded version
 #      uses: actions/upload-artifact@v2
 #      with:
