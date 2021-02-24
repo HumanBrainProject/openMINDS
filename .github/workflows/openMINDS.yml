@@ -72,6 +72,9 @@ jobs:
         fi
         cd ..
         rm -rf documentation
+    - name: Provide a copy of vocab in result
+      run: |
+        cp vocab/* target
     - name: Archive expanded version
       uses: actions/upload-artifact@v2
       with:
