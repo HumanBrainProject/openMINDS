@@ -77,8 +77,8 @@ jobs:
         cp vocab/* target
     - name: Provide a copy of the expanded schema templates in result
       run: |
-        mkdir target/schema_templates
-        cp -r expanded/* target/schema_templates
+        mkdir target/schema.tpl.json
+        cp -r expanded/* target/schema.tpl.json
     - name: Archive artifacts
       uses: actions/upload-artifact@v2
       with:
