@@ -727,17 +727,34 @@
     "hasAlternativeVersion": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DatasetVersion",
-            "https://openminds.ebrains.eu/core/ModelVersion",
-            "https://openminds.ebrains.eu/core/SoftwareVersion",
             "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
         ],
         "name": "Has alternative version",
         "schemas": [
-            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
+            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json"
+        ]
+    },
+    "hasComponent": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/Dataset",
+            "https://openminds.ebrains.eu/core/DatasetVersion",
+            "https://openminds.ebrains.eu/core/MetaDataModel",
+            "https://openminds.ebrains.eu/core/MetaDataModelVersion",
+            "https://openminds.ebrains.eu/core/Model",
+            "https://openminds.ebrains.eu/core/ModelVersion",
+            "https://openminds.ebrains.eu/core/Software",
+            "https://openminds.ebrains.eu/core/SoftwareVersion"
+        ],
+        "name": "Has component",
+        "schemas": [
+            "core/schemas/v3/products/dataset.schema.tpl.json",
             "core/schemas/v3/products/datasetVersion.schema.tpl.json",
+            "core/schemas/v3/products/metaDataModel.schema.tpl.json",
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
+            "core/schemas/v3/products/model.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
+            "core/schemas/v3/products/software.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
@@ -789,19 +806,10 @@
         ]
     },
     "hasSupplementVersion": {
+        "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DatasetVersion",
-            "https://openminds.ebrains.eu/core/ModelVersion",
-            "https://openminds.ebrains.eu/core/SoftwareVersion"
-        ],
         "name": "Has supplement version",
-        "schemas": [
-            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
-            "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
-            "core/schemas/v3/products/modelVersion.schema.tpl.json",
-            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "hasVersion": {
         "description": null,
@@ -990,6 +998,22 @@
             "core/schemas/v3/research/subjectGroup.schema.tpl.json",
             "core/schemas/v3/research/tissueSample.schema.tpl.json",
             "core/schemas/v3/research/tissueSampleCollection.schema.tpl.json"
+        ]
+    },
+    "isAlternativeVersionOf": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/DatasetVersion",
+            "https://openminds.ebrains.eu/core/MetaDataModelVersion",
+            "https://openminds.ebrains.eu/core/ModelVersion",
+            "https://openminds.ebrains.eu/core/SoftwareVersion"
+        ],
+        "name": "Is alternative version of",
+        "schemas": [
+            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
+            "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
+            "core/schemas/v3/products/modelVersion.schema.tpl.json",
+            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
     "isNewVersionOf": {
@@ -1284,9 +1308,6 @@
     },
     "otherContribution": {
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/Contribution"
-        ],
         "name": "Other contribution",
         "schemas": [
             "core/schemas/v3/products/datasetVersion.schema.tpl.json",
@@ -1354,6 +1375,13 @@
             "core/schemas/v3/research/subjectState.schema.tpl.json",
             "core/schemas/v3/research/tissueSampleCollectionState.schema.tpl.json",
             "core/schemas/v3/research/tissueSampleState.schema.tpl.json"
+        ]
+    },
+    "patternOfFilenames": {
+        "description": null,
+        "name": "Pattern of filenames",
+        "schemas": [
+            "core/schemas/v3/data/fileBundle.schema.tpl.json"
         ]
     },
     "phenotype": {
@@ -1673,21 +1701,22 @@
     "studyTarget": {
         "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-            "https://openminds.ebrains.eu/controlledTerms/Disease",
-            "https://openminds.ebrains.eu/controlledTerms/Genotype",
-            "https://openminds.ebrains.eu/controlledTerms/Phenotype",
-            "https://openminds.ebrains.eu/controlledTerms/Species",
-            "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Study target",
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/products/model.schema.tpl.json",
             "core/schemas/v3/research/protocol.schema.tpl.json",
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
+        ]
+    },
+    "supportChannel": {
+        "description": null,
+        "name": "Support channel",
+        "schemas": [
+            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
+            "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
+            "core/schemas/v3/products/modelVersion.schema.tpl.json",
+            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
     "synonym": {
@@ -1737,6 +1766,16 @@
             "core/schemas/v3/research/tissueSampleCollection.schema.tpl.json"
         ]
     },
+    "typeOfUncertainty": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+        ],
+        "name": "Type of uncertainty",
+        "schemas": [
+            "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json"
+        ]
+    },
     "uncertainty": {
         "description": null,
         "name": "Uncertainty",
@@ -1753,6 +1792,7 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/quantitativeValueRange.schema.tpl.json",
             "core/schemas/v3/research/parameterSetting.schema.tpl.json"
         ]
     },
