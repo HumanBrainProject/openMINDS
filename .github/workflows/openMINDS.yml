@@ -75,12 +75,10 @@ jobs:
     - name: Provide a copy of vocab in result
       run: |
         cp vocab/* target
-    - name: Archive expanded version
-      uses: actions/upload-artifact@v2
-      with:
-        name: expanded schema templates
-        path: |
-          expanded
+    - name: Provide a copy of the expanded schema templates in result
+      run: |
+        mkdir target/schema_templates
+        cp -r expanded/* target/schema_templates
     - name: Archive artifacts
       uses: actions/upload-artifact@v2
       with:
