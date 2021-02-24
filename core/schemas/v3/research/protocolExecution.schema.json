@@ -303,7 +303,18 @@
                             "type": "string"
                         },
                         "@type": {
-                            "enum": [],
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Genotype",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex"
+                            ],
                             "format": "iri",
                             "type": "string"
                         }
@@ -320,11 +331,11 @@
         }
     },
     "required": [
+        "@type",
         "input",
-        "@id",
         "protocol",
-        "output",
-        "@type"
+        "@id",
+        "output"
     ],
     "title": "Protocol execution",
     "type": "object"
