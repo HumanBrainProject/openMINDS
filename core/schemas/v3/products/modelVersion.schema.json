@@ -565,43 +565,47 @@
             "uniqueItems": true
         },
         "license": {
-            "_instruction": "Add the license of this research product version.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "_instruction": "Add at least one license for this model version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/License"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/License"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "License",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "otherContribution": {
             "_type": "https://openminds.ebrains.eu/core/Contribution",
@@ -792,21 +796,21 @@
         }
     },
     "required": [
-        "funding",
-        "format",
-        "digitalIdentifier",
         "shortName",
-        "versionIdentifier",
-        "accessibility",
-        "developer",
-        "description",
-        "@id",
-        "fullName",
-        "releaseDate",
         "repository",
-        "fullDocumentation",
+        "@id",
+        "funding",
+        "accessibility",
         "license",
-        "@type"
+        "digitalIdentifier",
+        "versionIdentifier",
+        "developer",
+        "@type",
+        "fullName",
+        "format",
+        "fullDocumentation",
+        "description",
+        "releaseDate"
     ],
     "title": "Model version",
     "type": "object"

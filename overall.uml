@@ -219,6 +219,7 @@ class DatasetVersion {
 +hasComponent
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +modality
 +type
 +accessibility
@@ -233,7 +234,6 @@ class DatasetVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -248,6 +248,7 @@ DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
 DatasetVersion -d-> "hasComponent" DatasetVersion
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
+DatasetVersion -d-> "license" License
 DatasetVersion -d-> "modality" Modality
 DatasetVersion -d-> "type" DatasetType
 DatasetVersion -d-> "accessibility" ProductAccessibility
@@ -261,7 +262,6 @@ DatasetVersion -d-> "developer" Person
 DatasetVersion -d-> "digitalIdentifier" DigitalIdentifier
 DatasetVersion -d-> "fullDocumentation" DigitalIdentifier
 DatasetVersion -d-> "funding" Funding
-DatasetVersion -d-> "license" License
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DigitalIdentifier
 DatasetVersion -d-> "repository" FileRepository
@@ -277,6 +277,7 @@ class SoftwareVersion {
 +isAlternativeVersionOf
 +isNewVersionOf
 +language
++license
 +operatingSystem
 +outputFormat
 +programmingLanguage
@@ -292,7 +293,6 @@ class SoftwareVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -311,6 +311,7 @@ SoftwareVersion -d-> "inputFormat" ContentType
 SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
 SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
 SoftwareVersion -d-> "language" Language
+SoftwareVersion -d-> "license" License
 SoftwareVersion -d-> "operatingSystem" OperatingSystem
 SoftwareVersion -d-> "outputFormat" ContentType
 SoftwareVersion -d-> "programmingLanguage" ProgrammingLanguage
@@ -325,7 +326,6 @@ SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "digitalIdentifier" DigitalIdentifier
 SoftwareVersion -d-> "fullDocumentation" DigitalIdentifier
 SoftwareVersion -d-> "funding" Funding
-SoftwareVersion -d-> "license" License
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DigitalIdentifier
 SoftwareVersion -d-> "repository" FileRepository
@@ -358,6 +358,7 @@ class ModelVersion {
 +inputData
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +outputData
 +accessibility
 +author
@@ -371,7 +372,6 @@ class ModelVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -387,6 +387,7 @@ ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DigitalIdentifier
 ModelVersion -d-> "isAlternativeVersionOf" ModelVersion
 ModelVersion -d-> "isNewVersionOf" ModelVersion
+ModelVersion -d-> "license" License
 ModelVersion -d-> "outputData" DigitalIdentifier
 ModelVersion -d-> "accessibility" ProductAccessibility
 ModelVersion -d-> "author" Organization
@@ -399,7 +400,6 @@ ModelVersion -d-> "developer" Person
 ModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 ModelVersion -d-> "fullDocumentation" DigitalIdentifier
 ModelVersion -d-> "funding" Funding
-ModelVersion -d-> "license" License
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DigitalIdentifier
 ModelVersion -d-> "repository" FileRepository
@@ -459,6 +459,7 @@ class MetaDataModelVersion {
 +hasComponent
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +serializationFormat
 +specificationFormat
 +type
@@ -474,7 +475,6 @@ class MetaDataModelVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -488,6 +488,7 @@ class MetaDataModelVersion {
 MetaDataModelVersion -d-> "hasComponent" MetaDataModelVersion
 MetaDataModelVersion -d-> "isAlternativeVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
+MetaDataModelVersion -d-> "license" License
 MetaDataModelVersion -d-> "serializationFormat" ContentType
 MetaDataModelVersion -d-> "specificationFormat" ContentType
 MetaDataModelVersion -d-> "type" MetaDataModelType
@@ -502,7 +503,6 @@ MetaDataModelVersion -d-> "developer" Person
 MetaDataModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 MetaDataModelVersion -d-> "fullDocumentation" DigitalIdentifier
 MetaDataModelVersion -d-> "funding" Funding
-MetaDataModelVersion -d-> "license" License
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DigitalIdentifier
 MetaDataModelVersion -d-> "repository" FileRepository

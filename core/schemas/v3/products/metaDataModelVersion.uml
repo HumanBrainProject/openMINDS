@@ -3,6 +3,7 @@ class MetaDataModelVersion {
 +hasComponent
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +serializationFormat
 +specificationFormat
 +type
@@ -18,7 +19,6 @@ class MetaDataModelVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -32,6 +32,7 @@ class MetaDataModelVersion {
 MetaDataModelVersion -d-> "hasComponent" MetaDataModelVersion
 MetaDataModelVersion -d-> "isAlternativeVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
+MetaDataModelVersion -d-> "license" License
 MetaDataModelVersion -d-> "serializationFormat" ContentType
 MetaDataModelVersion -d-> "specificationFormat" ContentType
 MetaDataModelVersion -d-> "type" MetaDataModelType
@@ -46,7 +47,6 @@ MetaDataModelVersion -d-> "developer" Person
 MetaDataModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 MetaDataModelVersion -d-> "fullDocumentation" DigitalIdentifier
 MetaDataModelVersion -d-> "funding" Funding
-MetaDataModelVersion -d-> "license" License
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DigitalIdentifier
 MetaDataModelVersion -d-> "repository" FileRepository

@@ -5,6 +5,7 @@ class ModelVersion {
 +inputData
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +outputData
 +accessibility
 +author
@@ -18,7 +19,6 @@ class ModelVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -34,6 +34,7 @@ ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DigitalIdentifier
 ModelVersion -d-> "isAlternativeVersionOf" ModelVersion
 ModelVersion -d-> "isNewVersionOf" ModelVersion
+ModelVersion -d-> "license" License
 ModelVersion -d-> "outputData" DigitalIdentifier
 ModelVersion -d-> "accessibility" ProductAccessibility
 ModelVersion -d-> "author" Organization
@@ -46,7 +47,6 @@ ModelVersion -d-> "developer" Person
 ModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 ModelVersion -d-> "fullDocumentation" DigitalIdentifier
 ModelVersion -d-> "funding" Funding
-ModelVersion -d-> "license" License
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DigitalIdentifier
 ModelVersion -d-> "repository" FileRepository

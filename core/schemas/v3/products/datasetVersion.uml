@@ -4,6 +4,7 @@ class DatasetVersion {
 +hasComponent
 +isAlternativeVersionOf
 +isNewVersionOf
++license
 +modality
 +type
 +accessibility
@@ -18,7 +19,6 @@ class DatasetVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -33,6 +33,7 @@ DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
 DatasetVersion -d-> "hasComponent" DatasetVersion
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
+DatasetVersion -d-> "license" License
 DatasetVersion -d-> "modality" Modality
 DatasetVersion -d-> "type" DatasetType
 DatasetVersion -d-> "accessibility" ProductAccessibility
@@ -46,7 +47,6 @@ DatasetVersion -d-> "developer" Person
 DatasetVersion -d-> "digitalIdentifier" DigitalIdentifier
 DatasetVersion -d-> "fullDocumentation" DigitalIdentifier
 DatasetVersion -d-> "funding" Funding
-DatasetVersion -d-> "license" License
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DigitalIdentifier
 DatasetVersion -d-> "repository" FileRepository

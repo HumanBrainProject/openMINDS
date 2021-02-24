@@ -9,6 +9,7 @@ class SoftwareVersion {
 +isAlternativeVersionOf
 +isNewVersionOf
 +language
++license
 +operatingSystem
 +outputFormat
 +programmingLanguage
@@ -24,7 +25,6 @@ class SoftwareVersion {
 +funding
 +homepage
 +keyword
-+license
 +otherContribution
 +relatedPublication
 +releaseDate
@@ -43,6 +43,7 @@ SoftwareVersion -d-> "inputFormat" ContentType
 SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
 SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
 SoftwareVersion -d-> "language" Language
+SoftwareVersion -d-> "license" License
 SoftwareVersion -d-> "operatingSystem" OperatingSystem
 SoftwareVersion -d-> "outputFormat" ContentType
 SoftwareVersion -d-> "programmingLanguage" ProgrammingLanguage
@@ -57,7 +58,6 @@ SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "digitalIdentifier" DigitalIdentifier
 SoftwareVersion -d-> "fullDocumentation" DigitalIdentifier
 SoftwareVersion -d-> "funding" Funding
-SoftwareVersion -d-> "license" License
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DigitalIdentifier
 SoftwareVersion -d-> "repository" FileRepository
