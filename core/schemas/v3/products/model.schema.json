@@ -102,6 +102,49 @@
             "title": "Full name",
             "type": "string"
         },
+        "hasComponent": {
+            "_instruction": "Add one or several components (other models) of this computational model.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Model"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Has component",
+            "type": "array",
+            "uniqueItems": true
+        },
         "hasVersion": {
             "_instruction": "Add one or several versions of this computational model.",
             "items": {
@@ -222,15 +265,7 @@
                             "type": "string"
                         },
                         "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-                                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                                "https://openminds.ebrains.eu/controlledTerms/Genotype",
-                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
-                                "https://openminds.ebrains.eu/controlledTerms/Species",
-                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-                            ],
+                            "enum": [],
                             "format": "iri",
                             "type": "string"
                         }
@@ -247,15 +282,15 @@
         }
     },
     "required": [
-        "@type",
+        "scope",
+        "digitalIdentifier",
         "shortName",
         "description",
         "studyTarget",
-        "digitalIdentifier",
+        "@id",
         "fullName",
         "abstractionLevel",
-        "@id",
-        "scope"
+        "@type"
     ],
     "title": "Model",
     "type": "object"

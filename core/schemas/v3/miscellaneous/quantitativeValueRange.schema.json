@@ -12,69 +12,52 @@
             "type": "string"
         },
         "maxValue": {
-            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
-            "description": "Structured information on a quanitative value.",
-            "properties": {
-                "uncertainty": {
-                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                    "items": {
-                        "type": "number"
-                    },
-                    "maxItems": 2,
-                    "minItems": 2,
-                    "title": "Uncertainty",
-                    "type": "array"
-                },
-                "unit": {
-                    "_instruction": "Add the unit of measurement of this quantitative value.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ],
-                    "title": "Unit"
-                },
-                "value": {
-                    "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "value"
-            ],
-            "title": "Quantitative value",
-            "type": "object"
+            "_instruction": "Add the maximum value measured for this range.",
+            "title": "Max value",
+            "type": "number"
         },
         "minValue": {
-            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
-            "description": "Structured information on a quanitative value.",
-            "properties": {
-                "uncertainty": {
-                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                    "items": {
-                        "type": "number"
-                    },
-                    "maxItems": 2,
-                    "minItems": 2,
-                    "title": "Uncertainty",
-                    "type": "array"
+            "_instruction": "Add the minimum value measured for this range.",
+            "title": "Min value",
+            "type": "number"
+        },
+        "unit": {
+            "_instruction": "Add the unit of measurement of this quantitative value range.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
                 },
-                "unit": {
-                    "_instruction": "Add the unit of measurement of this quantitative value.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ],
-                    "title": "Unit"
-                },
-                "value": {
-                    "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
-                    "type": "number"
-                }
+                "required": [
+                    "@id"
+                ]
             },
-            "required": [
-                "value"
-            ],
-            "title": "Quantitative value",
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "Unit",
             "type": "object"
         }
     },

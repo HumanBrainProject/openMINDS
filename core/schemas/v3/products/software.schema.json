@@ -62,6 +62,49 @@
             "title": "Full name",
             "type": "string"
         },
+        "hasComponent": {
+            "_instruction": "Add one or several components (other software) of this software.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Software"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Has component",
+            "type": "array",
+            "uniqueItems": true
+        },
         "hasVersion": {
             "_instruction": "Add one or several versions of this software tool.",
             "items": {
@@ -119,12 +162,12 @@
         }
     },
     "required": [
-        "@type",
         "shortName",
-        "description",
         "digitalIdentifier",
+        "description",
+        "@id",
         "fullName",
-        "@id"
+        "@type"
     ],
     "title": "Software",
     "type": "object"

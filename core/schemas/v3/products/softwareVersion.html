@@ -90,11 +90,11 @@ tr:nth-child(even){background-color: #f2f2f2;}
         </tr>
         
         <tr>
-            <td class="property nowrap">hasAlternativeVersion</td>
-            <td class="nowrap">Has alternative version</td>
+            <td class="property nowrap">hasComponent</td>
+            <td class="nowrap">Has component</td>
             <td><a href="../../../../core/schemas/v3/products/softwareVersion.html">SoftwareVersion</a></td>
             <td></td>
-            <td>Add all software versions that can be used alternatively to this software version.</td>
+            <td>Add all software versions that supplement this software version.</td>
         </tr>
         
         <tr>
@@ -114,19 +114,19 @@ tr:nth-child(even){background-color: #f2f2f2;}
         </tr>
         
         <tr>
-            <td class="property nowrap">hasSupplementVersion</td>
-            <td class="nowrap">Has supplement version</td>
-            <td><a href="../../../../core/schemas/v3/products/softwareVersion.html">SoftwareVersion</a></td>
-            <td></td>
-            <td>Add all software versions that supplement this software version.</td>
-        </tr>
-        
-        <tr>
             <td class="property nowrap">inputFormat</td>
             <td class="nowrap">Input format</td>
             <td><a href="../../../../core/schemas/v3/data/contentType.html">ContentType</a></td>
             <td></td>
             <td>Add the content types of all possible input formats for this software version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">isAlternativeVersionOf</td>
+            <td class="nowrap">Is alternative version of</td>
+            <td><a href="../../../../core/schemas/v3/products/softwareVersion.html">SoftwareVersion</a></td>
+            <td></td>
+            <td>Add all software versions that can be used alternatively to this software version.</td>
         </tr>
         
         <tr>
@@ -252,7 +252,7 @@ tr:nth-child(even){background-color: #f2f2f2;}
         <tr>
             <td class="property nowrap">homepage</td>
             <td class="nowrap">Homepage</td>
-            <td>string (iri)</td>
+            <td>string</td>
             <td></td>
             <td>Enter the internationalized resource identifier (IRI) to the homepage of this research product version.</td>
         </tr>
@@ -276,7 +276,7 @@ tr:nth-child(even){background-color: #f2f2f2;}
         <tr>
             <td class="property nowrap">otherContribution</td>
             <td class="nowrap">Other contribution</td>
-            <td><a href="../../../../core/schemas/v3/actors/contribution.html">Contribution</a></td>
+            <td><a href="../../../../core/schemas/v3/actors/contribution.html">Contribution (embedded)</a></td>
             <td></td>
             <td>Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.</td>
         </tr>
@@ -292,7 +292,7 @@ tr:nth-child(even){background-color: #f2f2f2;}
         <tr>
             <td class="property nowrap">releaseDate</td>
             <td class="nowrap">Release date</td>
-            <td>string (date)</td>
+            <td>string</td>
             <td></td>
             <td>Enter the date (actual or intended) of the first broadcast/publication of this research product version.</td>
         </tr>
@@ -311,6 +311,14 @@ tr:nth-child(even){background-color: #f2f2f2;}
             <td>string</td>
             <td></td>
             <td>Enter a short name (alias) for this research product version (max. 30 characters, no space).</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">supportChannel</td>
+            <td class="nowrap">Support channel</td>
+            <td>array</td>
+            <td></td>
+            <td>Enter all channels through which a user can receive support for handling this research product.</td>
         </tr>
         
         <tr>

@@ -181,10 +181,22 @@
             "title": "Name",
             "type": "string"
         },
+        "patternOfFilenames": {
+            "_instruction": "Enter a regular expression (syntax: ECMA 262) which is valid for all filenames of the file instances that should be grouped into this file bundle.",
+            "title": "Pattern of filenames",
+            "type": "string"
+        },
         "storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "title": "Type of uncertainty"
+                },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
                     "items": {
@@ -216,11 +228,11 @@
         }
     },
     "required": [
-        "@type",
         "@id",
-        "name",
         "isPartOf",
-        "IRI"
+        "IRI",
+        "name",
+        "@type"
     ],
     "title": "File bundle",
     "type": "object"

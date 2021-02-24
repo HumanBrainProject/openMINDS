@@ -1,8 +1,8 @@
 @startuml
 class DatasetVersion {
 +ethicsAssessment
-+hasAlternativeVersion
-+hasSupplementVersion
++hasComponent
++isAlternativeVersionOf
 +isNewVersionOf
 +modality
 +type
@@ -24,13 +24,14 @@ class DatasetVersion {
 +releaseDate
 +repository
 +shortName
++supportChannel
 +versionIdentifier
 +versionInnovation
 
 }
 DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
-DatasetVersion -d-> "hasAlternativeVersion" DatasetVersion
-DatasetVersion -d-> "hasSupplementVersion" DatasetVersion
+DatasetVersion -d-> "hasComponent" DatasetVersion
+DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "modality" Modality
 DatasetVersion -d-> "type" DatasetType

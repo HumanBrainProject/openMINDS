@@ -383,8 +383,8 @@
             "type": "array",
             "uniqueItems": true
         },
-        "hasAlternativeVersion": {
-            "_instruction": "Add all model versions that can be used alternatively to this model version.",
+        "hasComponent": {
+            "_instruction": "Add all model versions that complement this model version.",
             "items": {
                 "else": {
                     "properties": {
@@ -422,50 +422,7 @@
                 }
             },
             "minItems": 1,
-            "title": "Has alternative version",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "hasSupplementVersion": {
-            "_instruction": "Add all model versions that supplement this model version.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/ModelVersion"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Has supplement version",
+            "title": "Has component",
             "type": "array",
             "uniqueItems": true
         },
@@ -513,6 +470,49 @@
             },
             "title": "Input data",
             "type": "object"
+        },
+        "isAlternativeVersionOf": {
+            "_instruction": "Add all model versions that can be used alternatively to this model version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/ModelVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Is alternative version of",
+            "type": "array",
+            "uniqueItems": true
         },
         "isNewVersionOf": {
             "_instruction": "Add the model version preceding this model version.",
@@ -604,47 +604,34 @@
             "type": "object"
         },
         "otherContribution": {
-            "_instruction": "Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
+            "_type": "https://openminds.ebrains.eu/core/Contribution",
+            "description": "Structured information on the contribution made to a research product.",
+            "properties": {
+                "contributionType": {
+                    "_instruction": "Add one or several type of contributions made by the stated contributor.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/ContributionType"
+                    ],
+                    "minItems": 1,
+                    "title": "Contribution type",
+                    "type": "array",
+                    "uniqueItems": true
                 },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Contribution"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
+                "contributor": {
+                    "_instruction": "Add the contributing person or organization.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Person"
+                    ],
+                    "title": "Contributor"
                 }
             },
-            "minItems": 1,
-            "title": "Other contribution",
-            "type": "array",
-            "uniqueItems": true
+            "required": [
+                "contributionType",
+                "contributor"
+            ],
+            "title": "Contribution",
+            "type": "object"
         },
         "outputData": {
             "_instruction": "Add the data that was generated as output of this model version.",
@@ -779,6 +766,20 @@
             "title": "Short name",
             "type": "string"
         },
+        "supportChannel": {
+            "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
+            "items": {
+                "_formats": [
+                    "email",
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "Support channel",
+            "type": "array",
+            "uniqueItems": true
+        },
         "versionIdentifier": {
             "_instruction": "Enter the version identifier of this research product version.",
             "title": "Version identifier",
@@ -791,21 +792,21 @@
         }
     },
     "required": [
-        "@type",
-        "shortName",
-        "description",
-        "format",
-        "releaseDate",
-        "license",
-        "accessibility",
-        "digitalIdentifier",
-        "fullName",
-        "@id",
         "funding",
-        "repository",
+        "format",
+        "digitalIdentifier",
+        "shortName",
         "versionIdentifier",
+        "accessibility",
+        "developer",
+        "description",
+        "@id",
+        "fullName",
+        "releaseDate",
+        "repository",
         "fullDocumentation",
-        "developer"
+        "license",
+        "@type"
     ],
     "title": "Model version",
     "type": "object"

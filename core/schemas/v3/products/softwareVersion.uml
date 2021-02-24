@@ -2,11 +2,11 @@
 class SoftwareVersion {
 +applicationCategory
 +device
-+hasAlternativeVersion
++hasComponent
 +hasFeature
 +hasRequirement
-+hasSupplementVersion
 +inputFormat
++isAlternativeVersionOf
 +isNewVersionOf
 +language
 +operatingSystem
@@ -30,16 +30,17 @@ class SoftwareVersion {
 +releaseDate
 +repository
 +shortName
++supportChannel
 +versionIdentifier
 +versionInnovation
 
 }
 SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
 SoftwareVersion -d-> "device" OperatingDevice
-SoftwareVersion -d-> "hasAlternativeVersion" SoftwareVersion
+SoftwareVersion -d-> "hasComponent" SoftwareVersion
 SoftwareVersion -d-> "hasFeature" SoftwareFeature
-SoftwareVersion -d-> "hasSupplementVersion" SoftwareVersion
 SoftwareVersion -d-> "inputFormat" ContentType
+SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
 SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
 SoftwareVersion -d-> "language" Language
 SoftwareVersion -d-> "operatingSystem" OperatingSystem

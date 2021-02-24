@@ -383,7 +383,56 @@
             "type": "array",
             "uniqueItems": true
         },
-        "hasAlternativeVersion": {
+        "hasComponent": {
+            "_instruction": "Add all dataset versions that complement this dataset version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DatasetVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Has component",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
+            "format": "iri",
+            "title": "Homepage",
+            "type": "string"
+        },
+        "isAlternativeVersionOf": {
             "_instruction": "Add all dataset versions that can be used alternatively to this dataset version.",
             "items": {
                 "else": {
@@ -422,58 +471,9 @@
                 }
             },
             "minItems": 1,
-            "title": "Has alternative version",
+            "title": "Is alternative version of",
             "type": "array",
             "uniqueItems": true
-        },
-        "hasSupplementVersion": {
-            "_instruction": "Add all dataset versions that supplement this dataset version.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/DatasetVersion"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Has supplement version",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "homepage": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
-            "format": "iri",
-            "title": "Homepage",
-            "type": "string"
         },
         "isNewVersionOf": {
             "_instruction": "Add the dataset version preceding this dataset version.",
@@ -608,47 +608,34 @@
             "uniqueItems": true
         },
         "otherContribution": {
-            "_instruction": "Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
+            "_type": "https://openminds.ebrains.eu/core/Contribution",
+            "description": "Structured information on the contribution made to a research product.",
+            "properties": {
+                "contributionType": {
+                    "_instruction": "Add one or several type of contributions made by the stated contributor.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/ContributionType"
+                    ],
+                    "minItems": 1,
+                    "title": "Contribution type",
+                    "type": "array",
+                    "uniqueItems": true
                 },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Contribution"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
+                "contributor": {
+                    "_instruction": "Add the contributing person or organization.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Person"
+                    ],
+                    "title": "Contributor"
                 }
             },
-            "minItems": 1,
-            "title": "Other contribution",
-            "type": "array",
-            "uniqueItems": true
+            "required": [
+                "contributionType",
+                "contributor"
+            ],
+            "title": "Contribution",
+            "type": "object"
         },
         "relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
@@ -744,6 +731,20 @@
             "title": "Short name",
             "type": "string"
         },
+        "supportChannel": {
+            "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
+            "items": {
+                "_formats": [
+                    "email",
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "Support channel",
+            "type": "array",
+            "uniqueItems": true
+        },
         "type": {
             "_instruction": "Add all data types (raw, derived or simulated) provided in this dataset version.",
             "items": {
@@ -799,24 +800,24 @@
         }
     },
     "required": [
-        "@type",
-        "shortName",
-        "custodian",
-        "description",
-        "releaseDate",
-        "accessibility",
-        "author",
-        "digitalIdentifier",
-        "ethicsAssessment",
-        "modality",
-        "fullName",
         "funding",
-        "repository",
-        "@id",
-        "type",
         "versionIdentifier",
+        "digitalIdentifier",
+        "shortName",
+        "repository",
+        "custodian",
+        "accessibility",
+        "description",
+        "@id",
+        "author",
+        "fullName",
+        "releaseDate",
+        "ethicsAssessment",
+        "type",
         "fullDocumentation",
-        "license"
+        "modality",
+        "license",
+        "@type"
     ],
     "title": "Dataset version",
     "type": "object"

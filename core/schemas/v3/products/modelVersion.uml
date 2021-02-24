@@ -1,9 +1,9 @@
 @startuml
 class ModelVersion {
 +format
-+hasAlternativeVersion
-+hasSupplementVersion
++hasComponent
 +inputData
++isAlternativeVersionOf
 +isNewVersionOf
 +outputData
 +accessibility
@@ -24,14 +24,15 @@ class ModelVersion {
 +releaseDate
 +repository
 +shortName
++supportChannel
 +versionIdentifier
 +versionInnovation
 
 }
 ModelVersion -d-> "format" ContentType
-ModelVersion -d-> "hasAlternativeVersion" ModelVersion
-ModelVersion -d-> "hasSupplementVersion" ModelVersion
+ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DigitalIdentifier
+ModelVersion -d-> "isAlternativeVersionOf" ModelVersion
 ModelVersion -d-> "isNewVersionOf" ModelVersion
 ModelVersion -d-> "outputData" DigitalIdentifier
 ModelVersion -d-> "accessibility" ProductAccessibility
