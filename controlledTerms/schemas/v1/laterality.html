@@ -10,15 +10,10 @@
 
 a {
    color: #4a5568;
-}
-
-a:link, a:visited {
-    text-decoration: none;
-}
-
-a:hover, a:active {
   text-decoration: underline;
 }
+
+
 td.nowrap{
   white-space: nowrap;
  }
@@ -46,68 +41,81 @@ h3 {
      font-size: 100%;
      margin-bottom: 0.2em;
 }
-tr.header{
-font-weight: bold;
 
-}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
 table{
   border-collapse: collapse;
   }
 
-tr.header td.property{
-    font-weight: bold;
-}
-
-td.property{
-padding-left:0;
-}
-
-tr:nth-child(even){background-color: #f2f2f2;}
 
 .property{
 }</style>
 </head>
 <body>
     <h1>Laterality (controlledTerms - v1)</h1>
-    <h4>https://openminds.ebrains.eu/controlledTerms/Laterality - <a href="laterality.schema.json">JSON Schema</a></h4>
+    <h4>https://openminds.ebrains.eu/controlledTerms/Laterality - view as <a href="laterality.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
     <table class="properties">
-        <tr class="header"><td class="property">Property*</td><td>Name</td><td>Content type(s)</td><td>Description</td><td>Instructions</td></tr>
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap">definition</td>
-            <td class="nowrap">Definition</td>
-            <td>string</td>
+            <td class="property nowrap"><span >definition</span></td>
             <td></td>
+            <td>
+                
+                
+                string</td>
             <td>Enter one sentence for defining this term.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">description</td>
-            <td class="nowrap">Description</td>
-            <td>string</td>
+            <td class="property nowrap"><span >description</span></td>
             <td></td>
+            <td>
+                
+                
+                string</td>
             <td>Enter a short text describing this term.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">name</td>
-            <td class="nowrap">Name</td>
-            <td>string</td>
+            <td class="property nowrap"><span style="font-weight:bold">name</span></td>
             <td></td>
+            <td>
+                
+                
+                string</td>
             <td>Controlled term originating from a defined terminology.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">ontologyIdentifier</td>
-            <td class="nowrap">Ontology identifier</td>
-            <td>string</td>
+            <td class="property nowrap"><span >ontologyIdentifier</span></td>
             <td></td>
+            <td>
+                
+                
+                string (format: iri)</td>
             <td>Enter the internationalized resource identifier (IRI) pointing to the related ontological term.</td>
         </tr>
         
-
     </table>
-    <div style="margin-top: 2em;">*This is the simplified property name - for use of the openMINDS vocabularies in a semantically correct way, please make use of the namespace <span style="font-weight: bold">https://openminds.ebrains.eu/vocab/</span> - so your fully qualified property name would look like "https://openminds.ebrains.eu/vocab/yourProperty"</div>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
 </body>
 
 </html>

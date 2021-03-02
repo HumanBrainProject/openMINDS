@@ -10,15 +10,10 @@
 
 a {
    color: #4a5568;
-}
-
-a:link, a:visited {
-    text-decoration: none;
-}
-
-a:hover, a:active {
   text-decoration: underline;
 }
+
+
 td.nowrap{
   white-space: nowrap;
  }
@@ -46,68 +41,93 @@ h3 {
      font-size: 100%;
      margin-bottom: 0.2em;
 }
-tr.header{
-font-weight: bold;
 
-}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
 table{
   border-collapse: collapse;
   }
 
-tr.header td.property{
-    font-weight: bold;
-}
-
-td.property{
-padding-left:0;
-}
-
-tr:nth-child(even){background-color: #f2f2f2;}
 
 .property{
 }</style>
 </head>
 <body>
     <h1>TissueSampleState (core - v3)</h1>
-    <h4>https://openminds.ebrains.eu/core/TissueSampleState - <a href="tissueSampleState.schema.json">JSON Schema</a></h4>
+    <h4>https://openminds.ebrains.eu/core/TissueSampleState - view as <a href="tissueSampleState.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
     <table class="properties">
-        <tr class="header"><td class="property">Property*</td><td>Name</td><td>Content type(s)</td><td>Description</td><td>Instructions</td></tr>
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap">additionalRemarks</td>
-            <td class="nowrap">Additional remarks</td>
-            <td>string</td>
+            <td class="property nowrap"><span >additionalRemarks</span></td>
             <td></td>
+            <td>
+                
+                
+                string</td>
             <td>Enter additional remarks about the specimen (set) in this state.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">age</td>
-            <td class="nowrap">Age</td>
-            <td><a href="../../../../core/schemas/v3/miscellaneous/quantitativeValue.html">QuantitativeValue (embedded)</a> or <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange (embedded)</a></td>
+            <td class="property nowrap"><span >age</span></td>
             <td></td>
+            <td>
+                embedded 
+                
+                
+                <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
+                 or 
+                <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
+                </td>
             <td>Add the age of the specimen (set) in this state.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">pathology</td>
-            <td class="nowrap">Pathology</td>
-            <td><a href="../../../../controlledTerms/schemas/v1/disease.html">Disease</a> or <a href="../../../../controlledTerms/schemas/v1/diseaseModel.html">DiseaseModel</a></td>
+            <td class="property nowrap"><span >pathology</span></td>
             <td></td>
+            <td>
+                
+                link to 
+                
+                <a href="../../../../controlledTerms/schemas/v1/disease.html">Disease</a>
+                 or 
+                <a href="../../../../controlledTerms/schemas/v1/diseaseModel.html">DiseaseModel</a>
+                </td>
             <td>Add the pathology of the specimen (set) in this state.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap">weight</td>
-            <td class="nowrap">Weight</td>
-            <td><a href="../../../../core/schemas/v3/miscellaneous/quantitativeValue.html">QuantitativeValue (embedded)</a> or <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange (embedded)</a></td>
+            <td class="property nowrap"><span >weight</span></td>
             <td></td>
+            <td>
+                embedded 
+                
+                
+                <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
+                 or 
+                <a href="../../../../core/schemas/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
+                </td>
             <td>Add the weight of the specimen (set) in this state.</td>
         </tr>
         
-
     </table>
-    <div style="margin-top: 2em;">*This is the simplified property name - for use of the openMINDS vocabularies in a semantically correct way, please make use of the namespace <span style="font-weight: bold">https://openminds.ebrains.eu/vocab/</span> - so your fully qualified property name would look like "https://openminds.ebrains.eu/vocab/yourProperty"</div>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
 </body>
 
 </html>
