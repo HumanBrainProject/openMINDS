@@ -14,29 +14,8 @@
             "const": "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
             "type": "string"
         },
-        "definition": {
-            "_instruction": "Enter one sentence for defining this term.",
-            "title": "Definition",
-            "type": "string"
-        },
-        "description": {
-            "_instruction": "Enter a short text describing this term.",
-            "title": "Description",
-            "type": "string"
-        },
-        "name": {
-            "_instruction": "Controlled term originating from a defined terminology.",
-            "title": "Name",
-            "type": "string"
-        },
-        "ontologyIdentifier": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
-            "format": "iri",
-            "title": "Ontology identifier",
-            "type": "string"
-        },
-        "terminology": {
-            "_instruction": "Add the terminology in which the suggested term should be integrated in.",
+        "addExistingTerminology": {
+            "_instruction": "Add an existing terminology in which the suggested term should be integrated in.",
             "else": {
                 "properties": {
                     "@id": {
@@ -71,14 +50,39 @@
                     "@id"
                 ]
             },
-            "title": "Terminology",
+            "title": "Add existing terminology",
             "type": "object"
+        },
+        "definition": {
+            "_instruction": "Enter one sentence for defining this term.",
+            "title": "Definition",
+            "type": "string"
+        },
+        "description": {
+            "_instruction": "Enter a short text describing this term.",
+            "title": "Description",
+            "type": "string"
+        },
+        "name": {
+            "_instruction": "Controlled term originating from a defined terminology.",
+            "title": "Name",
+            "type": "string"
+        },
+        "ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
+            "format": "iri",
+            "title": "Ontology identifier",
+            "type": "string"
+        },
+        "suggestNewTerminology": {
+            "_instruction": "Propose a name for a new terminology in which the suggested term should be integrated in.",
+            "title": "Suggest new terminology",
+            "type": "string"
         }
     },
     "required": [
-        "terminology",
-        "@id",
         "name",
+        "@id",
         "@type"
     ],
     "title": "Term suggestion",
