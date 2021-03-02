@@ -42,6 +42,16 @@
             "core/schemas/v3/miscellaneous/funding.schema.tpl.json"
         ]
     },
+    "addExistingTerminology": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/Terminology"
+        ],
+        "name": "Add existing terminology",
+        "schemas": [
+            "controlledTerms/schemas/v1/termSuggestion.schema.tpl.json"
+        ]
+    },
     "additionalRemarks": {
         "description": null,
         "name": "Additional remarks",
@@ -396,6 +406,7 @@
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
+            "controlledTerms/schemas/v1/handedness.schema.tpl.json",
             "controlledTerms/schemas/v1/language.schema.tpl.json",
             "controlledTerms/schemas/v1/laterality.schema.tpl.json",
             "controlledTerms/schemas/v1/metaDataModelType.schema.tpl.json",
@@ -448,6 +459,7 @@
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
+            "controlledTerms/schemas/v1/handedness.schema.tpl.json",
             "controlledTerms/schemas/v1/language.schema.tpl.json",
             "controlledTerms/schemas/v1/laterality.schema.tpl.json",
             "controlledTerms/schemas/v1/metaDataModelType.schema.tpl.json",
@@ -714,7 +726,7 @@
     "handedness": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/Laterality"
+            "https://openminds.ebrains.eu/controlledTerms/Handedness"
         ],
         "name": "Handedness",
         "schemas": [
@@ -1155,6 +1167,7 @@
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
+            "controlledTerms/schemas/v1/handedness.schema.tpl.json",
             "controlledTerms/schemas/v1/language.schema.tpl.json",
             "controlledTerms/schemas/v1/laterality.schema.tpl.json",
             "controlledTerms/schemas/v1/metaDataModelType.schema.tpl.json",
@@ -1232,6 +1245,7 @@
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
+            "controlledTerms/schemas/v1/handedness.schema.tpl.json",
             "controlledTerms/schemas/v1/language.schema.tpl.json",
             "controlledTerms/schemas/v1/laterality.schema.tpl.json",
             "controlledTerms/schemas/v1/metaDataModelType.schema.tpl.json",
@@ -1497,6 +1511,7 @@
     "relatedRecording": {
         "description": null,
         "linkedTypes": [
+            "https://openminds.ebrains.eu/core/FileBundle",
             "https://openminds.ebrains.eu/core/FileInstance"
         ],
         "name": "Related recording",
@@ -1507,6 +1522,7 @@
     "relatedStimulation": {
         "description": null,
         "linkedTypes": [
+            "https://openminds.ebrains.eu/core/FileBundle",
             "https://openminds.ebrains.eu/core/FileInstance"
         ],
         "name": "Related stimulation",
@@ -1703,6 +1719,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Disease",
             "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
             "https://openminds.ebrains.eu/controlledTerms/Genotype",
+            "https://openminds.ebrains.eu/controlledTerms/Handedness",
             "https://openminds.ebrains.eu/controlledTerms/Organ",
             "https://openminds.ebrains.eu/controlledTerms/Phenotype",
             "https://openminds.ebrains.eu/controlledTerms/Species",
@@ -1715,6 +1732,13 @@
             "core/schemas/v3/products/model.schema.tpl.json",
             "core/schemas/v3/research/protocol.schema.tpl.json",
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
+        ]
+    },
+    "suggestNewTerminology": {
+        "description": null,
+        "name": "Suggest new terminology",
+        "schemas": [
+            "controlledTerms/schemas/v1/termSuggestion.schema.tpl.json"
         ]
     },
     "supportChannel": {
@@ -1747,14 +1771,12 @@
     "terminology": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/Terminology",
             "https://openminds.ebrains.eu/sands/AtlasTerminology"
         ],
         "name": "Terminology",
         "sameAs": null,
         "schemas": [
-            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
-            "controlledTerms/schemas/v1/termSuggestion.schema.tpl.json"
+            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json"
         ]
     },
     "type": {
