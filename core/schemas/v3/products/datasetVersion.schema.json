@@ -432,6 +432,45 @@
             "title": "Homepage",
             "type": "string"
         },
+        "inputData": {
+            "_instruction": "Add the data that was used as input for this dataset version.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "Input data",
+            "type": "object"
+        },
         "isAlternativeVersionOf": {
             "_instruction": "Add all dataset versions that can be used alternatively to this dataset version.",
             "items": {
@@ -800,24 +839,24 @@
         }
     },
     "required": [
-        "description",
-        "releaseDate",
-        "modality",
-        "@id",
-        "digitalIdentifier",
+        "type",
         "ethicsAssessment",
-        "shortName",
-        "license",
+        "versionIdentifier",
+        "modality",
         "fullDocumentation",
+        "releaseDate",
         "custodian",
-        "author",
         "fullName",
+        "author",
         "funding",
+        "shortName",
+        "@id",
+        "license",
         "repository",
         "accessibility",
-        "versionIdentifier",
+        "description",
         "@type",
-        "type"
+        "digitalIdentifier"
     ],
     "title": "Dataset version",
     "type": "object"
