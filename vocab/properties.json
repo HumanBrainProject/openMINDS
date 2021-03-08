@@ -43,7 +43,7 @@
         ]
     },
     "addExistingTerminology": {
-        "description": null,
+        "description": "Reference to an existing terminology (distinct class to group related terms).",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Terminology"
         ],
@@ -56,8 +56,10 @@
         "description": "Mention of what deserves additional attention or notice.",
         "name": "Additional remarks",
         "schemas": [
+            "core/schemas/v3/research/subjectGroup.schema.tpl.json",
             "core/schemas/v3/research/subjectGroupState.schema.tpl.json",
             "core/schemas/v3/research/subjectState.schema.tpl.json",
+            "core/schemas/v3/research/tissueSampleCollection.schema.tpl.json",
             "core/schemas/v3/research/tissueSampleCollectionState.schema.tpl.json",
             "core/schemas/v3/research/tissueSampleState.schema.tpl.json"
         ]
@@ -146,14 +148,6 @@
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
-    "associatedFileExtension": {
-        "description": "String of characters attached as suffix to the names of files of a particular format.",
-        "name": "Associated file extension",
-        "sameAs": null,
-        "schemas": [
-            "core/schemas/v3/data/contentType.schema.tpl.json"
-        ]
-    },
     "author": {
         "description": "Creator of a literary or creative work, as well as a dataset publication.",
         "linkedTypes": [
@@ -229,13 +223,6 @@
             "core/schemas/v3/research/tissueSampleCollection.schema.tpl.json"
         ]
     },
-    "category": {
-        "deprecated": true,
-        "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
-        "name": "Category",
-        "sameAs": null,
-        "schemas": []
-    },
     "contactInformation": {
         "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
         "linkedTypes": [
@@ -308,6 +295,17 @@
             "SANDS/schemas/v1/coordinatePoint.schema.tpl.json"
         ]
     },
+    "coordinator": {
+        "description": "Legal person who organizes the collaborative work of people or groups.",
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/Organization",
+            "https://openminds.ebrains.eu/core/Person"
+        ],
+        "name": "Coordinator",
+        "schemas": [
+            "core/schemas/v3/products/project.schema.tpl.json"
+        ]
+    },
     "copyright": {
         "description": "Exclusive and assignable legal right of an originator to reproduce, publish, sell, or distribute the matter and form of a creative work for a defined time period.",
         "name": "Copyright",
@@ -355,13 +353,6 @@
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
-        ]
-    },
-    "deed": {
-        "description": "Formal legal document describing some legal transfer, bargain or contract.",
-        "name": "Deed",
-        "schemas": [
-            "core/schemas/v3/data/license.schema.tpl.json"
         ]
     },
     "defaultImage": {
@@ -611,6 +602,23 @@
             "core/schemas/v3/actors/person.schema.tpl.json"
         ]
     },
+    "feature": {
+        "description": "Structure, form, or appearance that characterizes something or someone.",
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/SoftwareFeature"
+        ],
+        "name": "Feature",
+        "schemas": [
+            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
+        ]
+    },
+    "fileExtension": {
+        "description": "String of characters attached as suffix to the names of files of a particular format.",
+        "name": "File extension",
+        "schemas": [
+            "core/schemas/v3/data/contentType.schema.tpl.json"
+        ]
+    },
     "format": {
         "description": "Method of organizing data.",
         "linkedTypes": [
@@ -662,7 +670,8 @@
     "funder": {
         "description": "Legal person that provides money for a particular purpose.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/Organization"
+            "https://openminds.ebrains.eu/core/Organization",
+            "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "Funder",
         "sameAs": null,
@@ -728,16 +737,6 @@
             "core/schemas/v3/research/subjectState.schema.tpl.json"
         ]
     },
-    "hasAlternativeVersion": {
-        "description": "Reference to an alternative form of something where the essence of the original form remains unchanged.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
-        ],
-        "name": "Has alternative version",
-        "schemas": [
-            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json"
-        ]
-    },
     "hasComponent": {
         "description": "Reference to an element of a collection.",
         "linkedTypes": [
@@ -762,16 +761,6 @@
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
-    "hasFeature": {
-        "description": "Reference to a particular structure, form, or appearance of something or someone.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/controlledTerms/SoftwareFeature"
-        ],
-        "name": "Has feature",
-        "schemas": [
-            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
-        ]
-    },
     "hasParent": {
         "description": "Reference to the source object or legal person.",
         "linkedTypes": [
@@ -782,13 +771,6 @@
         "schemas": [
             "SANDS/schemas/v1/anatomicalEntity.schema.tpl.json",
             "core/schemas/v3/actors/organization.schema.tpl.json"
-        ]
-    },
-    "hasRequirement": {
-        "description": "Something essential to the existence or occurrence of something else.",
-        "name": "Has requirement",
-        "schemas": [
-            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
     "hasResearchProducts": {
@@ -891,13 +873,6 @@
             "core/schemas/v3/miscellaneous/digitalIdentifier.schema.tpl.json"
         ]
     },
-    "ianaRef": {
-        "deprecated": true,
-        "description": null,
-        "name": "Internet Assigned Numbers Authority (IANA) reference",
-        "sameAs": null,
-        "schemas": []
-    },
     "identifier": {
         "description": "Term or code used to identify something or someone.",
         "name": "Identifier",
@@ -958,6 +933,7 @@
         ],
         "name": "Input data",
         "schemas": [
+            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json"
         ]
     },
@@ -1004,10 +980,12 @@
             "https://openminds.ebrains.eu/core/DatasetVersion",
             "https://openminds.ebrains.eu/core/MetaDataModelVersion",
             "https://openminds.ebrains.eu/core/ModelVersion",
-            "https://openminds.ebrains.eu/core/SoftwareVersion"
+            "https://openminds.ebrains.eu/core/SoftwareVersion",
+            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
         ],
         "name": "Is alternative version of",
         "schemas": [
+            "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
             "core/schemas/v3/products/datasetVersion.schema.tpl.json",
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
@@ -1107,8 +1085,7 @@
         ]
     },
     "maxValue": {
-        "deprecated": "Greatest quantity attained or allowed.",
-        "description": null,
+        "description": "Greatest quantity attained or allowed.",
         "name": "Max value",
         "sameAs": null,
         "schemas": [
@@ -1116,8 +1093,7 @@
         ]
     },
     "minValue": {
-        "deprecated": "Smallest quantity attained or allowed.",
-        "description": null,
+        "description": "Smallest quantity attained or allowed.",
         "name": "Min value",
         "sameAs": null,
         "schemas": [
@@ -1417,17 +1393,6 @@
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
-    "projectLeader": {
-        "description": "Legal person who has commanding authority or influence over a project.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/Organization",
-            "https://openminds.ebrains.eu/core/Person"
-        ],
-        "name": "Project leader",
-        "schemas": [
-            "core/schemas/v3/products/project.schema.tpl.json"
-        ]
-    },
     "protocol": {
         "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
         "linkedTypes": [
@@ -1553,6 +1518,13 @@
             "core/schemas/v3/products/datasetVersion.schema.tpl.json",
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
+            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
+        ]
+    },
+    "requirement": {
+        "description": "Something essential to the existence, occurrence or function of something else.",
+        "name": "Requirement",
+        "schemas": [
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
@@ -1865,6 +1837,13 @@
         "sameAs": null,
         "schemas": [
             "SANDS/schemas/v1/image.schema.tpl.json"
+        ]
+    },
+    "webpage": {
+        "description": "Hypertext document (block of information) found at the World Wide Web.",
+        "name": "Webpage",
+        "schemas": [
+            "core/schemas/v3/data/license.schema.tpl.json"
         ]
     },
     "weight": {
