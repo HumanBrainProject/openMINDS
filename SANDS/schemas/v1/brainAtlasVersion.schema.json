@@ -138,7 +138,13 @@
             "title": "Full name",
             "type": "string"
         },
-        "hasAlternativeVersion": {
+        "homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
+            "format": "iri",
+            "title": "Homepage",
+            "type": "string"
+        },
+        "isAlternativeVersionOf": {
             "_instruction": "Add one or several alternative versions to this brain atlas version.",
             "items": {
                 "else": {
@@ -177,15 +183,9 @@
                 }
             },
             "minItems": 1,
-            "title": "Has alternative version",
+            "title": "Is alternative version of",
             "type": "array",
             "uniqueItems": true
-        },
-        "homepage": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
-            "format": "iri",
-            "title": "Homepage",
-            "type": "string"
         },
         "isNewVersionOf": {
             "_instruction": "Add the earlier version of this brain atlas version.",
@@ -294,16 +294,16 @@
         }
     },
     "required": [
+        "shortName",
+        "annotationSet",
+        "@id",
+        "releaseDate",
         "coordinateSpace",
         "terminology",
-        "annotationSet",
-        "releaseDate",
-        "@type",
-        "versionInnovation",
-        "shortName",
         "fullName",
         "versionIdentifier",
-        "@id"
+        "versionInnovation",
+        "@type"
     ],
     "title": "Brain atlas version",
     "type": "object"
