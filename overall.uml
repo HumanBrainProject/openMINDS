@@ -1,177 +1,5 @@
 @startuml
 
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
-
-
-class AnatomicalEntityRelation {
-+criteria
-+criteriaQualityType
-+inRelationTo
-+qualitativeOverlap
-+quantitativeOverlap
-
-}
-AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
-AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
-AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
-AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class Annotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+namingTerm
-+relatedAtlasTerm
-+visualizedIn
-
-}
-Annotation -d-> "bestViewPoint" CoordinatePoint
-Annotation -d-> "criteria" ProtocolExecution
-Annotation -d-> "criteriaQualityType" CriteriaQualityType
-Annotation -d-> "inspiredBy" Image
-Annotation -d-> "laterality" Laterality
-Annotation -d-> "namingTerm" AnatomicalEntity
-Annotation -d-> "relatedAtlasTerm" AnatomicalEntity
-Annotation -d-> "visualizedIn" Image
-
-
-class Electrode {
-+electrodeContact
-+internalIdentifier
-
-}
-Electrode -d-> "electrodeContact" ElectrodeContact
-
-
-class AtlasTerminology {
-+anatomicalEntity
-+definedIn
-+fullName
-+ontologyIdentifier
-+shortName
-
-}
-AtlasTerminology -d-> "anatomicalEntity" AnatomicalEntity
-AtlasTerminology -d-> "definedIn" FileInstance
-
-
-class BrainAtlas {
-+description
-+fullName
-+hasVersion
-+homepage
-+shortName
-
-}
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-
-
-class ElectrodeArray {
-+electrodes
-+internalIdentifier
-
-}
-ElectrodeArray -d-> "electrodes" Electrode
-
-
-class CoordinateSpace {
-+anatomicalAxesOrientation
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+nativeUnit
-+ontologyIdentifier
-+axesOrigin
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CoordinateSpace -d-> "defaultImage" Image
-CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
-CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-CoordinateSpace -d-> "axesOrigin" QuantitativeValue
-
-
-class BrainAtlasVersion {
-+annotationSet
-+coordinateSpace
-+digitalIdentifier
-+fullName
-+hasAlternativeVersion
-+homepage
-+isNewVersionOf
-+ontologyIdentifier
-+releaseDate
-+shortName
-+terminology
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "annotationSet" Annotation
-BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
-BrainAtlasVersion -d-> "hasAlternativeVersion" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "terminology" AtlasTerminology
-
-
-class ElectrodeContact {
-+coordinatePoint
-+definedIn
-+internalIdentifier
-+relatedRecording
-+relatedStimulation
-+visualizedIn
-
-}
-ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
-ElectrodeContact -d-> "definedIn" FileInstance
-ElectrodeContact -d-> "relatedRecording" FileInstance
-ElectrodeContact -d-> "relatedRecording" FileBundle
-ElectrodeContact -d-> "relatedStimulation" FileInstance
-ElectrodeContact -d-> "relatedStimulation" FileBundle
-ElectrodeContact -d-> "visualizedIn" Image
-
-
-class AnatomicalEntity {
-+hasParent
-+name
-+ontologyIdentifier
-+otherAnatomicalRelation
-
-}
-AnatomicalEntity -d-> "hasParent" AnatomicalEntity
-AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
-
-
-class Image {
-+coordinateSpace
-+definedIn
-+voxelSize
-
-}
-Image -d-> "coordinateSpace" CoordinateSpace
-Image -d-> "definedIn" FileInstance
-Image -d-> "voxelSize" QuantitativeValue
-
-
 class OperatingDevice {
 +definition
 +description
@@ -542,7 +370,7 @@ FileRepository -d-> "storageSize" QuantitativeValue
 
 
 class ContentType {
-+associatedFileExtension
++fileExtension
 +description
 +relatedMediaType
 +name
@@ -560,10 +388,10 @@ class Hash {
 
 
 class License {
-+deed
 +fullName
 +legalCode
 +shortName
++webpage
 
 }
 
@@ -682,7 +510,7 @@ class Project {
 +fullName
 +hasResearchProducts
 +homepage
-+projectLeader
++coordinator
 +shortName
 
 }
@@ -694,8 +522,8 @@ Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" Software
 Project -d-> "hasResearchProducts" SoftwareVersion
-Project -d-> "projectLeader" Organization
-Project -d-> "projectLeader" Person
+Project -d-> "coordinator" Organization
+Project -d-> "coordinator" Person
 
 
 class ModelVersion {
@@ -755,8 +583,8 @@ class SoftwareVersion {
 +applicationCategory
 +device
 +hasComponent
-+hasFeature
-+hasRequirement
++feature
++requirement
 +inputFormat
 +isAlternativeVersionOf
 +isNewVersionOf
@@ -790,7 +618,7 @@ class SoftwareVersion {
 SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
 SoftwareVersion -d-> "device" OperatingDevice
 SoftwareVersion -d-> "hasComponent" SoftwareVersion
-SoftwareVersion -d-> "hasFeature" SoftwareFeature
+SoftwareVersion -d-> "feature" SoftwareFeature
 SoftwareVersion -d-> "inputFormat" ContentType
 SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
 SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
@@ -1268,6 +1096,178 @@ class ContactInformation {
 +email
 
 }
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
+
+
+class AnatomicalEntityRelation {
++criteria
++criteriaQualityType
++inRelationTo
++qualitativeOverlap
++quantitativeOverlap
+
+}
+AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
+AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
+AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
+AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
+class Annotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++namingTerm
++relatedAtlasTerm
++visualizedIn
+
+}
+Annotation -d-> "bestViewPoint" CoordinatePoint
+Annotation -d-> "criteria" ProtocolExecution
+Annotation -d-> "criteriaQualityType" CriteriaQualityType
+Annotation -d-> "inspiredBy" Image
+Annotation -d-> "laterality" Laterality
+Annotation -d-> "namingTerm" AnatomicalEntity
+Annotation -d-> "relatedAtlasTerm" AnatomicalEntity
+Annotation -d-> "visualizedIn" Image
+
+
+class Electrode {
++electrodeContact
++internalIdentifier
+
+}
+Electrode -d-> "electrodeContact" ElectrodeContact
+
+
+class AtlasTerminology {
++anatomicalEntity
++definedIn
++fullName
++ontologyIdentifier
++shortName
+
+}
+AtlasTerminology -d-> "anatomicalEntity" AnatomicalEntity
+AtlasTerminology -d-> "definedIn" FileInstance
+
+
+class BrainAtlas {
++description
++fullName
++hasVersion
++homepage
++shortName
+
+}
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+
+
+class ElectrodeArray {
++electrodes
++internalIdentifier
+
+}
+ElectrodeArray -d-> "electrodes" Electrode
+
+
+class CoordinateSpace {
++anatomicalAxesOrientation
++defaultImage
++digitalIdentifier
++fullName
++homepage
++nativeUnit
++ontologyIdentifier
++axesOrigin
++releaseDate
++shortName
++versionIdentifier
+
+}
+CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CoordinateSpace -d-> "defaultImage" Image
+CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
+CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+CoordinateSpace -d-> "axesOrigin" QuantitativeValue
+
+
+class BrainAtlasVersion {
++annotationSet
++coordinateSpace
++digitalIdentifier
++fullName
++hasAlternativeVersion
++homepage
++isNewVersionOf
++ontologyIdentifier
++releaseDate
++shortName
++terminology
++versionIdentifier
++versionInnovation
+
+}
+BrainAtlasVersion -d-> "annotationSet" Annotation
+BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
+BrainAtlasVersion -d-> "hasAlternativeVersion" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "terminology" AtlasTerminology
+
+
+class ElectrodeContact {
++coordinatePoint
++definedIn
++internalIdentifier
++relatedRecording
++relatedStimulation
++visualizedIn
+
+}
+ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
+ElectrodeContact -d-> "definedIn" FileInstance
+ElectrodeContact -d-> "relatedRecording" FileInstance
+ElectrodeContact -d-> "relatedRecording" FileBundle
+ElectrodeContact -d-> "relatedStimulation" FileInstance
+ElectrodeContact -d-> "relatedStimulation" FileBundle
+ElectrodeContact -d-> "visualizedIn" Image
+
+
+class AnatomicalEntity {
++hasParent
++name
++ontologyIdentifier
++otherAnatomicalRelation
+
+}
+AnatomicalEntity -d-> "hasParent" AnatomicalEntity
+AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
+
+
+class Image {
++coordinateSpace
++definedIn
++voxelSize
+
+}
+Image -d-> "coordinateSpace" CoordinateSpace
+Image -d-> "definedIn" FileInstance
+Image -d-> "voxelSize" QuantitativeValue
 
 
 @enduml

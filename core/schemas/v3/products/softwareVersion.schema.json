@@ -342,6 +342,49 @@
             "title": "Digital identifier",
             "type": "object"
         },
+        "feature": {
+            "_instruction": "Add all distinguishing characteristics of this software version (e.g. performance, portability, or functionality).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/SoftwareFeature"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Feature",
+            "type": "array",
+            "uniqueItems": true
+        },
         "fullDocumentation": {
             "_instruction": "Add the globally unique and persistent digital identifier of a full documentation of this research product version.",
             "else": {
@@ -471,54 +514,6 @@
             "title": "Has component",
             "type": "array",
             "uniqueItems": true
-        },
-        "hasFeature": {
-            "_instruction": "Add all features of this software version.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/SoftwareFeature"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Has feature",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "hasRequirement": {
-            "_instruction": "Enter all requirements of this software version.",
-            "title": "Has requirement",
-            "type": "string"
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
@@ -995,6 +990,11 @@
             "title": "Repository",
             "type": "object"
         },
+        "requirement": {
+            "_instruction": "Enter all requirements of this software version.",
+            "title": "Requirement",
+            "type": "string"
+        },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product version (max. 30 characters, no space).",
             "maxLength": 30,
@@ -1028,28 +1028,28 @@
     },
     "required": [
         "fullName",
-        "funding",
-        "accessibility",
-        "developer",
-        "@type",
-        "language",
-        "programmingLanguage",
-        "releaseDate",
-        "operatingSystem",
-        "inputFormat",
         "shortName",
-        "license",
+        "@type",
+        "releaseDate",
+        "@id",
+        "versionIdentifier",
+        "digitalIdentifier",
+        "developer",
+        "requirement",
+        "outputFormat",
+        "accessibility",
+        "device",
+        "operatingSystem",
         "repository",
         "description",
-        "hasFeature",
-        "device",
-        "outputFormat",
-        "versionIdentifier",
-        "@id",
-        "fullDocumentation",
-        "hasRequirement",
         "applicationCategory",
-        "digitalIdentifier"
+        "funding",
+        "language",
+        "programmingLanguage",
+        "inputFormat",
+        "license",
+        "fullDocumentation",
+        "feature"
     ],
     "title": "Software version",
     "type": "object"

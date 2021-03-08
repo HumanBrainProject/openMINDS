@@ -12,6 +12,50 @@
             "const": "https://openminds.ebrains.eu/core/Project",
             "type": "string"
         },
+        "coordinator": {
+            "_instruction": "Add one or several project coordinators (person or organization).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Coordinator",
+            "type": "array",
+            "uniqueItems": true
+        },
         "description": {
             "_instruction": "Enter a description of this project.",
             "title": "Description",
@@ -78,50 +122,6 @@
             "title": "Homepage",
             "type": "string"
         },
-        "projectLeader": {
-            "_instruction": "Add one or several project leader (person or organization).",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Organization",
-                                "https://openminds.ebrains.eu/core/Person"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Project leader",
-            "type": "array",
-            "uniqueItems": true
-        },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this project.",
             "title": "Short name",
@@ -129,12 +129,12 @@
         }
     },
     "required": [
-        "hasResearchProducts",
-        "@id",
-        "shortName",
         "fullName",
+        "shortName",
         "description",
-        "@type"
+        "@type",
+        "hasResearchProducts",
+        "@id"
     ],
     "title": "Project",
     "type": "object"
