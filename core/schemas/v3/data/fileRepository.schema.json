@@ -59,41 +59,24 @@
             "type": "object"
         },
         "hash": {
-            "_instruction": "Add the hash that was generated for this file repository.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
+            "_type": "https://openminds.ebrains.eu/core/Hash",
+            "description": "Structured information on a hash.",
+            "properties": {
+                "algorithm": {
+                    "_instruction": "Enter the algorithm used to generate this hash.",
+                    "title": "Algorithm",
+                    "type": "string"
                 },
-                "required": [
-                    "@id"
-                ]
+                "digest": {
+                    "_instruction": "Enter the digest of this hash.",
+                    "title": "Digest",
+                    "type": "string"
+                }
             },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/Hash"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
+            "required": [
+                "algorithm",
+                "digest"
+            ],
             "title": "Hash",
             "type": "object"
         },
@@ -183,11 +166,11 @@
         }
     },
     "required": [
-        "IRI",
-        "@id",
+        "@type",
         "hostedBy",
+        "@id",
         "name",
-        "@type"
+        "IRI"
     ],
     "title": "File repository",
     "type": "object"
