@@ -14,6 +14,7 @@
         },
         "annotationSet": {
             "_instruction": "Add all annotations that belong to this brain atlas version.",
+            "description": "Collection of notes or markings, each added by way of comment or explanation.",
             "items": {
                 "else": {
                     "properties": {
@@ -57,6 +58,7 @@
         },
         "coordinateSpace": {
             "_instruction": "Add the coordinate space in which this brain atlas version exists in.",
+            "description": "Two or three dimensional geometric setting.",
             "else": {
                 "properties": {
                     "@id": {
@@ -96,6 +98,7 @@
         },
         "digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas version.",
+            "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
                     "@id": {
@@ -135,17 +138,20 @@
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name for this brain atlas version.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
+            "description": "Main website of something or someone.",
             "format": "iri",
             "title": "Homepage",
             "type": "string"
         },
         "isAlternativeVersionOf": {
             "_instruction": "Add one or several alternative versions to this brain atlas version.",
+            "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
                     "properties": {
@@ -189,6 +195,7 @@
         },
         "isNewVersionOf": {
             "_instruction": "Add the earlier version of this brain atlas version.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -228,23 +235,27 @@
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the identifier (IRI) of the related ontological term matching this brain atlas version.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
             "title": "Ontology identifier",
             "type": "string"
         },
         "releaseDate": {
             "_instruction": "Enter the date of first publication of this brain atlas version.",
+            "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
             "format": "date",
             "title": "Release date",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a descriptive short name for this brain atlas version.",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "Short name",
             "type": "string"
         },
         "terminology": {
             "_instruction": "Add the terminology used for this brain atlas version.",
+            "description": "Nomenclature for a particular field of study.",
             "else": {
                 "properties": {
                     "@id": {
@@ -284,26 +295,28 @@
         },
         "versionIdentifier": {
             "_instruction": "Enter the version identifier of this brain atlas version.",
+            "description": "Term or code used to identify the version of something.",
             "title": "Version identifier",
             "type": "string"
         },
         "versionInnovation": {
             "_instruction": "Enter a short description of the novelties/peculiarities of this brain atlas version.",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
             "title": "Version innovation",
             "type": "string"
         }
     },
     "required": [
-        "shortName",
-        "versionInnovation",
-        "coordinateSpace",
-        "versionIdentifier",
-        "annotationSet",
-        "@type",
-        "terminology",
         "releaseDate",
+        "fullName",
         "@id",
-        "fullName"
+        "versionIdentifier",
+        "@type",
+        "versionInnovation",
+        "shortName",
+        "annotationSet",
+        "terminology",
+        "coordinateSpace"
     ],
     "title": "Brain atlas version",
     "type": "object"

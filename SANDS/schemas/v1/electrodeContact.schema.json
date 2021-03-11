@@ -14,6 +14,7 @@
         },
         "coordinatePoint": {
             "_instruction": "Add the central coordinate of this electrode contact.",
+            "description": "Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,6 +54,7 @@
         },
         "definedIn": {
             "_instruction": "Add one or several files in which the electrode contact is defined in.",
+            "description": "Reference to a file instance in which something is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -96,11 +98,13 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
         "relatedRecording": {
             "_instruction": "Add one or several files in which the recordings from this electrode contact were stored.",
+            "description": "Reference to the written, stored evidence of something.",
             "items": {
                 "else": {
                     "properties": {
@@ -145,6 +149,7 @@
         },
         "relatedStimulation": {
             "_instruction": "Add one or several files in which the stimulations applied via this electrode contact were stored.",
+            "description": "Reference to the written, stored function used as a physiological stimulus.",
             "items": {
                 "else": {
                     "properties": {
@@ -189,6 +194,7 @@
         },
         "visualizedIn": {
             "_instruction": "Add one or several images in which the electrode contact is visualized in.",
+            "description": "Reference to an image in which something is visible.",
             "items": {
                 "else": {
                     "properties": {
@@ -232,10 +238,10 @@
         }
     },
     "required": [
-        "@type",
         "coordinatePoint",
-        "@id",
-        "internalIdentifier"
+        "internalIdentifier",
+        "@type",
+        "@id"
     ],
     "title": "Electrode contact",
     "type": "object"

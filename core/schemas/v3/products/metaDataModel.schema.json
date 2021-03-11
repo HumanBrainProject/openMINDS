@@ -13,12 +13,14 @@
         },
         "description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
             "maxLength": 2000,
             "title": "Description",
             "type": "string"
         },
         "digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this research product.",
+            "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
                     "@id": {
@@ -58,11 +60,13 @@
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
         },
         "hasComponent": {
             "_instruction": "Add one or several components (other (meta)data model) of this (meta)data model.",
+            "description": "Reference to an element of a collection.",
             "items": {
                 "else": {
                     "properties": {
@@ -106,6 +110,7 @@
         },
         "hasVersion": {
             "_instruction": "Add one or several versions of this (meta)data model.",
+            "description": "Reference to variants of an original.",
             "items": {
                 "else": {
                     "properties": {
@@ -149,24 +154,26 @@
         },
         "homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product.",
+            "description": "Main website of something or someone.",
             "format": "iri",
             "title": "Homepage",
             "type": "string"
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
             "maxLength": 30,
             "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "shortName",
         "digitalIdentifier",
-        "description",
-        "@type",
+        "fullName",
         "@id",
-        "fullName"
+        "@type",
+        "shortName",
+        "description"
     ],
     "title": "Meta data model",
     "type": "object"

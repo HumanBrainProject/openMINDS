@@ -14,16 +14,19 @@
         },
         "howToCite": {
             "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "description": "Preferred format for citing a particular object or legal person.",
             "title": "How to cite",
             "type": "string"
         },
         "identifier": {
             "_instruction": "Enter the digital identifier of a resource.",
+            "description": "Term or code used to identify something or someone.",
             "title": "Identifier",
             "type": "string"
         },
         "identifierSchema": {
             "_instruction": "Add the used schema of this digital identifier.",
+            "description": "Standard for creating a particular identifier for something or someone.",
             "else": {
                 "properties": {
                     "@id": {
@@ -63,10 +66,10 @@
         }
     },
     "required": [
-        "@type",
         "identifier",
-        "identifierSchema",
-        "@id"
+        "@id",
+        "@type",
+        "identifierSchema"
     ],
     "title": "Digital identifier",
     "type": "object"

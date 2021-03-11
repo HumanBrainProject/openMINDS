@@ -14,6 +14,7 @@
         },
         "bestViewPoint": {
             "_instruction": "Add the coordinate point identifying the best view of this annotation in space.",
+            "description": "Coordinate point from which you get the best view of something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,6 +54,7 @@
         },
         "criteria": {
             "_instruction": "Add the protocol execution defining the criteria that were applied to produce this annotation.",
+            "description": "Aspects or standards on which a judgement or decision is based.",
             "else": {
                 "properties": {
                     "@id": {
@@ -92,6 +94,7 @@
         },
         "criteriaQualityType": {
             "_instruction": "Add the quality type of the stated criteria used to define this annotation.",
+            "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
             "else": {
                 "properties": {
                     "@id": {
@@ -131,6 +134,7 @@
         },
         "displayColor": {
             "_instruction": "Enter the preferred display color (RGB) for this annotation.",
+            "description": "Preferred coloring.",
             "items": {
                 "maximum": 255,
                 "minimum": 0,
@@ -143,6 +147,7 @@
         },
         "inspiredBy": {
             "_instruction": "Add one or several (source) images that inspired the definition of this annotation.",
+            "description": "Reference to an inspiring element.",
             "items": {
                 "else": {
                     "properties": {
@@ -186,11 +191,13 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
         "laterality": {
             "_instruction": "Add one or both sides of the body or bilateral organ that this annotation is defined in.",
+            "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
                     "properties": {
@@ -235,6 +242,7 @@
         },
         "namingTerm": {
             "_instruction": "Add one or several anatomical entities that name this annotation.",
+            "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
             "items": {
                 "else": {
                     "properties": {
@@ -278,6 +286,7 @@
         },
         "relatedAtlasTerm": {
             "_instruction": "Add one or several anatomical entities of registered brain atlas annotations to which this annotation is related to.",
+            "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
             "items": {
                 "else": {
                     "properties": {
@@ -321,6 +330,7 @@
         },
         "visualizedIn": {
             "_instruction": "Add the image in which this annotation is visualized in.",
+            "description": "Reference to an image in which something is visible.",
             "else": {
                 "properties": {
                     "@id": {
@@ -360,12 +370,12 @@
         }
     },
     "required": [
-        "laterality",
-        "criteriaQualityType",
+        "namingTerm",
+        "@id",
         "internalIdentifier",
         "@type",
-        "namingTerm",
-        "@id"
+        "criteriaQualityType",
+        "laterality"
     ],
     "title": "Annotation",
     "type": "object"

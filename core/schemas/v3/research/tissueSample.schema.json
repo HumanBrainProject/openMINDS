@@ -14,6 +14,7 @@
         },
         "biologicalSex": {
             "_instruction": "Add the biological sex of this specimen.",
+            "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,6 +54,7 @@
         },
         "genotype": {
             "_instruction": "Add the genotype of this specimen.",
+            "description": "Genetic constitution of an individual or group.",
             "else": {
                 "properties": {
                     "@id": {
@@ -92,11 +94,13 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
+            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
         "isPartOf": {
             "_instruction": "Add all tissue sample collections of which this tissue sample is part of.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -140,6 +144,7 @@
         },
         "laterality": {
             "_instruction": "Add one or both hemisphere sides from which this tissue sample originates from.",
+            "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
                     "properties": {
@@ -184,6 +189,7 @@
         },
         "origin": {
             "_instruction": "Add the biogical origin (organ or cell type) of this tissue sample.",
+            "description": "Source at which something begins or rises, or from which something derives.",
             "else": {
                 "properties": {
                     "@id": {
@@ -224,6 +230,7 @@
         },
         "phenotype": {
             "_instruction": "Add the phenotype of this specimen.",
+            "description": "Physical expression of one or more genes of an organism.",
             "else": {
                 "properties": {
                     "@id": {
@@ -263,6 +270,7 @@
         },
         "species": {
             "_instruction": "Add the species of this specimen.",
+            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
             "else": {
                 "properties": {
                     "@id": {
@@ -302,6 +310,7 @@
         },
         "strain": {
             "_instruction": "Add the strain of this specimen.",
+            "description": "Group of presumed common ancestry with physiological but usually not morphological distinctions.",
             "else": {
                 "properties": {
                     "@id": {
@@ -341,6 +350,7 @@
         },
         "studiedState": {
             "_instruction": "Add all states in which this tissue sample was studied.",
+            "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
             "items": {
                 "else": {
                     "properties": {
@@ -384,6 +394,7 @@
         },
         "type": {
             "_instruction": "Add the type of this tissue sample.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
             "else": {
                 "properties": {
                     "@id": {
@@ -423,13 +434,13 @@
         }
     },
     "required": [
-        "type",
-        "origin",
         "species",
-        "internalIdentifier",
-        "@type",
+        "type",
         "studiedState",
+        "internalIdentifier",
         "@id",
+        "origin",
+        "@type",
         "biologicalSex"
     ],
     "title": "Tissue sample",

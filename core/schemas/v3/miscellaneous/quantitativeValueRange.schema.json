@@ -13,16 +13,19 @@
         },
         "maxValue": {
             "_instruction": "Add the maximum value measured for this range.",
+            "description": "Greatest quantity attained or allowed.",
             "title": "Max value",
             "type": "number"
         },
         "minValue": {
             "_instruction": "Add the minimum value measured for this range.",
+            "description": "Smallest quantity attained or allowed.",
             "title": "Min value",
             "type": "number"
         },
         "unit": {
             "_instruction": "Add the unit of measurement of this quantitative value range.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -62,10 +65,10 @@
         }
     },
     "required": [
-        "maxValue",
-        "minValue",
+        "@id",
         "@type",
-        "@id"
+        "minValue",
+        "maxValue"
     ],
     "title": "Quantitative value range",
     "type": "object"
