@@ -255,6 +255,13 @@
             "core/schemas/v3/data/fileInstance.schema.tpl.json"
         ]
     },
+    "context": {
+        "description": null,
+        "name": "Context",
+        "schemas": [
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
+        ]
+    },
     "contributionType": {
         "description": null,
         "linkedTypes": [
@@ -505,7 +512,6 @@
             "core/schemas/v3/products/project.schema.tpl.json",
             "core/schemas/v3/products/software.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json",
             "core/schemas/v3/research/protocol.schema.tpl.json",
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
         ]
@@ -1216,8 +1222,9 @@
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
             "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json",
-            "core/schemas/v3/research/protocol.schema.tpl.json"
+            "core/schemas/v3/research/numericalParameter.schema.tpl.json",
+            "core/schemas/v3/research/protocol.schema.tpl.json",
+            "core/schemas/v3/research/stringParameter.schema.tpl.json"
         ]
     },
     "namingTerm": {
@@ -1382,15 +1389,25 @@
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
-    "parameterSetting": {
+    "parameter": {
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/ParameterSetting"
-        ],
-        "name": "Parameter setting",
+        "name": "Parameter",
+        "schemas": [
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
+        ]
+    },
+    "parameterSet": {
+        "description": null,
+        "name": "Parameter set",
         "schemas": [
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
         ]
+    },
+    "parameterSetting": {
+        "deprecated": true,
+        "description": null,
+        "name": "Parameter setting",
+        "schemas": []
     },
     "pathology": {
         "description": null,
@@ -1566,7 +1583,7 @@
         ],
         "name": "Relevant for",
         "schemas": [
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
         ]
     },
     "repository": {
@@ -1844,8 +1861,7 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json",
-            "core/schemas/v3/miscellaneous/quantitativeValueRange.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/miscellaneous/quantitativeValueRange.schema.tpl.json"
         ]
     },
     "value": {
@@ -1854,7 +1870,8 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/research/numericalParameter.schema.tpl.json",
+            "core/schemas/v3/research/stringParameter.schema.tpl.json"
         ]
     },
     "versionIdentifier": {
