@@ -241,6 +241,13 @@
             "core/schemas/v3/data/fileInstance.schema.tpl.json"
         ]
     },
+    "context": {
+        "description": null,
+        "name": "Context",
+        "schemas": [
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
+        ]
+    },
     "contributionType": {
         "description": "Distinct class of what was given or supplied as a part or share.",
         "linkedTypes": [
@@ -479,7 +486,6 @@
             "core/schemas/v3/products/project.schema.tpl.json",
             "core/schemas/v3/products/software.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json",
             "core/schemas/v3/research/protocol.schema.tpl.json",
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
         ]
@@ -620,7 +626,7 @@
         ]
     },
     "format": {
-        "description": "Method of organizing data.",
+        "description": "Method of digitally organizing and structuring data or information.",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/ContentType"
         ],
@@ -975,7 +981,7 @@
         ]
     },
     "isAlternativeVersionOf": {
-        "description": "Reference to an original form which essence was unchanged, but presented in an alternative form.",
+        "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DatasetVersion",
             "https://openminds.ebrains.eu/core/MetaDataModelVersion",
@@ -1050,7 +1056,7 @@
         ]
     },
     "laterality": {
-        "description": "Dominance in function or use of one of a pair of lateral homologous parts of the body.",
+        "description": "Differentiation between a pair of lateral homologous parts of the body.",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Laterality"
         ],
@@ -1160,8 +1166,9 @@
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
             "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json",
-            "core/schemas/v3/research/protocol.schema.tpl.json"
+            "core/schemas/v3/research/numericalParameter.schema.tpl.json",
+            "core/schemas/v3/research/protocol.schema.tpl.json",
+            "core/schemas/v3/research/stringParameter.schema.tpl.json"
         ]
     },
     "namingTerm": {
@@ -1326,12 +1333,16 @@
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
-    "parameterSetting": {
-        "description": "Manner, position, or direction in which physical properties are set to determine the function, characteristics or behavior of something.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/ParameterSetting"
-        ],
-        "name": "Parameter setting",
+    "parameter": {
+        "description": "Digital or physical property determining a particular function, characteristic or behavior of something.",
+        "name": "Parameter",
+        "schemas": [
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
+        ]
+    },
+    "parameterSet": {
+        "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
+        "name": "Parameter set",
         "schemas": [
             "core/schemas/v3/research/protocolExecution.schema.tpl.json"
         ]
@@ -1504,7 +1515,7 @@
         ],
         "name": "Relevant for",
         "schemas": [
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/research/parameterSet.schema.tpl.json"
         ]
     },
     "repository": {
@@ -1781,8 +1792,7 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json",
-            "core/schemas/v3/miscellaneous/quantitativeValueRange.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/miscellaneous/quantitativeValueRange.schema.tpl.json"
         ]
     },
     "value": {
@@ -1791,7 +1801,8 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/miscellaneous/quantitativeValue.schema.tpl.json",
-            "core/schemas/v3/research/parameterSetting.schema.tpl.json"
+            "core/schemas/v3/research/numericalParameter.schema.tpl.json",
+            "core/schemas/v3/research/stringParameter.schema.tpl.json"
         ]
     },
     "versionIdentifier": {
