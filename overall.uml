@@ -985,19 +985,6 @@ MetaDataModel -d-> "hasVersion" MetaDataModelVersion
 MetaDataModel -d-> "digitalIdentifier" DigitalIdentifier
 
 
-class ParameterSetting {
-+description
-+name
-+relevantFor
-+value
-+unit
-
-}
-ParameterSetting -d-> "relevantFor" BehavioralTask
-ParameterSetting -d-> "relevantFor" Technique
-ParameterSetting -d-> "unit" UnitOfMeasurement
-
-
 class TissueSampleCollectionState {
 +additionalRemarks
 +age
@@ -1033,6 +1020,18 @@ Subject -d-> "species" Species
 Subject -d-> "strain" Strain
 
 
+class ParameterSet {
++context
++relevantFor
++parameter
+
+}
+ParameterSet -d-> "relevantFor" BehavioralTask
+ParameterSet -d-> "relevantFor" Technique
+ParameterSet -d-> "parameter" NumericalParameter
+ParameterSet -d-> "parameter" StringParameter
+
+
 class TissueSample {
 +isPartOf
 +laterality
@@ -1060,11 +1059,20 @@ TissueSample -d-> "species" Species
 TissueSample -d-> "strain" Strain
 
 
+class NumericalParameter {
++name
++value
+
+}
+NumericalParameter -d-> "value" QuantitativeValue
+NumericalParameter -d-> "value" QuantitativeValueRange
+
+
 class ProtocolExecution {
 +description
 +input
 +output
-+parameterSetting
++parameterSet
 +preparationType
 +protocol
 +semanticallyAnchoredTo
@@ -1083,7 +1091,7 @@ ProtocolExecution -d-> "output" SubjectGroupState
 ProtocolExecution -d-> "output" SubjectState
 ProtocolExecution -d-> "output" TissueSampleCollectionState
 ProtocolExecution -d-> "output" TissueSampleState
-ProtocolExecution -d-> "parameterSetting" ParameterSetting
+ProtocolExecution -d-> "parameterSet" ParameterSet
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "semanticallyAnchoredTo" AnatomicalEntity
@@ -1140,6 +1148,13 @@ SubjectState -d-> "pathology" Disease
 SubjectState -d-> "pathology" DiseaseModel
 SubjectState -d-> "weight" QuantitativeValue
 SubjectState -d-> "weight" QuantitativeValueRange
+
+
+class StringParameter {
++name
++value
+
+}
 
 
 class SubjectGroup {

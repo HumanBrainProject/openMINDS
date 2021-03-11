@@ -113,48 +113,143 @@
             "type": "array",
             "uniqueItems": true
         },
-        "parameterSetting": {
-            "_instruction": "Add all important parameter settings defining this protocol execution.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
+        "parameterSet": {
+            "_type": "https://openminds.ebrains.eu/core/ParameterSet",
+            "properties": {
+                "context": {
+                    "_instruction": "Enter the common context for the parameters grouped in this set.",
+                    "title": "Context",
+                    "type": "string"
                 },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/ParameterSetting"
+                "parameter": {
+                    "anyOf": [
+                        {
+                            "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
+                            "properties": {
+                                "name": {
+                                    "_instruction": "Enter a descriptive name for this numerical parameter.",
+                                    "title": "Name",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "anyOf": [
+                                        {
+                                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                            "description": "Structured information on a quanitative value.",
+                                            "properties": {
+                                                "typeOfUncertainty": {
+                                                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                                    ],
+                                                    "title": "Type of uncertainty"
+                                                },
+                                                "uncertainty": {
+                                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                                    "items": {
+                                                        "type": "number"
+                                                    },
+                                                    "maxItems": 2,
+                                                    "minItems": 2,
+                                                    "title": "Uncertainty",
+                                                    "type": "array"
+                                                },
+                                                "unit": {
+                                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                                    ],
+                                                    "title": "Unit"
+                                                },
+                                                "value": {
+                                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                                    "title": "Value",
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "value"
+                                            ],
+                                            "title": "Quantitative value",
+                                            "type": "object"
+                                        },
+                                        {
+                                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                            "properties": {
+                                                "maxValue": {
+                                                    "_instruction": "Add the maximum value measured for this range.",
+                                                    "title": "Max value",
+                                                    "type": "number"
+                                                },
+                                                "minValue": {
+                                                    "_instruction": "Add the minimum value measured for this range.",
+                                                    "title": "Min value",
+                                                    "type": "number"
+                                                },
+                                                "unit": {
+                                                    "_instruction": "Add the unit of measurement of this quantitative value range.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                                    ],
+                                                    "title": "Unit"
+                                                }
+                                            },
+                                            "required": [
+                                                "maxValue",
+                                                "minValue"
+                                            ],
+                                            "title": "Quantitative value range",
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "value"
                             ],
-                            "format": "iri",
-                            "type": "string"
+                            "title": "Numerical parameter",
+                            "type": "object"
+                        },
+                        {
+                            "_type": "https://openminds.ebrains.eu/core/StringParameter",
+                            "properties": {
+                                "name": {
+                                    "_instruction": "Enter a descriptive name for this parameter.",
+                                    "title": "Name",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "_instruction": "Enter a text value for this parameter.",
+                                    "title": "Value",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "value"
+                            ],
+                            "title": "String parameter",
+                            "type": "object"
                         }
-                    },
-                    "required": [
-                        "@id"
                     ]
+                },
+                "relevantFor": {
+                    "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+                        "https://openminds.ebrains.eu/controlledTerms/Technique"
+                    ],
+                    "title": "Relevant for"
                 }
             },
-            "minItems": 1,
-            "title": "Parameter setting",
-            "type": "array",
-            "uniqueItems": true
+            "required": [
+                "context",
+                "relevantFor",
+                "parameter"
+            ],
+            "title": "Parameter set",
+            "type": "object"
         },
         "preparationType": {
             "_instruction": "Add the initial preparation type for this protocol execution.",
@@ -332,11 +427,11 @@
         }
     },
     "required": [
-        "protocol",
-        "output",
         "@type",
-        "input",
-        "@id"
+        "output",
+        "protocol",
+        "@id",
+        "input"
     ],
     "title": "Protocol execution",
     "type": "object"
