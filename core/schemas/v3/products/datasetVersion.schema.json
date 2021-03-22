@@ -796,6 +796,52 @@
             "title": "Short name",
             "type": "string"
         },
+        "studiedSpecimen": {
+            "_instruction": "Add one or several specimen (subjects and/or tissue samples) or specimen sets (subject groups and/or tissue sample collections) that were studied in this dataset.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Subject",
+                                "https://openminds.ebrains.eu/core/SubjectGroup",
+                                "https://openminds.ebrains.eu/core/TissueSample",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollection"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Studied specimen",
+            "type": "array",
+            "uniqueItems": true
+        },
         "supportChannel": {
             "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
             "description": "Way of communication used to interact with users or customers.",
@@ -869,24 +915,24 @@
         }
     },
     "required": [
-        "ethicsAssessment",
+        "description",
         "funding",
-        "digitalIdentifier",
-        "fullDocumentation",
-        "releaseDate",
-        "type",
-        "repository",
-        "custodian",
-        "accessibility",
         "fullName",
-        "@id",
-        "versionIdentifier",
+        "repository",
         "@type",
         "shortName",
+        "type",
+        "fullDocumentation",
+        "versionIdentifier",
+        "accessibility",
+        "@id",
+        "ethicsAssessment",
         "modality",
-        "license",
+        "digitalIdentifier",
+        "custodian",
+        "releaseDate",
         "author",
-        "description"
+        "license"
     ],
     "title": "Dataset version",
     "type": "object"

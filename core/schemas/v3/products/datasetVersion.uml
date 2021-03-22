@@ -7,6 +7,7 @@ class DatasetVersion {
 +isNewVersionOf
 +license
 +modality
++studiedSpecimen
 +type
 +accessibility
 +author
@@ -37,6 +38,10 @@ DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "license" License
 DatasetVersion -d-> "modality" Modality
+DatasetVersion -d-> "studiedSpecimen" Subject
+DatasetVersion -d-> "studiedSpecimen" SubjectGroup
+DatasetVersion -d-> "studiedSpecimen" TissueSample
+DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "type" DatasetType
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "author" Organization
