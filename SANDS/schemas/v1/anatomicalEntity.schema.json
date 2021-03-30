@@ -66,44 +66,11 @@
             "type": "string"
         },
         "otherAnatomicalRelation": {
+            "_embeddedType": [
+                "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation"
+            ],
             "_instruction": "Add one or several relations of this anatomical entity to other anatomical entities that are used elsewhere to describe (roughly) the same anatomical location.",
             "description": "Reference to a related anatomical structure.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
             "minItems": 1,
             "title": "Other anatomical relation",
             "type": "array",
@@ -111,9 +78,9 @@
         }
     },
     "required": [
-        "@id",
+        "name",
         "@type",
-        "name"
+        "@id"
     ],
     "title": "Anatomical entity",
     "type": "object"
