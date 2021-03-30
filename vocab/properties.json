@@ -154,10 +154,8 @@
         ],
         "name": "Author",
         "schemas": [
-            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
-            "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
-            "core/schemas/v3/products/modelVersion.schema.tpl.json",
-            "core/schemas/v3/products/softwareVersion.schema.tpl.json"
+            "core/schemas/v3/products/dataset.schema.tpl.json",
+            "core/schemas/v3/products/datasetVersion.schema.tpl.json"
         ]
     },
     "awardNumber": {
@@ -489,9 +487,11 @@
         ],
         "name": "Developer",
         "schemas": [
-            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
+            "core/schemas/v3/products/metaDataModel.schema.tpl.json",
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
+            "core/schemas/v3/products/model.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
+            "core/schemas/v3/products/software.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
@@ -752,24 +752,10 @@
     "hasComponent": {
         "description": "Reference to an element of a collection.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/Dataset",
-            "https://openminds.ebrains.eu/core/DatasetVersion",
-            "https://openminds.ebrains.eu/core/MetaDataModel",
-            "https://openminds.ebrains.eu/core/MetaDataModelVersion",
-            "https://openminds.ebrains.eu/core/Model",
-            "https://openminds.ebrains.eu/core/ModelVersion",
-            "https://openminds.ebrains.eu/core/Software",
             "https://openminds.ebrains.eu/core/SoftwareVersion"
         ],
         "name": "Has component",
         "schemas": [
-            "core/schemas/v3/products/dataset.schema.tpl.json",
-            "core/schemas/v3/products/datasetVersion.schema.tpl.json",
-            "core/schemas/v3/products/metaDataModel.schema.tpl.json",
-            "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
-            "core/schemas/v3/products/model.schema.tpl.json",
-            "core/schemas/v3/products/modelVersion.schema.tpl.json",
-            "core/schemas/v3/products/software.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
@@ -1548,6 +1534,16 @@
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json",
             "core/schemas/v3/products/softwareVersion.schema.tpl.json"
+        ]
+    },
+    "repositoryType": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
+        ],
+        "name": "Repository type",
+        "schemas": [
+            "core/schemas/v3/data/fileRepository.schema.tpl.json"
         ]
     },
     "requirement": {
