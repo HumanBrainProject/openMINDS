@@ -31,13 +31,13 @@ class ModelVersion {
 }
 ModelVersion -d-> "format" ContentType
 ModelVersion -d-> "hasComponent" ModelVersion
-ModelVersion -d-> "inputData" DigitalIdentifier
+ModelVersion -d-> "inputData" DOI
 ModelVersion -d-> "inputData" File
 ModelVersion -d-> "inputData" FileBundle
 ModelVersion -d-> "isAlternativeVersionOf" ModelVersion
 ModelVersion -d-> "isNewVersionOf" ModelVersion
 ModelVersion -d-> "license" License
-ModelVersion -d-> "outputData" DigitalIdentifier
+ModelVersion -d-> "outputData" DOI
 ModelVersion -d-> "outputData" File
 ModelVersion -d-> "outputData" FileBundle
 ModelVersion -d-> "accessibility" ProductAccessibility
@@ -48,12 +48,14 @@ ModelVersion -d-> "custodian" Organization
 ModelVersion -d-> "custodian" Person
 ModelVersion -d-> "developer" Organization
 ModelVersion -d-> "developer" Person
-ModelVersion -d-> "digitalIdentifier" DigitalIdentifier
-ModelVersion -d-> "fullDocumentation" DigitalIdentifier
+ModelVersion -d-> "digitalIdentifier" DOI
+ModelVersion -d-> "digitalIdentifier" SWHID
+ModelVersion -d-> "fullDocumentation" DOI
 ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "funding" Funding
 ModelVersion -d-> "otherContribution" Contribution
-ModelVersion -d-> "relatedPublication" DigitalIdentifier
+ModelVersion -d-> "relatedPublication" DOI
+ModelVersion -d-> "relatedPublication" ISBN
 ModelVersion -d-> "repository" FileRepository
 
 @enduml

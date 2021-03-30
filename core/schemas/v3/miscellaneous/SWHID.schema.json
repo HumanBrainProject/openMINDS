@@ -1,0 +1,37 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/sWHID?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/SWHID",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/SWHID",
+            "type": "string"
+        },
+        "howToCite": {
+            "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "description": "Preferred format for citing a particular object or legal person.",
+            "title": "How to cite",
+            "type": "string"
+        },
+        "identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of the Software Heritage archive.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://archive.softwareheritage.org/swh:1:(cnt|dir|rel|rev|snp):[0-9a-f]{40}(;(origin|visit|anchor|path|lines)=[^ \t\r\n\f]+)*$",
+            "title": "Identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "title": "Swhid",
+    "type": "object"
+}

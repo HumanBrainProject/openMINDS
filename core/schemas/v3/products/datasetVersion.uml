@@ -33,7 +33,7 @@ class DatasetVersion {
 }
 DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
 DatasetVersion -d-> "hasComponent" DatasetVersion
-DatasetVersion -d-> "inputData" DigitalIdentifier
+DatasetVersion -d-> "inputData" DOI
 DatasetVersion -d-> "inputData" File
 DatasetVersion -d-> "inputData" FileBundle
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
@@ -53,12 +53,14 @@ DatasetVersion -d-> "custodian" Organization
 DatasetVersion -d-> "custodian" Person
 DatasetVersion -d-> "developer" Organization
 DatasetVersion -d-> "developer" Person
-DatasetVersion -d-> "digitalIdentifier" DigitalIdentifier
-DatasetVersion -d-> "fullDocumentation" DigitalIdentifier
+DatasetVersion -d-> "digitalIdentifier" DOI
+DatasetVersion -d-> "digitalIdentifier" SWHID
+DatasetVersion -d-> "fullDocumentation" DOI
 DatasetVersion -d-> "fullDocumentation" File
 DatasetVersion -d-> "funding" Funding
 DatasetVersion -d-> "otherContribution" Contribution
-DatasetVersion -d-> "relatedPublication" DigitalIdentifier
+DatasetVersion -d-> "relatedPublication" DOI
+DatasetVersion -d-> "relatedPublication" ISBN
 DatasetVersion -d-> "repository" FileRepository
 
 @enduml

@@ -251,7 +251,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            "https://openminds.ebrains.eu/core/DOI",
+                            "https://openminds.ebrains.eu/core/SWHID"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -291,7 +292,7 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                            "https://openminds.ebrains.eu/core/DOI",
                             "https://openminds.ebrains.eu/core/File"
                         ],
                         "format": "iri",
@@ -602,7 +603,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                                "https://openminds.ebrains.eu/core/DOI",
+                                "https://openminds.ebrains.eu/core/ISBN"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -829,21 +831,21 @@
         }
     },
     "required": [
-        "shortName",
+        "description",
+        "digitalIdentifier",
         "fullName",
-        "accessibility",
-        "license",
-        "fullDocumentation",
         "funding",
+        "fullDocumentation",
+        "accessibility",
+        "shortName",
+        "versionIdentifier",
+        "license",
+        "@id",
+        "repository",
+        "@type",
         "developer",
         "releaseDate",
-        "type",
-        "@id",
-        "versionIdentifier",
-        "description",
-        "@type",
-        "digitalIdentifier",
-        "repository"
+        "type"
     ],
     "title": "Meta data model version",
     "type": "object"

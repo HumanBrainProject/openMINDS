@@ -1,0 +1,37 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/gRIDID?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/GRIDID",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/GRIDID",
+            "type": "string"
+        },
+        "howToCite": {
+            "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "description": "Preferred format for citing a particular object or legal person.",
+            "title": "How to cite",
+            "type": "string"
+        },
+        "identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of the Global Research Identifier Database.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://grid.ac/institutes/grid.[0-9]{1,}.([a-f0-9]{1,2})$",
+            "title": "Identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "title": "Gridid",
+    "type": "object"
+}
