@@ -4,7 +4,7 @@
         "name": "IRI",
         "sameAs": null,
         "schemas": [
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json",
             "core/schemas/v3/miscellaneous/digitalIdentifierSchema.schema.tpl.json"
         ]
@@ -122,7 +122,7 @@
         ],
         "name": "Anatomical entity",
         "schemas": [
-            "SANDS/schemas/v1/atlasTerminology.schema.tpl.json"
+            "SANDS/schemas/v1/parcellationTerminology.schema.tpl.json"
         ]
     },
     "annotationSet": {
@@ -234,7 +234,7 @@
         "name": "Content",
         "sameAs": null,
         "schemas": [
-            "core/schemas/v3/data/fileInstance.schema.tpl.json"
+            "core/schemas/v3/data/file.schema.tpl.json"
         ]
     },
     "context": {
@@ -371,14 +371,14 @@
     "definedIn": {
         "description": "Reference to a file instance in which something is stored.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/FileInstance"
+            "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Defined in",
         "sameAs": null,
         "schemas": [
-            "SANDS/schemas/v1/atlasTerminology.schema.tpl.json",
             "SANDS/schemas/v1/electrodeContact.schema.tpl.json",
-            "SANDS/schemas/v1/image.schema.tpl.json"
+            "SANDS/schemas/v1/image.schema.tpl.json",
+            "SANDS/schemas/v1/parcellationTerminology.schema.tpl.json"
         ]
     },
     "definition": {
@@ -621,6 +621,16 @@
             "core/schemas/v3/data/contentType.schema.tpl.json"
         ]
     },
+    "fileRepository": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/FileRepository"
+        ],
+        "name": "File repository",
+        "schemas": [
+            "core/schemas/v3/data/file.schema.tpl.json"
+        ]
+    },
     "format": {
         "description": "Method of digitally organizing and structuring data or information.",
         "linkedTypes": [
@@ -628,8 +638,8 @@
         ],
         "name": "Format",
         "schemas": [
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json",
             "core/schemas/v3/products/modelVersion.schema.tpl.json"
         ]
@@ -637,7 +647,8 @@
     "fullDocumentation": {
         "description": "Non-abridged instructions, comments, and information for using a particular product.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Full documentation",
         "schemas": [
@@ -652,10 +663,10 @@
         "name": "Full name",
         "sameAs": null,
         "schemas": [
-            "SANDS/schemas/v1/atlasTerminology.schema.tpl.json",
             "SANDS/schemas/v1/brainAtlas.schema.tpl.json",
             "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
             "SANDS/schemas/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/schemas/v1/parcellationTerminology.schema.tpl.json",
             "core/schemas/v3/actors/organization.schema.tpl.json",
             "core/schemas/v3/data/license.schema.tpl.json",
             "core/schemas/v3/products/dataset.schema.tpl.json",
@@ -816,8 +827,8 @@
         "name": "Hash",
         "sameAs": null,
         "schemas": [
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json"
         ]
     },
@@ -913,8 +924,8 @@
     "input": {
         "description": "Something or someone that is put into or participates in a process or machine.",
         "linkedTypes": [
+            "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle",
-            "https://openminds.ebrains.eu/core/FileInstance",
             "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
             "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
@@ -928,7 +939,9 @@
     "inputData": {
         "description": "Data that is put into a process or machine.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/File",
+            "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "Input data",
         "schemas": [
@@ -1021,8 +1034,8 @@
         "name": "Is part of",
         "sameAs": null,
         "schemas": [
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/research/subject.schema.tpl.json",
             "core/schemas/v3/research/tissueSample.schema.tpl.json"
         ]
@@ -1156,8 +1169,8 @@
             "controlledTerms/schemas/v1/typeOfUncertainty.schema.tpl.json",
             "controlledTerms/schemas/v1/unitOfMeasurement.schema.tpl.json",
             "core/schemas/v3/data/contentType.schema.tpl.json",
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json",
             "core/schemas/v3/research/numericalParameter.schema.tpl.json",
             "core/schemas/v3/research/protocol.schema.tpl.json",
@@ -1192,9 +1205,9 @@
         "sameAs": null,
         "schemas": [
             "SANDS/schemas/v1/anatomicalEntity.schema.tpl.json",
-            "SANDS/schemas/v1/atlasTerminology.schema.tpl.json",
             "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
             "SANDS/schemas/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/schemas/v1/parcellationTerminology.schema.tpl.json",
             "controlledTerms/schemas/v1/ageCategory.schema.tpl.json",
             "controlledTerms/schemas/v1/anatomicalAxesOrientation.schema.tpl.json",
             "controlledTerms/schemas/v1/behavioralTask.schema.tpl.json",
@@ -1293,8 +1306,8 @@
     "output": {
         "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
         "linkedTypes": [
+            "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle",
-            "https://openminds.ebrains.eu/core/FileInstance",
             "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
             "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
@@ -1308,7 +1321,9 @@
     "outputData": {
         "description": "Data that comes out of, is delivered or produced by a process or machine.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/File",
+            "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "Output data",
         "schemas": [
@@ -1435,21 +1450,27 @@
         ]
     },
     "relatedAtlasTerm": {
+        "deprecated": true,
         "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Related atlas term",
         "sameAs": null,
-        "schemas": [
-            "SANDS/schemas/v1/annotation.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "relatedMediaType": {
         "description": "Reference to an official two-part identifier for file formats and format contents.",
         "name": "Related media type",
         "schemas": [
             "core/schemas/v3/data/contentType.schema.tpl.json"
+        ]
+    },
+    "relatedParcellationTerm": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+        ],
+        "name": "Related parcellation term",
+        "schemas": [
+            "SANDS/schemas/v1/annotation.schema.tpl.json"
         ]
     },
     "relatedPublication": {
@@ -1468,8 +1489,8 @@
     "relatedRecording": {
         "description": "Reference to the written, stored evidence of something.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/FileBundle",
-            "https://openminds.ebrains.eu/core/FileInstance"
+            "https://openminds.ebrains.eu/core/File",
+            "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "Related recording",
         "schemas": [
@@ -1479,8 +1500,8 @@
     "relatedStimulation": {
         "description": "Reference to the written, stored function used as a physiological stimulus.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/FileBundle",
-            "https://openminds.ebrains.eu/core/FileInstance"
+            "https://openminds.ebrains.eu/core/File",
+            "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "Related stimulation",
         "schemas": [
@@ -1569,10 +1590,10 @@
         "name": "Short name",
         "sameAs": null,
         "schemas": [
-            "SANDS/schemas/v1/atlasTerminology.schema.tpl.json",
             "SANDS/schemas/v1/brainAtlas.schema.tpl.json",
             "SANDS/schemas/v1/brainAtlasVersion.schema.tpl.json",
             "SANDS/schemas/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/schemas/v1/parcellationTerminology.schema.tpl.json",
             "core/schemas/v3/actors/organization.schema.tpl.json",
             "core/schemas/v3/data/license.schema.tpl.json",
             "core/schemas/v3/products/dataset.schema.tpl.json",
@@ -1593,7 +1614,7 @@
         ],
         "name": "Special usage role",
         "schemas": [
-            "core/schemas/v3/data/fileInstance.schema.tpl.json"
+            "core/schemas/v3/data/file.schema.tpl.json"
         ]
     },
     "species": {
@@ -1639,8 +1660,8 @@
         "name": "Storage size",
         "sameAs": null,
         "schemas": [
+            "core/schemas/v3/data/file.schema.tpl.json",
             "core/schemas/v3/data/fileBundle.schema.tpl.json",
-            "core/schemas/v3/data/fileInstance.schema.tpl.json",
             "core/schemas/v3/data/fileRepository.schema.tpl.json"
         ]
     },
@@ -1747,7 +1768,7 @@
     "terminology": {
         "description": "Nomenclature for a particular field of study.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AtlasTerminology"
+            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "Terminology",
         "sameAs": null,
