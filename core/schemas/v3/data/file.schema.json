@@ -1,26 +1,70 @@
 {
-    "$id": "https://openminds.ebrains.eu/core/fileRepository?format=json-schema",
+    "$id": "https://openminds.ebrains.eu/core/file?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "_type": "https://openminds.ebrains.eu/core/FileRepository",
-    "description": "Structured information on a file repository.",
+    "_type": "https://openminds.ebrains.eu/core/File",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
             "type": "string"
         },
         "@type": {
-            "const": "https://openminds.ebrains.eu/core/FileRepository",
+            "const": "https://openminds.ebrains.eu/core/File",
             "type": "string"
         },
         "IRI": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) of this file repository.",
+            "_instruction": "Enter the internationalized resource identifier of this single file.",
             "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
             "title": "IRI",
             "type": "string"
         },
+        "content": {
+            "_instruction": "Enter a short content description for this file instance.",
+            "description": "Something that is contained.",
+            "title": "Content",
+            "type": "string"
+        },
+        "fileRepository": {
+            "_instruction": "Add the over all repository to which this single file belongs.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileRepository"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "File repository",
+            "type": "object"
+        },
         "format": {
-            "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+            "_instruction": "Add the content type of this file instance.",
             "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
@@ -83,9 +127,59 @@
             "title": "Hash",
             "type": "object"
         },
-        "hostedBy": {
-            "_instruction": "Add the host of this file repository.",
-            "description": "Reference to an organization that provides facilities and services for something.",
+        "isPartOf": {
+            "_instruction": "Add one or several bundles in which this single file can be grouped.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Is part of",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "name": {
+            "_instruction": "Enter the name of this single file.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "Name",
+            "type": "string"
+        },
+        "specialUsageRole": {
+            "_instruction": "Add a special usage role for this single file.",
+            "description": "Particular function of something when it is used.",
             "else": {
                 "properties": {
                     "@id": {
@@ -110,7 +204,7 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/Organization"
+                            "https://openminds.ebrains.eu/controlledTerms/FileUsageRole"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -120,14 +214,8 @@
                     "@id"
                 ]
             },
-            "title": "Hosted by",
+            "title": "Special usage role",
             "type": "object"
-        },
-        "name": {
-            "_instruction": "Enter the name of this file repository.",
-            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-            "title": "Name",
-            "type": "string"
         },
         "storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -179,8 +267,8 @@
         "name",
         "IRI",
         "@id",
-        "hostedBy"
+        "isPartOf"
     ],
-    "title": "File repository",
+    "title": "File",
     "type": "object"
 }

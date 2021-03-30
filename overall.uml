@@ -1,5 +1,177 @@
 @startuml
 
+class CoordinateSpace {
++anatomicalAxesOrientation
++defaultImage
++digitalIdentifier
++fullName
++homepage
++nativeUnit
++ontologyIdentifier
++axesOrigin
++releaseDate
++shortName
++versionIdentifier
+
+}
+CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CoordinateSpace -d-> "defaultImage" Image
+CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
+CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+CoordinateSpace -d-> "axesOrigin" QuantitativeValue
+
+
+class ElectrodeArray {
++electrodes
++internalIdentifier
+
+}
+ElectrodeArray -d-> "electrodes" Electrode
+
+
+class ElectrodeContact {
++coordinatePoint
++definedIn
++internalIdentifier
++relatedRecording
++relatedStimulation
++visualizedIn
+
+}
+ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
+ElectrodeContact -d-> "definedIn" File
+ElectrodeContact -d-> "relatedRecording" File
+ElectrodeContact -d-> "relatedRecording" FileBundle
+ElectrodeContact -d-> "relatedStimulation" File
+ElectrodeContact -d-> "relatedStimulation" FileBundle
+ElectrodeContact -d-> "visualizedIn" Image
+
+
+class BrainAtlas {
++description
++fullName
++hasVersion
++homepage
++shortName
+
+}
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
+
+
+class ParcellationTerminology {
++anatomicalEntity
++definedIn
++fullName
++ontologyIdentifier
++shortName
+
+}
+ParcellationTerminology -d-> "anatomicalEntity" AnatomicalEntity
+ParcellationTerminology -d-> "definedIn" File
+
+
+class Image {
++coordinateSpace
++definedIn
++voxelSize
+
+}
+Image -d-> "coordinateSpace" CoordinateSpace
+Image -d-> "definedIn" File
+Image -d-> "voxelSize" QuantitativeValue
+
+
+class Electrode {
++electrodeContact
++internalIdentifier
+
+}
+Electrode -d-> "electrodeContact" ElectrodeContact
+
+
+class AnatomicalEntity {
++hasParent
++name
++ontologyIdentifier
++otherAnatomicalRelation
+
+}
+AnatomicalEntity -d-> "hasParent" AnatomicalEntity
+AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
+
+
+class Annotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++namingTerm
++relatedParcellationTerm
++visualizedIn
+
+}
+Annotation -d-> "bestViewPoint" CoordinatePoint
+Annotation -d-> "criteria" ProtocolExecution
+Annotation -d-> "criteriaQualityType" CriteriaQualityType
+Annotation -d-> "inspiredBy" Image
+Annotation -d-> "laterality" Laterality
+Annotation -d-> "namingTerm" AnatomicalEntity
+Annotation -d-> "relatedParcellationTerm" AnatomicalEntity
+Annotation -d-> "visualizedIn" Image
+
+
+class AnatomicalEntityRelation {
++criteria
++criteriaQualityType
++inRelationTo
++qualitativeOverlap
++quantitativeOverlap
+
+}
+AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
+AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
+AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
+AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
+class BrainAtlasVersion {
++annotationSet
++coordinateSpace
++digitalIdentifier
++fullName
++homepage
++isAlternativeVersionOf
++isNewVersionOf
++ontologyIdentifier
++releaseDate
++shortName
++terminology
++versionIdentifier
++versionInnovation
+
+}
+BrainAtlasVersion -d-> "annotationSet" Annotation
+BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "terminology" ParcellationTerminology
+
+
 class SubjectGroup {
 +studiedState
 +additionalRemarks
@@ -140,13 +312,13 @@ class ProtocolExecution {
 
 }
 ProtocolExecution -d-> "input" FileBundle
-ProtocolExecution -d-> "input" FileInstance
+ProtocolExecution -d-> "input" File
 ProtocolExecution -d-> "input" SubjectGroupState
 ProtocolExecution -d-> "input" SubjectState
 ProtocolExecution -d-> "input" TissueSampleCollectionState
 ProtocolExecution -d-> "input" TissueSampleState
 ProtocolExecution -d-> "output" FileBundle
-ProtocolExecution -d-> "output" FileInstance
+ProtocolExecution -d-> "output" File
 ProtocolExecution -d-> "output" SubjectGroupState
 ProtocolExecution -d-> "output" SubjectState
 ProtocolExecution -d-> "output" TissueSampleCollectionState
@@ -334,6 +506,8 @@ class DatasetVersion {
 DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
 DatasetVersion -d-> "hasComponent" DatasetVersion
 DatasetVersion -d-> "inputData" DigitalIdentifier
+DatasetVersion -d-> "inputData" File
+DatasetVersion -d-> "inputData" FileBundle
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "license" License
@@ -353,6 +527,7 @@ DatasetVersion -d-> "developer" Organization
 DatasetVersion -d-> "developer" Person
 DatasetVersion -d-> "digitalIdentifier" DigitalIdentifier
 DatasetVersion -d-> "fullDocumentation" DigitalIdentifier
+DatasetVersion -d-> "fullDocumentation" File
 DatasetVersion -d-> "funding" Funding
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DigitalIdentifier
@@ -422,10 +597,14 @@ class ModelVersion {
 ModelVersion -d-> "format" ContentType
 ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DigitalIdentifier
+ModelVersion -d-> "inputData" File
+ModelVersion -d-> "inputData" FileBundle
 ModelVersion -d-> "isAlternativeVersionOf" ModelVersion
 ModelVersion -d-> "isNewVersionOf" ModelVersion
 ModelVersion -d-> "license" License
 ModelVersion -d-> "outputData" DigitalIdentifier
+ModelVersion -d-> "outputData" File
+ModelVersion -d-> "outputData" FileBundle
 ModelVersion -d-> "accessibility" ProductAccessibility
 ModelVersion -d-> "author" Organization
 ModelVersion -d-> "author" Person
@@ -436,6 +615,7 @@ ModelVersion -d-> "developer" Organization
 ModelVersion -d-> "developer" Person
 ModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 ModelVersion -d-> "fullDocumentation" DigitalIdentifier
+ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "funding" Funding
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DigitalIdentifier
@@ -489,6 +669,7 @@ MetaDataModelVersion -d-> "developer" Organization
 MetaDataModelVersion -d-> "developer" Person
 MetaDataModelVersion -d-> "digitalIdentifier" DigitalIdentifier
 MetaDataModelVersion -d-> "fullDocumentation" DigitalIdentifier
+MetaDataModelVersion -d-> "fullDocumentation" File
 MetaDataModelVersion -d-> "funding" Funding
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DigitalIdentifier
@@ -574,6 +755,7 @@ SoftwareVersion -d-> "developer" Organization
 SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "digitalIdentifier" DigitalIdentifier
 SoftwareVersion -d-> "fullDocumentation" DigitalIdentifier
+SoftwareVersion -d-> "fullDocumentation" File
 SoftwareVersion -d-> "funding" Funding
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DigitalIdentifier
@@ -648,17 +830,9 @@ FileBundle -d-> "isPartOf" FileRepository
 FileBundle -d-> "storageSize" QuantitativeValue
 
 
-class Copyright {
-+holder
-+year
-
-}
-Copyright -d-> "holder" Organization
-Copyright -d-> "holder" Person
-
-
-class FileInstance {
+class File {
 +content
++fileRepository
 +format
 +hash
 +IRI
@@ -668,12 +842,21 @@ class FileInstance {
 +storageSize
 
 }
-FileInstance -d-> "format" ContentType
-FileInstance -d-> "hash" Hash
-FileInstance -d-> "isPartOf" FileBundle
-FileInstance -d-> "isPartOf" FileRepository
-FileInstance -d-> "specialUsageRole" FileUsageRole
-FileInstance -d-> "storageSize" QuantitativeValue
+File -d-> "fileRepository" FileRepository
+File -d-> "format" ContentType
+File -d-> "hash" Hash
+File -d-> "isPartOf" FileBundle
+File -d-> "specialUsageRole" FileUsageRole
+File -d-> "storageSize" QuantitativeValue
+
+
+class Copyright {
++holder
++year
+
+}
+Copyright -d-> "holder" Organization
+Copyright -d-> "holder" Person
 
 
 class License {
@@ -1118,178 +1301,6 @@ class TissueSampleType {
 +ontologyIdentifier
 
 }
-
-
-class AtlasTerminology {
-+anatomicalEntity
-+definedIn
-+fullName
-+ontologyIdentifier
-+shortName
-
-}
-AtlasTerminology -d-> "anatomicalEntity" AnatomicalEntity
-AtlasTerminology -d-> "definedIn" FileInstance
-
-
-class CoordinateSpace {
-+anatomicalAxesOrientation
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+nativeUnit
-+ontologyIdentifier
-+axesOrigin
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CoordinateSpace -d-> "defaultImage" Image
-CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
-CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-CoordinateSpace -d-> "axesOrigin" QuantitativeValue
-
-
-class ElectrodeArray {
-+electrodes
-+internalIdentifier
-
-}
-ElectrodeArray -d-> "electrodes" Electrode
-
-
-class ElectrodeContact {
-+coordinatePoint
-+definedIn
-+internalIdentifier
-+relatedRecording
-+relatedStimulation
-+visualizedIn
-
-}
-ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
-ElectrodeContact -d-> "definedIn" FileInstance
-ElectrodeContact -d-> "relatedRecording" FileInstance
-ElectrodeContact -d-> "relatedRecording" FileBundle
-ElectrodeContact -d-> "relatedStimulation" FileInstance
-ElectrodeContact -d-> "relatedStimulation" FileBundle
-ElectrodeContact -d-> "visualizedIn" Image
-
-
-class BrainAtlas {
-+description
-+fullName
-+hasVersion
-+homepage
-+shortName
-
-}
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
-
-
-class Image {
-+coordinateSpace
-+definedIn
-+voxelSize
-
-}
-Image -d-> "coordinateSpace" CoordinateSpace
-Image -d-> "definedIn" FileInstance
-Image -d-> "voxelSize" QuantitativeValue
-
-
-class Electrode {
-+electrodeContact
-+internalIdentifier
-
-}
-Electrode -d-> "electrodeContact" ElectrodeContact
-
-
-class AnatomicalEntity {
-+hasParent
-+name
-+ontologyIdentifier
-+otherAnatomicalRelation
-
-}
-AnatomicalEntity -d-> "hasParent" AnatomicalEntity
-AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
-
-
-class Annotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+namingTerm
-+relatedAtlasTerm
-+visualizedIn
-
-}
-Annotation -d-> "bestViewPoint" CoordinatePoint
-Annotation -d-> "criteria" ProtocolExecution
-Annotation -d-> "criteriaQualityType" CriteriaQualityType
-Annotation -d-> "inspiredBy" Image
-Annotation -d-> "laterality" Laterality
-Annotation -d-> "namingTerm" AnatomicalEntity
-Annotation -d-> "relatedAtlasTerm" AnatomicalEntity
-Annotation -d-> "visualizedIn" Image
-
-
-class AnatomicalEntityRelation {
-+criteria
-+criteriaQualityType
-+inRelationTo
-+qualitativeOverlap
-+quantitativeOverlap
-
-}
-AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
-AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
-AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
-AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class BrainAtlasVersion {
-+annotationSet
-+coordinateSpace
-+digitalIdentifier
-+fullName
-+homepage
-+isAlternativeVersionOf
-+isNewVersionOf
-+ontologyIdentifier
-+releaseDate
-+shortName
-+terminology
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "annotationSet" Annotation
-BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "terminology" AtlasTerminology
 
 
 @enduml

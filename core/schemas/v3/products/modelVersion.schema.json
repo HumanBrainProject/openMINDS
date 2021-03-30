@@ -306,7 +306,7 @@
             "type": "object"
         },
         "fullDocumentation": {
-            "_instruction": "Add the globally unique and persistent digital identifier of a full documentation of this research product version.",
+            "_instruction": "Add the file or a DOI to the full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
@@ -332,7 +332,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                            "https://openminds.ebrains.eu/core/File"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -449,42 +450,48 @@
         "inputData": {
             "_instruction": "Add the data that was used as input for this model version.",
             "description": "Data that is put into a process or machine.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "Input data",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "isAlternativeVersionOf": {
             "_instruction": "Add all model versions that can be used alternatively to this model version.",
@@ -661,42 +668,48 @@
         "outputData": {
             "_instruction": "Add the data that was generated as output of this model version.",
             "description": "Data that comes out of, is delivered or produced by a process or machine.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "Output data",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
@@ -825,21 +838,21 @@
         }
     },
     "required": [
-        "fullName",
-        "versionIdentifier",
         "digitalIdentifier",
-        "releaseDate",
+        "format",
+        "accessibility",
         "@type",
-        "funding",
-        "repository",
+        "versionIdentifier",
+        "shortName",
+        "releaseDate",
+        "fullName",
+        "@id",
         "description",
         "fullDocumentation",
-        "shortName",
-        "license",
+        "repository",
+        "funding",
         "developer",
-        "@id",
-        "format",
-        "accessibility"
+        "license"
     ],
     "title": "Model version",
     "type": "object"

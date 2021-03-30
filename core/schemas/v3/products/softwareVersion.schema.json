@@ -397,7 +397,7 @@
             "uniqueItems": true
         },
         "fullDocumentation": {
-            "_instruction": "Add the globally unique and persistent digital identifier of a full documentation of this research product version.",
+            "_instruction": "Add the file or a DOI to the full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
@@ -423,7 +423,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                            "https://openminds.ebrains.eu/core/File"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -1062,29 +1063,29 @@
         }
     },
     "required": [
-        "outputFormat",
-        "digitalIdentifier",
-        "repository",
         "shortName",
         "device",
-        "programmingLanguage",
-        "developer",
-        "applicationCategory",
-        "license",
-        "funding",
-        "accessibility",
-        "inputFormat",
         "releaseDate",
-        "requirement",
-        "description",
-        "@type",
-        "fullName",
-        "versionIdentifier",
-        "feature",
-        "fullDocumentation",
-        "operatingSystem",
         "language",
-        "@id"
+        "developer",
+        "accessibility",
+        "programmingLanguage",
+        "fullName",
+        "fullDocumentation",
+        "license",
+        "operatingSystem",
+        "digitalIdentifier",
+        "versionIdentifier",
+        "@id",
+        "description",
+        "inputFormat",
+        "repository",
+        "outputFormat",
+        "feature",
+        "@type",
+        "requirement",
+        "applicationCategory",
+        "funding"
     ],
     "title": "Software version",
     "type": "object"

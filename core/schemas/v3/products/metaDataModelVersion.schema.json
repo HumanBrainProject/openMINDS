@@ -265,7 +265,7 @@
             "type": "object"
         },
         "fullDocumentation": {
-            "_instruction": "Add the globally unique and persistent digital identifier of a full documentation of this research product version.",
+            "_instruction": "Add the file or a DOI to the full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
@@ -291,7 +291,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+                            "https://openminds.ebrains.eu/core/File"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -828,21 +829,21 @@
         }
     },
     "required": [
-        "fullName",
-        "versionIdentifier",
         "digitalIdentifier",
-        "releaseDate",
+        "accessibility",
         "@type",
-        "type",
-        "funding",
-        "repository",
+        "versionIdentifier",
+        "shortName",
+        "releaseDate",
+        "fullName",
+        "@id",
         "description",
         "fullDocumentation",
-        "shortName",
-        "license",
-        "@id",
+        "repository",
+        "funding",
+        "type",
         "developer",
-        "accessibility"
+        "license"
     ],
     "title": "Meta data model version",
     "type": "object"

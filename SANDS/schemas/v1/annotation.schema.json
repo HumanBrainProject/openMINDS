@@ -284,9 +284,8 @@
             "type": "array",
             "uniqueItems": true
         },
-        "relatedAtlasTerm": {
-            "_instruction": "Add one or several anatomical entities of registered brain atlas annotations to which this annotation is related to.",
-            "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
+        "relatedParcellationTerm": {
+            "_instruction": "Add one or several anatomical entities of registered parcellation terminologies to which this annotation is related to.",
             "items": {
                 "else": {
                     "properties": {
@@ -324,7 +323,7 @@
                 }
             },
             "minItems": 1,
-            "title": "Related atlas term",
+            "title": "Related parcellation term",
             "type": "array",
             "unqiueItems": true
         },
@@ -370,12 +369,12 @@
         }
     },
     "required": [
-        "criteriaQualityType",
-        "laterality",
+        "@type",
         "namingTerm",
+        "criteriaQualityType",
         "internalIdentifier",
         "@id",
-        "@type"
+        "laterality"
     ],
     "title": "Annotation",
     "type": "object"
