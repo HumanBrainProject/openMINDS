@@ -5,8 +5,7 @@
         "sameAs": null,
         "schemas": [
             "core/schemas/v3/data/file.schema.tpl.json",
-            "core/schemas/v3/data/fileRepository.schema.tpl.json",
-            "core/schemas/v3/miscellaneous/digitalIdentifierSchema.schema.tpl.json"
+            "core/schemas/v3/data/fileRepository.schema.tpl.json"
         ]
     },
     "abstractionLevel": {
@@ -266,9 +265,6 @@
     },
     "coordinatePoint": {
         "description": "Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/CoordinatePoint"
-        ],
         "name": "Coordinate point",
         "schemas": [
             "SANDS/schemas/v1/electrodeContact.schema.tpl.json"
@@ -394,6 +390,7 @@
             "controlledTerms/schemas/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/schemas/v1/ethicsAssessment.schema.tpl.json",
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/schemas/v1/fileRepositoryType.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
             "controlledTerms/schemas/v1/handedness.schema.tpl.json",
@@ -441,6 +438,7 @@
             "controlledTerms/schemas/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/schemas/v1/ethicsAssessment.schema.tpl.json",
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/schemas/v1/fileRepositoryType.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
             "controlledTerms/schemas/v1/handedness.schema.tpl.json",
@@ -519,7 +517,11 @@
     "digitalIdentifier": {
         "description": "Digital handle to identify objects or legal persons.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+            "https://openminds.ebrains.eu/core/DOI",
+            "https://openminds.ebrains.eu/core/GRIDID",
+            "https://openminds.ebrains.eu/core/ORCID",
+            "https://openminds.ebrains.eu/core/RORID",
+            "https://openminds.ebrains.eu/core/SWHID"
         ],
         "name": "Digital identifier",
         "sameAs": null,
@@ -644,7 +646,7 @@
     "fullDocumentation": {
         "description": "Non-abridged instructions, comments, and information for using a particular product.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Full documentation",
@@ -877,7 +879,12 @@
         "name": "How to cite",
         "sameAs": null,
         "schemas": [
-            "core/schemas/v3/miscellaneous/digitalIdentifier.schema.tpl.json"
+            "core/schemas/v3/miscellaneous/DOI.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/GRIDID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/ISBN.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/ORCID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/RORID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/SWHID.schema.tpl.json"
         ]
     },
     "identifier": {
@@ -885,27 +892,27 @@
         "name": "Identifier",
         "sameAs": null,
         "schemas": [
-            "core/schemas/v3/miscellaneous/digitalIdentifier.schema.tpl.json"
+            "core/schemas/v3/miscellaneous/DOI.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/GRIDID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/ISBN.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/ORCID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/RORID.schema.tpl.json",
+            "core/schemas/v3/miscellaneous/SWHID.schema.tpl.json"
         ]
     },
     "identifierPattern": {
+        "deprecated": true,
         "description": "Format of a term or code used to identify something or someone.",
         "name": "Identifier pattern",
         "sameAs": null,
-        "schemas": [
-            "core/schemas/v3/miscellaneous/digitalIdentifierSchema.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "identifierSchema": {
+        "deprecated": true,
         "description": "Standard for creating a particular identifier for something or someone.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifierSchema"
-        ],
         "name": "Identifier schema",
         "sameAs": null,
-        "schemas": [
-            "core/schemas/v3/miscellaneous/digitalIdentifier.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "inRelationTo": {
         "description": "Reference to a related element.",
@@ -936,7 +943,7 @@
     "inputData": {
         "description": "Data that is put into a process or machine.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
@@ -1137,6 +1144,7 @@
             "controlledTerms/schemas/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/schemas/v1/ethicsAssessment.schema.tpl.json",
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/schemas/v1/fileRepositoryType.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
             "controlledTerms/schemas/v1/handedness.schema.tpl.json",
@@ -1216,6 +1224,7 @@
             "controlledTerms/schemas/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/schemas/v1/ethicsAssessment.schema.tpl.json",
             "controlledTerms/schemas/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/schemas/v1/fileRepositoryType.schema.tpl.json",
             "controlledTerms/schemas/v1/fileUsageRole.schema.tpl.json",
             "controlledTerms/schemas/v1/genotype.schema.tpl.json",
             "controlledTerms/schemas/v1/handedness.schema.tpl.json",
@@ -1315,7 +1324,7 @@
     "outputData": {
         "description": "Data that comes out of, is delivered or produced by a process or machine.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
@@ -1470,7 +1479,8 @@
     "relatedPublication": {
         "description": "Reference to something that was made available for the general public to see or buy.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+            "https://openminds.ebrains.eu/core/DOI",
+            "https://openminds.ebrains.eu/core/ISBN"
         ],
         "name": "Related publication",
         "schemas": [
@@ -1780,7 +1790,6 @@
         "name": "Type",
         "sameAs": null,
         "schemas": [
-            "core/schemas/v3/miscellaneous/digitalIdentifierSchema.schema.tpl.json",
             "core/schemas/v3/products/datasetVersion.schema.tpl.json",
             "core/schemas/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/schemas/v3/research/tissueSample.schema.tpl.json",
