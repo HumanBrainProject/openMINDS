@@ -1,6 +1,6 @@
 @startuml
 class MetaDataModel {
-+hasComponent
++developer
 +hasVersion
 +description
 +digitalIdentifier
@@ -9,7 +9,8 @@ class MetaDataModel {
 +shortName
 
 }
-MetaDataModel -d-> "hasComponent" MetaDataModel
+MetaDataModel -d-> "developer" Organization
+MetaDataModel -d-> "developer" Person
 MetaDataModel -d-> "hasVersion" MetaDataModelVersion
 MetaDataModel -d-> "digitalIdentifier" DOI
 MetaDataModel -d-> "digitalIdentifier" SWHID

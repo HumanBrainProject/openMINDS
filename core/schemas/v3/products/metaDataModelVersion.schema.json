@@ -51,51 +51,6 @@
             "title": "Accessibility",
             "type": "object"
         },
-        "author": {
-            "_instruction": "Add one or several authors (person or organization) that contributed to the production and publication of this research product version.",
-            "description": "Creator of a literary or creative work, as well as a dataset publication.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Organization",
-                                "https://openminds.ebrains.eu/core/Person"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Author",
-            "type": "array",
-            "uniqueItems": true
-        },
         "copyright": {
             "_type": "https://openminds.ebrains.eu/core/Copyright",
             "description": "Structured information on the copyright.",
@@ -173,14 +128,14 @@
             "uniqueItems": true
         },
         "description": {
-            "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
+            "_instruction": "If necessary, enter a version specific description (abstract) for this research product version (max. 2000 characters, incl. spaces; no references). If left blank, the research product version will inherit the 'description' of it's corresponding research product.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
             "maxLength": 2000,
             "title": "Description",
             "type": "string"
         },
         "developer": {
-            "_instruction": "Add one or several developers (person or organization) that contributed to the code implementation of this research product version.",
+            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this (meta)data model version. Note that these developers will overwrite the once provided in the (meta)data model product this version belongs to.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -307,7 +262,7 @@
             "type": "object"
         },
         "fullName": {
-            "_instruction": "Enter a descriptive full name (title) for this research product version.",
+            "_instruction": "If necessary, enter a version specific descriptive full name (title) for this research product version. If left blank, the research product version will inherit the 'fullName' of it's corresponding research product.",
             "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
@@ -353,50 +308,6 @@
             },
             "minItems": 1,
             "title": "Funding",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "hasComponent": {
-            "_instruction": "Add all (meta)data model versions that complement this (meta)data model version.",
-            "description": "Reference to an element of a collection.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/MetaDataModelVersion"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Has component",
             "type": "array",
             "uniqueItems": true
         },
@@ -824,27 +735,25 @@
             "type": "string"
         },
         "versionInnovation": {
-            "_instruction": "Enter a short summary of the novelties/peculiarities of this research product version.",
+            "_instruction": "Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it's research product. If this research product version is the first released version, you can enter the following disclaimer 'This is the first version of this research product.'",
             "description": "Documentation on what changed in comparison to a previously published form of something.",
             "title": "Version innovation",
             "type": "string"
         }
     },
     "required": [
-        "description",
-        "digitalIdentifier",
-        "fullName",
-        "funding",
-        "fullDocumentation",
-        "accessibility",
-        "shortName",
         "versionIdentifier",
-        "license",
-        "@id",
+        "digitalIdentifier",
+        "fullDocumentation",
         "repository",
+        "funding",
+        "versionInnovation",
+        "license",
+        "shortName",
         "@type",
-        "developer",
         "releaseDate",
+        "@id",
+        "accessibility",
         "type"
     ],
     "title": "Meta data model version",

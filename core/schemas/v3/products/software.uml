@@ -1,6 +1,6 @@
 @startuml
 class Software {
-+hasComponent
++developer
 +hasVersion
 +description
 +digitalIdentifier
@@ -9,7 +9,8 @@ class Software {
 +shortName
 
 }
-Software -d-> "hasComponent" Software
+Software -d-> "developer" Organization
+Software -d-> "developer" Person
 Software -d-> "hasVersion" SoftwareVersion
 Software -d-> "digitalIdentifier" DOI
 Software -d-> "digitalIdentifier" SWHID

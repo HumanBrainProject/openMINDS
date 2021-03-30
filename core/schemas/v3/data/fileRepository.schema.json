@@ -129,6 +129,45 @@
             "title": "Name",
             "type": "string"
         },
+        "repositoryType": {
+            "_instruction": "Add the type of this file repository.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "Repository type",
+            "type": "object"
+        },
         "storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
@@ -176,10 +215,10 @@
     },
     "required": [
         "IRI",
-        "name",
+        "@type",
         "@id",
         "hostedBy",
-        "@type"
+        "name"
     ],
     "title": "File repository",
     "type": "object"

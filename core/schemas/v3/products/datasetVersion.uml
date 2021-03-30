@@ -1,7 +1,7 @@
 @startuml
 class DatasetVersion {
++author
 +ethicsAssessment
-+hasComponent
 +inputData
 +isAlternativeVersionOf
 +isNewVersionOf
@@ -10,11 +10,9 @@ class DatasetVersion {
 +studiedSpecimen
 +type
 +accessibility
-+author
 +copyright
 +custodian
 +description
-+developer
 +digitalIdentifier
 +fullDocumentation
 +fullName
@@ -31,8 +29,9 @@ class DatasetVersion {
 +versionInnovation
 
 }
+DatasetVersion -d-> "author" Organization
+DatasetVersion -d-> "author" Person
 DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
-DatasetVersion -d-> "hasComponent" DatasetVersion
 DatasetVersion -d-> "inputData" DOI
 DatasetVersion -d-> "inputData" File
 DatasetVersion -d-> "inputData" FileBundle
@@ -46,13 +45,9 @@ DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "type" SemanticDataType
 DatasetVersion -d-> "accessibility" ProductAccessibility
-DatasetVersion -d-> "author" Organization
-DatasetVersion -d-> "author" Person
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Organization
 DatasetVersion -d-> "custodian" Person
-DatasetVersion -d-> "developer" Organization
-DatasetVersion -d-> "developer" Person
 DatasetVersion -d-> "digitalIdentifier" DOI
 DatasetVersion -d-> "digitalIdentifier" SWHID
 DatasetVersion -d-> "fullDocumentation" DOI

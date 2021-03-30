@@ -1,6 +1,6 @@
 @startuml
 class Dataset {
-+hasComponent
++author
 +hasVersion
 +description
 +digitalIdentifier
@@ -9,7 +9,8 @@ class Dataset {
 +shortName
 
 }
-Dataset -d-> "hasComponent" Dataset
+Dataset -d-> "author" Organization
+Dataset -d-> "author" Person
 Dataset -d-> "hasVersion" DatasetVersion
 Dataset -d-> "digitalIdentifier" DOI
 Dataset -d-> "digitalIdentifier" SWHID

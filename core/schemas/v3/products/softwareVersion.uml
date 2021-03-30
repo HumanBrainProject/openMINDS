@@ -1,6 +1,7 @@
 @startuml
 class SoftwareVersion {
 +applicationCategory
++developer
 +device
 +hasComponent
 +feature
@@ -14,11 +15,9 @@ class SoftwareVersion {
 +outputFormat
 +programmingLanguage
 +accessibility
-+author
 +copyright
 +custodian
 +description
-+developer
 +digitalIdentifier
 +fullDocumentation
 +fullName
@@ -36,6 +35,8 @@ class SoftwareVersion {
 
 }
 SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
+SoftwareVersion -d-> "developer" Organization
+SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "device" OperatingDevice
 SoftwareVersion -d-> "hasComponent" SoftwareVersion
 SoftwareVersion -d-> "feature" SoftwareFeature
@@ -48,13 +49,9 @@ SoftwareVersion -d-> "operatingSystem" OperatingSystem
 SoftwareVersion -d-> "outputFormat" ContentType
 SoftwareVersion -d-> "programmingLanguage" ProgrammingLanguage
 SoftwareVersion -d-> "accessibility" ProductAccessibility
-SoftwareVersion -d-> "author" Organization
-SoftwareVersion -d-> "author" Person
 SoftwareVersion -d-> "copyright" Copyright
 SoftwareVersion -d-> "custodian" Organization
 SoftwareVersion -d-> "custodian" Person
-SoftwareVersion -d-> "developer" Organization
-SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "digitalIdentifier" DOI
 SoftwareVersion -d-> "digitalIdentifier" SWHID
 SoftwareVersion -d-> "fullDocumentation" DOI
