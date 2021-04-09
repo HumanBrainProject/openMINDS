@@ -18,6 +18,46 @@
             "title": "Description",
             "type": "string"
         },
+        "digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "Digital identifier",
+            "type": "object"
+        },
         "fullName": {
             "_instruction": "Enter a descriptive full name for this brain atlas.",
             "description": "Whole, non-abbreviated name of something or somebody.",
@@ -75,6 +115,12 @@
             "title": "Homepage",
             "type": "string"
         },
+        "howToCite": {
+            "_instruction": "Enter the preferred citation text for this brain atlas. Leave blank if citation text can be extracted from the assigned digital identifier.",
+            "description": "Preferred format for citing a particular object or legal person.",
+            "title": "How to cite",
+            "type": "string"
+        },
         "shortName": {
             "_instruction": "Enter a descriptive short name for this brain atlas.",
             "description": "Shortened or fully abbreviated name of something or somebody.",
@@ -83,12 +129,12 @@
         }
     },
     "required": [
+        "shortName",
         "description",
         "fullName",
+        "hasVersion",
         "@id",
-        "@type",
-        "shortName",
-        "hasVersion"
+        "@type"
     ],
     "title": "Brain atlas",
     "type": "object"
