@@ -1,6 +1,7 @@
 @startuml
 class ModelVersion {
 +developer
++digitalIdentifier
 +format
 +inputData
 +isAlternativeVersionOf
@@ -11,7 +12,6 @@ class ModelVersion {
 +copyright
 +custodian
 +description
-+digitalIdentifier
 +fullDocumentation
 +fullName
 +funding
@@ -29,6 +29,8 @@ class ModelVersion {
 }
 ModelVersion -d-> "developer" Organization
 ModelVersion -d-> "developer" Person
+ModelVersion -d-> "digitalIdentifier" DOI
+ModelVersion -d-> "digitalIdentifier" SWHID
 ModelVersion -d-> "format" ContentType
 ModelVersion -d-> "inputData" DOI
 ModelVersion -d-> "inputData" File
@@ -43,8 +45,6 @@ ModelVersion -d-> "accessibility" ProductAccessibility
 ModelVersion -d-> "copyright" Copyright
 ModelVersion -d-> "custodian" Organization
 ModelVersion -d-> "custodian" Person
-ModelVersion -d-> "digitalIdentifier" DOI
-ModelVersion -d-> "digitalIdentifier" SWHID
 ModelVersion -d-> "fullDocumentation" DOI
 ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "funding" Funding

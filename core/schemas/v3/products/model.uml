@@ -2,11 +2,11 @@
 class Model {
 +abstractionLevel
 +developer
++digitalIdentifier
 +hasVersion
 +scope
 +studyTarget
 +description
-+digitalIdentifier
 +fullName
 +homepage
 +shortName
@@ -15,6 +15,8 @@ class Model {
 Model -d-> "abstractionLevel" ModelAbstractionLevel
 Model -d-> "developer" Organization
 Model -d-> "developer" Person
+Model -d-> "digitalIdentifier" DOI
+Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
 Model -d-> "studyTarget" BiologicalSex
@@ -28,7 +30,5 @@ Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" Phenotype
-Model -d-> "digitalIdentifier" DOI
-Model -d-> "digitalIdentifier" SWHID
 
 @enduml

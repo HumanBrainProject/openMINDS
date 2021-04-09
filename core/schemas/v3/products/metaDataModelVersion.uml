@@ -1,6 +1,7 @@
 @startuml
 class MetaDataModelVersion {
 +developer
++digitalIdentifier
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
@@ -11,7 +12,6 @@ class MetaDataModelVersion {
 +copyright
 +custodian
 +description
-+digitalIdentifier
 +fullDocumentation
 +fullName
 +funding
@@ -29,6 +29,8 @@ class MetaDataModelVersion {
 }
 MetaDataModelVersion -d-> "developer" Organization
 MetaDataModelVersion -d-> "developer" Person
+MetaDataModelVersion -d-> "digitalIdentifier" DOI
+MetaDataModelVersion -d-> "digitalIdentifier" SWHID
 MetaDataModelVersion -d-> "isAlternativeVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "license" License
@@ -39,8 +41,6 @@ MetaDataModelVersion -d-> "accessibility" ProductAccessibility
 MetaDataModelVersion -d-> "copyright" Copyright
 MetaDataModelVersion -d-> "custodian" Organization
 MetaDataModelVersion -d-> "custodian" Person
-MetaDataModelVersion -d-> "digitalIdentifier" DOI
-MetaDataModelVersion -d-> "digitalIdentifier" SWHID
 MetaDataModelVersion -d-> "fullDocumentation" DOI
 MetaDataModelVersion -d-> "fullDocumentation" File
 MetaDataModelVersion -d-> "funding" Funding

@@ -3,6 +3,7 @@ class SoftwareVersion {
 +applicationCategory
 +developer
 +device
++digitalIdentifier
 +hasComponent
 +feature
 +requirement
@@ -18,7 +19,6 @@ class SoftwareVersion {
 +copyright
 +custodian
 +description
-+digitalIdentifier
 +fullDocumentation
 +fullName
 +funding
@@ -38,6 +38,8 @@ SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
 SoftwareVersion -d-> "developer" Organization
 SoftwareVersion -d-> "developer" Person
 SoftwareVersion -d-> "device" OperatingDevice
+SoftwareVersion -d-> "digitalIdentifier" DOI
+SoftwareVersion -d-> "digitalIdentifier" SWHID
 SoftwareVersion -d-> "hasComponent" SoftwareVersion
 SoftwareVersion -d-> "feature" SoftwareFeature
 SoftwareVersion -d-> "inputFormat" ContentType
@@ -52,8 +54,6 @@ SoftwareVersion -d-> "accessibility" ProductAccessibility
 SoftwareVersion -d-> "copyright" Copyright
 SoftwareVersion -d-> "custodian" Organization
 SoftwareVersion -d-> "custodian" Person
-SoftwareVersion -d-> "digitalIdentifier" DOI
-SoftwareVersion -d-> "digitalIdentifier" SWHID
 SoftwareVersion -d-> "fullDocumentation" DOI
 SoftwareVersion -d-> "fullDocumentation" File
 SoftwareVersion -d-> "funding" Funding
