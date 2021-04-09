@@ -61,50 +61,6 @@
             "type": "array",
             "uniqueItems": true
         },
-        "genotype": {
-            "_instruction": "Add the genotype of all specimen in this set.",
-            "description": "Genetic constitution of an individual or group.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/Genotype"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Genotype",
-            "type": "array",
-            "uniqueItems": true
-        },
         "internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen set that is used within the corresponding data.",
             "description": "Term or code that identifies someone or something within a particular product.",
@@ -429,13 +385,13 @@
         }
     },
     "required": [
-        "species",
-        "type",
-        "origin",
-        "@id",
         "@type",
         "biologicalSex",
-        "studiedState"
+        "origin",
+        "species",
+        "@id",
+        "studiedState",
+        "type"
     ],
     "title": "Tissue sample collection",
     "type": "object"
