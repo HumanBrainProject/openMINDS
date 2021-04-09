@@ -319,15 +319,6 @@ class Handedness {
 }
 
 
-class Modality {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
 class CellType {
 +definition
 +description
@@ -518,6 +509,15 @@ class Phenotype {
 
 
 class ProgrammingLanguage {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ExperimentalApproach {
 +definition
 +description
 +name
@@ -1111,7 +1111,7 @@ class DatasetVersion {
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
-+modality
++experimentalApproach
 +studiedSpecimen
 +type
 +accessibility
@@ -1143,7 +1143,7 @@ DatasetVersion -d-> "inputData" FileBundle
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "license" License
-DatasetVersion -d-> "modality" Modality
+DatasetVersion -d-> "experimentalApproach" ExperimentalApproach
 DatasetVersion -d-> "studiedSpecimen" Subject
 DatasetVersion -d-> "studiedSpecimen" SubjectGroup
 DatasetVersion -d-> "studiedSpecimen" TissueSample

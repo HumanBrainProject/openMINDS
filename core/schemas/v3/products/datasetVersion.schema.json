@@ -261,6 +261,49 @@
             "title": "Ethics assessment",
             "type": "object"
         },
+        "experimentalApproach": {
+            "_instruction": "Add all experimental approaches which this dataset version has deployed.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/ExperimentalApproach"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Experimental approach",
+            "type": "array",
+            "uniqueItems": true
+        },
         "fullDocumentation": {
             "_instruction": "Add the file or a DOI to the full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
@@ -541,50 +584,6 @@
             "title": "License",
             "type": "object"
         },
-        "modality": {
-            "_instruction": "Add all modalities in which the approaches used in this dataset version can be categorized in.",
-            "description": "Classification according to a logical proposition in which something exists, is experienced or expressed.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/Modality"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "Modality",
-            "type": "array",
-            "uniqueItems": true
-        },
         "otherContribution": {
             "_type": "https://openminds.ebrains.eu/core/Contribution",
             "description": "Structured information on the contribution made to a research product.",
@@ -835,21 +834,21 @@
         }
     },
     "required": [
-        "digitalIdentifier",
-        "shortName",
-        "ethicsAssessment",
-        "accessibility",
-        "versionInnovation",
-        "@type",
-        "fullDocumentation",
-        "repository",
-        "modality",
-        "releaseDate",
         "license",
+        "accessibility",
+        "shortName",
+        "@type",
+        "digitalIdentifier",
+        "repository",
+        "@id",
+        "versionInnovation",
+        "experimentalApproach",
+        "type",
+        "ethicsAssessment",
         "versionIdentifier",
         "funding",
-        "type",
-        "@id"
+        "fullDocumentation",
+        "releaseDate"
     ],
     "title": "Dataset version",
     "type": "object"
