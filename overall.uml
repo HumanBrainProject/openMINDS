@@ -692,6 +692,7 @@ class MetaDataModel {
 +developer
 +digitalIdentifier
 +hasVersion
++custodian
 +description
 +fullName
 +homepage
@@ -704,6 +705,8 @@ MetaDataModel -d-> "developer" Person
 MetaDataModel -d-> "digitalIdentifier" DOI
 MetaDataModel -d-> "digitalIdentifier" SWHID
 MetaDataModel -d-> "hasVersion" MetaDataModelVersion
+MetaDataModel -d-> "custodian" Organization
+MetaDataModel -d-> "custodian" Person
 
 
 class ModelVersion {
@@ -766,6 +769,7 @@ class Dataset {
 +author
 +digitalIdentifier
 +hasVersion
++custodian
 +description
 +fullName
 +homepage
@@ -777,6 +781,8 @@ Dataset -d-> "author" Organization
 Dataset -d-> "author" Person
 Dataset -d-> "digitalIdentifier" DOI
 Dataset -d-> "hasVersion" DatasetVersion
+Dataset -d-> "custodian" Organization
+Dataset -d-> "custodian" Person
 
 
 class MetaDataModelVersion {
@@ -981,6 +987,7 @@ class Software {
 +developer
 +digitalIdentifier
 +hasVersion
++custodian
 +description
 +fullName
 +homepage
@@ -993,6 +1000,8 @@ Software -d-> "developer" Person
 Software -d-> "digitalIdentifier" DOI
 Software -d-> "digitalIdentifier" SWHID
 Software -d-> "hasVersion" SoftwareVersion
+Software -d-> "custodian" Organization
+Software -d-> "custodian" Person
 
 
 class Model {
@@ -1002,6 +1011,7 @@ class Model {
 +hasVersion
 +scope
 +studyTarget
++custodian
 +description
 +fullName
 +homepage
@@ -1026,6 +1036,8 @@ Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" Phenotype
+Model -d-> "custodian" Organization
+Model -d-> "custodian" Person
 
 
 class Organization {

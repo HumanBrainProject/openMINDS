@@ -57,6 +57,51 @@
             "type": "array",
             "uniqueItems": true
         },
+        "custodian": {
+            "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product. Note that this custodian will be responsible for all attached research product versions.",
+            "description": "Legal person entrusted with guarding and maintaining property or records.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Custodian",
+            "type": "array",
+            "uniqueItems": true
+        },
         "description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -176,13 +221,13 @@
         }
     },
     "required": [
-        "shortName",
-        "description",
-        "@id",
-        "fullName",
         "author",
+        "fullName",
         "hasVersion",
-        "@type"
+        "shortName",
+        "@type",
+        "description",
+        "@id"
     ],
     "title": "Dataset",
     "type": "object"
