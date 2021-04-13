@@ -157,17 +157,11 @@
             "type": "object"
         },
         "displayColor": {
-            "_instruction": "Enter the preferred display color (RGB) for this annotation.",
+            "_instruction": "Enter the preferred display color (HEX) for this annotation.",
             "description": "Preferred coloring.",
-            "items": {
-                "maximum": 255,
-                "minimum": 0,
-                "type": "integer"
-            },
-            "maxItems": 3,
-            "minItems": 3,
+            "pattern": "^#[0-9A-Fa-f]{6}$",
             "title": "Display color",
-            "type": "array"
+            "type": "string"
         },
         "inspiredBy": {
             "_instruction": "Add one or several (source) images that inspired the definition of this annotation.",
@@ -394,10 +388,10 @@
     },
     "required": [
         "internalIdentifier",
-        "namingTerm",
-        "laterality",
-        "@id",
         "criteriaQualityType",
+        "@id",
+        "laterality",
+        "namingTerm",
         "@type"
     ],
     "title": "Annotation",
