@@ -987,8 +987,13 @@
         "requirement": {
             "_instruction": "Enter all requirements of this software version.",
             "description": "Something essential to the existence, occurrence or function of something else.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 0,
             "title": "Requirement",
-            "type": "string"
+            "type": "array",
+            "uniqueItems": true
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product version (max. 30 characters, no space).",
@@ -1026,23 +1031,22 @@
         }
     },
     "required": [
-        "language",
-        "operatingSystem",
-        "releaseDate",
-        "versionIdentifier",
+        "funding",
+        "@type",
+        "versionInnovation",
         "feature",
+        "fullDocumentation",
+        "versionIdentifier",
+        "license",
+        "programmingLanguage",
         "device",
         "shortName",
         "@id",
-        "license",
+        "language",
         "applicationCategory",
-        "requirement",
-        "programmingLanguage",
-        "versionInnovation",
-        "@type",
-        "fullDocumentation",
         "accessibility",
-        "funding"
+        "releaseDate",
+        "operatingSystem"
     ],
     "title": "Software version",
     "type": "object"
