@@ -621,6 +621,50 @@
             "title": "Contribution",
             "type": "object"
         },
+        "protocol": {
+            "_instruction": "Add one or several protocols that were used in this dataset version.",
+            "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Protocol"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Protocol",
+            "type": "array",
+            "uniqueItems": true
+        },
         "relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
             "description": "Reference to something that was made available for the general public to see or buy.",
@@ -839,20 +883,21 @@
         }
     },
     "required": [
-        "versionInnovation",
-        "experimentalApproach",
-        "releaseDate",
-        "ethicsAssessment",
-        "accessibility",
-        "@type",
-        "type",
-        "shortName",
-        "license",
         "fullDocumentation",
-        "funding",
-        "versionIdentifier",
+        "protocol",
         "digitalIdentifier",
-        "@id"
+        "license",
+        "versionIdentifier",
+        "@id",
+        "accessibility",
+        "ethicsAssessment",
+        "shortName",
+        "type",
+        "versionInnovation",
+        "@type",
+        "experimentalApproach",
+        "funding",
+        "releaseDate"
     ],
     "title": "Dataset version",
     "type": "object"

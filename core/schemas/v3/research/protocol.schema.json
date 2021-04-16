@@ -68,9 +68,8 @@
             "title": "Name",
             "type": "string"
         },
-        "studyTarget": {
-            "_instruction": "Add all study targets of this model version.",
-            "description": "Structure or function that was targeted within a study.",
+        "studyOption": {
+            "_instruction": "Add all study options this protocol offers.",
             "items": {
                 "else": {
                     "properties": {
@@ -118,7 +117,7 @@
                 }
             },
             "minItems": 1,
-            "title": "Study target",
+            "title": "Study option",
             "type": "array",
             "uniqueItems": true
         },
@@ -168,11 +167,11 @@
         }
     },
     "required": [
-        "@type",
-        "description",
-        "technique",
         "name",
-        "@id"
+        "@id",
+        "description",
+        "@type",
+        "technique"
     ],
     "title": "Protocol",
     "type": "object"
