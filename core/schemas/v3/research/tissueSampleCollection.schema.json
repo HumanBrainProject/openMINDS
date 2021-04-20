@@ -12,7 +12,7 @@
             "type": "string"
         },
         "additionalRemarks": {
-            "_instruction": "Enter additional remarks about the specimen (set) in this state.",
+            "_instruction": "Enter additional remarks about the specimen set.",
             "description": "Mention of what deserves additional attention or notice.",
             "title": "Additional remarks",
             "type": "string"
@@ -111,6 +111,11 @@
             "title": "Laterality",
             "type": "array",
             "uniqueItems": true
+        },
+        "lookupLabel": {
+            "_instruction": "Enter a lookup label for this specimen set that may help you to more easily find it again.",
+            "title": "Lookup label",
+            "type": "string"
         },
         "origin": {
             "_instruction": "Add the biogical origin (organ or cell type) of all tissue samples in this collection.",
@@ -385,13 +390,13 @@
         }
     },
     "required": [
-        "species",
-        "origin",
-        "@id",
-        "biologicalSex",
         "type",
+        "biologicalSex",
+        "@id",
+        "species",
+        "studiedState",
         "@type",
-        "studiedState"
+        "origin"
     ],
     "title": "Tissue sample collection",
     "type": "object"

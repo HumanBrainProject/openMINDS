@@ -12,7 +12,7 @@
             "type": "string"
         },
         "additionalRemarks": {
-            "_instruction": "Enter additional remarks about the specimen (set) in this state.",
+            "_instruction": "Enter additional remarks about the specimen set.",
             "description": "Mention of what deserves additional attention or notice.",
             "title": "Additional remarks",
             "type": "string"
@@ -65,6 +65,11 @@
             "_instruction": "Enter the identifier of this specimen set that is used within the corresponding data.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
+            "type": "string"
+        },
+        "lookupLabel": {
+            "_instruction": "Enter a lookup label for this specimen set that may help you to more easily find it again.",
+            "title": "Lookup label",
             "type": "string"
         },
         "phenotype": {
@@ -251,11 +256,11 @@
         }
     },
     "required": [
-        "species",
-        "@id",
         "biologicalSex",
-        "@type",
-        "studiedState"
+        "@id",
+        "species",
+        "studiedState",
+        "@type"
     ],
     "title": "Subject group",
     "type": "object"

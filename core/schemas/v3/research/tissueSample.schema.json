@@ -147,6 +147,11 @@
             "type": "array",
             "uniqueItems": true
         },
+        "lookupLabel": {
+            "_instruction": "Enter a lookup label for this specimen that may help you to more easily find it again.",
+            "title": "Lookup label",
+            "type": "string"
+        },
         "origin": {
             "_instruction": "Add the biogical origin (organ or cell type) of this tissue sample.",
             "description": "Source at which something begins or rises, or from which something derives.",
@@ -394,14 +399,14 @@
         }
     },
     "required": [
-        "species",
-        "internalIdentifier",
-        "origin",
-        "@id",
-        "biologicalSex",
         "type",
+        "internalIdentifier",
+        "biologicalSex",
+        "@id",
+        "species",
+        "studiedState",
         "@type",
-        "studiedState"
+        "origin"
     ],
     "title": "Tissue sample",
     "type": "object"
