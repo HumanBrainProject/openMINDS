@@ -6,17 +6,6 @@
 
 name: openMINDS
 
-on:
-  push:
-    branches:
-      - v3
-  pull_request:
-    branches:
-      - v3
-  workflow_dispatch:
-    branches:
-      - v3
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,20 +46,20 @@ jobs:
         path: documentation
     - name: Push documentation
       run: |
-        cp -r target/html/* documentation
-        cp -r target/uml/* documentation
-        cp -r target/schema.json/* documentation
-        cd documentation
+        cp -r target/html/* documentation/dev
+        cp -r target/uml/* documentation/dev
+        cp -r target/schema.json/* documentation/dev
+        cd documentation/dev
         git config user.name openMINDS
         git config user.email openMINDS@ebrains.eu
         if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
             git add .
-            git commit -m "Update of documentation"
+            git commit -m "Update of documentation (DEV)"
             git push
         else
             echo "Nothing to commit"
         fi
-        cd ..
+        cd ../..
         rm -rf documentation
     - name: Provide a copy of vocab in result
       run: |
