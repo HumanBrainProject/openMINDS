@@ -200,11 +200,44 @@
             "uniqueItems": true
         },
         "homepage": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product.",
+            "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product.",
             "description": "Main website of something or someone.",
-            "format": "iri",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/URL"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
             "title": "Homepage",
-            "type": "string"
+            "type": "object"
         },
         "howToCite": {
             "_instruction": "Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.",
@@ -222,12 +255,12 @@
     },
     "required": [
         "hasVersion",
-        "shortName",
-        "author",
         "description",
-        "@id",
+        "shortName",
         "fullName",
-        "@type"
+        "author",
+        "@type",
+        "@id"
     ],
     "title": "Dataset",
     "type": "object"

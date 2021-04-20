@@ -177,370 +177,6 @@ AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
 AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
 
 
-class AgeCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class BiologicalSex {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Disease {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Species {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Technique {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelScope {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Strain {
-+identifier
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Laterality {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class UnitOfMeasurement {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class FileUsageRole {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SoftwareFeature {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TermSuggestion {
-+addExistingTerminology
-+suggestNewTerminology
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-TermSuggestion -d-> "addExistingTerminology" Terminology
-
-
-class AnatomicalAxesOrientation {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Language {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Handedness {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class CellType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class EthicsAssessment {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class OperatingSystem {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Organ {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class FileRepositoryType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Terminology {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class OperatingDevice {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class QualitativeOverlap {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ContributionType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SemanticDataType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class PreparationType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SoftwareApplicationCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TypeOfUncertainty {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ProductAccessibility {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class DiseaseModel {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class MetaDataModelType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelAbstractionLevel {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class FileBundleGrouping {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class BehavioralTask {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class UBERONParcellation {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TissueSampleType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Phenotype {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ProgrammingLanguage {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ExperimentalApproach {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class CriteriaQualityType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
 class SubjectGroup {
 +studiedState
 +additionalRemarks
@@ -905,6 +541,7 @@ MetaDataModel -d-> "digitalIdentifier" SWHID
 MetaDataModel -d-> "hasVersion" MetaDataModelVersion
 MetaDataModel -d-> "custodian" Organization
 MetaDataModel -d-> "custodian" Person
+MetaDataModel -d-> "homepage" URL
 
 
 class ModelVersion {
@@ -956,7 +593,9 @@ ModelVersion -d-> "custodian" Organization
 ModelVersion -d-> "custodian" Person
 ModelVersion -d-> "fullDocumentation" DOI
 ModelVersion -d-> "fullDocumentation" File
+ModelVersion -d-> "fullDocumentation" URL
 ModelVersion -d-> "funding" Funding
+ModelVersion -d-> "homepage" URL
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DOI
 ModelVersion -d-> "relatedPublication" ISBN
@@ -981,6 +620,7 @@ Dataset -d-> "digitalIdentifier" DOI
 Dataset -d-> "hasVersion" DatasetVersion
 Dataset -d-> "custodian" Organization
 Dataset -d-> "custodian" Person
+Dataset -d-> "homepage" URL
 
 
 class MetaDataModelVersion {
@@ -1028,7 +668,9 @@ MetaDataModelVersion -d-> "custodian" Organization
 MetaDataModelVersion -d-> "custodian" Person
 MetaDataModelVersion -d-> "fullDocumentation" DOI
 MetaDataModelVersion -d-> "fullDocumentation" File
+MetaDataModelVersion -d-> "fullDocumentation" URL
 MetaDataModelVersion -d-> "funding" Funding
+MetaDataModelVersion -d-> "homepage" URL
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DOI
 MetaDataModelVersion -d-> "relatedPublication" ISBN
@@ -1052,6 +694,7 @@ Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" Software
 Project -d-> "hasResearchProducts" SoftwareVersion
+Project -d-> "homepage" URL
 Project -d-> "coordinator" Organization
 Project -d-> "coordinator" Person
 
@@ -1114,7 +757,9 @@ SoftwareVersion -d-> "custodian" Organization
 SoftwareVersion -d-> "custodian" Person
 SoftwareVersion -d-> "fullDocumentation" DOI
 SoftwareVersion -d-> "fullDocumentation" File
+SoftwareVersion -d-> "fullDocumentation" URL
 SoftwareVersion -d-> "funding" Funding
+SoftwareVersion -d-> "homepage" URL
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DOI
 SoftwareVersion -d-> "relatedPublication" ISBN
@@ -1176,7 +821,9 @@ DatasetVersion -d-> "custodian" Organization
 DatasetVersion -d-> "custodian" Person
 DatasetVersion -d-> "fullDocumentation" DOI
 DatasetVersion -d-> "fullDocumentation" File
+DatasetVersion -d-> "fullDocumentation" URL
 DatasetVersion -d-> "funding" Funding
+DatasetVersion -d-> "homepage" URL
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DOI
 DatasetVersion -d-> "relatedPublication" ISBN
@@ -1202,6 +849,7 @@ Software -d-> "digitalIdentifier" SWHID
 Software -d-> "hasVersion" SoftwareVersion
 Software -d-> "custodian" Organization
 Software -d-> "custodian" Person
+Software -d-> "homepage" URL
 
 
 class Model {
@@ -1239,6 +887,7 @@ Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" Phenotype
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
+Model -d-> "homepage" URL
 
 
 class Organization {
@@ -1252,6 +901,7 @@ class Organization {
 Organization -d-> "digitalIdentifier" GRIDID
 Organization -d-> "digitalIdentifier" RORID
 Organization -d-> "hasParent" Organization
+Organization -d-> "homepage" URL
 
 
 class Person {
@@ -1309,6 +959,12 @@ Funding -d-> "funder" Organization
 Funding -d-> "funder" Person
 
 
+class URL {
++URL
+
+}
+
+
 class ISBN {
 +identifier
 
@@ -1357,6 +1013,370 @@ class QuantitativeValue {
 }
 QuantitativeValue -d-> "typeOfUncertainty" TypeOfUncertainty
 QuantitativeValue -d-> "unit" UnitOfMeasurement
+
+
+class AgeCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class BiologicalSex {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Disease {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Species {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Technique {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ModelScope {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Strain {
++identifier
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Laterality {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class UnitOfMeasurement {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileUsageRole {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SoftwareFeature {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TermSuggestion {
++addExistingTerminology
++suggestNewTerminology
++definition
++description
++name
++ontologyIdentifier
+
+}
+TermSuggestion -d-> "addExistingTerminology" Terminology
+
+
+class AnatomicalAxesOrientation {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Language {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Handedness {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class CellType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class EthicsAssessment {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class OperatingSystem {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Organ {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileRepositoryType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Terminology {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class OperatingDevice {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class QualitativeOverlap {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ContributionType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SemanticDataType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class PreparationType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SoftwareApplicationCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TypeOfUncertainty {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ProductAccessibility {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class DiseaseModel {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class MetaDataModelType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ModelAbstractionLevel {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileBundleGrouping {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class BehavioralTask {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class UBERONParcellation {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TissueSampleType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Phenotype {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ProgrammingLanguage {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ExperimentalApproach {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class CriteriaQualityType {
++definition
++description
++name
++ontologyIdentifier
+
+}
 
 
 @enduml

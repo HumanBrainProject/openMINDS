@@ -221,7 +221,7 @@
             "type": "object"
         },
         "fullDocumentation": {
-            "_instruction": "Add the file or a DOI to the full documentation of this research product version.",
+            "_instruction": "Add the DOI, file or URL that points to a full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
@@ -248,7 +248,8 @@
                     "@type": {
                         "enum": [
                             "https://openminds.ebrains.eu/core/DOI",
-                            "https://openminds.ebrains.eu/core/File"
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/core/URL"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -312,11 +313,44 @@
             "uniqueItems": true
         },
         "homepage": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
+            "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product version.",
             "description": "Main website of something or someone.",
-            "format": "iri",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/URL"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
             "title": "Homepage",
-            "type": "string"
+            "type": "object"
         },
         "howToCite": {
             "_instruction": "Enter the preferred citation text for this research product version. Leave blank if citation text can be extracted from the assigned digital identifier.",
@@ -748,17 +782,17 @@
         }
     },
     "required": [
-        "type",
-        "versionInnovation",
-        "@type",
-        "shortName",
-        "versionIdentifier",
         "@id",
-        "fullDocumentation",
-        "license",
+        "type",
+        "shortName",
         "funding",
+        "versionInnovation",
+        "accessibility",
+        "fullDocumentation",
         "releaseDate",
-        "accessibility"
+        "@type",
+        "versionIdentifier",
+        "license"
     ],
     "title": "(Meta) Data model version",
     "type": "object"

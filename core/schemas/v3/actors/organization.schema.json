@@ -107,11 +107,44 @@
             "type": "object"
         },
         "homepage": {
-            "_instruction": "Enter a internationalized resource identifier (IRI) to the homepage of this organization.",
+            "_instruction": "Add the uniform resource locator (URL) to the homepage of this organization.",
             "description": "Main website of something or someone.",
-            "format": "iri",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/URL"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
             "title": "Homepage",
-            "type": "string"
+            "type": "object"
         },
         "shortName": {
             "_instruction": "Enter the short name of this organization.",
@@ -121,9 +154,9 @@
         }
     },
     "required": [
-        "fullName",
         "@type",
-        "@id"
+        "@id",
+        "fullName"
     ],
     "title": "Organization",
     "type": "object"

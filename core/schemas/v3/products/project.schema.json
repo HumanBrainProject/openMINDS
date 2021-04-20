@@ -121,11 +121,44 @@
             "uniqueItems": true
         },
         "homepage": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this model version.",
+            "_instruction": "Add the uniform resource locator (URL) to the homepage of this project.",
             "description": "Main website of something or someone.",
-            "format": "iri",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/URL"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
             "title": "Homepage",
-            "type": "string"
+            "type": "object"
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this project.",
@@ -135,12 +168,12 @@
         }
     },
     "required": [
-        "shortName",
         "description",
-        "@id",
+        "shortName",
         "fullName",
-        "hasResearchProducts",
-        "@type"
+        "@type",
+        "@id",
+        "hasResearchProducts"
     ],
     "title": "Project",
     "type": "object"
