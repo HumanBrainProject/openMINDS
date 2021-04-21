@@ -57,7 +57,7 @@ jobs:
         git config user.email openMINDS@ebrains.eu
         if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
             git add .
-            git commit -m "Update of documentation"
+            git commit -m "Update of documentation (${GITHUB_REF##*/})"
             git push
         else
             echo "Nothing to commit"
