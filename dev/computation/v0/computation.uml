@@ -1,0 +1,30 @@
+@startuml
+class Computation {
++input
++output
++environment
++launchConfiguration
++startedAtTime
++endedAtTime
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Computation -d-> "input" FileBundle
+Computation -d-> "input" FileInstance
+Computation -d-> "input" SoftwareVersion
+Computation -d-> "output" FileBundle
+Computation -d-> "output" FileInstance
+Computation -d-> "environment" Environment
+Computation -d-> "launchConfiguration" LaunchConfiguration
+Computation -d-> "startedBy" Person
+Computation -d-> "startedBy" SoftwareAgent
+Computation -d-> "wasInformedBy" Computation
+Computation -d-> "status" ActionStatusType
+Computation -d-> "resourceUsage" QuantitativeValue
+Computation -d-> "resourceUsage" QuantitativeValueRange
+
+@enduml
