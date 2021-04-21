@@ -55,6 +55,7 @@ jobs:
         path: documentation
     - name: Push documentation
       run: |
+        mkdir -p documentation/dev
         cp -r target/html/* documentation/dev
         cp -r target/uml/* documentation/dev
         cp -r target/schema.json/* documentation/dev
