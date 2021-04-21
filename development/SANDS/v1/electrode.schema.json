@@ -1,0 +1,74 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/electrode?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/Electrode",
+    "description": "Structured information on an electrode.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/Electrode",
+            "type": "string"
+        },
+        "electrodeContact": {
+            "_instruction": "Add one or several electrical contacts of this electrode.",
+            "description": "Not shielded part of a conductor that is used to establish electrical contact with a nonmetallic part of a circuit.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ElectrodeContact"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Electrode contact",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "internalIdentifier": {
+            "_instruction": "Enter the identifier used for this electrode within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "Internal identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "internalIdentifier",
+        "electrodeContact",
+        "@id"
+    ],
+    "title": "Electrode",
+    "type": "object"
+}
