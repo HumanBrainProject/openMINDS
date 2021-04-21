@@ -1,0 +1,31 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/iSBN?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ISBN",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ISBN",
+            "type": "string"
+        },
+        "identifier": {
+            "_instruction": "Enter the International Standard Book Number of the International ISBN Agency.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^([0-9]{3}-|)[0-9]{1}-[0-9]{3}-[0-9]{5}-[0-9]{1}$",
+            "title": "Identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "@type"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "title": "ISBN",
+    "type": "object"
+}
