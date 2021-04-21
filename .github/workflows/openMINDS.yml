@@ -6,14 +6,7 @@
 
 name: openMINDS
 
-
-on:
-  push:
-    branches:
-      - development
-  workflow_dispatch:
-    branches:
-      - development
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -31,7 +24,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: HumanBrainProject/openMINDS_generator
-        ref: generator_extensions
+        ref: main
         path: generator
     - name: Install dependencies
       run: |
@@ -55,21 +48,21 @@ jobs:
         path: documentation
     - name: Push documentation
       run: |
-        mkdir -p documentation/dev
-        cp -r target/html/* documentation/dev
-        cp -r target/uml/* documentation/dev
-        cp -r target/schema.json/* documentation/dev
-        cd documentation/dev
+        mkdir -p documentation/${GITHUB_REF##*/}
+        cp -r target/html/* documentation/${GITHUB_REF##*/}
+        cp -r target/uml/* documentation/${GITHUB_REF##*/}
+        cp -r target/schema.json/* documentation/${GITHUB_REF##*/}
+        cd documentation
         git config user.name openMINDS
         git config user.email openMINDS@ebrains.eu
         if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
             git add .
-            git commit -m "Update of documentation (DEV)"
+            git commit -m "Update of documentation (${GITHUB_REF##*/})"
             git push
         else
             echo "Nothing to commit"
         fi
-        cd ../..
+        cd ..
         rm -rf documentation
     - name: Provide a copy of vocab in result
       run: |
