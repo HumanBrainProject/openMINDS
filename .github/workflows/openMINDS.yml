@@ -48,10 +48,10 @@ jobs:
         path: documentation
     - name: Push documentation
       run: |
-        mkdir -p documentation/$(echo ${GITHUB_REF##*/}
-        cp -r target/html/* documentation/$(echo ${GITHUB_REF##*/}
-        cp -r target/uml/* documentation/$(echo ${GITHUB_REF##*/}
-        cp -r target/schema.json/* documentation/$(echo ${GITHUB_REF##*/}
+        mkdir -p documentation/${GITHUB_REF##*/}
+        cp -r target/html/* documentation/${GITHUB_REF##*/}
+        cp -r target/uml/* documentation/${GITHUB_REF##*/}
+        cp -r target/schema.json/* documentation/${GITHUB_REF##*/}
         cd documentation
         git config user.name openMINDS
         git config user.email openMINDS@ebrains.eu
