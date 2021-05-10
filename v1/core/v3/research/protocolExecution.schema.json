@@ -312,44 +312,48 @@
             "type": "object"
         },
         "protocol": {
-            "_instruction": "Add the protocol of this protocol execution.",
+            "_instruction": "Add all protocols that were used in this protocol execution.",
             "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/Protocol"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Protocol"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "Protocol",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "semanticallyAnchoredTo": {
             "_instruction": "Add all anatomical entities to which the outputs of this protocol execution can be semantically anchored to.",
@@ -423,17 +427,17 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-                                "https://openminds.ebrains.eu/controlledTerms/Strain",
-                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
-                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/controlledTerms/Species",
                                 "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -452,10 +456,10 @@
     },
     "required": [
         "protocol",
-        "@id",
-        "@type",
         "output",
-        "input"
+        "input",
+        "@type",
+        "@id"
     ],
     "title": "Protocol execution",
     "type": "object"
