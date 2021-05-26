@@ -115,29 +115,22 @@
         "name": "Anatomical axes orientation",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/coordinateSpace.schema.tpl.json"
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/non-atlas/customCoordinateSpace.schema.tpl.json"
         ]
     },
     "anatomicalEntity": {
+        "deprecated": true,
         "description": "Physical component of a body, organ, or tissue.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Anatomical entity",
-        "schemas": [
-            "SANDS/v1/parcellationTerminology.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "annotationSet": {
+        "deprecated": true,
         "description": "Collection of notes or markings, each added by way of comment or explanation.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/Annotation"
-        ],
         "name": "Annotation set",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "applicationCategory": {
         "description": "Distinct class that groups software programs which perform a similar task or set of tasks.",
@@ -189,7 +182,8 @@
         "description": "Special point in a coordinate system used as a fixed point of reference for the geometry of the surrounding space.",
         "name": "Axes origin",
         "schemas": [
-            "SANDS/v1/coordinateSpace.schema.tpl.json"
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/non-atlas/customCoordinateSpace.schema.tpl.json"
         ]
     },
     "behavioralTask": {
@@ -207,7 +201,8 @@
         "name": "Best view point",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "biologicalSex": {
@@ -286,20 +281,21 @@
         "description": "Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.",
         "name": "Coordinate point",
         "schemas": [
-            "SANDS/v1/electrodeContact.schema.tpl.json"
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json"
         ]
     },
     "coordinateSpace": {
         "description": "Two or three dimensional geometric setting.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/CoordinateSpace"
+            "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
+            "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
         ],
         "name": "Coordinate space",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinatePoint.schema.tpl.json",
-            "SANDS/v1/image.schema.tpl.json"
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/miscellaneous/coordinatePoint.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "coordinates": {
@@ -307,7 +303,7 @@
         "name": "Coordinates",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/coordinatePoint.schema.tpl.json"
+            "SANDS/v2/miscellaneous/coordinatePoint.schema.tpl.json"
         ]
     },
     "coordinator": {
@@ -340,8 +336,10 @@
         "name": "Criteria",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/anatomicalEntityRelation.schema.tpl.json",
-            "SANDS/v1/annotation.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/miscellaneous/qualitativeRelationAssessment.schema.tpl.json",
+            "SANDS/v2/miscellaneous/quantitativeRelationAssessment.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "criteriaQualityType": {
@@ -352,8 +350,8 @@
         "name": "Criteria quality type",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/anatomicalEntityRelation.schema.tpl.json",
-            "SANDS/v1/annotation.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "custodian": {
@@ -377,11 +375,12 @@
     "defaultImage": {
         "description": "Two or three dimensional image that particluarly represents a specific coordinate space.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/Image"
+            "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Default image",
         "schemas": [
-            "SANDS/v1/coordinateSpace.schema.tpl.json"
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/non-atlas/customCoordinateSpace.schema.tpl.json"
         ]
     },
     "definedIn": {
@@ -392,9 +391,8 @@
         "name": "Defined in",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/electrodeContact.schema.tpl.json",
-            "SANDS/v1/image.schema.tpl.json",
-            "SANDS/v1/parcellationTerminology.schema.tpl.json"
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json"
         ]
     },
     "definition": {
@@ -403,6 +401,7 @@
         "sameAs": null,
         "schemas": [
             "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
             "controlledTerms/v1/ageCategory.schema.tpl.json",
             "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
             "controlledTerms/v1/behavioralTask.schema.tpl.json",
@@ -449,11 +448,12 @@
         "name": "Description",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
             "computation/v1/environment.schema.tpl.json",
             "computation/v1/hardware.schema.tpl.json",
             "computation/v1/launchconfiguration.schema.tpl.json",
             "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
             "controlledTerms/v1/ageCategory.schema.tpl.json",
             "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
             "controlledTerms/v1/behavioralTask.schema.tpl.json",
@@ -554,9 +554,9 @@
         "name": "Digital identifier",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
             "core/v3/actors/organization.schema.tpl.json",
             "core/v3/actors/person.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
@@ -574,7 +574,8 @@
         "name": "Display color",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "electrodeContact": {
@@ -584,7 +585,7 @@
         ],
         "name": "Electrode contact",
         "schemas": [
-            "SANDS/v1/electrode.schema.tpl.json"
+            "SANDS/v2/non-atlas/electrode.schema.tpl.json"
         ]
     },
     "electrodes": {
@@ -595,7 +596,7 @@
         "name": "Electrodes",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/electrodeArray.schema.tpl.json"
+            "SANDS/v2/non-atlas/electrodeArray.schema.tpl.json"
         ]
     },
     "email": {
@@ -617,8 +618,8 @@
         "description": null,
         "name": "Ended at time",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -631,8 +632,8 @@
         ],
         "name": "Environment",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/softwareagent.schema.tpl.json",
@@ -745,10 +746,10 @@
         "name": "Full name",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
-            "SANDS/v1/parcellationTerminology.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/actors/organization.schema.tpl.json",
             "core/v3/data/license.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
@@ -835,6 +836,18 @@
             "computation/v1/environment.schema.tpl.json"
         ]
     },
+    "hasAnnotation": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/sands/AtlasAnnotation",
+            "https://openminds.ebrains.eu/sands/CustomAnnotation"
+        ],
+        "name": "Has annotation",
+        "schemas": [
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnatomicalEntity.schema.tpl.json"
+        ]
+    },
     "hasComponent": {
         "description": "Reference to an element of a collection.",
         "linkedTypes": [
@@ -849,11 +862,11 @@
         "description": "Reference to a parent object or legal person.",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization",
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "Has parent",
         "schemas": [
-            "SANDS/v1/anatomicalEntity.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
             "core/v3/actors/organization.schema.tpl.json"
         ]
     },
@@ -875,6 +888,16 @@
             "core/v3/products/project.schema.tpl.json"
         ]
     },
+    "hasTerminology": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
+        ],
+        "name": "Has terminology",
+        "schemas": [
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json"
+        ]
+    },
     "hasVersion": {
         "description": "Reference to variants of an original.",
         "linkedTypes": [
@@ -886,7 +909,7 @@
         ],
         "name": "Has version",
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
             "core/v3/products/metaDataModel.schema.tpl.json",
             "core/v3/products/model.schema.tpl.json",
@@ -923,9 +946,9 @@
         "name": "Homepage",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
             "core/v3/actors/organization.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
@@ -954,9 +977,9 @@
         "name": "How to cite",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModel.schema.tpl.json",
@@ -998,12 +1021,13 @@
     "inRelationTo": {
         "description": "Reference to a related element.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "In relation to",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/anatomicalEntityRelation.schema.tpl.json"
+            "SANDS/v2/miscellaneous/qualitativeRelationAssessment.schema.tpl.json",
+            "SANDS/v2/miscellaneous/quantitativeRelationAssessment.schema.tpl.json"
         ]
     },
     "input": {
@@ -1011,16 +1035,16 @@
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle",
+            "https://openminds.ebrains.eu/core/SoftwareVersion",
             "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
             "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-            "https://openminds.ebrains.eu/core/TissueSampleState",
-            "https://openminds.ebrains.eu/products/SoftwareVersion"
+            "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "Input",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json",
@@ -1054,12 +1078,13 @@
     "inspiredBy": {
         "description": "Reference to an inspiring element.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/Image"
+            "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Inspired by",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
     "internalIdentifier": {
@@ -1067,10 +1092,11 @@
         "name": "Internal identifier",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json",
-            "SANDS/v1/electrode.schema.tpl.json",
-            "SANDS/v1/electrodeArray.schema.tpl.json",
-            "SANDS/v1/electrodeContact.schema.tpl.json",
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrode.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeArray.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json",
             "core/v3/research/subject.schema.tpl.json",
             "core/v3/research/subjectGroup.schema.tpl.json",
             "core/v3/research/tissueSample.schema.tpl.json",
@@ -1084,11 +1110,13 @@
             "https://openminds.ebrains.eu/core/MetaDataModelVersion",
             "https://openminds.ebrains.eu/core/ModelVersion",
             "https://openminds.ebrains.eu/core/SoftwareVersion",
-            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+            "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "Is alternative version of",
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/v3/products/modelVersion.schema.tpl.json",
@@ -1102,12 +1130,14 @@
             "https://openminds.ebrains.eu/core/MetaDataModelVersion",
             "https://openminds.ebrains.eu/core/ModelVersion",
             "https://openminds.ebrains.eu/core/SoftwareVersion",
-            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+            "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "Is new version of",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/v3/products/modelVersion.schema.tpl.json",
@@ -1120,11 +1150,13 @@
             "https://openminds.ebrains.eu/core/FileBundle",
             "https://openminds.ebrains.eu/core/FileRepository",
             "https://openminds.ebrains.eu/core/SubjectGroup",
-            "https://openminds.ebrains.eu/core/TissueSampleCollection"
+            "https://openminds.ebrains.eu/core/TissueSampleCollection",
+            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "Is part of",
         "sameAs": null,
         "schemas": [
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
             "core/v3/data/file.schema.tpl.json",
             "core/v3/data/fileBundle.schema.tpl.json",
             "core/v3/research/subject.schema.tpl.json",
@@ -1160,7 +1192,8 @@
         "name": "Laterality",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json",
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json",
             "core/v3/research/tissueSample.schema.tpl.json",
             "core/v3/research/tissueSampleCollection.schema.tpl.json"
         ]
@@ -1172,8 +1205,8 @@
         ],
         "name": "Launch configuration",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -1205,6 +1238,11 @@
         "description": null,
         "name": "Lookup label",
         "schemas": [
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrode.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeArray.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json",
             "core/v3/research/protocolExecution.schema.tpl.json",
             "core/v3/research/subject.schema.tpl.json",
             "core/v3/research/subjectGroup.schema.tpl.json",
@@ -1244,12 +1282,17 @@
         "name": "Name",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/anatomicalEntity.schema.tpl.json",
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnatomicalEntity.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customCoordinateSpace.schema.tpl.json",
             "computation/v1/environment.schema.tpl.json",
             "computation/v1/hardware.schema.tpl.json",
             "computation/v1/launchconfiguration.schema.tpl.json",
             "computation/v1/softwareagent.schema.tpl.json",
             "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
             "controlledTerms/v1/ageCategory.schema.tpl.json",
             "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
             "controlledTerms/v1/behavioralTask.schema.tpl.json",
@@ -1299,15 +1342,11 @@
         ]
     },
     "namingTerm": {
+        "deprecated": true,
         "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Naming term",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "nativeUnit": {
         "description": "Determinate quantity used in the original measurement.",
@@ -1317,7 +1356,8 @@
         "name": "Native unit",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/coordinateSpace.schema.tpl.json"
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/non-atlas/customCoordinateSpace.schema.tpl.json"
         ]
     },
     "ontologyIdentifier": {
@@ -1325,11 +1365,12 @@
         "name": "Ontology identifier",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/anatomicalEntity.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
-            "SANDS/v1/parcellationTerminology.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
             "controlledTerms/v1/ageCategory.schema.tpl.json",
             "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
             "controlledTerms/v1/behavioralTask.schema.tpl.json",
@@ -1406,11 +1447,10 @@
         ]
     },
     "otherAnatomicalRelation": {
+        "deprecated": true,
         "description": "Reference to a related anatomical structure.",
         "name": "Other anatomical relation",
-        "schemas": [
-            "SANDS/v1/anatomicalEntity.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "otherContribution": {
         "description": "Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.",
@@ -1434,8 +1474,8 @@
         ],
         "name": "Output",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json",
@@ -1555,14 +1595,14 @@
         ],
         "name": "Qualitative overlap",
         "schemas": [
-            "SANDS/v1/anatomicalEntityRelation.schema.tpl.json"
+            "SANDS/v2/miscellaneous/qualitativeRelationAssessment.schema.tpl.json"
         ]
     },
     "quantitativeOverlap": {
         "description": "Numerical characterization of how much two things occupy the same space.",
         "name": "Quantitative overlap",
         "schemas": [
-            "SANDS/v1/anatomicalEntityRelation.schema.tpl.json"
+            "SANDS/v2/miscellaneous/quantitativeRelationAssessment.schema.tpl.json"
         ]
     },
     "quantity": {
@@ -1589,14 +1629,10 @@
         ]
     },
     "relatedParcellationTerm": {
+        "deprecated": true,
         "description": null,
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Related parcellation term",
-        "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "relatedPublication": {
         "description": "Reference to something that was made available for the general public to see or buy.",
@@ -1620,7 +1656,7 @@
         ],
         "name": "Related recording",
         "schemas": [
-            "SANDS/v1/electrodeContact.schema.tpl.json"
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json"
         ]
     },
     "relatedStimulation": {
@@ -1631,7 +1667,25 @@
         ],
         "name": "Related stimulation",
         "schemas": [
-            "SANDS/v1/electrodeContact.schema.tpl.json"
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json"
+        ]
+    },
+    "relatedUBERONTerm": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
+        ],
+        "name": "Related uberonterm",
+        "schemas": [
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json"
+        ]
+    },
+    "relationAssessment": {
+        "description": null,
+        "name": "Relation assessment",
+        "schemas": [
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnatomicalEntity.schema.tpl.json"
         ]
     },
     "releaseDate": {
@@ -1639,8 +1693,8 @@
         "name": "Release date",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/v3/products/modelVersion.schema.tpl.json",
@@ -1693,8 +1747,8 @@
         "description": null,
         "name": "Resource usage",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -1737,10 +1791,10 @@
         "name": "Short name",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlas.schema.tpl.json",
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
-            "SANDS/v1/parcellationTerminology.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/actors/organization.schema.tpl.json",
             "core/v3/data/license.schema.tpl.json",
             "core/v3/products/dataset.schema.tpl.json",
@@ -1809,7 +1863,7 @@
     "stages": {
         "description": null,
         "linkedTypes": [
-            "https://openminds.ebrains.eu/computation/Analysis",
+            "https://openminds.ebrains.eu/computation/DataAnalysis",
             "https://openminds.ebrains.eu/computation/Simulation",
             "https://openminds.ebrains.eu/computation/Visualization"
         ],
@@ -1829,8 +1883,8 @@
         "description": null,
         "name": "Started at time",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -1844,8 +1898,8 @@
         ],
         "name": "Started by",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json",
@@ -1859,8 +1913,8 @@
         ],
         "name": "Status",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -1932,7 +1986,8 @@
             "https://openminds.ebrains.eu/controlledTerms/Species",
             "https://openminds.ebrains.eu/controlledTerms/Strain",
             "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+            "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "Study option",
         "schemas": [
@@ -1952,7 +2007,8 @@
             "https://openminds.ebrains.eu/controlledTerms/Species",
             "https://openminds.ebrains.eu/controlledTerms/Strain",
             "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+            "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "Study target",
         "sameAs": null,
@@ -1989,8 +2045,8 @@
         "description": null,
         "name": "Tags",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
@@ -2007,15 +2063,11 @@
         ]
     },
     "terminology": {
+        "deprecated": true,
         "description": "Nomenclature for a particular field of study.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/ParcellationTerminology"
-        ],
         "name": "Terminology",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "type": {
         "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
@@ -2084,8 +2136,11 @@
         "name": "Version identifier",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
-            "SANDS/v1/coordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/v3/products/modelVersion.schema.tpl.json",
@@ -2097,7 +2152,10 @@
         "name": "Version innovation",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
             "core/v3/products/datasetVersion.schema.tpl.json",
             "core/v3/products/metaDataModelVersion.schema.tpl.json",
             "core/v3/products/modelVersion.schema.tpl.json",
@@ -2107,22 +2165,22 @@
     "visualizedIn": {
         "description": "Reference to an image in which something is visible.",
         "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/Image"
+            "https://openminds.ebrains.eu/core/File"
         ],
         "name": "Visualized in",
         "sameAs": null,
         "schemas": [
-            "SANDS/v1/annotation.schema.tpl.json",
-            "SANDS/v1/electrodeContact.schema.tpl.json"
+            "SANDS/v2/atlas/atlasAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json",
+            "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json"
         ]
     },
     "voxelSize": {
+        "deprecated": true,
         "description": "Extent of the discrete elements comprising a three-dimensional entity.",
         "name": "Voxel size",
         "sameAs": null,
-        "schemas": [
-            "SANDS/v1/image.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "wasInformedBy": {
         "description": null,
@@ -2131,8 +2189,8 @@
         ],
         "name": "Was informed by",
         "schemas": [
-            "computation/v1/analysis.schema.tpl.json",
             "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
             "computation/v1/visualization.schema.tpl.json"
