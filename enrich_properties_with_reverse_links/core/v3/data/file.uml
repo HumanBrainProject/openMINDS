@@ -1,0 +1,21 @@
+@startuml
+class File {
++content
++fileRepository
++format
++hash
++IRI
++isPartOf
++name
++specialUsageRole
++storageSize
+
+}
+File -d-> "fileRepository" FileRepository
+File -d-> "format" ContentType
+File -d-> "hash" Hash
+File -d-> "isPartOf" FileBundle
+File -d-> "specialUsageRole" FileUsageRole
+File -d-> "storageSize" QuantitativeValue
+
+@enduml
