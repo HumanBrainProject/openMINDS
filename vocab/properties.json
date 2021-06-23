@@ -128,6 +128,18 @@
             "SANDS/v1/parcellationTerminology.schema.tpl.json"
         ]
     },
+    "anatomicalLocation": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+            "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
+        ],
+        "name": "Anatomical location",
+        "schemas": [
+            "core/v3/research/tissueSample.schema.tpl.json"
+        ]
+    },
     "annotationSet": {
         "description": "Collection of notes or markings, each added by way of comment or explanation.",
         "linkedTypes": [
@@ -419,6 +431,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -468,6 +482,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -593,6 +609,13 @@
         "name": "End date",
         "schemas": [
             "core/v3/actors/affiliation.schema.tpl.json"
+        ]
+    },
+    "endedAtTime": {
+        "description": null,
+        "name": "Ended at time",
+        "schemas": [
+            "core/v3/research/protocolExecution.schema.tpl.json"
         ]
     },
     "ethicsAssessment": {
@@ -1188,6 +1211,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -1269,6 +1294,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -1603,15 +1630,11 @@
         ]
     },
     "semanticallyAnchoredTo": {
+        "deprecated": true,
         "description": "Reference to a related anatomical structure without providing a quantitative proof of the claimed relation.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Semantically anchored to",
         "sameAs": null,
-        "schemas": [
-            "core/v3/research/protocolExecution.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "serializationFormat": {
         "description": "Form in which a particular data structure or object state is translated to for storage.",
@@ -1691,6 +1714,13 @@
         "name": "Start date",
         "schemas": [
             "core/v3/actors/affiliation.schema.tpl.json"
+        ]
+    },
+    "startedAtTime": {
+        "description": null,
+        "name": "Started at time",
+        "schemas": [
+            "core/v3/research/protocolExecution.schema.tpl.json"
         ]
     },
     "storageSize": {
