@@ -4,6 +4,7 @@ class TissueSample {
 +laterality
 +origin
 +studiedState
++anatomicalLocation
 +type
 +biologicalSex
 +internalIdentifier
@@ -18,6 +19,9 @@ TissueSample -d-> "laterality" Laterality
 TissueSample -d-> "origin" CellType
 TissueSample -d-> "origin" Organ
 TissueSample -d-> "studiedState" TissueSampleState
+TissueSample -d-> "anatomicalLocation" UBERONParcellation
+TissueSample -d-> "anatomicalLocation" CustomAnatomicalEntity
+TissueSample -d-> "anatomicalLocation" ParcellationEntity
 TissueSample -d-> "type" TissueSampleType
 TissueSample -d-> "biologicalSex" BiologicalSex
 TissueSample -d-> "phenotype" Phenotype

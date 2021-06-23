@@ -12,6 +12,51 @@
             "const": "https://openminds.ebrains.eu/core/TissueSample",
             "type": "string"
         },
+        "anatomicalLocation": {
+            "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "Anatomical location",
+            "type": "array",
+            "uniqueItems": true
+        },
         "biologicalSex": {
             "_instruction": "Add the biological sex of this specimen.",
             "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
@@ -399,14 +444,14 @@
         }
     },
     "required": [
-        "studiedState",
-        "@id",
         "biologicalSex",
-        "type",
-        "species",
+        "@id",
         "origin",
         "@type",
-        "internalIdentifier"
+        "species",
+        "studiedState",
+        "internalIdentifier",
+        "type"
     ],
     "title": "Tissue sample",
     "type": "object"
