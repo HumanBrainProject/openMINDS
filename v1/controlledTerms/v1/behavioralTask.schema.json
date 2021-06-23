@@ -24,24 +24,46 @@
             "title": "Description",
             "type": "string"
         },
+        "interlexIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the integrated ontology entry in the InterLex project.",
+            "format": "iri",
+            "title": "Interlex identifier",
+            "type": "string"
+        },
+        "knowledgeSpaceLink": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the wiki page of the corresponding term in the KnowledgeSpace.",
+            "format": "iri",
+            "title": "Knowledge space link",
+            "type": "string"
+        },
         "name": {
             "_instruction": "Controlled term originating from a defined terminology.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "Name",
             "type": "string"
         },
-        "ontologyIdentifier": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
-            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+        "preferredOntologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the preferred ontological term.",
             "format": "iri",
-            "title": "Ontology identifier",
+            "title": "Preferred ontology identifier",
             "type": "string"
+        },
+        "synonym": {
+            "_instruction": "Enter one or several synonyms (inlcuding abbreviations) for this controlled term.",
+            "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "Synonym",
+            "type": "array",
+            "uniqueItems": true
         }
     },
     "required": [
-        "name",
+        "@type",
         "@id",
-        "@type"
+        "name"
     ],
     "title": "Behavioral task",
     "type": "object"
