@@ -60,7 +60,7 @@ build(){
   cp -r uml/* ../../openMINDS_documentation/$version
   cp -r schema.json/* ../../openMINDS_documentation/$version
   cd ..
-  cp -r vocab ../vocab
+  cp -r vocab ..
 }
 
 echo "Clearing existing elements..."
