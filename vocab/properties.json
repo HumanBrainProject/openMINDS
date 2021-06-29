@@ -125,6 +125,18 @@
         "name": "Anatomical entity",
         "schemas": []
     },
+    "anatomicalLocation": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+            "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+            "https://openminds.ebrains.eu/sands/ParcellationEntity"
+        ],
+        "name": "Anatomical location",
+        "schemas": [
+            "core/v3/research/tissueSample.schema.tpl.json"
+        ]
+    },
     "annotationSet": {
         "deprecated": true,
         "description": "Collection of notes or markings, each added by way of comment or explanation.",
@@ -372,6 +384,17 @@
             "core/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
+    "dataLocation": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/File",
+            "https://openminds.ebrains.eu/core/FileBundle"
+        ],
+        "name": "Data location",
+        "schemas": [
+            "core/v3/data/serviceLink.schema.tpl.json"
+        ]
+    },
     "defaultImage": {
         "description": "Two or three dimensional image that particluarly represents a specific coordinate space.",
         "linkedTypes": [
@@ -409,6 +432,7 @@
             "controlledTerms/v1/cellType.schema.tpl.json",
             "controlledTerms/v1/contributionType.schema.tpl.json",
             "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
             "controlledTerms/v1/disease.schema.tpl.json",
             "controlledTerms/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
@@ -434,6 +458,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -449,9 +475,14 @@
         "sameAs": null,
         "schemas": [
             "SANDS/v2/atlas/brainAtlas.schema.tpl.json",
+            "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/environment.schema.tpl.json",
             "computation/v1/hardware.schema.tpl.json",
             "computation/v1/launchconfiguration.schema.tpl.json",
+            "computation/v1/optimization.schema.tpl.json",
+            "computation/v1/simulation.schema.tpl.json",
+            "computation/v1/visualization.schema.tpl.json",
             "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
             "controlledTerms/v1/actionStatusType.schema.tpl.json",
             "controlledTerms/v1/ageCategory.schema.tpl.json",
@@ -461,6 +492,7 @@
             "controlledTerms/v1/cellType.schema.tpl.json",
             "controlledTerms/v1/contributionType.schema.tpl.json",
             "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
             "controlledTerms/v1/disease.schema.tpl.json",
             "controlledTerms/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
@@ -486,6 +518,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -623,7 +657,8 @@
             "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
-            "computation/v1/visualization.schema.tpl.json"
+            "computation/v1/visualization.schema.tpl.json",
+            "core/v3/research/protocolExecution.schema.tpl.json"
         ]
     },
     "environment": {
@@ -1088,6 +1123,56 @@
             "SANDS/v2/non-atlas/customAnnotation.schema.tpl.json"
         ]
     },
+    "interlexIdentifier": {
+        "description": null,
+        "name": "Interlex identifier",
+        "schemas": [
+            "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
+            "controlledTerms/v1/ageCategory.schema.tpl.json",
+            "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
+            "controlledTerms/v1/behavioralTask.schema.tpl.json",
+            "controlledTerms/v1/biologicalSex.schema.tpl.json",
+            "controlledTerms/v1/cellType.schema.tpl.json",
+            "controlledTerms/v1/contributionType.schema.tpl.json",
+            "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
+            "controlledTerms/v1/disease.schema.tpl.json",
+            "controlledTerms/v1/diseaseModel.schema.tpl.json",
+            "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
+            "controlledTerms/v1/experimentalApproach.schema.tpl.json",
+            "controlledTerms/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/v1/fileRepositoryType.schema.tpl.json",
+            "controlledTerms/v1/fileUsageRole.schema.tpl.json",
+            "controlledTerms/v1/handedness.schema.tpl.json",
+            "controlledTerms/v1/language.schema.tpl.json",
+            "controlledTerms/v1/laterality.schema.tpl.json",
+            "controlledTerms/v1/metaDataModelType.schema.tpl.json",
+            "controlledTerms/v1/modelAbstractionLevel.schema.tpl.json",
+            "controlledTerms/v1/modelScope.schema.tpl.json",
+            "controlledTerms/v1/operatingDevice.schema.tpl.json",
+            "controlledTerms/v1/operatingSystem.schema.tpl.json",
+            "controlledTerms/v1/organ.schema.tpl.json",
+            "controlledTerms/v1/phenotype.schema.tpl.json",
+            "controlledTerms/v1/preparationType.schema.tpl.json",
+            "controlledTerms/v1/productAccessibility.schema.tpl.json",
+            "controlledTerms/v1/programmingLanguage.schema.tpl.json",
+            "controlledTerms/v1/qualitativeOverlap.schema.tpl.json",
+            "controlledTerms/v1/semanticDataType.schema.tpl.json",
+            "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
+            "controlledTerms/v1/softwareFeature.schema.tpl.json",
+            "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
+            "controlledTerms/v1/strain.schema.tpl.json",
+            "controlledTerms/v1/technique.schema.tpl.json",
+            "controlledTerms/v1/termSuggestion.schema.tpl.json",
+            "controlledTerms/v1/terminology.schema.tpl.json",
+            "controlledTerms/v1/tissueSampleType.schema.tpl.json",
+            "controlledTerms/v1/typeOfUncertainty.schema.tpl.json",
+            "controlledTerms/v1/unitOfMeasurement.schema.tpl.json"
+        ]
+    },
     "internalIdentifier": {
         "description": "Term or code that identifies someone or something within a particular product.",
         "name": "Internal identifier",
@@ -1174,6 +1259,56 @@
             "core/v3/products/softwareVersion.schema.tpl.json"
         ]
     },
+    "knowledgeSpaceLink": {
+        "description": null,
+        "name": "Knowledge space link",
+        "schemas": [
+            "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
+            "controlledTerms/v1/ageCategory.schema.tpl.json",
+            "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
+            "controlledTerms/v1/behavioralTask.schema.tpl.json",
+            "controlledTerms/v1/biologicalSex.schema.tpl.json",
+            "controlledTerms/v1/cellType.schema.tpl.json",
+            "controlledTerms/v1/contributionType.schema.tpl.json",
+            "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
+            "controlledTerms/v1/disease.schema.tpl.json",
+            "controlledTerms/v1/diseaseModel.schema.tpl.json",
+            "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
+            "controlledTerms/v1/experimentalApproach.schema.tpl.json",
+            "controlledTerms/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/v1/fileRepositoryType.schema.tpl.json",
+            "controlledTerms/v1/fileUsageRole.schema.tpl.json",
+            "controlledTerms/v1/handedness.schema.tpl.json",
+            "controlledTerms/v1/language.schema.tpl.json",
+            "controlledTerms/v1/laterality.schema.tpl.json",
+            "controlledTerms/v1/metaDataModelType.schema.tpl.json",
+            "controlledTerms/v1/modelAbstractionLevel.schema.tpl.json",
+            "controlledTerms/v1/modelScope.schema.tpl.json",
+            "controlledTerms/v1/operatingDevice.schema.tpl.json",
+            "controlledTerms/v1/operatingSystem.schema.tpl.json",
+            "controlledTerms/v1/organ.schema.tpl.json",
+            "controlledTerms/v1/phenotype.schema.tpl.json",
+            "controlledTerms/v1/preparationType.schema.tpl.json",
+            "controlledTerms/v1/productAccessibility.schema.tpl.json",
+            "controlledTerms/v1/programmingLanguage.schema.tpl.json",
+            "controlledTerms/v1/qualitativeOverlap.schema.tpl.json",
+            "controlledTerms/v1/semanticDataType.schema.tpl.json",
+            "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
+            "controlledTerms/v1/softwareFeature.schema.tpl.json",
+            "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
+            "controlledTerms/v1/strain.schema.tpl.json",
+            "controlledTerms/v1/technique.schema.tpl.json",
+            "controlledTerms/v1/termSuggestion.schema.tpl.json",
+            "controlledTerms/v1/terminology.schema.tpl.json",
+            "controlledTerms/v1/tissueSampleType.schema.tpl.json",
+            "controlledTerms/v1/typeOfUncertainty.schema.tpl.json",
+            "controlledTerms/v1/unitOfMeasurement.schema.tpl.json"
+        ]
+    },
     "language": {
         "description": "System of communication (words, their pronunciation, and the methods of combining them) used and understood by a particular community.",
         "linkedTypes": [
@@ -1244,6 +1379,11 @@
             "SANDS/v2/non-atlas/electrode.schema.tpl.json",
             "SANDS/v2/non-atlas/electrodeArray.schema.tpl.json",
             "SANDS/v2/non-atlas/electrodeContact.schema.tpl.json",
+            "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
+            "computation/v1/optimization.schema.tpl.json",
+            "computation/v1/simulation.schema.tpl.json",
+            "computation/v1/visualization.schema.tpl.json",
             "core/v3/research/protocolExecution.schema.tpl.json",
             "core/v3/research/subject.schema.tpl.json",
             "core/v3/research/subjectGroup.schema.tpl.json",
@@ -1301,6 +1441,7 @@
             "controlledTerms/v1/cellType.schema.tpl.json",
             "controlledTerms/v1/contributionType.schema.tpl.json",
             "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
             "controlledTerms/v1/disease.schema.tpl.json",
             "controlledTerms/v1/diseaseModel.schema.tpl.json",
             "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
@@ -1326,6 +1467,8 @@
             "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
             "controlledTerms/v1/softwareFeature.schema.tpl.json",
             "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
             "controlledTerms/v1/strain.schema.tpl.json",
             "controlledTerms/v1/technique.schema.tpl.json",
             "controlledTerms/v1/termSuggestion.schema.tpl.json",
@@ -1369,48 +1512,17 @@
             "SANDS/v2/atlas/brainAtlasVersion.schema.tpl.json",
             "SANDS/v2/atlas/commonCoordinateSpace.schema.tpl.json",
             "SANDS/v2/atlas/parcellationEntity.schema.tpl.json",
-            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json",
-            "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
-            "controlledTerms/v1/actionStatusType.schema.tpl.json",
-            "controlledTerms/v1/ageCategory.schema.tpl.json",
-            "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
-            "controlledTerms/v1/behavioralTask.schema.tpl.json",
-            "controlledTerms/v1/biologicalSex.schema.tpl.json",
-            "controlledTerms/v1/cellType.schema.tpl.json",
-            "controlledTerms/v1/contributionType.schema.tpl.json",
-            "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
-            "controlledTerms/v1/disease.schema.tpl.json",
-            "controlledTerms/v1/diseaseModel.schema.tpl.json",
-            "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
-            "controlledTerms/v1/experimentalApproach.schema.tpl.json",
-            "controlledTerms/v1/fileBundleGrouping.schema.tpl.json",
-            "controlledTerms/v1/fileRepositoryType.schema.tpl.json",
-            "controlledTerms/v1/fileUsageRole.schema.tpl.json",
-            "controlledTerms/v1/handedness.schema.tpl.json",
-            "controlledTerms/v1/language.schema.tpl.json",
-            "controlledTerms/v1/laterality.schema.tpl.json",
-            "controlledTerms/v1/metaDataModelType.schema.tpl.json",
-            "controlledTerms/v1/modelAbstractionLevel.schema.tpl.json",
-            "controlledTerms/v1/modelScope.schema.tpl.json",
-            "controlledTerms/v1/operatingDevice.schema.tpl.json",
-            "controlledTerms/v1/operatingSystem.schema.tpl.json",
-            "controlledTerms/v1/organ.schema.tpl.json",
-            "controlledTerms/v1/phenotype.schema.tpl.json",
-            "controlledTerms/v1/preparationType.schema.tpl.json",
-            "controlledTerms/v1/productAccessibility.schema.tpl.json",
-            "controlledTerms/v1/programmingLanguage.schema.tpl.json",
-            "controlledTerms/v1/qualitativeOverlap.schema.tpl.json",
-            "controlledTerms/v1/semanticDataType.schema.tpl.json",
-            "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
-            "controlledTerms/v1/softwareFeature.schema.tpl.json",
-            "controlledTerms/v1/species.schema.tpl.json",
-            "controlledTerms/v1/strain.schema.tpl.json",
-            "controlledTerms/v1/technique.schema.tpl.json",
-            "controlledTerms/v1/termSuggestion.schema.tpl.json",
-            "controlledTerms/v1/terminology.schema.tpl.json",
-            "controlledTerms/v1/tissueSampleType.schema.tpl.json",
-            "controlledTerms/v1/typeOfUncertainty.schema.tpl.json",
-            "controlledTerms/v1/unitOfMeasurement.schema.tpl.json"
+            "SANDS/v2/atlas/parcellationTerminology.schema.tpl.json"
+        ]
+    },
+    "openDataIn": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/core/URL"
+        ],
+        "name": "Open data in",
+        "schemas": [
+            "core/v3/data/serviceLink.schema.tpl.json"
         ]
     },
     "operatingSystem": {
@@ -1517,6 +1629,11 @@
         "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
         "name": "Parameter set",
         "schemas": [
+            "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
+            "computation/v1/optimization.schema.tpl.json",
+            "computation/v1/simulation.schema.tpl.json",
+            "computation/v1/visualization.schema.tpl.json",
             "core/v3/research/protocolExecution.schema.tpl.json"
         ]
     },
@@ -1554,6 +1671,56 @@
             "core/v3/research/subjectGroup.schema.tpl.json",
             "core/v3/research/tissueSample.schema.tpl.json",
             "core/v3/research/tissueSampleCollection.schema.tpl.json"
+        ]
+    },
+    "preferredOntologyIdentifier": {
+        "description": null,
+        "name": "Preferred ontology identifier",
+        "schemas": [
+            "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
+            "controlledTerms/v1/ageCategory.schema.tpl.json",
+            "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
+            "controlledTerms/v1/behavioralTask.schema.tpl.json",
+            "controlledTerms/v1/biologicalSex.schema.tpl.json",
+            "controlledTerms/v1/cellType.schema.tpl.json",
+            "controlledTerms/v1/contributionType.schema.tpl.json",
+            "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
+            "controlledTerms/v1/disease.schema.tpl.json",
+            "controlledTerms/v1/diseaseModel.schema.tpl.json",
+            "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
+            "controlledTerms/v1/experimentalApproach.schema.tpl.json",
+            "controlledTerms/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/v1/fileRepositoryType.schema.tpl.json",
+            "controlledTerms/v1/fileUsageRole.schema.tpl.json",
+            "controlledTerms/v1/handedness.schema.tpl.json",
+            "controlledTerms/v1/language.schema.tpl.json",
+            "controlledTerms/v1/laterality.schema.tpl.json",
+            "controlledTerms/v1/metaDataModelType.schema.tpl.json",
+            "controlledTerms/v1/modelAbstractionLevel.schema.tpl.json",
+            "controlledTerms/v1/modelScope.schema.tpl.json",
+            "controlledTerms/v1/operatingDevice.schema.tpl.json",
+            "controlledTerms/v1/operatingSystem.schema.tpl.json",
+            "controlledTerms/v1/organ.schema.tpl.json",
+            "controlledTerms/v1/phenotype.schema.tpl.json",
+            "controlledTerms/v1/preparationType.schema.tpl.json",
+            "controlledTerms/v1/productAccessibility.schema.tpl.json",
+            "controlledTerms/v1/programmingLanguage.schema.tpl.json",
+            "controlledTerms/v1/qualitativeOverlap.schema.tpl.json",
+            "controlledTerms/v1/semanticDataType.schema.tpl.json",
+            "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
+            "controlledTerms/v1/softwareFeature.schema.tpl.json",
+            "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
+            "controlledTerms/v1/strain.schema.tpl.json",
+            "controlledTerms/v1/technique.schema.tpl.json",
+            "controlledTerms/v1/termSuggestion.schema.tpl.json",
+            "controlledTerms/v1/terminology.schema.tpl.json",
+            "controlledTerms/v1/tissueSampleType.schema.tpl.json",
+            "controlledTerms/v1/typeOfUncertainty.schema.tpl.json",
+            "controlledTerms/v1/unitOfMeasurement.schema.tpl.json"
         ]
     },
     "preparationType": {
@@ -1767,15 +1934,11 @@
         ]
     },
     "semanticallyAnchoredTo": {
+        "deprecated": true,
         "description": "Reference to a related anatomical structure without providing a quantitative proof of the claimed relation.",
-        "linkedTypes": [
-            "https://openminds.ebrains.eu/sands/AnatomicalEntity"
-        ],
         "name": "Semantically anchored to",
         "sameAs": null,
-        "schemas": [
-            "core/v3/research/protocolExecution.schema.tpl.json"
-        ]
+        "schemas": []
     },
     "serializationFormat": {
         "description": "Form in which a particular data structure or object state is translated to for storage.",
@@ -1785,6 +1948,16 @@
         "name": "Serialization format",
         "schemas": [
             "core/v3/products/metaDataModelVersion.schema.tpl.json"
+        ]
+    },
+    "service": {
+        "description": null,
+        "linkedTypes": [
+            "https://openminds.ebrains.eu/controlledTerms/Service"
+        ],
+        "name": "Service",
+        "schemas": [
+            "core/v3/data/serviceLink.schema.tpl.json"
         ]
     },
     "shortName": {
@@ -1888,7 +2061,8 @@
             "computation/v1/dataAnalysis.schema.tpl.json",
             "computation/v1/optimization.schema.tpl.json",
             "computation/v1/simulation.schema.tpl.json",
-            "computation/v1/visualization.schema.tpl.json"
+            "computation/v1/visualization.schema.tpl.json",
+            "core/v3/research/protocolExecution.schema.tpl.json"
         ]
     },
     "startedBy": {
@@ -2014,6 +2188,11 @@
         "name": "Study target",
         "sameAs": null,
         "schemas": [
+            "computation/v1/computation.schema.tpl.json",
+            "computation/v1/dataAnalysis.schema.tpl.json",
+            "computation/v1/optimization.schema.tpl.json",
+            "computation/v1/simulation.schema.tpl.json",
+            "computation/v1/visualization.schema.tpl.json",
             "core/v3/products/model.schema.tpl.json",
             "core/v3/research/protocolExecution.schema.tpl.json"
         ]
@@ -2039,6 +2218,50 @@
         "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
         "name": "Synonym",
         "schemas": [
+            "controlledTerms/v1/UBERONParcellation.schema.tpl.json",
+            "controlledTerms/v1/actionStatusType.schema.tpl.json",
+            "controlledTerms/v1/ageCategory.schema.tpl.json",
+            "controlledTerms/v1/anatomicalAxesOrientation.schema.tpl.json",
+            "controlledTerms/v1/behavioralTask.schema.tpl.json",
+            "controlledTerms/v1/biologicalSex.schema.tpl.json",
+            "controlledTerms/v1/cellType.schema.tpl.json",
+            "controlledTerms/v1/contributionType.schema.tpl.json",
+            "controlledTerms/v1/criteriaQualityType.schema.tpl.json",
+            "controlledTerms/v1/deviceType.schema.tpl.json",
+            "controlledTerms/v1/disease.schema.tpl.json",
+            "controlledTerms/v1/diseaseModel.schema.tpl.json",
+            "controlledTerms/v1/ethicsAssessment.schema.tpl.json",
+            "controlledTerms/v1/experimentalApproach.schema.tpl.json",
+            "controlledTerms/v1/fileBundleGrouping.schema.tpl.json",
+            "controlledTerms/v1/fileRepositoryType.schema.tpl.json",
+            "controlledTerms/v1/fileUsageRole.schema.tpl.json",
+            "controlledTerms/v1/handedness.schema.tpl.json",
+            "controlledTerms/v1/language.schema.tpl.json",
+            "controlledTerms/v1/laterality.schema.tpl.json",
+            "controlledTerms/v1/metaDataModelType.schema.tpl.json",
+            "controlledTerms/v1/modelAbstractionLevel.schema.tpl.json",
+            "controlledTerms/v1/modelScope.schema.tpl.json",
+            "controlledTerms/v1/operatingDevice.schema.tpl.json",
+            "controlledTerms/v1/operatingSystem.schema.tpl.json",
+            "controlledTerms/v1/organ.schema.tpl.json",
+            "controlledTerms/v1/phenotype.schema.tpl.json",
+            "controlledTerms/v1/preparationType.schema.tpl.json",
+            "controlledTerms/v1/productAccessibility.schema.tpl.json",
+            "controlledTerms/v1/programmingLanguage.schema.tpl.json",
+            "controlledTerms/v1/qualitativeOverlap.schema.tpl.json",
+            "controlledTerms/v1/semanticDataType.schema.tpl.json",
+            "controlledTerms/v1/softwareApplicationCategory.schema.tpl.json",
+            "controlledTerms/v1/softwareFeature.schema.tpl.json",
+            "controlledTerms/v1/species.schema.tpl.json",
+            "controlledTerms/v1/stimulusModality.schema.tpl.json",
+            "controlledTerms/v1/stimulusType.schema.tpl.json",
+            "controlledTerms/v1/strain.schema.tpl.json",
+            "controlledTerms/v1/technique.schema.tpl.json",
+            "controlledTerms/v1/termSuggestion.schema.tpl.json",
+            "controlledTerms/v1/terminology.schema.tpl.json",
+            "controlledTerms/v1/tissueSampleType.schema.tpl.json",
+            "controlledTerms/v1/typeOfUncertainty.schema.tpl.json",
+            "controlledTerms/v1/unitOfMeasurement.schema.tpl.json",
             "core/v3/data/contentType.schema.tpl.json"
         ]
     },
