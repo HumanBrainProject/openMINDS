@@ -12,21 +12,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+    - name: Check out repository code
+      uses: actions/checkout@v2
+
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+
     - name: Checkout documentation branch
       uses: actions/checkout@v2
       with:
         repository: HumanBrainProject/openMINDS
         ref: documentation
         path: openMINDS_documentation
+
     - name: Run build
       run: |
         ls -alh
         chmod +x build.sh
         ./build.sh
+
     - name: Push documentation and package
       run: |
         cd openMINDS_documentation
