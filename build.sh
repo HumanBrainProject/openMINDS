@@ -20,6 +20,8 @@ commitAndPush(){
   fi
 }
 
+
+FIRST_BUILD=1
 build(){
   echo "Building version $version"
   git checkout $version
@@ -43,8 +45,8 @@ build(){
   flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   # Run the generator logic
-  python ../openMINDS_generator/openMINDS.py --path ../openMINDS
-
+  if [[ $FIRST_BUILD == 1 ]]; then python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit; else  python ../openMINDS_generator/openMINDS.py --path ../openMINDS; fi;
+  FIRST_BUILD=0
   # Copy expanded schemas into target
   mkdir target/schema.tpl.json
   cp -r expanded/* target/schema.tpl.json
