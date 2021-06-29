@@ -25,7 +25,7 @@ FIRST_BUILD=1
 build(){
   echo ""
   echo "*************************"
-  echo "Building version $1"
+  echo "Building version $1 (out of $2)"
   echo "*************************"
   echo ""
   git checkout $1
@@ -52,9 +52,9 @@ build(){
   if [[ $FIRST_BUILD == 1 ]]
     then
       echo "First build"
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit --all_versions $2
     else
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --all_versions $2
   fi
   FIRST_BUILD=0
   # Copy expanded schemas into target
@@ -99,6 +99,7 @@ cd ..
 
 cd openMINDS
 echo "Building all versions"
-for version in $(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \").*?(?=\")");
-do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version; fi; done
+ALL_VERSIONS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
+for version in $ALL_VERSIONS;
+do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version $(cat $ALL_VERSIONS | tr "\n", ","); fi; done
 #build "v1"
