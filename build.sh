@@ -23,16 +23,20 @@ commitAndPush(){
 
 FIRST_BUILD=1
 build(){
-  echo "Building version $version"
-  git checkout $version
+  echo ""
+  echo "*************************"
+  echo "Building version $1"
+  echo "*************************"
+  echo ""
+  git checkout $1
   # Ensure submodules are properly fetched
   git pull
   # Make sure we're at the head of the branch
-  git reset --hard origin/$version
+  git reset --hard origin/$1
   git submodule sync
   git submodule update --init --recursive --remote
   # We push the synchronized state of the repository
-  commitAndPush
+  #commitAndPush
 
   #Use the vocab from the central repository - we remove an existing one (although there should be none)
   rm -rf vocab
@@ -45,24 +49,30 @@ build(){
   flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
   # Run the generator logic
-  if [[ $FIRST_BUILD == 1 ]]; then python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit; else  python ../openMINDS_generator/openMINDS.py --path ../openMINDS; fi;
+  if [[ $FIRST_BUILD == 1 ]]
+    then
+      echo "First build"
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit
+    else
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS
+  fi
   FIRST_BUILD=0
   # Copy expanded schemas into target
+  echo "Copy expanded schemas into target"
   mkdir target/schema.tpl.json
   cp -r expanded/* target/schema.tpl.json
-  cd target
-
-  # ZIP data
-  zip -r ../../openMINDS_documentation/$version .
 
   # Copy documentation
-  rm -rf ../../openMINDS_documentation/$version
-  mkdir -p ../../openMINDS_documentation/$version
-  cp -r html/* ../../openMINDS_documentation/$version
-  cp -r uml/* ../../openMINDS_documentation/$version
-  cp -r schema.json/* ../../openMINDS_documentation/$version
-  cd ..
-  cp -r vocab ..
+  rm -rf ../openMINDS_documentation/$1
+  mkdir -p ../openMINDS_documentation/$1
+
+  # ZIP data
+  cd target && zip -r ../../openMINDS_documentation/$1 . && cd ..
+  cp -r target/html/* ../openMINDS_documentation/$1
+  cp -r target/uml/* ../openMINDS_documentation/$1
+  cp -r target/schema.json/* ../openMINDS_documentation/$1
+
+   cp -r vocab ..
 }
 
 echo "Clearing existing elements..."
@@ -91,8 +101,4 @@ cd openMINDS
 echo "Building all versions"
 for version in $(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \").*?(?=\")");
 do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version; fi; done
-cd ..
-
-echo "Cleaning up directory structure"
-rm -rf openMINDS
-rm -rf openMINDS_generator
+#build "v1"
