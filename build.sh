@@ -36,7 +36,7 @@ build(){
   git submodule sync
   git submodule update --init --recursive --remote
   # We push the synchronized state of the repository
-  #commitAndPush
+  commitAndPush
 
   #Use the vocab from the central repository - we remove an existing one (although there should be none)
   rm -rf vocab
