@@ -1,0 +1,41 @@
+# Adapted from https://github.com/HumanBrainProject/openMINDS/blob/871e382/.github/workflows/validate-schemas.yml
+# MIT licensed
+
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: openMINDS
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Checkout documentation branch
+      uses: actions/checkout@v2
+      with:
+        repository: HumanBrainProject/openMINDS
+        ref: documentation
+        path: openMINDS_documentation
+    - name: Run build
+      run: |
+        ./build.sh
+    - name: Push documentation and package
+      run: |
+        cd openMINDS_documentation
+        git config user.name openMINDS
+        git config user.email openMINDS@ebrains.eu
+        if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
+            git add .
+            git commit -m "Update of documentation"
+            git push
+        else
+            echo "Nothing to commit"
+        fi
+        cd ..
+        rm -rf openMINDS_documentation
