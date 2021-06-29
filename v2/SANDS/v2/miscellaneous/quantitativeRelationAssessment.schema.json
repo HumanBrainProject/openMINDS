@@ -13,7 +13,6 @@
         },
         "criteria": {
             "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
-            "description": "Aspects or standards on which a judgement or decision is based.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,7 +52,6 @@
         },
         "inRelationTo": {
             "_instruction": "Add the anatomical entity to which the relation is described.",
-            "description": "Reference to a related element.",
             "else": {
                 "properties": {
                     "@id": {
@@ -102,12 +100,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                             "title": "Type of uncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
@@ -121,12 +117,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "description": "Entry for a property.",
                             "title": "Value",
                             "type": "number"
                         }
@@ -142,13 +136,11 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "description": "Greatest quantity attained or allowed.",
                             "title": "Max value",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "description": "Smallest quantity attained or allowed.",
                             "title": "Min value",
                             "type": "number"
                         },
@@ -157,7 +149,6 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         }
                     },
@@ -173,9 +164,9 @@
     },
     "required": [
         "@id",
+        "@type",
         "inRelationTo",
-        "quantitativeOverlap",
-        "@type"
+        "quantitativeOverlap"
     ],
     "title": "Quantitative relation assessment",
     "type": "object"

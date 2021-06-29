@@ -1,6 +1,7 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/annotation?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/Annotation",
     "description": "Structured information on an image annotation.",
     "properties": {
@@ -21,7 +22,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/CoordinateSpace"
                     ],
-                    "description": "Two or three dimensional geometric setting.",
                     "title": "Coordinate space"
                 },
                 "coordinates": {
@@ -33,12 +33,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                             "title": "Type of uncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
@@ -52,12 +50,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "description": "Entry for a property.",
                             "title": "Value",
                             "type": "number"
                         }
@@ -78,7 +74,6 @@
         },
         "criteria": {
             "_instruction": "Add the protocol execution defining the criteria that were applied to produce this annotation.",
-            "description": "Aspects or standards on which a judgement or decision is based.",
             "else": {
                 "properties": {
                     "@id": {
@@ -118,7 +113,6 @@
         },
         "criteriaQualityType": {
             "_instruction": "Add the quality type of the stated criteria used to define this annotation.",
-            "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
             "else": {
                 "properties": {
                     "@id": {
@@ -158,14 +152,12 @@
         },
         "displayColor": {
             "_instruction": "Enter the preferred display color (HEX) for this annotation.",
-            "description": "Preferred coloring.",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "title": "Display color",
             "type": "string"
         },
         "inspiredBy": {
             "_instruction": "Add one or several (source) images that inspired the definition of this annotation.",
-            "description": "Reference to an inspiring element.",
             "items": {
                 "else": {
                     "properties": {
@@ -209,13 +201,11 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
-            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
         "laterality": {
             "_instruction": "Add one or both sides of the body or bilateral organ that this annotation is defined in.",
-            "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
                     "properties": {
@@ -260,7 +250,6 @@
         },
         "namingTerm": {
             "_instruction": "Add one or several anatomical entities that name this annotation.",
-            "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
             "items": {
                 "else": {
                     "properties": {
@@ -347,7 +336,6 @@
         },
         "visualizedIn": {
             "_instruction": "Add the image in which this annotation is visualized in.",
-            "description": "Reference to an image in which something is visible.",
             "else": {
                 "properties": {
                     "@id": {
@@ -388,11 +376,11 @@
     },
     "required": [
         "@type",
-        "internalIdentifier",
-        "criteriaQualityType",
-        "@id",
         "namingTerm",
-        "laterality"
+        "criteriaQualityType",
+        "internalIdentifier",
+        "laterality",
+        "@id"
     ],
     "title": "Annotation",
     "type": "object"

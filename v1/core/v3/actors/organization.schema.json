@@ -17,7 +17,6 @@
         },
         "digitalIdentifier": {
             "_instruction": "Add one or several globally unique and persistent digital identifier for this organization.",
-            "description": "Digital handle to identify objects or legal persons.",
             "items": {
                 "else": {
                     "properties": {
@@ -62,13 +61,11 @@
         },
         "fullName": {
             "_instruction": "Enter the full name of the organization.",
-            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
         },
         "hasParent": {
             "_instruction": "Add a parent organization to this organization.",
-            "description": "Reference to a parent object or legal person.",
             "else": {
                 "properties": {
                     "@id": {
@@ -108,7 +105,6 @@
         },
         "homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this organization.",
-            "description": "Main website of something or someone.",
             "else": {
                 "properties": {
                     "@id": {
@@ -148,15 +144,14 @@
         },
         "shortName": {
             "_instruction": "Enter the short name of this organization.",
-            "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "@id",
         "fullName",
-        "@type"
+        "@type",
+        "@id"
     ],
     "title": "Organization",
     "type": "object"

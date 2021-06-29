@@ -21,7 +21,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/CoordinateSpace"
                     ],
-                    "description": "Two or three dimensional geometric setting.",
                     "title": "Coordinate space"
                 },
                 "coordinates": {
@@ -33,12 +32,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                             "title": "Type of uncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
@@ -52,12 +49,10 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "description": "Entry for a property.",
                             "title": "Value",
                             "type": "number"
                         }
@@ -78,7 +73,6 @@
         },
         "definedIn": {
             "_instruction": "Add one or several files in which the electrode contact is defined in.",
-            "description": "Reference to a file instance in which something is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -122,13 +116,11 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
-            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
         "relatedRecording": {
             "_instruction": "Add one or several files in which the recordings from this electrode contact were stored.",
-            "description": "Reference to the written, stored evidence of something.",
             "items": {
                 "else": {
                     "properties": {
@@ -173,7 +165,6 @@
         },
         "relatedStimulation": {
             "_instruction": "Add one or several files in which the stimulations applied via this electrode contact were stored.",
-            "description": "Reference to the written, stored function used as a physiological stimulus.",
             "items": {
                 "else": {
                     "properties": {
@@ -218,7 +209,6 @@
         },
         "visualizedIn": {
             "_instruction": "Add one or several images in which the electrode contact is visualized in.",
-            "description": "Reference to an image in which something is visible.",
             "items": {
                 "else": {
                     "properties": {
@@ -262,10 +252,10 @@
         }
     },
     "required": [
-        "@id",
-        "coordinatePoint",
+        "@type",
         "internalIdentifier",
-        "@type"
+        "coordinatePoint",
+        "@id"
     ],
     "title": "Electrode contact",
     "type": "object"

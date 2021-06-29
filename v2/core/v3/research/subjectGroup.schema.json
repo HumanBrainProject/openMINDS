@@ -13,13 +13,11 @@
         },
         "additionalRemarks": {
             "_instruction": "Enter additional remarks about the specimen set.",
-            "description": "Mention of what deserves additional attention or notice.",
             "title": "Additional remarks",
             "type": "string"
         },
         "biologicalSex": {
             "_instruction": "Add the biological sex of all specimen in this set.",
-            "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
             "items": {
                 "else": {
                     "properties": {
@@ -63,7 +61,6 @@
         },
         "internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen set that is used within the corresponding data.",
-            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "Internal identifier",
             "type": "string"
         },
@@ -74,7 +71,6 @@
         },
         "phenotype": {
             "_instruction": "Add the phenotype of all specimen in this set.",
-            "description": "Physical expression of one or more genes of an organism.",
             "items": {
                 "else": {
                     "properties": {
@@ -118,13 +114,11 @@
         },
         "quantity": {
             "_instruction": "Enter the number of specimen that belong to this set.",
-            "description": "Total amount or number of things or beings.",
             "title": "Quantity",
             "type": "integer"
         },
         "species": {
             "_instruction": "Add the species of all specimen in this set.",
-            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
             "items": {
                 "else": {
                     "properties": {
@@ -168,7 +162,6 @@
         },
         "strain": {
             "_instruction": "Add the strain of all specimen in this set.",
-            "description": "Group of presumed common ancestry with physiological but usually not morphological distinctions.",
             "items": {
                 "else": {
                     "properties": {
@@ -212,7 +205,6 @@
         },
         "studiedState": {
             "_instruction": "Add all states in which this subject group was studied.",
-            "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
             "items": {
                 "else": {
                     "properties": {
@@ -256,11 +248,11 @@
         }
     },
     "required": [
-        "@id",
-        "@type",
-        "studiedState",
+        "species",
         "biologicalSex",
-        "species"
+        "@id",
+        "studiedState",
+        "@type"
     ],
     "title": "Subject group",
     "type": "object"

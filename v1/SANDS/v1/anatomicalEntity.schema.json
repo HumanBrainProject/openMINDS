@@ -4,6 +4,7 @@
     "_categories": [
         "studyTarget"
     ],
+    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
     "description": "Structured information on an anatomical entity.",
     "properties": {
@@ -17,7 +18,6 @@
         },
         "hasParent": {
             "_instruction": "Add another anatomical entity representing the anatomical parent structure of this anatomical entity.",
-            "description": "Reference to a parent object or legal person.",
             "else": {
                 "properties": {
                     "@id": {
@@ -57,18 +57,17 @@
         },
         "name": {
             "_instruction": "Enter a descriptive name for this anatomical entity based on anatomical location or characteristics.",
-            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "Name",
             "type": "string"
         },
         "ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this anatomical entity.",
-            "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
             "title": "Ontology identifier",
             "type": "string"
         },
         "otherAnatomicalRelation": {
+            "_deprecated": true,
             "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation",
             "description": "Structured information on the relation between one anatomical entity and another.",
             "properties": {
@@ -77,7 +76,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/ProtocolExecution"
                     ],
-                    "description": "Aspects or standards on which a judgement or decision is based.",
                     "title": "Criteria"
                 },
                 "criteriaQualityType": {
@@ -85,7 +83,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
                     ],
-                    "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
                     "title": "Criteria quality type"
                 },
                 "inRelationTo": {
@@ -93,7 +90,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/AnatomicalEntity"
                     ],
-                    "description": "Reference to a related element.",
                     "title": "In relation to"
                 },
                 "qualitativeOverlap": {
@@ -101,7 +97,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                     ],
-                    "description": "Semantic characterization of how much two things occupy the same space.",
                     "title": "Qualitative overlap"
                 },
                 "quantitativeOverlap": {
@@ -115,12 +110,10 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                     ],
-                                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                                     "title": "Type of uncertainty"
                                 },
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                                     "items": {
                                         "type": "number"
                                     },
@@ -134,12 +127,10 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                     ],
-                                    "description": "Determinate quantity adopted as a standard of measurement.",
                                     "title": "Unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
-                                    "description": "Entry for a property.",
                                     "title": "Value",
                                     "type": "number"
                                 }
@@ -155,13 +146,11 @@
                             "properties": {
                                 "maxValue": {
                                     "_instruction": "Add the maximum value measured for this range.",
-                                    "description": "Greatest quantity attained or allowed.",
                                     "title": "Max value",
                                     "type": "number"
                                 },
                                 "minValue": {
                                     "_instruction": "Add the minimum value measured for this range.",
-                                    "description": "Smallest quantity attained or allowed.",
                                     "title": "Min value",
                                     "type": "number"
                                 },
@@ -170,7 +159,6 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                     ],
-                                    "description": "Determinate quantity adopted as a standard of measurement.",
                                     "title": "Unit"
                                 }
                             },
@@ -195,8 +183,8 @@
     },
     "required": [
         "@id",
-        "name",
-        "@type"
+        "@type",
+        "name"
     ],
     "title": "Anatomical entity",
     "type": "object"
