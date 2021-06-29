@@ -52,9 +52,9 @@ build(){
   if [[ $FIRST_BUILD == 1 ]]
     then
       echo "First build"
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit --all_versions $2
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit --currentVersion $1 --allVersions $2
     else
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --all_versions $2
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --currentVersion $1 --allVersions $2
   fi
   FIRST_BUILD=0
   # Copy expanded schemas into target
