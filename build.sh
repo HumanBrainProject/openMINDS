@@ -73,4 +73,4 @@ git reset --hard origin/v2 #TODO change to master branch once it's available
 
 echo "Building all versions"
 for version in $(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \").*?(?=\")");
-do if [[ $version =~ v[^0-9]+.*) ]]; then build $version; fi; done
+do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version; fi; done
