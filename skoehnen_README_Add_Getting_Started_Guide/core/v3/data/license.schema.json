@@ -1,0 +1,54 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/license?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/License",
+    "description": "Structured information on a used license.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/License",
+            "type": "string"
+        },
+        "fullName": {
+            "_instruction": "Enter the full name of this license.",
+            "title": "Full name",
+            "type": "string"
+        },
+        "legalCode": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the legal code of this license.",
+            "format": "iri",
+            "title": "Legal code",
+            "type": "string"
+        },
+        "shortName": {
+            "_instruction": "Enter the short name of this license.",
+            "title": "Short name",
+            "type": "string"
+        },
+        "webpage": {
+            "_instruction": "Enter one or several webpages related to this license (e.g. homepage).",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "Webpage",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "fullName",
+        "shortName",
+        "@type",
+        "legalCode",
+        "@id"
+    ],
+    "title": "License",
+    "type": "object"
+}

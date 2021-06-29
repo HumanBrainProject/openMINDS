@@ -2,7 +2,6 @@
     "$id": "https://openminds.ebrains.eu/core/parameterSet?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/ParameterSet",
-    "description": "Structured information on a used parameter set.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -24,7 +23,6 @@
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this numerical parameter.",
-                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
                             "title": "Name",
                             "type": "string"
                         },
@@ -39,12 +37,10 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
-                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                                             "title": "Type of uncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
@@ -58,12 +54,10 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "Unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
-                                            "description": "Entry for a property.",
                                             "title": "Value",
                                             "type": "number"
                                         }
@@ -79,13 +73,11 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
-                                            "description": "Greatest quantity attained or allowed.",
                                             "title": "Max value",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
-                                            "description": "Smallest quantity attained or allowed.",
                                             "title": "Min value",
                                             "type": "number"
                                         },
@@ -94,7 +86,6 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "Unit"
                                         }
                                     },
@@ -120,13 +111,11 @@
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this parameter.",
-                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
                             "title": "Name",
                             "type": "string"
                         },
                         "value": {
                             "_instruction": "Enter a text value for this parameter.",
-                            "description": "Entry for a property.",
                             "title": "Value",
                             "type": "string"
                         }
@@ -142,7 +131,6 @@
         },
         "relevantFor": {
             "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
-            "description": "Reference to what or whom something or someone bears siginificance.",
             "else": {
                 "properties": {
                     "@id": {
@@ -183,11 +171,11 @@
         }
     },
     "required": [
+        "relevantFor",
+        "context",
         "@id",
         "parameter",
-        "relevantFor",
-        "@type",
-        "context"
+        "@type"
     ],
     "title": "Parameter set",
     "type": "object"

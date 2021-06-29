@@ -2,7 +2,6 @@
     "$id": "https://openminds.ebrains.eu/core/file?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/File",
-    "description": "Structured information on a file instances.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -14,14 +13,13 @@
         },
         "IRI": {
             "_instruction": "Enter the internationalized resource identifier of this single file.",
-            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "description": "The Internationalized Resource Identifier (IRI) is and internet protocol standard that builds on the Uniform Resource Identifier (URI) protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
             "title": "IRI",
             "type": "string"
         },
         "content": {
             "_instruction": "Enter a short content description for this file instance.",
-            "description": "Something that is contained.",
             "title": "Content",
             "type": "string"
         },
@@ -66,7 +64,6 @@
         },
         "format": {
             "_instruction": "Add the content type of this file instance.",
-            "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
                     "@id": {
@@ -110,13 +107,11 @@
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
-                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
                     "title": "Algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
-                    "description": "Summation or condensation of a body of information.",
                     "title": "Digest",
                     "type": "string"
                 }
@@ -130,7 +125,6 @@
         },
         "isPartOf": {
             "_instruction": "Add one or several bundles in which this single file can be grouped.",
-            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -174,13 +168,11 @@
         },
         "name": {
             "_instruction": "Enter the name of this single file.",
-            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "Name",
             "type": "string"
         },
         "specialUsageRole": {
             "_instruction": "Add a special usage role for this single file.",
-            "description": "Particular function of something when it is used.",
             "else": {
                 "properties": {
                     "@id": {
@@ -227,12 +219,10 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                     "title": "Type of uncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
@@ -246,12 +236,10 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "description": "Determinate quantity adopted as a standard of measurement.",
                     "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "description": "Entry for a property.",
                     "title": "Value",
                     "type": "number"
                 }
@@ -264,11 +252,11 @@
         }
     },
     "required": [
-        "@id",
+        "isPartOf",
         "name",
-        "@type",
         "IRI",
-        "isPartOf"
+        "@id",
+        "@type"
     ],
     "title": "File",
     "type": "object"

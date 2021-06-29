@@ -23,7 +23,6 @@
                         "date"
                     ],
                     "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
-                    "description": "Date in the Gregorian calendar at which something terminates in time.",
                     "title": "End date",
                     "type": "string"
                 },
@@ -32,7 +31,6 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/Organization"
                     ],
-                    "description": "Legally accountable, administrative and functional structure.",
                     "title": "Organization"
                 },
                 "startDate": {
@@ -40,7 +38,6 @@
                         "date"
                     ],
                     "_instruction": "Enter the start date of this affiliation.",
-                    "description": "Date in the Gregorian calendar at which something begins in time",
                     "title": "Start date",
                     "type": "string"
                 }
@@ -53,7 +50,6 @@
         },
         "contactInformation": {
             "_instruction": "Add the contact information of this person.",
-            "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
             "else": {
                 "properties": {
                     "@id": {
@@ -93,7 +89,6 @@
         },
         "digitalIdentifier": {
             "_instruction": "Add one or several globally unique and persistent digital identifier for this person.",
-            "description": "Digital handle to identify objects or legal persons.",
             "items": {
                 "else": {
                     "properties": {
@@ -137,21 +132,19 @@
         },
         "familyName": {
             "_instruction": "Enter the family name of this person.",
-            "description": "Name borne in common by members of a family.",
             "title": "Family name",
             "type": "string"
         },
         "givenName": {
             "_instruction": "Enter the given name of this person.",
-            "description": "Name given to a person, including all potential middle names, but excluding the family name.",
             "title": "Given name",
             "type": "string"
         }
     },
     "required": [
+        "givenName",
         "@type",
-        "@id",
-        "givenName"
+        "@id"
     ],
     "title": "Person",
     "type": "object"

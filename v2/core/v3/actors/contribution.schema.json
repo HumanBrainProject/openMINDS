@@ -14,7 +14,6 @@
         },
         "contributionType": {
             "_instruction": "Add one or several type of contributions made by the stated contributor.",
-            "description": "Distinct class of what was given or supplied as a part or share.",
             "items": {
                 "else": {
                     "properties": {
@@ -58,7 +57,6 @@
         },
         "contributor": {
             "_instruction": "Add the contributing person or organization.",
-            "description": "Legal person that gave or supplied something as a part or share.",
             "else": {
                 "properties": {
                     "@id": {
@@ -83,8 +81,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/Person",
-                            "https://openminds.ebrains.eu/core/Organization"
+                            "https://openminds.ebrains.eu/core/Organization",
+                            "https://openminds.ebrains.eu/core/Person"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -99,10 +97,10 @@
         }
     },
     "required": [
-        "contributor",
+        "@id",
         "@type",
-        "contributionType",
-        "@id"
+        "contributor",
+        "contributionType"
     ],
     "title": "Contribution",
     "type": "object"

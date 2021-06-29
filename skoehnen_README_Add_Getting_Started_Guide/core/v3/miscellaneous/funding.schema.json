@@ -1,0 +1,78 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/funding?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Funding",
+    "description": "Structured information on used funding.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Funding",
+            "type": "string"
+        },
+        "acknowledgement": {
+            "_instruction": "Enter the acknowledgement that should be used with this funding.",
+            "title": "Acknowledgement",
+            "type": "string"
+        },
+        "awardNumber": {
+            "_instruction": "Enter the associated award number of this funding.",
+            "title": "Award number",
+            "type": "string"
+        },
+        "awardTitle": {
+            "_instruction": "Enter the award title of this funding.",
+            "title": "Award title",
+            "type": "string"
+        },
+        "funder": {
+            "_instruction": "Add the organization that provided this funding.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Organization",
+                            "https://openminds.ebrains.eu/core/Person"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "Funder",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@type",
+        "@id",
+        "funder"
+    ],
+    "title": "Funding",
+    "type": "object"
+}

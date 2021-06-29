@@ -14,7 +14,6 @@
         },
         "format": {
             "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
-            "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
                     "@id": {
@@ -54,7 +53,6 @@
         },
         "groupedBy": {
             "_instruction": "Add the concept which was used to group file instances into this file bundle.",
-            "description": "Reference to the aspect used to group something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -98,13 +96,11 @@
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
-                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
                     "title": "Algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
-                    "description": "Summation or condensation of a body of information.",
                     "title": "Digest",
                     "type": "string"
                 }
@@ -118,7 +114,6 @@
         },
         "isPartOf": {
             "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
-            "description": "Reference to the ensemble of multiple things or beings.",
             "else": {
                 "properties": {
                     "@id": {
@@ -159,13 +154,11 @@
         },
         "name": {
             "_instruction": "Enter the name of this file bundle.",
-            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "Name",
             "type": "string"
         },
         "patternOfFilenames": {
             "_instruction": "Enter a regular expression (syntax: ECMA 262) which is valid for all filenames of the file instances that should be grouped into this file bundle.",
-            "description": "Reliable sample / structure of characters valid for all names in a particular collection of files.",
             "title": "Pattern of filenames",
             "type": "string"
         },
@@ -178,12 +171,10 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                     "title": "Type of uncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
@@ -197,12 +188,10 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "description": "Determinate quantity adopted as a standard of measurement.",
                     "title": "Unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "description": "Entry for a property.",
                     "title": "Value",
                     "type": "number"
                 }
@@ -215,10 +204,10 @@
         }
     },
     "required": [
-        "@type",
         "isPartOf",
-        "name",
-        "@id"
+        "@id",
+        "@type",
+        "name"
     ],
     "title": "File bundle",
     "type": "object"
