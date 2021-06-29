@@ -101,5 +101,5 @@ cd openMINDS
 echo "Building all versions"
 ALL_VERSIONS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
 for version in $ALL_VERSIONS;
-do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$(cat $ALL_VERSIONS | tr '\n', ',')"; fi; done
+do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$(echo $ALL_VERSIONS | tr '\n', ',')"; fi; done
 #build "v1"
