@@ -15,6 +15,11 @@ jobs:
 
     - name: Check out repository code
       uses: actions/checkout@v2
+      with:
+        # No matter which branch has received the push, we're going to operate on the main branch (since we build everything)
+        repository: HumanBrainProject/openMINDS
+        ref: main
+        path: .
 
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
