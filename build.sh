@@ -32,7 +32,9 @@ build(){
   # We push the synchronized state of the repository
   commitAndPush
 
-  cp -r ../vocab vocab
+  #Use the vocab from the central repository - we remove an existing one (although there should be none)
+  rm -rf vocab
+  cp -r ../vocab .
 
   # Linting...
   # stop the build if there are Python syntax errors or undefined names
