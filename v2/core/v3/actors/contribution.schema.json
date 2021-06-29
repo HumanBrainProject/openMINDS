@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/core/Contribution",
             "type": "string"
         },
-        "contributionType": {
+        "https://openminds.ebrains.eu/vocab/contributionType": {
             "_instruction": "Add one or several type of contributions made by the stated contributor.",
+            "description": "Distinct class of what was given or supplied as a part or share.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,12 +52,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Contribution type",
+            "title": "contributionType",
             "type": "array",
             "uniqueItems": true
         },
-        "contributor": {
+        "https://openminds.ebrains.eu/vocab/contributor": {
             "_instruction": "Add the contributing person or organization.",
+            "description": "Legal person that gave or supplied something as a part or share.",
             "else": {
                 "properties": {
                     "@id": {
@@ -92,15 +94,15 @@
                     "@id"
                 ]
             },
-            "title": "Contributor",
+            "title": "contributor",
             "type": "object"
         }
     },
     "required": [
-        "contributionType",
+        "@id",
         "contributor",
         "@type",
-        "@id"
+        "contributionType"
     ],
     "title": "Contribution",
     "type": "object"

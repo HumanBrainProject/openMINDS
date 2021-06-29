@@ -12,19 +12,20 @@
             "const": "https://openminds.ebrains.eu/core/ParameterSet",
             "type": "string"
         },
-        "context": {
+        "https://openminds.ebrains.eu/vocab/context": {
             "_instruction": "Enter the common context for the parameters grouped in this set.",
-            "title": "Context",
+            "title": "context",
             "type": "string"
         },
-        "parameter": {
+        "https://openminds.ebrains.eu/vocab/parameter": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this numerical parameter.",
-                            "title": "Name",
+                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                            "title": "name",
                             "type": "string"
                         },
                         "value": {
@@ -38,16 +39,18 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
-                                            "title": "Type of uncertainty"
+                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                                            "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
                                             "maxItems": 2,
                                             "minItems": 2,
-                                            "title": "Uncertainty",
+                                            "title": "uncertainty",
                                             "type": "array"
                                         },
                                         "unit": {
@@ -55,11 +58,13 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
-                                            "title": "Value",
+                                            "description": "Entry for a property.",
+                                            "title": "value",
                                             "type": "number"
                                         }
                                     },
@@ -74,12 +79,14 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
-                                            "title": "Max value",
+                                            "description": "Greatest quantity attained or allowed.",
+                                            "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
-                                            "title": "Min value",
+                                            "description": "Smallest quantity attained or allowed.",
+                                            "title": "minValue",
                                             "type": "number"
                                         },
                                         "unit": {
@@ -87,7 +94,8 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         }
                                     },
                                     "required": [
@@ -112,12 +120,14 @@
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this parameter.",
-                            "title": "Name",
+                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                            "title": "name",
                             "type": "string"
                         },
                         "value": {
                             "_instruction": "Enter a text value for this parameter.",
-                            "title": "Value",
+                            "description": "Entry for a property.",
+                            "title": "value",
                             "type": "string"
                         }
                     },
@@ -130,8 +140,9 @@
                 }
             ]
         },
-        "relevantFor": {
+        "https://openminds.ebrains.eu/vocab/relevantFor": {
             "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
+            "description": "Reference to what or whom something or someone bears siginificance.",
             "else": {
                 "properties": {
                     "@id": {
@@ -167,16 +178,16 @@
                     "@id"
                 ]
             },
-            "title": "Relevant for",
+            "title": "relevantFor",
             "type": "object"
         }
     },
     "required": [
-        "@id",
-        "relevantFor",
+        "context",
         "parameter",
+        "relevantFor",
         "@type",
-        "context"
+        "@id"
     ],
     "title": "Parameter set",
     "type": "object"

@@ -14,6 +14,7 @@
         },
         "https://openminds.ebrains.eu/vocab/coordinateSpace": {
             "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+            "description": "Two or three dimensional geometric setting.",
             "else": {
                 "properties": {
                     "@id": {
@@ -60,10 +61,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                     "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
@@ -77,10 +80,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
                     "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
                     "title": "value",
                     "type": "number"
                 }
@@ -94,9 +99,9 @@
     },
     "required": [
         "@type",
+        "@id",
         "coordinates",
-        "coordinateSpace",
-        "@id"
+        "coordinateSpace"
     ],
     "title": "Coordinate point",
     "type": "object"

@@ -11,12 +11,13 @@
             "const": "https://openminds.ebrains.eu/core/NumericalParameter",
             "type": "string"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this numerical parameter.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "value": {
+        "https://openminds.ebrains.eu/vocab/value": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -27,16 +28,18 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -44,11 +47,13 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "description": "Entry for a property.",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -63,12 +68,14 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -76,7 +83,8 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -90,10 +98,10 @@
         }
     },
     "required": [
-        "value",
-        "name",
         "@type",
-        "@id"
+        "@id",
+        "value",
+        "name"
     ],
     "title": "Numerical parameter",
     "type": "object"

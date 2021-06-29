@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/sands/Electrode",
             "type": "string"
         },
-        "electrodeContact": {
+        "https://openminds.ebrains.eu/vocab/electrodeContact": {
             "_instruction": "Add one or several electrical contacts of this electrode.",
+            "description": "Not shielded part of a conductor that is used to establish electrical contact with a nonmetallic part of a circuit.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,24 +52,25 @@
                 }
             },
             "minItems": 1,
-            "title": "Electrode contact",
+            "title": "electrodeContact",
             "type": "array",
             "uniqueItems": true
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode within the file it is stored in.",
-            "title": "Internal identifier",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this electrode that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         }
     },
     "required": [
-        "@id",
         "electrodeContact",
+        "@id",
         "@type",
         "internalIdentifier"
     ],

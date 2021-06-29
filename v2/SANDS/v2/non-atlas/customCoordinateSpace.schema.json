@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/sands/CustomCoordinateSpace",
             "type": "string"
         },
-        "anatomicalAxesOrientation": {
+        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation": {
             "_instruction": "Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ) for this custom coordinate space.",
+            "description": "Relation between reference planes used in anatomy and mathematics.",
             "else": {
                 "properties": {
                     "@id": {
@@ -48,10 +49,10 @@
                     "@id"
                 ]
             },
-            "title": "Anatomical axes orientation",
+            "title": "anatomicalAxesOrientation",
             "type": "object"
         },
-        "axesOrigin": {
+        "https://openminds.ebrains.eu/vocab/axesOrigin": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -60,16 +61,18 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -77,11 +80,13 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "description": "Entry for a property.",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -91,8 +96,9 @@
             "title": "Quantitative value",
             "type": "object"
         },
-        "defaultImage": {
+        "https://openminds.ebrains.eu/vocab/defaultImage": {
             "_instruction": "Add one or several image files used as visual representation of this custom coordinate space.",
+            "description": "Two or three dimensional image that particluarly represents a specific coordinate space.",
             "items": {
                 "else": {
                     "properties": {
@@ -130,17 +136,19 @@
                 }
             },
             "minItems": 1,
-            "title": "Default image",
+            "title": "defaultImage",
             "type": "array",
             "uniqueItems": true
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this custom coordinate space.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "nativeUnit": {
+        "https://openminds.ebrains.eu/vocab/nativeUnit": {
             "_instruction": "Add the native unit that is used for this custom coordinate space.",
+            "description": "Determinate quantity used in the original measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -175,17 +183,17 @@
                     "@id"
                 ]
             },
-            "title": "Native unit",
+            "title": "nativeUnit",
             "type": "object"
         }
     },
     "required": [
         "nativeUnit",
-        "@id",
         "name",
         "@type",
-        "axesOrigin",
-        "anatomicalAxesOrientation"
+        "anatomicalAxesOrientation",
+        "@id",
+        "axesOrigin"
     ],
     "title": "Custom coordinate space",
     "type": "object"

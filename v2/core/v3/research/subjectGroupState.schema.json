@@ -11,12 +11,13 @@
             "const": "https://openminds.ebrains.eu/core/SubjectGroupState",
             "type": "string"
         },
-        "additionalRemarks": {
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
             "_instruction": "Enter additional remarks about the specimen (set) in this state.",
-            "title": "Additional remarks",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
             "type": "string"
         },
-        "age": {
+        "https://openminds.ebrains.eu/vocab/age": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -27,16 +28,18 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -44,11 +47,13 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "description": "Entry for a property.",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -63,12 +68,14 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -76,7 +83,8 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -88,8 +96,9 @@
                 }
             ]
         },
-        "ageCategory": {
+        "https://openminds.ebrains.eu/vocab/ageCategory": {
             "_instruction": "Add the age category of the subject in this state.",
+            "description": "Distinct life cycle class that is defined by a similar age or age range (developmental stage) within a group of individual beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -127,12 +136,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Age category",
+            "title": "ageCategory",
             "type": "array",
             "uniqueItems": true
         },
-        "handedness": {
+        "https://openminds.ebrains.eu/vocab/handedness": {
             "_instruction": "Add the preferred hand of the subject in this state.",
+            "description": "Degree to which an organism prefers one hand or foot over the other hand or foot during the performance of a task.",
             "items": {
                 "else": {
                     "properties": {
@@ -170,17 +180,18 @@
                 }
             },
             "minItems": 1,
-            "title": "Handedness",
+            "title": "handedness",
             "type": "array",
             "uniqueItems": true
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen (set) state that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "pathology": {
+        "https://openminds.ebrains.eu/vocab/pathology": {
             "_instruction": "Add the pathology of the specimen (set) in this state.",
+            "description": "Structural and functional deviation from the normal that constitutes a disease or characterizes a particular disease.",
             "items": {
                 "else": {
                     "properties": {
@@ -219,11 +230,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Pathology",
+            "title": "pathology",
             "type": "array",
             "uniqueItems": true
         },
-        "weight": {
+        "https://openminds.ebrains.eu/vocab/weight": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -234,16 +245,18 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -251,11 +264,13 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "description": "Entry for a property.",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -270,12 +285,14 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -283,7 +300,8 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -297,9 +315,9 @@
         }
     },
     "required": [
-        "ageCategory",
+        "@id",
         "@type",
-        "@id"
+        "ageCategory"
     ],
     "title": "Subject group state",
     "type": "object"

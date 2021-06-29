@@ -11,8 +11,9 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationTerminology",
             "type": "string"
         },
-        "definedIn": {
+        "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add one or several files in which this parcellation terminology is stored in.",
+            "description": "Reference to a file instance in which something is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -50,17 +51,19 @@
                 }
             },
             "minItems": 1,
-            "title": "Defined in",
+            "title": "definedIn",
             "type": "array",
             "uniqueItems": true
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name for this parcellation terminology.",
-            "title": "Full name",
+            "description": "Whole, non-abbreviated name of something or somebody.",
+            "title": "fullName",
             "type": "string"
         },
-        "isAlternativeVersionOf": {
+        "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
             "_instruction": "Add one or several alternative versions to this parcellation terminology.",
+            "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
                     "properties": {
@@ -98,12 +101,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Is alternative version of",
+            "title": "isAlternativeVersionOf",
             "type": "array",
             "uniqueItems": true
         },
-        "isNewVersionOf": {
+        "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
             "_instruction": "Add the earlier version of this parcellation terminology.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -138,38 +142,42 @@
                     "@id"
                 ]
             },
-            "title": "Is new version of",
+            "title": "isNewVersionOf",
             "type": "object"
         },
-        "ontologyIdentifier": {
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
             "_instruction": "Enter the identifier (IRI) of the related ontological term matching this parcellation terminology.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
-            "title": "Ontology identifier",
+            "title": "ontologyIdentifier",
             "type": "string"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a descriptive short name for this parcellation terminology.",
-            "title": "Short name",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "title": "shortName",
             "type": "string"
         },
-        "versionIdentifier": {
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this parcellation terminology.",
-            "title": "Version identifier",
+            "description": "Term or code used to identify the version of something.",
+            "title": "versionIdentifier",
             "type": "string"
         },
-        "versionInnovation": {
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
             "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation terminology.",
-            "title": "Version innovation",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
+            "title": "versionInnovation",
             "type": "string"
         }
     },
     "required": [
         "versionInnovation",
-        "@id",
+        "versionIdentifier",
         "shortName",
-        "fullName",
         "@type",
-        "versionIdentifier"
+        "fullName",
+        "@id"
     ],
     "title": "Parcellation terminology",
     "type": "object"

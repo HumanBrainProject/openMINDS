@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/core/Protocol",
             "type": "string"
         },
-        "behavioralTask": {
+        "https://openminds.ebrains.eu/vocab/behavioralTask": {
             "_instruction": "Add all behavioral tasks that were executed as part of this protocol.",
+            "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,21 +52,23 @@
                 }
             },
             "minItems": 1,
-            "title": "Behavioral task",
+            "title": "behavioralTask",
             "type": "array",
             "uniqueItems": true
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this protocol.",
-            "title": "Description",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
             "type": "string"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this protocol.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "studyOption": {
+        "https://openminds.ebrains.eu/vocab/studyOption": {
             "_instruction": "Add all study options this protocol offers.",
             "items": {
                 "else": {
@@ -115,12 +118,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Study option",
+            "title": "studyOption",
             "type": "array",
             "uniqueItems": true
         },
-        "technique": {
+        "https://openminds.ebrains.eu/vocab/technique": {
             "_instruction": "Add all techniques that were used in this protocol.",
+            "description": "Method of accomplishing a desired aim.",
             "items": {
                 "else": {
                     "properties": {
@@ -158,17 +162,17 @@
                 }
             },
             "minItems": 1,
-            "title": "Technique",
+            "title": "technique",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
         "description",
-        "technique",
-        "@id",
         "name",
-        "@type"
+        "technique",
+        "@type",
+        "@id"
     ],
     "title": "Protocol",
     "type": "object"

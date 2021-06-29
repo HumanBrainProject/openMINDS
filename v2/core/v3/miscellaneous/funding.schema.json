@@ -12,23 +12,27 @@
             "const": "https://openminds.ebrains.eu/core/Funding",
             "type": "string"
         },
-        "acknowledgement": {
+        "https://openminds.ebrains.eu/vocab/acknowledgement": {
             "_instruction": "Enter the acknowledgement that should be used with this funding.",
-            "title": "Acknowledgement",
+            "description": "Offical declaration or avowal of appreciation of an act or achievement.",
+            "title": "acknowledgement",
             "type": "string"
         },
-        "awardNumber": {
+        "https://openminds.ebrains.eu/vocab/awardNumber": {
             "_instruction": "Enter the associated award number of this funding.",
-            "title": "Award number",
+            "description": "Machine-readable identifier for a benefit that is conferred or bestowed on the basis of merit or need.",
+            "title": "awardNumber",
             "type": "string"
         },
-        "awardTitle": {
+        "https://openminds.ebrains.eu/vocab/awardTitle": {
             "_instruction": "Enter the award title of this funding.",
-            "title": "Award title",
+            "description": "Human-readable identifier for a benefit that is conferred or bestowed on the basis of merit or need.",
+            "title": "awardTitle",
             "type": "string"
         },
-        "funder": {
+        "https://openminds.ebrains.eu/vocab/funder": {
             "_instruction": "Add the organization that provided this funding.",
+            "description": "Legal person that provides money for a particular purpose.",
             "else": {
                 "properties": {
                     "@id": {
@@ -64,14 +68,14 @@
                     "@id"
                 ]
             },
-            "title": "Funder",
+            "title": "funder",
             "type": "object"
         }
     },
     "required": [
+        "@id",
         "funder",
-        "@type",
-        "@id"
+        "@type"
     ],
     "title": "Funding",
     "type": "object"

@@ -15,7 +15,7 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
             "type": "string"
         },
-        "hasAnnotation": {
+        "https://openminds.ebrains.eu/vocab/hasAnnotation": {
             "_instruction": "Add the atlas annotation which this parcellation entity defines.",
             "else": {
                 "properties": {
@@ -51,11 +51,12 @@
                     "@id"
                 ]
             },
-            "title": "Has annotation",
+            "title": "hasAnnotation",
             "type": "object"
         },
-        "hasParent": {
+        "https://openminds.ebrains.eu/vocab/hasParent": {
             "_instruction": "Add for this parcellation entity the defined anatomical parent structure.",
+            "description": "Reference to a parent object or legal person.",
             "else": {
                 "properties": {
                     "@id": {
@@ -90,11 +91,12 @@
                     "@id"
                 ]
             },
-            "title": "Has parent",
+            "title": "hasParent",
             "type": "object"
         },
-        "isPartOf": {
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add one or several parcellation terminologies to which this parcellation entity belongs.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -132,22 +134,24 @@
                 }
             },
             "minItems": 1,
-            "title": "Is part of",
+            "title": "isPartOf",
             "type": "array",
             "uniqueItems": true
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name for this parcellation entity.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "ontologyIdentifier": {
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this parcellation entity.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
-            "title": "Ontology identifier",
+            "title": "ontologyIdentifier",
             "type": "string"
         },
-        "relatedUBERONTerm": {
+        "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
             "_instruction": "Add the related UBERON parcellation term.",
             "else": {
                 "properties": {
@@ -183,10 +187,10 @@
                     "@id"
                 ]
             },
-            "title": "Related uberonterm",
+            "title": "relatedUBERONTerm",
             "type": "object"
         },
-        "relationAssessment": {
+        "https://openminds.ebrains.eu/vocab/relationAssessment": {
             "anyOf": [
                 {
                     "_deprecated": true,
@@ -197,21 +201,24 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
-                            "title": "Criteria"
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
                         },
                         "inRelationTo": {
                             "_instruction": "Add the anatomical entity to which the relation is described.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
-                            "title": "In relation to"
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
                         },
                         "qualitativeOverlap": {
                             "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                             ],
-                            "title": "Qualitative overlap"
+                            "description": "Semantic characterization of how much two things occupy the same space.",
+                            "title": "qualitativeOverlap"
                         }
                     },
                     "required": [
@@ -230,14 +237,16 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
-                            "title": "Criteria"
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
                         },
                         "inRelationTo": {
                             "_instruction": "Add the anatomical entity to which the relation is described.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
-                            "title": "In relation to"
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
                         },
                         "quantitativeOverlap": {
                             "anyOf": [
@@ -250,16 +259,18 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
-                                            "title": "Type of uncertainty"
+                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                                            "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
                                             "maxItems": 2,
                                             "minItems": 2,
-                                            "title": "Uncertainty",
+                                            "title": "uncertainty",
                                             "type": "array"
                                         },
                                         "unit": {
@@ -267,11 +278,13 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
-                                            "title": "Value",
+                                            "description": "Entry for a property.",
+                                            "title": "value",
                                             "type": "number"
                                         }
                                     },
@@ -286,12 +299,14 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
-                                            "title": "Max value",
+                                            "description": "Greatest quantity attained or allowed.",
+                                            "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
-                                            "title": "Min value",
+                                            "description": "Smallest quantity attained or allowed.",
+                                            "title": "minValue",
                                             "type": "number"
                                         },
                                         "unit": {
@@ -299,7 +314,8 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         }
                                     },
                                     "required": [
@@ -321,23 +337,25 @@
                 }
             ]
         },
-        "versionIdentifier": {
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this parcellation entity.",
-            "title": "Version identifier",
+            "description": "Term or code used to identify the version of something.",
+            "title": "versionIdentifier",
             "type": "string"
         },
-        "versionInnovation": {
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
             "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation entity.",
-            "title": "Version innovation",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
+            "title": "versionInnovation",
             "type": "string"
         }
     },
     "required": [
-        "@id",
+        "versionIdentifier",
         "isPartOf",
         "name",
         "@type",
-        "versionIdentifier"
+        "@id"
     ],
     "title": "Parcellation entity",
     "type": "object"

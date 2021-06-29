@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/TissueSample",
             "type": "string"
         },
-        "anatomicalLocation": {
+        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
             "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
             "items": {
                 "else": {
@@ -53,12 +53,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Anatomical location",
+            "title": "anatomicalLocation",
             "type": "array",
             "uniqueItems": true
         },
-        "biologicalSex": {
+        "https://openminds.ebrains.eu/vocab/biologicalSex": {
             "_instruction": "Add the biological sex of this specimen.",
+            "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
             "else": {
                 "properties": {
                     "@id": {
@@ -93,16 +94,18 @@
                     "@id"
                 ]
             },
-            "title": "Biological sex",
+            "title": "biologicalSex",
             "type": "object"
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
-            "title": "Internal identifier",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "isPartOf": {
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add all tissue sample collections of which this tissue sample is part of.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -140,12 +143,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Is part of",
+            "title": "isPartOf",
             "type": "array",
             "uniqueItems": true
         },
-        "laterality": {
+        "https://openminds.ebrains.eu/vocab/laterality": {
             "_instruction": "Add one or both hemisphere sides from which this tissue sample originates from.",
+            "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
                     "properties": {
@@ -184,17 +188,18 @@
             },
             "maxItems": 2,
             "minItems": 1,
-            "title": "Laterality",
+            "title": "laterality",
             "type": "array",
             "uniqueItems": true
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "origin": {
+        "https://openminds.ebrains.eu/vocab/origin": {
             "_instruction": "Add the biogical origin (organ or cell type) of this tissue sample.",
+            "description": "Source at which something begins or rises, or from which something derives.",
             "else": {
                 "properties": {
                     "@id": {
@@ -230,11 +235,12 @@
                     "@id"
                 ]
             },
-            "title": "Origin",
+            "title": "origin",
             "type": "object"
         },
-        "phenotype": {
+        "https://openminds.ebrains.eu/vocab/phenotype": {
             "_instruction": "Add the phenotype of this specimen.",
+            "description": "Physical expression of one or more genes of an organism.",
             "else": {
                 "properties": {
                     "@id": {
@@ -269,11 +275,12 @@
                     "@id"
                 ]
             },
-            "title": "Phenotype",
+            "title": "phenotype",
             "type": "object"
         },
-        "species": {
+        "https://openminds.ebrains.eu/vocab/species": {
             "_instruction": "Add the species of this specimen.",
+            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
             "else": {
                 "properties": {
                     "@id": {
@@ -308,11 +315,12 @@
                     "@id"
                 ]
             },
-            "title": "Species",
+            "title": "species",
             "type": "object"
         },
-        "strain": {
+        "https://openminds.ebrains.eu/vocab/strain": {
             "_instruction": "Add the strain of this specimen.",
+            "description": "Group of presumed common ancestry with physiological but usually not morphological distinctions.",
             "else": {
                 "properties": {
                     "@id": {
@@ -347,11 +355,12 @@
                     "@id"
                 ]
             },
-            "title": "Strain",
+            "title": "strain",
             "type": "object"
         },
-        "studiedState": {
+        "https://openminds.ebrains.eu/vocab/studiedState": {
             "_instruction": "Add all states in which this tissue sample was studied.",
+            "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
             "items": {
                 "else": {
                     "properties": {
@@ -389,12 +398,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Studied state",
+            "title": "studiedState",
             "type": "array",
             "uniqueItems": true
         },
-        "type": {
+        "https://openminds.ebrains.eu/vocab/type": {
             "_instruction": "Add the type of this tissue sample.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
             "else": {
                 "properties": {
                     "@id": {
@@ -429,19 +439,19 @@
                     "@id"
                 ]
             },
-            "title": "Type",
+            "title": "type",
             "type": "object"
         }
     },
     "required": [
-        "biologicalSex",
-        "internalIdentifier",
-        "@id",
+        "origin",
         "type",
-        "species",
-        "@type",
         "studiedState",
-        "origin"
+        "internalIdentifier",
+        "@type",
+        "biologicalSex",
+        "@id",
+        "species"
     ],
     "title": "Tissue sample",
     "type": "object"

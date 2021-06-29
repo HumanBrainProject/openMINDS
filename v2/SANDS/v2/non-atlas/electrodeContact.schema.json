@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/ElectrodeContact",
             "type": "string"
         },
-        "coordinatePoint": {
+        "https://openminds.ebrains.eu/vocab/coordinatePoint": {
             "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "description": "Structured information on a coordinate point.",
             "properties": {
@@ -22,7 +22,8 @@
                         "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
                         "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
                     ],
-                    "title": "Coordinate space"
+                    "description": "Two or three dimensional geometric setting.",
+                    "title": "coordinateSpace"
                 },
                 "coordinates": {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -33,16 +34,18 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -50,11 +53,13 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "description": "Entry for a property.",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -72,8 +77,9 @@
             "title": "Coordinate point",
             "type": "object"
         },
-        "definedIn": {
+        "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add one or several files in which the coordinate point and internal identifier of this electrode contact is defined in.",
+            "description": "Reference to a file instance in which something is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -111,22 +117,24 @@
                 }
             },
             "minItems": 1,
-            "title": "Defined in",
+            "title": "definedIn",
             "type": "array",
             "uniqueItems": true
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
-            "title": "Internal identifier",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this electrode contact that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "relatedRecording": {
+        "https://openminds.ebrains.eu/vocab/relatedRecording": {
             "_instruction": "Add one or several files in which the recordings from this electrode contact were stored.",
+            "description": "Reference to the written, stored evidence of something.",
             "items": {
                 "else": {
                     "properties": {
@@ -165,12 +173,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Related recording",
+            "title": "relatedRecording",
             "type": "array",
             "uniqueItems": true
         },
-        "relatedStimulation": {
+        "https://openminds.ebrains.eu/vocab/relatedStimulation": {
             "_instruction": "Add one or several files in which the stimulations applied via this electrode contact were stored.",
+            "description": "Reference to the written, stored function used as a physiological stimulus.",
             "items": {
                 "else": {
                     "properties": {
@@ -209,12 +218,13 @@
                 }
             },
             "minItems": 1,
-            "title": "Related stimulation",
+            "title": "relatedStimulation",
             "type": "array",
             "uniqueItems": true
         },
-        "visualizedIn": {
+        "https://openminds.ebrains.eu/vocab/visualizedIn": {
             "_instruction": "Add one or several image files in which the electrode contact is visualized in.",
+            "description": "Reference to an image in which something is visible.",
             "items": {
                 "else": {
                     "properties": {
@@ -252,7 +262,7 @@
                 }
             },
             "minItems": 1,
-            "title": "Visualized in",
+            "title": "visualizedIn",
             "type": "array",
             "uniqueItems": true
         }

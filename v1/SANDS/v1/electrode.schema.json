@@ -14,6 +14,7 @@
         },
         "https://openminds.ebrains.eu/vocab/electrodeContact": {
             "_instruction": "Add one or several electrical contacts of this electrode.",
+            "description": "Not shielded part of a conductor that is used to establish electrical contact with a nonmetallic part of a circuit.",
             "items": {
                 "else": {
                     "properties": {
@@ -57,15 +58,16 @@
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
         }
     },
     "required": [
         "@type",
-        "electrodeContact",
+        "@id",
         "internalIdentifier",
-        "@id"
+        "electrodeContact"
     ],
     "title": "Electrode",
     "type": "object"

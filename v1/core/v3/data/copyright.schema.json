@@ -14,6 +14,7 @@
         },
         "https://openminds.ebrains.eu/vocab/holder": {
             "_instruction": "Add one or several persons or organisations that hold the copyright.",
+            "description": "Legal person in possession of something.",
             "items": {
                 "else": {
                     "properties": {
@@ -58,16 +59,17 @@
         },
         "https://openminds.ebrains.eu/vocab/year": {
             "_instruction": "Enter the year during which the copyright was first asserted.",
+            "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
             "pattern": "([0-9]{4})",
             "title": "year",
             "type": "string"
         }
     },
     "required": [
-        "year",
-        "holder",
         "@type",
-        "@id"
+        "holder",
+        "@id",
+        "year"
     ],
     "title": "Copyright",
     "type": "object"

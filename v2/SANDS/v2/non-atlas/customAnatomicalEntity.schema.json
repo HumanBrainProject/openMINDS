@@ -15,7 +15,7 @@
             "const": "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
             "type": "string"
         },
-        "hasAnnotation": {
+        "https://openminds.ebrains.eu/vocab/hasAnnotation": {
             "_instruction": "Add the custom annotation which this custom anatomical entity defines.",
             "else": {
                 "properties": {
@@ -51,15 +51,16 @@
                     "@id"
                 ]
             },
-            "title": "Has annotation",
+            "title": "hasAnnotation",
             "type": "object"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this custom anatomical entity.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "relationAssessment": {
+        "https://openminds.ebrains.eu/vocab/relationAssessment": {
             "anyOf": [
                 {
                     "_deprecated": true,
@@ -70,21 +71,24 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
-                            "title": "Criteria"
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
                         },
                         "inRelationTo": {
                             "_instruction": "Add the anatomical entity to which the relation is described.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
-                            "title": "In relation to"
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
                         },
                         "qualitativeOverlap": {
                             "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                             ],
-                            "title": "Qualitative overlap"
+                            "description": "Semantic characterization of how much two things occupy the same space.",
+                            "title": "qualitativeOverlap"
                         }
                     },
                     "required": [
@@ -103,14 +107,16 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
-                            "title": "Criteria"
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
                         },
                         "inRelationTo": {
                             "_instruction": "Add the anatomical entity to which the relation is described.",
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
-                            "title": "In relation to"
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
                         },
                         "quantitativeOverlap": {
                             "anyOf": [
@@ -123,16 +129,18 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
-                                            "title": "Type of uncertainty"
+                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                                            "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
                                             "maxItems": 2,
                                             "minItems": 2,
-                                            "title": "Uncertainty",
+                                            "title": "uncertainty",
                                             "type": "array"
                                         },
                                         "unit": {
@@ -140,11 +148,13 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
-                                            "title": "Value",
+                                            "description": "Entry for a property.",
+                                            "title": "value",
                                             "type": "number"
                                         }
                                     },
@@ -159,12 +169,14 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
-                                            "title": "Max value",
+                                            "description": "Greatest quantity attained or allowed.",
+                                            "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
-                                            "title": "Min value",
+                                            "description": "Smallest quantity attained or allowed.",
+                                            "title": "minValue",
                                             "type": "number"
                                         },
                                         "unit": {
@@ -172,7 +184,8 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
                                         }
                                     },
                                     "required": [
@@ -196,9 +209,9 @@
         }
     },
     "required": [
-        "name",
+        "@id",
         "@type",
-        "@id"
+        "name"
     ],
     "title": "Custom anatomical entity",
     "type": "object"

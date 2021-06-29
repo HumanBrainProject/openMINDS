@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/core/Subject",
             "type": "string"
         },
-        "biologicalSex": {
+        "https://openminds.ebrains.eu/vocab/biologicalSex": {
             "_instruction": "Add the biological sex of this specimen.",
+            "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
             "else": {
                 "properties": {
                     "@id": {
@@ -48,16 +49,18 @@
                     "@id"
                 ]
             },
-            "title": "Biological sex",
+            "title": "biologicalSex",
             "type": "object"
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
-            "title": "Internal identifier",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "isPartOf": {
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add all subject groups of which this subject is a member.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -95,17 +98,18 @@
                 }
             },
             "minItems": 1,
-            "title": "Is part of",
+            "title": "isPartOf",
             "type": "array",
             "uniqueItems": true
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "phenotype": {
+        "https://openminds.ebrains.eu/vocab/phenotype": {
             "_instruction": "Add the phenotype of this specimen.",
+            "description": "Physical expression of one or more genes of an organism.",
             "else": {
                 "properties": {
                     "@id": {
@@ -140,11 +144,12 @@
                     "@id"
                 ]
             },
-            "title": "Phenotype",
+            "title": "phenotype",
             "type": "object"
         },
-        "species": {
+        "https://openminds.ebrains.eu/vocab/species": {
             "_instruction": "Add the species of this specimen.",
+            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
             "else": {
                 "properties": {
                     "@id": {
@@ -179,11 +184,12 @@
                     "@id"
                 ]
             },
-            "title": "Species",
+            "title": "species",
             "type": "object"
         },
-        "strain": {
+        "https://openminds.ebrains.eu/vocab/strain": {
             "_instruction": "Add the strain of this specimen.",
+            "description": "Group of presumed common ancestry with physiological but usually not morphological distinctions.",
             "else": {
                 "properties": {
                     "@id": {
@@ -218,11 +224,12 @@
                     "@id"
                 ]
             },
-            "title": "Strain",
+            "title": "strain",
             "type": "object"
         },
-        "studiedState": {
+        "https://openminds.ebrains.eu/vocab/studiedState": {
             "_instruction": "Add all states in which this subject was studied.",
+            "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
             "items": {
                 "else": {
                     "properties": {
@@ -260,18 +267,18 @@
                 }
             },
             "minItems": 1,
-            "title": "Studied state",
+            "title": "studiedState",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
+        "studiedState",
+        "internalIdentifier",
+        "@type",
         "biologicalSex",
         "@id",
-        "internalIdentifier",
-        "species",
-        "@type",
-        "studiedState"
+        "species"
     ],
     "title": "Subject",
     "type": "object"

@@ -12,14 +12,16 @@
             "const": "https://openminds.ebrains.eu/core/FileRepository",
             "type": "string"
         },
-        "IRI": {
+        "https://openminds.ebrains.eu/vocab/IRI": {
             "_instruction": "Enter the internationalized resource identifier (IRI) of this file repository.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
-            "title": "Iri",
+            "title": "IRI",
             "type": "string"
         },
-        "format": {
+        "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+            "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
                     "@id": {
@@ -54,21 +56,23 @@
                     "@id"
                 ]
             },
-            "title": "Format",
+            "title": "format",
             "type": "object"
         },
-        "hash": {
+        "https://openminds.ebrains.eu/vocab/hash": {
             "_type": "https://openminds.ebrains.eu/core/Hash",
             "description": "Structured information on a hash.",
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
-                    "title": "Algorithm",
+                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                    "title": "algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
-                    "title": "Digest",
+                    "description": "Summation or condensation of a body of information.",
+                    "title": "digest",
                     "type": "string"
                 }
             },
@@ -79,8 +83,9 @@
             "title": "Hash",
             "type": "object"
         },
-        "hostedBy": {
+        "https://openminds.ebrains.eu/vocab/hostedBy": {
             "_instruction": "Add the host of this file repository.",
+            "description": "Reference to an organization that provides facilities and services for something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -115,15 +120,16 @@
                     "@id"
                 ]
             },
-            "title": "Hosted by",
+            "title": "hostedBy",
             "type": "object"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name of this file repository.",
-            "title": "Name",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
             "type": "string"
         },
-        "repositoryType": {
+        "https://openminds.ebrains.eu/vocab/repositoryType": {
             "_instruction": "Add the type of this file repository.",
             "else": {
                 "properties": {
@@ -159,10 +165,10 @@
                     "@id"
                 ]
             },
-            "title": "Repository type",
+            "title": "repositoryType",
             "type": "object"
         },
-        "storageSize": {
+        "https://openminds.ebrains.eu/vocab/storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -171,16 +177,18 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -188,11 +196,13 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "description": "Entry for a property.",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -204,11 +214,11 @@
         }
     },
     "required": [
-        "@id",
-        "IRI",
         "hostedBy",
+        "IRI",
         "name",
-        "@type"
+        "@type",
+        "@id"
     ],
     "title": "File repository",
     "type": "object"

@@ -13,16 +13,19 @@
         },
         "https://openminds.ebrains.eu/vocab/maxValue": {
             "_instruction": "Add the maximum value measured for this range.",
+            "description": "Greatest quantity attained or allowed.",
             "title": "maxValue",
             "type": "number"
         },
         "https://openminds.ebrains.eu/vocab/minValue": {
             "_instruction": "Add the minimum value measured for this range.",
+            "description": "Smallest quantity attained or allowed.",
             "title": "minValue",
             "type": "number"
         },
         "https://openminds.ebrains.eu/vocab/unit": {
             "_instruction": "Add the unit of measurement of this quantitative value range.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -62,10 +65,10 @@
         }
     },
     "required": [
-        "minValue",
-        "@type",
         "@id",
-        "maxValue"
+        "maxValue",
+        "minValue",
+        "@type"
     ],
     "title": "Quantitative value range",
     "type": "object"

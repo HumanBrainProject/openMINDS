@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "type": "string"
         },
-        "typeOfUncertainty": {
+        "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
             "_instruction": "Add the type of uncertainty used for this quantitative value.",
+            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -48,21 +49,23 @@
                     "@id"
                 ]
             },
-            "title": "Type of uncertainty",
+            "title": "typeOfUncertainty",
             "type": "object"
         },
-        "uncertainty": {
+        "https://openminds.ebrains.eu/vocab/uncertainty": {
             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+            "description": "Quanitative value range defining the uncertainty of a measurement.",
             "items": {
                 "type": "number"
             },
             "maxItems": 2,
             "minItems": 2,
-            "title": "Uncertainty",
+            "title": "uncertainty",
             "type": "array"
         },
-        "unit": {
+        "https://openminds.ebrains.eu/vocab/unit": {
             "_instruction": "Add the unit of measurement of this quantitative value.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -97,19 +100,20 @@
                     "@id"
                 ]
             },
-            "title": "Unit",
+            "title": "unit",
             "type": "object"
         },
-        "value": {
+        "https://openminds.ebrains.eu/vocab/value": {
             "_instruction": "Enter the measurement value of this quantitative value.",
-            "title": "Value",
+            "description": "Entry for a property.",
+            "title": "value",
             "type": "number"
         }
     },
     "required": [
-        "value",
         "@type",
-        "@id"
+        "@id",
+        "value"
     ],
     "title": "Quantitative value",
     "type": "object"

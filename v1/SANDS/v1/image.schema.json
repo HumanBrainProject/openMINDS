@@ -1,6 +1,7 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/image?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/Image",
     "description": "Structured information on an image.",
     "properties": {
@@ -14,6 +15,7 @@
         },
         "https://openminds.ebrains.eu/vocab/coordinateSpace": {
             "_instruction": "Add the coordinate space this image exists in.",
+            "description": "Two or three dimensional geometric setting.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,6 +55,7 @@
         },
         "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add the file in which this image is stored in.",
+            "description": "Reference to a file instance in which something is stored.",
             "else": {
                 "properties": {
                     "@id": {
@@ -99,10 +102,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                     "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
@@ -116,10 +121,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
                     "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
                     "title": "value",
                     "type": "number"
                 }
@@ -132,11 +139,11 @@
         }
     },
     "required": [
-        "voxelSize",
-        "coordinateSpace",
         "@id",
+        "coordinateSpace",
         "definedIn",
-        "@type"
+        "@type",
+        "voxelSize"
     ],
     "title": "Image",
     "type": "object"

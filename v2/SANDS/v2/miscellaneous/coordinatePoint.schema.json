@@ -12,8 +12,9 @@
             "const": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "type": "string"
         },
-        "coordinateSpace": {
+        "https://openminds.ebrains.eu/vocab/coordinateSpace": {
             "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+            "description": "Two or three dimensional geometric setting.",
             "else": {
                 "properties": {
                     "@id": {
@@ -49,10 +50,10 @@
                     "@id"
                 ]
             },
-            "title": "Coordinate space",
+            "title": "coordinateSpace",
             "type": "object"
         },
-        "coordinates": {
+        "https://openminds.ebrains.eu/vocab/coordinates": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -61,16 +62,18 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -78,11 +81,13 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "description": "Entry for a property.",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -96,8 +101,8 @@
     "required": [
         "coordinates",
         "coordinateSpace",
-        "@type",
-        "@id"
+        "@id",
+        "@type"
     ],
     "title": "Coordinate point",
     "type": "object"
