@@ -8,13 +8,31 @@ if [ ! -d "openMINDS_documentation" ]; then
   exit 1
 fi
 
+commitAndPush(){
+  git config user.name openMINDS
+  git config user.email openMINDS@ebrains.eu
+  if [[ $(git add . --dry-run | wc -l) -gt 0 ]]; then
+     git add .
+     git commit -m "Update submodule references"
+     git push
+  else
+     echo "Nothing to commit"
+  fi
+}
+
 build(){
   echo "Building version $version"
   git checkout $version
   # Ensure submodules are properly fetched
   git pull
+  # Make sure we're at the head of the branch
+  git reset --hard origin/$version
   git submodule sync
   git submodule update --init --recursive --remote
+  # We push the synchronized state of the repository
+  commitAndPush
+
+  cp -r ../vocab vocab
 
   # Linting...
   # stop the build if there are Python syntax errors or undefined names
@@ -40,10 +58,10 @@ build(){
   cp -r uml/* ../../openMINDS_documentation/$version
   cp -r schema.json/* ../../openMINDS_documentation/$version
   cd ..
+  cp -r vocab ../vocab
 }
 
 echo "Clearing existing elements..."
-rm -rf openMINDS
 rm -rf openMINDS_generator
 
 echo "Cloning openMINDS_generator and installing requirements"
@@ -65,12 +83,12 @@ git reset --hard origin/documentation
 rm -rf *
 cd ..
 
-echo "Cloning into openMINDS"
-git clone https://github.com/HumanBrainProject/openMINDS.git
 cd openMINDS
-git pull
-git reset --hard origin/v2 #TODO change to master branch once it's available
-
 echo "Building all versions"
 for version in $(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \").*?(?=\")");
 do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version; fi; done
+cd ..
+
+echo "Cleaning up directory structure"
+rm -rf openMINDS
+rm -rf openMINDS_generator

@@ -6,7 +6,11 @@
 
 name: openMINDS
 
-on: [push, workflow_dispatch]
+on:
+  push:
+      branches:
+        - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,6 +29,13 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+
+    - name: Checkout openMINDS
+      uses: actions/checkout@v2
+      with:
+        repository: HumanBrainProject/openMINDS
+        ref: main
+        path: openMINDS
 
     - name: Checkout documentation branch
       uses: actions/checkout@v2
@@ -53,3 +64,14 @@ jobs:
         fi
         cd ..
         rm -rf openMINDS_documentation
+
+    - run: |
+        git config user.name openMINDS
+        git config user.email openMINDS@ebrains.eu
+        if [[ $(git add vocab --dry-run | wc -l) -gt 0 ]]; then
+            git add vocab
+            git commit -m "Automated vocabulary extraction"
+            git push
+        else
+            echo "Nothing to commit"
+        fi
