@@ -14,6 +14,7 @@
         },
         "coordinator": {
             "_instruction": "Add one or several project coordinators (person or organization).",
+            "description": "Legal person who organizes the collaborative work of people or groups.",
             "items": {
                 "else": {
                     "properties": {
@@ -58,16 +59,19 @@
         },
         "description": {
             "_instruction": "Enter a description of this project.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
             "title": "Description",
             "type": "string"
         },
         "fullName": {
             "_instruction": "Enter a descriptive full name (title) for this project.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
         },
         "hasResearchProducts": {
             "_instruction": "Add all research products or research product versions that are part of this project.",
+            "description": "Reference to subsidiary research products.",
             "items": {
                 "else": {
                     "properties": {
@@ -118,6 +122,7 @@
         },
         "homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this project.",
+            "description": "Main website of something or someone.",
             "else": {
                 "properties": {
                     "@id": {
@@ -157,17 +162,18 @@
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this project.",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "Short name",
             "type": "string"
         }
     },
     "required": [
-        "shortName",
-        "@id",
-        "fullName",
+        "@type",
         "hasResearchProducts",
         "description",
-        "@type"
+        "fullName",
+        "@id",
+        "shortName"
     ],
     "title": "Project",
     "type": "object"

@@ -13,6 +13,7 @@
         },
         "name": {
             "_instruction": "Enter a descriptive name for this numerical parameter.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "Name",
             "type": "string"
         },
@@ -27,10 +28,12 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                             "title": "Type of uncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
@@ -44,10 +47,12 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
+                            "description": "Entry for a property.",
                             "title": "Value",
                             "type": "number"
                         }
@@ -63,11 +68,13 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
+                            "description": "Greatest quantity attained or allowed.",
                             "title": "Max value",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
+                            "description": "Smallest quantity attained or allowed.",
                             "title": "Min value",
                             "type": "number"
                         },
@@ -76,6 +83,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "Unit"
                         }
                     },
@@ -90,10 +98,10 @@
         }
     },
     "required": [
-        "value",
-        "@id",
         "@type",
-        "name"
+        "value",
+        "name",
+        "@id"
     ],
     "title": "Numerical parameter",
     "type": "object"

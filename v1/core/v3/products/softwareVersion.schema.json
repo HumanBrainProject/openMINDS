@@ -13,6 +13,7 @@
         },
         "accessibility": {
             "_instruction": "Add the accessibility of the data for this research product version.",
+            "description": "Level to which something is accessible to someone or something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -52,6 +53,7 @@
         },
         "applicationCategory": {
             "_instruction": "Add all categories to which this software version belongs.",
+            "description": "Distinct class that groups software programs which perform a similar task or set of tasks.",
             "items": {
                 "else": {
                     "properties": {
@@ -103,6 +105,7 @@
                         "https://openminds.ebrains.eu/core/Organization",
                         "https://openminds.ebrains.eu/core/Person"
                     ],
+                    "description": "Legal person in possession of something.",
                     "minItems": 1,
                     "title": "Holder",
                     "type": "array",
@@ -110,6 +113,7 @@
                 },
                 "year": {
                     "_instruction": "Enter the year during which the copyright was first asserted.",
+                    "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
                     "pattern": "([0-9]{4})",
                     "title": "Year",
                     "type": "string"
@@ -124,6 +128,7 @@
         },
         "custodian": {
             "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product version.",
+            "description": "Legal person entrusted with guarding and maintaining property or records.",
             "items": {
                 "else": {
                     "properties": {
@@ -168,12 +173,14 @@
         },
         "description": {
             "_instruction": "If necessary, enter a version specific description (abstract) for this research product version (max. 2000 characters, incl. spaces; no references). If left blank, the research product version will inherit the 'description' of it's corresponding research product.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
             "maxLength": 2000,
             "title": "Description",
             "type": "string"
         },
         "developer": {
             "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this software version. Note that these developers will overwrite the once provided in the software product this version belongs to.",
+            "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
                     "properties": {
@@ -218,6 +225,7 @@
         },
         "device": {
             "_instruction": "Add all hardware devices compatible with this software version.",
+            "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
             "items": {
                 "else": {
                     "properties": {
@@ -261,6 +269,7 @@
         },
         "digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this research product version.",
+            "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
                     "@id": {
@@ -301,6 +310,7 @@
         },
         "feature": {
             "_instruction": "Add all distinguishing characteristics of this software version (e.g. performance, portability, or functionality).",
+            "description": "Structure, form, or appearance that characterizes something or someone.",
             "items": {
                 "else": {
                     "properties": {
@@ -344,6 +354,7 @@
         },
         "fullDocumentation": {
             "_instruction": "Add the DOI, file or URL that points to a full documentation of this research product version.",
+            "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
                     "@id": {
@@ -385,11 +396,13 @@
         },
         "fullName": {
             "_instruction": "If necessary, enter a version specific descriptive full name (title) for this research product version. If left blank, the research product version will inherit the 'fullName' of it's corresponding research product.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "Full name",
             "type": "string"
         },
         "funding": {
             "_instruction": "Add all funding information of this research product version.",
+            "description": "Money provided by a legal person for a particular purpose.",
             "items": {
                 "else": {
                     "properties": {
@@ -433,6 +446,7 @@
         },
         "hasComponent": {
             "_instruction": "Add all software versions that supplement this software version.",
+            "description": "Reference to an element of a collection.",
             "items": {
                 "else": {
                     "properties": {
@@ -476,6 +490,7 @@
         },
         "homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product version.",
+            "description": "Main website of something or someone.",
             "else": {
                 "properties": {
                     "@id": {
@@ -515,11 +530,13 @@
         },
         "howToCite": {
             "_instruction": "Enter the preferred citation text for this research product version. Leave blank if citation text can be extracted from the assigned digital identifier.",
+            "description": "Preferred format for citing a particular object or legal person.",
             "title": "How to cite",
             "type": "string"
         },
         "inputFormat": {
             "_instruction": "Add the content types of all possible input formats for this software version.",
+            "description": "Format of data that is put into a process or machine.",
             "items": {
                 "else": {
                     "properties": {
@@ -563,6 +580,7 @@
         },
         "isAlternativeVersionOf": {
             "_instruction": "Add all software versions that can be used alternatively to this software version.",
+            "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
                     "properties": {
@@ -606,6 +624,7 @@
         },
         "isNewVersionOf": {
             "_instruction": "Add the software version preceding this software version.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
                     "@id": {
@@ -645,6 +664,7 @@
         },
         "keyword": {
             "_instruction": "Enter custom keywords to this research product version.",
+            "description": "Significant word or concept that are representative of something or someone.",
             "items": {
                 "type": "string"
             },
@@ -656,6 +676,7 @@
         },
         "language": {
             "_instruction": "Add all languages supported by this software version.",
+            "description": "System of communication (words, their pronunciation, and the methods of combining them) used and understood by a particular community.",
             "items": {
                 "else": {
                     "properties": {
@@ -699,6 +720,7 @@
         },
         "license": {
             "_instruction": "Add at least one license for this software version.",
+            "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "items": {
                 "else": {
                     "properties": {
@@ -742,6 +764,7 @@
         },
         "operatingSystem": {
             "_instruction": "Add all operating systems supported by this software version.",
+            "description": "Software that controls the operation of a computer and directs the processing of programs.",
             "items": {
                 "else": {
                     "properties": {
@@ -792,6 +815,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/ContributionType"
                     ],
+                    "description": "Distinct class of what was given or supplied as a part or share.",
                     "minItems": 1,
                     "title": "Contribution type",
                     "type": "array",
@@ -803,6 +827,7 @@
                         "https://openminds.ebrains.eu/core/Organization",
                         "https://openminds.ebrains.eu/core/Person"
                     ],
+                    "description": "Legal person that gave or supplied something as a part or share.",
                     "title": "Contributor"
                 }
             },
@@ -815,6 +840,7 @@
         },
         "outputFormat": {
             "_instruction": "Add the content types of all possible input formats for this software version.",
+            "description": "Format of data that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
                     "properties": {
@@ -858,6 +884,7 @@
         },
         "programmingLanguage": {
             "_instruction": "Add all programming languages used for this software version.",
+            "description": "Distinct set of instructions for computer programs in order to produce various kinds of output.",
             "items": {
                 "else": {
                     "properties": {
@@ -901,6 +928,7 @@
         },
         "relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
+            "description": "Reference to something that was made available for the general public to see or buy.",
             "items": {
                 "else": {
                     "properties": {
@@ -945,12 +973,14 @@
         },
         "releaseDate": {
             "_instruction": "Enter the date (actual or intended) of the first broadcast/publication of this research product version.",
+            "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
             "format": "date",
             "title": "Release date",
             "type": "string"
         },
         "repository": {
             "_instruction": "Add the file repository of this research product version.",
+            "description": "Place, room, or container where something is deposited or stored.",
             "else": {
                 "properties": {
                     "@id": {
@@ -990,6 +1020,7 @@
         },
         "requirement": {
             "_instruction": "Enter all requirements of this software version.",
+            "description": "Something essential to the existence, occurrence or function of something else.",
             "items": {
                 "type": "string"
             },
@@ -1000,12 +1031,14 @@
         },
         "shortName": {
             "_instruction": "Enter a short name (alias) for this research product version (max. 30 characters, no space).",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
             "maxLength": 30,
             "title": "Short name",
             "type": "string"
         },
         "supportChannel": {
             "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
+            "description": "Way of communication used to interact with users or customers.",
             "items": {
                 "_formats": [
                     "email",
@@ -1020,32 +1053,34 @@
         },
         "versionIdentifier": {
             "_instruction": "Enter the version identifier of this research product version.",
+            "description": "Term or code used to identify the version of something.",
             "title": "Version identifier",
             "type": "string"
         },
         "versionInnovation": {
             "_instruction": "Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it's research product. If this research product version is the first released version, you can enter the following disclaimer 'This is the first version of this research product.'",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
             "title": "Version innovation",
             "type": "string"
         }
     },
     "required": [
-        "programmingLanguage",
-        "language",
-        "releaseDate",
         "funding",
-        "accessibility",
         "operatingSystem",
+        "language",
         "device",
-        "shortName",
-        "applicationCategory",
-        "@id",
         "fullDocumentation",
-        "versionIdentifier",
-        "license",
-        "versionInnovation",
+        "feature",
+        "applicationCategory",
         "@type",
-        "feature"
+        "versionIdentifier",
+        "@id",
+        "shortName",
+        "versionInnovation",
+        "license",
+        "programmingLanguage",
+        "releaseDate",
+        "accessibility"
     ],
     "title": "Software version",
     "type": "object"
