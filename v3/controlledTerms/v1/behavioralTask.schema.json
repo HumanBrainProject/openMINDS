@@ -1,0 +1,66 @@
+{
+    "$id": "https://openminds.ebrains.eu/controlledTerms/behavioralTask?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+    "description": "Structured information on the behavioral task that had to be peformed by a subject.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+            "_instruction": "Enter one sentence for defining this term.",
+            "title": "definition",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a short text describing this term.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/interlexIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the integrated ontology entry in the InterLex project.",
+            "format": "iri",
+            "title": "interlexIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/knowledgeSpaceLink": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the wiki page of the corresponding term in the KnowledgeSpace.",
+            "format": "iri",
+            "title": "knowledgeSpaceLink",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Controlled term originating from a defined terminology.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/preferredOntologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the preferred ontological term.",
+            "format": "iri",
+            "title": "preferredOntologyIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/synonym": {
+            "_instruction": "Enter one or several synonyms (inlcuding abbreviations) for this controlled term.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "synonym",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "name",
+        "@id",
+        "@type"
+    ],
+    "title": "Behavioral task",
+    "type": "object"
+}

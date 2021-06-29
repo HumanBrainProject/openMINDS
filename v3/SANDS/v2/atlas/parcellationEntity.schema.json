@@ -1,0 +1,341 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/parcellationEntity?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "studyTarget"
+    ],
+    "_type": "https://openminds.ebrains.eu/sands/ParcellationEntity",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasAnnotation": {
+            "_instruction": "Add the atlas annotation which this parcellation entity defines.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/AtlasAnnotation"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "hasAnnotation",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hasParent": {
+            "_instruction": "Add for this parcellation entity the defined anatomical parent structure.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "hasParent",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add one or several parcellation terminologies to which this parcellation entity belongs.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationTerminology"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "isPartOf",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name for this parcellation entity.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this parcellation entity.",
+            "format": "iri",
+            "title": "ontologyIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
+            "_instruction": "Add the related UBERON parcellation term.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "relatedUBERONTerm",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/relationAssessment": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment",
+                    "properties": {
+                        "criteria": {
+                            "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ProtocolExecution"
+                            ],
+                            "title": "criteria"
+                        },
+                        "inRelationTo": {
+                            "_instruction": "Add the anatomical entity to which the relation is described.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "title": "inRelationTo"
+                        },
+                        "qualitativeOverlap": {
+                            "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
+                            ],
+                            "title": "qualitativeOverlap"
+                        }
+                    },
+                    "required": [
+                        "inRelationTo",
+                        "qualitativeOverlap"
+                    ],
+                    "title": "Qualitative relation assessment",
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
+                    "properties": {
+                        "criteria": {
+                            "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ProtocolExecution"
+                            ],
+                            "title": "criteria"
+                        },
+                        "inRelationTo": {
+                            "_instruction": "Add the anatomical entity to which the relation is described.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "title": "inRelationTo"
+                        },
+                        "quantitativeOverlap": {
+                            "anyOf": [
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                    "description": "Structured information on a quanitative value.",
+                                    "properties": {
+                                        "typeOfUncertainty": {
+                                            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                            ],
+                                            "title": "typeOfUncertainty"
+                                        },
+                                        "uncertainty": {
+                                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "title": "uncertainty",
+                                            "type": "array"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "unit"
+                                        },
+                                        "value": {
+                                            "_instruction": "Enter the measurement value of this quantitative value.",
+                                            "title": "value",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": [
+                                        "value"
+                                    ],
+                                    "title": "Quantitative value",
+                                    "type": "object"
+                                },
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                    "properties": {
+                                        "maxValue": {
+                                            "_instruction": "Add the maximum value measured for this range.",
+                                            "title": "maxValue",
+                                            "type": "number"
+                                        },
+                                        "minValue": {
+                                            "_instruction": "Add the minimum value measured for this range.",
+                                            "title": "minValue",
+                                            "type": "number"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value range.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "unit"
+                                        }
+                                    },
+                                    "required": [
+                                        "maxValue",
+                                        "minValue"
+                                    ],
+                                    "title": "Quantitative value range",
+                                    "type": "object"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "inRelationTo",
+                        "quantitativeOverlap"
+                    ],
+                    "title": "Quantitative relation assessment",
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
+            "_instruction": "Enter the version identifier of this parcellation entity.",
+            "title": "versionIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
+            "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation entity.",
+            "title": "versionInnovation",
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "@type",
+        "isPartOf",
+        "versionIdentifier",
+        "@id"
+    ],
+    "title": "Parcellation entity",
+    "type": "object"
+}

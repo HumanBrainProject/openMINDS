@@ -1,0 +1,183 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/parameterSet?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ParameterSet",
+    "description": "Structured information on a used parameter set.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ParameterSet",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/context": {
+            "_instruction": "Enter the common context for the parameters grouped in this set.",
+            "title": "context",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/parameter": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
+                    "properties": {
+                        "name": {
+                            "_instruction": "Enter a descriptive name for this numerical parameter.",
+                            "title": "name",
+                            "type": "string"
+                        },
+                        "value": {
+                            "anyOf": [
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                    "description": "Structured information on a quanitative value.",
+                                    "properties": {
+                                        "typeOfUncertainty": {
+                                            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                            ],
+                                            "title": "typeOfUncertainty"
+                                        },
+                                        "uncertainty": {
+                                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "title": "uncertainty",
+                                            "type": "array"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "unit"
+                                        },
+                                        "value": {
+                                            "_instruction": "Enter the measurement value of this quantitative value.",
+                                            "title": "value",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": [
+                                        "value"
+                                    ],
+                                    "title": "Quantitative value",
+                                    "type": "object"
+                                },
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                    "properties": {
+                                        "maxValue": {
+                                            "_instruction": "Add the maximum value measured for this range.",
+                                            "title": "maxValue",
+                                            "type": "number"
+                                        },
+                                        "minValue": {
+                                            "_instruction": "Add the minimum value measured for this range.",
+                                            "title": "minValue",
+                                            "type": "number"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value range.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "unit"
+                                        }
+                                    },
+                                    "required": [
+                                        "maxValue",
+                                        "minValue"
+                                    ],
+                                    "title": "Quantitative value range",
+                                    "type": "object"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "value"
+                    ],
+                    "title": "Numerical parameter",
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/StringParameter",
+                    "properties": {
+                        "name": {
+                            "_instruction": "Enter a descriptive name for this parameter.",
+                            "title": "name",
+                            "type": "string"
+                        },
+                        "value": {
+                            "_instruction": "Enter a text value for this parameter.",
+                            "title": "value",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "value"
+                    ],
+                    "title": "String parameter",
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/relevantFor": {
+            "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+                            "https://openminds.ebrains.eu/controlledTerms/Technique"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "relevantFor",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@type",
+        "context",
+        "relevantFor",
+        "parameter",
+        "@id"
+    ],
+    "title": "Parameter set",
+    "type": "object"
+}

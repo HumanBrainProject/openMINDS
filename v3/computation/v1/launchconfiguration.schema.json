@@ -1,0 +1,85 @@
+{
+    "$id": "https://openminds.ebrains.eu/computation/launchConfiguration?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/computation/LaunchConfiguration",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/computation/LaunchConfiguration",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/arguments": {
+            "_instruction": "Enter command line arguments as a list of strings",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "arguments",
+            "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this launch configuration.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/environmentVariables": {
+            "_instruction": "Enter any environment variables defined by this launch configuration.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ParameterSet"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "environmentVariables",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/executable": {
+            "_instruction": "Enter the path to the command-line executable",
+            "title": "executable",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a descriptive name for this launch configuration.",
+            "title": "name",
+            "type": "string"
+        }
+    },
+    "required": [
+        "executable",
+        "@id",
+        "@type"
+    ],
+    "title": "Launch configuration",
+    "type": "object"
+}

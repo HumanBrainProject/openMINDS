@@ -1,0 +1,54 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/license?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/License",
+    "description": "Structured information on a used license.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/License",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+            "_instruction": "Enter the full name of this license.",
+            "title": "fullName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/legalCode": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the legal code of this license.",
+            "format": "iri",
+            "title": "legalCode",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter the short name of this license.",
+            "title": "shortName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/webpage": {
+            "_instruction": "Enter one or several webpages related to this license (e.g. homepage).",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "webpage",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "legalCode",
+        "@type",
+        "@id",
+        "shortName",
+        "fullName"
+    ],
+    "title": "License",
+    "type": "object"
+}
