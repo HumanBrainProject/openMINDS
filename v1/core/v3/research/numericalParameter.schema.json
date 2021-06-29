@@ -11,12 +11,12 @@
             "const": "https://openminds.ebrains.eu/core/NumericalParameter",
             "type": "string"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this numerical parameter.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "value": {
+        "https://openminds.ebrains.eu/vocab/value": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -27,7 +27,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -36,7 +36,7 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -44,11 +44,11 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -63,12 +63,12 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -76,7 +76,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -90,10 +90,10 @@
         }
     },
     "required": [
-        "@id",
-        "value",
         "@type",
-        "name"
+        "value",
+        "name",
+        "@id"
     ],
     "title": "Numerical parameter",
     "type": "object"

@@ -4,7 +4,6 @@
     "_categories": [
         "studyTarget"
     ],
-    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
     "description": "Structured information on an anatomical entity.",
     "properties": {
@@ -16,7 +15,7 @@
             "const": "https://openminds.ebrains.eu/sands/AnatomicalEntity",
             "type": "string"
         },
-        "hasParent": {
+        "https://openminds.ebrains.eu/vocab/hasParent": {
             "_instruction": "Add another anatomical entity representing the anatomical parent structure of this anatomical entity.",
             "else": {
                 "properties": {
@@ -52,22 +51,21 @@
                     "@id"
                 ]
             },
-            "title": "Has parent",
+            "title": "hasParent",
             "type": "object"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this anatomical entity based on anatomical location or characteristics.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "ontologyIdentifier": {
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this anatomical entity.",
             "format": "iri",
-            "title": "Ontology identifier",
+            "title": "ontologyIdentifier",
             "type": "string"
         },
-        "otherAnatomicalRelation": {
-            "_deprecated": true,
+        "https://openminds.ebrains.eu/vocab/otherAnatomicalRelation": {
             "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation",
             "description": "Structured information on the relation between one anatomical entity and another.",
             "properties": {
@@ -76,28 +74,28 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/ProtocolExecution"
                     ],
-                    "title": "Criteria"
+                    "title": "criteria"
                 },
                 "criteriaQualityType": {
                     "_instruction": "Add the quality type of the stated criteria used to determine this relation.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
                     ],
-                    "title": "Criteria quality type"
+                    "title": "criteriaQualityType"
                 },
                 "inRelationTo": {
                     "_instruction": "Add the anatomical entity to which the relation is described.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/AnatomicalEntity"
                     ],
-                    "title": "In relation to"
+                    "title": "inRelationTo"
                 },
                 "qualitativeOverlap": {
                     "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                     ],
-                    "title": "Qualitative overlap"
+                    "title": "qualitativeOverlap"
                 },
                 "quantitativeOverlap": {
                     "anyOf": [
@@ -110,7 +108,7 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                     ],
-                                    "title": "Type of uncertainty"
+                                    "title": "typeOfUncertainty"
                                 },
                                 "uncertainty": {
                                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -119,7 +117,7 @@
                                     },
                                     "maxItems": 2,
                                     "minItems": 2,
-                                    "title": "Uncertainty",
+                                    "title": "uncertainty",
                                     "type": "array"
                                 },
                                 "unit": {
@@ -127,11 +125,11 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                     ],
-                                    "title": "Unit"
+                                    "title": "unit"
                                 },
                                 "value": {
                                     "_instruction": "Enter the measurement value of this quantitative value.",
-                                    "title": "Value",
+                                    "title": "value",
                                     "type": "number"
                                 }
                             },
@@ -146,12 +144,12 @@
                             "properties": {
                                 "maxValue": {
                                     "_instruction": "Add the maximum value measured for this range.",
-                                    "title": "Max value",
+                                    "title": "maxValue",
                                     "type": "number"
                                 },
                                 "minValue": {
                                     "_instruction": "Add the minimum value measured for this range.",
-                                    "title": "Min value",
+                                    "title": "minValue",
                                     "type": "number"
                                 },
                                 "unit": {
@@ -159,7 +157,7 @@
                                     "_linkedTypes": [
                                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                     ],
-                                    "title": "Unit"
+                                    "title": "unit"
                                 }
                             },
                             "required": [
@@ -182,9 +180,9 @@
         }
     },
     "required": [
-        "@id",
         "@type",
-        "name"
+        "name",
+        "@id"
     ],
     "title": "Anatomical entity",
     "type": "object"

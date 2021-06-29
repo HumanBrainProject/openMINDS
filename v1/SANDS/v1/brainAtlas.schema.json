@@ -12,12 +12,12 @@
             "const": "https://openminds.ebrains.eu/sands/BrainAtlas",
             "type": "string"
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a short description for this brain atlas.",
-            "title": "Description",
+            "title": "description",
             "type": "string"
         },
-        "digitalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas.",
             "else": {
                 "properties": {
@@ -53,15 +53,15 @@
                     "@id"
                 ]
             },
-            "title": "Digital identifier",
+            "title": "digitalIdentifier",
             "type": "object"
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name for this brain atlas.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "hasVersion": {
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
             "_instruction": "Add one or several brain atlas versions that belong to this brain atlas.",
             "items": {
                 "else": {
@@ -100,34 +100,34 @@
                 }
             },
             "minItems": 1,
-            "title": "Has version",
+            "title": "hasVersion",
             "type": "array",
             "uniqueItems": true
         },
-        "homepage": {
+        "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
             "format": "iri",
-            "title": "Homepage",
+            "title": "homepage",
             "type": "string"
         },
-        "howToCite": {
+        "https://openminds.ebrains.eu/vocab/howToCite": {
             "_instruction": "Enter the preferred citation text for this brain atlas. Leave blank if citation text can be extracted from the assigned digital identifier.",
-            "title": "How to cite",
+            "title": "howToCite",
             "type": "string"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a descriptive short name for this brain atlas.",
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "@id",
         "hasVersion",
-        "description",
-        "@type",
+        "fullName",
+        "@id",
         "shortName",
-        "fullName"
+        "description",
+        "@type"
     ],
     "title": "Brain atlas",
     "type": "object"

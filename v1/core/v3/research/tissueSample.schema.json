@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/TissueSample",
             "type": "string"
         },
-        "anatomicalLocation": {
+        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
             "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
             "items": {
                 "else": {
@@ -53,11 +53,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Anatomical location",
+            "title": "anatomicalLocation",
             "type": "array",
             "uniqueItems": true
         },
-        "biologicalSex": {
+        "https://openminds.ebrains.eu/vocab/biologicalSex": {
             "_instruction": "Add the biological sex of this specimen.",
             "else": {
                 "properties": {
@@ -93,15 +93,15 @@
                     "@id"
                 ]
             },
-            "title": "Biological sex",
+            "title": "biologicalSex",
             "type": "object"
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
-            "title": "Internal identifier",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "isPartOf": {
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add all tissue sample collections of which this tissue sample is part of.",
             "items": {
                 "else": {
@@ -140,11 +140,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Is part of",
+            "title": "isPartOf",
             "type": "array",
             "uniqueItems": true
         },
-        "laterality": {
+        "https://openminds.ebrains.eu/vocab/laterality": {
             "_instruction": "Add one or both hemisphere sides from which this tissue sample originates from.",
             "items": {
                 "else": {
@@ -184,16 +184,16 @@
             },
             "maxItems": 2,
             "minItems": 1,
-            "title": "Laterality",
+            "title": "laterality",
             "type": "array",
             "uniqueItems": true
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "origin": {
+        "https://openminds.ebrains.eu/vocab/origin": {
             "_instruction": "Add the biogical origin (organ or cell type) of this tissue sample.",
             "else": {
                 "properties": {
@@ -230,10 +230,10 @@
                     "@id"
                 ]
             },
-            "title": "Origin",
+            "title": "origin",
             "type": "object"
         },
-        "phenotype": {
+        "https://openminds.ebrains.eu/vocab/phenotype": {
             "_instruction": "Add the phenotype of this specimen.",
             "else": {
                 "properties": {
@@ -269,10 +269,10 @@
                     "@id"
                 ]
             },
-            "title": "Phenotype",
+            "title": "phenotype",
             "type": "object"
         },
-        "species": {
+        "https://openminds.ebrains.eu/vocab/species": {
             "_instruction": "Add the species of this specimen.",
             "else": {
                 "properties": {
@@ -308,10 +308,10 @@
                     "@id"
                 ]
             },
-            "title": "Species",
+            "title": "species",
             "type": "object"
         },
-        "strain": {
+        "https://openminds.ebrains.eu/vocab/strain": {
             "_instruction": "Add the strain of this specimen.",
             "else": {
                 "properties": {
@@ -347,10 +347,10 @@
                     "@id"
                 ]
             },
-            "title": "Strain",
+            "title": "strain",
             "type": "object"
         },
-        "studiedState": {
+        "https://openminds.ebrains.eu/vocab/studiedState": {
             "_instruction": "Add all states in which this tissue sample was studied.",
             "items": {
                 "else": {
@@ -389,11 +389,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Studied state",
+            "title": "studiedState",
             "type": "array",
             "uniqueItems": true
         },
-        "type": {
+        "https://openminds.ebrains.eu/vocab/type": {
             "_instruction": "Add the type of this tissue sample.",
             "else": {
                 "properties": {
@@ -429,19 +429,19 @@
                     "@id"
                 ]
             },
-            "title": "Type",
+            "title": "type",
             "type": "object"
         }
     },
     "required": [
-        "@id",
-        "internalIdentifier",
-        "@type",
-        "type",
         "origin",
         "biologicalSex",
+        "studiedState",
+        "type",
         "species",
-        "studiedState"
+        "@id",
+        "internalIdentifier",
+        "@type"
     ],
     "title": "Tissue sample",
     "type": "object"

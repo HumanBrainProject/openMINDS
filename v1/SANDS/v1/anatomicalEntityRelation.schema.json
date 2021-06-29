@@ -1,7 +1,6 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/anatomicalEntityRelation?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation",
     "description": "Structured information on the relation between one anatomical entity and another.",
     "properties": {
@@ -13,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/AnatomicalEntityRelation",
             "type": "string"
         },
-        "criteria": {
+        "https://openminds.ebrains.eu/vocab/criteria": {
             "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
             "else": {
                 "properties": {
@@ -49,10 +48,10 @@
                     "@id"
                 ]
             },
-            "title": "Criteria",
+            "title": "criteria",
             "type": "object"
         },
-        "criteriaQualityType": {
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType": {
             "_instruction": "Add the quality type of the stated criteria used to determine this relation.",
             "else": {
                 "properties": {
@@ -88,10 +87,10 @@
                     "@id"
                 ]
             },
-            "title": "Criteria quality type",
+            "title": "criteriaQualityType",
             "type": "object"
         },
-        "inRelationTo": {
+        "https://openminds.ebrains.eu/vocab/inRelationTo": {
             "_instruction": "Add the anatomical entity to which the relation is described.",
             "else": {
                 "properties": {
@@ -127,10 +126,10 @@
                     "@id"
                 ]
             },
-            "title": "In relation to",
+            "title": "inRelationTo",
             "type": "object"
         },
-        "qualitativeOverlap": {
+        "https://openminds.ebrains.eu/vocab/qualitativeOverlap": {
             "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
             "else": {
                 "properties": {
@@ -166,10 +165,10 @@
                     "@id"
                 ]
             },
-            "title": "Qualitative overlap",
+            "title": "qualitativeOverlap",
             "type": "object"
         },
-        "quantitativeOverlap": {
+        "https://openminds.ebrains.eu/vocab/quantitativeOverlap": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -180,7 +179,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -189,7 +188,7 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -197,11 +196,11 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -216,12 +215,12 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -229,7 +228,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -243,11 +242,11 @@
         }
     },
     "required": [
-        "@id",
         "qualitativeOverlap",
         "inRelationTo",
-        "@type",
-        "criteriaQualityType"
+        "@id",
+        "criteriaQualityType",
+        "@type"
     ],
     "title": "Anatomical entity relation",
     "type": "object"

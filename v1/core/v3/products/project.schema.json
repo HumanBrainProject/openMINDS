@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/Project",
             "type": "string"
         },
-        "coordinator": {
+        "https://openminds.ebrains.eu/vocab/coordinator": {
             "_instruction": "Add one or several project coordinators (person or organization).",
             "items": {
                 "else": {
@@ -52,21 +52,21 @@
                 }
             },
             "minItems": 1,
-            "title": "Coordinator",
+            "title": "coordinator",
             "type": "array",
             "uniqueItems": true
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this project.",
-            "title": "Description",
+            "title": "description",
             "type": "string"
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name (title) for this project.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "hasResearchProducts": {
+        "https://openminds.ebrains.eu/vocab/hasResearchProducts": {
             "_instruction": "Add all research products or research product versions that are part of this project.",
             "items": {
                 "else": {
@@ -112,11 +112,11 @@
                 }
             },
             "minItems": 2,
-            "title": "Has research products",
+            "title": "hasResearchProducts",
             "type": "array",
             "uniqueItems": true
         },
-        "homepage": {
+        "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this project.",
             "else": {
                 "properties": {
@@ -152,22 +152,22 @@
                     "@id"
                 ]
             },
-            "title": "Homepage",
+            "title": "homepage",
             "type": "object"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a short name (alias) for this project.",
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "@id",
-        "description",
-        "hasResearchProducts",
-        "@type",
+        "fullName",
         "shortName",
-        "fullName"
+        "@id",
+        "hasResearchProducts",
+        "description",
+        "@type"
     ],
     "title": "Project",
     "type": "object"

@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/Contribution",
             "type": "string"
         },
-        "contributionType": {
+        "https://openminds.ebrains.eu/vocab/contributionType": {
             "_instruction": "Add one or several type of contributions made by the stated contributor.",
             "items": {
                 "else": {
@@ -51,11 +51,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Contribution type",
+            "title": "contributionType",
             "type": "array",
             "uniqueItems": true
         },
-        "contributor": {
+        "https://openminds.ebrains.eu/vocab/contributor": {
             "_instruction": "Add the contributing person or organization.",
             "else": {
                 "properties": {
@@ -92,15 +92,15 @@
                     "@id"
                 ]
             },
-            "title": "Contributor",
+            "title": "contributor",
             "type": "object"
         }
     },
     "required": [
         "contributionType",
-        "@id",
+        "contributor",
         "@type",
-        "contributor"
+        "@id"
     ],
     "title": "Contribution",
     "type": "object"

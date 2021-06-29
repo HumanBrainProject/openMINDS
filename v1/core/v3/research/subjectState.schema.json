@@ -12,12 +12,12 @@
             "const": "https://openminds.ebrains.eu/core/SubjectState",
             "type": "string"
         },
-        "additionalRemarks": {
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
             "_instruction": "Enter additional remarks about the specimen (set) in this state.",
-            "title": "Additional remarks",
+            "title": "additionalRemarks",
             "type": "string"
         },
-        "age": {
+        "https://openminds.ebrains.eu/vocab/age": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -28,7 +28,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -37,7 +37,7 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -45,11 +45,11 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -64,12 +64,12 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -77,7 +77,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -89,7 +89,7 @@
                 }
             ]
         },
-        "ageCategory": {
+        "https://openminds.ebrains.eu/vocab/ageCategory": {
             "_instruction": "Add the age category of the subject in this state.",
             "else": {
                 "properties": {
@@ -125,10 +125,10 @@
                     "@id"
                 ]
             },
-            "title": "Age category",
+            "title": "ageCategory",
             "type": "object"
         },
-        "handedness": {
+        "https://openminds.ebrains.eu/vocab/handedness": {
             "_instruction": "Add the preferred hand of the subject in this state.",
             "else": {
                 "properties": {
@@ -164,15 +164,15 @@
                     "@id"
                 ]
             },
-            "title": "Handedness",
+            "title": "handedness",
             "type": "object"
         },
-        "lookupLabel": {
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen (set) state that may help you to more easily find it again.",
-            "title": "Lookup label",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "pathology": {
+        "https://openminds.ebrains.eu/vocab/pathology": {
             "_instruction": "Add the pathology of the specimen (set) in this state.",
             "items": {
                 "else": {
@@ -212,11 +212,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Pathology",
+            "title": "pathology",
             "type": "array",
             "uniqueItems": true
         },
-        "weight": {
+        "https://openminds.ebrains.eu/vocab/weight": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -227,7 +227,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -236,7 +236,7 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -244,11 +244,11 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -263,12 +263,12 @@
                     "properties": {
                         "maxValue": {
                             "_instruction": "Add the maximum value measured for this range.",
-                            "title": "Max value",
+                            "title": "maxValue",
                             "type": "number"
                         },
                         "minValue": {
                             "_instruction": "Add the minimum value measured for this range.",
-                            "title": "Min value",
+                            "title": "minValue",
                             "type": "number"
                         },
                         "unit": {
@@ -276,7 +276,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         }
                     },
                     "required": [
@@ -290,9 +290,9 @@
         }
     },
     "required": [
-        "@id",
+        "@type",
         "ageCategory",
-        "@type"
+        "@id"
     ],
     "title": "Subject state",
     "type": "object"

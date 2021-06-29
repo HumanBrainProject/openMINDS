@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/ElectrodeContact",
             "type": "string"
         },
-        "coordinatePoint": {
+        "https://openminds.ebrains.eu/vocab/coordinatePoint": {
             "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "description": "Structured information on a coordinate point.",
             "properties": {
@@ -21,7 +21,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/CoordinateSpace"
                     ],
-                    "title": "Coordinate space"
+                    "title": "coordinateSpace"
                 },
                 "coordinates": {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -32,7 +32,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "title": "Type of uncertainty"
+                            "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -41,7 +41,7 @@
                             },
                             "maxItems": 2,
                             "minItems": 2,
-                            "title": "Uncertainty",
+                            "title": "uncertainty",
                             "type": "array"
                         },
                         "unit": {
@@ -49,11 +49,11 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "title": "Unit"
+                            "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "number"
                         }
                     },
@@ -71,7 +71,7 @@
             "title": "Coordinate point",
             "type": "object"
         },
-        "definedIn": {
+        "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add one or several files in which the electrode contact is defined in.",
             "items": {
                 "else": {
@@ -110,16 +110,16 @@
                 }
             },
             "minItems": 1,
-            "title": "Defined in",
+            "title": "definedIn",
             "type": "array",
             "uniqueItems": true
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
-            "title": "Internal identifier",
+            "title": "internalIdentifier",
             "type": "string"
         },
-        "relatedRecording": {
+        "https://openminds.ebrains.eu/vocab/relatedRecording": {
             "_instruction": "Add one or several files in which the recordings from this electrode contact were stored.",
             "items": {
                 "else": {
@@ -159,11 +159,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Related recording",
+            "title": "relatedRecording",
             "type": "array",
             "uniqueItems": true
         },
-        "relatedStimulation": {
+        "https://openminds.ebrains.eu/vocab/relatedStimulation": {
             "_instruction": "Add one or several files in which the stimulations applied via this electrode contact were stored.",
             "items": {
                 "else": {
@@ -203,11 +203,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Related stimulation",
+            "title": "relatedStimulation",
             "type": "array",
             "uniqueItems": true
         },
-        "visualizedIn": {
+        "https://openminds.ebrains.eu/vocab/visualizedIn": {
             "_instruction": "Add one or several images in which the electrode contact is visualized in.",
             "items": {
                 "else": {
@@ -246,16 +246,16 @@
                 }
             },
             "minItems": 1,
-            "title": "Visualized in",
+            "title": "visualizedIn",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
-        "@id",
-        "internalIdentifier",
         "@type",
-        "coordinatePoint"
+        "coordinatePoint",
+        "internalIdentifier",
+        "@id"
     ],
     "title": "Electrode contact",
     "type": "object"

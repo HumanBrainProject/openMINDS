@@ -12,19 +12,19 @@
             "const": "https://openminds.ebrains.eu/core/ParameterSet",
             "type": "string"
         },
-        "context": {
+        "https://openminds.ebrains.eu/vocab/context": {
             "_instruction": "Enter the common context for the parameters grouped in this set.",
-            "title": "Context",
+            "title": "context",
             "type": "string"
         },
-        "parameter": {
+        "https://openminds.ebrains.eu/vocab/parameter": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this numerical parameter.",
-                            "title": "Name",
+                            "title": "name",
                             "type": "string"
                         },
                         "value": {
@@ -38,7 +38,7 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
-                                            "title": "Type of uncertainty"
+                                            "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -47,7 +47,7 @@
                                             },
                                             "maxItems": 2,
                                             "minItems": 2,
-                                            "title": "Uncertainty",
+                                            "title": "uncertainty",
                                             "type": "array"
                                         },
                                         "unit": {
@@ -55,11 +55,11 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
-                                            "title": "Value",
+                                            "title": "value",
                                             "type": "number"
                                         }
                                     },
@@ -74,12 +74,12 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
-                                            "title": "Max value",
+                                            "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
-                                            "title": "Min value",
+                                            "title": "minValue",
                                             "type": "number"
                                         },
                                         "unit": {
@@ -87,7 +87,7 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
-                                            "title": "Unit"
+                                            "title": "unit"
                                         }
                                     },
                                     "required": [
@@ -112,12 +112,12 @@
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this parameter.",
-                            "title": "Name",
+                            "title": "name",
                             "type": "string"
                         },
                         "value": {
                             "_instruction": "Enter a text value for this parameter.",
-                            "title": "Value",
+                            "title": "value",
                             "type": "string"
                         }
                     },
@@ -130,7 +130,7 @@
                 }
             ]
         },
-        "relevantFor": {
+        "https://openminds.ebrains.eu/vocab/relevantFor": {
             "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
             "else": {
                 "properties": {
@@ -167,16 +167,16 @@
                     "@id"
                 ]
             },
-            "title": "Relevant for",
+            "title": "relevantFor",
             "type": "object"
         }
     },
     "required": [
-        "@id",
         "context",
-        "@type",
         "parameter",
-        "relevantFor"
+        "@id",
+        "relevantFor",
+        "@type"
     ],
     "title": "Parameter set",
     "type": "object"

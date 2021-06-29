@@ -12,23 +12,23 @@
             "const": "https://openminds.ebrains.eu/core/License",
             "type": "string"
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter the full name of this license.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "legalCode": {
+        "https://openminds.ebrains.eu/vocab/legalCode": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the legal code of this license.",
             "format": "iri",
-            "title": "Legal code",
+            "title": "legalCode",
             "type": "string"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter the short name of this license.",
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         },
-        "webpage": {
+        "https://openminds.ebrains.eu/vocab/webpage": {
             "_instruction": "Enter one or several webpages related to this license (e.g. homepage).",
             "items": {
                 "_formats": [
@@ -37,17 +37,17 @@
                 "type": "string"
             },
             "minItems": 1,
-            "title": "Webpage",
+            "title": "webpage",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
+        "fullName",
+        "shortName",
         "@id",
         "legalCode",
-        "@type",
-        "shortName",
-        "fullName"
+        "@type"
     ],
     "title": "License",
     "type": "object"

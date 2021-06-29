@@ -12,13 +12,13 @@
             "const": "https://openminds.ebrains.eu/core/FileRepository",
             "type": "string"
         },
-        "IRI": {
+        "https://openminds.ebrains.eu/vocab/IRI": {
             "_instruction": "Enter the internationalized resource identifier (IRI) of this file repository.",
             "format": "iri",
-            "title": "Iri",
+            "title": "IRI",
             "type": "string"
         },
-        "format": {
+        "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
             "else": {
                 "properties": {
@@ -54,21 +54,21 @@
                     "@id"
                 ]
             },
-            "title": "Format",
+            "title": "format",
             "type": "object"
         },
-        "hash": {
+        "https://openminds.ebrains.eu/vocab/hash": {
             "_type": "https://openminds.ebrains.eu/core/Hash",
             "description": "Structured information on a hash.",
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
-                    "title": "Algorithm",
+                    "title": "algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
-                    "title": "Digest",
+                    "title": "digest",
                     "type": "string"
                 }
             },
@@ -79,7 +79,7 @@
             "title": "Hash",
             "type": "object"
         },
-        "hostedBy": {
+        "https://openminds.ebrains.eu/vocab/hostedBy": {
             "_instruction": "Add the host of this file repository.",
             "else": {
                 "properties": {
@@ -115,15 +115,15 @@
                     "@id"
                 ]
             },
-            "title": "Hosted by",
+            "title": "hostedBy",
             "type": "object"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name of this file repository.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "repositoryType": {
+        "https://openminds.ebrains.eu/vocab/repositoryType": {
             "_instruction": "Add the type of this file repository.",
             "else": {
                 "properties": {
@@ -159,10 +159,10 @@
                     "@id"
                 ]
             },
-            "title": "Repository type",
+            "title": "repositoryType",
             "type": "object"
         },
-        "storageSize": {
+        "https://openminds.ebrains.eu/vocab/storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -171,7 +171,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -180,7 +180,7 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -188,11 +188,11 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -204,11 +204,11 @@
         }
     },
     "required": [
+        "IRI",
+        "hostedBy",
         "@id",
         "name",
-        "@type",
-        "hostedBy",
-        "IRI"
+        "@type"
     ],
     "title": "File repository",
     "type": "object"

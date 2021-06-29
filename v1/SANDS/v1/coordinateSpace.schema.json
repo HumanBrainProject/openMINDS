@@ -1,7 +1,6 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/coordinateSpace?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/CoordinateSpace",
     "description": "Structured information on a coordinate space.",
     "properties": {
@@ -13,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/CoordinateSpace",
             "type": "string"
         },
-        "anatomicalAxesOrientation": {
+        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation": {
             "_instruction": "Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ).",
             "else": {
                 "properties": {
@@ -49,10 +48,10 @@
                     "@id"
                 ]
             },
-            "title": "Anatomical axes orientation",
+            "title": "anatomicalAxesOrientation",
             "type": "object"
         },
-        "axesOrigin": {
+        "https://openminds.ebrains.eu/vocab/axesOrigin": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -61,7 +60,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -70,7 +69,7 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -78,11 +77,11 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -92,7 +91,7 @@
             "title": "Quantitative value",
             "type": "object"
         },
-        "defaultImage": {
+        "https://openminds.ebrains.eu/vocab/defaultImage": {
             "_instruction": "Add one or several images used as visual representation of this coordinate space.",
             "items": {
                 "else": {
@@ -131,11 +130,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Default image",
+            "title": "defaultImage",
             "type": "array",
             "uniqueItems": true
         },
-        "digitalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this coordinate space.",
             "else": {
                 "properties": {
@@ -171,26 +170,26 @@
                     "@id"
                 ]
             },
-            "title": "Digital identifier",
+            "title": "digitalIdentifier",
             "type": "object"
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name for this coordinate space.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "homepage": {
+        "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this brain atlas.",
             "format": "iri",
-            "title": "Homepage",
+            "title": "homepage",
             "type": "string"
         },
-        "howToCite": {
+        "https://openminds.ebrains.eu/vocab/howToCite": {
             "_instruction": "Enter the preferred citation text for this coordinate space. Leave blank if citation text can be extracted from the assigned digital identifier.",
-            "title": "How to cite",
+            "title": "howToCite",
             "type": "string"
         },
-        "nativeUnit": {
+        "https://openminds.ebrains.eu/vocab/nativeUnit": {
             "_instruction": "Add the native unit that is used for this coordinate space.",
             "else": {
                 "properties": {
@@ -226,41 +225,41 @@
                     "@id"
                 ]
             },
-            "title": "Native unit",
+            "title": "nativeUnit",
             "type": "object"
         },
-        "ontologyIdentifier": {
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
             "_instruction": "Enter the identifier (IRI) of the related ontological term matching this coordinate space.",
             "format": "iri",
-            "title": "Ontology identifier",
+            "title": "ontologyIdentifier",
             "type": "string"
         },
-        "releaseDate": {
+        "https://openminds.ebrains.eu/vocab/releaseDate": {
             "_instruction": "Enter the date of first publication of this coordinate space.",
             "format": "date",
-            "title": "Release date",
+            "title": "releaseDate",
             "type": "string"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a descriptive short name for this coordinate space.",
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         },
-        "versionIdentifier": {
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this coordinate space.",
-            "title": "Version identifier",
+            "title": "versionIdentifier",
             "type": "string"
         }
     },
     "required": [
-        "@id",
+        "releaseDate",
+        "anatomicalAxesOrientation",
+        "nativeUnit",
         "fullName",
         "versionIdentifier",
-        "nativeUnit",
-        "releaseDate",
-        "@type",
+        "@id",
         "shortName",
-        "anatomicalAxesOrientation",
+        "@type",
         "axesOrigin"
     ],
     "title": "Coordinate space",

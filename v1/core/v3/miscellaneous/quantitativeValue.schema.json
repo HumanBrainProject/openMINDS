@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "type": "string"
         },
-        "typeOfUncertainty": {
+        "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
             "_instruction": "Add the type of uncertainty used for this quantitative value.",
             "else": {
                 "properties": {
@@ -48,20 +48,20 @@
                     "@id"
                 ]
             },
-            "title": "Type of uncertainty",
+            "title": "typeOfUncertainty",
             "type": "object"
         },
-        "uncertainty": {
+        "https://openminds.ebrains.eu/vocab/uncertainty": {
             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
             "items": {
                 "type": "number"
             },
             "maxItems": 2,
             "minItems": 2,
-            "title": "Uncertainty",
+            "title": "uncertainty",
             "type": "array"
         },
-        "unit": {
+        "https://openminds.ebrains.eu/vocab/unit": {
             "_instruction": "Add the unit of measurement of this quantitative value.",
             "else": {
                 "properties": {
@@ -97,19 +97,19 @@
                     "@id"
                 ]
             },
-            "title": "Unit",
+            "title": "unit",
             "type": "object"
         },
-        "value": {
+        "https://openminds.ebrains.eu/vocab/value": {
             "_instruction": "Enter the measurement value of this quantitative value.",
-            "title": "Value",
+            "title": "value",
             "type": "number"
         }
     },
     "required": [
-        "@id",
+        "@type",
         "value",
-        "@type"
+        "@id"
     ],
     "title": "Quantitative value",
     "type": "object"

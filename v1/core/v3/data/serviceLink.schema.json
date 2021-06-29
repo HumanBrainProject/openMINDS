@@ -11,7 +11,7 @@
             "const": "https://openminds.ebrains.eu/core/ServiceLink",
             "type": "string"
         },
-        "dataLocation": {
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
             "_instruction": "Add the file or file bundle with the data that are linked to the specified service.",
             "else": {
                 "properties": {
@@ -48,10 +48,10 @@
                     "@id"
                 ]
             },
-            "title": "Data location",
+            "title": "dataLocation",
             "type": "object"
         },
-        "openDataIn": {
+        "https://openminds.ebrains.eu/vocab/openDataIn": {
             "_instruction": "Add the uniform resource locator (URL) to open the linked data in the specified service.",
             "else": {
                 "properties": {
@@ -87,10 +87,10 @@
                     "@id"
                 ]
             },
-            "title": "Open data in",
+            "title": "openDataIn",
             "type": "object"
         },
-        "service": {
+        "https://openminds.ebrains.eu/vocab/service": {
             "_instruction": "Add the service in which the specified data can be opened.",
             "else": {
                 "properties": {
@@ -126,16 +126,16 @@
                     "@id"
                 ]
             },
-            "title": "Service",
+            "title": "service",
             "type": "object"
         }
     },
     "required": [
-        "@id",
-        "service",
-        "@type",
         "dataLocation",
-        "openDataIn"
+        "openDataIn",
+        "@id",
+        "@type",
+        "service"
     ],
     "title": "Service link",
     "type": "object"

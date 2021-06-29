@@ -12,53 +12,53 @@
             "const": "https://openminds.ebrains.eu/core/ContentType",
             "type": "string"
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
-            "title": "Description",
+            "title": "description",
             "type": "string"
         },
-        "fileExtension": {
+        "https://openminds.ebrains.eu/vocab/fileExtension": {
             "_instruction": "Enter one or several file extensions associated with this content type.",
             "items": {
                 "type": "string"
             },
             "minItems": 1,
-            "title": "File extension",
+            "title": "fileExtension",
             "type": "array",
             "uniqueItems": true
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name (iana-inspired convention) of this content type.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "relatedMediaType": {
+        "https://openminds.ebrains.eu/vocab/relatedMediaType": {
             "_instruction": "Enter the iternationalized resource identifier (IRI) of the official registered media type (e.g. on IANA.org) matching this content type.",
             "format": "iri",
-            "title": "Related media type",
+            "title": "relatedMediaType",
             "type": "string"
         },
-        "specification": {
+        "https://openminds.ebrains.eu/vocab/specification": {
             "_instruction": "Enter the iternationalized resource identifier (IRI) of the official specification of this content type. Leave blank and use 'description' to provide some specification if an official specification is not available.",
             "format": "iri",
-            "title": "Specification",
+            "title": "specification",
             "type": "string"
         },
-        "synonym": {
+        "https://openminds.ebrains.eu/vocab/synonym": {
             "_instruction": "Enter one or several synonyms of this content type.",
             "items": {
                 "type": "string"
             },
             "minItems": 1,
-            "title": "Synonym",
+            "title": "synonym",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
-        "@id",
         "@type",
-        "name"
+        "name",
+        "@id"
     ],
     "title": "Content type",
     "type": "object"

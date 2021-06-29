@@ -1,7 +1,6 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/image?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/Image",
     "description": "Structured information on an image.",
     "properties": {
@@ -13,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/Image",
             "type": "string"
         },
-        "coordinateSpace": {
+        "https://openminds.ebrains.eu/vocab/coordinateSpace": {
             "_instruction": "Add the coordinate space this image exists in.",
             "else": {
                 "properties": {
@@ -49,10 +48,10 @@
                     "@id"
                 ]
             },
-            "title": "Coordinate space",
+            "title": "coordinateSpace",
             "type": "object"
         },
-        "definedIn": {
+        "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add the file in which this image is stored in.",
             "else": {
                 "properties": {
@@ -88,10 +87,10 @@
                     "@id"
                 ]
             },
-            "title": "Defined in",
+            "title": "definedIn",
             "type": "object"
         },
-        "voxelSize": {
+        "https://openminds.ebrains.eu/vocab/voxelSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -100,7 +99,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -109,7 +108,7 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -117,11 +116,11 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -133,11 +132,11 @@
         }
     },
     "required": [
-        "@id",
         "voxelSize",
-        "@type",
+        "coordinateSpace",
+        "@id",
         "definedIn",
-        "coordinateSpace"
+        "@type"
     ],
     "title": "Image",
     "type": "object"

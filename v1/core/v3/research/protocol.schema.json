@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/Protocol",
             "type": "string"
         },
-        "behavioralTask": {
+        "https://openminds.ebrains.eu/vocab/behavioralTask": {
             "_instruction": "Add all behavioral tasks that were executed as part of this protocol.",
             "items": {
                 "else": {
@@ -51,21 +51,21 @@
                 }
             },
             "minItems": 1,
-            "title": "Behavioral task",
+            "title": "behavioralTask",
             "type": "array",
             "uniqueItems": true
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this protocol.",
-            "title": "Description",
+            "title": "description",
             "type": "string"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this protocol.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "studyOption": {
+        "https://openminds.ebrains.eu/vocab/studyOption": {
             "_instruction": "Add all study options this protocol offers.",
             "items": {
                 "else": {
@@ -92,7 +92,6 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/sands/AnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/Species",
@@ -102,7 +101,8 @@
                                 "https://openminds.ebrains.eu/controlledTerms/Phenotype",
                                 "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/Handedness"
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -114,11 +114,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Study option",
+            "title": "studyOption",
             "type": "array",
             "uniqueItems": true
         },
-        "technique": {
+        "https://openminds.ebrains.eu/vocab/technique": {
             "_instruction": "Add all techniques that were used in this protocol.",
             "items": {
                 "else": {
@@ -157,17 +157,17 @@
                 }
             },
             "minItems": 1,
-            "title": "Technique",
+            "title": "technique",
             "type": "array",
             "uniqueItems": true
         }
     },
     "required": [
+        "technique",
         "@id",
-        "name",
-        "@type",
         "description",
-        "technique"
+        "name",
+        "@type"
     ],
     "title": "Protocol",
     "type": "object"

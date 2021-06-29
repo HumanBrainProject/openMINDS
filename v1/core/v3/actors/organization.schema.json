@@ -15,7 +15,7 @@
             "const": "https://openminds.ebrains.eu/core/Organization",
             "type": "string"
         },
-        "digitalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add one or several globally unique and persistent digital identifier for this organization.",
             "items": {
                 "else": {
@@ -55,16 +55,16 @@
                 }
             },
             "minItems": 1,
-            "title": "Digital identifier",
+            "title": "digitalIdentifier",
             "type": "array",
             "uniqueItems": true
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter the full name of the organization.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "hasParent": {
+        "https://openminds.ebrains.eu/vocab/hasParent": {
             "_instruction": "Add a parent organization to this organization.",
             "else": {
                 "properties": {
@@ -100,10 +100,10 @@
                     "@id"
                 ]
             },
-            "title": "Has parent",
+            "title": "hasParent",
             "type": "object"
         },
-        "homepage": {
+        "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this organization.",
             "else": {
                 "properties": {
@@ -139,19 +139,19 @@
                     "@id"
                 ]
             },
-            "title": "Homepage",
+            "title": "homepage",
             "type": "object"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter the short name of this organization.",
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "fullName",
+        "@type",
         "@id",
-        "@type"
+        "fullName"
     ],
     "title": "Organization",
     "type": "object"

@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/FileBundle",
             "type": "string"
         },
-        "format": {
+        "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
             "else": {
                 "properties": {
@@ -48,10 +48,10 @@
                     "@id"
                 ]
             },
-            "title": "Format",
+            "title": "format",
             "type": "object"
         },
-        "groupedBy": {
+        "https://openminds.ebrains.eu/vocab/groupedBy": {
             "_instruction": "Add the concept which was used to group file instances into this file bundle.",
             "else": {
                 "properties": {
@@ -87,21 +87,21 @@
                     "@id"
                 ]
             },
-            "title": "Grouped by",
+            "title": "groupedBy",
             "type": "object"
         },
-        "hash": {
+        "https://openminds.ebrains.eu/vocab/hash": {
             "_type": "https://openminds.ebrains.eu/core/Hash",
             "description": "Structured information on a hash.",
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
-                    "title": "Algorithm",
+                    "title": "algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
-                    "title": "Digest",
+                    "title": "digest",
                     "type": "string"
                 }
             },
@@ -112,7 +112,7 @@
             "title": "Hash",
             "type": "object"
         },
-        "isPartOf": {
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
             "else": {
                 "properties": {
@@ -149,20 +149,20 @@
                     "@id"
                 ]
             },
-            "title": "Is part of",
+            "title": "isPartOf",
             "type": "object"
         },
-        "name": {
+        "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name of this file bundle.",
-            "title": "Name",
+            "title": "name",
             "type": "string"
         },
-        "patternOfFilenames": {
+        "https://openminds.ebrains.eu/vocab/patternOfFilenames": {
             "_instruction": "Enter a regular expression (syntax: ECMA 262) which is valid for all filenames of the file instances that should be grouped into this file bundle.",
-            "title": "Pattern of filenames",
+            "title": "patternOfFilenames",
             "type": "string"
         },
-        "storageSize": {
+        "https://openminds.ebrains.eu/vocab/storageSize": {
             "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
             "description": "Structured information on a quanitative value.",
             "properties": {
@@ -171,7 +171,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
-                    "title": "Type of uncertainty"
+                    "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
@@ -180,7 +180,7 @@
                     },
                     "maxItems": 2,
                     "minItems": 2,
-                    "title": "Uncertainty",
+                    "title": "uncertainty",
                     "type": "array"
                 },
                 "unit": {
@@ -188,11 +188,11 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "Unit"
+                    "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
-                    "title": "Value",
+                    "title": "value",
                     "type": "number"
                 }
             },
@@ -204,10 +204,10 @@
         }
     },
     "required": [
-        "isPartOf",
-        "@id",
         "@type",
-        "name"
+        "@id",
+        "name",
+        "isPartOf"
     ],
     "title": "File bundle",
     "type": "object"

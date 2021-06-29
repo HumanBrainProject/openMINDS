@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/Dataset",
             "type": "string"
         },
-        "author": {
+        "https://openminds.ebrains.eu/vocab/author": {
             "_instruction": "Add one or several authors (person or organization) that contributed to the production and publication of this dataset.",
             "items": {
                 "else": {
@@ -52,11 +52,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Author",
+            "title": "author",
             "type": "array",
             "uniqueItems": true
         },
-        "custodian": {
+        "https://openminds.ebrains.eu/vocab/custodian": {
             "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product. Note that this custodian will be responsible for all attached research product versions.",
             "items": {
                 "else": {
@@ -96,17 +96,17 @@
                 }
             },
             "minItems": 1,
-            "title": "Custodian",
+            "title": "custodian",
             "type": "array",
             "uniqueItems": true
         },
-        "description": {
+        "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.",
             "maxLength": 2000,
-            "title": "Description",
+            "title": "description",
             "type": "string"
         },
-        "digitalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this research product. Note that this digital identifier will be used to reference all attached research product versions.",
             "else": {
                 "properties": {
@@ -142,15 +142,15 @@
                     "@id"
                 ]
             },
-            "title": "Digital identifier",
+            "title": "digitalIdentifier",
             "type": "object"
         },
-        "fullName": {
+        "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product.  Note that this full name should be fitting for all attached research product versions.",
-            "title": "Full name",
+            "title": "fullName",
             "type": "string"
         },
-        "hasVersion": {
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
             "_instruction": "Add one or several versions of this dataset.",
             "items": {
                 "else": {
@@ -189,11 +189,11 @@
                 }
             },
             "minItems": 1,
-            "title": "Has version",
+            "title": "hasVersion",
             "type": "array",
             "uniqueItems": true
         },
-        "homepage": {
+        "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product.",
             "else": {
                 "properties": {
@@ -229,29 +229,29 @@
                     "@id"
                 ]
             },
-            "title": "Homepage",
+            "title": "homepage",
             "type": "object"
         },
-        "howToCite": {
+        "https://openminds.ebrains.eu/vocab/howToCite": {
             "_instruction": "Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.",
-            "title": "How to cite",
+            "title": "howToCite",
             "type": "string"
         },
-        "shortName": {
+        "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
             "maxLength": 30,
-            "title": "Short name",
+            "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "@id",
-        "hasVersion",
-        "description",
-        "@type",
-        "shortName",
         "author",
-        "fullName"
+        "hasVersion",
+        "fullName",
+        "@id",
+        "shortName",
+        "description",
+        "@type"
     ],
     "title": "Dataset",
     "type": "object"

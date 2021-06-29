@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/core/Copyright",
             "type": "string"
         },
-        "holder": {
+        "https://openminds.ebrains.eu/vocab/holder": {
             "_instruction": "Add one or several persons or organisations that hold the copyright.",
             "items": {
                 "else": {
@@ -52,22 +52,22 @@
                 }
             },
             "minItems": 1,
-            "title": "Holder",
+            "title": "holder",
             "type": "array",
             "uniqueItems": true
         },
-        "year": {
+        "https://openminds.ebrains.eu/vocab/year": {
             "_instruction": "Enter the year during which the copyright was first asserted.",
             "pattern": "([0-9]{4})",
-            "title": "Year",
+            "title": "year",
             "type": "string"
         }
     },
     "required": [
         "year",
-        "@id",
         "holder",
-        "@type"
+        "@type",
+        "@id"
     ],
     "title": "Copyright",
     "type": "object"

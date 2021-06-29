@@ -12,7 +12,7 @@
             "const": "https://openminds.ebrains.eu/sands/Electrode",
             "type": "string"
         },
-        "electrodeContact": {
+        "https://openminds.ebrains.eu/vocab/electrodeContact": {
             "_instruction": "Add one or several electrical contacts of this electrode.",
             "items": {
                 "else": {
@@ -51,21 +51,21 @@
                 }
             },
             "minItems": 1,
-            "title": "Electrode contact",
+            "title": "electrodeContact",
             "type": "array",
             "uniqueItems": true
         },
-        "internalIdentifier": {
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode within the file it is stored in.",
-            "title": "Internal identifier",
+            "title": "internalIdentifier",
             "type": "string"
         }
     },
     "required": [
-        "@id",
-        "electrodeContact",
         "@type",
-        "internalIdentifier"
+        "electrodeContact",
+        "internalIdentifier",
+        "@id"
     ],
     "title": "Electrode",
     "type": "object"
