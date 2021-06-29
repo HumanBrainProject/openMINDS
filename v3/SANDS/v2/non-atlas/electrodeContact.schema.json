@@ -22,6 +22,7 @@
                         "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
                         "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
                     ],
+                    "description": "Two or three dimensional geometric setting.",
                     "title": "coordinateSpace"
                 },
                 "coordinates": {
@@ -33,10 +34,12 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
+                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                             "title": "typeOfUncertainty"
                         },
                         "uncertainty": {
                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                             "items": {
                                 "type": "number"
                             },
@@ -50,10 +53,12 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
                             "title": "unit"
                         },
                         "value": {
                             "_instruction": "Enter the measurement value of this quantitative value.",
+                            "description": "Entry for a property.",
                             "title": "value",
                             "type": "number"
                         }
@@ -74,6 +79,7 @@
         },
         "https://openminds.ebrains.eu/vocab/definedIn": {
             "_instruction": "Add one or several files in which the coordinate point and internal identifier of this electrode contact is defined in.",
+            "description": "Reference to a file instance in which something is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -117,6 +123,7 @@
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
             "_instruction": "Enter the identifier used for this electrode contact within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
         },
@@ -127,6 +134,7 @@
         },
         "https://openminds.ebrains.eu/vocab/relatedRecording": {
             "_instruction": "Add one or several files in which the recordings from this electrode contact were stored.",
+            "description": "Reference to the written, stored evidence of something.",
             "items": {
                 "else": {
                     "properties": {
@@ -171,6 +179,7 @@
         },
         "https://openminds.ebrains.eu/vocab/relatedStimulation": {
             "_instruction": "Add one or several files in which the stimulations applied via this electrode contact were stored.",
+            "description": "Reference to the written, stored function used as a physiological stimulus.",
             "items": {
                 "else": {
                     "properties": {
@@ -215,6 +224,7 @@
         },
         "https://openminds.ebrains.eu/vocab/visualizedIn": {
             "_instruction": "Add one or several image files in which the electrode contact is visualized in.",
+            "description": "Reference to an image in which something is visible.",
             "items": {
                 "else": {
                     "properties": {
@@ -258,9 +268,9 @@
         }
     },
     "required": [
-        "internalIdentifier",
-        "@type",
         "@id",
+        "@type",
+        "internalIdentifier",
         "coordinatePoint"
     ],
     "title": "Electrode contact",

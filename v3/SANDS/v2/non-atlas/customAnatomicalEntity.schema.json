@@ -4,6 +4,7 @@
     "_categories": [
         "studyTarget"
     ],
+    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
     "properties": {
         "@id": {
@@ -55,12 +56,14 @@
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter a descriptive name for this custom anatomical entity.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
             "anyOf": [
                 {
+                    "_deprecated": true,
                     "_type": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment",
                     "properties": {
                         "criteria": {
@@ -68,6 +71,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
                             "title": "criteria"
                         },
                         "inRelationTo": {
@@ -75,6 +79,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
+                            "description": "Reference to a related element.",
                             "title": "inRelationTo"
                         },
                         "qualitativeOverlap": {
@@ -82,6 +87,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                             ],
+                            "description": "Semantic characterization of how much two things occupy the same space.",
                             "title": "qualitativeOverlap"
                         }
                     },
@@ -93,6 +99,7 @@
                     "type": "object"
                 },
                 {
+                    "_deprecated": true,
                     "_type": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
                     "properties": {
                         "criteria": {
@@ -100,6 +107,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
                             "title": "criteria"
                         },
                         "inRelationTo": {
@@ -107,6 +115,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
+                            "description": "Reference to a related element.",
                             "title": "inRelationTo"
                         },
                         "quantitativeOverlap": {
@@ -120,10 +129,12 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
+                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                                             "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
@@ -137,10 +148,12 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
+                                            "description": "Entry for a property.",
                                             "title": "value",
                                             "type": "number"
                                         }
@@ -156,11 +169,13 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
+                                            "description": "Greatest quantity attained or allowed.",
                                             "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
+                                            "description": "Smallest quantity attained or allowed.",
                                             "title": "minValue",
                                             "type": "number"
                                         },
@@ -169,6 +184,7 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "unit"
                                         }
                                     },
@@ -193,9 +209,9 @@
         }
     },
     "required": [
-        "name",
         "@id",
-        "@type"
+        "@type",
+        "name"
     ],
     "title": "Custom anatomical entity",
     "type": "object"

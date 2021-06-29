@@ -23,6 +23,7 @@
                         "date"
                     ],
                     "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+                    "description": "Date in the Gregorian calendar at which something terminates in time.",
                     "title": "endDate",
                     "type": "string"
                 },
@@ -31,6 +32,7 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/Organization"
                     ],
+                    "description": "Legally accountable, administrative and functional structure.",
                     "title": "organization"
                 },
                 "startDate": {
@@ -38,6 +40,7 @@
                         "date"
                     ],
                     "_instruction": "Enter the start date of this affiliation.",
+                    "description": "Date in the Gregorian calendar at which something begins in time",
                     "title": "startDate",
                     "type": "string"
                 }
@@ -50,6 +53,7 @@
         },
         "https://openminds.ebrains.eu/vocab/contactInformation": {
             "_instruction": "Add the contact information of this person.",
+            "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
             "else": {
                 "properties": {
                     "@id": {
@@ -89,6 +93,7 @@
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add one or several globally unique and persistent digital identifier for this person.",
+            "description": "Digital handle to identify objects or legal persons.",
             "items": {
                 "else": {
                     "properties": {
@@ -132,19 +137,21 @@
         },
         "https://openminds.ebrains.eu/vocab/familyName": {
             "_instruction": "Enter the family name of this person.",
+            "description": "Name borne in common by members of a family.",
             "title": "familyName",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/givenName": {
             "_instruction": "Enter the given name of this person.",
+            "description": "Name given to a person, including all potential middle names, but excluding the family name.",
             "title": "givenName",
             "type": "string"
         }
     },
     "required": [
         "@id",
-        "@type",
-        "givenName"
+        "givenName",
+        "@type"
     ],
     "title": "Person",
     "type": "object"

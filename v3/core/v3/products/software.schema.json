@@ -14,6 +14,7 @@
         },
         "https://openminds.ebrains.eu/vocab/custodian": {
             "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product. Note that this custodian will be responsible for all attached research product versions.",
+            "description": "Legal person entrusted with guarding and maintaining property or records.",
             "items": {
                 "else": {
                     "properties": {
@@ -58,12 +59,14 @@
         },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
             "maxLength": 2000,
             "title": "description",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
             "_instruction": "Add one or several developers (person or organization) that contributed to the code implementation of this software.",
+            "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
                     "properties": {
@@ -108,6 +111,7 @@
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
             "_instruction": "Add the globally unique and persistent digital identifier of this research product. Note that this digital identifier will be used to reference all attached research product versions.",
+            "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
                     "@id": {
@@ -148,11 +152,13 @@
         },
         "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name (title) for this research product.  Note that this full name should be fitting for all attached research product versions.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "fullName",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
             "_instruction": "Add one or several versions of this software tool.",
+            "description": "Reference to variants of an original.",
             "items": {
                 "else": {
                     "properties": {
@@ -196,6 +202,7 @@
         },
         "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product.",
+            "description": "Main website of something or someone.",
             "else": {
                 "properties": {
                     "@id": {
@@ -235,23 +242,25 @@
         },
         "https://openminds.ebrains.eu/vocab/howToCite": {
             "_instruction": "Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.",
+            "description": "Preferred format for citing a particular object or legal person.",
             "title": "howToCite",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a short name (alias) for this research product (max. 30 characters; no space).",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
             "maxLength": 30,
             "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "hasVersion",
-        "@type",
-        "developer",
         "@id",
+        "@type",
         "shortName",
+        "hasVersion",
         "description",
+        "developer",
         "fullName"
     ],
     "title": "Software",

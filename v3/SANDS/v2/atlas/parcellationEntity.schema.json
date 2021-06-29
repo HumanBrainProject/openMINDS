@@ -4,6 +4,7 @@
     "_categories": [
         "studyTarget"
     ],
+    "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/ParcellationEntity",
     "properties": {
         "@id": {
@@ -55,6 +56,7 @@
         },
         "https://openminds.ebrains.eu/vocab/hasParent": {
             "_instruction": "Add for this parcellation entity the defined anatomical parent structure.",
+            "description": "Reference to a parent object or legal person.",
             "else": {
                 "properties": {
                     "@id": {
@@ -94,6 +96,7 @@
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add one or several parcellation terminologies to which this parcellation entity belongs.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -137,11 +140,13 @@
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name for this parcellation entity.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
             "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this parcellation entity.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
             "title": "ontologyIdentifier",
             "type": "string"
@@ -188,6 +193,7 @@
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
             "anyOf": [
                 {
+                    "_deprecated": true,
                     "_type": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment",
                     "properties": {
                         "criteria": {
@@ -195,6 +201,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
                             "title": "criteria"
                         },
                         "inRelationTo": {
@@ -202,6 +209,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
+                            "description": "Reference to a related element.",
                             "title": "inRelationTo"
                         },
                         "qualitativeOverlap": {
@@ -209,6 +217,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
                             ],
+                            "description": "Semantic characterization of how much two things occupy the same space.",
                             "title": "qualitativeOverlap"
                         }
                     },
@@ -220,6 +229,7 @@
                     "type": "object"
                 },
                 {
+                    "_deprecated": true,
                     "_type": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
                     "properties": {
                         "criteria": {
@@ -227,6 +237,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/core/ProtocolExecution"
                             ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
                             "title": "criteria"
                         },
                         "inRelationTo": {
@@ -234,6 +245,7 @@
                             "_linkedTypes": [
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity"
                             ],
+                            "description": "Reference to a related element.",
                             "title": "inRelationTo"
                         },
                         "quantitativeOverlap": {
@@ -247,10 +259,12 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                             ],
+                                            "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                                             "title": "typeOfUncertainty"
                                         },
                                         "uncertainty": {
                                             "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quanitative value range defining the uncertainty of a measurement.",
                                             "items": {
                                                 "type": "number"
                                             },
@@ -264,10 +278,12 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "unit"
                                         },
                                         "value": {
                                             "_instruction": "Enter the measurement value of this quantitative value.",
+                                            "description": "Entry for a property.",
                                             "title": "value",
                                             "type": "number"
                                         }
@@ -283,11 +299,13 @@
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Add the maximum value measured for this range.",
+                                            "description": "Greatest quantity attained or allowed.",
                                             "title": "maxValue",
                                             "type": "number"
                                         },
                                         "minValue": {
                                             "_instruction": "Add the minimum value measured for this range.",
+                                            "description": "Smallest quantity attained or allowed.",
                                             "title": "minValue",
                                             "type": "number"
                                         },
@@ -296,6 +314,7 @@
                                             "_linkedTypes": [
                                                 "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                             ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
                                             "title": "unit"
                                         }
                                     },
@@ -320,21 +339,23 @@
         },
         "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this parcellation entity.",
+            "description": "Term or code used to identify the version of something.",
             "title": "versionIdentifier",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/versionInnovation": {
             "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation entity.",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
             "title": "versionInnovation",
             "type": "string"
         }
     },
     "required": [
-        "name",
-        "@type",
-        "isPartOf",
+        "@id",
         "versionIdentifier",
-        "@id"
+        "isPartOf",
+        "@type",
+        "name"
     ],
     "title": "Parcellation entity",
     "type": "object"

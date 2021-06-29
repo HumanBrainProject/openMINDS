@@ -14,12 +14,14 @@
         },
         "https://openminds.ebrains.eu/vocab/IRI": {
             "_instruction": "Enter the internationalized resource identifier of this single file.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
             "title": "IRI",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/content": {
             "_instruction": "Enter a short content description for this file instance.",
+            "description": "Something that is contained.",
             "title": "content",
             "type": "string"
         },
@@ -64,6 +66,7 @@
         },
         "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "Add the content type of this file instance.",
+            "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
                     "@id": {
@@ -107,11 +110,13 @@
             "properties": {
                 "algorithm": {
                     "_instruction": "Enter the algorithm used to generate this hash.",
+                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
                     "title": "algorithm",
                     "type": "string"
                 },
                 "digest": {
                     "_instruction": "Enter the digest of this hash.",
+                    "description": "Summation or condensation of a body of information.",
                     "title": "digest",
                     "type": "string"
                 }
@@ -125,6 +130,7 @@
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
             "_instruction": "Add one or several bundles in which this single file can be grouped.",
+            "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
                     "properties": {
@@ -168,11 +174,13 @@
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name of this single file.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/specialUsageRole": {
             "_instruction": "Add a special usage role for this single file.",
+            "description": "Particular function of something when it is used.",
             "else": {
                 "properties": {
                     "@id": {
@@ -219,10 +227,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                     ],
+                    "description": "Distinct technique used to quanitify the uncertainty of a measurement.",
                     "title": "typeOfUncertainty"
                 },
                 "uncertainty": {
                     "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quanitative value range defining the uncertainty of a measurement.",
                     "items": {
                         "type": "number"
                     },
@@ -236,10 +246,12 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
                     "title": "unit"
                 },
                 "value": {
                     "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
                     "title": "value",
                     "type": "number"
                 }
@@ -252,11 +264,11 @@
         }
     },
     "required": [
-        "IRI",
-        "name",
-        "@type",
+        "@id",
         "isPartOf",
-        "@id"
+        "@type",
+        "name",
+        "IRI"
     ],
     "title": "File",
     "type": "object"
