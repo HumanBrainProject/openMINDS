@@ -1,243 +1,367 @@
 @startuml
 
-class QualitativeRelationAssessment {
-+criteria
-+inRelationTo
-+qualitativeOverlap
-
-}
-QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
-QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
-CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
-
-
-class QuantitativeRelationAssessment {
-+criteria
-+inRelationTo
-+quantitativeOverlap
-
-}
-QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class BrainAtlas {
+class BehavioralTask {
++definition
 +description
-+digitalIdentifier
-+fullName
-+hasVersion
-+homepage
-+howToCite
-+shortName
-
-}
-BrainAtlas -d-> "digitalIdentifier" DOI
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-BrainAtlas -d-> "homepage" URL
-
-
-class AtlasAnnotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+lookupLabel
-+name
-+versionIdentifier
-+versionInnovation
-+visualizedIn
-
-}
-AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
-AtlasAnnotation -d-> "criteria" ProtocolExecution
-AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-AtlasAnnotation -d-> "inspiredBy" File
-AtlasAnnotation -d-> "laterality" Laterality
-AtlasAnnotation -d-> "visualizedIn" File
-
-
-class BrainAtlasVersion {
-+coordinateSpace
-+digitalIdentifier
-+fullName
-+hasTerminology
-+homepage
-+howToCite
-+isAlternativeVersionOf
-+isNewVersionOf
-+ontologyIdentifier
-+releaseDate
-+shortName
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DOI
-BrainAtlasVersion -d-> "hasTerminology" parcellationTerminology
-BrainAtlasVersion -d-> "homepage" URL
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-
-
-class ParcellationEntity {
-+hasAnnotation
-+hasParent
-+isPartOf
 +name
 +ontologyIdentifier
-+relatedUBERONTerm
-+relationAssessment
-+versionIdentifier
-+versionInnovation
 
 }
-ParcellationEntity -d-> "hasAnnotation" AtlasAnnotation
-ParcellationEntity -d-> "hasParent" ParcellationEntity
-ParcellationEntity -d-> "isPartOf" ParcellationTerminology
-ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
-ParcellationEntity -d-> "relationAssessment" QualitativeRelationAssessment
-ParcellationEntity -d-> "relationAssessment" QuantitativeRelationAssessment
 
 
-class CommonCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+nativeUnit
+class ContributionType {
++definition
++description
++name
 +ontologyIdentifier
-+releaseDate
-+shortName
-+versionIdentifier
 
 }
-CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CommonCoordinateSpace -d-> "defaultImage" File
-CommonCoordinateSpace -d-> "digitalIdentifier" DOI
-CommonCoordinateSpace -d-> "homepage" URL
-CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
 
 
-class ParcellationTerminology {
-+definedIn
-+fullName
-+isAlternativeVersionOf
-+isNewVersionOf
+class BiologicalSex {
++definition
++description
++name
 +ontologyIdentifier
-+shortName
-+versionIdentifier
-+versionInnovation
 
 }
-ParcellationTerminology -d-> "definedIn" File
-ParcellationTerminology -d-> "isAlternativeVersionOf" BrainAtlasVersion
-ParcellationTerminology -d-> "isNewVersionOf" BrainAtlasVersion
 
 
-class CustomCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
+class Disease {
++definition
++description
 +name
-+nativeUnit
++ontologyIdentifier
 
 }
-CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CustomCoordinateSpace -d-> "defaultImage" File
-CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
 
 
-class Electrode {
-+electrodeContact
-+internalIdentifier
-+lookupLabel
-
-}
-Electrode -d-> "electrodeContact" ElectrodeContact
-
-
-class CustomAnnotation {
-+bestViewPoint
-+coordinateSpace
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+lookupLabel
+class OperatingSystem {
++definition
++description
 +name
-+visualizedIn
++ontologyIdentifier
 
 }
-CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
-CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
-CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
-CustomAnnotation -d-> "criteria" ProtocolExecution
-CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-CustomAnnotation -d-> "inspiredBy" File
-CustomAnnotation -d-> "laterality" Laterality
-CustomAnnotation -d-> "visualizedIn" File
 
 
-class ElectrodeContact {
-+coordinatePoint
-+definedIn
-+internalIdentifier
-+lookupLabel
-+relatedRecording
-+relatedStimulation
-+visualizedIn
-
-}
-ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
-ElectrodeContact -d-> "definedIn" File
-ElectrodeContact -d-> "relatedRecording" File
-ElectrodeContact -d-> "relatedRecording" FileBundle
-ElectrodeContact -d-> "relatedStimulation" File
-ElectrodeContact -d-> "relatedStimulation" FileBundle
-ElectrodeContact -d-> "visualizedIn" File
-
-
-class ElectrodeArray {
-+electrodes
-+internalIdentifier
-+lookupLabel
-
-}
-ElectrodeArray -d-> "electrodes" Electrode
-
-
-class CustomAnatomicalEntity {
-+hasAnnotation
+class UBERONParcellation {
++definition
++description
 +name
-+relationAssessment
++ontologyIdentifier
 
 }
-CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
-CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
-CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class TypeOfUncertainty {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileUsageRole {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Laterality {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Species {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class MetaDataModelType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class QualitativeOverlap {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class CriteriaQualityType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class OperatingDevice {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Organ {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class AgeCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ProgrammingLanguage {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TissueSampleType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileBundleGrouping {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class DiseaseModel {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ModelAbstractionLevel {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Strain {
++identifier
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Phenotype {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ProductAccessibility {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class AnatomicalAxesOrientation {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SemanticDataType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class EthicsAssessment {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class CellType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TermSuggestion {
++addExistingTerminology
++suggestNewTerminology
++definition
++description
++name
++ontologyIdentifier
+
+}
+TermSuggestion -d-> "addExistingTerminology" Terminology
+
+
+class FileRepositoryType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class PreparationType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SoftwareApplicationCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ExperimentalApproach {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Technique {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Handedness {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class UnitOfMeasurement {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Language {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Terminology {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class SoftwareFeature {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ModelScope {
++definition
++description
++name
++ontologyIdentifier
+
+}
 
 
 class GRIDID {
@@ -484,6 +608,8 @@ ProtocolExecution -d-> "parameterSet" ParameterSet
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "semanticallyAnchoredTo" AnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" Species
@@ -494,8 +620,6 @@ ProtocolExecution -d-> "studyTarget" Phenotype
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" Handedness
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class StringParameter {
@@ -553,6 +677,8 @@ class Protocol {
 
 }
 Protocol -d-> "behavioralTask" BehavioralTask
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" Disease
 Protocol -d-> "studyOption" Species
@@ -563,8 +689,6 @@ Protocol -d-> "studyOption" Phenotype
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" Handedness
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1064,6 +1188,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" Species
@@ -1074,375 +1200,249 @@ Model -d-> "studyTarget" Phenotype
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" Handedness
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
 
 
-class BehavioralTask {
-+definition
-+description
-+name
-+ontologyIdentifier
+class QualitativeRelationAssessment {
++criteria
++inRelationTo
++qualitativeOverlap
 
 }
+QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
+QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
 
 
-class ContributionType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class BiologicalSex {
-+definition
-+description
-+name
-+ontologyIdentifier
+class CoordinatePoint {
++coordinates
++coordinateSpace
 
 }
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
+CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
 
 
-class Disease {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class OperatingSystem {
-+definition
-+description
-+name
-+ontologyIdentifier
+class QuantitativeRelationAssessment {
++criteria
++inRelationTo
++quantitativeOverlap
 
 }
+QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
 
 
-class UBERONParcellation {
-+definition
+class BrainAtlas {
 +description
-+name
-+ontologyIdentifier
++digitalIdentifier
++fullName
++hasVersion
++homepage
++howToCite
++shortName
 
 }
+BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+BrainAtlas -d-> "homepage" URL
 
 
-class TypeOfUncertainty {
-+definition
-+description
+class AtlasAnnotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++lookupLabel
 +name
-+ontologyIdentifier
++versionIdentifier
++versionInnovation
++visualizedIn
 
 }
+AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
+AtlasAnnotation -d-> "criteria" ProtocolExecution
+AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+AtlasAnnotation -d-> "inspiredBy" File
+AtlasAnnotation -d-> "laterality" Laterality
+AtlasAnnotation -d-> "visualizedIn" File
 
 
-class FileUsageRole {
-+definition
-+description
-+name
+class BrainAtlasVersion {
++coordinateSpace
++digitalIdentifier
++fullName
++hasTerminology
++homepage
++howToCite
++isAlternativeVersionOf
++isNewVersionOf
 +ontologyIdentifier
++releaseDate
++shortName
++versionIdentifier
++versionInnovation
 
 }
+BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DOI
+BrainAtlasVersion -d-> "hasTerminology" parcellationTerminology
+BrainAtlasVersion -d-> "homepage" URL
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
 
 
-class Laterality {
-+definition
-+description
+class ParcellationEntity {
++hasAnnotation
++hasParent
++isPartOf
 +name
 +ontologyIdentifier
++relatedUBERONTerm
++relationAssessment
++versionIdentifier
++versionInnovation
 
 }
+ParcellationEntity -d-> "hasAnnotation" AtlasAnnotation
+ParcellationEntity -d-> "hasParent" ParcellationEntity
+ParcellationEntity -d-> "isPartOf" ParcellationTerminology
+ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
+ParcellationEntity -d-> "relationAssessment" QualitativeRelationAssessment
+ParcellationEntity -d-> "relationAssessment" QuantitativeRelationAssessment
 
 
-class Species {
-+definition
-+description
-+name
+class CommonCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
++digitalIdentifier
++fullName
++homepage
++howToCite
++nativeUnit
 +ontologyIdentifier
++releaseDate
++shortName
++versionIdentifier
 
 }
+CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CommonCoordinateSpace -d-> "defaultImage" File
+CommonCoordinateSpace -d-> "digitalIdentifier" DOI
+CommonCoordinateSpace -d-> "homepage" URL
+CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
 
 
-class MetaDataModelType {
-+definition
-+description
-+name
+class ParcellationTerminology {
++definedIn
++fullName
++isAlternativeVersionOf
++isNewVersionOf
 +ontologyIdentifier
++shortName
++versionIdentifier
++versionInnovation
 
 }
+ParcellationTerminology -d-> "definedIn" File
+ParcellationTerminology -d-> "isAlternativeVersionOf" BrainAtlasVersion
+ParcellationTerminology -d-> "isNewVersionOf" BrainAtlasVersion
 
 
-class QualitativeOverlap {
-+definition
-+description
+class CustomCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
 +name
-+ontologyIdentifier
++nativeUnit
 
 }
+CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CustomCoordinateSpace -d-> "defaultImage" File
+CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
 
 
-class CriteriaQualityType {
-+definition
-+description
+class Electrode {
++electrodeContact
++internalIdentifier
++lookupLabel
+
+}
+Electrode -d-> "electrodeContact" ElectrodeContact
+
+
+class CustomAnnotation {
++bestViewPoint
++coordinateSpace
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++lookupLabel
 +name
-+ontologyIdentifier
++visualizedIn
 
 }
+CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
+CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
+CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
+CustomAnnotation -d-> "criteria" ProtocolExecution
+CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+CustomAnnotation -d-> "inspiredBy" File
+CustomAnnotation -d-> "laterality" Laterality
+CustomAnnotation -d-> "visualizedIn" File
 
 
-class OperatingDevice {
-+definition
-+description
+class ElectrodeContact {
++coordinatePoint
++definedIn
++internalIdentifier
++lookupLabel
++relatedRecording
++relatedStimulation
++visualizedIn
+
+}
+ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
+ElectrodeContact -d-> "definedIn" File
+ElectrodeContact -d-> "relatedRecording" File
+ElectrodeContact -d-> "relatedRecording" FileBundle
+ElectrodeContact -d-> "relatedStimulation" File
+ElectrodeContact -d-> "relatedStimulation" FileBundle
+ElectrodeContact -d-> "visualizedIn" File
+
+
+class ElectrodeArray {
++electrodes
++internalIdentifier
++lookupLabel
+
+}
+ElectrodeArray -d-> "electrodes" Electrode
+
+
+class CustomAnatomicalEntity {
++hasAnnotation
 +name
-+ontologyIdentifier
++relationAssessment
 
 }
-
-
-class Organ {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class AgeCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ProgrammingLanguage {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TissueSampleType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class FileBundleGrouping {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class DiseaseModel {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelAbstractionLevel {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Strain {
-+identifier
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Phenotype {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ProductAccessibility {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class AnatomicalAxesOrientation {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SemanticDataType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class EthicsAssessment {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class CellType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TermSuggestion {
-+addExistingTerminology
-+suggestNewTerminology
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-TermSuggestion -d-> "addExistingTerminology" Terminology
-
-
-class FileRepositoryType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class PreparationType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SoftwareApplicationCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ExperimentalApproach {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Technique {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Handedness {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class UnitOfMeasurement {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Language {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Terminology {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SoftwareFeature {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelScope {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
+CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
+CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
+CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
 
 
 @enduml
