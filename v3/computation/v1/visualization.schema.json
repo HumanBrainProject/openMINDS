@@ -553,6 +553,8 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/Species",
@@ -562,9 +564,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/Phenotype",
                                 "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -631,13 +631,13 @@
         }
     },
     "required": [
-        "environment",
-        "output",
-        "@type",
-        "input",
+        "https://openminds.ebrains.eu/vocab/input",
         "@id",
-        "launchConfiguration",
-        "startedAtTime"
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/startedAtTime",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/launchConfiguration",
+        "https://openminds.ebrains.eu/vocab/environment"
     ],
     "title": "Visualization",
     "type": "object"
