@@ -71,7 +71,7 @@ build(){
   cp -r target/html/* ../openMINDS_documentation/$1
   cp -r target/uml/* ../openMINDS_documentation/$1
   cp -r target/schema.json/* ../openMINDS_documentation/$1
-  mv ./openMINDS_documentation/$1/central.html ./openMINDS_documentation/index.html
+  mv ../openMINDS_documentation/$1/central.html ../openMINDS_documentation/index.html
   cp -r vocab ..
 }
 
