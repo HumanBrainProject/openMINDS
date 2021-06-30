@@ -62,12 +62,17 @@ build(){
   mkdir target/schema.tpl.json
   cp -r expanded/* target/schema.tpl.json
 
+  #Also move the version specific property and types files
+  mv ../properties-$1.json target/properties.json
+  mv ../types-$1.json target/types.json
+
   # Copy documentation
   rm -rf ../openMINDS_documentation/$1
   mkdir -p ../openMINDS_documentation/$1
 
   # ZIP data
   cd target && zip -r ../../openMINDS_documentation/$1 . && cd ..
+
   cp -r target/html/* ../openMINDS_documentation/$1
   cp -r target/uml/* ../openMINDS_documentation/$1
   cp -r target/schema.json/* ../openMINDS_documentation/$1
