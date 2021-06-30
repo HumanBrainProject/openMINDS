@@ -25,18 +25,28 @@ FIRST_BUILD=1
 build(){
   echo ""
   echo "*************************"
-  echo "Building version $1 (out of $2)"
+  echo "Building $1"
   echo "*************************"
   echo ""
   git checkout $1
   # Ensure submodules are properly fetched
-  git pull
-  # Make sure we're at the head of the branch
-  git reset --hard origin/$1
-  git submodule sync
-  git submodule update --init --recursive --remote
-  # We push the synchronized state of the repository
-  commitAndPush
+  if [[ $4 == 'branch' ]]
+    then
+      git pull
+      # If it's a branch build, we need to make sure we're at the head of the branch
+      git reset --hard origin/$1
+      git submodule sync
+      git submodule update --init --recursive --remote
+      # We push the synchronized state of the repository to follow the head of the submodules
+      commitAndPush
+  elif [[ $4 == 'tag' ]]
+    then
+      git reset --hard $1
+      git submodule sync
+      #For tags we explicitly don't set the "--remote" flag (since we want the commit which is recorded as part of the tag
+      git submodule update --init --recursive
+      # And obviously we don't push back since we don't want to change the tag
+  fi
 
   #Use the vocab from the central repository - we remove an existing one (although there should be none)
   rm -rf vocab
@@ -52,9 +62,9 @@ build(){
   if [[ $FIRST_BUILD == 1 ]]
     then
       echo "First build"
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit --currentVersion "$1" --allVersions "$2"
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --reinit --current "$1" --allVersionBranches "$2" --allTags "$3"
     else
-      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --currentVersion "$1" --allVersions "$2"
+      python ../openMINDS_generator/openMINDS.py --path ../openMINDS --current "$1" --allVersionBranches "$2" --allTags "$3"
   fi
   FIRST_BUILD=0
   # Copy expanded schemas into target
@@ -63,15 +73,15 @@ build(){
   cp -r expanded/* target/schema.tpl.json
 
   #Also move the version specific property and types files
-  mv ../properties-$1.json target/properties.json
-  mv ../types-$1.json target/types.json
+  mv properties-$VERSION_NAME.json target/properties.json
+  mv types-$VERSION_NAME.json target/types.json
 
   # Copy documentation
   rm -rf ../openMINDS_documentation/$1
   mkdir -p ../openMINDS_documentation/$1
 
   # ZIP data
-  cd target && zip -r ../../openMINDS_documentation/$1 . && cd ..
+  cd target && zip -r "../../openMINDS_documentation/$1.zip" . && cd ..
 
   cp -r target/html/* ../openMINDS_documentation/$1
   cp -r target/uml/* ../openMINDS_documentation/$1
@@ -103,8 +113,18 @@ rm -rf *
 cd ..
 
 cd openMINDS
-echo "Building all versions"
-ALL_VERSIONS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
-for version in $ALL_VERSIONS;
-do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$(echo $ALL_VERSIONS | tr ' ', ',')"; fi; done
-#build "v1"
+
+ALL_VERSION_BRANCHES=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
+ALL_TAGS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/tags | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
+VERSION_BRANCH_LABELS=$(printf "$(echo $ALL_VERSION_BRANCHES, | tr ' ' ',' | sed 's/,/ (dev),/g')" | sed 's/.$//')
+TAG_LABELS=$(echo $ALL_TAGS | tr ' ' ',')
+
+echo "Building all version-branches (head)"
+for version in $ALL_VERSION_BRANCHES;
+do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS" "$TAG_LABELS" 'branch'; fi; done
+
+echo "Building all tags"
+for version in $ALL_TAGS;
+do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS", "$TAG_LABELS" 'tag'; fi; done
+
+#build "v2.0.0" "v2.0.0,v1.0.0" "tag"
