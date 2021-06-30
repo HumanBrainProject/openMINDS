@@ -73,6 +73,19 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
+            <td class="property nowrap"><span style="font-weight:bold">accessibility</span></td>
+            <td>Level to which something is accessible to someone or something.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../controlledTerms/v1/productAccessibility.html">ProductAccessibility</a>
+                </td>
+            <td>Add the accessibility of the data for this research product version.</td>
+        </tr>
+        
+        <tr>
             <td class="property nowrap"><span style="font-weight:bold">applicationCategory</span></td>
             <td>Distinct class that groups software programs which perform a similar task or set of tasks.</td>
             <td>
@@ -83,21 +96,6 @@ table{
                 <a href="../../../controlledTerms/v1/softwareApplicationCategory.html">SoftwareApplicationCategory</a>
                 </td>
             <td>Add all categories to which this software version belongs.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >developer</span></td>
-            <td>Legal person that creates or improves products or services (e.g., software, applications, etc.).</td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v3/actors/organization.html">Organization</a>
-                 OR <br/> 
-                <a href="../../../core/v3/actors/person.html">Person</a>
-                </td>
-            <td>If necessary, add one or several developers (person or organization) that contributed to the code implementation of this software version. Note that these developers will overwrite the once provided in the software product this version belongs to.</td>
         </tr>
         
         <tr>
@@ -114,34 +112,6 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >digitalIdentifier</span></td>
-            <td>Digital handle to identify objects or legal persons.</td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../../core/v3/miscellaneous/DOI.html">DOI</a>
-                 OR <br/> 
-                <a href="../../../core/v3/miscellaneous/SWHID.html">SWHID</a>
-                </td>
-            <td>Add the globally unique and persistent digital identifier of this research product version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >hasComponent</span></td>
-            <td>Reference to an element of a collection.</td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
-                </td>
-            <td>Add all software versions that supplement this software version.</td>
-        </tr>
-        
-        <tr>
             <td class="property nowrap"><span style="font-weight:bold">feature</span></td>
             <td>Structure, form, or appearance that characterizes something or someone.</td>
             <td>
@@ -155,53 +125,33 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >requirement</span></td>
-            <td>Something essential to the existence, occurrence or function of something else.</td>
-            <td>
-                
-                
-                 array (1 - n) of type:<br/>
-                string</td>
-            <td>Enter all requirements of this software version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >inputFormat</span></td>
-            <td>Format of data that is put into a process or machine.</td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v3/data/contentType.html">ContentType</a>
-                </td>
-            <td>Add the content types of all possible input formats for this software version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >isAlternativeVersionOf</span></td>
-            <td>Reference to an original form where the essence was preserved, but presented in an alternative form.</td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
-                </td>
-            <td>Add all software versions that can be used alternatively to this software version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >isNewVersionOf</span></td>
-            <td>Reference to a previous (potentially outdated) particular form of something.</td>
+            <td class="property nowrap"><span style="font-weight:bold">fullDocumentation</span></td>
+            <td>Non-abridged instructions, comments, and information for using a particular product.</td>
             <td>
                 
                  linked object
                 
                 
-                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
+                <a href="../../../core/v3/miscellaneous/DOI.html">DOI</a>
+                 OR <br/> 
+                <a href="../../../core/v3/data/file.html">File</a>
+                 OR <br/> 
+                <a href="../../../core/v3/miscellaneous/URL.html">URL</a>
                 </td>
-            <td>Add the software version preceding this software version.</td>
+            <td>Add the DOI, file or URL that points to a full documentation of this research product version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">funding</span></td>
+            <td>Money provided by a legal person for a particular purpose.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/miscellaneous/funding.html">Funding</a>
+                </td>
+            <td>Add all funding information of this research product version.</td>
         </tr>
         
         <tr>
@@ -244,19 +194,6 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >outputFormat</span></td>
-            <td>Format of data that comes out of, is delivered or produced by a process or machine.</td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v3/data/contentType.html">ContentType</a>
-                </td>
-            <td>Add the content types of all possible input formats for this software version.</td>
-        </tr>
-        
-        <tr>
             <td class="property nowrap"><span style="font-weight:bold">programmingLanguage</span></td>
             <td>Distinct set of instructions for computer programs in order to produce various kinds of output.</td>
             <td>
@@ -270,16 +207,47 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">accessibility</span></td>
-            <td>Level to which something is accessible to someone or something.</td>
+            <td class="property nowrap"><span style="font-weight:bold">releaseDate</span></td>
+            <td>Fixed date on which a product is due to become or was made available for the general public to see or buy</td>
             <td>
                 
-                 linked object
                 
                 
-                <a href="../../../controlledTerms/v1/productAccessibility.html">ProductAccessibility</a>
-                </td>
-            <td>Add the accessibility of the data for this research product version.</td>
+                string (format: date)</td>
+            <td>Enter the date (actual or intended) of the first broadcast/publication of this research product version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">shortName</span></td>
+            <td>Shortened or fully abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a short name (alias) for this research product version (max. 30 characters, no space).</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">versionIdentifier</span></td>
+            <td>Term or code used to identify the version of something.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the version identifier of this research product version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">versionInnovation</span></td>
+            <td>Documentation on what changed in comparison to a previously published form of something.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it&#39;s research product. If this research product version is the first released version, you can enter the following disclaimer &#39;This is the first version of this research product.&#39;</td>
         </tr>
         
         <tr>
@@ -322,8 +290,23 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">fullDocumentation</span></td>
-            <td>Non-abridged instructions, comments, and information for using a particular product.</td>
+            <td class="property nowrap"><span >developer</span></td>
+            <td>Legal person that creates or improves products or services (e.g., software, applications, etc.).</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../../core/v3/actors/person.html">Person</a>
+                </td>
+            <td>If necessary, add one or several developers (person or organization) that contributed to the code implementation of this software version. Note that these developers will overwrite the once provided in the software product this version belongs to.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
             <td>
                 
                  linked object
@@ -331,11 +314,9 @@ table{
                 
                 <a href="../../../core/v3/miscellaneous/DOI.html">DOI</a>
                  OR <br/> 
-                <a href="../../../core/v3/data/file.html">File</a>
-                 OR <br/> 
-                <a href="../../../core/v3/miscellaneous/URL.html">URL</a>
+                <a href="../../../core/v3/miscellaneous/SWHID.html">SWHID</a>
                 </td>
-            <td>Add the DOI, file or URL that points to a full documentation of this research product version.</td>
+            <td>Add the globally unique and persistent digital identifier of this research product version.</td>
         </tr>
         
         <tr>
@@ -350,16 +331,16 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">funding</span></td>
-            <td>Money provided by a legal person for a particular purpose.</td>
+            <td class="property nowrap"><span >hasComponent</span></td>
+            <td>Reference to an element of a collection.</td>
             <td>
                 
                  linked object
                  array (1 - n) of type:<br/>
                 
-                <a href="../../../core/v3/miscellaneous/funding.html">Funding</a>
+                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
                 </td>
-            <td>Add all funding information of this research product version.</td>
+            <td>Add all software versions that supplement this software version.</td>
         </tr>
         
         <tr>
@@ -387,6 +368,45 @@ table{
         </tr>
         
         <tr>
+            <td class="property nowrap"><span >inputFormat</span></td>
+            <td>Format of data that is put into a process or machine.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/data/contentType.html">ContentType</a>
+                </td>
+            <td>Add the content types of all possible input formats for this software version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isAlternativeVersionOf</span></td>
+            <td>Reference to an original form where the essence was preserved, but presented in an alternative form.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
+                </td>
+            <td>Add all software versions that can be used alternatively to this software version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isNewVersionOf</span></td>
+            <td>Reference to a previous (potentially outdated) particular form of something.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
+                </td>
+            <td>Add the software version preceding this software version.</td>
+        </tr>
+        
+        <tr>
             <td class="property nowrap"><span >keyword</span></td>
             <td>Significant word or concept that are representative of something or someone.</td>
             <td>
@@ -411,6 +431,19 @@ table{
         </tr>
         
         <tr>
+            <td class="property nowrap"><span >outputFormat</span></td>
+            <td>Format of data that comes out of, is delivered or produced by a process or machine.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/data/contentType.html">ContentType</a>
+                </td>
+            <td>Add the content types of all possible input formats for this software version.</td>
+        </tr>
+        
+        <tr>
             <td class="property nowrap"><span >relatedPublication</span></td>
             <td>Reference to something that was made available for the general public to see or buy.</td>
             <td>
@@ -423,17 +456,6 @@ table{
                 <a href="../../../core/v3/miscellaneous/ISBN.html">ISBN</a>
                 </td>
             <td>Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">releaseDate</span></td>
-            <td>Fixed date on which a product is due to become or was made available for the general public to see or buy</td>
-            <td>
-                
-                
-                
-                string (format: date)</td>
-            <td>Enter the date (actual or intended) of the first broadcast/publication of this research product version.</td>
         </tr>
         
         <tr>
@@ -450,14 +472,14 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">shortName</span></td>
-            <td>Shortened or fully abbreviated name of something or somebody.</td>
+            <td class="property nowrap"><span >requirement</span></td>
+            <td>Something essential to the existence, occurrence or function of something else.</td>
             <td>
                 
                 
-                
+                 array (1 - n) of type:<br/>
                 string</td>
-            <td>Enter a short name (alias) for this research product version (max. 30 characters, no space).</td>
+            <td>Enter all requirements of this software version.</td>
         </tr>
         
         <tr>
@@ -469,28 +491,6 @@ table{
                  array (1 - n) of type:<br/>
                 string (format: email or iri)</td>
             <td>Enter all channels through which a user can receive support for handling this research product.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">versionIdentifier</span></td>
-            <td>Term or code used to identify the version of something.</td>
-            <td>
-                
-                
-                
-                string</td>
-            <td>Enter the version identifier of this research product version.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">versionInnovation</span></td>
-            <td>Documentation on what changed in comparison to a previously published form of something.</td>
-            <td>
-                
-                
-                
-                string</td>
-            <td>Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it&#39;s research product. If this research product version is the first released version, you can enter the following disclaimer &#39;This is the first version of this research product.&#39;</td>
         </tr>
         
     </table>

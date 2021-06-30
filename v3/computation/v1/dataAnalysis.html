@@ -73,6 +73,19 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
+            <td class="property nowrap"><span style="font-weight:bold">environment</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../computation/v1/environment.html">Environment</a>
+                </td>
+            <td>Add the computational environment in which this computation was executed.</td>
+        </tr>
+        
+        <tr>
             <td class="property nowrap"><span style="font-weight:bold">input</span></td>
             <td>Something or someone that is put into or participates in a process or machine.</td>
             <td>
@@ -87,6 +100,19 @@ table{
                 <a href="../../core/v3/products/softwareVersion.html">SoftwareVersion</a>
                 </td>
             <td>Add all inputs used by this activity.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">launchConfiguration</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../computation/v1/launchconfiguration.html">LaunchConfiguration</a>
+                </td>
+            <td>Add the launch configuration of this computation, e.g. command-line arguments</td>
         </tr>
         
         <tr>
@@ -105,96 +131,14 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">environment</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../computation/v1/environment.html">Environment</a>
-                </td>
-            <td>Add the computational environment in which this computation was executed.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">launchConfiguration</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../computation/v1/launchconfiguration.html">LaunchConfiguration</a>
-                </td>
-            <td>Add the launch configuration of this computation, e.g. command-line arguments</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >startedBy</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../core/v3/actors/person.html">Person</a>
-                 OR <br/> 
-                <a href="../../computation/v1/softwareagent.html">SoftwareAgent</a>
-                </td>
-            <td>Add the person or software agent who launched this computation.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >wasInformedBy</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../computation/v1/computation.html">Computation</a>
-                </td>
-            <td>Add any other computation that sent data to this one during runtime.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >status</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                
-                
-                <a href="../../controlledTerms/v1/actionStatusType.html">ActionStatusType</a>
-                </td>
-            <td>Enter the current status of this computation.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >resourceUsage</span></td>
-            <td></td>
-            <td>
-                 embedded object
-                
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../core/v3/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
-                 OR <br/> 
-                <a href="../../core/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
-                </td>
-            <td>Enter the resources (e.g. core-hours, energy) used by this computation.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >tags</span></td>
+            <td class="property nowrap"><span style="font-weight:bold">startedAtTime</span></td>
             <td></td>
             <td>
                 
                 
-                 array (1 - n) of type:<br/>
-                string</td>
-            <td>Enter custom tags for this computation.</td>
+                
+                string (format: date-time or time)</td>
+            <td>Enter the time (e.g., &#39;20:20:39+00:00&#39;) or datetime (e.g., &#39;2018-11-13T20:20:39+00:00&#39;) of when the activity started.</td>
         </tr>
         
         <tr>
@@ -244,14 +188,46 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">startedAtTime</span></td>
+            <td class="property nowrap"><span >resourceUsage</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../core/v3/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
+                 OR <br/> 
+                <a href="../../core/v3/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
+                </td>
+            <td>Enter the resources (e.g. core-hours, energy) used by this computation.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >startedBy</span></td>
             <td></td>
             <td>
                 
+                 linked object
                 
                 
-                string (format: date-time or time)</td>
-            <td>Enter the time (e.g., &#39;20:20:39+00:00&#39;) or datetime (e.g., &#39;2018-11-13T20:20:39+00:00&#39;) of when the activity started.</td>
+                <a href="../../core/v3/actors/person.html">Person</a>
+                 OR <br/> 
+                <a href="../../computation/v1/softwareagent.html">SoftwareAgent</a>
+                </td>
+            <td>Add the person or software agent who launched this computation.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >status</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../controlledTerms/v1/actionStatusType.html">ActionStatusType</a>
+                </td>
+            <td>Enter the current status of this computation.</td>
         </tr>
         
         <tr>
@@ -287,6 +263,30 @@ table{
                 <a href="../../SANDS/v2/non-atlas/customAnatomicalEntity.html">CustomAnatomicalEntity</a>
                 </td>
             <td>Add all study targets of this activity.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >tags</span></td>
+            <td></td>
+            <td>
+                
+                
+                 array (1 - n) of type:<br/>
+                string</td>
+            <td>Enter custom tags for this computation.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >wasInformedBy</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../computation/v1/computation.html">Computation</a>
+                </td>
+            <td>Add any other computation that sent data to this one during runtime.</td>
         </tr>
         
     </table>
