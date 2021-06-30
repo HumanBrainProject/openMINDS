@@ -20,8 +20,7 @@ td.nowrap{
 
 td {
 vertical-align:top;
-padding-left: 1em;
-padding-right: 1em;
+padding-right: 2em;
     line-height: 1.5;
 }
 
@@ -78,6 +77,7 @@ right: 0;
 #navig{
     flex: 20%;
     max-width: 50em;
+margin: 1em;
 }
 
 #frame{
@@ -95,6 +95,23 @@ border: 0;
 
 #navig h2{
 cursor: pointer;
+}
+
+#version{
+font-size: 1.2em;
+margin: 1em;
+font-weight: bold;
+}
+
+#version select{
+font-size: 1.1em;
+}
+
+#header{
+border-bottom: 1px solid #4a5568;
+text-align: center;
+padding-bottom: 0.5em;
+padding-top: 0.5em;
 }
 
     </style>
@@ -115,7 +132,19 @@ cursor: pointer;
 </script>
 <div id="content">
     <div id="navig">
+        <div id="header">
         <img src="https://github.com/HumanBrainProject/openMINDS/raw/main/img/openMINDS_logo.png" style="height: 5em;"/>
+        <div id="version">Version: <select onchange="if (this.value) window.location.href=window.location.href.replaceAll(currentVersion, this.value)">
+            v3
+            
+            <option >v1</option>
+            
+            <option >v2</option>
+            
+            <option selected>v3</option>
+            
+        </select></div>
+            </div>
         <div><h2 onclick="toggleCategory('typescomputation');">computation</h2>
             <div id="typescomputation" style="display:none;">
                 
