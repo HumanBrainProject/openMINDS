@@ -116,7 +116,7 @@ cd openMINDS
 
 ALL_VERSION_BRANCHES=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/branches | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
 ALL_TAGS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/tags | grep -P -o "(?<=\"name\": \")v[0-9]+.*?(?=\")")
-VERSION_BRANCH_LABELS=$(printf "$(echo $ALL_VERSION_BRANCHES, | tr ' ' ',' | sed 's/,/ (dev),/g')" | sed 's/.$//')
+VERSION_BRANCH_LABELS=$(echo $ALL_VERSION_BRANCHES, | tr ' ' ',' | sed 's/,/ (dev),/g')
 TAG_LABELS=$(echo $ALL_TAGS | tr ' ' ',')
 
 echo "Building all version-branches (head)"
