@@ -1,0 +1,168 @@
+<html>
+<head>
+    <title>openMINDS</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}
+
+body{
+position: absolute;
+top:0;
+bottom:0;
+left:0;
+right: 0;
+}
+
+#content{
+ display:flex;
+ height: 100%;
+}
+
+#navig{
+    flex: 20%;
+    max-width: 50em;
+margin: 1em;
+}
+
+#frame{
+flex-grow:1;
+width: 100%;
+height: 100%;
+margin-top: 3em;
+}
+
+#frame iframe{
+width: 100%;
+height: 100%;
+border: 0;
+}
+
+#navig h2{
+cursor: pointer;
+}
+
+#version{
+font-size: 1.2em;
+margin: 1em;
+font-weight: bold;
+}
+
+#version select{
+font-size: 1.1em;
+}
+
+#header{
+border-bottom: 1px solid #4a5568;
+text-align: center;
+padding-bottom: 0.5em;
+padding-top: 0.5em;
+}
+
+    </style>
+</head>
+<body>
+<script>
+
+    function toggleCategory(id){
+    let doc = document.getElementById(id)
+    if (doc.style.display == 'none'){
+        doc.style.display = 'block';
+    }
+    else{
+        doc.style.display ='none';
+    }
+    }
+
+</script>
+<div id="content">
+    <div id="navig">
+        <div id="header">
+        <img src="https://github.com/HumanBrainProject/openMINDS/raw/main/img/openMINDS_logo.png" style="height: 5em;"/>
+        <div id="version">Version: <select onchange="if (this.value) window.location.href=window.location.href.replaceAll('v2.0.0', this.value)">
+            <option disabled>--- stable --</option>
+             
+            <option selected value="v2.0.0">v2.0.0</option>
+            
+            <option  value="v1.0.0">v1.0.0</option>
+            
+            <option disabled>--- development --</option>
+            
+            <option  value="v3">v3-dev</option>
+            
+            <option  value="v2">v2-dev</option>
+            
+            <option  value="v1">v1-dev</option>
+            
+        </select>
+
+        </div>
+            </div>
+        
+        <div>
+            <a href="../.zip">Download specification</a>
+        </div>
+
+    </div>
+    <div id="frame">
+        <iframe name="innerFrame" src="default.html"></iframe>
+    </div>
+</div>
+</body>
+
+</html>
