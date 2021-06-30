@@ -84,7 +84,7 @@ build(){
   mkdir -p ../openMINDS_documentation/$1
 
   # ZIP data
-  cd target && zip -r "../../openMINDS_documentation/$1.zip" . && cd ..
+  cd target && zip -r "../../openMINDS_documentation/openMINDS-$1.zip" . && cd ..
 
   cp -r target/html/* ../openMINDS_documentation/$1
   cp -r target/uml/* ../openMINDS_documentation/$1
