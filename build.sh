@@ -28,6 +28,9 @@ build(){
   echo "Building $1"
   echo "*************************"
   echo ""
+  #Ensure there is no left-over of a previous run
+  rm -rf expanded
+  rm -rf target
   git checkout $1
   # Ensure submodules are properly fetched
   if [[ $4 == 'branch' ]]
@@ -37,6 +40,7 @@ build(){
       git reset --hard origin/$1
       git submodule sync
       git submodule update --init --recursive --remote
+      git clean -dffx
       # We push the synchronized state of the repository to follow the head of the submodules
       commitAndPush
   elif [[ $4 == 'tag' ]]
@@ -45,6 +49,7 @@ build(){
       git submodule sync
       #For tags we explicitly don't set the "--remote" flag (since we want the commit which is recorded as part of the tag
       git submodule update --init --recursive
+      git clean -dffx
       # And obviously we don't push back since we don't want to change the tag
   fi
 
@@ -88,6 +93,8 @@ build(){
   cp -r target/schema.json/* ../openMINDS_documentation/$1
   mv ../openMINDS_documentation/$1/central.html ../openMINDS_documentation/index.html
   cp -r vocab ..
+  rm -rf
+
 }
 
 echo "Clearing existing elements..."
@@ -119,12 +126,12 @@ ALL_TAGS=$(curl -s https://api.github.com/repos/HumanBrainProject/openMINDS/tags
 VERSION_BRANCH_LABELS=$(echo $ALL_VERSION_BRANCHES, | tr ' ' ',' | sed 's/.$//')
 TAG_LABELS=$(echo $ALL_TAGS | tr ' ' ',')
 
-echo "Building all version-branches (head)"
-for version in $ALL_VERSION_BRANCHES;
-do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS" "$TAG_LABELS" 'branch'; fi; done
+#echo "Building all version-branches (head)"
+#for version in $ALL_VERSION_BRANCHES;
+#do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS" "$TAG_LABELS" 'branch'; fi; done
+#
+#echo "Building all tags"
+#for version in $ALL_TAGS;
+#do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS", "$TAG_LABELS" 'tag'; fi; done
 
-echo "Building all tags"
-for version in $ALL_TAGS;
-do if [[ $version =~ ^v[0-9]+.*$ ]]; then build $version "$VERSION_BRANCH_LABELS", "$TAG_LABELS" 'tag'; fi; done
-
-#build "v2.0.0" "v2.0.0,v1.0.0" "tag"
+build "v2.0.0" "v1,v2,v3" "v2.0.0,v1.0.0" "tag"
