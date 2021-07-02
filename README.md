@@ -2,72 +2,102 @@
     <img src="https://github.com/HumanBrainProject/openMINDS/blob/main/img/openMINDS_logo.png" alt="openMINDS logo" title="openMINDS" align="right" height="70" />
 </a>
 
-# Welcome to openMINDS!
+# Welcome to openMINDS! <a name="welcome"/>
 
 The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), as well as metadata/data models (metaDataModels).
 
+Depending on the version, openMINDS currently ingests the following metadata models:  
+
+[openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) - covers general origin, location and content of research products.  
+[openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) - covers brain atlases, as well as anatomical locations and relations of non-atlas data.  
+[openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) - covers consistent definition of neuroscience terms.  
+[openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (in dev) - covers provenance of simulations, data analysis and visualizations in neuroscience.  
+[openMINDS_ephys](https://github.com/HumanBrainProject/openMINDS_ephys) (in dev) - covers provenance of electrophysiology experiments.  
+
 The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/). However, openMINDS is by design open-source and community-driven, looking for external contributions throughout the neuroscience community.
 
-In order to facilitate contributions from all community member independent of their scientific background, all openMINDS metadata models are defined using a light-weighted schema template syntax. Although this schema template syntax is inspired by JSON-Schema, it outsources most technicalities, making the openMINDS schemas more human-readable, especially for untrained eyes. Behind the scenes, the openMINDS integration pipeline (cf.[openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository) interprets and exends this syntax to formal, well-known formats, such as JSON-Schema or HTML. For each openMINDS version (stable or development), you can browse through and download the resulting schema representations [here](https://humanbrainproject.github.io/openMINDS/).
+Within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Interactive Brain Atlas. In addition, openMINDS is currently in the process of being adopted by the Japan Brain/MINDS project.
 
-We, the openMINDS development team, currently unite knowledge from the EBRAINS Curation, the EBRAINS Knowledge Graph, the EBRAINS Atlas, and the INCF Knowledge Space teams. If you have general feedback or a request for a new feature, want to report a bug or have a question, please get in touch with us via our support-email: openminds@ebrains.eu (not active yet). If you spot a bug and know how to fix it, if you want to extend existing schemas and/or metadata models, or develop new schemas and/or metadata models, feel always free to also contribute directly by raising an issue and making a pull request on the respective GitHub repository. For more information on how to contribute, please look [here](./CONTRIBUTING.md).
+The openMINDS development team currently unites knowledge from the EBRAINS Curation, the EBRAINS Knowledge Graph, the EBRAINS Atlas, and the INCF Knowledge Space teams. 
 
-Note that within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Interactive Brain Atlas. In addition, openMINDS is currently in the process of being adopted by the Japan Brain/MINDS project.
+#### What you can find here:
+1. [How to contribute](#how-to-contribute) 
+2. [Technical overview & guidelines](#technical-overview-and-guidelines)
+3. [How to get started](#how-to-get-started)
+4. [License & acknowledgements](#license-and-acknowledgements)
 
-## Technical overview
+---
 
-In summary, the central openMINDS GitHub repository has a main branch (where you are right now) that hosts the general [README](./README.md) (this document), the [LICENSE document](./LICENSE), a [CONTRIBUTING document](./CONTRIBUTING.md), the openMINDS vocabulary ([vocab](./vocab)), the general [openMINDS logo](./img/openMINDS_logo.png) and a [bash script](./build.sh) that builds the content of the version branches (stable and development). 
+## How to contribute <a name="how-to-contribute"/>
 
-On each version branch, a version-specific set of distributed GitHub repositories is ingested as git-submodules, each defining a particular metadata model for neuroscience. In contrast, the openMINDS vocabulary is maintained centrally, because it provides general definitions and references for schema types and properties used across all openMINDS metadata models and their versions.
+In order to facilitate contributions from all community members independent of their scientific background, all openMINDS metadata models are defined using a light-weighted schema template syntax. Although this schema template syntax is inspired by JSON-Schema, it outsources most technicalities, making the openMINDS schemas more human-readable, especially for untrained eyes. 
 
-We chose this modular design to facilitate extensions and maintenance of existing, as well as development and integration of new openMINDS metadata models and schemas. Currently, the following openMINDS metadata models exist (depending on the selected central openMINDS version): [openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core), [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS), [openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms), [openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (in dev), and [openMINDS_ephys](https://github.com/HumanBrainProject/openMINDS_ephys) (in dev).
+Behind the scenes, the openMINDS integration pipeline (cf. [openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository) interprets and exends this syntax to formal, well-known formats, such as JSON-Schema or HTML. For each openMINDS version (stable or development), you can browse through and download the resulting schema representations on the [openMINDS GitHub pages](https://humanbrainproject.github.io/openMINDS/).
 
-## How to get started
+If you have general feedback or a request for a new feature, want to report a bug or have a question, please get in touch with us via our support-email: **`openminds@ebrains.eu`** (not active yet). 
 
-The stable versions of openMINDS are available as release packages, but are also tagged. The tag/name of a stable version uses the convention `vX.Y`, where `X` identifies the major version number and `Y` the minor version number (for backwards compatible subreleases).
+If you spot a bug and know how to fix it, if you want to extend existing schemas and/or metadata models, or develop new schemas and/or metadata models, feel always free to also contribute directly by raising an issue and making a pull request on the respective GitHub repository. 
 
-The version branches for the major releases, `vX`, are unstable. On these branches backwards compatible changes are implemented. This can include corrections of typos in instructions, introduction of additional properties to schemas, loosening constraints on expected value numbers or formats, granting additional relations between schemas, and adding new schemas (if they do not require relational changes in existing schemas).
+For more information on how to contribute, please have a look at our [CONTRIBUTING](./CONTRIBUTING.md) document.
 
-Non-backwards compatible changes are possible on a non-released version branch (no release tag available for this branch). This can include renaming of existing properties, increasing constraints on expected value numbers or formats, removing relations between schemas and adding new schemas, if they cause relational changes in existing schemas.
+[BACK TO TOP](#welcome)
 
-You can work locally with all stable and unstable version branches using `git clone` instead of downloading a release package:
+## Technical overview & guidelines <a name="technical-overview-and-guidelines"/>
 
-    git clone https://github.com/HumanBrainProject/openMINDS.git
+In summary, the central openMINDS GitHub repository has a **main** branch (where you are right now), a **documentation** branch, and **version** branches (naming convention: `vX`; e.g., `v1`). Official releases (naming convention: `vX.Y`; e.g., `v1.0`) are tagged and provided as release packages.
 
-You can list now the availabel unstable version or feature branches:
+The **main** branch hosts the general [README](./README.md) (this document), the [LICENSE](./LICENSE) document, the [CONTRIBUTING](./CONTRIBUTING.md) document,  and the general [openMINDS logo](./img/openMINDS_logo.png). In addition, it maintains the openMINDS vocabulary ([vocab](./vocab)) which provides general definitions and references for schema types and properties used across all openMINDS metadata models and their versions, and the [bash script](./build.sh) that builds the content of the documenation and version branches.
+
+The **documentation** branch hosts the HTML files that build the [openMINDS GitHub pages](https://humanbrainproject.github.io/openMINDS/), as well as a ZIP file for each version branch and official release containing the respective openMINDS schemas in the currently supported formats (e.g., `.schema.tpl.json`, `.schema.json`, `.html`).
+
+The **version** branches host the respective openMINDS schemas of a major version by ingesting the corresponding metadata models as git-submodules. We chose this modular design to facilitate extensions and maintenance of existing, as well as development and integration of new openMINDS metadata models and schemas. Note that backwards compatible changes on these version branches are possible. This can include corrections of typos in instructions, introduction of additional properties to schemas, loosening constraints on expected value numbers or formats, granting additional relations between schemas, and adding new schemas (if they do not require relational changes in existing schemas). Except for typo corrections, these changes typically are tagged as sub-releases for the respective major version (e.g., `v1.1`). Note further that on version branches which do not have an official release tag yet, also non-backwards compatible changes are possible. This can include renaming of existing properties, increasing constraints on expected value numbers or formats, removing relations between schemas and adding new schemas, if they cause relational changes in existing schemas.
+
+The setup of the central openMINDS GitHub repository is maintained by the openMINDS integration pipeline (cf. [openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository). The pipeline is configured in such a way, that each commit on one of the openMINDS submodules will trigger a new build of the central openMINDS repository ensuring that its content is always up-to-date. 
+
+[BACK TO TOP](#welcome)
+
+## How to get started <a name="how-to-get-started"/>
+
+You can either download one of the release packages, or use `git clone` to be able to work locally with released versions or the "unstable" version branches:
+	
+	git clone https://github.com/HumanBrainProject/openMINDS.git
+
+Once, you cloned the repository, you can list the availabel version branches:
 
 	git branch -a
 	
+and checkout the one you like to work on, e.g.,:
+
+	git checkout v2
+	
 Note that you might also see some feature branches of current developments that on the long run will be merged into one of version branches. These feature branches do not follow any naming convention.
 
-You can also list all available release tags:
+If you rather like to work with a stable release, you can also list all available release tags:
 
 	git tag -l
 	
-Next, you either need to checkout the unstable version branch you like to work with, e.g.,:
-
-	git checkout v2
-
-or you checkout a stable version branch via the release tag, e.g.,:
+and checkout the stable version branch you like to work with via the respective release tag, e.g.,:
 
 	git checkout tags/<tag_name>
 
 As mentioned above, on each version branch, a version-specific set of distributed GitHub repositories is ingested as git-submodules, each defining a particular metadata model for neuroscience. To be able to use these metadata models, the submodules need to be initialised:
 
-    git submodule init
+	git submodule init
 
 and updated:
-
-    git submodule update
+	
+	git submodule update
 
 After completion of this step your local repository is on the most recent state of the selected openMINDS version branch.
 
-## License
+[BACK TO TOP](#welcome)
+
+## License & acknowledgements <a name="license-and-acknowledgements"/>
 
 openMINDS is licensed under the MIT License.
 
 **Logo:** The openMINDS logo was created by U. Schlegel, based on an original sketch by C. Hagen Blixhavn and feedback by L. Zehl.
 
-## Acknowledgements
-
 The metadata model specification and corresponding open source code was developed in part or in whole in the Human Brain Project, funded from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Specific Grant Agreements No. 720270, No. 785907, and No. 945539 (Human Brain Project SGA1, SGA2, and SGA3).
+
+[BACK TO TOP](#welcome)
