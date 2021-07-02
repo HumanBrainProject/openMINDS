@@ -1002,8 +1002,18 @@ Contribution -d-> "contributor" Organization
 Contribution -d-> "contributor" Person
 
 
+class BehavioralTask {
++description
++fullName
++shortName
+
+}
+
+
 class ProtocolExecution {
++behavioralTask
 +input
++isPartOf
 +output
 +preparationType
 +protocol
@@ -1015,12 +1025,14 @@ class ProtocolExecution {
 +studyTarget
 
 }
+ProtocolExecution -d-> "behavioralTask" BehavioralTask
 ProtocolExecution -d-> "input" File
 ProtocolExecution -d-> "input" FileBundle
 ProtocolExecution -d-> "input" SubjectGroupState
 ProtocolExecution -d-> "input" SubjectState
 ProtocolExecution -d-> "input" TissueSampleCollectionState
 ProtocolExecution -d-> "input" TissueSampleState
+ProtocolExecution -d-> "isPartOf" DatasetVersion
 ProtocolExecution -d-> "output" File
 ProtocolExecution -d-> "output" FileBundle
 ProtocolExecution -d-> "output" SubjectGroupState
@@ -1092,13 +1104,11 @@ SubjectGroup -d-> "strain" Strain
 
 class Protocol {
 +description
-+behavioralTask
 +name
 +studyOption
 +technique
 
 }
-Protocol -d-> "behavioralTask" BehavioralTask
 Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" BiologicalSex
@@ -1286,6 +1296,7 @@ MetaDataModel -d-> "homepage" URL
 
 class DatasetVersion {
 +author
++behavioralTask
 +digitalIdentifier
 +ethicsAssessment
 +experimentalApproach
@@ -1293,8 +1304,8 @@ class DatasetVersion {
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
-+protocol
 +studiedSpecimen
++technique
 +type
 +accessibility
 +copyright
@@ -1318,6 +1329,7 @@ class DatasetVersion {
 }
 DatasetVersion -d-> "author" Organization
 DatasetVersion -d-> "author" Person
+DatasetVersion -d-> "behavioralTask" BehavioralTask
 DatasetVersion -d-> "digitalIdentifier" DOI
 DatasetVersion -d-> "ethicsAssessment" EthicsAssessment
 DatasetVersion -d-> "experimentalApproach" ExperimentalApproach
@@ -1327,11 +1339,11 @@ DatasetVersion -d-> "inputData" FileBundle
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "license" License
-DatasetVersion -d-> "protocol" Protocol
 DatasetVersion -d-> "studiedSpecimen" Subject
 DatasetVersion -d-> "studiedSpecimen" SubjectGroup
 DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
+DatasetVersion -d-> "technique" Technique
 DatasetVersion -d-> "type" SemanticDataType
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright

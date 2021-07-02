@@ -12,50 +12,6 @@
             "const": "https://openminds.ebrains.eu/core/Protocol",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/behavioralTask": {
-            "_instruction": "Add all behavioral tasks that were executed as part of this protocol.",
-            "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/BehavioralTask"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "behavioralTask",
-            "type": "array",
-            "uniqueItems": true
-        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this protocol.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -168,11 +124,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/technique",
-        "https://openminds.ebrains.eu/vocab/description",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/technique",
+        "https://openminds.ebrains.eu/vocab/description"
     ],
     "title": "Protocol",
     "type": "object"

@@ -12,6 +12,50 @@
             "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/behavioralTask": {
+            "_instruction": "Add all behavioral tasks that were performed during this protocol execution.",
+            "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/BehavioralTask"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "behavioralTask",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this activity.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -79,6 +123,46 @@
             "title": "input",
             "type": "array",
             "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add the dataset version in which this protocol execution was conducted.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DatasetVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isPartOf",
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this activity that may help you to more easily find it again.",
@@ -269,7 +353,7 @@
                 "relevantFor": {
                     "_instruction": "Add the technique or behavioral task where this set of parameters is used in.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+                        "https://openminds.ebrains.eu/core/BehavioralTask",
                         "https://openminds.ebrains.eu/controlledTerms/Technique"
                     ],
                     "description": "Reference to what or whom something or someone bears siginificance.",
@@ -438,11 +522,12 @@
         }
     },
     "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/protocol",
+        "https://openminds.ebrains.eu/vocab/output",
         "https://openminds.ebrains.eu/vocab/input",
         "@type",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/output",
-        "https://openminds.ebrains.eu/vocab/protocol"
+        "https://openminds.ebrains.eu/vocab/isPartOf"
     ],
     "title": "Protocol execution",
     "type": "object"

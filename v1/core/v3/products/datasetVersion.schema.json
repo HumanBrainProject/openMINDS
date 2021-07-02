@@ -97,6 +97,50 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/behavioralTask": {
+            "_instruction": "Add one or several behavioral tasks that were performed in this dataset version.",
+            "description": "Specific set of defined activities (or their absence) that should be performed (or avoided) by a subject.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/BehavioralTask"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "behavioralTask",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/copyright": {
             "_type": "https://openminds.ebrains.eu/core/Copyright",
             "description": "Structured information on the copyright.",
@@ -655,50 +699,6 @@
             "title": "Contribution",
             "type": "object"
         },
-        "https://openminds.ebrains.eu/vocab/protocol": {
-            "_instruction": "Add one or several protocols that were used in this dataset version.",
-            "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Protocol"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "protocol",
-            "type": "array",
-            "uniqueItems": true
-        },
         "https://openminds.ebrains.eu/vocab/relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
             "description": "Reference to something that was made available for the general public to see or buy.",
@@ -859,6 +859,50 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/technique": {
+            "_instruction": "Add one or several techniques that were used in this dataset version.",
+            "description": "Method of accomplishing a desired aim.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "technique",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/type": {
             "_instruction": "Add all data types (raw, derived or simulated) provided in this dataset version.",
             "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
@@ -917,21 +961,21 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/protocol",
+        "https://openminds.ebrains.eu/vocab/funding",
+        "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "https://openminds.ebrains.eu/vocab/ethicsAssessment",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/experimentalApproach",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/digitalIdentifier",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/experimentalApproach",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/funding",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/license"
+        "https://openminds.ebrains.eu/vocab/technique",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/releaseDate"
     ],
     "title": "Dataset version",
     "type": "object"
