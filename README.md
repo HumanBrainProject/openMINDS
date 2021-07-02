@@ -4,7 +4,7 @@
 
 # openMINDS - documentation
 
-You are on the openMINDS **documentation** branch. This branch hosts the HTML files that build the openMINDS GitHub pages, as well as a ZIP file for each version branch and official release containing the respective openMINDS schemas in the currently supported formats (e.g., .schema.tpl.json, .schema.json, .html).
+You are on the openMINDS **documentation** branch. This branch hosts the HTML files that build the [openMINDS GitHub pages](https://humanbrainproject.github.io/openMINDS/), as well as a ZIP file for each version branch and official release containing the respective openMINDS schemas in the currently supported formats (e.g., .schema.tpl.json, .schema.json, .html).
 
 For more information please go to the [main README](https://github.com/HumanBrainProject/openMINDS/blob/main/README.md).
 
