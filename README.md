@@ -18,7 +18,7 @@ The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Hum
 
 Within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Interactive Brain Atlas. In addition, openMINDS is currently in the process of being adopted by the Japan Brain/MINDS project.
 
-The openMINDS development team currently unites knowledge from the EBRAINS Curation, the EBRAINS Knowledge Graph, the EBRAINS Atlas, and the INCF Knowledge Space teams. 
+The openMINDS development team currently unites knowledge from the EBRAINS Curation Service, the EBRAINS Knowledge Graph, the EBRAINS Atlas, and the INCF Knowledge Space teams. 
 
 #### What you can find here:
 1. [How to contribute](#how-to-contribute) 
