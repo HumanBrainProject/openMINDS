@@ -76,8 +76,8 @@ build(){
   cp -r expanded/* target/schema.tpl.json
 
   #Also move the version specific property and types files
-  mv properties-$VERSION_NAME.json target/properties.json
-  mv types-$VERSION_NAME.json target/types.json
+  mv properties-$1.json target/properties.json
+  mv types-$1.json target/types.json
 
   # Copy documentation
   rm -rf ../openMINDS_documentation/$1
