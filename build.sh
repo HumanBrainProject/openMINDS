@@ -78,6 +78,19 @@ build(){
   #Also move the version specific property and types files
   mv properties-$1.json target/properties.json
   mv types-$1.json target/types.json
+  
+  # Copy instances to target
+    
+  for d in *
+  do 
+    if [ -d $d ] && [ -d "$d/instances" ]
+      then 
+        TARGET="target/instances/$d/$(cat $d/version.txt)/"
+        mkdir -p $TARGET
+        echo "Copy instances to target"
+        cp -r $d/instances/* $TARGET
+      fi
+  done
 
   # Copy documentation
   rm -rf ../openMINDS_documentation/$1
