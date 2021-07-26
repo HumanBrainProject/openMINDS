@@ -83,7 +83,7 @@ build(){
     
   for d in *
   do 
-    if [ -d $d ] && [ -d "$d/instances" ]
+    if [ -d $d ] && [ "$d" != "target" ] && [ -d "$d/instances" ]
       then 
         TARGET="target/instances/$d/$(cat $d/version.txt)/"
         mkdir -p $TARGET
