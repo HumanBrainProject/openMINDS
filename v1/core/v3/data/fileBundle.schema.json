@@ -1,6 +1,9 @@
 {
     "$id": "https://openminds.ebrains.eu/core/fileBundle?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "fileOrigin"
+    ],
     "_type": "https://openminds.ebrains.eu/core/FileBundle",
     "description": "Structured information on a bundle of file instances.",
     "properties": {
@@ -17,6 +20,52 @@
             "description": "Something that is contained.",
             "title": "content",
             "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/descendedFrom": {
+            "_instruction": "Add all entities that played a role in the production of this file bundle (must be true for all grouped files).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/BehavioralTask",
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "descendedFrom",
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
@@ -219,10 +268,10 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "https://openminds.ebrains.eu/vocab/name",
-        "@id"
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/isPartOf"
     ],
     "type": "object"
 }

@@ -1,289 +1,5 @@
 @startuml
 
-class Visualization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-+description
-+endedAtTime
-+lookupLabel
-+parameterSet
-+startedAtTime
-+studyTarget
-
-}
-Visualization -d-> "input" FileBundle
-Visualization -d-> "input" File
-Visualization -d-> "input" SoftwareVersion
-Visualization -d-> "output" FileBundle
-Visualization -d-> "output" File
-Visualization -d-> "environment" Environment
-Visualization -d-> "launchConfiguration" LaunchConfiguration
-Visualization -d-> "startedBy" Person
-Visualization -d-> "startedBy" SoftwareAgent
-Visualization -d-> "wasInformedBy" Computation
-Visualization -d-> "status" ActionStatusType
-Visualization -d-> "resourceUsage" QuantitativeValue
-Visualization -d-> "resourceUsage" QuantitativeValueRange
-Visualization -d-> "parameterSet" ParameterSet
-Visualization -d-> "studyTarget" BiologicalSex
-Visualization -d-> "studyTarget" Disease
-Visualization -d-> "studyTarget" Species
-Visualization -d-> "studyTarget" Organ
-Visualization -d-> "studyTarget" DiseaseModel
-Visualization -d-> "studyTarget" Strain
-Visualization -d-> "studyTarget" Phenotype
-Visualization -d-> "studyTarget" CellType
-Visualization -d-> "studyTarget" TermSuggestion
-Visualization -d-> "studyTarget" Handedness
-Visualization -d-> "studyTarget" ParcellationEntity
-Visualization -d-> "studyTarget" CustomAnatomicalEntity
-
-
-class Simulation {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-+description
-+endedAtTime
-+lookupLabel
-+parameterSet
-+startedAtTime
-+studyTarget
-
-}
-Simulation -d-> "input" FileBundle
-Simulation -d-> "input" File
-Simulation -d-> "input" SoftwareVersion
-Simulation -d-> "output" FileBundle
-Simulation -d-> "output" File
-Simulation -d-> "environment" Environment
-Simulation -d-> "launchConfiguration" LaunchConfiguration
-Simulation -d-> "startedBy" Person
-Simulation -d-> "startedBy" SoftwareAgent
-Simulation -d-> "wasInformedBy" Computation
-Simulation -d-> "status" ActionStatusType
-Simulation -d-> "resourceUsage" QuantitativeValue
-Simulation -d-> "resourceUsage" QuantitativeValueRange
-Simulation -d-> "parameterSet" ParameterSet
-Simulation -d-> "studyTarget" BiologicalSex
-Simulation -d-> "studyTarget" Disease
-Simulation -d-> "studyTarget" Species
-Simulation -d-> "studyTarget" Organ
-Simulation -d-> "studyTarget" DiseaseModel
-Simulation -d-> "studyTarget" Strain
-Simulation -d-> "studyTarget" Phenotype
-Simulation -d-> "studyTarget" CellType
-Simulation -d-> "studyTarget" TermSuggestion
-Simulation -d-> "studyTarget" Handedness
-Simulation -d-> "studyTarget" ParcellationEntity
-Simulation -d-> "studyTarget" CustomAnatomicalEntity
-
-
-class DataAnalysis {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-+description
-+endedAtTime
-+lookupLabel
-+parameterSet
-+startedAtTime
-+studyTarget
-
-}
-DataAnalysis -d-> "input" FileBundle
-DataAnalysis -d-> "input" File
-DataAnalysis -d-> "input" SoftwareVersion
-DataAnalysis -d-> "output" FileBundle
-DataAnalysis -d-> "output" File
-DataAnalysis -d-> "environment" Environment
-DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
-DataAnalysis -d-> "startedBy" Person
-DataAnalysis -d-> "startedBy" SoftwareAgent
-DataAnalysis -d-> "wasInformedBy" Computation
-DataAnalysis -d-> "status" ActionStatusType
-DataAnalysis -d-> "resourceUsage" QuantitativeValue
-DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
-DataAnalysis -d-> "parameterSet" ParameterSet
-DataAnalysis -d-> "studyTarget" BiologicalSex
-DataAnalysis -d-> "studyTarget" Disease
-DataAnalysis -d-> "studyTarget" Species
-DataAnalysis -d-> "studyTarget" Organ
-DataAnalysis -d-> "studyTarget" DiseaseModel
-DataAnalysis -d-> "studyTarget" Strain
-DataAnalysis -d-> "studyTarget" Phenotype
-DataAnalysis -d-> "studyTarget" CellType
-DataAnalysis -d-> "studyTarget" TermSuggestion
-DataAnalysis -d-> "studyTarget" Handedness
-DataAnalysis -d-> "studyTarget" ParcellationEntity
-DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
-
-
-class SoftwareAgent {
-+name
-+software
-+environment
-
-}
-SoftwareAgent -d-> "software" SoftwareVersion
-SoftwareAgent -d-> "environment" Environment
-
-
-class HardwareSystem {
-+name
-+version
-+description
-
-}
-
-
-class LaunchConfiguration {
-+description
-+name
-+executable
-+arguments
-+environmentVariables
-
-}
-LaunchConfiguration -d-> "environmentVariables" ParameterSet
-
-
-class Environment {
-+name
-+hardware
-+configuration
-+software
-+description
-
-}
-Environment -d-> "hardware" HardwareSystem
-Environment -d-> "configuration" ParameterSet
-Environment -d-> "software" SoftwareVersion
-
-
-class Computation {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-+description
-+endedAtTime
-+lookupLabel
-+parameterSet
-+startedAtTime
-+studyTarget
-
-}
-Computation -d-> "input" FileBundle
-Computation -d-> "input" File
-Computation -d-> "input" SoftwareVersion
-Computation -d-> "output" FileBundle
-Computation -d-> "output" File
-Computation -d-> "environment" Environment
-Computation -d-> "launchConfiguration" LaunchConfiguration
-Computation -d-> "startedBy" Person
-Computation -d-> "startedBy" SoftwareAgent
-Computation -d-> "wasInformedBy" Computation
-Computation -d-> "status" ActionStatusType
-Computation -d-> "resourceUsage" QuantitativeValue
-Computation -d-> "resourceUsage" QuantitativeValueRange
-Computation -d-> "parameterSet" ParameterSet
-Computation -d-> "studyTarget" BiologicalSex
-Computation -d-> "studyTarget" Disease
-Computation -d-> "studyTarget" Species
-Computation -d-> "studyTarget" Organ
-Computation -d-> "studyTarget" DiseaseModel
-Computation -d-> "studyTarget" Strain
-Computation -d-> "studyTarget" Phenotype
-Computation -d-> "studyTarget" CellType
-Computation -d-> "studyTarget" TermSuggestion
-Computation -d-> "studyTarget" Handedness
-Computation -d-> "studyTarget" ParcellationEntity
-Computation -d-> "studyTarget" CustomAnatomicalEntity
-
-
-class Optimization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-+description
-+endedAtTime
-+lookupLabel
-+parameterSet
-+startedAtTime
-+studyTarget
-
-}
-Optimization -d-> "input" FileBundle
-Optimization -d-> "input" File
-Optimization -d-> "input" SoftwareVersion
-Optimization -d-> "output" FileBundle
-Optimization -d-> "output" File
-Optimization -d-> "environment" Environment
-Optimization -d-> "launchConfiguration" LaunchConfiguration
-Optimization -d-> "startedBy" Person
-Optimization -d-> "startedBy" SoftwareAgent
-Optimization -d-> "wasInformedBy" Computation
-Optimization -d-> "status" ActionStatusType
-Optimization -d-> "resourceUsage" QuantitativeValue
-Optimization -d-> "resourceUsage" QuantitativeValueRange
-Optimization -d-> "parameterSet" ParameterSet
-Optimization -d-> "studyTarget" BiologicalSex
-Optimization -d-> "studyTarget" Disease
-Optimization -d-> "studyTarget" Species
-Optimization -d-> "studyTarget" Organ
-Optimization -d-> "studyTarget" DiseaseModel
-Optimization -d-> "studyTarget" Strain
-Optimization -d-> "studyTarget" Phenotype
-Optimization -d-> "studyTarget" CellType
-Optimization -d-> "studyTarget" TermSuggestion
-Optimization -d-> "studyTarget" Handedness
-Optimization -d-> "studyTarget" ParcellationEntity
-Optimization -d-> "studyTarget" CustomAnatomicalEntity
-
-
-class WorkflowExecution {
-+stages
-+startedBy
-
-}
-WorkflowExecution -d-> "stages" Simulation
-WorkflowExecution -d-> "stages" DataAnalysis
-WorkflowExecution -d-> "stages" Visualization
-WorkflowExecution -d-> "startedBy" Person
-WorkflowExecution -d-> "startedBy" SoftwareAgent
-
-
 class GRIDID {
 +identifier
 
@@ -366,6 +82,7 @@ class Hash {
 
 class File {
 +content
++descendedFrom
 +fileRepository
 +format
 +hash
@@ -376,6 +93,10 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" File
+File -d-> "descendedFrom" FileBundle
+File -d-> "descendedFrom" BehavioralTask
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -386,6 +107,7 @@ File -d-> "storageSize" QuantitativeValue
 
 class FileBundle {
 +content
++descendedFrom
 +format
 +patternOfFilenames
 +groupedBy
@@ -395,6 +117,10 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" Technique
+FileBundle -d-> "descendedFrom" File
+FileBundle -d-> "descendedFrom" FileBundle
+FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -404,6 +130,7 @@ FileBundle -d-> "storageSize" QuantitativeValue
 
 
 class FileRepository {
++contentTypePattern
 +format
 +hash
 +hostedBy
@@ -411,13 +138,24 @@ class FileRepository {
 +name
 +repositoryType
 +storageSize
++structurePattern
 
 }
+FileRepository -d-> "contentTypePattern" ContentTypePattern
 FileRepository -d-> "format" ContentType
 FileRepository -d-> "hash" Hash
 FileRepository -d-> "hostedBy" Organization
 FileRepository -d-> "repositoryType" FileRepositoryType
 FileRepository -d-> "storageSize" QuantitativeValue
+FileRepository -d-> "structurePattern" FileRepositoryStructure
+
+
+class FileRepositoryStructure {
++filePathPattern
++lookupLabel
+
+}
+FileRepositoryStructure -d-> "filePathPattern" FilePathPattern
 
 
 class ServiceLink {
@@ -430,6 +168,23 @@ ServiceLink -d-> "dataLocation" File
 ServiceLink -d-> "dataLocation" FileBundle
 ServiceLink -d-> "openDataIn" URL
 ServiceLink -d-> "service" Service
+
+
+class FilePathPattern {
++groupingType
++regex
+
+}
+FilePathPattern -d-> "groupingType" FileBundleGrouping
+
+
+class ContentTypePattern {
++contentType
++lookupLabel
++regex
+
+}
+ContentTypePattern -d-> "contentType" ContentType
 
 
 class Copyright {
@@ -1393,6 +1148,290 @@ class CustomAnatomicalEntity {
 CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
 CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
 CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class Visualization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++description
++endedAtTime
++lookupLabel
++parameterSet
++startedAtTime
++studyTarget
+
+}
+Visualization -d-> "input" FileBundle
+Visualization -d-> "input" File
+Visualization -d-> "input" SoftwareVersion
+Visualization -d-> "output" FileBundle
+Visualization -d-> "output" File
+Visualization -d-> "environment" Environment
+Visualization -d-> "launchConfiguration" LaunchConfiguration
+Visualization -d-> "startedBy" Person
+Visualization -d-> "startedBy" SoftwareAgent
+Visualization -d-> "wasInformedBy" Computation
+Visualization -d-> "status" ActionStatusType
+Visualization -d-> "resourceUsage" QuantitativeValue
+Visualization -d-> "resourceUsage" QuantitativeValueRange
+Visualization -d-> "parameterSet" ParameterSet
+Visualization -d-> "studyTarget" BiologicalSex
+Visualization -d-> "studyTarget" Disease
+Visualization -d-> "studyTarget" Species
+Visualization -d-> "studyTarget" Organ
+Visualization -d-> "studyTarget" DiseaseModel
+Visualization -d-> "studyTarget" Strain
+Visualization -d-> "studyTarget" Phenotype
+Visualization -d-> "studyTarget" CellType
+Visualization -d-> "studyTarget" TermSuggestion
+Visualization -d-> "studyTarget" Handedness
+Visualization -d-> "studyTarget" ParcellationEntity
+Visualization -d-> "studyTarget" CustomAnatomicalEntity
+
+
+class Simulation {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++description
++endedAtTime
++lookupLabel
++parameterSet
++startedAtTime
++studyTarget
+
+}
+Simulation -d-> "input" FileBundle
+Simulation -d-> "input" File
+Simulation -d-> "input" SoftwareVersion
+Simulation -d-> "output" FileBundle
+Simulation -d-> "output" File
+Simulation -d-> "environment" Environment
+Simulation -d-> "launchConfiguration" LaunchConfiguration
+Simulation -d-> "startedBy" Person
+Simulation -d-> "startedBy" SoftwareAgent
+Simulation -d-> "wasInformedBy" Computation
+Simulation -d-> "status" ActionStatusType
+Simulation -d-> "resourceUsage" QuantitativeValue
+Simulation -d-> "resourceUsage" QuantitativeValueRange
+Simulation -d-> "parameterSet" ParameterSet
+Simulation -d-> "studyTarget" BiologicalSex
+Simulation -d-> "studyTarget" Disease
+Simulation -d-> "studyTarget" Species
+Simulation -d-> "studyTarget" Organ
+Simulation -d-> "studyTarget" DiseaseModel
+Simulation -d-> "studyTarget" Strain
+Simulation -d-> "studyTarget" Phenotype
+Simulation -d-> "studyTarget" CellType
+Simulation -d-> "studyTarget" TermSuggestion
+Simulation -d-> "studyTarget" Handedness
+Simulation -d-> "studyTarget" ParcellationEntity
+Simulation -d-> "studyTarget" CustomAnatomicalEntity
+
+
+class DataAnalysis {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++description
++endedAtTime
++lookupLabel
++parameterSet
++startedAtTime
++studyTarget
+
+}
+DataAnalysis -d-> "input" FileBundle
+DataAnalysis -d-> "input" File
+DataAnalysis -d-> "input" SoftwareVersion
+DataAnalysis -d-> "output" FileBundle
+DataAnalysis -d-> "output" File
+DataAnalysis -d-> "environment" Environment
+DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
+DataAnalysis -d-> "startedBy" Person
+DataAnalysis -d-> "startedBy" SoftwareAgent
+DataAnalysis -d-> "wasInformedBy" Computation
+DataAnalysis -d-> "status" ActionStatusType
+DataAnalysis -d-> "resourceUsage" QuantitativeValue
+DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
+DataAnalysis -d-> "parameterSet" ParameterSet
+DataAnalysis -d-> "studyTarget" BiologicalSex
+DataAnalysis -d-> "studyTarget" Disease
+DataAnalysis -d-> "studyTarget" Species
+DataAnalysis -d-> "studyTarget" Organ
+DataAnalysis -d-> "studyTarget" DiseaseModel
+DataAnalysis -d-> "studyTarget" Strain
+DataAnalysis -d-> "studyTarget" Phenotype
+DataAnalysis -d-> "studyTarget" CellType
+DataAnalysis -d-> "studyTarget" TermSuggestion
+DataAnalysis -d-> "studyTarget" Handedness
+DataAnalysis -d-> "studyTarget" ParcellationEntity
+DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
+
+
+class SoftwareAgent {
++name
++software
++environment
+
+}
+SoftwareAgent -d-> "software" SoftwareVersion
+SoftwareAgent -d-> "environment" Environment
+
+
+class HardwareSystem {
++name
++version
++description
+
+}
+
+
+class LaunchConfiguration {
++description
++name
++executable
++arguments
++environmentVariables
+
+}
+LaunchConfiguration -d-> "environmentVariables" ParameterSet
+
+
+class Environment {
++name
++hardware
++configuration
++software
++description
+
+}
+Environment -d-> "hardware" HardwareSystem
+Environment -d-> "configuration" ParameterSet
+Environment -d-> "software" SoftwareVersion
+
+
+class Computation {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++description
++endedAtTime
++lookupLabel
++parameterSet
++startedAtTime
++studyTarget
+
+}
+Computation -d-> "input" FileBundle
+Computation -d-> "input" File
+Computation -d-> "input" SoftwareVersion
+Computation -d-> "output" FileBundle
+Computation -d-> "output" File
+Computation -d-> "environment" Environment
+Computation -d-> "launchConfiguration" LaunchConfiguration
+Computation -d-> "startedBy" Person
+Computation -d-> "startedBy" SoftwareAgent
+Computation -d-> "wasInformedBy" Computation
+Computation -d-> "status" ActionStatusType
+Computation -d-> "resourceUsage" QuantitativeValue
+Computation -d-> "resourceUsage" QuantitativeValueRange
+Computation -d-> "parameterSet" ParameterSet
+Computation -d-> "studyTarget" BiologicalSex
+Computation -d-> "studyTarget" Disease
+Computation -d-> "studyTarget" Species
+Computation -d-> "studyTarget" Organ
+Computation -d-> "studyTarget" DiseaseModel
+Computation -d-> "studyTarget" Strain
+Computation -d-> "studyTarget" Phenotype
+Computation -d-> "studyTarget" CellType
+Computation -d-> "studyTarget" TermSuggestion
+Computation -d-> "studyTarget" Handedness
+Computation -d-> "studyTarget" ParcellationEntity
+Computation -d-> "studyTarget" CustomAnatomicalEntity
+
+
+class Optimization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++description
++endedAtTime
++lookupLabel
++parameterSet
++startedAtTime
++studyTarget
+
+}
+Optimization -d-> "input" FileBundle
+Optimization -d-> "input" File
+Optimization -d-> "input" SoftwareVersion
+Optimization -d-> "output" FileBundle
+Optimization -d-> "output" File
+Optimization -d-> "environment" Environment
+Optimization -d-> "launchConfiguration" LaunchConfiguration
+Optimization -d-> "startedBy" Person
+Optimization -d-> "startedBy" SoftwareAgent
+Optimization -d-> "wasInformedBy" Computation
+Optimization -d-> "status" ActionStatusType
+Optimization -d-> "resourceUsage" QuantitativeValue
+Optimization -d-> "resourceUsage" QuantitativeValueRange
+Optimization -d-> "parameterSet" ParameterSet
+Optimization -d-> "studyTarget" BiologicalSex
+Optimization -d-> "studyTarget" Disease
+Optimization -d-> "studyTarget" Species
+Optimization -d-> "studyTarget" Organ
+Optimization -d-> "studyTarget" DiseaseModel
+Optimization -d-> "studyTarget" Strain
+Optimization -d-> "studyTarget" Phenotype
+Optimization -d-> "studyTarget" CellType
+Optimization -d-> "studyTarget" TermSuggestion
+Optimization -d-> "studyTarget" Handedness
+Optimization -d-> "studyTarget" ParcellationEntity
+Optimization -d-> "studyTarget" CustomAnatomicalEntity
+
+
+class WorkflowExecution {
++stages
++startedBy
+
+}
+WorkflowExecution -d-> "stages" Simulation
+WorkflowExecution -d-> "stages" DataAnalysis
+WorkflowExecution -d-> "stages" Visualization
+WorkflowExecution -d-> "startedBy" Person
+WorkflowExecution -d-> "startedBy" SoftwareAgent
 
 
 class BehavioralTask {

@@ -19,6 +19,35 @@
             "title": "IRI",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/contentTypePattern": {
+            "_type": "https://openminds.ebrains.eu/core/ContentTypePattern",
+            "properties": {
+                "contentType": {
+                    "_instruction": "Enter the content type that can be defined by the given regular expression for file names/extentions.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/ContentType"
+                    ],
+                    "title": "contentType"
+                },
+                "lookupLabel": {
+                    "_instruction": "Enter a lookup label for this content type pattern.",
+                    "title": "lookupLabel",
+                    "type": "string"
+                },
+                "regex": {
+                    "_formats": [
+                        "ECMA262"
+                    ],
+                    "_instruction": "Enter a regular expression for the file names/extensions that defines the give content type.",
+                    "title": "regex",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "filePathPattern"
+            ],
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
             "description": "Method of digitally organizing and structuring data or information.",
@@ -209,14 +238,53 @@
                 "value"
             ],
             "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/structurePattern": {
+            "_instruction": "Add a file repository structure which identifies the file path patterns used in this file repository.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileRepositoryStructure"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "structurePattern",
+            "type": "object"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/IRI",
+        "@id",
         "@type",
         "https://openminds.ebrains.eu/vocab/name",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/hostedBy"
+        "https://openminds.ebrains.eu/vocab/hostedBy",
+        "https://openminds.ebrains.eu/vocab/IRI"
     ],
     "type": "object"
 }

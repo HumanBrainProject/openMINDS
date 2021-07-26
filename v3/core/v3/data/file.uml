@@ -1,6 +1,7 @@
 @startuml
 class File {
 +content
++descendedFrom
 +fileRepository
 +format
 +hash
@@ -11,6 +12,10 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" File
+File -d-> "descendedFrom" FileBundle
+File -d-> "descendedFrom" BehavioralTask
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
