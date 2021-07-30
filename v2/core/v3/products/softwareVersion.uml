@@ -1,0 +1,68 @@
+@startuml
+class SoftwareVersion {
++applicationCategory
++developer
++device
++digitalIdentifier
++hasComponent
++feature
++requirement
++inputFormat
++isAlternativeVersionOf
++isNewVersionOf
++language
++license
++operatingSystem
++outputFormat
++programmingLanguage
++accessibility
++copyright
++custodian
++description
++fullDocumentation
++fullName
++funding
++homepage
++howToCite
++keyword
++otherContribution
++relatedPublication
++releaseDate
++repository
++shortName
++supportChannel
++versionIdentifier
++versionInnovation
+
+}
+SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
+SoftwareVersion -d-> "developer" Organization
+SoftwareVersion -d-> "developer" Person
+SoftwareVersion -d-> "device" OperatingDevice
+SoftwareVersion -d-> "digitalIdentifier" DOI
+SoftwareVersion -d-> "digitalIdentifier" SWHID
+SoftwareVersion -d-> "hasComponent" SoftwareVersion
+SoftwareVersion -d-> "feature" SoftwareFeature
+SoftwareVersion -d-> "inputFormat" ContentType
+SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
+SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
+SoftwareVersion -d-> "language" Language
+SoftwareVersion -d-> "license" License
+SoftwareVersion -d-> "operatingSystem" OperatingSystem
+SoftwareVersion -d-> "outputFormat" ContentType
+SoftwareVersion -d-> "programmingLanguage" ProgrammingLanguage
+SoftwareVersion -d-> "accessibility" ProductAccessibility
+SoftwareVersion -d-> "copyright" Copyright
+SoftwareVersion -d-> "custodian" Organization
+SoftwareVersion -d-> "custodian" Person
+SoftwareVersion -d-> "fullDocumentation" DOI
+SoftwareVersion -d-> "fullDocumentation" File
+SoftwareVersion -d-> "fullDocumentation" URL
+SoftwareVersion -d-> "funding" Funding
+SoftwareVersion -d-> "homepage" URL
+SoftwareVersion -d-> "otherContribution" Contribution
+SoftwareVersion -d-> "relatedPublication" DOI
+SoftwareVersion -d-> "relatedPublication" ISBN
+SoftwareVersion -d-> "repository" FileRepository
+
+@enduml
