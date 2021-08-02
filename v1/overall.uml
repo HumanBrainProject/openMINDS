@@ -252,7 +252,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" Disease
@@ -263,6 +262,7 @@ ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" Phenotype
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" BiologicalSex
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class Protocol {
@@ -272,7 +272,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" DiseaseModel
 Protocol -d-> "studyOption" Disease
@@ -283,6 +282,7 @@ Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" Phenotype
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" BiologicalSex
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -659,7 +659,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" Disease
@@ -670,6 +669,7 @@ Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" Phenotype
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" BiologicalSex
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
