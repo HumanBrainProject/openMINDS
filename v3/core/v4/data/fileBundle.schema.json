@@ -48,10 +48,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/Technique",
                                 "https://openminds.ebrains.eu/core/BehavioralTask",
                                 "https://openminds.ebrains.eu/core/FileBundle",
-                                "https://openminds.ebrains.eu/core/File"
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -107,9 +107,8 @@
             "title": "format",
             "type": "object"
         },
-        "https://openminds.ebrains.eu/vocab/groupedBy": {
-            "_instruction": "Add the concept which was used to group file instances into this file bundle.",
-            "description": "Reference to the aspect used to group something.",
+        "https://openminds.ebrains.eu/vocab/groupingType": {
+            "_instruction": "Add the type of grouping that was used to define this file bundle.",
             "else": {
                 "properties": {
                     "@id": {
@@ -144,7 +143,7 @@
                     "@id"
                 ]
             },
-            "title": "groupedBy",
+            "title": "groupingType",
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/hash": {
@@ -268,9 +267,9 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "@type",
         "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
         "@id"
     ],
     "type": "object"
