@@ -51,6 +51,12 @@
             "title": "dataLocation",
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a name that should be used as preferred display label for this service link.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
         "https://openminds.ebrains.eu/vocab/openDataIn": {
             "_instruction": "Add the uniform resource locator (URL) to open the linked data in the specified service.",
             "else": {
@@ -131,11 +137,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/openDataIn",
-        "@type",
-        "@id",
         "https://openminds.ebrains.eu/vocab/service",
-        "https://openminds.ebrains.eu/vocab/dataLocation"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/dataLocation",
+        "https://openminds.ebrains.eu/vocab/openDataIn",
+        "@id"
     ],
     "type": "object"
 }
