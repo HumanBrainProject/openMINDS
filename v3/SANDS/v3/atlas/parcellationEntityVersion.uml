@@ -1,0 +1,19 @@
+@startuml
+class ParcellationEntityVersion {
++hasAnnotation
++hasParent
++name
++ontologyIdentifier
++relatedUBERONTerm
++relationAssessment
++versionIdentifier
++versionInnovation
+
+}
+ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
+ParcellationEntityVersion -d-> "relatedUBERONTerm" UBERONParcellation
+ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
+ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
+
+@enduml
