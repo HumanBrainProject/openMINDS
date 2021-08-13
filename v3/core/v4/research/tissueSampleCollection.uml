@@ -1,5 +1,6 @@
 @startuml
 class TissueSampleCollection {
++anatomicalLocation
 +laterality
 +origin
 +studiedState
@@ -14,6 +15,10 @@ class TissueSampleCollection {
 +strain
 
 }
+TissueSampleCollection -d-> "anatomicalLocation" UBERONParcellation
+TissueSampleCollection -d-> "anatomicalLocation" CustomAnatomicalEntity
+TissueSampleCollection -d-> "anatomicalLocation" ParcellationEntity
+TissueSampleCollection -d-> "anatomicalLocation" ParcellationEntityVersion
 TissueSampleCollection -d-> "laterality" Laterality
 TissueSampleCollection -d-> "origin" CellType
 TissueSampleCollection -d-> "origin" Organ

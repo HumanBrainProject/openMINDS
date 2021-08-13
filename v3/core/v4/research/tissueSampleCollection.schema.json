@@ -17,6 +17,52 @@
             "title": "additionalRemarks",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
+            "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "anatomicalLocation",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/biologicalSex": {
             "_instruction": "Add the biological sex of all specimen in this set.",
             "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
@@ -390,12 +436,12 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/biologicalSex",
+        "https://openminds.ebrains.eu/vocab/studiedState",
         "https://openminds.ebrains.eu/vocab/species",
+        "https://openminds.ebrains.eu/vocab/origin",
         "@type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/origin",
-        "https://openminds.ebrains.eu/vocab/studiedState",
-        "https://openminds.ebrains.eu/vocab/biologicalSex",
         "https://openminds.ebrains.eu/vocab/type"
     ],
     "type": "object"
