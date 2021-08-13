@@ -1,16 +1,16 @@
 @startuml
 class BrainAtlas {
-+description
++author
 +digitalIdentifier
-+fullName
++hasTerminology
 +hasVersion
-+homepage
-+howToCite
-+shortName
 
 }
+BrainAtlas -d-> "author" Organization
+BrainAtlas -d-> "author" Person
 BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "digitalIdentifier" ISBN
+BrainAtlas -d-> "hasTerminology" ParcellationTerminology
 BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-BrainAtlas -d-> "homepage" URL
 
 @enduml

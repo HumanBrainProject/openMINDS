@@ -56,44 +56,48 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
-            "_instruction": "Add the available version(s) of this parcellation entity.",
+            "_instruction": "Add one or several versions of this parcellation entity.",
             "description": "Reference to variants of an original.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "hasVersion",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name for this parcellation entity.",
@@ -149,10 +153,10 @@
         }
     },
     "required": [
-        "@type",
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/hasVersion"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
+        "@id"
     ],
     "type": "object"
 }

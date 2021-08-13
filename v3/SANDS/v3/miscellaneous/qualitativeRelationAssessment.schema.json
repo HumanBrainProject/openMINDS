@@ -53,7 +53,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/inRelationTo": {
-            "_instruction": "Add the anatomical entity to which the relation is described.",
+            "_instruction": "Add the parcellation entity version to which the relation is described.",
             "description": "Reference to a related element.",
             "else": {
                 "properties": {
@@ -79,7 +79,7 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -134,10 +134,10 @@
         }
     },
     "required": [
-        "@id",
-        "https://openminds.ebrains.eu/vocab/inRelationTo",
         "https://openminds.ebrains.eu/vocab/qualitativeOverlap",
-        "@type"
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/inRelationTo"
     ],
     "type": "object"
 }
