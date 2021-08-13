@@ -57,7 +57,10 @@
             "properties": {
                 "holder": {
                     "_instruction": "Add one or several persons or organisations that hold the copyright.",
-                    "_linkedTypes": [],
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Person"
+                    ],
                     "description": "Legal person in possession of something.",
                     "minItems": 1,
                     "title": "holder",
@@ -105,7 +108,10 @@
                             "type": "string"
                         },
                         "@type": {
-                            "enum": [],
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
                             "format": "iri",
                             "type": "string"
                         }
@@ -154,7 +160,10 @@
                             "type": "string"
                         },
                         "@type": {
-                            "enum": [],
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
                             "format": "iri",
                             "type": "string"
                         }
@@ -501,7 +510,10 @@
                 },
                 "contributor": {
                     "_instruction": "Add the contributing person or organization.",
-                    "_linkedTypes": [],
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Person"
+                    ],
                     "description": "Legal person that gave or supplied something as a part or share.",
                     "title": "contributor"
                 }
@@ -768,17 +780,17 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/funding",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/funding",
         "@id",
+        "https://openminds.ebrains.eu/vocab/accessibility",
         "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/license"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
 }
