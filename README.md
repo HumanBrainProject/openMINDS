@@ -1,4 +1,4 @@
-<a href="https://github.com/HumanBrainProject/openMINDS/blob/main/img/openMINDS_logo.png">
+<a href="https://github.com/HumanBrainProject/openMINDS/blob/main/img/light_openMINDS-logo.png">
     <img src="https://github.com/HumanBrainProject/openMINDS/blob/main/img/light_openMINDS-logo.png" alt="openMINDS logo" title="openMINDS" align="right" height="70" />
 </a>
 
