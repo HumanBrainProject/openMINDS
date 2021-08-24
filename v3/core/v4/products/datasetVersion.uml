@@ -9,9 +9,11 @@ class DatasetVersion {
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
++preparationDesign
 +studiedSpecimen
 +technique
-+type
++dataType
++studyTarget
 +accessibility
 +copyright
 +custodian
@@ -44,12 +46,27 @@ DatasetVersion -d-> "inputData" FileBundle
 DatasetVersion -d-> "isAlternativeVersionOf" DatasetVersion
 DatasetVersion -d-> "isNewVersionOf" DatasetVersion
 DatasetVersion -d-> "license" License
+DatasetVersion -d-> "preparationDesign" PreparationType
 DatasetVersion -d-> "studiedSpecimen" Subject
 DatasetVersion -d-> "studiedSpecimen" SubjectGroup
 DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "technique" Technique
-DatasetVersion -d-> "type" SemanticDataType
+DatasetVersion -d-> "dataType" SemanticDataType
+DatasetVersion -d-> "studyTarget" CellType
+DatasetVersion -d-> "studyTarget" DiseaseModel
+DatasetVersion -d-> "studyTarget" Disease
+DatasetVersion -d-> "studyTarget" Strain
+DatasetVersion -d-> "studyTarget" TermSuggestion
+DatasetVersion -d-> "studyTarget" Species
+DatasetVersion -d-> "studyTarget" Organ
+DatasetVersion -d-> "studyTarget" Phenotype
+DatasetVersion -d-> "studyTarget" Handedness
+DatasetVersion -d-> "studyTarget" BiologicalOrder
+DatasetVersion -d-> "studyTarget" BiologicalSex
+DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
+DatasetVersion -d-> "studyTarget" ParcellationEntity
+DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Organization
@@ -59,6 +76,20 @@ DatasetVersion -d-> "fullDocumentation" File
 DatasetVersion -d-> "fullDocumentation" URL
 DatasetVersion -d-> "funding" Funding
 DatasetVersion -d-> "homepage" URL
+DatasetVersion -d-> "keyword" CellType
+DatasetVersion -d-> "keyword" DiseaseModel
+DatasetVersion -d-> "keyword" Disease
+DatasetVersion -d-> "keyword" Strain
+DatasetVersion -d-> "keyword" TermSuggestion
+DatasetVersion -d-> "keyword" Species
+DatasetVersion -d-> "keyword" Organ
+DatasetVersion -d-> "keyword" Phenotype
+DatasetVersion -d-> "keyword" Handedness
+DatasetVersion -d-> "keyword" BiologicalOrder
+DatasetVersion -d-> "keyword" BiologicalSex
+DatasetVersion -d-> "keyword" ParcellationEntityVersion
+DatasetVersion -d-> "keyword" ParcellationEntity
+DatasetVersion -d-> "keyword" CustomAnatomicalEntity
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DOI
 DatasetVersion -d-> "relatedPublication" ISBN

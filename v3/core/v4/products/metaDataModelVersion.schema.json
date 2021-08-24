@@ -442,10 +442,56 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/keyword": {
-            "_instruction": "Enter custom keywords to this research product version.",
+            "_instruction": "Add controlled or suggest new terms as keywords to this research product version.",
             "description": "Significant word or concept that are representative of something or someone.",
             "items": {
-                "type": "string"
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
             "maxItems": 5,
             "minItems": 1,
@@ -780,16 +826,16 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
         "https://openminds.ebrains.eu/vocab/accessibility",
         "@type",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/type",
         "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier"
+        "@id",
+        "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation"
     ],
     "type": "object"
 }

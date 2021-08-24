@@ -216,6 +216,49 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/dataType": {
+            "_instruction": "Add all data types (raw, derived or simulated) provided in this dataset version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/SemanticDataType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "dataType",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "If necessary, enter a version specific description (abstract) for this research product version (max. 2000 characters, incl. spaces; no references). If left blank, the research product version will inherit the 'description' of it's corresponding research product.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -615,10 +658,56 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/keyword": {
-            "_instruction": "Enter custom keywords to this research product version.",
+            "_instruction": "Add controlled or suggest new terms as keywords to this research product version.",
             "description": "Significant word or concept that are representative of something or someone.",
             "items": {
-                "type": "string"
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
             "maxItems": 5,
             "minItems": 1,
@@ -696,6 +785,49 @@
                 "contributor"
             ],
             "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/preparationDesign": {
+            "_instruction": "Add all preparation types of this dataset version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/PreparationType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "preparationDesign",
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/relatedPublication": {
             "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
@@ -842,6 +974,63 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/studyTarget": {
+            "_instruction": "Add all study targets of this dataset version.",
+            "description": "Structure or function that was targeted within a study.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "studyTarget",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/supportChannel": {
             "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
             "description": "Way of communication used to interact with users or customers.",
@@ -901,50 +1090,6 @@
             "type": "array",
             "uniqueItems": true
         },
-        "https://openminds.ebrains.eu/vocab/type": {
-            "_instruction": "Add all data types (raw, derived or simulated) provided in this dataset version.",
-            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/SemanticDataType"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "type",
-            "type": "array",
-            "uniqueItems": true
-        },
         "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this research product version.",
             "description": "Term or code used to identify the version of something.",
@@ -959,19 +1104,19 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/technique",
         "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/ethicsAssessment",
-        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
         "https://openminds.ebrains.eu/vocab/experimentalApproach",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/ethicsAssessment",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
         "@id",
         "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
+        "https://openminds.ebrains.eu/vocab/technique",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
         "https://openminds.ebrains.eu/vocab/versionIdentifier"
     ],
     "type": "object"

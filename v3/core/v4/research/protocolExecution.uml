@@ -4,7 +4,7 @@ class ProtocolExecution {
 +input
 +isPartOf
 +output
-+preparationType
++preparationDesign
 +protocol
 +description
 +endedAtTime
@@ -28,12 +28,9 @@ ProtocolExecution -d-> "output" SubjectGroupState
 ProtocolExecution -d-> "output" SubjectState
 ProtocolExecution -d-> "output" TissueSampleCollectionState
 ProtocolExecution -d-> "output" TissueSampleState
-ProtocolExecution -d-> "preparationType" PreparationType
+ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" Disease
@@ -45,5 +42,8 @@ ProtocolExecution -d-> "studyTarget" Phenotype
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" BiologicalSex
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml
