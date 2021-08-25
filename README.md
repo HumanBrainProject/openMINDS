@@ -8,8 +8,7 @@ You are on the openMINDS version branch **v3**. This openMINDS version ingests t
 [openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) (submodule branch v3)  
 [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) (submodule branch v1)  
 [openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) (submodule branch v1)  
-[openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (in dev)  
-[openMINDS_ephys](https://github.com/HumanBrainProject/openMINDS_ephys) (in dev)  
+[openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (submodule branch v1)
 
 For more information please go to the [main README](https://github.com/HumanBrainProject/openMINDS/blob/main/README.md).
 
