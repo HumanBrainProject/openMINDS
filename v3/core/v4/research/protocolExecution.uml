@@ -1,6 +1,6 @@
 @startuml
 class ProtocolExecution {
-+behavioralTask
++behavioralProtocol
 +input
 +isPartOf
 +output
@@ -14,7 +14,7 @@ class ProtocolExecution {
 +studyTarget
 
 }
-ProtocolExecution -d-> "behavioralTask" BehavioralTask
+ProtocolExecution -d-> "behavioralProtocol" BehavioralProtocol
 ProtocolExecution -d-> "input" File
 ProtocolExecution -d-> "input" FileBundle
 ProtocolExecution -d-> "input" SubjectGroupState
@@ -31,9 +31,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" Disease
@@ -45,5 +42,8 @@ ProtocolExecution -d-> "studyTarget" Phenotype
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" BiologicalSex
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml

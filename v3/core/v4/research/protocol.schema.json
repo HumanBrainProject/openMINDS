@@ -24,8 +24,8 @@
             "title": "name",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/studyOption": {
-            "_instruction": "Add all study options this protocol offers.",
+        "https://openminds.ebrains.eu/vocab/stimulation": {
+            "_instruction": "Add all stimulations used with this protocol.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,20 +51,7 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
-                                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                                "https://openminds.ebrains.eu/controlledTerms/Strain",
-                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/Species",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
-                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
-                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex"
+                                "https://openminds.ebrains.eu/core/Stimulation"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -76,7 +63,7 @@
                 }
             },
             "minItems": 1,
-            "title": "studyOption",
+            "title": "stimulation",
             "type": "array",
             "uniqueItems": true
         },
@@ -126,11 +113,11 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/technique",
         "@id",
+        "@type",
         "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/description"
+        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/technique"
     ],
     "type": "object"
 }
