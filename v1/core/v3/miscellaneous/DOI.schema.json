@@ -1,0 +1,30 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/dOI?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/DOI",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DOI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of the International Digital Object Identifier Foundation.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://doi.org/10.[0-9]{4,9}/[-._;()/:A-Za-z0-9]+",
+            "title": "identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "type": "object"
+}

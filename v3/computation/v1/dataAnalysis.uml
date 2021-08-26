@@ -1,0 +1,28 @@
+@startuml
+class DataAnalysis {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+DataAnalysis -d-> "input" FileBundle
+DataAnalysis -d-> "input" File
+DataAnalysis -d-> "input" SoftwareVersion
+DataAnalysis -d-> "output" FileBundle
+DataAnalysis -d-> "output" File
+DataAnalysis -d-> "environment" Environment
+DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
+DataAnalysis -d-> "startedBy" Person
+DataAnalysis -d-> "startedBy" SoftwareAgent
+DataAnalysis -d-> "wasInformedBy" Computation
+DataAnalysis -d-> "status" ActionStatusType
+DataAnalysis -d-> "resourceUsage" QuantitativeValue
+DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
+
+@enduml

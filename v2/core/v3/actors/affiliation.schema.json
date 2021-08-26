@@ -1,0 +1,75 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/affiliation?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Affiliation",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Affiliation",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/endDate": {
+            "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+            "description": "Date in the Gregorian calendar at which something terminates in time.",
+            "format": "date",
+            "title": "endDate",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/organization": {
+            "_instruction": "Add organization to which a person is or was affiliated.",
+            "description": "Legally accountable, administrative and functional structure.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Organization"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "organization",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/startDate": {
+            "_instruction": "Enter the start date of this affiliation.",
+            "description": "Date in the Gregorian calendar at which something begins in time",
+            "format": "date",
+            "title": "startDate",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/organization",
+        "@id"
+    ],
+    "type": "object"
+}

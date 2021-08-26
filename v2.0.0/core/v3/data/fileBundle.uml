@@ -1,0 +1,19 @@
+@startuml
+class FileBundle {
++format
++patternOfFilenames
++groupedBy
++hash
++isPartOf
++name
++storageSize
+
+}
+FileBundle -d-> "format" ContentType
+FileBundle -d-> "groupedBy" FileBundleGrouping
+FileBundle -d-> "hash" Hash
+FileBundle -d-> "isPartOf" FileBundle
+FileBundle -d-> "isPartOf" FileRepository
+FileBundle -d-> "storageSize" QuantitativeValue
+
+@enduml

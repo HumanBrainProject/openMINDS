@@ -1,0 +1,30 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/rORID?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/RORID",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/RORID",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of the Research Organization Registry.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://ror.org/0([0-9]|[^ILO]|[a-z]){6}[0-9]{2}$",
+            "title": "identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "type": "object"
+}
