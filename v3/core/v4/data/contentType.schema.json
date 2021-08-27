@@ -12,6 +12,49 @@
             "const": "https://openminds.ebrains.eu/core/ContentType",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/dataTypes": {
+            "_instruction": "Add all data types that may be represented via this content type.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/DataType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "dataTypes",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -62,9 +105,9 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
+        "@id",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }
