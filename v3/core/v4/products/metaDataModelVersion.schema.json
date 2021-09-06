@@ -58,8 +58,8 @@
                 "holder": {
                     "_instruction": "Add one or several persons or organisations that hold the copyright.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/Organization",
-                        "https://openminds.ebrains.eu/core/Person"
+                        "https://openminds.ebrains.eu/core/Person",
+                        "https://openminds.ebrains.eu/core/Organization"
                     ],
                     "description": "Legal person in possession of something.",
                     "minItems": 1,
@@ -109,8 +109,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/Organization",
-                                "https://openminds.ebrains.eu/core/Person"
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Organization"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -161,8 +161,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/Organization",
-                                "https://openminds.ebrains.eu/core/Person"
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Organization"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -402,7 +402,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-            "_instruction": "Add the dataset version preceding this (meta)data model version.",
+            "_instruction": "Add the (meta)data version preceding this (meta)data model version.",
             "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
@@ -469,20 +469,20 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
                                 "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
-                                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                                "https://openminds.ebrains.eu/controlledTerms/Strain",
-                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/Species",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
                                 "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/Strain",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
-                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex"
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -557,8 +557,8 @@
                 "contributor": {
                     "_instruction": "Add the contributing person or organization.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/Organization",
-                        "https://openminds.ebrains.eu/core/Person"
+                        "https://openminds.ebrains.eu/core/Person",
+                        "https://openminds.ebrains.eu/core/Organization"
                     ],
                     "description": "Legal person that gave or supplied something as a part or share.",
                     "title": "contributor"
@@ -826,16 +826,16 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
         "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "@id",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation"
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/type"
     ],
     "type": "object"
 }
