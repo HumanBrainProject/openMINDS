@@ -237,7 +237,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
@@ -245,6 +244,7 @@ FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" TissueSampleState
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -266,7 +266,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" TissueSampleCollectionState
@@ -274,6 +273,7 @@ File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" TissueSampleState
+File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -432,6 +432,7 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" Strain
@@ -443,7 +444,6 @@ Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" Disease
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -598,6 +598,7 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" Strain
@@ -609,7 +610,6 @@ ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" Disease
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class TissueSampleCollection {
@@ -696,6 +696,7 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" Strain
@@ -707,7 +708,6 @@ Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" Disease
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
