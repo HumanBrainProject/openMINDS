@@ -154,45 +154,49 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/hasParent": {
-            "_instruction": "Add for this parcellation entity version the defined anatomical parent structure (version).",
+            "_instruction": "Add the defined anatomical parent structure (version) for this parcellation entity version, or several if required.",
             "description": "Reference to a parent object or legal person.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                            "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "hasParent",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "If necessary, enter a version specific name for this parcellation entity version. If left blank, the parcellation entity version will inherit the 'name' of it's corresponding parcellation entity.",
@@ -371,8 +375,8 @@
     },
     "required": [
         "@type",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier"
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "@id"
     ],
     "type": "object"
 }
