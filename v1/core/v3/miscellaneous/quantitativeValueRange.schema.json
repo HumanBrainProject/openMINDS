@@ -17,53 +17,15 @@
             "title": "maxValue",
             "type": "number"
         },
-        "https://openminds.ebrains.eu/vocab/maxValueUnit": {
-            "_instruction": "Add the unit of measurement for the maximum value of this quantitative value range.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "maxValueUnit",
-            "type": "object"
-        },
         "https://openminds.ebrains.eu/vocab/minValue": {
             "_instruction": "Add the minimum value measured for this range.",
             "description": "Smallest quantity attained or allowed.",
             "title": "minValue",
             "type": "number"
         },
-        "https://openminds.ebrains.eu/vocab/minValueUnit": {
-            "_instruction": "Add the unit of measurement for the minimum value of this quantitative value range.",
+        "https://openminds.ebrains.eu/vocab/unit": {
+            "_instruction": "Add the unit of measurement of this quantitative value range.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -98,15 +60,15 @@
                     "@id"
                 ]
             },
-            "title": "minValueUnit",
+            "title": "unit",
             "type": "object"
         }
     },
     "required": [
-        "@type",
-        "@id",
         "https://openminds.ebrains.eu/vocab/maxValue",
-        "https://openminds.ebrains.eu/vocab/minValue"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/minValue",
+        "@id"
     ],
     "type": "object"
 }
