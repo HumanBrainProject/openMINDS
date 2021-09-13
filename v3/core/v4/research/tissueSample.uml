@@ -1,5 +1,6 @@
 @startuml
 class TissueSample {
++descendedFrom
 +isPartOf
 +laterality
 +origin
@@ -14,6 +15,10 @@ class TissueSample {
 +strain
 
 }
+TissueSample -d-> "descendedFrom" SubjectGroupState
+TissueSample -d-> "descendedFrom" SubjectState
+TissueSample -d-> "descendedFrom" TissueSampleCollectionState
+TissueSample -d-> "descendedFrom" TissueSampleState
 TissueSample -d-> "isPartOf" TissueSampleCollection
 TissueSample -d-> "laterality" Laterality
 TissueSample -d-> "origin" CellType
