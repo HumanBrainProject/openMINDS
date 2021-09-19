@@ -18,7 +18,7 @@ For more details please go to: [Code of conduct](#code-of-conduct)
 
 ## Report & ask questions <a name="report-questions"/>
 
-In particular, general feedback and questions are welcome through our support-email: **`openminds@ebrains.eu`** (not active yet)
+In particular, general feedback and questions are welcome through our support-email: **`openminds@ebrains.eu`**
 
 It is also possible to request new features or report bugs this way, but in these cases we prefer if you could raise an issue on the respective GitHub repository (see below).
 
@@ -27,6 +27,8 @@ If you write us an email, please make sure that you provide a meaningful subject
 You can also report and ask questions through the issue tracker of this GitHub repository. However, if your concern is not of general nature or affecting the central openMINDS repository, please consider raising an issue on the affected openMINDS repository instead.
 
 If you raise an issue, please make sure that you provide a short meaningful title and a more detailed description that declares your concern. In particular for bug reports, provide us with a screen shot or copy of your error message (where applicable). 
+
+Please also checkout the [openMINDS Community Forum](https://neurostars.org/t/openminds-community-forum-virtual/20156) on INCF NeuroStars. You can just follow  discussions of the openMINDS community there or actively participate and inform us about your view of an open topic.
 
 [BACK TO TOP](#top)
 
