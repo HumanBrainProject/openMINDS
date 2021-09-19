@@ -36,7 +36,7 @@ Behind the scenes, the openMINDS integration pipeline (cf. [openMINDS_generator]
 
 If you have general feedback or a request for a new feature, want to report a bug or have a question, please get in touch with us via our support-email (**`openminds@ebrains.eu`**) or via the issue tracker on one of our GitHub repositories. You can also follow or actively participate in the discussions on the [openMINDS Community Forum](https://neurostars.org/t/openminds-community-forum-virtual/20156) on INCF NeuroStars.
 
-If you spot a bug and know how to fix it, if you want to extend existing schemas and/or metadata models, or develop new schemas and/or metadata models, feel always free to also contribute directly by raising an issue and making a pull request on the respective GitHub repository. 
+If you spot a bug and know how to fix it, if you want to extend existing schemas and/or metadata models, or develop new schemas and/or metadata models, feel always free to contribute directly by raising an issue and making a pull request on the respective GitHub repository. 
 
 For more information on how to contribute, please have a look at our [CONTRIBUTING](./CONTRIBUTING.md) document.
 
