@@ -1,5 +1,6 @@
 @startuml
 class TissueSampleCollectionState {
++descendedFrom
 +additionalRemarks
 +age
 +lookupLabel
@@ -7,6 +8,10 @@ class TissueSampleCollectionState {
 +weight
 
 }
+TissueSampleCollectionState -d-> "descendedFrom" SubjectGroupState
+TissueSampleCollectionState -d-> "descendedFrom" SubjectState
+TissueSampleCollectionState -d-> "descendedFrom" TissueSampleCollectionState
+TissueSampleCollectionState -d-> "descendedFrom" TissueSampleState
 TissueSampleCollectionState -d-> "age" QuantitativeValue
 TissueSampleCollectionState -d-> "age" QuantitativeValueRange
 TissueSampleCollectionState -d-> "pathology" Disease

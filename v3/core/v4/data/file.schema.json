@@ -28,6 +28,49 @@
             "title": "content",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/dataType": {
+            "_instruction": "Add all data types that are specifially represented in this file.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/DataType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "dataType",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/fileRepository": {
             "_instruction": "Add the over all repository to which this single file belongs.",
             "else": {
@@ -266,10 +309,10 @@
     },
     "required": [
         "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/IRI",
         "https://openminds.ebrains.eu/vocab/name",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/IRI"
     ],
     "type": "object"
 }

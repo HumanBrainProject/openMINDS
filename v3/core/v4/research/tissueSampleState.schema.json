@@ -104,6 +104,52 @@
                 }
             ]
         },
+        "https://openminds.ebrains.eu/vocab/descendedFrom": {
+            "_instruction": "Add all specimen states used to produce or obtain this tissue sample state.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "descendedFrom",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
             "_instruction": "Enter a lookup label for this specimen (set) state that may help you to more easily find it again.",
             "title": "lookupLabel",
@@ -239,8 +285,8 @@
         }
     },
     "required": [
-        "@id",
-        "@type"
+        "@type",
+        "@id"
     ],
     "type": "object"
 }
