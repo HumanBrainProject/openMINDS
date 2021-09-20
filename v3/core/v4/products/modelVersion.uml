@@ -3,6 +3,7 @@ class ModelVersion {
 +developer
 +digitalIdentifier
 +format
++hasComponent
 +inputData
 +isAlternativeVersionOf
 +isNewVersionOf
@@ -33,6 +34,7 @@ ModelVersion -d-> "developer" Person
 ModelVersion -d-> "digitalIdentifier" DOI
 ModelVersion -d-> "digitalIdentifier" SWHID
 ModelVersion -d-> "format" ContentType
+ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DOI
 ModelVersion -d-> "inputData" File
 ModelVersion -d-> "inputData" FileBundle
