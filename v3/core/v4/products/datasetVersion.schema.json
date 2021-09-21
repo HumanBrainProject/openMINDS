@@ -171,7 +171,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/custodian": {
-            "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product version.",
+            "_instruction": "Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product.",
             "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
             "items": {
                 "else": {
@@ -480,50 +480,6 @@
             "type": "array",
             "uniqueItems": true
         },
-        "https://openminds.ebrains.eu/vocab/hasComponent": {
-            "_instruction": "Add all dataset versions that supplement this dataset version.",
-            "description": "Reference to an element of a collection.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/DatasetVersion"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "hasComponent",
-            "type": "array",
-            "uniqueItems": true
-        },
         "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product version.",
             "description": "Main website of something or someone.",
@@ -728,6 +684,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/Organ",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
@@ -739,10 +698,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
                                 "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/CellType"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -1046,6 +1002,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/Organ",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
@@ -1057,10 +1016,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
                                 "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/CellType"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -1149,20 +1105,20 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/technique",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
+        "https://openminds.ebrains.eu/vocab/experimentalApproach",
+        "https://openminds.ebrains.eu/vocab/dataType",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/ethicsAssessment",
         "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/experimentalApproach",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/dataType",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/technique",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/digitalIdentifier"
+        "https://openminds.ebrains.eu/vocab/versionIdentifier"
     ],
     "type": "object"
 }

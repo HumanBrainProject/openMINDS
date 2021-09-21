@@ -3,7 +3,6 @@ class ModelVersion {
 +developer
 +digitalIdentifier
 +format
-+hasComponent
 +inputData
 +isAlternativeVersionOf
 +isNewVersionOf
@@ -34,7 +33,6 @@ ModelVersion -d-> "developer" Person
 ModelVersion -d-> "digitalIdentifier" DOI
 ModelVersion -d-> "digitalIdentifier" SWHID
 ModelVersion -d-> "format" ContentType
-ModelVersion -d-> "hasComponent" ModelVersion
 ModelVersion -d-> "inputData" DOI
 ModelVersion -d-> "inputData" File
 ModelVersion -d-> "inputData" FileBundle
@@ -53,6 +51,9 @@ ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "fullDocumentation" URL
 ModelVersion -d-> "funding" Funding
 ModelVersion -d-> "homepage" URL
+ModelVersion -d-> "keyword" ParcellationEntityVersion
+ModelVersion -d-> "keyword" ParcellationEntity
+ModelVersion -d-> "keyword" CustomAnatomicalEntity
 ModelVersion -d-> "keyword" Organ
 ModelVersion -d-> "keyword" Disease
 ModelVersion -d-> "keyword" BiologicalOrder
@@ -65,9 +66,6 @@ ModelVersion -d-> "keyword" BiologicalSex
 ModelVersion -d-> "keyword" UBERONParcellation
 ModelVersion -d-> "keyword" TermSuggestion
 ModelVersion -d-> "keyword" CellType
-ModelVersion -d-> "keyword" ParcellationEntityVersion
-ModelVersion -d-> "keyword" ParcellationEntity
-ModelVersion -d-> "keyword" CustomAnatomicalEntity
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DOI
 ModelVersion -d-> "relatedPublication" ISBN

@@ -2,7 +2,6 @@
 class MetaDataModelVersion {
 +developer
 +digitalIdentifier
-+hasComponent
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
@@ -33,7 +32,6 @@ MetaDataModelVersion -d-> "developer" Organization
 MetaDataModelVersion -d-> "developer" Person
 MetaDataModelVersion -d-> "digitalIdentifier" DOI
 MetaDataModelVersion -d-> "digitalIdentifier" SWHID
-MetaDataModelVersion -d-> "hasComponent" MetaDataVersion
 MetaDataModelVersion -d-> "isAlternativeVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
 MetaDataModelVersion -d-> "license" License
@@ -49,6 +47,9 @@ MetaDataModelVersion -d-> "fullDocumentation" File
 MetaDataModelVersion -d-> "fullDocumentation" URL
 MetaDataModelVersion -d-> "funding" Funding
 MetaDataModelVersion -d-> "homepage" URL
+MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
+MetaDataModelVersion -d-> "keyword" ParcellationEntity
+MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
 MetaDataModelVersion -d-> "keyword" Organ
 MetaDataModelVersion -d-> "keyword" Disease
 MetaDataModelVersion -d-> "keyword" BiologicalOrder
@@ -61,9 +62,6 @@ MetaDataModelVersion -d-> "keyword" BiologicalSex
 MetaDataModelVersion -d-> "keyword" UBERONParcellation
 MetaDataModelVersion -d-> "keyword" TermSuggestion
 MetaDataModelVersion -d-> "keyword" CellType
-MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
-MetaDataModelVersion -d-> "keyword" ParcellationEntity
-MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DOI
 MetaDataModelVersion -d-> "relatedPublication" ISBN
