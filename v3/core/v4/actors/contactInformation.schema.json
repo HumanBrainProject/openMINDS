@@ -1,0 +1,28 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/contactInformation?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ContactInformation",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ContactInformation",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/email": {
+            "_instruction": "Enter the email address of this person.",
+            "description": "Address to which or from which an electronic mail can be sent.",
+            "format": "email",
+            "title": "email",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/email"
+    ],
+    "type": "object"
+}

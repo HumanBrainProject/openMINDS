@@ -1,0 +1,366 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/brainAtlasVersion?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+    "description": "Structured information on a brain atlas (version level).",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/author": {
+            "_instruction": "If necessary, add one or several authors (person or organization) that contributed to the production and publication of this brain atlas version. Note that these authors will overwrite the once provided in the brain atlas product this version belongs to.",
+            "description": "Creator of a literary or creative work, as well as a dataset publication.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Organization"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "author",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/coordinateSpace": {
+            "_instruction": "Add the common coordinate space in which this brain atlas version exists in.",
+            "description": "Two or three dimensional geometric setting.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/CommonCoordinateSpace"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "coordinateSpace",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas version.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI",
+                            "https://openminds.ebrains.eu/core/ISBN"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hasTerminologyVersion": {
+            "_type": "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion",
+            "properties": {
+                "definedIn": {
+                    "_instruction": "Add one or several files in which this parcellation terminology version is stored in.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/File"
+                    ],
+                    "description": "Reference to a file instance in which something is stored.",
+                    "minItems": 1,
+                    "title": "definedIn",
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "fullName": {
+                    "_instruction": "Enter a descriptive full name for this parcellation terminology version.",
+                    "description": "Whole, non-abbreviated name of something or somebody.",
+                    "title": "fullName",
+                    "type": "string"
+                },
+                "hasEntityVersion": {
+                    "_instruction": "Add all parcellation entity versions which belong to this parcellation terminology version.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                    ],
+                    "minItems": 1,
+                    "title": "hasEntityVersion",
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "isAlternativeVersionOf": {
+                    "_instruction": "Add one or several alternative versions to this parcellation terminology version.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion"
+                    ],
+                    "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
+                    "minItems": 1,
+                    "title": "isAlternativeVersionOf",
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "isNewVersionOf": {
+                    "_instruction": "Add the earlier version of this parcellation terminology version.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion"
+                    ],
+                    "description": "Reference to a previous (potentially outdated) particular form of something.",
+                    "title": "isNewVersionOf"
+                },
+                "ontologyIdentifier": {
+                    "_formats": [
+                        "iri"
+                    ],
+                    "_instruction": "Enter the identifier (IRI) of the related ontological term matching this parcellation terminology version.",
+                    "description": "Term or code used to identify something or someone registered within a particular ontology.",
+                    "title": "ontologyIdentifier",
+                    "type": "string"
+                },
+                "shortName": {
+                    "_instruction": "Enter a descriptive short name for this parcellation terminology version.",
+                    "description": "Shortened or fully abbreviated name of something or somebody.",
+                    "title": "shortName",
+                    "type": "string"
+                },
+                "versionIdentifier": {
+                    "_instruction": "Enter the version identifier of this parcellation terminology version.",
+                    "description": "Term or code used to identify the version of something.",
+                    "title": "versionIdentifier",
+                    "type": "string"
+                },
+                "versionInnovation": {
+                    "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation terminology version.",
+                    "description": "Documentation on what changed in comparison to a previously published form of something.",
+                    "title": "versionInnovation",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "hasEntityVersion",
+                "shortName",
+                "versionIdentifier",
+                "versionInnovation"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
+            "_instruction": "Add one or several alternative versions to this brain atlas version.",
+            "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "isAlternativeVersionOf",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
+            "_instruction": "Add the earlier version of this brain atlas version.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isNewVersionOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/license": {
+            "_instruction": "Add the license for this brain atlas version.",
+            "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/License"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "license",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this brain atlas version.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "format": "iri",
+            "title": "ontologyIdentifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/coordinateSpace",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasTerminologyVersion",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/license"
+    ],
+    "type": "object"
+}

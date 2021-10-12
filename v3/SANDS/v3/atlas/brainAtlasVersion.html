@@ -1,0 +1,258 @@
+<html>
+<head>
+    <title>https://openminds.ebrains.eu/sands/BrainAtlasVersion</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}</style>
+</head>
+<body>
+    <h1>BrainAtlasVersion</h1>
+    <h2>https://openminds.ebrains.eu/sands/BrainAtlasVersion</h2>
+    <h4>part of <b>SANDS</b> in version <b>v3</b> - view as <a href="brainAtlasVersion.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
+    <table class="properties">
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">coordinateSpace</span></td>
+            <td>Two or three dimensional geometric setting.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../SANDS/v3/atlas/commonCoordinateSpace.html">CommonCoordinateSpace</a>
+                </td>
+            <td>Add the common coordinate space in which this brain atlas version exists in.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">hasTerminologyVersion</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                
+                
+                <a href="../../../SANDS/v3/atlas/parcellationTerminologyVersion.html">ParcellationTerminologyVersion</a>
+                </td>
+            <td>Add the parcellation terminology version for this brain atlas version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">license</span></td>
+            <td>Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v4/data/license.html">License</a>
+                </td>
+            <td>Add the license for this brain atlas version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >author</span></td>
+            <td>Creator of a literary or creative work, as well as a dataset publication.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                </td>
+            <td>If necessary, add one or several authors (person or organization) that contributed to the production and publication of this brain atlas version. Note that these authors will overwrite the once provided in the brain atlas product this version belongs to.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v4/miscellaneous/DOI.html">DOI</a>
+                 OR <br/> 
+                <a href="../../../core/v4/miscellaneous/ISBN.html">ISBN</a>
+                </td>
+            <td>Add the globally unique and persistent digital identifier of this brain atlas version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isAlternativeVersionOf</span></td>
+            <td>Reference to an original form where the essence was preserved, but presented in an alternative form.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../SANDS/v3/atlas/brainAtlasVersion.html">BrainAtlasVersion</a>
+                </td>
+            <td>Add one or several alternative versions to this brain atlas version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isNewVersionOf</span></td>
+            <td>Reference to a previous (potentially outdated) particular form of something.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../SANDS/v3/atlas/brainAtlasVersion.html">BrainAtlasVersion</a>
+                </td>
+            <td>Add the earlier version of this brain atlas version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >ontologyIdentifier</span></td>
+            <td>Term or code used to identify something or someone registered within a particular ontology.</td>
+            <td>
+                
+                
+                
+                string (format: iri)</td>
+            <td>Enter the identifier (IRI) of the related ontological term matching this brain atlas version.</td>
+        </tr>
+        
+    </table>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+    
+    <div style="margin-top: 3em;">
+         <table class="properties">
+        <tr class="header"><td class="property" colspan="4">instances</td></tr>
+        <tr class="header"><td class="property">name</td><td class="property"></td><td>ID</td>
+            
+            <td></td></tr>
+        
+        <tr>
+            <td class="property nowrap">None</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlasVersion/WHSSD_atlas_v2</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlasVersion/WHSSD_atlas_v2.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">None</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlasVersion/WHSSD_atlas_v3</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlasVersion/WHSSD_atlas_v3.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">None</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlasVersion/WHSSD_atlas_v3.01</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlasVersion/WHSSD_atlas_v3-01.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">None</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlasVersion/WHSSD_atlas_v4</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlasVersion/WHSSD_atlas_v4.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">None</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlasVersion/WHSSD_atlas_v1.01</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlasVersion/WHSSD_atlas_v1-01.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+    </table>
+    </div>
+    
+
+
+
+
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
+</body>
+
+</html>
