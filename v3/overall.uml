@@ -1,5 +1,228 @@
 @startuml
 
+class BrainAtlasVersion {
++author
++coordinateSpace
++digitalIdentifier
++hasTerminologyVersion
++isAlternativeVersionOf
++isNewVersionOf
++license
++ontologyIdentifier
+
+}
+BrainAtlasVersion -d-> "author" Person
+BrainAtlasVersion -d-> "author" Organization
+BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DOI
+BrainAtlasVersion -d-> "digitalIdentifier" ISBN
+BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "license" License
+
+
+class ParcellationTerminology {
++definedIn
++fullName
++hasEntity
++ontologyIdentifier
++shortName
+
+}
+ParcellationTerminology -d-> "definedIn" File
+ParcellationTerminology -d-> "hasEntity" ParcellationEntity
+
+
+class BrainAtlas {
++author
++digitalIdentifier
++hasTerminology
++hasVersion
+
+}
+BrainAtlas -d-> "author" Person
+BrainAtlas -d-> "author" Organization
+BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "digitalIdentifier" ISBN
+BrainAtlas -d-> "hasTerminology" ParcellationTerminology
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+
+
+class CommonCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
++digitalIdentifier
++fullName
++homepage
++howToCite
++nativeUnit
++ontologyIdentifier
++releaseDate
++shortName
++versionIdentifier
+
+}
+CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CommonCoordinateSpace -d-> "defaultImage" File
+CommonCoordinateSpace -d-> "digitalIdentifier" DOI
+CommonCoordinateSpace -d-> "homepage" URL
+CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+
+
+class ParcellationEntity {
++hasParent
++hasVersion
++name
++ontologyIdentifier
++relatedUBERONTerm
+
+}
+ParcellationEntity -d-> "hasParent" ParcellationEntity
+ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
+ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
+
+
+class AtlasAnnotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++lookupLabel
++visualizedIn
+
+}
+AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
+AtlasAnnotation -d-> "criteria" ProtocolExecution
+AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+AtlasAnnotation -d-> "inspiredBy" File
+AtlasAnnotation -d-> "laterality" Laterality
+AtlasAnnotation -d-> "visualizedIn" File
+
+
+class ParcellationEntityVersion {
++hasAnnotation
++hasParent
++name
++ontologyIdentifier
++relationAssessment
++versionIdentifier
++versionInnovation
+
+}
+ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
+ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
+ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class ParcellationTerminologyVersion {
++definedIn
++fullName
++hasEntityVersion
++isAlternativeVersionOf
++isNewVersionOf
++ontologyIdentifier
++shortName
++versionIdentifier
++versionInnovation
+
+}
+ParcellationTerminologyVersion -d-> "definedIn" File
+ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
+ParcellationTerminologyVersion -d-> "isAlternativeVersionOf" ParcellationTerminologyVersion
+ParcellationTerminologyVersion -d-> "isNewVersionOf" ParcellationTerminologyVersion
+
+
+class CustomAnatomicalEntity {
++hasAnnotation
++name
++relatedUBERONTerm
++relationAssessment
+
+}
+CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
+CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
+CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
+CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class CustomAnnotation {
++bestViewPoint
++coordinateSpace
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++lookupLabel
++visualizedIn
+
+}
+CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
+CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
+CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
+CustomAnnotation -d-> "criteria" ProtocolExecution
+CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+CustomAnnotation -d-> "inspiredBy" File
+CustomAnnotation -d-> "laterality" Laterality
+CustomAnnotation -d-> "visualizedIn" File
+
+
+class CustomCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
++name
++nativeUnit
+
+}
+CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CustomCoordinateSpace -d-> "defaultImage" File
+CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+
+
+class QualitativeRelationAssessment {
++criteria
++inRelationTo
++qualitativeOverlap
+
+}
+QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
+CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
+
+
+class QuantitativeRelationAssessment {
++criteria
++inRelationTo
++quantitativeOverlap
+
+}
+QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
 class Environment {
 +name
 +hardware
@@ -350,6 +573,9 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" Phenotype
 ProtocolExecution -d-> "studyTarget" Species
 ProtocolExecution -d-> "studyTarget" BiologicalSex
@@ -362,9 +588,6 @@ ProtocolExecution -d-> "studyTarget" Strain
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" UBERONParcellation
 ProtocolExecution -d-> "studyTarget" CellType
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class TissueSample {
@@ -536,7 +759,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" BehavioralProtocol
 FileBundle -d-> "descendedFrom" SubjectGroupState
@@ -544,6 +766,7 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupingType" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -774,6 +997,9 @@ MetaDataModelVersion -d-> "fullDocumentation" File
 MetaDataModelVersion -d-> "fullDocumentation" URL
 MetaDataModelVersion -d-> "funding" Funding
 MetaDataModelVersion -d-> "homepage" URL
+MetaDataModelVersion -d-> "keyword" ParcellationEntity
+MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
+MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
 MetaDataModelVersion -d-> "keyword" Phenotype
 MetaDataModelVersion -d-> "keyword" Species
 MetaDataModelVersion -d-> "keyword" BiologicalSex
@@ -786,9 +1012,6 @@ MetaDataModelVersion -d-> "keyword" Strain
 MetaDataModelVersion -d-> "keyword" BiologicalOrder
 MetaDataModelVersion -d-> "keyword" UBERONParcellation
 MetaDataModelVersion -d-> "keyword" CellType
-MetaDataModelVersion -d-> "keyword" ParcellationEntity
-MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
-MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DOI
 MetaDataModelVersion -d-> "relatedPublication" ISBN
@@ -914,6 +1137,9 @@ DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "technique" Technique
 DatasetVersion -d-> "dataType" SemanticDataType
+DatasetVersion -d-> "studyTarget" ParcellationEntity
+DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
+DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "studyTarget" Phenotype
 DatasetVersion -d-> "studyTarget" Species
 DatasetVersion -d-> "studyTarget" BiologicalSex
@@ -926,9 +1152,6 @@ DatasetVersion -d-> "studyTarget" Strain
 DatasetVersion -d-> "studyTarget" BiologicalOrder
 DatasetVersion -d-> "studyTarget" UBERONParcellation
 DatasetVersion -d-> "studyTarget" CellType
-DatasetVersion -d-> "studyTarget" ParcellationEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
-DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Person
@@ -938,6 +1161,9 @@ DatasetVersion -d-> "fullDocumentation" File
 DatasetVersion -d-> "fullDocumentation" URL
 DatasetVersion -d-> "funding" Funding
 DatasetVersion -d-> "homepage" URL
+DatasetVersion -d-> "keyword" ParcellationEntity
+DatasetVersion -d-> "keyword" ParcellationEntityVersion
+DatasetVersion -d-> "keyword" CustomAnatomicalEntity
 DatasetVersion -d-> "keyword" Phenotype
 DatasetVersion -d-> "keyword" Species
 DatasetVersion -d-> "keyword" BiologicalSex
@@ -950,9 +1176,6 @@ DatasetVersion -d-> "keyword" Strain
 DatasetVersion -d-> "keyword" BiologicalOrder
 DatasetVersion -d-> "keyword" UBERONParcellation
 DatasetVersion -d-> "keyword" CellType
-DatasetVersion -d-> "keyword" ParcellationEntity
-DatasetVersion -d-> "keyword" ParcellationEntityVersion
-DatasetVersion -d-> "keyword" CustomAnatomicalEntity
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DOI
 DatasetVersion -d-> "relatedPublication" ISBN
@@ -981,6 +1204,9 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" ParcellationEntityVersion
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" Phenotype
 Model -d-> "studyTarget" Species
 Model -d-> "studyTarget" BiologicalSex
@@ -993,9 +1219,6 @@ Model -d-> "studyTarget" Strain
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" UBERONParcellation
 Model -d-> "studyTarget" CellType
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" ParcellationEntityVersion
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -1053,6 +1276,9 @@ ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "fullDocumentation" URL
 ModelVersion -d-> "funding" Funding
 ModelVersion -d-> "homepage" URL
+ModelVersion -d-> "keyword" ParcellationEntity
+ModelVersion -d-> "keyword" ParcellationEntityVersion
+ModelVersion -d-> "keyword" CustomAnatomicalEntity
 ModelVersion -d-> "keyword" Phenotype
 ModelVersion -d-> "keyword" Species
 ModelVersion -d-> "keyword" BiologicalSex
@@ -1065,9 +1291,6 @@ ModelVersion -d-> "keyword" Strain
 ModelVersion -d-> "keyword" BiologicalOrder
 ModelVersion -d-> "keyword" UBERONParcellation
 ModelVersion -d-> "keyword" CellType
-ModelVersion -d-> "keyword" ParcellationEntity
-ModelVersion -d-> "keyword" ParcellationEntityVersion
-ModelVersion -d-> "keyword" CustomAnatomicalEntity
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DOI
 ModelVersion -d-> "relatedPublication" ISBN
@@ -1133,6 +1356,9 @@ SoftwareVersion -d-> "fullDocumentation" File
 SoftwareVersion -d-> "fullDocumentation" URL
 SoftwareVersion -d-> "funding" Funding
 SoftwareVersion -d-> "homepage" URL
+SoftwareVersion -d-> "keyword" ParcellationEntity
+SoftwareVersion -d-> "keyword" ParcellationEntityVersion
+SoftwareVersion -d-> "keyword" CustomAnatomicalEntity
 SoftwareVersion -d-> "keyword" Phenotype
 SoftwareVersion -d-> "keyword" Species
 SoftwareVersion -d-> "keyword" BiologicalSex
@@ -1145,9 +1371,6 @@ SoftwareVersion -d-> "keyword" Strain
 SoftwareVersion -d-> "keyword" BiologicalOrder
 SoftwareVersion -d-> "keyword" UBERONParcellation
 SoftwareVersion -d-> "keyword" CellType
-SoftwareVersion -d-> "keyword" ParcellationEntity
-SoftwareVersion -d-> "keyword" ParcellationEntityVersion
-SoftwareVersion -d-> "keyword" CustomAnatomicalEntity
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DOI
 SoftwareVersion -d-> "relatedPublication" ISBN
@@ -1174,229 +1397,6 @@ MetaDataModel -d-> "hasVersion" MetaDataModelVersion
 MetaDataModel -d-> "custodian" Person
 MetaDataModel -d-> "custodian" Organization
 MetaDataModel -d-> "homepage" URL
-
-
-class BrainAtlasVersion {
-+author
-+coordinateSpace
-+digitalIdentifier
-+hasTerminologyVersion
-+isAlternativeVersionOf
-+isNewVersionOf
-+license
-+ontologyIdentifier
-
-}
-BrainAtlasVersion -d-> "author" Person
-BrainAtlasVersion -d-> "author" Organization
-BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DOI
-BrainAtlasVersion -d-> "digitalIdentifier" ISBN
-BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "license" License
-
-
-class ParcellationTerminology {
-+definedIn
-+fullName
-+hasEntity
-+ontologyIdentifier
-+shortName
-
-}
-ParcellationTerminology -d-> "definedIn" File
-ParcellationTerminology -d-> "hasEntity" ParcellationEntity
-
-
-class BrainAtlas {
-+author
-+digitalIdentifier
-+hasTerminology
-+hasVersion
-
-}
-BrainAtlas -d-> "author" Person
-BrainAtlas -d-> "author" Organization
-BrainAtlas -d-> "digitalIdentifier" DOI
-BrainAtlas -d-> "digitalIdentifier" ISBN
-BrainAtlas -d-> "hasTerminology" ParcellationTerminology
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-
-
-class CommonCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+nativeUnit
-+ontologyIdentifier
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CommonCoordinateSpace -d-> "defaultImage" File
-CommonCoordinateSpace -d-> "digitalIdentifier" DOI
-CommonCoordinateSpace -d-> "homepage" URL
-CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-
-
-class ParcellationEntity {
-+hasParent
-+hasVersion
-+name
-+ontologyIdentifier
-+relatedUBERONTerm
-
-}
-ParcellationEntity -d-> "hasParent" ParcellationEntity
-ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
-ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
-
-
-class AtlasAnnotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+lookupLabel
-+visualizedIn
-
-}
-AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
-AtlasAnnotation -d-> "criteria" ProtocolExecution
-AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-AtlasAnnotation -d-> "inspiredBy" File
-AtlasAnnotation -d-> "laterality" Laterality
-AtlasAnnotation -d-> "visualizedIn" File
-
-
-class ParcellationEntityVersion {
-+hasAnnotation
-+hasParent
-+name
-+ontologyIdentifier
-+relationAssessment
-+versionIdentifier
-+versionInnovation
-
-}
-ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
-ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
-ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class ParcellationTerminologyVersion {
-+definedIn
-+fullName
-+hasEntityVersion
-+isAlternativeVersionOf
-+isNewVersionOf
-+ontologyIdentifier
-+shortName
-+versionIdentifier
-+versionInnovation
-
-}
-ParcellationTerminologyVersion -d-> "definedIn" File
-ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
-ParcellationTerminologyVersion -d-> "isAlternativeVersionOf" ParcellationTerminologyVersion
-ParcellationTerminologyVersion -d-> "isNewVersionOf" ParcellationTerminologyVersion
-
-
-class CustomAnatomicalEntity {
-+hasAnnotation
-+name
-+relatedUBERONTerm
-+relationAssessment
-
-}
-CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
-CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
-CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
-CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class CustomAnnotation {
-+bestViewPoint
-+coordinateSpace
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+lookupLabel
-+visualizedIn
-
-}
-CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
-CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
-CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
-CustomAnnotation -d-> "criteria" ProtocolExecution
-CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-CustomAnnotation -d-> "inspiredBy" File
-CustomAnnotation -d-> "laterality" Laterality
-CustomAnnotation -d-> "visualizedIn" File
-
-
-class CustomCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+name
-+nativeUnit
-
-}
-CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CustomCoordinateSpace -d-> "defaultImage" File
-CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-
-
-class QualitativeRelationAssessment {
-+criteria
-+inRelationTo
-+qualitativeOverlap
-
-}
-QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
-CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
-
-
-class QuantitativeRelationAssessment {
-+criteria
-+inRelationTo
-+quantitativeOverlap
-
-}
-QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
 
 
 class Technique {
