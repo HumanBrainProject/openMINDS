@@ -115,11 +115,18 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this parcellation entity.",
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation entity.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
-            "format": "iri",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
             "title": "ontologyIdentifier",
-            "type": "string"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
             "_instruction": "Add the related UBERON parcellation term.",
@@ -162,9 +169,9 @@
         }
     },
     "required": [
+        "@type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/name",
-        "@type"
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }

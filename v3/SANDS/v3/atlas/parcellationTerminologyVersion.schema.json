@@ -189,11 +189,18 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this parcellation terminology version.",
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology version.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
-            "format": "iri",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
             "title": "ontologyIdentifier",
-            "type": "string"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/shortName": {
             "_instruction": "Enter a descriptive short name for this parcellation terminology version.",
@@ -215,12 +222,12 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "@type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/hasEntityVersion"
+        "https://openminds.ebrains.eu/vocab/hasEntityVersion",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
 }

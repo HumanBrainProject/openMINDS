@@ -272,11 +272,18 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this common coordinate space.",
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
-            "format": "iri",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
             "title": "ontologyIdentifier",
-            "type": "string"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/releaseDate": {
             "_instruction": "Enter the date of first publication of this common coordinate space.",
@@ -299,15 +306,15 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/axesOrigin",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/nativeUnit",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/nativeUnit",
         "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation",
+        "@id",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/releaseDate"
+        "https://openminds.ebrains.eu/vocab/axesOrigin",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "@type"
     ],
     "type": "object"
 }

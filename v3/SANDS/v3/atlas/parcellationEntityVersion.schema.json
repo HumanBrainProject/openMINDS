@@ -210,11 +210,18 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the ontological term matching this parcellation entity version.",
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation entity version.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
-            "format": "iri",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
             "title": "ontologyIdentifier",
-            "type": "string"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/relationAssessment": {
             "anyOf": [
@@ -379,9 +386,9 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "@id",
-        "@type"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier"
     ],
     "type": "object"
 }
