@@ -140,44 +140,48 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/diseaseModel": {
-            "_instruction": "If applicable, add what human disease or condition is this strain a model for.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "_instruction": "If applicable, add what human disease(s) or condition(s) this strain is a model for.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/Disease",
-                            "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "diseaseModel",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/geneticStrainType": {
             "_instruction": "Add the genetic background type of this strain.",
@@ -337,10 +341,10 @@
         }
     },
     "required": [
+        "@id",
         "https://openminds.ebrains.eu/vocab/geneticStrainType",
         "https://openminds.ebrains.eu/vocab/name",
-        "@type",
-        "@id"
+        "@type"
     ],
     "type": "object"
 }
