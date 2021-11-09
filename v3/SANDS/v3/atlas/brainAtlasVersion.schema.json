@@ -1,6 +1,9 @@
 {
     "$id": "https://openminds.ebrains.eu/sands/brainAtlasVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "researchProduct"
+    ],
     "_type": "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
     "description": "Structured information on a brain atlas (version level).",
     "properties": {
@@ -601,6 +604,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
                                 "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
                                 "https://openminds.ebrains.eu/controlledTerms/Species",
                                 "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
@@ -612,10 +618,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/Disease",
                                 "https://openminds.ebrains.eu/controlledTerms/BreedingType",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                                "https://openminds.ebrains.eu/controlledTerms/Organ"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -845,17 +848,17 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/coordinateSpace",
+        "@id",
+        "@type",
         "https://openminds.ebrains.eu/vocab/hasTerminologyVersion",
-        "https://openminds.ebrains.eu/vocab/coordinateSpace"
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier"
     ],
     "type": "object"
 }
