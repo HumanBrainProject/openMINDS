@@ -579,169 +579,6 @@ class AnatomicalAxesOrientation {
 }
 
 
-class HardwareSystem {
-+name
-+version
-+description
-
-}
-
-
-class Simulation {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Simulation -d-> "input" FileBundle
-Simulation -d-> "input" File
-Simulation -d-> "input" SoftwareVersion
-Simulation -d-> "output" FileBundle
-Simulation -d-> "output" File
-Simulation -d-> "environment" Environment
-Simulation -d-> "launchConfiguration" LaunchConfiguration
-Simulation -d-> "startedBy" Person
-Simulation -d-> "startedBy" SoftwareAgent
-Simulation -d-> "wasInformedBy" Computation
-Simulation -d-> "status" ActionStatusType
-Simulation -d-> "resourceUsage" QuantitativeValue
-Simulation -d-> "resourceUsage" QuantitativeValueRange
-
-
-class Environment {
-+name
-+hardware
-+configuration
-+software
-+description
-
-}
-Environment -d-> "hardware" HardwareSystem
-Environment -d-> "configuration" ParameterSet
-Environment -d-> "software" SoftwareVersion
-
-
-class SoftwareAgent {
-+name
-+software
-+environment
-
-}
-SoftwareAgent -d-> "software" SoftwareVersion
-SoftwareAgent -d-> "environment" Environment
-
-
-class WorkflowExecution {
-+stages
-+startedBy
-
-}
-WorkflowExecution -d-> "stages" DataAnalysis
-WorkflowExecution -d-> "stages" Optimization
-WorkflowExecution -d-> "stages" Simulation
-WorkflowExecution -d-> "stages" Visualization
-WorkflowExecution -d-> "startedBy" Person
-WorkflowExecution -d-> "startedBy" SoftwareAgent
-
-
-class LaunchConfiguration {
-+description
-+name
-+executable
-+arguments
-+environmentVariables
-
-}
-LaunchConfiguration -d-> "environmentVariables" ParameterSet
-
-
-class Optimization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Optimization -d-> "input" FileBundle
-Optimization -d-> "input" File
-Optimization -d-> "input" SoftwareVersion
-Optimization -d-> "output" FileBundle
-Optimization -d-> "output" File
-Optimization -d-> "environment" Environment
-Optimization -d-> "launchConfiguration" LaunchConfiguration
-Optimization -d-> "startedBy" Person
-Optimization -d-> "startedBy" SoftwareAgent
-Optimization -d-> "wasInformedBy" Computation
-Optimization -d-> "status" ActionStatusType
-Optimization -d-> "resourceUsage" QuantitativeValue
-Optimization -d-> "resourceUsage" QuantitativeValueRange
-
-
-class DataAnalysis {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-DataAnalysis -d-> "input" FileBundle
-DataAnalysis -d-> "input" File
-DataAnalysis -d-> "input" SoftwareVersion
-DataAnalysis -d-> "output" FileBundle
-DataAnalysis -d-> "output" File
-DataAnalysis -d-> "environment" Environment
-DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
-DataAnalysis -d-> "startedBy" Person
-DataAnalysis -d-> "startedBy" SoftwareAgent
-DataAnalysis -d-> "wasInformedBy" Computation
-DataAnalysis -d-> "status" ActionStatusType
-DataAnalysis -d-> "resourceUsage" QuantitativeValue
-DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
-
-
-class Visualization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Visualization -d-> "input" FileBundle
-Visualization -d-> "input" File
-Visualization -d-> "input" SoftwareVersion
-Visualization -d-> "output" FileBundle
-Visualization -d-> "output" File
-Visualization -d-> "environment" Environment
-Visualization -d-> "launchConfiguration" LaunchConfiguration
-Visualization -d-> "startedBy" Person
-Visualization -d-> "startedBy" SoftwareAgent
-Visualization -d-> "wasInformedBy" Computation
-Visualization -d-> "status" ActionStatusType
-Visualization -d-> "resourceUsage" QuantitativeValue
-Visualization -d-> "resourceUsage" QuantitativeValueRange
-
-
 class ModelVersion {
 +developer
 +digitalIdentifier
@@ -794,6 +631,9 @@ ModelVersion -d-> "fullDocumentation" File
 ModelVersion -d-> "fullDocumentation" URL
 ModelVersion -d-> "funding" Funding
 ModelVersion -d-> "homepage" URL
+ModelVersion -d-> "keyword" CustomAnatomicalEntity
+ModelVersion -d-> "keyword" ParcellationEntity
+ModelVersion -d-> "keyword" ParcellationEntityVersion
 ModelVersion -d-> "keyword" GeneticStrainType
 ModelVersion -d-> "keyword" Species
 ModelVersion -d-> "keyword" DiseaseModel
@@ -806,9 +646,6 @@ ModelVersion -d-> "keyword" CellType
 ModelVersion -d-> "keyword" Disease
 ModelVersion -d-> "keyword" BreedingType
 ModelVersion -d-> "keyword" Organ
-ModelVersion -d-> "keyword" CustomAnatomicalEntity
-ModelVersion -d-> "keyword" ParcellationEntity
-ModelVersion -d-> "keyword" ParcellationEntityVersion
 ModelVersion -d-> "otherContribution" Contribution
 ModelVersion -d-> "relatedPublication" DOI
 ModelVersion -d-> "relatedPublication" ISBN
@@ -890,6 +727,9 @@ DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "technique" Technique
 DatasetVersion -d-> "dataType" SemanticDataType
+DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
+DatasetVersion -d-> "studyTarget" ParcellationEntity
+DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
 DatasetVersion -d-> "studyTarget" GeneticStrainType
 DatasetVersion -d-> "studyTarget" Species
 DatasetVersion -d-> "studyTarget" DiseaseModel
@@ -902,9 +742,6 @@ DatasetVersion -d-> "studyTarget" CellType
 DatasetVersion -d-> "studyTarget" Disease
 DatasetVersion -d-> "studyTarget" BreedingType
 DatasetVersion -d-> "studyTarget" Organ
-DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Person
@@ -914,6 +751,9 @@ DatasetVersion -d-> "fullDocumentation" File
 DatasetVersion -d-> "fullDocumentation" URL
 DatasetVersion -d-> "funding" Funding
 DatasetVersion -d-> "homepage" URL
+DatasetVersion -d-> "keyword" CustomAnatomicalEntity
+DatasetVersion -d-> "keyword" ParcellationEntity
+DatasetVersion -d-> "keyword" ParcellationEntityVersion
 DatasetVersion -d-> "keyword" GeneticStrainType
 DatasetVersion -d-> "keyword" Species
 DatasetVersion -d-> "keyword" DiseaseModel
@@ -926,9 +766,6 @@ DatasetVersion -d-> "keyword" CellType
 DatasetVersion -d-> "keyword" Disease
 DatasetVersion -d-> "keyword" BreedingType
 DatasetVersion -d-> "keyword" Organ
-DatasetVersion -d-> "keyword" CustomAnatomicalEntity
-DatasetVersion -d-> "keyword" ParcellationEntity
-DatasetVersion -d-> "keyword" ParcellationEntityVersion
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DOI
 DatasetVersion -d-> "relatedPublication" ISBN
@@ -957,6 +794,9 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" CustomAnatomicalEntity
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" ParcellationEntityVersion
 Model -d-> "studyTarget" GeneticStrainType
 Model -d-> "studyTarget" Species
 Model -d-> "studyTarget" DiseaseModel
@@ -969,9 +809,6 @@ Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" Organ
-Model -d-> "studyTarget" CustomAnatomicalEntity
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" ParcellationEntityVersion
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -1025,6 +862,9 @@ MetaDataModelVersion -d-> "fullDocumentation" File
 MetaDataModelVersion -d-> "fullDocumentation" URL
 MetaDataModelVersion -d-> "funding" Funding
 MetaDataModelVersion -d-> "homepage" URL
+MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
+MetaDataModelVersion -d-> "keyword" ParcellationEntity
+MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
 MetaDataModelVersion -d-> "keyword" GeneticStrainType
 MetaDataModelVersion -d-> "keyword" Species
 MetaDataModelVersion -d-> "keyword" DiseaseModel
@@ -1037,9 +877,6 @@ MetaDataModelVersion -d-> "keyword" CellType
 MetaDataModelVersion -d-> "keyword" Disease
 MetaDataModelVersion -d-> "keyword" BreedingType
 MetaDataModelVersion -d-> "keyword" Organ
-MetaDataModelVersion -d-> "keyword" CustomAnatomicalEntity
-MetaDataModelVersion -d-> "keyword" ParcellationEntity
-MetaDataModelVersion -d-> "keyword" ParcellationEntityVersion
 MetaDataModelVersion -d-> "otherContribution" Contribution
 MetaDataModelVersion -d-> "relatedPublication" DOI
 MetaDataModelVersion -d-> "relatedPublication" ISBN
@@ -1105,6 +942,9 @@ SoftwareVersion -d-> "fullDocumentation" File
 SoftwareVersion -d-> "fullDocumentation" URL
 SoftwareVersion -d-> "funding" Funding
 SoftwareVersion -d-> "homepage" URL
+SoftwareVersion -d-> "keyword" CustomAnatomicalEntity
+SoftwareVersion -d-> "keyword" ParcellationEntity
+SoftwareVersion -d-> "keyword" ParcellationEntityVersion
 SoftwareVersion -d-> "keyword" GeneticStrainType
 SoftwareVersion -d-> "keyword" Species
 SoftwareVersion -d-> "keyword" DiseaseModel
@@ -1117,9 +957,6 @@ SoftwareVersion -d-> "keyword" CellType
 SoftwareVersion -d-> "keyword" Disease
 SoftwareVersion -d-> "keyword" BreedingType
 SoftwareVersion -d-> "keyword" Organ
-SoftwareVersion -d-> "keyword" CustomAnatomicalEntity
-SoftwareVersion -d-> "keyword" ParcellationEntity
-SoftwareVersion -d-> "keyword" ParcellationEntityVersion
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DOI
 SoftwareVersion -d-> "relatedPublication" ISBN
@@ -1441,6 +1278,9 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
 ProtocolExecution -d-> "studyTarget" Species
 ProtocolExecution -d-> "studyTarget" DiseaseModel
@@ -1453,9 +1293,6 @@ ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" Organ
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
 
 
 class SubjectGroup {
@@ -1690,7 +1527,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" BehavioralProtocol
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
@@ -1698,6 +1534,7 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupingType" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -1946,6 +1783,9 @@ BrainAtlasVersion -d-> "fullDocumentation" File
 BrainAtlasVersion -d-> "fullDocumentation" URL
 BrainAtlasVersion -d-> "funding" Funding
 BrainAtlasVersion -d-> "homepage" URL
+BrainAtlasVersion -d-> "keyword" CustomAnatomicalEntity
+BrainAtlasVersion -d-> "keyword" ParcellationEntity
+BrainAtlasVersion -d-> "keyword" ParcellationEntityVersion
 BrainAtlasVersion -d-> "keyword" GeneticStrainType
 BrainAtlasVersion -d-> "keyword" Species
 BrainAtlasVersion -d-> "keyword" DiseaseModel
@@ -1958,9 +1798,6 @@ BrainAtlasVersion -d-> "keyword" CellType
 BrainAtlasVersion -d-> "keyword" Disease
 BrainAtlasVersion -d-> "keyword" BreedingType
 BrainAtlasVersion -d-> "keyword" Organ
-BrainAtlasVersion -d-> "keyword" CustomAnatomicalEntity
-BrainAtlasVersion -d-> "keyword" ParcellationEntity
-BrainAtlasVersion -d-> "keyword" ParcellationEntityVersion
 BrainAtlasVersion -d-> "otherContribution" Contribution
 BrainAtlasVersion -d-> "relatedPublication" DOI
 BrainAtlasVersion -d-> "relatedPublication" ISBN
@@ -2075,6 +1912,169 @@ class ParcellationTerminology {
 }
 ParcellationTerminology -d-> "definedIn" File
 ParcellationTerminology -d-> "hasEntity" ParcellationEntity
+
+
+class HardwareSystem {
++name
++version
++description
+
+}
+
+
+class Simulation {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Simulation -d-> "input" FileBundle
+Simulation -d-> "input" File
+Simulation -d-> "input" SoftwareVersion
+Simulation -d-> "output" FileBundle
+Simulation -d-> "output" File
+Simulation -d-> "environment" Environment
+Simulation -d-> "launchConfiguration" LaunchConfiguration
+Simulation -d-> "startedBy" Person
+Simulation -d-> "startedBy" SoftwareAgent
+Simulation -d-> "wasInformedBy" Computation
+Simulation -d-> "status" ActionStatusType
+Simulation -d-> "resourceUsage" QuantitativeValue
+Simulation -d-> "resourceUsage" QuantitativeValueRange
+
+
+class Environment {
++name
++hardware
++configuration
++software
++description
+
+}
+Environment -d-> "hardware" HardwareSystem
+Environment -d-> "configuration" ParameterSet
+Environment -d-> "software" SoftwareVersion
+
+
+class SoftwareAgent {
++name
++software
++environment
+
+}
+SoftwareAgent -d-> "software" SoftwareVersion
+SoftwareAgent -d-> "environment" Environment
+
+
+class WorkflowExecution {
++stages
++startedBy
+
+}
+WorkflowExecution -d-> "stages" DataAnalysis
+WorkflowExecution -d-> "stages" Optimization
+WorkflowExecution -d-> "stages" Simulation
+WorkflowExecution -d-> "stages" Visualization
+WorkflowExecution -d-> "startedBy" Person
+WorkflowExecution -d-> "startedBy" SoftwareAgent
+
+
+class LaunchConfiguration {
++description
++name
++executable
++arguments
++environmentVariables
+
+}
+LaunchConfiguration -d-> "environmentVariables" ParameterSet
+
+
+class Optimization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Optimization -d-> "input" FileBundle
+Optimization -d-> "input" File
+Optimization -d-> "input" SoftwareVersion
+Optimization -d-> "output" FileBundle
+Optimization -d-> "output" File
+Optimization -d-> "environment" Environment
+Optimization -d-> "launchConfiguration" LaunchConfiguration
+Optimization -d-> "startedBy" Person
+Optimization -d-> "startedBy" SoftwareAgent
+Optimization -d-> "wasInformedBy" Computation
+Optimization -d-> "status" ActionStatusType
+Optimization -d-> "resourceUsage" QuantitativeValue
+Optimization -d-> "resourceUsage" QuantitativeValueRange
+
+
+class DataAnalysis {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+DataAnalysis -d-> "input" FileBundle
+DataAnalysis -d-> "input" File
+DataAnalysis -d-> "input" SoftwareVersion
+DataAnalysis -d-> "output" FileBundle
+DataAnalysis -d-> "output" File
+DataAnalysis -d-> "environment" Environment
+DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
+DataAnalysis -d-> "startedBy" Person
+DataAnalysis -d-> "startedBy" SoftwareAgent
+DataAnalysis -d-> "wasInformedBy" Computation
+DataAnalysis -d-> "status" ActionStatusType
+DataAnalysis -d-> "resourceUsage" QuantitativeValue
+DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
+
+
+class Visualization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Visualization -d-> "input" FileBundle
+Visualization -d-> "input" File
+Visualization -d-> "input" SoftwareVersion
+Visualization -d-> "output" FileBundle
+Visualization -d-> "output" File
+Visualization -d-> "environment" Environment
+Visualization -d-> "launchConfiguration" LaunchConfiguration
+Visualization -d-> "startedBy" Person
+Visualization -d-> "startedBy" SoftwareAgent
+Visualization -d-> "wasInformedBy" Computation
+Visualization -d-> "status" ActionStatusType
+Visualization -d-> "resourceUsage" QuantitativeValue
+Visualization -d-> "resourceUsage" QuantitativeValueRange
 
 
 @enduml
