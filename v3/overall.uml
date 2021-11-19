@@ -1,448 +1,5 @@
 @startuml
 
-class ParcellationEntity {
-+hasParent
-+hasVersion
-+lookupLabel
-+name
-+ontologyIdentifier
-+relatedUBERONTerm
-
-}
-ParcellationEntity -d-> "hasParent" ParcellationEntity
-ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
-ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
-
-
-class CommonCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+nativeUnit
-+ontologyIdentifier
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CommonCoordinateSpace -d-> "defaultImage" File
-CommonCoordinateSpace -d-> "digitalIdentifier" DOI
-CommonCoordinateSpace -d-> "homepage" URL
-CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-
-
-class ParcellationEntityVersion {
-+hasAnnotation
-+hasParent
-+lookupLabel
-+name
-+ontologyIdentifier
-+relationAssessment
-+versionIdentifier
-+versionInnovation
-
-}
-ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
-ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
-ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class BrainAtlasVersion {
-+author
-+coordinateSpace
-+digitalIdentifier
-+hasTerminologyVersion
-+isAlternativeVersionOf
-+isNewVersionOf
-+license
-+ontologyIdentifier
-+accessibility
-+copyright
-+custodian
-+description
-+fullDocumentation
-+fullName
-+funding
-+homepage
-+howToCite
-+keyword
-+otherContribution
-+relatedPublication
-+releaseDate
-+repository
-+shortName
-+supportChannel
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "author" Organization
-BrainAtlasVersion -d-> "author" Person
-BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DOI
-BrainAtlasVersion -d-> "digitalIdentifier" ISBN
-BrainAtlasVersion -d-> "digitalIdentifier" RRID
-BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "license" License
-BrainAtlasVersion -d-> "accessibility" ProductAccessibility
-BrainAtlasVersion -d-> "copyright" Copyright
-BrainAtlasVersion -d-> "custodian" Organization
-BrainAtlasVersion -d-> "custodian" Person
-BrainAtlasVersion -d-> "fullDocumentation" DOI
-BrainAtlasVersion -d-> "fullDocumentation" File
-BrainAtlasVersion -d-> "fullDocumentation" URL
-BrainAtlasVersion -d-> "funding" Funding
-BrainAtlasVersion -d-> "homepage" URL
-BrainAtlasVersion -d-> "keyword" ParcellationEntity
-BrainAtlasVersion -d-> "keyword" ParcellationEntityVersion
-BrainAtlasVersion -d-> "keyword" CustomAnatomicalEntity
-BrainAtlasVersion -d-> "keyword" GeneticStrainType
-BrainAtlasVersion -d-> "keyword" TermSuggestion
-BrainAtlasVersion -d-> "keyword" BiologicalSex
-BrainAtlasVersion -d-> "keyword" Disease
-BrainAtlasVersion -d-> "keyword" UBERONParcellation
-BrainAtlasVersion -d-> "keyword" DiseaseModel
-BrainAtlasVersion -d-> "keyword" BiologicalOrder
-BrainAtlasVersion -d-> "keyword" CellType
-BrainAtlasVersion -d-> "keyword" Species
-BrainAtlasVersion -d-> "keyword" Handedness
-BrainAtlasVersion -d-> "keyword" Organ
-BrainAtlasVersion -d-> "keyword" BreedingType
-BrainAtlasVersion -d-> "otherContribution" Contribution
-BrainAtlasVersion -d-> "relatedPublication" DOI
-BrainAtlasVersion -d-> "relatedPublication" ISBN
-BrainAtlasVersion -d-> "repository" FileRepository
-
-
-class BrainAtlas {
-+author
-+digitalIdentifier
-+hasTerminology
-+hasVersion
-+custodian
-+description
-+fullName
-+homepage
-+howToCite
-+shortName
-
-}
-BrainAtlas -d-> "author" Organization
-BrainAtlas -d-> "author" Person
-BrainAtlas -d-> "digitalIdentifier" DOI
-BrainAtlas -d-> "digitalIdentifier" ISBN
-BrainAtlas -d-> "digitalIdentifier" RRID
-BrainAtlas -d-> "hasTerminology" ParcellationTerminology
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-BrainAtlas -d-> "custodian" Organization
-BrainAtlas -d-> "custodian" Person
-BrainAtlas -d-> "homepage" URL
-
-
-class ParcellationTerminology {
-+definedIn
-+fullName
-+hasEntity
-+ontologyIdentifier
-+shortName
-
-}
-ParcellationTerminology -d-> "definedIn" File
-ParcellationTerminology -d-> "hasEntity" ParcellationEntity
-
-
-class ParcellationTerminologyVersion {
-+definedIn
-+fullName
-+hasEntityVersion
-+isAlternativeVersionOf
-+isNewVersionOf
-+ontologyIdentifier
-+shortName
-+versionIdentifier
-+versionInnovation
-
-}
-ParcellationTerminologyVersion -d-> "definedIn" File
-ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
-ParcellationTerminologyVersion -d-> "isAlternativeVersionOf" ParcellationTerminologyVersion
-ParcellationTerminologyVersion -d-> "isNewVersionOf" ParcellationTerminologyVersion
-
-
-class AtlasAnnotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+visualizedIn
-
-}
-AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
-AtlasAnnotation -d-> "criteria" ProtocolExecution
-AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-AtlasAnnotation -d-> "inspiredBy" File
-AtlasAnnotation -d-> "laterality" Laterality
-AtlasAnnotation -d-> "visualizedIn" File
-
-
-class CustomAnatomicalEntity {
-+hasAnnotation
-+name
-+relatedUBERONTerm
-+relationAssessment
-
-}
-CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
-CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
-CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
-CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class CustomCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+name
-+nativeUnit
-
-}
-CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CustomCoordinateSpace -d-> "defaultImage" File
-CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-
-
-class CustomAnnotation {
-+bestViewPoint
-+coordinateSpace
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+visualizedIn
-
-}
-CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
-CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
-CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
-CustomAnnotation -d-> "criteria" ProtocolExecution
-CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-CustomAnnotation -d-> "inspiredBy" File
-CustomAnnotation -d-> "laterality" Laterality
-CustomAnnotation -d-> "visualizedIn" File
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
-CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
-
-
-class QuantitativeRelationAssessment {
-+criteria
-+inRelationTo
-+quantitativeOverlap
-
-}
-QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class QualitativeRelationAssessment {
-+criteria
-+inRelationTo
-+qualitativeOverlap
-
-}
-QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
-
-
-class SoftwareAgent {
-+name
-+software
-+environment
-
-}
-SoftwareAgent -d-> "software" SoftwareVersion
-SoftwareAgent -d-> "environment" Environment
-
-
-class WorkflowExecution {
-+stages
-+startedBy
-
-}
-WorkflowExecution -d-> "stages" DataAnalysis
-WorkflowExecution -d-> "stages" Optimization
-WorkflowExecution -d-> "stages" Simulation
-WorkflowExecution -d-> "stages" Visualization
-WorkflowExecution -d-> "startedBy" Person
-WorkflowExecution -d-> "startedBy" SoftwareAgent
-
-
-class Simulation {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Simulation -d-> "input" FileBundle
-Simulation -d-> "input" File
-Simulation -d-> "input" SoftwareVersion
-Simulation -d-> "output" FileBundle
-Simulation -d-> "output" File
-Simulation -d-> "environment" Environment
-Simulation -d-> "launchConfiguration" LaunchConfiguration
-Simulation -d-> "startedBy" Person
-Simulation -d-> "startedBy" SoftwareAgent
-Simulation -d-> "wasInformedBy" Computation
-Simulation -d-> "status" ActionStatusType
-Simulation -d-> "resourceUsage" QuantitativeValue
-Simulation -d-> "resourceUsage" QuantitativeValueRange
-
-
-class LaunchConfiguration {
-+description
-+name
-+executable
-+arguments
-+environmentVariables
-
-}
-LaunchConfiguration -d-> "environmentVariables" ParameterSet
-
-
-class Optimization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Optimization -d-> "input" FileBundle
-Optimization -d-> "input" File
-Optimization -d-> "input" SoftwareVersion
-Optimization -d-> "output" FileBundle
-Optimization -d-> "output" File
-Optimization -d-> "environment" Environment
-Optimization -d-> "launchConfiguration" LaunchConfiguration
-Optimization -d-> "startedBy" Person
-Optimization -d-> "startedBy" SoftwareAgent
-Optimization -d-> "wasInformedBy" Computation
-Optimization -d-> "status" ActionStatusType
-Optimization -d-> "resourceUsage" QuantitativeValue
-Optimization -d-> "resourceUsage" QuantitativeValueRange
-
-
-class Environment {
-+name
-+hardware
-+configuration
-+software
-+description
-
-}
-Environment -d-> "hardware" HardwareSystem
-Environment -d-> "configuration" ParameterSet
-Environment -d-> "software" SoftwareVersion
-
-
-class HardwareSystem {
-+name
-+version
-+description
-
-}
-
-
-class DataAnalysis {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-DataAnalysis -d-> "input" FileBundle
-DataAnalysis -d-> "input" File
-DataAnalysis -d-> "input" SoftwareVersion
-DataAnalysis -d-> "output" FileBundle
-DataAnalysis -d-> "output" File
-DataAnalysis -d-> "environment" Environment
-DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
-DataAnalysis -d-> "startedBy" Person
-DataAnalysis -d-> "startedBy" SoftwareAgent
-DataAnalysis -d-> "wasInformedBy" Computation
-DataAnalysis -d-> "status" ActionStatusType
-DataAnalysis -d-> "resourceUsage" QuantitativeValue
-DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
-
-
-class Visualization {
-+input
-+output
-+environment
-+launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
-
-}
-Visualization -d-> "input" FileBundle
-Visualization -d-> "input" File
-Visualization -d-> "input" SoftwareVersion
-Visualization -d-> "output" FileBundle
-Visualization -d-> "output" File
-Visualization -d-> "environment" Environment
-Visualization -d-> "launchConfiguration" LaunchConfiguration
-Visualization -d-> "startedBy" Person
-Visualization -d-> "startedBy" SoftwareAgent
-Visualization -d-> "wasInformedBy" Computation
-Visualization -d-> "status" ActionStatusType
-Visualization -d-> "resourceUsage" QuantitativeValue
-Visualization -d-> "resourceUsage" QuantitativeValueRange
-
-
 class SubjectAttribute {
 +definition
 +description
@@ -1020,6 +577,449 @@ class Language {
 +synonym
 
 }
+
+
+class ParcellationEntity {
++hasParent
++hasVersion
++lookupLabel
++name
++ontologyIdentifier
++relatedUBERONTerm
+
+}
+ParcellationEntity -d-> "hasParent" ParcellationEntity
+ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
+ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
+
+
+class CommonCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
++digitalIdentifier
++fullName
++homepage
++howToCite
++nativeUnit
++ontologyIdentifier
++releaseDate
++shortName
++versionIdentifier
+
+}
+CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CommonCoordinateSpace -d-> "defaultImage" File
+CommonCoordinateSpace -d-> "digitalIdentifier" DOI
+CommonCoordinateSpace -d-> "homepage" URL
+CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+
+
+class ParcellationEntityVersion {
++hasAnnotation
++hasParent
++lookupLabel
++name
++ontologyIdentifier
++relationAssessment
++versionIdentifier
++versionInnovation
+
+}
+ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
+ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
+ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class BrainAtlasVersion {
++author
++coordinateSpace
++digitalIdentifier
++hasTerminologyVersion
++isAlternativeVersionOf
++isNewVersionOf
++license
++ontologyIdentifier
++accessibility
++copyright
++custodian
++description
++fullDocumentation
++fullName
++funding
++homepage
++howToCite
++keyword
++otherContribution
++relatedPublication
++releaseDate
++repository
++shortName
++supportChannel
++versionIdentifier
++versionInnovation
+
+}
+BrainAtlasVersion -d-> "author" Organization
+BrainAtlasVersion -d-> "author" Person
+BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DOI
+BrainAtlasVersion -d-> "digitalIdentifier" ISBN
+BrainAtlasVersion -d-> "digitalIdentifier" RRID
+BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "license" License
+BrainAtlasVersion -d-> "accessibility" ProductAccessibility
+BrainAtlasVersion -d-> "copyright" Copyright
+BrainAtlasVersion -d-> "custodian" Organization
+BrainAtlasVersion -d-> "custodian" Person
+BrainAtlasVersion -d-> "fullDocumentation" DOI
+BrainAtlasVersion -d-> "fullDocumentation" File
+BrainAtlasVersion -d-> "fullDocumentation" URL
+BrainAtlasVersion -d-> "funding" Funding
+BrainAtlasVersion -d-> "homepage" URL
+BrainAtlasVersion -d-> "keyword" ParcellationEntity
+BrainAtlasVersion -d-> "keyword" ParcellationEntityVersion
+BrainAtlasVersion -d-> "keyword" CustomAnatomicalEntity
+BrainAtlasVersion -d-> "keyword" GeneticStrainType
+BrainAtlasVersion -d-> "keyword" TermSuggestion
+BrainAtlasVersion -d-> "keyword" BiologicalSex
+BrainAtlasVersion -d-> "keyword" Disease
+BrainAtlasVersion -d-> "keyword" UBERONParcellation
+BrainAtlasVersion -d-> "keyword" DiseaseModel
+BrainAtlasVersion -d-> "keyword" BiologicalOrder
+BrainAtlasVersion -d-> "keyword" CellType
+BrainAtlasVersion -d-> "keyword" Species
+BrainAtlasVersion -d-> "keyword" Handedness
+BrainAtlasVersion -d-> "keyword" Organ
+BrainAtlasVersion -d-> "keyword" BreedingType
+BrainAtlasVersion -d-> "otherContribution" Contribution
+BrainAtlasVersion -d-> "relatedPublication" DOI
+BrainAtlasVersion -d-> "relatedPublication" ISBN
+BrainAtlasVersion -d-> "repository" FileRepository
+
+
+class BrainAtlas {
++author
++digitalIdentifier
++hasTerminology
++hasVersion
++custodian
++description
++fullName
++homepage
++howToCite
++shortName
+
+}
+BrainAtlas -d-> "author" Organization
+BrainAtlas -d-> "author" Person
+BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "digitalIdentifier" ISBN
+BrainAtlas -d-> "digitalIdentifier" RRID
+BrainAtlas -d-> "hasTerminology" ParcellationTerminology
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+BrainAtlas -d-> "custodian" Organization
+BrainAtlas -d-> "custodian" Person
+BrainAtlas -d-> "homepage" URL
+
+
+class ParcellationTerminology {
++definedIn
++fullName
++hasEntity
++ontologyIdentifier
++shortName
+
+}
+ParcellationTerminology -d-> "definedIn" File
+ParcellationTerminology -d-> "hasEntity" ParcellationEntity
+
+
+class ParcellationTerminologyVersion {
++definedIn
++fullName
++hasEntityVersion
++isAlternativeVersionOf
++isNewVersionOf
++ontologyIdentifier
++shortName
++versionIdentifier
++versionInnovation
+
+}
+ParcellationTerminologyVersion -d-> "definedIn" File
+ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
+ParcellationTerminologyVersion -d-> "isAlternativeVersionOf" ParcellationTerminologyVersion
+ParcellationTerminologyVersion -d-> "isNewVersionOf" ParcellationTerminologyVersion
+
+
+class AtlasAnnotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++visualizedIn
+
+}
+AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
+AtlasAnnotation -d-> "criteria" ProtocolExecution
+AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+AtlasAnnotation -d-> "inspiredBy" File
+AtlasAnnotation -d-> "laterality" Laterality
+AtlasAnnotation -d-> "visualizedIn" File
+
+
+class CustomAnatomicalEntity {
++hasAnnotation
++name
++relatedUBERONTerm
++relationAssessment
+
+}
+CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
+CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
+CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
+CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
+
+
+class CustomCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
++name
++nativeUnit
+
+}
+CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CustomCoordinateSpace -d-> "defaultImage" File
+CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+
+
+class CustomAnnotation {
++bestViewPoint
++coordinateSpace
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++visualizedIn
+
+}
+CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
+CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
+CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
+CustomAnnotation -d-> "criteria" ProtocolExecution
+CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+CustomAnnotation -d-> "inspiredBy" File
+CustomAnnotation -d-> "laterality" Laterality
+CustomAnnotation -d-> "visualizedIn" File
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
+CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
+
+
+class QuantitativeRelationAssessment {
++criteria
++inRelationTo
++quantitativeOverlap
+
+}
+QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
+class QualitativeRelationAssessment {
++criteria
++inRelationTo
++qualitativeOverlap
+
+}
+QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
+
+
+class SoftwareAgent {
++name
++software
++environment
+
+}
+SoftwareAgent -d-> "software" SoftwareVersion
+SoftwareAgent -d-> "environment" Environment
+
+
+class WorkflowExecution {
++stages
++startedBy
+
+}
+WorkflowExecution -d-> "stages" DataAnalysis
+WorkflowExecution -d-> "stages" Optimization
+WorkflowExecution -d-> "stages" Simulation
+WorkflowExecution -d-> "stages" Visualization
+WorkflowExecution -d-> "startedBy" Person
+WorkflowExecution -d-> "startedBy" SoftwareAgent
+
+
+class Simulation {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Simulation -d-> "input" FileBundle
+Simulation -d-> "input" File
+Simulation -d-> "input" SoftwareVersion
+Simulation -d-> "output" FileBundle
+Simulation -d-> "output" File
+Simulation -d-> "environment" Environment
+Simulation -d-> "launchConfiguration" LaunchConfiguration
+Simulation -d-> "startedBy" Person
+Simulation -d-> "startedBy" SoftwareAgent
+Simulation -d-> "wasInformedBy" Computation
+Simulation -d-> "status" ActionStatusType
+Simulation -d-> "resourceUsage" QuantitativeValue
+Simulation -d-> "resourceUsage" QuantitativeValueRange
+
+
+class LaunchConfiguration {
++description
++name
++executable
++arguments
++environmentVariables
+
+}
+LaunchConfiguration -d-> "environmentVariables" ParameterSet
+
+
+class Optimization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Optimization -d-> "input" FileBundle
+Optimization -d-> "input" File
+Optimization -d-> "input" SoftwareVersion
+Optimization -d-> "output" FileBundle
+Optimization -d-> "output" File
+Optimization -d-> "environment" Environment
+Optimization -d-> "launchConfiguration" LaunchConfiguration
+Optimization -d-> "startedBy" Person
+Optimization -d-> "startedBy" SoftwareAgent
+Optimization -d-> "wasInformedBy" Computation
+Optimization -d-> "status" ActionStatusType
+Optimization -d-> "resourceUsage" QuantitativeValue
+Optimization -d-> "resourceUsage" QuantitativeValueRange
+
+
+class Environment {
++name
++hardware
++configuration
++software
++description
+
+}
+Environment -d-> "hardware" HardwareSystem
+Environment -d-> "configuration" ParameterSet
+Environment -d-> "software" SoftwareVersion
+
+
+class HardwareSystem {
++name
++version
++description
+
+}
+
+
+class DataAnalysis {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+DataAnalysis -d-> "input" FileBundle
+DataAnalysis -d-> "input" File
+DataAnalysis -d-> "input" SoftwareVersion
+DataAnalysis -d-> "output" FileBundle
+DataAnalysis -d-> "output" File
+DataAnalysis -d-> "environment" Environment
+DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
+DataAnalysis -d-> "startedBy" Person
+DataAnalysis -d-> "startedBy" SoftwareAgent
+DataAnalysis -d-> "wasInformedBy" Computation
+DataAnalysis -d-> "status" ActionStatusType
+DataAnalysis -d-> "resourceUsage" QuantitativeValue
+DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
+
+
+class Visualization {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
+
+}
+Visualization -d-> "input" FileBundle
+Visualization -d-> "input" File
+Visualization -d-> "input" SoftwareVersion
+Visualization -d-> "output" FileBundle
+Visualization -d-> "output" File
+Visualization -d-> "environment" Environment
+Visualization -d-> "launchConfiguration" LaunchConfiguration
+Visualization -d-> "startedBy" Person
+Visualization -d-> "startedBy" SoftwareAgent
+Visualization -d-> "wasInformedBy" Computation
+Visualization -d-> "status" ActionStatusType
+Visualization -d-> "resourceUsage" QuantitativeValue
+Visualization -d-> "resourceUsage" QuantitativeValueRange
 
 
 class Copyright {
@@ -1818,8 +1818,6 @@ class Project {
 +shortName
 
 }
-Project -d-> "hasResearchProducts" BrainAtlasVersion
-Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" MetaDataModelVersion
 Project -d-> "hasResearchProducts" ModelVersion
@@ -1828,6 +1826,8 @@ Project -d-> "hasResearchProducts" SoftwareVersion
 Project -d-> "hasResearchProducts" Dataset
 Project -d-> "hasResearchProducts" Software
 Project -d-> "hasResearchProducts" DatasetVersion
+Project -d-> "hasResearchProducts" BrainAtlasVersion
+Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "homepage" URL
 Project -d-> "coordinator" Organization
 Project -d-> "coordinator" Person
