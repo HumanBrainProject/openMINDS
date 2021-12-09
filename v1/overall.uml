@@ -682,7 +682,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" TissueSampleCollectionState
@@ -690,6 +689,7 @@ File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" TissueSampleState
+File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -727,7 +727,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
@@ -735,6 +734,7 @@ FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" TissueSampleState
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -848,7 +848,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" MolecularEntity
 ProtocolExecution -d-> "studyTarget" UBERONParcellation
@@ -862,6 +861,7 @@ ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" Organ
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class TissueSampleCollectionState {
@@ -1073,7 +1073,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" MolecularEntity
 Protocol -d-> "studyOption" UBERONParcellation
@@ -1087,6 +1086,7 @@ Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" DiseaseModel
 Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" Organ
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1236,7 +1236,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" MolecularEntity
 Model -d-> "studyTarget" UBERONParcellation
@@ -1250,6 +1249,7 @@ Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" Organ
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
