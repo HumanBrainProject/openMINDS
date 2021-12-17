@@ -174,12 +174,6 @@
                     "type": "array",
                     "uniqueItems": true
                 },
-                "fullName": {
-                    "_instruction": "Enter a descriptive full name for this parcellation terminology.",
-                    "description": "Whole, non-abbreviated name of something or somebody.",
-                    "title": "fullName",
-                    "type": "string"
-                },
                 "hasEntity": {
                     "_instruction": "Add one or several parcellation entities which belong to this parcellation terminology.",
                     "_linkedTypes": [
@@ -203,17 +197,10 @@
                     "title": "ontologyIdentifier",
                     "type": "array",
                     "uniqueItems": true
-                },
-                "shortName": {
-                    "_instruction": "Enter a descriptive short name for this parcellation terminology.",
-                    "description": "Shortened or fully abbreviated name of something or somebody.",
-                    "title": "shortName",
-                    "type": "string"
                 }
             },
             "required": [
-                "hasEntity",
-                "shortName"
+                "hasEntity"
             ],
             "type": "object"
         },
@@ -316,14 +303,14 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/hasTerminology",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/hasVersion",
         "https://openminds.ebrains.eu/vocab/author",
         "https://openminds.ebrains.eu/vocab/fullName",
-        "@type",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/description",
-        "https://openminds.ebrains.eu/vocab/hasTerminology",
-        "https://openminds.ebrains.eu/vocab/shortName"
+        "https://openminds.ebrains.eu/vocab/description"
     ],
     "type": "object"
 }

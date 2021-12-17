@@ -55,6 +55,45 @@
             "title": "accessibility",
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/atlasType": {
+            "_instruction": "Add the type of this brain atlas version.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AtlasType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "atlasType",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/author": {
             "_instruction": "If necessary, add one or several authors (person or organization) that contributed to the production and publication of this brain atlas version. Note that these authors will overwrite the once provided in the brain atlas product this version belongs to.",
             "description": "Creator of a literary or creative work, as well as a dataset publication.",
@@ -370,12 +409,6 @@
                     "type": "array",
                     "uniqueItems": true
                 },
-                "fullName": {
-                    "_instruction": "Enter a descriptive full name for this parcellation terminology version.",
-                    "description": "Whole, non-abbreviated name of something or somebody.",
-                    "title": "fullName",
-                    "type": "string"
-                },
                 "hasEntityVersion": {
                     "_instruction": "Add all parcellation entity versions which belong to this parcellation terminology version.",
                     "_linkedTypes": [
@@ -385,25 +418,6 @@
                     "title": "hasEntityVersion",
                     "type": "array",
                     "uniqueItems": true
-                },
-                "isAlternativeVersionOf": {
-                    "_instruction": "Add one or several alternative versions to this parcellation terminology version.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion"
-                    ],
-                    "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
-                    "minItems": 1,
-                    "title": "isAlternativeVersionOf",
-                    "type": "array",
-                    "uniqueItems": true
-                },
-                "isNewVersionOf": {
-                    "_instruction": "Add the earlier version of this parcellation terminology version.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion"
-                    ],
-                    "description": "Reference to a previous (potentially outdated) particular form of something.",
-                    "title": "isNewVersionOf"
                 },
                 "ontologyIdentifier": {
                     "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology version.",
@@ -418,31 +432,10 @@
                     "title": "ontologyIdentifier",
                     "type": "array",
                     "uniqueItems": true
-                },
-                "shortName": {
-                    "_instruction": "Enter a descriptive short name for this parcellation terminology version.",
-                    "description": "Shortened or fully abbreviated name of something or somebody.",
-                    "title": "shortName",
-                    "type": "string"
-                },
-                "versionIdentifier": {
-                    "_instruction": "Enter the version identifier of this parcellation terminology version.",
-                    "description": "Term or code used to identify the version of something.",
-                    "title": "versionIdentifier",
-                    "type": "string"
-                },
-                "versionInnovation": {
-                    "_instruction": "Enter a short description of the novelties/peculiarities of this parcellation terminology version.",
-                    "description": "Documentation on what changed in comparison to a previously published form of something.",
-                    "title": "versionInnovation",
-                    "type": "string"
                 }
             },
             "required": [
-                "hasEntityVersion",
-                "shortName",
-                "versionIdentifier",
-                "versionInnovation"
+                "hasEntityVersion"
             ],
             "type": "object"
         },
@@ -883,17 +876,17 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/coordinateSpace",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/hasTerminologyVersion",
-        "@type",
-        "@id",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/coordinateSpace",
+        "https://openminds.ebrains.eu/vocab/license",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/shortName"
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/hasTerminologyVersion"
     ],
     "type": "object"
 }
