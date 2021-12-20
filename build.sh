@@ -80,7 +80,7 @@ build(){
   mv types-$1.json target/types.json
   
   # Copy instances to target
-    
+  cp -r instances/* target/instances/
   for d in *
   do 
     if [ -d $d ] && [ "$d" != "target" ] && [ -d "$d/instances" ]
