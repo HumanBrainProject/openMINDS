@@ -881,6 +881,7 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" TissueSampleState
@@ -888,7 +889,6 @@ FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" SubjectState
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -939,6 +939,7 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" TissueSampleState
@@ -946,7 +947,6 @@ File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" SubjectState
-File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -1003,8 +1003,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" Disease
@@ -1018,6 +1016,8 @@ Protocol -d-> "studyOption" UBERONParcellation
 Protocol -d-> "studyOption" DiseaseModel
 Protocol -d-> "studyOption" MolecularEntity
 Protocol -d-> "studyOption" Organ
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1053,8 +1053,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" Disease
@@ -1068,6 +1066,8 @@ ProtocolExecution -d-> "studyTarget" UBERONParcellation
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" MolecularEntity
 ProtocolExecution -d-> "studyTarget" Organ
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class TissueSampleState {
@@ -1606,8 +1606,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" Disease
@@ -1621,6 +1619,8 @@ Model -d-> "studyTarget" UBERONParcellation
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" MolecularEntity
 Model -d-> "studyTarget" Organ
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
