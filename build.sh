@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Guarantee script exits with a non-zero return-code if a command below fails.
+set -e
+
 # The script requires the openMIINDS repository to be cloned in the same root directory into the directory "openMINDS_documentation".
 # This needs to be done externally since we need to push back to it and this can only be achieved when the repo is cloned via the workflow action
 if [ ! -d "openMINDS_documentation" ]; then
