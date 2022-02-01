@@ -14,6 +14,47 @@
             "const": "https://openminds.ebrains.eu/core/BehavioralProtocol",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/describedIn": {
+            "_instruction": "Add a publication or file in which this behavioral protocol is (originally) described in detail.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI",
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/core/URL"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "describedIn",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this behavioral protocol.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -77,10 +118,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/name",
         "@type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/name"
+        "https://openminds.ebrains.eu/vocab/description"
     ],
     "type": "object"
 }
