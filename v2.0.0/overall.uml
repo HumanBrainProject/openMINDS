@@ -708,6 +708,8 @@ class Protocol {
 
 }
 Protocol -d-> "behavioralTask" BehavioralTask
+Protocol -d-> "studyOption" CustomAnatomicalEntity
+Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "studyOption" Species
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" Strain
@@ -718,8 +720,6 @@ Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" DiseaseModel
 Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" BiologicalSex
-Protocol -d-> "studyOption" CustomAnatomicalEntity
-Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "technique" Technique
 
 
@@ -779,6 +779,8 @@ ProtocolExecution -d-> "parameterSet" ParameterSet
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "semanticallyAnchoredTo" AnatomicalEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
 ProtocolExecution -d-> "studyTarget" Species
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" Strain
@@ -789,8 +791,6 @@ ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" BiologicalSex
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
 
 
 class SubjectGroup {
@@ -1428,6 +1428,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" CustomAnatomicalEntity
+Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "studyTarget" Species
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" Strain
@@ -1438,8 +1440,6 @@ Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" BiologicalSex
-Model -d-> "studyTarget" CustomAnatomicalEntity
-Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
