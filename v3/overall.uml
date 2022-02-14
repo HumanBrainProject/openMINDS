@@ -323,6 +323,7 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" BehavioralProtocol
@@ -334,7 +335,6 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" Subject
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupingType" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -1101,6 +1101,8 @@ class Project {
 +shortName
 
 }
+Project -d-> "hasResearchProducts" BrainAtlasVersion
+Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" MetaDataModel
 Project -d-> "hasResearchProducts" DatasetVersion
@@ -1109,8 +1111,6 @@ Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" Dataset
 Project -d-> "hasResearchProducts" MetaDataModelVersion
 Project -d-> "hasResearchProducts" Software
-Project -d-> "hasResearchProducts" BrainAtlasVersion
-Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "homepage" URL
 Project -d-> "coordinator" Organization
 Project -d-> "coordinator" Person
