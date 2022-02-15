@@ -14,6 +14,27 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+            "_instruction": "Enter additional remarks about the parcellation entity version.",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/alternativeName": {
+            "_instruction": "If applicable, enter one or several alternative names, inlcuding abbreviations, for this parcellation entity version.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternativeName",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/correctedName": {
+            "_instruction": "If necessary, enter a refined/correct name for this parcellation entity version.",
+            "title": "correctedName",
+            "type": "string"
+        },
         "https://openminds.ebrains.eu/vocab/hasAnnotation": {
             "_deprecated": true,
             "_type": "https://openminds.ebrains.eu/sands/AtlasAnnotation",
@@ -199,7 +220,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "If necessary, enter a version specific name for this parcellation entity version. If left blank, the parcellation entity version will inherit the 'name' of it's corresponding parcellation entity.",
+            "_instruction": "Enter the version specific name for this parcellation entity version.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
@@ -383,9 +404,10 @@
         }
     },
     "required": [
-        "@type",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id"
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }

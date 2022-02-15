@@ -15,6 +15,22 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/alternativeName": {
+            "_instruction": "If applicable, enter one or several alternative names, inlcuding abbreviations, for this parcellation entity.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternativeName",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+            "_instruction": "Enter the definition for this parcellation entity.",
+            "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+            "title": "definition",
+            "type": "string"
+        },
         "https://openminds.ebrains.eu/vocab/hasParent": {
             "_instruction": "Add the defined anatomical parent structure for this parcellation entity, or several if required.",
             "description": "Reference to a parent object or legal person.",
@@ -169,9 +185,9 @@
         }
     },
     "required": [
+        "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/name",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }
