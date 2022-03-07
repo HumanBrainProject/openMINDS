@@ -12,6 +12,45 @@
             "const": "https://openminds.ebrains.eu/sands/CustomAnnotation",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/annotationType": {
+            "_instruction": "Add the type of this custom annotation.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AnnotationType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "annotationType",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/bestViewPoint": {
             "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "description": "Structured information on a coordinate point.",
@@ -341,11 +380,11 @@
     },
     "required": [
         "https://openminds.ebrains.eu/vocab/internalIdentifier",
-        "https://openminds.ebrains.eu/vocab/coordinateSpace",
-        "@id",
         "https://openminds.ebrains.eu/vocab/visualizedIn",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/criteriaQualityType"
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/coordinateSpace",
+        "@type"
     ],
     "type": "object"
 }

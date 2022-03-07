@@ -12,6 +12,45 @@
             "const": "https://openminds.ebrains.eu/sands/AtlasAnnotation",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/annotationType": {
+            "_instruction": "Add the type of this atlas annotation.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AnnotationType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "annotationType",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/bestViewPoint": {
             "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "description": "Structured information on a coordinate point.",
@@ -300,9 +339,9 @@
     },
     "required": [
         "@type",
-        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
+        "@id",
         "https://openminds.ebrains.eu/vocab/internalIdentifier",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType"
     ],
     "type": "object"
 }
