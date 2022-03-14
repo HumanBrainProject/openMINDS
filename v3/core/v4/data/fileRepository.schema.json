@@ -20,34 +20,47 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentTypePattern": {
-            "_type": "https://openminds.ebrains.eu/core/ContentTypePattern",
-            "properties": {
-                "contentType": {
-                    "_instruction": "Enter the content type that can be defined by the given regular expression for file names/extentions.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/ContentType"
-                    ],
-                    "title": "contentType"
+            "_instruction": "Add all content type patterns that would identify matching content types for files within this file repository.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "lookupLabel": {
-                    "_instruction": "Enter a lookup label for this content type pattern.",
-                    "title": "lookupLabel",
-                    "type": "string"
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
                 },
-                "regex": {
-                    "_formats": [
-                        "ECMA262"
-                    ],
-                    "_instruction": "Enter a regular expression for the file names/extensions that defines the give content type.",
-                    "title": "regex",
-                    "type": "string"
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/ContentTypePattern"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
                 }
             },
-            "required": [
-                "contentType",
-                "regex"
-            ],
-            "type": "object"
+            "minItems": 1,
+            "title": "contentTypePattern",
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/format": {
             "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
@@ -281,11 +294,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hostedBy",
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/IRI"
+        "@id",
+        "https://openminds.ebrains.eu/vocab/hostedBy",
+        "https://openminds.ebrains.eu/vocab/IRI",
+        "@type"
     ],
     "type": "object"
 }
