@@ -352,9 +352,8 @@
                     ]
                 },
                 "relevantFor": {
-                    "_instruction": "Add the technique or stimulation where this set of parameters is used in.",
+                    "_instruction": "Add the technique where this set of parameters is used.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/Stimulation",
                         "https://openminds.ebrains.eu/controlledTerms/Technique"
                     ],
                     "description": "Reference to what or whom something or someone bears siginificance.",
@@ -492,6 +491,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
                                 "https://openminds.ebrains.eu/controlledTerms/BreedingType",
                                 "https://openminds.ebrains.eu/controlledTerms/Species",
                                 "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
@@ -506,10 +508,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                                "https://openminds.ebrains.eu/controlledTerms/Organ"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -529,9 +528,9 @@
     "required": [
         "https://openminds.ebrains.eu/vocab/output",
         "https://openminds.ebrains.eu/vocab/input",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
-        "@type",
         "https://openminds.ebrains.eu/vocab/protocol",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
         "@id"
     ],
     "type": "object"

@@ -11,6 +11,287 @@
             "const": "https://openminds.ebrains.eu/core/Stimulation",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+            "anyOf": [
+                {
+                    "_categories": [
+                        "fileOrigin"
+                    ],
+                    "_type": "https://openminds.ebrains.eu/core/File",
+                    "description": "Structured information on a file instances.",
+                    "properties": {
+                        "IRI": {
+                            "_formats": [
+                                "iri"
+                            ],
+                            "_instruction": "Enter the internationalized resource identifier of this single file.",
+                            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+                            "title": "IRI",
+                            "type": "string"
+                        },
+                        "contentDescription": {
+                            "_instruction": "Enter a short content description for this file instance.",
+                            "title": "contentDescription",
+                            "type": "string"
+                        },
+                        "dataType": {
+                            "_instruction": "Add all data types that are specifially represented in this file.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/DataType"
+                            ],
+                            "minItems": 1,
+                            "title": "dataType",
+                            "type": "array",
+                            "uniqueItems": true
+                        },
+                        "fileRepository": {
+                            "_instruction": "Add the over all repository to which this single file belongs.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/FileRepository"
+                            ],
+                            "title": "fileRepository"
+                        },
+                        "format": {
+                            "_instruction": "Add the content type of this file instance.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ContentType"
+                            ],
+                            "description": "Method of digitally organizing and structuring data or information.",
+                            "title": "format"
+                        },
+                        "hash": {
+                            "_type": "https://openminds.ebrains.eu/core/Hash",
+                            "description": "Structured information on a hash.",
+                            "properties": {
+                                "algorithm": {
+                                    "_instruction": "Enter the algorithm used to generate this hash.",
+                                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                                    "title": "algorithm",
+                                    "type": "string"
+                                },
+                                "digest": {
+                                    "_instruction": "Enter the digest of this hash.",
+                                    "description": "Summation or condensation of a body of information.",
+                                    "title": "digest",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "algorithm",
+                                "digest"
+                            ],
+                            "type": "object"
+                        },
+                        "isPartOf": {
+                            "_instruction": "Add one or several bundles in which this single file can be grouped.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "description": "Reference to the ensemble of multiple things or beings.",
+                            "minItems": 1,
+                            "title": "isPartOf",
+                            "type": "array",
+                            "uniqueItems": true
+                        },
+                        "name": {
+                            "_instruction": "Enter the name of this single file.",
+                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                            "title": "name",
+                            "type": "string"
+                        },
+                        "specialUsageRole": {
+                            "_instruction": "Add a special usage role for this single file.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/FileUsageRole"
+                            ],
+                            "description": "Particular function of something when it is used.",
+                            "title": "specialUsageRole"
+                        },
+                        "storageSize": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "IRI",
+                        "name"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_categories": [
+                        "fileOrigin"
+                    ],
+                    "_type": "https://openminds.ebrains.eu/core/FileBundle",
+                    "description": "Structured information on a bundle of file instances.",
+                    "properties": {
+                        "contentDescription": {
+                            "_instruction": "Enter a short content description for this file bundle.",
+                            "title": "contentDescription",
+                            "type": "string"
+                        },
+                        "descendedFrom": {
+                            "_instruction": "Add the entity that played a role in the production of this file bundle.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/BehavioralProtocol",
+                                "https://openminds.ebrains.eu/core/TissueSample",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollection",
+                                "https://openminds.ebrains.eu/core/SubjectGroup",
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/Subject",
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
+                            ],
+                            "title": "descendedFrom"
+                        },
+                        "format": {
+                            "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ContentType"
+                            ],
+                            "description": "Method of digitally organizing and structuring data or information.",
+                            "title": "format"
+                        },
+                        "groupingType": {
+                            "_instruction": "Add the type of grouping that was used to define this file bundle.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                            ],
+                            "title": "groupingType"
+                        },
+                        "hash": {
+                            "_type": "https://openminds.ebrains.eu/core/Hash",
+                            "description": "Structured information on a hash.",
+                            "properties": {
+                                "algorithm": {
+                                    "_instruction": "Enter the algorithm used to generate this hash.",
+                                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                                    "title": "algorithm",
+                                    "type": "string"
+                                },
+                                "digest": {
+                                    "_instruction": "Enter the digest of this hash.",
+                                    "description": "Summation or condensation of a body of information.",
+                                    "title": "digest",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "algorithm",
+                                "digest"
+                            ],
+                            "type": "object"
+                        },
+                        "isPartOf": {
+                            "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/FileRepository"
+                            ],
+                            "description": "Reference to the ensemble of multiple things or beings.",
+                            "title": "isPartOf"
+                        },
+                        "name": {
+                            "_instruction": "Enter the name of this file bundle.",
+                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                            "title": "name",
+                            "type": "string"
+                        },
+                        "storageSize": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "isPartOf",
+                        "name"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this stimulation.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
@@ -21,6 +302,156 @@
             "_instruction": "Enter a lookup label for this stimulation that may help you to more easily find it again.",
             "title": "lookupLabel",
             "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/parameterSet": {
+            "_type": "https://openminds.ebrains.eu/core/ParameterSet",
+            "description": "Structured information on a used parameter set.",
+            "properties": {
+                "context": {
+                    "_instruction": "Enter the common context for the parameters grouped in this set.",
+                    "title": "context",
+                    "type": "string"
+                },
+                "parameter": {
+                    "anyOf": [
+                        {
+                            "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
+                            "properties": {
+                                "name": {
+                                    "_instruction": "Enter a descriptive name for this numerical parameter.",
+                                    "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                                    "title": "name",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "anyOf": [
+                                        {
+                                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                            "description": "Structured information on a quantitative value.",
+                                            "properties": {
+                                                "typeOfUncertainty": {
+                                                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                                    ],
+                                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                                    "title": "typeOfUncertainty"
+                                                },
+                                                "uncertainty": {
+                                                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                                    "items": {
+                                                        "type": "number"
+                                                    },
+                                                    "maxItems": 2,
+                                                    "minItems": 2,
+                                                    "title": "uncertainty",
+                                                    "type": "array"
+                                                },
+                                                "unit": {
+                                                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                                    ],
+                                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                                    "title": "unit"
+                                                },
+                                                "value": {
+                                                    "_instruction": "Enter the measurement value of this quantitative value.",
+                                                    "description": "Entry for a property.",
+                                                    "title": "value",
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "value"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        {
+                                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                            "properties": {
+                                                "maxValue": {
+                                                    "_instruction": "Add the maximum value measured for this range.",
+                                                    "description": "Greatest quantity attained or allowed.",
+                                                    "title": "maxValue",
+                                                    "type": "number"
+                                                },
+                                                "maxValueUnit": {
+                                                    "_instruction": "Add the unit of measurement for the maximum value of this quantitative value range.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                                    ],
+                                                    "title": "maxValueUnit"
+                                                },
+                                                "minValue": {
+                                                    "_instruction": "Add the minimum value measured for this range.",
+                                                    "description": "Smallest quantity attained or allowed.",
+                                                    "title": "minValue",
+                                                    "type": "number"
+                                                },
+                                                "minValueUnit": {
+                                                    "_instruction": "Add the unit of measurement for the minimum value of this quantitative value range.",
+                                                    "_linkedTypes": [
+                                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                                    ],
+                                                    "title": "minValueUnit"
+                                                }
+                                            },
+                                            "required": [
+                                                "maxValue",
+                                                "minValue"
+                                            ],
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        {
+                            "_type": "https://openminds.ebrains.eu/core/StringParameter",
+                            "properties": {
+                                "name": {
+                                    "_instruction": "Enter a descriptive name for this parameter.",
+                                    "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                                    "title": "name",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "_instruction": "Enter a text value for this parameter.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name",
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    ]
+                },
+                "relevantFor": {
+                    "_instruction": "Add the technique where this set of parameters is used.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/Technique"
+                    ],
+                    "description": "Reference to what or whom something or someone bears siginificance.",
+                    "title": "relevantFor"
+                }
+            },
+            "required": [
+                "context",
+                "relevantFor",
+                "parameter"
+            ],
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/stimulationApproach": {
             "_instruction": "Add the stimulation approach which this stimulation has deployed.",
@@ -102,10 +533,10 @@
         }
     },
     "required": [
+        "@id",
         "https://openminds.ebrains.eu/vocab/stimulusType",
-        "https://openminds.ebrains.eu/vocab/stimulationApproach",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/stimulationApproach"
     ],
     "type": "object"
 }
