@@ -1,0 +1,150 @@
+{
+    "$id": "https://openminds.ebrains.eu/computation/workflowRecipe?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/computation/WorkflowRecipe",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/computation/WorkflowRecipe",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/developer": {
+            "_instruction": "Add one or several developers (person or organization) that contributed to this workflow recipe.",
+            "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "developer",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product. Note that this digital identifier will be used to reference all attached research product versions.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
+            "_instruction": "Add one or several versions of this workflow recipe.",
+            "description": "Reference to variants of an original.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasVersion",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/developer",
+        "@id"
+    ],
+    "type": "object"
+}

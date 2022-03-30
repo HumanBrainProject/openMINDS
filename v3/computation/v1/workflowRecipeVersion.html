@@ -1,0 +1,186 @@
+<html>
+<head>
+    <title>https://openminds.ebrains.eu/computation/WorkflowRecipeVersion</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}</style>
+</head>
+<body>
+    <h1>WorkflowRecipeVersion</h1>
+    <h2>https://openminds.ebrains.eu/computation/WorkflowRecipeVersion</h2>
+    <h4>part of <b>computation</b> in version <b>v1</b> - view as <a href="workflowRecipeVersion.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
+    <table class="properties">
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">format</span></td>
+            <td>Method of digitally organizing and structuring data or information.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../core/v4/data/contentType.html">ContentType</a>
+                </td>
+            <td>Add the used content type of this workflow recipe version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >developer</span></td>
+            <td>Legal person that creates or improves products or services (e.g., software, applications, etc.).</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../core/v4/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../core/v4/actors/person.html">Person</a>
+                </td>
+            <td>If necessary, add one or several developers (person or organization) that contributed to the code implementation of this workflow recipe version. Note that these developers will overwrite the ones provided in the workflow recipe this version belongs to.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../core/v4/miscellaneous/DOI.html">DOI</a>
+                </td>
+            <td>Add the globally unique and persistent digital identifier of this research product version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >hasComponent</span></td>
+            <td>Reference to an element of a collection.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../computation/v1/workflowRecipeVersion.html">WorkflowRecipeVersion</a>
+                 OR <br/> 
+                <a href="../../core/v4/products/softwareVersion.html">SoftwareVersion</a>
+                 OR <br/> 
+                <a href="../../core/v4/data/file.html">File</a>
+                 OR <br/> 
+                <a href="../../core/v4/data/fileBundle.html">FileBundle</a>
+                </td>
+            <td>Add all workflow recipe versions that are components of this workflow recipe version, as well as the software and/or scripts used in this workflow</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isAlternativeVersionOf</span></td>
+            <td>Reference to an original form where the essence was preserved, but presented in an alternative form.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../computation/v1/workflowRecipeVersion.html">WorkflowRecipeVersion</a>
+                </td>
+            <td>Add all workflow recipe versions that can be used alternatively to this workflow recipe version.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >isNewVersionOf</span></td>
+            <td>Reference to a previous (potentially outdated) particular form of something.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../computation/v1/workflowRecipeVersion.html">WorkflowRecipeVersion</a>
+                </td>
+            <td>Add the workflow recipe version preceding this one.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >license</span></td>
+            <td>Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../core/v4/data/license.html">License</a>
+                </td>
+            <td>Add at least one license for this workflow recipe version.</td>
+        </tr>
+        
+    </table>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+    
+
+
+
+
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
+</body>
+
+</html>

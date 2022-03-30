@@ -2,6 +2,7 @@
 class WorkflowExecution {
 +stages
 +startedBy
++recipe
 
 }
 WorkflowExecution -d-> "stages" DataAnalysis
@@ -10,5 +11,6 @@ WorkflowExecution -d-> "stages" Simulation
 WorkflowExecution -d-> "stages" Visualization
 WorkflowExecution -d-> "startedBy" Person
 WorkflowExecution -d-> "startedBy" SoftwareAgent
+WorkflowExecution -d-> "recipe" WorkflowRecipeVersion
 
 @enduml

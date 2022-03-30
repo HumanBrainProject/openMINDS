@@ -1,0 +1,24 @@
+@startuml
+class WorkflowRecipeVersion {
++developer
++digitalIdentifier
++hasComponent
++format
++isAlternativeVersionOf
++isNewVersionOf
++license
+
+}
+WorkflowRecipeVersion -d-> "developer" Organization
+WorkflowRecipeVersion -d-> "developer" Person
+WorkflowRecipeVersion -d-> "digitalIdentifier" DOI
+WorkflowRecipeVersion -d-> "hasComponent" WorkflowRecipeVersion
+WorkflowRecipeVersion -d-> "hasComponent" SoftwareVersion
+WorkflowRecipeVersion -d-> "hasComponent" File
+WorkflowRecipeVersion -d-> "hasComponent" FileBundle
+WorkflowRecipeVersion -d-> "format" ContentType
+WorkflowRecipeVersion -d-> "isAlternativeVersionOf" WorkflowRecipeVersion
+WorkflowRecipeVersion -d-> "isNewVersionOf" WorkflowRecipeVersion
+WorkflowRecipeVersion -d-> "license" License
+
+@enduml

@@ -1,0 +1,321 @@
+{
+    "$id": "https://openminds.ebrains.eu/computation/workflowRecipeVersion?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/developer": {
+            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this workflow recipe version. Note that these developers will overwrite the ones provided in the workflow recipe this version belongs to.",
+            "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "developer",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product version.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the used content type of this workflow recipe version.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hasComponent": {
+            "_instruction": "Add all workflow recipe versions that are components of this workflow recipe version, as well as the software and/or scripts used in this workflow",
+            "description": "Reference to an element of a collection.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+                                "https://openminds.ebrains.eu/core/SoftwareVersion",
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasComponent",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
+            "_instruction": "Add all workflow recipe versions that can be used alternatively to this workflow recipe version.",
+            "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "isAlternativeVersionOf",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
+            "_instruction": "Add the workflow recipe version preceding this one.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isNewVersionOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/license": {
+            "_instruction": "Add at least one license for this workflow recipe version.",
+            "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/License"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "license",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/format",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

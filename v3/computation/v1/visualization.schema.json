@@ -170,6 +170,45 @@
             "title": "output",
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/recipe": {
+            "_instruction": "Add the workflow recipe version used for this computation",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "recipe",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/resourceUsage": {
             "anyOf": [
                 {
@@ -383,11 +422,11 @@
         }
     },
     "required": [
-        "@type",
         "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/environment",
         "https://openminds.ebrains.eu/vocab/launchConfiguration",
-        "https://openminds.ebrains.eu/vocab/startedAtTime",
-        "https://openminds.ebrains.eu/vocab/environment"
+        "https://openminds.ebrains.eu/vocab/startedAtTime"
     ],
     "type": "object"
 }

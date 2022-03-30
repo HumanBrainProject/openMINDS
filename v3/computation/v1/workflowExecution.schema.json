@@ -11,6 +11,45 @@
             "const": "https://openminds.ebrains.eu/computation/WorkflowExecution",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/recipe": {
+            "_instruction": "Add the workflow recipe version used for this workflow execution",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "recipe",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/stages": {
             "else": {
                 "properties": {
@@ -94,8 +133,8 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/stages",
+        "@id",
         "@type"
     ],
     "type": "object"
