@@ -1096,8 +1096,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" CustomAnatomicalEntity
-Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" TermSuggestion
@@ -1113,6 +1111,8 @@ Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" GeneticStrainType
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" SubcellularEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
+Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
@@ -1333,6 +1333,7 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" BehavioralTask
@@ -1340,7 +1341,6 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -1384,6 +1384,7 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" BehavioralTask
@@ -1391,7 +1392,6 @@ File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" TissueSampleCollectionState
-File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -1637,8 +1637,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" TermSuggestion
@@ -1654,6 +1652,8 @@ ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" SubcellularEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
 
 
 class Protocol {
@@ -1663,8 +1663,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" CustomAnatomicalEntity
-Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" TermSuggestion
@@ -1680,6 +1678,8 @@ Protocol -d-> "studyOption" BreedingType
 Protocol -d-> "studyOption" GeneticStrainType
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" SubcellularEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
+Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "technique" Technique
 
 
