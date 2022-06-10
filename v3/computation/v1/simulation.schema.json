@@ -1,15 +1,10 @@
 {
     "$id": "https://openminds.ebrains.eu/computation/simulation?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "computationalActivity"
+    ],
     "_type": "https://openminds.ebrains.eu/computation/Simulation",
-    "input": {
-        "_linkedTypes": [
-            "https://openminds.ebrains.eu/core/FileBundle",
-            "https://openminds.ebrains.eu/core/File",
-            "https://openminds.ebrains.eu/core/SoftwareVersion",
-            "https://openminds.ebrains.eu/core/ModelVersion"
-        ]
-    },
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -86,7 +81,9 @@
                         "enum": [
                             "https://openminds.ebrains.eu/core/FileBundle",
                             "https://openminds.ebrains.eu/core/File",
-                            "https://openminds.ebrains.eu/core/SoftwareVersion"
+                            "https://openminds.ebrains.eu/computation/LocalFile",
+                            "https://openminds.ebrains.eu/core/SoftwareVersion",
+                            "https://openminds.ebrains.eu/core/ModelVersion"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -165,7 +162,8 @@
                     "@type": {
                         "enum": [
                             "https://openminds.ebrains.eu/core/FileBundle",
-                            "https://openminds.ebrains.eu/core/File"
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/computation/LocalFile"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -415,7 +413,10 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/computation/Computation"
+                            "https://openminds.ebrains.eu/computation/Visualization",
+                            "https://openminds.ebrains.eu/computation/Simulation",
+                            "https://openminds.ebrains.eu/computation/DataAnalysis",
+                            "https://openminds.ebrains.eu/computation/Optimization"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -430,11 +431,11 @@
         }
     },
     "required": [
-        "@id",
+        "https://openminds.ebrains.eu/vocab/startedAtTime",
+        "https://openminds.ebrains.eu/vocab/launchConfiguration",
         "https://openminds.ebrains.eu/vocab/environment",
         "@type",
-        "https://openminds.ebrains.eu/vocab/startedAtTime",
-        "https://openminds.ebrains.eu/vocab/launchConfiguration"
+        "@id"
     ],
     "type": "object"
 }
