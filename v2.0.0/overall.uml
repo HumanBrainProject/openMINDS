@@ -662,6 +662,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" CustomAnatomicalEntity
+Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" Disease
@@ -672,8 +674,6 @@ Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" Species
 Model -d-> "studyTarget" Strain
 Model -d-> "studyTarget" Phenotype
-Model -d-> "studyTarget" CustomAnatomicalEntity
-Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
@@ -1051,6 +1051,8 @@ ProtocolExecution -d-> "parameterSet" ParameterSet
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "semanticallyAnchoredTo" AnatomicalEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" Disease
@@ -1061,8 +1063,6 @@ ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" Species
 ProtocolExecution -d-> "studyTarget" Strain
 ProtocolExecution -d-> "studyTarget" Phenotype
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
 
 
 class Subject {
@@ -1093,6 +1093,8 @@ class Protocol {
 
 }
 Protocol -d-> "behavioralTask" BehavioralTask
+Protocol -d-> "studyOption" CustomAnatomicalEntity
+Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" Disease
@@ -1103,8 +1105,6 @@ Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" Species
 Protocol -d-> "studyOption" Strain
 Protocol -d-> "studyOption" Phenotype
-Protocol -d-> "studyOption" CustomAnatomicalEntity
-Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "technique" Technique
 
 
