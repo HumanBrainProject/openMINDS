@@ -1,29 +1,28 @@
 {
-    "$id": "https://openminds.ebrains.eu/core/parameterSet?format=json-schema",
+    "$id": "https://openminds.ebrains.eu/core/propertyValueList?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "_type": "https://openminds.ebrains.eu/core/ParameterSet",
-    "description": "Structured information on a used parameter set.",
+    "_type": "https://openminds.ebrains.eu/core/PropertyValueList",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
             "type": "string"
         },
         "@type": {
-            "const": "https://openminds.ebrains.eu/core/ParameterSet",
+            "const": "https://openminds.ebrains.eu/core/PropertyValueList",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/context": {
-            "_instruction": "Enter the common context for the parameters grouped in this set.",
-            "title": "context",
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this property-value (also called key-value) list that may help you to more easily find it again.",
+            "title": "lookupLabel",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/parameter": {
+        "https://openminds.ebrains.eu/vocab/propertyValuePair": {
             "anyOf": [
                 {
-                    "_type": "https://openminds.ebrains.eu/core/NumericalParameter",
+                    "_type": "https://openminds.ebrains.eu/core/NumericalProperty",
                     "properties": {
                         "name": {
-                            "_instruction": "Enter a descriptive name for this numerical parameter.",
+                            "_instruction": "Enter a descriptive name for this numerical property.",
                             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
                             "title": "name",
                             "type": "string"
@@ -119,16 +118,16 @@
                     "type": "object"
                 },
                 {
-                    "_type": "https://openminds.ebrains.eu/core/StringParameter",
+                    "_type": "https://openminds.ebrains.eu/core/StringProperty",
                     "properties": {
                         "name": {
-                            "_instruction": "Enter a descriptive name for this parameter.",
+                            "_instruction": "Enter a descriptive name for this property.",
                             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
                             "title": "name",
                             "type": "string"
                         },
                         "value": {
-                            "_instruction": "Enter a text value for this parameter.",
+                            "_instruction": "Enter a text value for this property.",
                             "description": "Entry for a property.",
                             "title": "value",
                             "type": "string"
@@ -141,54 +140,12 @@
                     "type": "object"
                 }
             ]
-        },
-        "https://openminds.ebrains.eu/vocab/relevantFor": {
-            "_instruction": "Add the technique where this set of parameters is used.",
-            "description": "Reference to what or whom something or someone bears siginificance.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/Technique"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "relevantFor",
-            "type": "object"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/parameter",
-        "https://openminds.ebrains.eu/vocab/relevantFor",
-        "https://openminds.ebrains.eu/vocab/context",
+        "@id",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/propertyValuePair"
     ],
     "type": "object"
 }
