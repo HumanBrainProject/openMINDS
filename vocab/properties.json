@@ -505,7 +505,8 @@
         "name": "configuration",
         "sameAs": [],
         "schemas": [
-            "computation/v1/environment"
+            "computation/v1/environment",
+            "core/v4/research/configuration"
         ]
     },
     "https://openminds.ebrains.eu/vocab/contactInformation": {
@@ -575,7 +576,7 @@
         "name": "context",
         "schemas": [
             "core/v3/research/parameterSet",
-            "core/v4/research/parameterSet"
+            "core/v4/research/customPropertySet"
         ]
     },
     "https://openminds.ebrains.eu/vocab/contributionType": {
@@ -782,6 +783,17 @@
             "core/v4/products/softwareVersion"
         ]
     },
+    "https://openminds.ebrains.eu/vocab/customPropertySet": {
+        "description": null,
+        "label": "Custom property set",
+        "linkedTypes": [],
+        "name": "customPropertySet",
+        "sameAs": [],
+        "schemas": [
+            "core/v4/research/experimentalActivity",
+            "core/v4/research/protocolExecution"
+        ]
+    },
     "https://openminds.ebrains.eu/vocab/dataLocation": {
         "description": null,
         "label": "Data location",
@@ -863,7 +875,8 @@
             "SANDS/v2/atlas/parcellationTerminology",
             "SANDS/v2/non-atlas/electrodeContact",
             "SANDS/v3/atlas/parcellationTerminology",
-            "SANDS/v3/atlas/parcellationTerminologyVersion"
+            "SANDS/v3/atlas/parcellationTerminologyVersion",
+            "core/v4/research/customPropertySet"
         ]
     },
     "https://openminds.ebrains.eu/vocab/definition": {
@@ -972,6 +985,16 @@
             "controlledTerms/v1/tissueSampleType",
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement"
+        ]
+    },
+    "https://openminds.ebrains.eu/vocab/definitionFormat": {
+        "description": null,
+        "label": "Definition format",
+        "linkedTypes": [],
+        "name": "definitionFormat",
+        "sameAs": [],
+        "schemas": [
+            "core/v4/research/configuration"
         ]
     },
     "https://openminds.ebrains.eu/vocab/descendedFrom": {
@@ -1148,6 +1171,7 @@
             "core/v4/products/software",
             "core/v4/products/softwareVersion",
             "core/v4/research/behavioralProtocol",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocol",
             "core/v4/research/protocolExecution",
             "core/v4/research/stimulation",
@@ -1363,6 +1387,7 @@
         "name": "endedAtTime",
         "schemas": [
             "core/v3/research/protocolExecution",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -2147,6 +2172,7 @@
             "computation/v1/visualization",
             "core/v0/research/protocolExecution",
             "core/v3/research/protocolExecution",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -2390,6 +2416,7 @@
             "core/v3/research/tissueSample",
             "core/v4/data/file",
             "core/v4/data/fileBundle",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution",
             "core/v4/research/subject",
             "core/v4/research/tissueSample"
@@ -2606,6 +2633,9 @@
             "core/v3/research/tissueSampleState",
             "core/v4/data/contentTypePattern",
             "core/v4/data/fileRepositoryStructure",
+            "core/v4/research/configuration",
+            "core/v4/research/experimentalActivity",
+            "core/v4/research/propertyValueList",
             "core/v4/research/protocolExecution",
             "core/v4/research/stimulation",
             "core/v4/research/subject",
@@ -2814,10 +2844,10 @@
             "core/v4/data/fileRepository",
             "core/v4/data/serviceLink",
             "core/v4/research/behavioralProtocol",
-            "core/v4/research/numericalParameter",
+            "core/v4/research/numericalProperty",
             "core/v4/research/protocol",
             "core/v4/research/strain",
-            "core/v4/research/stringParameter"
+            "core/v4/research/stringProperty"
         ]
     },
     "https://openminds.ebrains.eu/vocab/namingTerm": {
@@ -3067,6 +3097,7 @@
             "computation/v1/visualization",
             "core/v0/research/protocolExecution",
             "core/v3/research/protocolExecution",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -3107,8 +3138,7 @@
         "labelForReverseLink": "Is parameter of",
         "name": "parameter",
         "schemas": [
-            "core/v3/research/parameterSet",
-            "core/v4/research/parameterSet"
+            "core/v3/research/parameterSet"
         ]
     },
     "https://openminds.ebrains.eu/vocab/parameterSet": {
@@ -3118,7 +3148,6 @@
         "name": "parameterSet",
         "schemas": [
             "core/v3/research/protocolExecution",
-            "core/v4/research/protocolExecution",
             "core/v4/research/stimulation"
         ]
     },
@@ -3269,6 +3298,7 @@
         "sameAs": [],
         "schemas": [
             "core/v4/products/datasetVersion",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -3320,6 +3350,16 @@
             "core/v0/products/project"
         ]
     },
+    "https://openminds.ebrains.eu/vocab/propertyValuePair": {
+        "description": null,
+        "label": "Property value pair",
+        "linkedTypes": [],
+        "name": "propertyValuePair",
+        "sameAs": [],
+        "schemas": [
+            "core/v4/research/propertyValueList"
+        ]
+    },
     "https://openminds.ebrains.eu/vocab/protocol": {
         "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
         "label": "Protocol",
@@ -3333,6 +3373,7 @@
             "core/v0/research/protocolExecution",
             "core/v3/products/datasetVersion",
             "core/v3/research/protocolExecution",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -3559,7 +3600,7 @@
         "schemas": [
             "core/v0/research/parameterSetting",
             "core/v3/research/parameterSet",
-            "core/v4/research/parameterSet"
+            "core/v4/research/customPropertySet"
         ]
     },
     "https://openminds.ebrains.eu/vocab/repository": {
@@ -3845,6 +3886,7 @@
         "name": "startedAtTime",
         "schemas": [
             "core/v3/research/protocolExecution",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -4059,6 +4101,7 @@
             "core/v3/research/protocolExecution",
             "core/v4/products/datasetVersion",
             "core/v4/products/model",
+            "core/v4/research/experimentalActivity",
             "core/v4/research/protocolExecution"
         ]
     },
@@ -4299,8 +4342,8 @@
             "core/v3/research/numericalParameter",
             "core/v3/research/stringParameter",
             "core/v4/miscellaneous/quantitativeValue",
-            "core/v4/research/numericalParameter",
-            "core/v4/research/stringParameter"
+            "core/v4/research/numericalProperty",
+            "core/v4/research/stringProperty"
         ]
     },
     "https://openminds.ebrains.eu/vocab/vendor": {
