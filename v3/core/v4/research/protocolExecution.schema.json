@@ -56,14 +56,38 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/customPropertySet": {
-            "_embeddedTypes": [
-                "https://openminds.ebrains.eu/core/customPropertySet"
+            "_type": "https://openminds.ebrains.eu/core/CustomPropertySet",
+            "properties": {
+                "context": {
+                    "_instruction": "Enter the common context for this custom property set.",
+                    "title": "context",
+                    "type": "string"
+                },
+                "definedIn": {
+                    "_instruction": "Add a file or configuration that specifies the custom property set of the given context.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/File",
+                        "https://openminds.ebrains.eu/core/Configuration",
+                        "https://openminds.ebrains.eu/core/PropertyValueList"
+                    ],
+                    "description": "Reference to a file instance in which something is stored.",
+                    "title": "definedIn"
+                },
+                "relevantFor": {
+                    "_instruction": "Add the technique for which this custom property set is relevant.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/Technique"
+                    ],
+                    "description": "Reference to what or whom something or someone bears siginificance.",
+                    "title": "relevantFor"
+                }
+            },
+            "required": [
+                "context",
+                "relevantFor",
+                "definedIn"
             ],
-            "_instruction": "If any parameters are not covered in the standardized properties of the respective activity, it is possible to add here user-defined parameters grouped in context-specific sets.",
-            "minItems": 1,
-            "title": "customPropertySet",
-            "type": "array",
-            "uniqueItems": true
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this activity.",
@@ -386,12 +410,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/output",
         "@id",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/output",
         "https://openminds.ebrains.eu/vocab/protocol",
-        "https://openminds.ebrains.eu/vocab/input"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/isPartOf"
     ],
     "type": "object"
 }
