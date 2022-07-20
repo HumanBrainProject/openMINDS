@@ -295,6 +295,8 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" Handedness
@@ -310,8 +312,6 @@ ProtocolExecution -d-> "studyTarget" Species
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" BreedingType
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class ParameterSet {
@@ -376,6 +376,8 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" Disease
 Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" Handedness
@@ -391,8 +393,6 @@ Protocol -d-> "studyOption" Species
 Protocol -d-> "studyOption" GeneticStrainType
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" BreedingType
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -549,6 +549,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" Handedness
@@ -564,8 +566,6 @@ Model -d-> "studyTarget" Species
 Model -d-> "studyTarget" GeneticStrainType
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" BreedingType
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
