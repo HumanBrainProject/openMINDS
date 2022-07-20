@@ -10,6 +10,12 @@ class Visualization {
 +resourceUsage
 +tags
 +recipe
++description
++endedAtTime
++lookupLabel
++customPropertySet
++startedAtTime
++studyTarget
 
 }
 Visualization -d-> "input" FileBundle
@@ -23,13 +29,32 @@ Visualization -d-> "environment" Environment
 Visualization -d-> "launchConfiguration" LaunchConfiguration
 Visualization -d-> "startedBy" Person
 Visualization -d-> "startedBy" SoftwareAgent
-Visualization -d-> "wasInformedBy" DataAnalysis
 Visualization -d-> "wasInformedBy" Visualization
 Visualization -d-> "wasInformedBy" Simulation
+Visualization -d-> "wasInformedBy" DataAnalysis
 Visualization -d-> "wasInformedBy" Optimization
 Visualization -d-> "status" ActionStatusType
 Visualization -d-> "resourceUsage" QuantitativeValue
 Visualization -d-> "resourceUsage" QuantitativeValueRange
 Visualization -d-> "recipe" WorkflowRecipeVersion
+Visualization -d-> "customPropertySet" CustomPropertySet
+Visualization -d-> "studyTarget" ParcellationEntity
+Visualization -d-> "studyTarget" ParcellationEntityVersion
+Visualization -d-> "studyTarget" CustomAnatomicalEntity
+Visualization -d-> "studyTarget" Disease
+Visualization -d-> "studyTarget" BiologicalOrder
+Visualization -d-> "studyTarget" Handedness
+Visualization -d-> "studyTarget" SubcellularEntity
+Visualization -d-> "studyTarget" CellType
+Visualization -d-> "studyTarget" BiologicalSex
+Visualization -d-> "studyTarget" DiseaseModel
+Visualization -d-> "studyTarget" CellCultureType
+Visualization -d-> "studyTarget" MolecularEntity
+Visualization -d-> "studyTarget" UBERONParcellation
+Visualization -d-> "studyTarget" TermSuggestion
+Visualization -d-> "studyTarget" Species
+Visualization -d-> "studyTarget" GeneticStrainType
+Visualization -d-> "studyTarget" Organ
+Visualization -d-> "studyTarget" BreedingType
 
 @enduml
