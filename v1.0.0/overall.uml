@@ -1,60 +1,6 @@
 @startuml
 
-class Disease {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class AgeCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
 class ProgrammingLanguage {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class AnatomicalAxesOrientation {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class EthicsAssessment {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Genotype {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class BehavioralTask {
 +definition
 +description
 +name
@@ -72,7 +18,16 @@ class Technique {
 }
 
 
-class Strain {
+class SoftwareFeatureCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class FileUsageRole {
 +definition
 +description
 +name
@@ -90,7 +45,7 @@ class CellType {
 }
 
 
-class MetaDataModelType {
+class Strain {
 +definition
 +description
 +name
@@ -99,52 +54,7 @@ class MetaDataModelType {
 }
 
 
-class SoftwareFeatureCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class CriteriaQualityType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelScope {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class BiologicalSex {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class QualitativeOverlap {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Laterality {
+class ModelAbstractionLevel {
 +definition
 +description
 +name
@@ -162,7 +72,70 @@ class DiseaseModel {
 }
 
 
+class SoftwareApplicationCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class QualitativeOverlap {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
 class SoftwareFeature {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class UnitOfMeasurement {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class AgeCategory {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ContributionType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class StudyTargetType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Modality {
 +definition
 +description
 +name
@@ -180,7 +153,25 @@ class productAccessibility {
 }
 
 
-class Phenotype {
+class FileBundleGrouping {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class MetaDataModelType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class OperatingSystem {
 +definition
 +description
 +name
@@ -190,6 +181,69 @@ class Phenotype {
 
 
 class PreparationType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Organ {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class BehavioralTask {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class OperatingDevice {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class TissueSampleType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class CriteriaQualityType {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Species {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class ModelScope {
 +definition
 +description
 +name
@@ -209,7 +263,7 @@ class TermSuggestion {
 TermSuggestion -d-> "terminology" Terminology
 
 
-class OperatingDevice {
+class AnatomicalAxesOrientation {
 +definition
 +description
 +name
@@ -218,7 +272,7 @@ class OperatingDevice {
 }
 
 
-class ContributionType {
+class Laterality {
 +definition
 +description
 +name
@@ -227,106 +281,7 @@ class ContributionType {
 }
 
 
-class FileBundleGrouping {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class TissueSampleType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class DatasetType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Species {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class SoftwareApplicationCategory {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class ModelAbstractionLevel {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Modality {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class Organ {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class StudyTargetType {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class OperatingSystem {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class UnitOfMeasurement {
-+definition
-+description
-+name
-+ontologyIdentifier
-
-}
-
-
-class FileUsageRole {
+class Disease {
 +definition
 +description
 +name
@@ -344,67 +299,219 @@ class Language {
 }
 
 
-class Funding {
-+acknowledgement
-+awardNumber
-+awardTitle
-+funder
-
-}
-Funding -d-> "funder" Organization
-
-
-class QuantitativeValueRange {
-+maxValue
-+minValue
-
-}
-QuantitativeValueRange -d-> "maxValue" QuantitativeValue
-QuantitativeValueRange -d-> "minValue" QuantitativeValue
-
-
-class DigitalIdentifierSchema {
-+type
-+IRI
-+identifierPattern
+class Genotype {
++definition
++description
++name
++ontologyIdentifier
 
 }
 
 
-class DigitalIdentifier {
-+howToCite
-+identifier
-+identifierSchema
+class BiologicalSex {
++definition
++description
++name
++ontologyIdentifier
 
 }
-DigitalIdentifier -d-> "identifierSchema" DigitalIdentifierSchema
 
 
-class QuantitativeValue {
-+value
-+uncertainty
-+unit
+class DatasetType {
++definition
++description
++name
++ontologyIdentifier
 
 }
-QuantitativeValue -d-> "unit" UnitOfMeasurement
 
 
-class License {
-+deed
+class EthicsAssessment {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class Phenotype {
++definition
++description
++name
++ontologyIdentifier
+
+}
+
+
+class BrainAtlasVersion {
++annotationSet
++coordinateSpace
++digitalIdentifier
 +fullName
-+legalCode
++hasAlternativeVersion
++homepage
++isNewVersionOf
++ontologyIdentifier
++releaseDate
++shortName
++terminology
++versionIdentifier
++versionInnovation
+
+}
+BrainAtlasVersion -d-> "annotationSet" Annotation
+BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
+BrainAtlasVersion -d-> "hasAlternativeVersion" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "terminology" AtlasTerminology
+
+
+class ElectrodeArray {
++electrodes
++internalIdentifier
+
+}
+ElectrodeArray -d-> "electrodes" Electrode
+
+
+class AnatomicalEntityRelation {
++criteria
++criteriaQualityType
++inRelationTo
++qualitativeOverlap
++quantitativeOverlap
+
+}
+AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
+AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
+AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
+AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
+class Annotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++namingTerm
++relatedAtlasTerm
++visualizedIn
+
+}
+Annotation -d-> "bestViewPoint" CoordinatePoint
+Annotation -d-> "criteria" ProtocolExecution
+Annotation -d-> "criteriaQualityType" CriteriaQualityType
+Annotation -d-> "inspiredBy" Image
+Annotation -d-> "laterality" Laterality
+Annotation -d-> "namingTerm" AnatomicalEntity
+Annotation -d-> "relatedAtlasTerm" AnatomicalEntity
+Annotation -d-> "visualizedIn" Image
+
+
+class AnatomicalEntity {
++hasParent
++name
++ontologyIdentifier
++otherAnatomicalRelation
+
+}
+AnatomicalEntity -d-> "hasParent" AnatomicalEntity
+AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
+
+
+class BrainAtlas {
++description
++fullName
++hasVersion
++homepage
 +shortName
 
 }
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
 
 
-class Copyright {
-+holder
-+year
+class ElectrodeContact {
++coordinatePoint
++definedIn
++internalIdentifier
++relatedRecording
++relatedStimulation
++visualizedIn
 
 }
-Copyright -d-> "holder" Organization
-Copyright -d-> "holder" Person
+ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
+ElectrodeContact -d-> "definedIn" FileInstance
+ElectrodeContact -d-> "relatedRecording" FileInstance
+ElectrodeContact -d-> "relatedStimulation" FileInstance
+ElectrodeContact -d-> "visualizedIn" Image
+
+
+class AtlasTerminology {
++anatomicalEntity
++definedIn
++fullName
++ontologyIdentifier
++shortName
+
+}
+AtlasTerminology -d-> "anatomicalEntity" AnatomicalEntity
+AtlasTerminology -d-> "definedIn" FileInstance
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
+
+
+class Electrode {
++electrodeContact
++internalIdentifier
+
+}
+Electrode -d-> "electrodeContact" ElectrodeContact
+
+
+class Image {
++coordinateSpace
++definedIn
++voxelSize
+
+}
+Image -d-> "coordinateSpace" CoordinateSpace
+Image -d-> "definedIn" FileInstance
+Image -d-> "voxelSize" QuantitativeValue
+
+
+class CoordinateSpace {
++anatomicalAxesOrientation
++defaultImage
++digitalIdentifier
++fullName
++homepage
++nativeUnit
++ontologyIdentifier
++axesOrigin
++releaseDate
++shortName
++versionIdentifier
+
+}
+CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CoordinateSpace -d-> "defaultImage" Image
+CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
+CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+CoordinateSpace -d-> "axesOrigin" QuantitativeValue
 
 
 class FileBundle {
@@ -423,6 +530,37 @@ FileBundle -d-> "hash" Hash
 FileBundle -d-> "isPartOf" FileBundle
 FileBundle -d-> "isPartOf" FileRepository
 FileBundle -d-> "storageSize" QuantitativeValue
+
+
+class FileRepository {
++format
++hash
++hostedBy
++IRI
++name
++storageSize
+
+}
+FileRepository -d-> "format" ContentType
+FileRepository -d-> "hash" Hash
+FileRepository -d-> "hostedBy" Organization
+FileRepository -d-> "storageSize" QuantitativeValue
+
+
+class Hash {
++algorithm
++digest
+
+}
+
+
+class License {
++deed
++fullName
++legalCode
++shortName
+
+}
 
 
 class FileInstance {
@@ -453,51 +591,96 @@ class ContentType {
 }
 
 
-class FileRepository {
-+format
-+hash
-+hostedBy
-+IRI
+class Copyright {
++holder
++year
+
+}
+Copyright -d-> "holder" Organization
+Copyright -d-> "holder" Person
+
+
+class Contribution {
++contributionType
++contributor
+
+}
+Contribution -d-> "contributionType" ContributionType
+Contribution -d-> "contributor" Organization
+Contribution -d-> "contributor" Person
+
+
+class Person {
++digitalIdentifier
++email
++familyName
++givenName
+
+}
+Person -d-> "digitalIdentifier" DigitalIdentifier
+
+
+class Organization {
++digitalIdentifier
++fullName
++hasParent
++homepage
++shortName
+
+}
+Organization -d-> "digitalIdentifier" DigitalIdentifier
+Organization -d-> "hasParent" Organization
+
+
+class SubjectState {
++ageCategory
++handedness
++additionalRemarks
++age
++pathology
++weight
+
+}
+SubjectState -d-> "ageCategory" AgeCategory
+SubjectState -d-> "handedness" Laterality
+SubjectState -d-> "age" QuantitativeValue
+SubjectState -d-> "age" QuantitativeValueRange
+SubjectState -d-> "pathology" Disease
+SubjectState -d-> "pathology" DiseaseModel
+SubjectState -d-> "weight" QuantitativeValue
+SubjectState -d-> "weight" QuantitativeValueRange
+
+
+class SubjectGroupState {
++ageCategory
++handedness
++additionalRemarks
++age
++pathology
++weight
+
+}
+SubjectGroupState -d-> "ageCategory" AgeCategory
+SubjectGroupState -d-> "handedness" Laterality
+SubjectGroupState -d-> "age" QuantitativeValue
+SubjectGroupState -d-> "age" QuantitativeValueRange
+SubjectGroupState -d-> "pathology" Disease
+SubjectGroupState -d-> "pathology" DiseaseModel
+SubjectGroupState -d-> "weight" QuantitativeValue
+SubjectGroupState -d-> "weight" QuantitativeValueRange
+
+
+class ParameterSetting {
++description
 +name
-+storageSize
++relevantFor
++value
++unit
 
 }
-FileRepository -d-> "format" ContentType
-FileRepository -d-> "hash" Hash
-FileRepository -d-> "hostedBy" Organization
-FileRepository -d-> "storageSize" QuantitativeValue
-
-
-class Hash {
-+algorithm
-+digest
-
-}
-
-
-class TissueSample {
-+laterality
-+origin
-+studiedState
-+type
-+biologicalSex
-+internalIdentifier
-+genotype
-+phenotype
-+species
-+strain
-
-}
-TissueSample -d-> "laterality" Laterality
-TissueSample -d-> "origin" CellType
-TissueSample -d-> "origin" Organ
-TissueSample -d-> "studiedState" TissueSampleState
-TissueSample -d-> "type" TissueSampleType
-TissueSample -d-> "biologicalSex" BiologicalSex
-TissueSample -d-> "genotype" Genotype
-TissueSample -d-> "phenotype" Phenotype
-TissueSample -d-> "species" Species
-TissueSample -d-> "strain" Strain
+ParameterSetting -d-> "relevantFor" BehavioralTask
+ParameterSetting -d-> "relevantFor" Technique
+ParameterSetting -d-> "unit" UnitOfMeasurement
 
 
 class ProtocolExecution {
@@ -536,6 +719,25 @@ ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
+class SubjectGroup {
++studiedState
++biologicalSex
++internalIdentifier
++genotype
++phenotype
++quantity
++species
++strain
+
+}
+SubjectGroup -d-> "studiedState" SubjectGroupState
+SubjectGroup -d-> "biologicalSex" BiologicalSex
+SubjectGroup -d-> "genotype" Genotype
+SubjectGroup -d-> "phenotype" Phenotype
+SubjectGroup -d-> "species" Species
+SubjectGroup -d-> "strain" Strain
+
+
 class TissueSampleCollectionState {
 +additionalRemarks
 +age
@@ -551,42 +753,62 @@ TissueSampleCollectionState -d-> "weight" QuantitativeValue
 TissueSampleCollectionState -d-> "weight" QuantitativeValueRange
 
 
-class SubjectState {
-+ageCategory
-+handedness
+class TissueSampleState {
 +additionalRemarks
 +age
 +pathology
 +weight
 
 }
-SubjectState -d-> "ageCategory" AgeCategory
-SubjectState -d-> "handedness" Laterality
-SubjectState -d-> "age" QuantitativeValue
-SubjectState -d-> "age" QuantitativeValueRange
-SubjectState -d-> "pathology" Disease
-SubjectState -d-> "pathology" DiseaseModel
-SubjectState -d-> "weight" QuantitativeValue
-SubjectState -d-> "weight" QuantitativeValueRange
+TissueSampleState -d-> "age" QuantitativeValue
+TissueSampleState -d-> "age" QuantitativeValueRange
+TissueSampleState -d-> "pathology" Disease
+TissueSampleState -d-> "pathology" DiseaseModel
+TissueSampleState -d-> "weight" QuantitativeValue
+TissueSampleState -d-> "weight" QuantitativeValueRange
 
 
-class Protocol {
-+description
-+behavioralTask
-+name
-+studyTarget
-+technique
+class Subject {
++studiedState
++biologicalSex
++internalIdentifier
++genotype
++phenotype
++species
++strain
 
 }
-Protocol -d-> "behavioralTask" BehavioralTask
-Protocol -d-> "studyTarget" BiologicalSex
-Protocol -d-> "studyTarget" Disease
-Protocol -d-> "studyTarget" Genotype
-Protocol -d-> "studyTarget" Phenotype
-Protocol -d-> "studyTarget" Species
-Protocol -d-> "studyTarget" TermSuggestion
-Protocol -d-> "studyTarget" AnatomicalEntity
-Protocol -d-> "technique" Technique
+Subject -d-> "studiedState" SubjectState
+Subject -d-> "biologicalSex" BiologicalSex
+Subject -d-> "genotype" Genotype
+Subject -d-> "phenotype" Phenotype
+Subject -d-> "species" Species
+Subject -d-> "strain" Strain
+
+
+class TissueSample {
++laterality
++origin
++studiedState
++type
++biologicalSex
++internalIdentifier
++genotype
++phenotype
++species
++strain
+
+}
+TissueSample -d-> "laterality" Laterality
+TissueSample -d-> "origin" CellType
+TissueSample -d-> "origin" Organ
+TissueSample -d-> "studiedState" TissueSampleState
+TissueSample -d-> "type" TissueSampleType
+TissueSample -d-> "biologicalSex" BiologicalSex
+TissueSample -d-> "genotype" Genotype
+TissueSample -d-> "phenotype" Phenotype
+TissueSample -d-> "species" Species
+TissueSample -d-> "strain" Strain
 
 
 class TissueSampleCollection {
@@ -615,91 +837,71 @@ TissueSampleCollection -d-> "species" Species
 TissueSampleCollection -d-> "strain" Strain
 
 
-class SubjectGroupState {
-+ageCategory
-+handedness
-+additionalRemarks
-+age
-+pathology
-+weight
-
-}
-SubjectGroupState -d-> "ageCategory" AgeCategory
-SubjectGroupState -d-> "handedness" Laterality
-SubjectGroupState -d-> "age" QuantitativeValue
-SubjectGroupState -d-> "age" QuantitativeValueRange
-SubjectGroupState -d-> "pathology" Disease
-SubjectGroupState -d-> "pathology" DiseaseModel
-SubjectGroupState -d-> "weight" QuantitativeValue
-SubjectGroupState -d-> "weight" QuantitativeValueRange
-
-
-class Subject {
-+studiedState
-+biologicalSex
-+internalIdentifier
-+genotype
-+phenotype
-+species
-+strain
-
-}
-Subject -d-> "studiedState" SubjectState
-Subject -d-> "biologicalSex" BiologicalSex
-Subject -d-> "genotype" Genotype
-Subject -d-> "phenotype" Phenotype
-Subject -d-> "species" Species
-Subject -d-> "strain" Strain
-
-
-class ParameterSetting {
+class Protocol {
 +description
++behavioralTask
 +name
-+relevantFor
++studyTarget
++technique
+
+}
+Protocol -d-> "behavioralTask" BehavioralTask
+Protocol -d-> "studyTarget" BiologicalSex
+Protocol -d-> "studyTarget" Disease
+Protocol -d-> "studyTarget" Genotype
+Protocol -d-> "studyTarget" Phenotype
+Protocol -d-> "studyTarget" Species
+Protocol -d-> "studyTarget" TermSuggestion
+Protocol -d-> "studyTarget" AnatomicalEntity
+Protocol -d-> "technique" Technique
+
+
+class DigitalIdentifierSchema {
++type
++IRI
++identifierPattern
+
+}
+
+
+class QuantitativeValueRange {
++maxValue
++minValue
+
+}
+QuantitativeValueRange -d-> "maxValue" QuantitativeValue
+QuantitativeValueRange -d-> "minValue" QuantitativeValue
+
+
+class QuantitativeValue {
 +value
++uncertainty
 +unit
 
 }
-ParameterSetting -d-> "relevantFor" BehavioralTask
-ParameterSetting -d-> "relevantFor" Technique
-ParameterSetting -d-> "unit" UnitOfMeasurement
+QuantitativeValue -d-> "unit" UnitOfMeasurement
 
 
-class TissueSampleState {
-+additionalRemarks
-+age
-+pathology
-+weight
+class DigitalIdentifier {
++howToCite
++identifier
++identifierSchema
 
 }
-TissueSampleState -d-> "age" QuantitativeValue
-TissueSampleState -d-> "age" QuantitativeValueRange
-TissueSampleState -d-> "pathology" Disease
-TissueSampleState -d-> "pathology" DiseaseModel
-TissueSampleState -d-> "weight" QuantitativeValue
-TissueSampleState -d-> "weight" QuantitativeValueRange
+DigitalIdentifier -d-> "identifierSchema" DigitalIdentifierSchema
 
 
-class SubjectGroup {
-+studiedState
-+biologicalSex
-+internalIdentifier
-+genotype
-+phenotype
-+quantity
-+species
-+strain
+class Funding {
++acknowledgement
++awardNumber
++awardTitle
++funder
 
 }
-SubjectGroup -d-> "studiedState" SubjectGroupState
-SubjectGroup -d-> "biologicalSex" BiologicalSex
-SubjectGroup -d-> "genotype" Genotype
-SubjectGroup -d-> "phenotype" Phenotype
-SubjectGroup -d-> "species" Species
-SubjectGroup -d-> "strain" Strain
+Funding -d-> "funder" Organization
 
 
-class MetaDataModel {
+class Software {
 +hasVersion
 +description
 +digitalIdentifier
@@ -708,34 +910,60 @@ class MetaDataModel {
 +shortName
 
 }
-MetaDataModel -d-> "hasVersion" MetaDataModelVersion
-MetaDataModel -d-> "digitalIdentifier" DigitalIdentifier
+Software -d-> "hasVersion" SoftwareVersion
+Software -d-> "digitalIdentifier" DigitalIdentifier
 
 
-class Model {
-+hasVersion
+class MetaDataModelVersion {
++hasAlternativeVersion
++hasSupplementVersion
++isNewVersionOf
++serializationFormat
++specificationFormat
++type
++accessibility
++author
++copyright
++custodian
 +description
++developer
 +digitalIdentifier
++fullDocumentation
 +fullName
++funding
 +homepage
++keyword
++license
++otherContribution
++relatedPublication
++releaseDate
++repository
 +shortName
++versionIdentifier
++versionInnovation
 
 }
-Model -d-> "hasVersion" ModelVersion
-Model -d-> "digitalIdentifier" DigitalIdentifier
-
-
-class Dataset {
-+hasVersion
-+description
-+digitalIdentifier
-+fullName
-+homepage
-+shortName
-
-}
-Dataset -d-> "hasVersion" DatasetVersion
-Dataset -d-> "digitalIdentifier" DigitalIdentifier
+MetaDataModelVersion -d-> "hasAlternativeVersion" DatasetVersion
+MetaDataModelVersion -d-> "hasSupplementVersion" DatasetVersion
+MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
+MetaDataModelVersion -d-> "serializationFormat" ContentType
+MetaDataModelVersion -d-> "specificationFormat" ContentType
+MetaDataModelVersion -d-> "type" MetaDataModelType
+MetaDataModelVersion -d-> "accessibility" ProductAccessibility
+MetaDataModelVersion -d-> "author" Organization
+MetaDataModelVersion -d-> "author" Person
+MetaDataModelVersion -d-> "copyright" Copyright
+MetaDataModelVersion -d-> "custodian" Organization
+MetaDataModelVersion -d-> "custodian" Person
+MetaDataModelVersion -d-> "developer" Organization
+MetaDataModelVersion -d-> "developer" Person
+MetaDataModelVersion -d-> "digitalIdentifier" DigitalIdentifier
+MetaDataModelVersion -d-> "fullDocumentation" DigitalIdentifier
+MetaDataModelVersion -d-> "funding" Funding
+MetaDataModelVersion -d-> "license" License
+MetaDataModelVersion -d-> "otherContribution" Contribution
+MetaDataModelVersion -d-> "relatedPublication" DigitalIdentifier
+MetaDataModelVersion -d-> "repository" FileRepository
 
 
 class ModelVersion {
@@ -802,59 +1030,7 @@ ModelVersion -d-> "relatedPublication" DigitalIdentifier
 ModelVersion -d-> "repository" FileRepository
 
 
-class MetaDataModelVersion {
-+hasAlternativeVersion
-+hasSupplementVersion
-+isNewVersionOf
-+serializationFormat
-+specificationFormat
-+type
-+accessibility
-+author
-+copyright
-+custodian
-+description
-+developer
-+digitalIdentifier
-+fullDocumentation
-+fullName
-+funding
-+homepage
-+keyword
-+license
-+otherContribution
-+relatedPublication
-+releaseDate
-+repository
-+shortName
-+versionIdentifier
-+versionInnovation
-
-}
-MetaDataModelVersion -d-> "hasAlternativeVersion" DatasetVersion
-MetaDataModelVersion -d-> "hasSupplementVersion" DatasetVersion
-MetaDataModelVersion -d-> "isNewVersionOf" MetaDataModelVersion
-MetaDataModelVersion -d-> "serializationFormat" ContentType
-MetaDataModelVersion -d-> "specificationFormat" ContentType
-MetaDataModelVersion -d-> "type" MetaDataModelType
-MetaDataModelVersion -d-> "accessibility" ProductAccessibility
-MetaDataModelVersion -d-> "author" Organization
-MetaDataModelVersion -d-> "author" Person
-MetaDataModelVersion -d-> "copyright" Copyright
-MetaDataModelVersion -d-> "custodian" Organization
-MetaDataModelVersion -d-> "custodian" Person
-MetaDataModelVersion -d-> "developer" Organization
-MetaDataModelVersion -d-> "developer" Person
-MetaDataModelVersion -d-> "digitalIdentifier" DigitalIdentifier
-MetaDataModelVersion -d-> "fullDocumentation" DigitalIdentifier
-MetaDataModelVersion -d-> "funding" Funding
-MetaDataModelVersion -d-> "license" License
-MetaDataModelVersion -d-> "otherContribution" Contribution
-MetaDataModelVersion -d-> "relatedPublication" DigitalIdentifier
-MetaDataModelVersion -d-> "repository" FileRepository
-
-
-class Software {
+class Model {
 +hasVersion
 +description
 +digitalIdentifier
@@ -863,8 +1039,21 @@ class Software {
 +shortName
 
 }
-Software -d-> "hasVersion" SoftwareVersion
-Software -d-> "digitalIdentifier" DigitalIdentifier
+Model -d-> "hasVersion" ModelVersion
+Model -d-> "digitalIdentifier" DigitalIdentifier
+
+
+class MetaDataModel {
++hasVersion
++description
++digitalIdentifier
++fullName
++homepage
++shortName
+
+}
+MetaDataModel -d-> "hasVersion" MetaDataModelVersion
+MetaDataModel -d-> "digitalIdentifier" DigitalIdentifier
 
 
 class DatasetVersion {
@@ -917,6 +1106,40 @@ DatasetVersion -d-> "license" License
 DatasetVersion -d-> "otherContribution" Contribution
 DatasetVersion -d-> "relatedPublication" DigitalIdentifier
 DatasetVersion -d-> "repository" FileRepository
+
+
+class Dataset {
++hasVersion
++description
++digitalIdentifier
++fullName
++homepage
++shortName
+
+}
+Dataset -d-> "hasVersion" DatasetVersion
+Dataset -d-> "digitalIdentifier" DigitalIdentifier
+
+
+class Project {
++description
++fullName
++hasResearchProducts
++homepage
++projectLeader
++shortName
+
+}
+Project -d-> "hasResearchProducts" Dataset
+Project -d-> "hasResearchProducts" DatasetVersion
+Project -d-> "hasResearchProducts" MetaDataModel
+Project -d-> "hasResearchProducts" MetaDataModelVersion
+Project -d-> "hasResearchProducts" Model
+Project -d-> "hasResearchProducts" ModelVersion
+Project -d-> "hasResearchProducts" Software
+Project -d-> "hasResearchProducts" SoftwareVersion
+Project -d-> "projectLeader" Organization
+Project -d-> "projectLeader" Person
 
 
 class SoftwareVersion {
@@ -980,229 +1203,6 @@ SoftwareVersion -d-> "license" License
 SoftwareVersion -d-> "otherContribution" Contribution
 SoftwareVersion -d-> "relatedPublication" DigitalIdentifier
 SoftwareVersion -d-> "repository" FileRepository
-
-
-class Project {
-+description
-+fullName
-+hasResearchProducts
-+homepage
-+projectLeader
-+shortName
-
-}
-Project -d-> "hasResearchProducts" Dataset
-Project -d-> "hasResearchProducts" DatasetVersion
-Project -d-> "hasResearchProducts" MetaDataModel
-Project -d-> "hasResearchProducts" MetaDataModelVersion
-Project -d-> "hasResearchProducts" Model
-Project -d-> "hasResearchProducts" ModelVersion
-Project -d-> "hasResearchProducts" Software
-Project -d-> "hasResearchProducts" SoftwareVersion
-Project -d-> "projectLeader" Organization
-Project -d-> "projectLeader" Person
-
-
-class Person {
-+digitalIdentifier
-+email
-+familyName
-+givenName
-
-}
-Person -d-> "digitalIdentifier" DigitalIdentifier
-
-
-class Organization {
-+digitalIdentifier
-+fullName
-+hasParent
-+homepage
-+shortName
-
-}
-Organization -d-> "digitalIdentifier" DigitalIdentifier
-Organization -d-> "hasParent" Organization
-
-
-class Contribution {
-+contributionType
-+contributor
-
-}
-Contribution -d-> "contributionType" ContributionType
-Contribution -d-> "contributor" Organization
-Contribution -d-> "contributor" Person
-
-
-class ElectrodeContact {
-+coordinatePoint
-+definedIn
-+internalIdentifier
-+relatedRecording
-+relatedStimulation
-+visualizedIn
-
-}
-ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
-ElectrodeContact -d-> "definedIn" FileInstance
-ElectrodeContact -d-> "relatedRecording" FileInstance
-ElectrodeContact -d-> "relatedStimulation" FileInstance
-ElectrodeContact -d-> "visualizedIn" Image
-
-
-class ElectrodeArray {
-+electrodes
-+internalIdentifier
-
-}
-ElectrodeArray -d-> "electrodes" Electrode
-
-
-class BrainAtlas {
-+description
-+fullName
-+hasVersion
-+homepage
-+shortName
-
-}
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-
-
-class Electrode {
-+electrodeContact
-+internalIdentifier
-
-}
-Electrode -d-> "electrodeContact" ElectrodeContact
-
-
-class Image {
-+coordinateSpace
-+definedIn
-+voxelSize
-
-}
-Image -d-> "coordinateSpace" CoordinateSpace
-Image -d-> "definedIn" FileInstance
-Image -d-> "voxelSize" QuantitativeValue
-
-
-class Annotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+namingTerm
-+relatedAtlasTerm
-+visualizedIn
-
-}
-Annotation -d-> "bestViewPoint" CoordinatePoint
-Annotation -d-> "criteria" ProtocolExecution
-Annotation -d-> "criteriaQualityType" CriteriaQualityType
-Annotation -d-> "inspiredBy" Image
-Annotation -d-> "laterality" Laterality
-Annotation -d-> "namingTerm" AnatomicalEntity
-Annotation -d-> "relatedAtlasTerm" AnatomicalEntity
-Annotation -d-> "visualizedIn" Image
-
-
-class AnatomicalEntity {
-+hasParent
-+name
-+ontologyIdentifier
-+otherAnatomicalRelation
-
-}
-AnatomicalEntity -d-> "hasParent" AnatomicalEntity
-AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
-
-
-class AnatomicalEntityRelation {
-+criteria
-+criteriaQualityType
-+inRelationTo
-+qualitativeOverlap
-+quantitativeOverlap
-
-}
-AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
-AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
-AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
-AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class BrainAtlasVersion {
-+annotationSet
-+coordinateSpace
-+digitalIdentifier
-+fullName
-+hasAlternativeVersion
-+homepage
-+isNewVersionOf
-+ontologyIdentifier
-+releaseDate
-+shortName
-+terminology
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "annotationSet" Annotation
-BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DigitalIdentifier
-BrainAtlasVersion -d-> "hasAlternativeVersion" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "terminology" AtlasTerminology
-
-
-class AtlasTerminology {
-+anatomicalEntity
-+definedIn
-+fullName
-+ontologyIdentifier
-+shortName
-
-}
-AtlasTerminology -d-> "anatomicalEntity" AnatomicalEntity
-AtlasTerminology -d-> "definedIn" FileInstance
-
-
-class CoordinateSpace {
-+anatomicalAxesOrientation
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+nativeUnit
-+ontologyIdentifier
-+axesOrigin
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CoordinateSpace -d-> "defaultImage" Image
-CoordinateSpace -d-> "digitalIdentifier" DigitalIdentifier
-CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-CoordinateSpace -d-> "axesOrigin" QuantitativeValue
 
 
 @enduml
