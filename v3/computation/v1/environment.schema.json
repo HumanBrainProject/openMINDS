@@ -12,14 +12,43 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-            "_embeddedTypes": [
-                "https://openminds.ebrains.eu/core/ParameterSet"
-            ],
-            "_instruction": "Add all important hardware settings defining this environment.",
-            "minItems": 1,
+            "_instruction": "Add all important settings defining this environment.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Configuration"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
             "title": "configuration",
-            "type": "array",
-            "uniqueItems": true
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this computing environment",
@@ -117,10 +146,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/hardware",
         "@id",
-        "https://openminds.ebrains.eu/vocab/hardware"
+        "https://openminds.ebrains.eu/vocab/name",
+        "@type"
     ],
     "type": "object"
 }

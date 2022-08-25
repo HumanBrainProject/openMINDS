@@ -27,11 +27,43 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/environmentVariables": {
-            "_embeddedTypes": [
-                "https://openminds.ebrains.eu/core/ParameterSet"
-            ],
             "_instruction": "Enter any environment variables defined by this launch configuration.",
-            "title": "environmentVariables"
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/PropertyValueList"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "environmentVariables",
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/executable": {
             "_instruction": "Enter the path to the command-line executable",
