@@ -9,6 +9,8 @@ You are on the openMINDS version branch **v3**. This openMINDS version ingests t
 [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) (submodule branch v1)  
 [openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) (submodule branch v1)  
 [openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (submodule branch v1)
+[openMINDS_publications](https://github.com/HumanBrainProject/openMINDS_publications) (submodule branch v1)
+
 
 For more information please go to the [main README](https://github.com/HumanBrainProject/openMINDS/blob/main/README.md).
 
