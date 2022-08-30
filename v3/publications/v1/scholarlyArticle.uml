@@ -1,0 +1,58 @@
+@startuml
+class ScholarlyArticle {
++isPartOf
++pagination
++abstract
++custodian
++author
++citedPublication
++copyright
++dateCreated
++dateModified
++datePublished
++digitalIdentifier
++editor
++funding
++name
++keyword
++license
++publisher
++IRI
++versionIdentifier
+
+}
+ScholarlyArticle -d-> "isPartOf" PublicationIssue
+ScholarlyArticle -d-> "isPartOf" PublicationVolume
+ScholarlyArticle -d-> "custodian" Person
+ScholarlyArticle -d-> "custodian" Organization
+ScholarlyArticle -d-> "author" Person
+ScholarlyArticle -d-> "author" Organization
+ScholarlyArticle -d-> "citedPublication" DOI
+ScholarlyArticle -d-> "citedPublication" ISBN
+ScholarlyArticle -d-> "copyright" Copyright
+ScholarlyArticle -d-> "digitalIdentifier" DOI
+ScholarlyArticle -d-> "editor" Person
+ScholarlyArticle -d-> "funding" Funding
+ScholarlyArticle -d-> "keyword" MolecularEntity
+ScholarlyArticle -d-> "keyword" CellType
+ScholarlyArticle -d-> "keyword" BiologicalOrder
+ScholarlyArticle -d-> "keyword" DiseaseModel
+ScholarlyArticle -d-> "keyword" CellCultureType
+ScholarlyArticle -d-> "keyword" UBERONParcellation
+ScholarlyArticle -d-> "keyword" BreedingType
+ScholarlyArticle -d-> "keyword" Organ
+ScholarlyArticle -d-> "keyword" Handedness
+ScholarlyArticle -d-> "keyword" SubcellularEntity
+ScholarlyArticle -d-> "keyword" Species
+ScholarlyArticle -d-> "keyword" TermSuggestion
+ScholarlyArticle -d-> "keyword" GeneticStrainType
+ScholarlyArticle -d-> "keyword" Disease
+ScholarlyArticle -d-> "keyword" BiologicalSex
+ScholarlyArticle -d-> "keyword" ParcellationEntityVersion
+ScholarlyArticle -d-> "keyword" ParcellationEntity
+ScholarlyArticle -d-> "keyword" CustomAnatomicalEntity
+ScholarlyArticle -d-> "license" License
+ScholarlyArticle -d-> "publisher" Person
+ScholarlyArticle -d-> "publisher" Organization
+
+@enduml
