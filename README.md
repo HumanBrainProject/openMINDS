@@ -4,9 +4,15 @@
 
 # Welcome to openMINDS! <a name="welcome"/>
 
-The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, develops and maintains a set of metadata models for research products in the field of neuroscience. As research products, openMINDS considers data originating from human/animal studies or simulations (datasets), computational models (models), software tools (software), as well as metadata/data models (metaDataModels).
+The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, is a metadata framework that develops and maintains a set of metadata models as well as libraries of controlled terminologies, brain atlases, and common coordinate spaces for neuroscience graph databases.
 
-Depending on the version, openMINDS currently ingests the following metadata models:  
+Note that this GitHub only hosts a summary of the openMINDS documentation. For a full documenation please navigate to the [**openMINDS Collab**](https://wiki.ebrains.eu/bin/view/Collabs/openminds/). For browsing through schemas and lists of all controlled terminologies, brain atlases, and common coordinate spaces please navigate to the [**openMINDS HTML docu**](https://humanbrainproject.github.io/openMINDS/).
+
+**You need help?** Just get in touch via GitHub issue trackers, or our support email: **`openminds@ebrains.eu`**
+
+## Documentation (summary) <a name="docu-summary"/>
+
+Depending on the version (cf. GitHub branches), openMINDS currently ingests the following metadata models:  
 
 [openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) - covers general origin, location and content of research products.  
 [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) - covers brain atlases, as well as anatomical locations and relations of non-atlas data.  
@@ -16,25 +22,19 @@ Depending on the version, openMINDS currently ingests the following metadata mod
 [openMINDS_chemicals](https://github.com/HumanBrainProject/openMINDS_chemicals)<sup> (in dev)</sup> - covers consistent definitions of chemical substances and mixtures.  
 [openMINDS_ephys](https://github.com/HumanBrainProject/openMINDS_ephys)<sup> (in dev)</sup> - covers provenance of electrophysiology experiments.  
 
-The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/). However, openMINDS is by design open-source and community-driven, looking for external contributions throughout the neuroscience community.
-
-Within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Interactive Brain Atlas. In addition, openMINDS is currently in the process of being adopted by the Japan Brain/MINDS project.
-
-The openMINDS development team currently unites knowledge from the EBRAINS Curation Service, the EBRAINS Knowledge Graph, the EBRAINS Atlas, and the INCF Knowledge Space teams. 
-
-#### What you can find here:
+#### What you can find below:
 1. [How to contribute](#how-to-contribute) 
 2. [Technical overview & guidelines](#technical-overview-and-guidelines)
 3. [How to get started](#how-to-get-started)
-4. [License & acknowledgements](#license-and-acknowledgements)
+4. [License, adoptions & acknowledgements](#license-adoptions-acknowledgements)
 
 ---
 
 ## How to contribute <a name="how-to-contribute"/>
 
-In order to facilitate contributions from all community members independent of their scientific background, all openMINDS metadata models are defined using a light-weighted schema template syntax. Although this schema template syntax is inspired by JSON-Schema, it outsources most technicalities, making the openMINDS schemas more human-readable, especially for untrained eyes. 
+The openMINDS development team currently unites knowledge from the EBRAINS Curation Service, the EBRAINS Knowledge Graph, the EBRAINS Atlas Service, and the INCF Knowledge Space teams. **Contributions from the whole community are welcome and highly appreciated!**
 
-Behind the scenes, the openMINDS integration pipeline (cf. [openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository) interprets and exends this syntax to formal, well-known formats, such as JSON-Schema or HTML. For each openMINDS version (stable or development), you can browse through and download the resulting schema representations on the [openMINDS GitHub pages](https://humanbrainproject.github.io/openMINDS/).
+In order to facilitate contributions from all community members independent of their scientific background, all openMINDS metadata models are defined using a light-weighted schema template syntax. Although this schema template syntax is inspired by JSON-Schema, it outsources most technicalities, making the openMINDS schemas more human-readable, especially for untrained eyes. 
 
 If you have general feedback or a request for a new feature, want to report a bug or have a question, please get in touch with us via our support-email (**`openminds@ebrains.eu`**) or via the issue tracker on one of our GitHub repositories. You can also follow or actively participate in the discussions on the [openMINDS Community Forum](https://neurostars.org/t/openminds-community-forum-virtual/20156) on INCF NeuroStars.
 
@@ -58,7 +58,7 @@ If a version branch has an official release tag, only backwards compatible chang
 
 If a version branch does not have an official release tag, yet, also non-backwards compatible changes can be merged on this branch. This can include renaming of existing properties, increasing constraints on expected value numbers or formats, removing relations between schemas and adding new schemas, if they cause relational changes in existing schemas. In case all version branches have official release tags, a new non-backwards compatible change would lead to the creation of a new version branch (with a respectively increased major version number).
 
-The setup of the central openMINDS GitHub repository is maintained by the openMINDS integration pipeline (cf. [openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository). The pipeline is configured in such a way, that each commit on one of the openMINDS submodules will trigger a new build of the central openMINDS repository ensuring that its content is always up-to-date. 
+The setup of the central openMINDS GitHub repository is maintained by the openMINDS integration pipeline (cf. [openMINDS_generator](https://github.com/HumanBrainProject/openMINDS_generator) GitHub repository). The pipeline is configured in such a way, that each commit on one of the openMINDS submodules will trigger a new build of the central openMINDS repository ensuring that its content is always up-to-date. This pipeline also interprets and extends the openMINDS schema syntax to other schema representation formats (such as JSON-Schema, see above).
 
 [BACK TO TOP](#welcome)
 
@@ -98,12 +98,14 @@ After completion of this step your local repository is on the most recent state 
 
 [BACK TO TOP](#welcome)
 
-## License & acknowledgements <a name="license-and-acknowledgements"/>
+## License, adoptions & acknowledgements <a name="license-adoptions-acknowledgements"/>
 
 openMINDS is licensed under the MIT License.
 
+Within EBRAINS, the openMINDS metadata models are adopted by the EBRAINS Knowledge Graph and Interactive Brain Atlas. In addition, openMINDS is currently in the process of being adopted by the Japan Brain/MINDS project.
+
 **Logo:** The openMINDS logo was created by U. Schlegel, based on an original sketch by C. Hagen Blixhavn and feedback by L. Zehl.
 
-The metadata model specifications as well as surrounding code and tools were developed developed in part or in whole in the Human Brain Project, funded from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Specific Grant Agreements No. 720270, No. 785907, and No. 945539 (Human Brain Project SGA1, SGA2, and SGA3).
+The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/): The metadata model specifications as well as surrounding code and tools were developed developed in part or in whole in the Human Brain Project, funded from the European Union’s Horizon 2020 Framework Programme for Research and Innovation under Specific Grant Agreements No. 720270, No. 785907, and No. 945539 (Human Brain Project SGA1, SGA2, and SGA3).
 
 [BACK TO TOP](#welcome)
