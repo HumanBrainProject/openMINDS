@@ -10,8 +10,10 @@ Depending on the version, openMINDS currently ingests the following metadata mod
 
 [openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) - covers general origin, location and content of research products.  
 [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) - covers brain atlases, as well as anatomical locations and relations of non-atlas data.  
-[openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) - covers consistent definition of neuroscience terms.  
+[openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) - covers consistent definitions of neuroscience terms.  
 [openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation)<sup> (in dev)</sup> - covers provenance of simulations, data analysis and visualizations in neuroscience.  
+[openMINDS_publications](https://github.com/HumanBrainProject/openMINDS_publications)<sup> (in dev)</sup> - covers definitions for scholarly publications, including live papers.  
+[openMINDS_chemicals](https://github.com/HumanBrainProject/openMINDS_chemicals)<sup> (in dev)</sup> - covers consistent definitions of chemical substances and mixtures.  
 [openMINDS_ephys](https://github.com/HumanBrainProject/openMINDS_ephys)<sup> (in dev)</sup> - covers provenance of electrophysiology experiments.  
 
 The openMINDS project is powered by [HBP](https://www.humanbrainproject.eu) (Human Brain Project) and [EBRAINS](https://ebrains.eu/). However, openMINDS is by design open-source and community-driven, looking for external contributions throughout the neuroscience community.
