@@ -29,7 +29,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" SubjectState
@@ -37,6 +36,7 @@ FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" BehavioralTask
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -136,7 +136,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" SubjectState
@@ -144,6 +143,7 @@ File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" BehavioralTask
+File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -276,7 +276,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" MolecularEntity
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
@@ -292,6 +291,7 @@ ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" BiologicalSex
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class SubjectGroup {
@@ -463,7 +463,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" MolecularEntity
 Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" BiologicalOrder
@@ -479,6 +478,7 @@ Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" GeneticStrainType
 Protocol -d-> "studyOption" Disease
 Protocol -d-> "studyOption" BiologicalSex
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -711,7 +711,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" MolecularEntity
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" BiologicalOrder
@@ -727,6 +726,7 @@ Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" GeneticStrainType
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" BiologicalSex
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
