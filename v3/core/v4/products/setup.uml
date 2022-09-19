@@ -1,0 +1,17 @@
+@startuml
+class Setup {
++name
++location
++setupType
++description
++manufacturer
++components
+
+}
+Setup -d-> "setupType" SetupType
+Setup -d-> "manufacturer" Person
+Setup -d-> "manufacturer" Organization
+Setup -d-> "components" Setup
+Setup -d-> "components" SoftwareVersion
+
+@enduml
