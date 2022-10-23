@@ -81,6 +81,9 @@ Optimization -d-> "resourceUsage" QuantitativeValue
 Optimization -d-> "resourceUsage" QuantitativeValueRange
 Optimization -d-> "recipe" WorkflowRecipeVersion
 Optimization -d-> "customPropertySet" CustomPropertySet
+Optimization -d-> "studyTarget" ParcellationEntity
+Optimization -d-> "studyTarget" ParcellationEntityVersion
+Optimization -d-> "studyTarget" CustomAnatomicalEntity
 Optimization -d-> "studyTarget" GeneticStrainType
 Optimization -d-> "studyTarget" Disease
 Optimization -d-> "studyTarget" Species
@@ -96,9 +99,6 @@ Optimization -d-> "studyTarget" BiologicalOrder
 Optimization -d-> "studyTarget" BreedingType
 Optimization -d-> "studyTarget" DiseaseModel
 Optimization -d-> "studyTarget" CellCultureType
-Optimization -d-> "studyTarget" ParcellationEntity
-Optimization -d-> "studyTarget" ParcellationEntityVersion
-Optimization -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class SoftwareAgent {
@@ -154,6 +154,9 @@ ModelValidation -d-> "resourceUsage" QuantitativeValue
 ModelValidation -d-> "resourceUsage" QuantitativeValueRange
 ModelValidation -d-> "recipe" WorkflowRecipeVersion
 ModelValidation -d-> "customPropertySet" CustomPropertySet
+ModelValidation -d-> "studyTarget" ParcellationEntity
+ModelValidation -d-> "studyTarget" ParcellationEntityVersion
+ModelValidation -d-> "studyTarget" CustomAnatomicalEntity
 ModelValidation -d-> "studyTarget" GeneticStrainType
 ModelValidation -d-> "studyTarget" Disease
 ModelValidation -d-> "studyTarget" Species
@@ -169,9 +172,6 @@ ModelValidation -d-> "studyTarget" BiologicalOrder
 ModelValidation -d-> "studyTarget" BreedingType
 ModelValidation -d-> "studyTarget" DiseaseModel
 ModelValidation -d-> "studyTarget" CellCultureType
-ModelValidation -d-> "studyTarget" ParcellationEntity
-ModelValidation -d-> "studyTarget" ParcellationEntityVersion
-ModelValidation -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class ValidationTestVersion {
@@ -467,6 +467,9 @@ Simulation -d-> "resourceUsage" QuantitativeValue
 Simulation -d-> "resourceUsage" QuantitativeValueRange
 Simulation -d-> "recipe" WorkflowRecipeVersion
 Simulation -d-> "customPropertySet" CustomPropertySet
+Simulation -d-> "studyTarget" ParcellationEntity
+Simulation -d-> "studyTarget" ParcellationEntityVersion
+Simulation -d-> "studyTarget" CustomAnatomicalEntity
 Simulation -d-> "studyTarget" GeneticStrainType
 Simulation -d-> "studyTarget" Disease
 Simulation -d-> "studyTarget" Species
@@ -482,9 +485,6 @@ Simulation -d-> "studyTarget" BiologicalOrder
 Simulation -d-> "studyTarget" BreedingType
 Simulation -d-> "studyTarget" DiseaseModel
 Simulation -d-> "studyTarget" CellCultureType
-Simulation -d-> "studyTarget" ParcellationEntity
-Simulation -d-> "studyTarget" ParcellationEntityVersion
-Simulation -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class Visualization {
@@ -527,6 +527,9 @@ Visualization -d-> "resourceUsage" QuantitativeValue
 Visualization -d-> "resourceUsage" QuantitativeValueRange
 Visualization -d-> "recipe" WorkflowRecipeVersion
 Visualization -d-> "customPropertySet" CustomPropertySet
+Visualization -d-> "studyTarget" ParcellationEntity
+Visualization -d-> "studyTarget" ParcellationEntityVersion
+Visualization -d-> "studyTarget" CustomAnatomicalEntity
 Visualization -d-> "studyTarget" GeneticStrainType
 Visualization -d-> "studyTarget" Disease
 Visualization -d-> "studyTarget" Species
@@ -542,9 +545,6 @@ Visualization -d-> "studyTarget" BiologicalOrder
 Visualization -d-> "studyTarget" BreedingType
 Visualization -d-> "studyTarget" DiseaseModel
 Visualization -d-> "studyTarget" CellCultureType
-Visualization -d-> "studyTarget" ParcellationEntity
-Visualization -d-> "studyTarget" ParcellationEntityVersion
-Visualization -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class DataAnalysis {
@@ -587,6 +587,9 @@ DataAnalysis -d-> "resourceUsage" QuantitativeValue
 DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
 DataAnalysis -d-> "recipe" WorkflowRecipeVersion
 DataAnalysis -d-> "customPropertySet" CustomPropertySet
+DataAnalysis -d-> "studyTarget" ParcellationEntity
+DataAnalysis -d-> "studyTarget" ParcellationEntityVersion
+DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
 DataAnalysis -d-> "studyTarget" GeneticStrainType
 DataAnalysis -d-> "studyTarget" Disease
 DataAnalysis -d-> "studyTarget" Species
@@ -602,9 +605,6 @@ DataAnalysis -d-> "studyTarget" BiologicalOrder
 DataAnalysis -d-> "studyTarget" BreedingType
 DataAnalysis -d-> "studyTarget" DiseaseModel
 DataAnalysis -d-> "studyTarget" CellCultureType
-DataAnalysis -d-> "studyTarget" ParcellationEntity
-DataAnalysis -d-> "studyTarget" ParcellationEntityVersion
-DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class LaunchConfiguration {
@@ -639,6 +639,9 @@ ValidationTest -d-> "developer" Person
 ValidationTest -d-> "digitalIdentifier" DOI
 ValidationTest -d-> "hasVersion" ValidationTestVersion
 ValidationTest -d-> "scope" ModelScope
+ValidationTest -d-> "studyTarget" ParcellationEntity
+ValidationTest -d-> "studyTarget" ParcellationEntityVersion
+ValidationTest -d-> "studyTarget" CustomAnatomicalEntity
 ValidationTest -d-> "studyTarget" GeneticStrainType
 ValidationTest -d-> "studyTarget" Disease
 ValidationTest -d-> "studyTarget" Species
@@ -654,9 +657,6 @@ ValidationTest -d-> "studyTarget" BiologicalOrder
 ValidationTest -d-> "studyTarget" BreedingType
 ValidationTest -d-> "studyTarget" DiseaseModel
 ValidationTest -d-> "studyTarget" CellCultureType
-ValidationTest -d-> "studyTarget" ParcellationEntity
-ValidationTest -d-> "studyTarget" ParcellationEntityVersion
-ValidationTest -d-> "studyTarget" CustomAnatomicalEntity
 ValidationTest -d-> "experimentalTechnique" Technique
 ValidationTest -d-> "scoreType" DifferenceMeasure
 ValidationTest -d-> "custodian" Organization
@@ -678,354 +678,6 @@ WorkflowExecution -d-> "stages" DataAnalysis
 WorkflowExecution -d-> "startedBy" Person
 WorkflowExecution -d-> "startedBy" SoftwareAgent
 WorkflowExecution -d-> "recipe" WorkflowRecipeVersion
-
-
-class Periodical {
-+fullName
-+shortName
-+digitalIdentifier
-
-}
-Periodical -d-> "digitalIdentifier" ISSN
-
-
-class PublicationVolume {
-+volumeNumber
-+isPartOf
-
-}
-PublicationVolume -d-> "isPartOf" Periodical
-
-
-class ScholarlyArticle {
-+isPartOf
-+pagination
-+abstract
-+custodian
-+author
-+citedPublication
-+copyright
-+dateCreated
-+dateModified
-+datePublished
-+digitalIdentifier
-+editor
-+funding
-+name
-+keyword
-+license
-+publisher
-+IRI
-+versionIdentifier
-
-}
-ScholarlyArticle -d-> "isPartOf" PublicationIssue
-ScholarlyArticle -d-> "isPartOf" PublicationVolume
-ScholarlyArticle -d-> "custodian" Organization
-ScholarlyArticle -d-> "custodian" Person
-ScholarlyArticle -d-> "author" Organization
-ScholarlyArticle -d-> "author" Person
-ScholarlyArticle -d-> "citedPublication" DOI
-ScholarlyArticle -d-> "citedPublication" ISBN
-ScholarlyArticle -d-> "copyright" Copyright
-ScholarlyArticle -d-> "digitalIdentifier" DOI
-ScholarlyArticle -d-> "editor" Person
-ScholarlyArticle -d-> "funding" Funding
-ScholarlyArticle -d-> "keyword" GeneticStrainType
-ScholarlyArticle -d-> "keyword" Disease
-ScholarlyArticle -d-> "keyword" Species
-ScholarlyArticle -d-> "keyword" SubcellularEntity
-ScholarlyArticle -d-> "keyword" Handedness
-ScholarlyArticle -d-> "keyword" Organ
-ScholarlyArticle -d-> "keyword" UBERONParcellation
-ScholarlyArticle -d-> "keyword" TermSuggestion
-ScholarlyArticle -d-> "keyword" CellType
-ScholarlyArticle -d-> "keyword" BiologicalSex
-ScholarlyArticle -d-> "keyword" MolecularEntity
-ScholarlyArticle -d-> "keyword" BiologicalOrder
-ScholarlyArticle -d-> "keyword" BreedingType
-ScholarlyArticle -d-> "keyword" DiseaseModel
-ScholarlyArticle -d-> "keyword" CellCultureType
-ScholarlyArticle -d-> "keyword" ParcellationEntity
-ScholarlyArticle -d-> "keyword" ParcellationEntityVersion
-ScholarlyArticle -d-> "keyword" CustomAnatomicalEntity
-ScholarlyArticle -d-> "license" License
-ScholarlyArticle -d-> "publisher" Organization
-ScholarlyArticle -d-> "publisher" Person
-
-
-class LivePaperVersion {
-+about
-+author
-+lastModified
-+digitalIdentifier
-+isAlternativeVersionOf
-+isNewVersionOf
-+license
-+relatedPublication
-+accessibility
-+copyright
-+custodian
-+description
-+fullDocumentation
-+fullName
-+funding
-+homepage
-+howToCite
-+keyword
-+otherContribution
-+releaseDate
-+repository
-+shortName
-+supportChannel
-+versionIdentifier
-+versionInnovation
-
-}
-LivePaperVersion -d-> "about" DatasetVersion
-LivePaperVersion -d-> "about" ModelVersion
-LivePaperVersion -d-> "about" SoftwareVersion
-LivePaperVersion -d-> "author" Organization
-LivePaperVersion -d-> "author" Person
-LivePaperVersion -d-> "digitalIdentifier" DOI
-LivePaperVersion -d-> "isAlternativeVersionOf" LivePaperVersion
-LivePaperVersion -d-> "isNewVersionOf" LivePaperVersion
-LivePaperVersion -d-> "license" License
-LivePaperVersion -d-> "relatedPublication" DOI
-LivePaperVersion -d-> "relatedPublication" ISBN
-LivePaperVersion -d-> "relatedPublication" ISSN
-LivePaperVersion -d-> "accessibility" ProductAccessibility
-LivePaperVersion -d-> "copyright" Copyright
-LivePaperVersion -d-> "custodian" Organization
-LivePaperVersion -d-> "custodian" Person
-LivePaperVersion -d-> "fullDocumentation" DOI
-LivePaperVersion -d-> "fullDocumentation" File
-LivePaperVersion -d-> "fullDocumentation" URL
-LivePaperVersion -d-> "funding" Funding
-LivePaperVersion -d-> "homepage" URL
-LivePaperVersion -d-> "keyword" GeneticStrainType
-LivePaperVersion -d-> "keyword" Service
-LivePaperVersion -d-> "keyword" Disease
-LivePaperVersion -d-> "keyword" CriteriaQualityType
-LivePaperVersion -d-> "keyword" AnnotationType
-LivePaperVersion -d-> "keyword" TissueSampleAttribute
-LivePaperVersion -d-> "keyword" AnatomicalAxesOrientation
-LivePaperVersion -d-> "keyword" Species
-LivePaperVersion -d-> "keyword" AnatomicalPlane
-LivePaperVersion -d-> "keyword" FileRepositoryType
-LivePaperVersion -d-> "keyword" FileBundleGrouping
-LivePaperVersion -d-> "keyword" ModelAbstractionLevel
-LivePaperVersion -d-> "keyword" CranialWindowType
-LivePaperVersion -d-> "keyword" OperatingSystem
-LivePaperVersion -d-> "keyword" ModelScope
-LivePaperVersion -d-> "keyword" SetupType
-LivePaperVersion -d-> "keyword" ProgrammingLanguage
-LivePaperVersion -d-> "keyword" Language
-LivePaperVersion -d-> "keyword" DeviceType
-LivePaperVersion -d-> "keyword" SubcellularEntity
-LivePaperVersion -d-> "keyword" StimulationApproach
-LivePaperVersion -d-> "keyword" Handedness
-LivePaperVersion -d-> "keyword" QualitativeOverlap
-LivePaperVersion -d-> "keyword" Organ
-LivePaperVersion -d-> "keyword" UnitOfMeasurement
-LivePaperVersion -d-> "keyword" DifferenceMeasure
-LivePaperVersion -d-> "keyword" ActionStatusType
-LivePaperVersion -d-> "keyword" AgeCategory
-LivePaperVersion -d-> "keyword" PreparationType
-LivePaperVersion -d-> "keyword" EthicsAssessment
-LivePaperVersion -d-> "keyword" ProductAccessibility
-LivePaperVersion -d-> "keyword" Technique
-LivePaperVersion -d-> "keyword" FileUsageRole
-LivePaperVersion -d-> "keyword" MeasuredQuantity
-LivePaperVersion -d-> "keyword" UBERONParcellation
-LivePaperVersion -d-> "keyword" SoftwareApplicationCategory
-LivePaperVersion -d-> "keyword" TermSuggestion
-LivePaperVersion -d-> "keyword" ChemicalMixtureType
-LivePaperVersion -d-> "keyword" OperatingDevice
-LivePaperVersion -d-> "keyword" DataType
-LivePaperVersion -d-> "keyword" PatchClampVariation
-LivePaperVersion -d-> "keyword" TypeOfUncertainty
-LivePaperVersion -d-> "keyword" TissueSampleType
-LivePaperVersion -d-> "keyword" CellType
-LivePaperVersion -d-> "keyword" BiologicalSex
-LivePaperVersion -d-> "keyword" SubjectAttribute
-LivePaperVersion -d-> "keyword" MolecularEntity
-LivePaperVersion -d-> "keyword" BiologicalOrder
-LivePaperVersion -d-> "keyword" MetaDataModelType
-LivePaperVersion -d-> "keyword" ExperimentalApproach
-LivePaperVersion -d-> "keyword" BreedingType
-LivePaperVersion -d-> "keyword" SemanticDataType
-LivePaperVersion -d-> "keyword" ContributionType
-LivePaperVersion -d-> "keyword" StimulusType
-LivePaperVersion -d-> "keyword" DiseaseModel
-LivePaperVersion -d-> "keyword" CellCultureType
-LivePaperVersion -d-> "keyword" SoftwareFeature
-LivePaperVersion -d-> "keyword" Laterality
-LivePaperVersion -d-> "keyword" Terminology
-LivePaperVersion -d-> "keyword" AtlasType
-LivePaperVersion -d-> "otherContribution" Contribution
-LivePaperVersion -d-> "repository" FileRepository
-
-
-class Book {
-+digitalIdentifier
-+abstract
-+custodian
-+author
-+citedPublication
-+copyright
-+dateCreated
-+dateModified
-+datePublished
-+editor
-+funding
-+name
-+keyword
-+license
-+publisher
-+IRI
-+versionIdentifier
-
-}
-Book -d-> "digitalIdentifier" ISBN
-Book -d-> "digitalIdentifier" DOI
-Book -d-> "custodian" Organization
-Book -d-> "custodian" Person
-Book -d-> "author" Organization
-Book -d-> "author" Person
-Book -d-> "citedPublication" DOI
-Book -d-> "citedPublication" ISBN
-Book -d-> "copyright" Copyright
-Book -d-> "editor" Person
-Book -d-> "funding" Funding
-Book -d-> "keyword" GeneticStrainType
-Book -d-> "keyword" Disease
-Book -d-> "keyword" Species
-Book -d-> "keyword" SubcellularEntity
-Book -d-> "keyword" Handedness
-Book -d-> "keyword" Organ
-Book -d-> "keyword" UBERONParcellation
-Book -d-> "keyword" TermSuggestion
-Book -d-> "keyword" CellType
-Book -d-> "keyword" BiologicalSex
-Book -d-> "keyword" MolecularEntity
-Book -d-> "keyword" BiologicalOrder
-Book -d-> "keyword" BreedingType
-Book -d-> "keyword" DiseaseModel
-Book -d-> "keyword" CellCultureType
-Book -d-> "keyword" ParcellationEntity
-Book -d-> "keyword" ParcellationEntityVersion
-Book -d-> "keyword" CustomAnatomicalEntity
-Book -d-> "license" License
-Book -d-> "publisher" Organization
-Book -d-> "publisher" Person
-
-
-class LivePaperSection {
-+sectionType
-+order
-+name
-+description
-+isPartOf
-
-}
-LivePaperSection -d-> "isPartOf" LivePaperVersion
-
-
-class Chapter {
-+isPartOf
-+pagination
-+digitalIdentifier
-+abstract
-+custodian
-+author
-+citedPublication
-+copyright
-+dateCreated
-+dateModified
-+datePublished
-+editor
-+funding
-+name
-+keyword
-+license
-+publisher
-+IRI
-+versionIdentifier
-
-}
-Chapter -d-> "isPartOf" Book
-Chapter -d-> "digitalIdentifier" DOI
-Chapter -d-> "custodian" Organization
-Chapter -d-> "custodian" Person
-Chapter -d-> "author" Organization
-Chapter -d-> "author" Person
-Chapter -d-> "citedPublication" DOI
-Chapter -d-> "citedPublication" ISBN
-Chapter -d-> "copyright" Copyright
-Chapter -d-> "editor" Person
-Chapter -d-> "funding" Funding
-Chapter -d-> "keyword" GeneticStrainType
-Chapter -d-> "keyword" Disease
-Chapter -d-> "keyword" Species
-Chapter -d-> "keyword" SubcellularEntity
-Chapter -d-> "keyword" Handedness
-Chapter -d-> "keyword" Organ
-Chapter -d-> "keyword" UBERONParcellation
-Chapter -d-> "keyword" TermSuggestion
-Chapter -d-> "keyword" CellType
-Chapter -d-> "keyword" BiologicalSex
-Chapter -d-> "keyword" MolecularEntity
-Chapter -d-> "keyword" BiologicalOrder
-Chapter -d-> "keyword" BreedingType
-Chapter -d-> "keyword" DiseaseModel
-Chapter -d-> "keyword" CellCultureType
-Chapter -d-> "keyword" ParcellationEntity
-Chapter -d-> "keyword" ParcellationEntityVersion
-Chapter -d-> "keyword" CustomAnatomicalEntity
-Chapter -d-> "license" License
-Chapter -d-> "publisher" Organization
-Chapter -d-> "publisher" Person
-
-
-class LivePaperResourceItem {
-+IRI
-+name
-+hostedBy
-+isPartOf
-
-}
-LivePaperResourceItem -d-> "hostedBy" Organization
-LivePaperResourceItem -d-> "isPartOf" LivePaperSection
-
-
-class PublicationIssue {
-+issueNumber
-+isPartOf
-
-}
-PublicationIssue -d-> "isPartOf" PublicationVolume
-
-
-class LivePaper {
-+author
-+digitalIdentifier
-+hasVersion
-+custodian
-+description
-+fullName
-+homepage
-+howToCite
-+shortName
-
-}
-LivePaper -d-> "author" Organization
-LivePaper -d-> "author" Person
-LivePaper -d-> "digitalIdentifier" DOI
-LivePaper -d-> "hasVersion" LivePaperVersion
-LivePaper -d-> "custodian" Organization
-LivePaper -d-> "custodian" Person
-LivePaper -d-> "homepage" URL
 
 
 class BrainAtlas {
@@ -1461,10 +1113,10 @@ Comment -d-> "subject" SoftwareVersion
 Comment -d-> "subject" ModelVersion
 Comment -d-> "subject" Model
 Comment -d-> "subject" MetaDataModelVersion
-Comment -d-> "subject" LivePaperVersion
-Comment -d-> "subject" LivePaper
 Comment -d-> "subject" BrainAtlas
 Comment -d-> "subject" BrainAtlasVersion
+Comment -d-> "subject" LivePaperVersion
+Comment -d-> "subject" LivePaper
 Comment -d-> "subject" WorkflowRecipe
 Comment -d-> "subject" ValidationTestVersion
 Comment -d-> "subject" WorkflowRecipeVersion
@@ -1638,6 +1290,9 @@ DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "technique" Technique
 DatasetVersion -d-> "dataType" SemanticDataType
+DatasetVersion -d-> "studyTarget" ParcellationEntity
+DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
+DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "studyTarget" GeneticStrainType
 DatasetVersion -d-> "studyTarget" Disease
 DatasetVersion -d-> "studyTarget" Species
@@ -1653,9 +1308,6 @@ DatasetVersion -d-> "studyTarget" BiologicalOrder
 DatasetVersion -d-> "studyTarget" BreedingType
 DatasetVersion -d-> "studyTarget" DiseaseModel
 DatasetVersion -d-> "studyTarget" CellCultureType
-DatasetVersion -d-> "studyTarget" ParcellationEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
-DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Organization
@@ -1792,10 +1444,10 @@ Project -d-> "hasResearchProducts" SoftwareVersion
 Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" MetaDataModelVersion
-Project -d-> "hasResearchProducts" LivePaperVersion
-Project -d-> "hasResearchProducts" LivePaper
 Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "hasResearchProducts" BrainAtlasVersion
+Project -d-> "hasResearchProducts" LivePaperVersion
+Project -d-> "hasResearchProducts" LivePaper
 Project -d-> "hasResearchProducts" WorkflowRecipe
 Project -d-> "hasResearchProducts" ValidationTestVersion
 Project -d-> "hasResearchProducts" WorkflowRecipeVersion
@@ -2074,6 +1726,9 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" ParcellationEntityVersion
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" GeneticStrainType
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" Species
@@ -2089,9 +1744,6 @@ Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" CellCultureType
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" ParcellationEntityVersion
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
@@ -2578,6 +2230,9 @@ ExperimentalActivity -d-> "input" File
 ExperimentalActivity -d-> "output" FileBundle
 ExperimentalActivity -d-> "output" File
 ExperimentalActivity -d-> "customPropertySet" CustomPropertySet
+ExperimentalActivity -d-> "studyTarget" ParcellationEntity
+ExperimentalActivity -d-> "studyTarget" ParcellationEntityVersion
+ExperimentalActivity -d-> "studyTarget" CustomAnatomicalEntity
 ExperimentalActivity -d-> "studyTarget" GeneticStrainType
 ExperimentalActivity -d-> "studyTarget" Disease
 ExperimentalActivity -d-> "studyTarget" Species
@@ -2593,9 +2248,6 @@ ExperimentalActivity -d-> "studyTarget" BiologicalOrder
 ExperimentalActivity -d-> "studyTarget" BreedingType
 ExperimentalActivity -d-> "studyTarget" DiseaseModel
 ExperimentalActivity -d-> "studyTarget" CellCultureType
-ExperimentalActivity -d-> "studyTarget" ParcellationEntity
-ExperimentalActivity -d-> "studyTarget" ParcellationEntityVersion
-ExperimentalActivity -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class Strain {
@@ -2684,6 +2336,9 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "customPropertySet" CustomPropertySet
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" Species
@@ -2699,9 +2354,6 @@ ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" CellCultureType
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class NumericalProperty {
@@ -3568,6 +3220,354 @@ class AtlasType {
 +synonym
 
 }
+
+
+class Periodical {
++fullName
++shortName
++digitalIdentifier
+
+}
+Periodical -d-> "digitalIdentifier" ISSN
+
+
+class PublicationVolume {
++volumeNumber
++isPartOf
+
+}
+PublicationVolume -d-> "isPartOf" Periodical
+
+
+class ScholarlyArticle {
++isPartOf
++pagination
++abstract
++custodian
++author
++citedPublication
++copyright
++dateCreated
++dateModified
++datePublished
++digitalIdentifier
++editor
++funding
++name
++keyword
++license
++publisher
++IRI
++versionIdentifier
+
+}
+ScholarlyArticle -d-> "isPartOf" PublicationIssue
+ScholarlyArticle -d-> "isPartOf" PublicationVolume
+ScholarlyArticle -d-> "custodian" Organization
+ScholarlyArticle -d-> "custodian" Person
+ScholarlyArticle -d-> "author" Organization
+ScholarlyArticle -d-> "author" Person
+ScholarlyArticle -d-> "citedPublication" DOI
+ScholarlyArticle -d-> "citedPublication" ISBN
+ScholarlyArticle -d-> "copyright" Copyright
+ScholarlyArticle -d-> "digitalIdentifier" DOI
+ScholarlyArticle -d-> "editor" Person
+ScholarlyArticle -d-> "funding" Funding
+ScholarlyArticle -d-> "keyword" ParcellationEntity
+ScholarlyArticle -d-> "keyword" ParcellationEntityVersion
+ScholarlyArticle -d-> "keyword" CustomAnatomicalEntity
+ScholarlyArticle -d-> "keyword" GeneticStrainType
+ScholarlyArticle -d-> "keyword" Disease
+ScholarlyArticle -d-> "keyword" Species
+ScholarlyArticle -d-> "keyword" SubcellularEntity
+ScholarlyArticle -d-> "keyword" Handedness
+ScholarlyArticle -d-> "keyword" Organ
+ScholarlyArticle -d-> "keyword" UBERONParcellation
+ScholarlyArticle -d-> "keyword" TermSuggestion
+ScholarlyArticle -d-> "keyword" CellType
+ScholarlyArticle -d-> "keyword" BiologicalSex
+ScholarlyArticle -d-> "keyword" MolecularEntity
+ScholarlyArticle -d-> "keyword" BiologicalOrder
+ScholarlyArticle -d-> "keyword" BreedingType
+ScholarlyArticle -d-> "keyword" DiseaseModel
+ScholarlyArticle -d-> "keyword" CellCultureType
+ScholarlyArticle -d-> "license" License
+ScholarlyArticle -d-> "publisher" Organization
+ScholarlyArticle -d-> "publisher" Person
+
+
+class LivePaperVersion {
++about
++author
++lastModified
++digitalIdentifier
++isAlternativeVersionOf
++isNewVersionOf
++license
++relatedPublication
++accessibility
++copyright
++custodian
++description
++fullDocumentation
++fullName
++funding
++homepage
++howToCite
++keyword
++otherContribution
++releaseDate
++repository
++shortName
++supportChannel
++versionIdentifier
++versionInnovation
+
+}
+LivePaperVersion -d-> "about" DatasetVersion
+LivePaperVersion -d-> "about" ModelVersion
+LivePaperVersion -d-> "about" SoftwareVersion
+LivePaperVersion -d-> "author" Organization
+LivePaperVersion -d-> "author" Person
+LivePaperVersion -d-> "digitalIdentifier" DOI
+LivePaperVersion -d-> "isAlternativeVersionOf" LivePaperVersion
+LivePaperVersion -d-> "isNewVersionOf" LivePaperVersion
+LivePaperVersion -d-> "license" License
+LivePaperVersion -d-> "relatedPublication" DOI
+LivePaperVersion -d-> "relatedPublication" ISBN
+LivePaperVersion -d-> "relatedPublication" ISSN
+LivePaperVersion -d-> "accessibility" ProductAccessibility
+LivePaperVersion -d-> "copyright" Copyright
+LivePaperVersion -d-> "custodian" Organization
+LivePaperVersion -d-> "custodian" Person
+LivePaperVersion -d-> "fullDocumentation" DOI
+LivePaperVersion -d-> "fullDocumentation" File
+LivePaperVersion -d-> "fullDocumentation" URL
+LivePaperVersion -d-> "funding" Funding
+LivePaperVersion -d-> "homepage" URL
+LivePaperVersion -d-> "keyword" GeneticStrainType
+LivePaperVersion -d-> "keyword" Service
+LivePaperVersion -d-> "keyword" Disease
+LivePaperVersion -d-> "keyword" CriteriaQualityType
+LivePaperVersion -d-> "keyword" AnnotationType
+LivePaperVersion -d-> "keyword" TissueSampleAttribute
+LivePaperVersion -d-> "keyword" AnatomicalAxesOrientation
+LivePaperVersion -d-> "keyword" Species
+LivePaperVersion -d-> "keyword" AnatomicalPlane
+LivePaperVersion -d-> "keyword" FileRepositoryType
+LivePaperVersion -d-> "keyword" FileBundleGrouping
+LivePaperVersion -d-> "keyword" ModelAbstractionLevel
+LivePaperVersion -d-> "keyword" CranialWindowType
+LivePaperVersion -d-> "keyword" OperatingSystem
+LivePaperVersion -d-> "keyword" ModelScope
+LivePaperVersion -d-> "keyword" SetupType
+LivePaperVersion -d-> "keyword" ProgrammingLanguage
+LivePaperVersion -d-> "keyword" Language
+LivePaperVersion -d-> "keyword" DeviceType
+LivePaperVersion -d-> "keyword" SubcellularEntity
+LivePaperVersion -d-> "keyword" StimulationApproach
+LivePaperVersion -d-> "keyword" Handedness
+LivePaperVersion -d-> "keyword" QualitativeOverlap
+LivePaperVersion -d-> "keyword" Organ
+LivePaperVersion -d-> "keyword" UnitOfMeasurement
+LivePaperVersion -d-> "keyword" DifferenceMeasure
+LivePaperVersion -d-> "keyword" ActionStatusType
+LivePaperVersion -d-> "keyword" AgeCategory
+LivePaperVersion -d-> "keyword" PreparationType
+LivePaperVersion -d-> "keyword" EthicsAssessment
+LivePaperVersion -d-> "keyword" ProductAccessibility
+LivePaperVersion -d-> "keyword" Technique
+LivePaperVersion -d-> "keyword" FileUsageRole
+LivePaperVersion -d-> "keyword" MeasuredQuantity
+LivePaperVersion -d-> "keyword" UBERONParcellation
+LivePaperVersion -d-> "keyword" SoftwareApplicationCategory
+LivePaperVersion -d-> "keyword" TermSuggestion
+LivePaperVersion -d-> "keyword" ChemicalMixtureType
+LivePaperVersion -d-> "keyword" OperatingDevice
+LivePaperVersion -d-> "keyword" DataType
+LivePaperVersion -d-> "keyword" PatchClampVariation
+LivePaperVersion -d-> "keyword" TypeOfUncertainty
+LivePaperVersion -d-> "keyword" TissueSampleType
+LivePaperVersion -d-> "keyword" CellType
+LivePaperVersion -d-> "keyword" BiologicalSex
+LivePaperVersion -d-> "keyword" SubjectAttribute
+LivePaperVersion -d-> "keyword" MolecularEntity
+LivePaperVersion -d-> "keyword" BiologicalOrder
+LivePaperVersion -d-> "keyword" MetaDataModelType
+LivePaperVersion -d-> "keyword" ExperimentalApproach
+LivePaperVersion -d-> "keyword" BreedingType
+LivePaperVersion -d-> "keyword" SemanticDataType
+LivePaperVersion -d-> "keyword" ContributionType
+LivePaperVersion -d-> "keyword" StimulusType
+LivePaperVersion -d-> "keyword" DiseaseModel
+LivePaperVersion -d-> "keyword" CellCultureType
+LivePaperVersion -d-> "keyword" SoftwareFeature
+LivePaperVersion -d-> "keyword" Laterality
+LivePaperVersion -d-> "keyword" Terminology
+LivePaperVersion -d-> "keyword" AtlasType
+LivePaperVersion -d-> "otherContribution" Contribution
+LivePaperVersion -d-> "repository" FileRepository
+
+
+class Book {
++digitalIdentifier
++abstract
++custodian
++author
++citedPublication
++copyright
++dateCreated
++dateModified
++datePublished
++editor
++funding
++name
++keyword
++license
++publisher
++IRI
++versionIdentifier
+
+}
+Book -d-> "digitalIdentifier" ISBN
+Book -d-> "digitalIdentifier" DOI
+Book -d-> "custodian" Organization
+Book -d-> "custodian" Person
+Book -d-> "author" Organization
+Book -d-> "author" Person
+Book -d-> "citedPublication" DOI
+Book -d-> "citedPublication" ISBN
+Book -d-> "copyright" Copyright
+Book -d-> "editor" Person
+Book -d-> "funding" Funding
+Book -d-> "keyword" ParcellationEntity
+Book -d-> "keyword" ParcellationEntityVersion
+Book -d-> "keyword" CustomAnatomicalEntity
+Book -d-> "keyword" GeneticStrainType
+Book -d-> "keyword" Disease
+Book -d-> "keyword" Species
+Book -d-> "keyword" SubcellularEntity
+Book -d-> "keyword" Handedness
+Book -d-> "keyword" Organ
+Book -d-> "keyword" UBERONParcellation
+Book -d-> "keyword" TermSuggestion
+Book -d-> "keyword" CellType
+Book -d-> "keyword" BiologicalSex
+Book -d-> "keyword" MolecularEntity
+Book -d-> "keyword" BiologicalOrder
+Book -d-> "keyword" BreedingType
+Book -d-> "keyword" DiseaseModel
+Book -d-> "keyword" CellCultureType
+Book -d-> "license" License
+Book -d-> "publisher" Organization
+Book -d-> "publisher" Person
+
+
+class LivePaperSection {
++sectionType
++order
++name
++description
++isPartOf
+
+}
+LivePaperSection -d-> "isPartOf" LivePaperVersion
+
+
+class Chapter {
++isPartOf
++pagination
++digitalIdentifier
++abstract
++custodian
++author
++citedPublication
++copyright
++dateCreated
++dateModified
++datePublished
++editor
++funding
++name
++keyword
++license
++publisher
++IRI
++versionIdentifier
+
+}
+Chapter -d-> "isPartOf" Book
+Chapter -d-> "digitalIdentifier" DOI
+Chapter -d-> "custodian" Organization
+Chapter -d-> "custodian" Person
+Chapter -d-> "author" Organization
+Chapter -d-> "author" Person
+Chapter -d-> "citedPublication" DOI
+Chapter -d-> "citedPublication" ISBN
+Chapter -d-> "copyright" Copyright
+Chapter -d-> "editor" Person
+Chapter -d-> "funding" Funding
+Chapter -d-> "keyword" ParcellationEntity
+Chapter -d-> "keyword" ParcellationEntityVersion
+Chapter -d-> "keyword" CustomAnatomicalEntity
+Chapter -d-> "keyword" GeneticStrainType
+Chapter -d-> "keyword" Disease
+Chapter -d-> "keyword" Species
+Chapter -d-> "keyword" SubcellularEntity
+Chapter -d-> "keyword" Handedness
+Chapter -d-> "keyword" Organ
+Chapter -d-> "keyword" UBERONParcellation
+Chapter -d-> "keyword" TermSuggestion
+Chapter -d-> "keyword" CellType
+Chapter -d-> "keyword" BiologicalSex
+Chapter -d-> "keyword" MolecularEntity
+Chapter -d-> "keyword" BiologicalOrder
+Chapter -d-> "keyword" BreedingType
+Chapter -d-> "keyword" DiseaseModel
+Chapter -d-> "keyword" CellCultureType
+Chapter -d-> "license" License
+Chapter -d-> "publisher" Organization
+Chapter -d-> "publisher" Person
+
+
+class LivePaperResourceItem {
++IRI
++name
++hostedBy
++isPartOf
+
+}
+LivePaperResourceItem -d-> "hostedBy" Organization
+LivePaperResourceItem -d-> "isPartOf" LivePaperSection
+
+
+class PublicationIssue {
++issueNumber
++isPartOf
+
+}
+PublicationIssue -d-> "isPartOf" PublicationVolume
+
+
+class LivePaper {
++author
++digitalIdentifier
++hasVersion
++custodian
++description
++fullName
++homepage
++howToCite
++shortName
+
+}
+LivePaper -d-> "author" Organization
+LivePaper -d-> "author" Person
+LivePaper -d-> "digitalIdentifier" DOI
+LivePaper -d-> "hasVersion" LivePaperVersion
+LivePaper -d-> "custodian" Organization
+LivePaper -d-> "custodian" Person
+LivePaper -d-> "homepage" URL
 
 
 @enduml
