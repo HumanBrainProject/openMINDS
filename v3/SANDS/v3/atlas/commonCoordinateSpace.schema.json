@@ -309,6 +309,52 @@
             "title": "shortName",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/usedSpecimen": {
+            "_instruction": "Add one or several specimen (subjects and/or tissue samples) or specimen sets (subject groups and/or tissue sample collections) that were used to create this common coordinate space.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Subject",
+                                "https://openminds.ebrains.eu/core/SubjectGroup",
+                                "https://openminds.ebrains.eu/core/TissueSample",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollection"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "usedSpecimen",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/versionIdentifier": {
             "_instruction": "Enter the version identifier of this common coordinate space.",
             "description": "Term or code used to identify the version of something.",
@@ -317,15 +363,15 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/axesOrigin",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/fullName",
         "https://openminds.ebrains.eu/vocab/nativeUnit",
-        "https://openminds.ebrains.eu/vocab/shortName"
+        "https://openminds.ebrains.eu/vocab/axesOrigin",
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/releaseDate"
     ],
     "type": "object"
 }
