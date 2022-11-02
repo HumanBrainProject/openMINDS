@@ -1,726 +1,389 @@
 @startuml
 
-class GeneticStrainType {
-+definition
+class BrainAtlas {
++abbreviation
++author
++digitalIdentifier
++hasTerminology
++hasVersion
++custodian
 +description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
++fullName
++homepage
++howToCite
++shortName
 
 }
+BrainAtlas -d-> "author" Organization
+BrainAtlas -d-> "author" Person
+BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "digitalIdentifier" ISBN
+BrainAtlas -d-> "digitalIdentifier" RRID
+BrainAtlas -d-> "hasTerminology" ParcellationTerminology
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+BrainAtlas -d-> "custodian" Organization
+BrainAtlas -d-> "custodian" Person
+BrainAtlas -d-> "homepage" URL
 
 
-class Service {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Disease {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class ParcellationTerminology {
++definedIn
++hasEntity
++ontologyIdentifier
 
 }
+ParcellationTerminology -d-> "definedIn" File
+ParcellationTerminology -d-> "hasEntity" ParcellationEntity
 
 
-class CriteriaQualityType {
+class ParcellationEntity {
++alternativeName
 +definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
++hasParent
++hasVersion
++lookupLabel
 +name
-+preferredOntologyIdentifier
-+synonym
++ontologyIdentifier
++relatedUBERONTerm
 
 }
+ParcellationEntity -d-> "hasParent" ParcellationEntity
+ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
+ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
 
 
-class AnnotationType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
+class ParcellationEntityVersion {
++additionalRemarks
++alternativeName
++correctedName
++hasAnnotation
++hasParent
++lookupLabel
 +name
-+preferredOntologyIdentifier
-+synonym
++ontologyIdentifier
++relationAssessment
++versionIdentifier
++versionInnovation
 
 }
+ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
+ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
+ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
+ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
 
 
-class TissueSampleAttribute {
-+definition
+class CommonCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
 +description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
++digitalIdentifier
++fullName
++homepage
++howToCite
++nativeUnit
++ontologyIdentifier
++releaseDate
++shortName
++usedSpecimen
++versionIdentifier
 
 }
+CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CommonCoordinateSpace -d-> "defaultImage" File
+CommonCoordinateSpace -d-> "digitalIdentifier" DOI
+CommonCoordinateSpace -d-> "digitalIdentifier" ISBN
+CommonCoordinateSpace -d-> "digitalIdentifier" RRID
+CommonCoordinateSpace -d-> "homepage" URL
+CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+CommonCoordinateSpace -d-> "usedSpecimen" Subject
+CommonCoordinateSpace -d-> "usedSpecimen" SubjectGroup
+CommonCoordinateSpace -d-> "usedSpecimen" TissueSample
+CommonCoordinateSpace -d-> "usedSpecimen" TissueSampleCollection
 
 
-class AnatomicalAxesOrientation {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Species {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class ParcellationTerminologyVersion {
++definedIn
++hasEntityVersion
++ontologyIdentifier
 
 }
+ParcellationTerminologyVersion -d-> "definedIn" File
+ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
 
 
-class AnatomicalPlane {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class FileRepositoryType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class AtlasAnnotation {
++annotationType
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++visualizedIn
 
 }
+AtlasAnnotation -d-> "annotationType" AnnotationType
+AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
+AtlasAnnotation -d-> "criteria" ProtocolExecution
+AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+AtlasAnnotation -d-> "inspiredBy" File
+AtlasAnnotation -d-> "laterality" Laterality
+AtlasAnnotation -d-> "visualizedIn" File
 
 
-class FileBundleGrouping {
-+definition
+class BrainAtlasVersion {
++abbreviation
++atlasType
++author
++coordinateSpace
++digitalIdentifier
++hasTerminologyVersion
++isAlternativeVersionOf
++isNewVersionOf
++license
++ontologyIdentifier
++usedSpecimen
++accessibility
++copyright
++custodian
 +description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
++fullDocumentation
++fullName
++funding
++homepage
++howToCite
++keyword
++otherContribution
++relatedPublication
++releaseDate
++repository
++shortName
++supportChannel
++versionIdentifier
++versionInnovation
 
 }
+BrainAtlasVersion -d-> "atlasType" AtlasType
+BrainAtlasVersion -d-> "author" Organization
+BrainAtlasVersion -d-> "author" Person
+BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DOI
+BrainAtlasVersion -d-> "digitalIdentifier" ISBN
+BrainAtlasVersion -d-> "digitalIdentifier" RRID
+BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "license" License
+BrainAtlasVersion -d-> "usedSpecimen" Subject
+BrainAtlasVersion -d-> "usedSpecimen" SubjectGroup
+BrainAtlasVersion -d-> "usedSpecimen" TissueSample
+BrainAtlasVersion -d-> "usedSpecimen" TissueSampleCollection
+BrainAtlasVersion -d-> "accessibility" ProductAccessibility
+BrainAtlasVersion -d-> "copyright" Copyright
+BrainAtlasVersion -d-> "custodian" Organization
+BrainAtlasVersion -d-> "custodian" Person
+BrainAtlasVersion -d-> "fullDocumentation" DOI
+BrainAtlasVersion -d-> "fullDocumentation" File
+BrainAtlasVersion -d-> "fullDocumentation" URL
+BrainAtlasVersion -d-> "funding" Funding
+BrainAtlasVersion -d-> "homepage" URL
+BrainAtlasVersion -d-> "keyword" GeneticStrainType
+BrainAtlasVersion -d-> "keyword" Service
+BrainAtlasVersion -d-> "keyword" Disease
+BrainAtlasVersion -d-> "keyword" CriteriaQualityType
+BrainAtlasVersion -d-> "keyword" AnnotationType
+BrainAtlasVersion -d-> "keyword" TissueSampleAttribute
+BrainAtlasVersion -d-> "keyword" AnatomicalAxesOrientation
+BrainAtlasVersion -d-> "keyword" Species
+BrainAtlasVersion -d-> "keyword" AnatomicalPlane
+BrainAtlasVersion -d-> "keyword" FileRepositoryType
+BrainAtlasVersion -d-> "keyword" FileBundleGrouping
+BrainAtlasVersion -d-> "keyword" ModelAbstractionLevel
+BrainAtlasVersion -d-> "keyword" CranialWindowType
+BrainAtlasVersion -d-> "keyword" OperatingSystem
+BrainAtlasVersion -d-> "keyword" ModelScope
+BrainAtlasVersion -d-> "keyword" SetupType
+BrainAtlasVersion -d-> "keyword" ProgrammingLanguage
+BrainAtlasVersion -d-> "keyword" Language
+BrainAtlasVersion -d-> "keyword" DeviceType
+BrainAtlasVersion -d-> "keyword" SubcellularEntity
+BrainAtlasVersion -d-> "keyword" StimulationApproach
+BrainAtlasVersion -d-> "keyword" Handedness
+BrainAtlasVersion -d-> "keyword" QualitativeOverlap
+BrainAtlasVersion -d-> "keyword" Organ
+BrainAtlasVersion -d-> "keyword" UnitOfMeasurement
+BrainAtlasVersion -d-> "keyword" DifferenceMeasure
+BrainAtlasVersion -d-> "keyword" ActionStatusType
+BrainAtlasVersion -d-> "keyword" AgeCategory
+BrainAtlasVersion -d-> "keyword" PreparationType
+BrainAtlasVersion -d-> "keyword" EthicsAssessment
+BrainAtlasVersion -d-> "keyword" ProductAccessibility
+BrainAtlasVersion -d-> "keyword" Technique
+BrainAtlasVersion -d-> "keyword" FileUsageRole
+BrainAtlasVersion -d-> "keyword" MeasuredQuantity
+BrainAtlasVersion -d-> "keyword" UBERONParcellation
+BrainAtlasVersion -d-> "keyword" SoftwareApplicationCategory
+BrainAtlasVersion -d-> "keyword" TermSuggestion
+BrainAtlasVersion -d-> "keyword" ChemicalMixtureType
+BrainAtlasVersion -d-> "keyword" OperatingDevice
+BrainAtlasVersion -d-> "keyword" DataType
+BrainAtlasVersion -d-> "keyword" PatchClampVariation
+BrainAtlasVersion -d-> "keyword" TypeOfUncertainty
+BrainAtlasVersion -d-> "keyword" TissueSampleType
+BrainAtlasVersion -d-> "keyword" CellType
+BrainAtlasVersion -d-> "keyword" BiologicalSex
+BrainAtlasVersion -d-> "keyword" SubjectAttribute
+BrainAtlasVersion -d-> "keyword" MolecularEntity
+BrainAtlasVersion -d-> "keyword" BiologicalOrder
+BrainAtlasVersion -d-> "keyword" MetaDataModelType
+BrainAtlasVersion -d-> "keyword" ExperimentalApproach
+BrainAtlasVersion -d-> "keyword" BreedingType
+BrainAtlasVersion -d-> "keyword" SemanticDataType
+BrainAtlasVersion -d-> "keyword" ContributionType
+BrainAtlasVersion -d-> "keyword" StimulusType
+BrainAtlasVersion -d-> "keyword" DiseaseModel
+BrainAtlasVersion -d-> "keyword" CellCultureType
+BrainAtlasVersion -d-> "keyword" SoftwareFeature
+BrainAtlasVersion -d-> "keyword" Laterality
+BrainAtlasVersion -d-> "keyword" Terminology
+BrainAtlasVersion -d-> "keyword" AtlasType
+BrainAtlasVersion -d-> "otherContribution" Contribution
+BrainAtlasVersion -d-> "relatedPublication" DOI
+BrainAtlasVersion -d-> "relatedPublication" ISBN
+BrainAtlasVersion -d-> "relatedPublication" HANDLE
+BrainAtlasVersion -d-> "repository" FileRepository
 
 
-class ModelAbstractionLevel {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class CranialWindowType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class OperatingSystem {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class ModelScope {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SetupType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class ProgrammingLanguage {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Language {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class DeviceType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SubcellularEntity {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class QuantitativeRelationAssessment {
++criteria
++inRelationTo
++quantitativeOverlap
 
 }
+QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
+QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
 
 
-class StimulationApproach {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Handedness {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class CoordinatePoint {
++coordinates
++coordinateSpace
 
 }
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
+CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
 
 
-class QualitativeOverlap {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Organ {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class AnatomicalTargetPosition {
++anatomicalTarget
++targetIdentificationType
++coordinates
++additionalRemarks
++lookupLabel
 
 }
+AnatomicalTargetPosition -d-> "anatomicalTarget" ParcellationEntity
+AnatomicalTargetPosition -d-> "anatomicalTarget" ParcellationEntityVersion
+AnatomicalTargetPosition -d-> "anatomicalTarget" CustomAnatomicalEntity
+AnatomicalTargetPosition -d-> "anatomicalTarget" CellType
+AnatomicalTargetPosition -d-> "anatomicalTarget" UBERONParcellation
+AnatomicalTargetPosition -d-> "targetIdentificationType" AnatomicalIdentificationType
+AnatomicalTargetPosition -d-> "coordinates" CoordinatePoint
 
 
-class UnitOfMeasurement {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class DifferenceMeasure {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class QualitativeRelationAssessment {
++criteria
++inRelationTo
++qualitativeOverlap
 
 }
+QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
+QualitativeRelationAssessment -d-> "inRelationTo" CustomAnatomicalEntity
+QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
+QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
+QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
 
 
-class ActionStatusType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class AgeCategory {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class CustomAnnotation {
++annotationType
++bestViewPoint
++coordinateSpace
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++visualizedIn
 
 }
+CustomAnnotation -d-> "annotationType" AnnotationType
+CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
+CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
+CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
+CustomAnnotation -d-> "criteria" ProtocolExecution
+CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
+CustomAnnotation -d-> "inspiredBy" File
+CustomAnnotation -d-> "laterality" Laterality
+CustomAnnotation -d-> "visualizedIn" File
 
 
-class PreparationType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
+class CustomAnatomicalEntity {
++hasAnnotation
 +name
-+preferredOntologyIdentifier
-+synonym
++relatedUBERONTerm
++relationAssessment
 
 }
+CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
+CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
+CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
+CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
 
 
-class EthicsAssessment {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
+class CustomCoordinateSpace {
++anatomicalAxesOrientation
++axesOrigin
++defaultImage
 +name
-+preferredOntologyIdentifier
-+synonym
++nativeUnit
 
 }
+CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
+CustomCoordinateSpace -d-> "defaultImage" File
+CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
 
 
-class ProductAccessibility {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Technique {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class Rectangle {
++length
++width
 
 }
+Rectangle -d-> "length" QuantitativeValue
+Rectangle -d-> "width" QuantitativeValue
 
 
-class FileUsageRole {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class Ellipse {
++semiMinorAxis
++semiMajorAxis
 
 }
+Ellipse -d-> "semiMinorAxis" QuantitativeValue
+Ellipse -d-> "semiMajorAxis" QuantitativeValue
 
 
-class MeasuredQuantity {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
+class Circle {
++radius
 
 }
-
-
-class UBERONParcellation {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SoftwareApplicationCategory {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class TermSuggestion {
-+addExistingTerminology
-+suggestNewTerminology
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-TermSuggestion -d-> "addExistingTerminology" Terminology
-
-
-class ChemicalMixtureType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class OperatingDevice {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class DataType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class PatchClampVariation {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class TypeOfUncertainty {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class TissueSampleType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class CellType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class BiologicalSex {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SubjectAttribute {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class MolecularEntity {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class BiologicalOrder {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class MetaDataModelType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class ExperimentalApproach {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class BreedingType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SemanticDataType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class ContributionType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class StimulusType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class DiseaseModel {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class CellCultureType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class SoftwareFeature {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Laterality {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class Terminology {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
-class AtlasType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
+Circle -d-> "radius" QuantitativeValue
 
 
 class WorkflowRecipe {
@@ -1452,6 +1115,8 @@ class Comment {
 
 }
 Comment -d-> "commenter" Person
+Comment -d-> "subject" LivePaperVersion
+Comment -d-> "subject" LivePaper
 Comment -d-> "subject" MetaDataModel
 Comment -d-> "subject" DatasetVersion
 Comment -d-> "subject" Dataset
@@ -1466,8 +1131,6 @@ Comment -d-> "subject" WorkflowRecipe
 Comment -d-> "subject" ValidationTestVersion
 Comment -d-> "subject" WorkflowRecipeVersion
 Comment -d-> "subject" ValidationTest
-Comment -d-> "subject" LivePaperVersion
-Comment -d-> "subject" LivePaper
 
 
 class SWHID {
@@ -1783,6 +1446,8 @@ class Project {
 +shortName
 
 }
+Project -d-> "hasResearchProducts" LivePaperVersion
+Project -d-> "hasResearchProducts" LivePaper
 Project -d-> "hasResearchProducts" MetaDataModel
 Project -d-> "hasResearchProducts" DatasetVersion
 Project -d-> "hasResearchProducts" Dataset
@@ -1797,8 +1462,6 @@ Project -d-> "hasResearchProducts" WorkflowRecipe
 Project -d-> "hasResearchProducts" ValidationTestVersion
 Project -d-> "hasResearchProducts" WorkflowRecipeVersion
 Project -d-> "hasResearchProducts" ValidationTest
-Project -d-> "hasResearchProducts" LivePaperVersion
-Project -d-> "hasResearchProducts" LivePaper
 Project -d-> "homepage" URL
 Project -d-> "coordinator" Organization
 Project -d-> "coordinator" Person
@@ -2846,392 +2509,6 @@ Person -d-> "contactInformation" ContactInformation
 Person -d-> "affiliation" Affiliation
 
 
-class BrainAtlas {
-+abbreviation
-+author
-+digitalIdentifier
-+hasTerminology
-+hasVersion
-+custodian
-+description
-+fullName
-+homepage
-+howToCite
-+shortName
-
-}
-BrainAtlas -d-> "author" Organization
-BrainAtlas -d-> "author" Person
-BrainAtlas -d-> "digitalIdentifier" DOI
-BrainAtlas -d-> "digitalIdentifier" ISBN
-BrainAtlas -d-> "digitalIdentifier" RRID
-BrainAtlas -d-> "hasTerminology" ParcellationTerminology
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-BrainAtlas -d-> "custodian" Organization
-BrainAtlas -d-> "custodian" Person
-BrainAtlas -d-> "homepage" URL
-
-
-class ParcellationTerminology {
-+definedIn
-+hasEntity
-+ontologyIdentifier
-
-}
-ParcellationTerminology -d-> "definedIn" File
-ParcellationTerminology -d-> "hasEntity" ParcellationEntity
-
-
-class ParcellationEntity {
-+alternativeName
-+definition
-+hasParent
-+hasVersion
-+lookupLabel
-+name
-+ontologyIdentifier
-+relatedUBERONTerm
-
-}
-ParcellationEntity -d-> "hasParent" ParcellationEntity
-ParcellationEntity -d-> "hasVersion" ParcellationEntityVersion
-ParcellationEntity -d-> "relatedUBERONTerm" UBERONParcellation
-
-
-class ParcellationEntityVersion {
-+additionalRemarks
-+alternativeName
-+correctedName
-+hasAnnotation
-+hasParent
-+lookupLabel
-+name
-+ontologyIdentifier
-+relationAssessment
-+versionIdentifier
-+versionInnovation
-
-}
-ParcellationEntityVersion -d-> "hasAnnotation" AtlasAnnotation
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntity
-ParcellationEntityVersion -d-> "hasParent" ParcellationEntityVersion
-ParcellationEntityVersion -d-> "relationAssessment" QualitativeRelationAssessment
-ParcellationEntityVersion -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class CommonCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+description
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+nativeUnit
-+ontologyIdentifier
-+releaseDate
-+shortName
-+usedSpecimen
-+versionIdentifier
-
-}
-CommonCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CommonCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CommonCoordinateSpace -d-> "defaultImage" File
-CommonCoordinateSpace -d-> "digitalIdentifier" DOI
-CommonCoordinateSpace -d-> "digitalIdentifier" ISBN
-CommonCoordinateSpace -d-> "digitalIdentifier" RRID
-CommonCoordinateSpace -d-> "homepage" URL
-CommonCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-CommonCoordinateSpace -d-> "usedSpecimen" Subject
-CommonCoordinateSpace -d-> "usedSpecimen" SubjectGroup
-CommonCoordinateSpace -d-> "usedSpecimen" TissueSample
-CommonCoordinateSpace -d-> "usedSpecimen" TissueSampleCollection
-
-
-class ParcellationTerminologyVersion {
-+definedIn
-+hasEntityVersion
-+ontologyIdentifier
-
-}
-ParcellationTerminologyVersion -d-> "definedIn" File
-ParcellationTerminologyVersion -d-> "hasEntityVersion" ParcellationEntityVersion
-
-
-class AtlasAnnotation {
-+annotationType
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+visualizedIn
-
-}
-AtlasAnnotation -d-> "annotationType" AnnotationType
-AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
-AtlasAnnotation -d-> "criteria" ProtocolExecution
-AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-AtlasAnnotation -d-> "inspiredBy" File
-AtlasAnnotation -d-> "laterality" Laterality
-AtlasAnnotation -d-> "visualizedIn" File
-
-
-class BrainAtlasVersion {
-+abbreviation
-+atlasType
-+author
-+coordinateSpace
-+digitalIdentifier
-+hasTerminologyVersion
-+isAlternativeVersionOf
-+isNewVersionOf
-+license
-+ontologyIdentifier
-+usedSpecimen
-+accessibility
-+copyright
-+custodian
-+description
-+fullDocumentation
-+fullName
-+funding
-+homepage
-+howToCite
-+keyword
-+otherContribution
-+relatedPublication
-+releaseDate
-+repository
-+shortName
-+supportChannel
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "atlasType" AtlasType
-BrainAtlasVersion -d-> "author" Organization
-BrainAtlasVersion -d-> "author" Person
-BrainAtlasVersion -d-> "coordinateSpace" CommonCoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DOI
-BrainAtlasVersion -d-> "digitalIdentifier" ISBN
-BrainAtlasVersion -d-> "digitalIdentifier" RRID
-BrainAtlasVersion -d-> "hasTerminologyVersion" ParcellationTerminologyVersion
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "license" License
-BrainAtlasVersion -d-> "usedSpecimen" Subject
-BrainAtlasVersion -d-> "usedSpecimen" SubjectGroup
-BrainAtlasVersion -d-> "usedSpecimen" TissueSample
-BrainAtlasVersion -d-> "usedSpecimen" TissueSampleCollection
-BrainAtlasVersion -d-> "accessibility" ProductAccessibility
-BrainAtlasVersion -d-> "copyright" Copyright
-BrainAtlasVersion -d-> "custodian" Organization
-BrainAtlasVersion -d-> "custodian" Person
-BrainAtlasVersion -d-> "fullDocumentation" DOI
-BrainAtlasVersion -d-> "fullDocumentation" File
-BrainAtlasVersion -d-> "fullDocumentation" URL
-BrainAtlasVersion -d-> "funding" Funding
-BrainAtlasVersion -d-> "homepage" URL
-BrainAtlasVersion -d-> "keyword" GeneticStrainType
-BrainAtlasVersion -d-> "keyword" Service
-BrainAtlasVersion -d-> "keyword" Disease
-BrainAtlasVersion -d-> "keyword" CriteriaQualityType
-BrainAtlasVersion -d-> "keyword" AnnotationType
-BrainAtlasVersion -d-> "keyword" TissueSampleAttribute
-BrainAtlasVersion -d-> "keyword" AnatomicalAxesOrientation
-BrainAtlasVersion -d-> "keyword" Species
-BrainAtlasVersion -d-> "keyword" AnatomicalPlane
-BrainAtlasVersion -d-> "keyword" FileRepositoryType
-BrainAtlasVersion -d-> "keyword" FileBundleGrouping
-BrainAtlasVersion -d-> "keyword" ModelAbstractionLevel
-BrainAtlasVersion -d-> "keyword" CranialWindowType
-BrainAtlasVersion -d-> "keyword" OperatingSystem
-BrainAtlasVersion -d-> "keyword" ModelScope
-BrainAtlasVersion -d-> "keyword" SetupType
-BrainAtlasVersion -d-> "keyword" ProgrammingLanguage
-BrainAtlasVersion -d-> "keyword" Language
-BrainAtlasVersion -d-> "keyword" DeviceType
-BrainAtlasVersion -d-> "keyword" SubcellularEntity
-BrainAtlasVersion -d-> "keyword" StimulationApproach
-BrainAtlasVersion -d-> "keyword" Handedness
-BrainAtlasVersion -d-> "keyword" QualitativeOverlap
-BrainAtlasVersion -d-> "keyword" Organ
-BrainAtlasVersion -d-> "keyword" UnitOfMeasurement
-BrainAtlasVersion -d-> "keyword" DifferenceMeasure
-BrainAtlasVersion -d-> "keyword" ActionStatusType
-BrainAtlasVersion -d-> "keyword" AgeCategory
-BrainAtlasVersion -d-> "keyword" PreparationType
-BrainAtlasVersion -d-> "keyword" EthicsAssessment
-BrainAtlasVersion -d-> "keyword" ProductAccessibility
-BrainAtlasVersion -d-> "keyword" Technique
-BrainAtlasVersion -d-> "keyword" FileUsageRole
-BrainAtlasVersion -d-> "keyword" MeasuredQuantity
-BrainAtlasVersion -d-> "keyword" UBERONParcellation
-BrainAtlasVersion -d-> "keyword" SoftwareApplicationCategory
-BrainAtlasVersion -d-> "keyword" TermSuggestion
-BrainAtlasVersion -d-> "keyword" ChemicalMixtureType
-BrainAtlasVersion -d-> "keyword" OperatingDevice
-BrainAtlasVersion -d-> "keyword" DataType
-BrainAtlasVersion -d-> "keyword" PatchClampVariation
-BrainAtlasVersion -d-> "keyword" TypeOfUncertainty
-BrainAtlasVersion -d-> "keyword" TissueSampleType
-BrainAtlasVersion -d-> "keyword" CellType
-BrainAtlasVersion -d-> "keyword" BiologicalSex
-BrainAtlasVersion -d-> "keyword" SubjectAttribute
-BrainAtlasVersion -d-> "keyword" MolecularEntity
-BrainAtlasVersion -d-> "keyword" BiologicalOrder
-BrainAtlasVersion -d-> "keyword" MetaDataModelType
-BrainAtlasVersion -d-> "keyword" ExperimentalApproach
-BrainAtlasVersion -d-> "keyword" BreedingType
-BrainAtlasVersion -d-> "keyword" SemanticDataType
-BrainAtlasVersion -d-> "keyword" ContributionType
-BrainAtlasVersion -d-> "keyword" StimulusType
-BrainAtlasVersion -d-> "keyword" DiseaseModel
-BrainAtlasVersion -d-> "keyword" CellCultureType
-BrainAtlasVersion -d-> "keyword" SoftwareFeature
-BrainAtlasVersion -d-> "keyword" Laterality
-BrainAtlasVersion -d-> "keyword" Terminology
-BrainAtlasVersion -d-> "keyword" AtlasType
-BrainAtlasVersion -d-> "otherContribution" Contribution
-BrainAtlasVersion -d-> "relatedPublication" DOI
-BrainAtlasVersion -d-> "relatedPublication" ISBN
-BrainAtlasVersion -d-> "relatedPublication" HANDLE
-BrainAtlasVersion -d-> "repository" FileRepository
-
-
-class QuantitativeRelationAssessment {
-+criteria
-+inRelationTo
-+quantitativeOverlap
-
-}
-QuantitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QuantitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValue
-QuantitativeRelationAssessment -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CommonCoordinateSpace
-CoordinatePoint -d-> "coordinateSpace" CustomCoordinateSpace
-
-
-class AnatomicalTargetPosition {
-+anatomicalTarget
-+targetIdentificationType
-+coordinates
-+additionalRemarks
-+lookupLabel
-
-}
-AnatomicalTargetPosition -d-> "anatomicalTarget" ParcellationEntity
-AnatomicalTargetPosition -d-> "anatomicalTarget" ParcellationEntityVersion
-AnatomicalTargetPosition -d-> "anatomicalTarget" CustomAnatomicalEntity
-AnatomicalTargetPosition -d-> "anatomicalTarget" CellType
-AnatomicalTargetPosition -d-> "anatomicalTarget" UBERONParcellation
-AnatomicalTargetPosition -d-> "targetIdentificationType" AnatomicalIdentificationType
-AnatomicalTargetPosition -d-> "coordinates" CoordinatePoint
-
-
-class QualitativeRelationAssessment {
-+criteria
-+inRelationTo
-+qualitativeOverlap
-
-}
-QualitativeRelationAssessment -d-> "criteria" ProtocolExecution
-QualitativeRelationAssessment -d-> "inRelationTo" CustomAnatomicalEntity
-QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntity
-QualitativeRelationAssessment -d-> "inRelationTo" ParcellationEntityVersion
-QualitativeRelationAssessment -d-> "qualitativeOverlap" QualitativeOverlap
-
-
-class CustomAnnotation {
-+annotationType
-+bestViewPoint
-+coordinateSpace
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+visualizedIn
-
-}
-CustomAnnotation -d-> "annotationType" AnnotationType
-CustomAnnotation -d-> "bestViewPoint" CoordinatePoint
-CustomAnnotation -d-> "coordinateSpace" CommonCoordinateSpace
-CustomAnnotation -d-> "coordinateSpace" CustomCoordinateSpace
-CustomAnnotation -d-> "criteria" ProtocolExecution
-CustomAnnotation -d-> "criteriaQualityType" CriteriaQualityType
-CustomAnnotation -d-> "inspiredBy" File
-CustomAnnotation -d-> "laterality" Laterality
-CustomAnnotation -d-> "visualizedIn" File
-
-
-class CustomAnatomicalEntity {
-+hasAnnotation
-+name
-+relatedUBERONTerm
-+relationAssessment
-
-}
-CustomAnatomicalEntity -d-> "hasAnnotation" CustomAnnotation
-CustomAnatomicalEntity -d-> "relatedUBERONTerm" UBERONParcellation
-CustomAnatomicalEntity -d-> "relationAssessment" QualitativeRelationAssessment
-CustomAnatomicalEntity -d-> "relationAssessment" QuantitativeRelationAssessment
-
-
-class CustomCoordinateSpace {
-+anatomicalAxesOrientation
-+axesOrigin
-+defaultImage
-+name
-+nativeUnit
-
-}
-CustomCoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CustomCoordinateSpace -d-> "axesOrigin" QuantitativeValue
-CustomCoordinateSpace -d-> "defaultImage" File
-CustomCoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-
-
-class Rectangle {
-+length
-+width
-
-}
-Rectangle -d-> "length" QuantitativeValue
-Rectangle -d-> "width" QuantitativeValue
-
-
-class Ellipse {
-+semiMinorAxis
-+semiMajorAxis
-
-}
-Ellipse -d-> "semiMinorAxis" QuantitativeValue
-Ellipse -d-> "semiMajorAxis" QuantitativeValue
-
-
-class Circle {
-+radius
-
-}
-Circle -d-> "radius" QuantitativeValue
-
-
 class Periodical {
 +fullName
 +shortName
@@ -3578,6 +2855,729 @@ LivePaper -d-> "hasVersion" LivePaperVersion
 LivePaper -d-> "custodian" Organization
 LivePaper -d-> "custodian" Person
 LivePaper -d-> "homepage" URL
+
+
+class GeneticStrainType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Service {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Disease {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class CriteriaQualityType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class AnnotationType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class TissueSampleAttribute {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class AnatomicalAxesOrientation {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Species {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class AnatomicalPlane {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class FileRepositoryType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class FileBundleGrouping {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ModelAbstractionLevel {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class CranialWindowType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class OperatingSystem {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ModelScope {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SetupType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ProgrammingLanguage {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Language {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class DeviceType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SubcellularEntity {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class StimulationApproach {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Handedness {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class QualitativeOverlap {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Organ {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class UnitOfMeasurement {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class DifferenceMeasure {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ActionStatusType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class AgeCategory {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class PreparationType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class EthicsAssessment {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ProductAccessibility {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Technique {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class FileUsageRole {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class MeasuredQuantity {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class UBERONParcellation {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SoftwareApplicationCategory {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class TermSuggestion {
++addExistingTerminology
++suggestNewTerminology
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+TermSuggestion -d-> "addExistingTerminology" Terminology
+
+
+class ChemicalMixtureType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class OperatingDevice {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class DataType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class PatchClampVariation {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class TypeOfUncertainty {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class TissueSampleType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class CellType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class BiologicalSex {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SubjectAttribute {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class MolecularEntity {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class BiologicalOrder {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class MetaDataModelType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ExperimentalApproach {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class BreedingType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SemanticDataType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class ContributionType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class StimulusType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class DiseaseModel {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class CellCultureType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class SoftwareFeature {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Laterality {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class Terminology {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class AtlasType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
 
 
 @enduml
