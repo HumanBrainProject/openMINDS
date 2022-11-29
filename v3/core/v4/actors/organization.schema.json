@@ -68,44 +68,48 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasParent": {
-            "_instruction": "Add a parent organization to this organization.",
+            "_instruction": "Add all parent organizations of this organization.",
             "description": "Reference to a parent object or legal person.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/Organization"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "hasParent",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/homepage": {
             "_instruction": "Add the uniform resource locator (URL) to the homepage of this organization.",
@@ -155,8 +159,8 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/fullName",
         "@type",
+        "https://openminds.ebrains.eu/vocab/fullName",
         "@id"
     ],
     "type": "object"
