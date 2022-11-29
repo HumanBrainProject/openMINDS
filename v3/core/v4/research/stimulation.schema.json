@@ -100,6 +100,47 @@
             "title": "lookupLabel",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/stimulatedWith": {
+            "_instruction": "Add the devices used for this stimulation.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "stimulatedWith",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/stimulationApproach": {
             "_instruction": "Add the stimulation approach which this stimulation has deployed.",
             "else": {
