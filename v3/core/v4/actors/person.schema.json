@@ -50,6 +50,49 @@
             ],
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/associatedAccount": {
+            "_instruction": "Add information about web service accounts held by this person.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/AccountInformation"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "associatedAccount",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/contactInformation": {
             "_instruction": "Add the contact information of this person.",
             "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
@@ -148,9 +191,9 @@
         }
     },
     "required": [
-        "@type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/givenName"
+        "https://openminds.ebrains.eu/vocab/givenName",
+        "@type"
     ],
     "type": "object"
 }

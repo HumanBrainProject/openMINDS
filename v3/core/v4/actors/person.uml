@@ -1,5 +1,6 @@
 @startuml
 class Person {
++associatedAccount
 +digitalIdentifier
 +contactInformation
 +familyName
@@ -7,6 +8,7 @@ class Person {
 +affiliation
 
 }
+Person -d-> "associatedAccount" AccountInformation
 Person -d-> "digitalIdentifier" ORCID
 Person -d-> "contactInformation" ContactInformation
 Person -d-> "affiliation" Affiliation
