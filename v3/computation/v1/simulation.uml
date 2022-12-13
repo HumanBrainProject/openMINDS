@@ -10,10 +10,11 @@ class Simulation {
 +resourceUsage
 +tags
 +recipe
++customPropertySet
 +description
 +endedAtTime
 +lookupLabel
-+customPropertySet
++performedBy
 +startedAtTime
 +studyTarget
 
@@ -40,6 +41,8 @@ Simulation -d-> "resourceUsage" QuantitativeValue
 Simulation -d-> "resourceUsage" QuantitativeValueRange
 Simulation -d-> "recipe" WorkflowRecipeVersion
 Simulation -d-> "customPropertySet" CustomPropertySet
+Simulation -d-> "performedBy" Person
+Simulation -d-> "performedBy" SoftwareAgent
 Simulation -d-> "studyTarget" SubcellularEntity
 Simulation -d-> "studyTarget" BiologicalOrder
 Simulation -d-> "studyTarget" Species

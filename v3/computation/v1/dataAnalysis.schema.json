@@ -244,6 +244,50 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/performedBy": {
+            "_instruction": "Add all agents (persons or software agent) that performed this activity.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/computation/SoftwareAgent"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "performedBy",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/recipe": {
             "_instruction": "Add the workflow recipe version used for this computation",
             "else": {
@@ -574,13 +618,13 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/input",
-        "https://openminds.ebrains.eu/vocab/output",
-        "@type",
-        "@id",
+        "https://openminds.ebrains.eu/vocab/launchConfiguration",
         "https://openminds.ebrains.eu/vocab/environment",
+        "https://openminds.ebrains.eu/vocab/output",
         "https://openminds.ebrains.eu/vocab/startedAtTime",
-        "https://openminds.ebrains.eu/vocab/launchConfiguration"
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/input"
     ],
     "type": "object"
 }

@@ -10,10 +10,11 @@ class DataAnalysis {
 +resourceUsage
 +tags
 +recipe
++customPropertySet
 +description
 +endedAtTime
 +lookupLabel
-+customPropertySet
++performedBy
 +startedAtTime
 +studyTarget
 
@@ -39,6 +40,8 @@ DataAnalysis -d-> "resourceUsage" QuantitativeValue
 DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
 DataAnalysis -d-> "recipe" WorkflowRecipeVersion
 DataAnalysis -d-> "customPropertySet" CustomPropertySet
+DataAnalysis -d-> "performedBy" Person
+DataAnalysis -d-> "performedBy" SoftwareAgent
 DataAnalysis -d-> "studyTarget" SubcellularEntity
 DataAnalysis -d-> "studyTarget" BiologicalOrder
 DataAnalysis -d-> "studyTarget" Species

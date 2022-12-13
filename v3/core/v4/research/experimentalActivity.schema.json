@@ -199,6 +199,50 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/performedBy": {
+            "_instruction": "Add all agents (persons or software agent) that performed this activity.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/computation/SoftwareAgent"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "performedBy",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/preparationDesign": {
             "_instruction": "Add the initial preparation type for this experimental activity.",
             "else": {
@@ -358,12 +402,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/isPartOf",
-        "https://openminds.ebrains.eu/vocab/input",
         "https://openminds.ebrains.eu/vocab/output",
         "https://openminds.ebrains.eu/vocab/protocol",
+        "@id",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/isPartOf"
     ],
     "type": "object"
 }

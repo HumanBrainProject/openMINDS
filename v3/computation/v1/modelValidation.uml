@@ -11,10 +11,11 @@ class ModelValidation {
 +resourceUsage
 +tags
 +recipe
++customPropertySet
 +description
 +endedAtTime
 +lookupLabel
-+customPropertySet
++performedBy
 +startedAtTime
 +studyTarget
 
@@ -42,6 +43,8 @@ ModelValidation -d-> "resourceUsage" QuantitativeValue
 ModelValidation -d-> "resourceUsage" QuantitativeValueRange
 ModelValidation -d-> "recipe" WorkflowRecipeVersion
 ModelValidation -d-> "customPropertySet" CustomPropertySet
+ModelValidation -d-> "performedBy" Person
+ModelValidation -d-> "performedBy" SoftwareAgent
 ModelValidation -d-> "studyTarget" SubcellularEntity
 ModelValidation -d-> "studyTarget" BiologicalOrder
 ModelValidation -d-> "studyTarget" Species
