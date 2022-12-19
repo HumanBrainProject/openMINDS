@@ -5,7 +5,7 @@
 # openMINDS - v3
 
 You are on the openMINDS version branch **v3**. This openMINDS version ingests the following metadata models as git-submodules:  
-[openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) (submodule branch v3)  
+[openMINDS_core](https://github.com/HumanBrainProject/openMINDS_core) (submodule branch v4)  
 [openMINDS_SANDS](https://github.com/HumanBrainProject/openMINDS_SANDS) (submodule branch v1)  
 [openMINDS_controlledTerms](https://github.com/HumanBrainProject/openMINDS_controlledTerms) (submodule branch v1)  
 [openMINDS_computation](https://github.com/HumanBrainProject/openMINDS_computation) (submodule branch v1)   
