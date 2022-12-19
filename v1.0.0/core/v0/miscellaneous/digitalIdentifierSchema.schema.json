@@ -1,0 +1,42 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/digitalIdentifierSchema?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/core/DigitalIdentifierSchema",
+    "description": "Structured information on a digital identifier schema.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DigitalIdentifierSchema",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) of this digital identifier schema.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "format": "iri",
+            "title": "IRI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifierPattern": {
+            "_instruction": "Enter the required pattern for the identifiers of this digital identifier schema.",
+            "description": "Format of a term or code used to identify something or someone.",
+            "title": "identifierPattern",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+            "_instruction": "Enter the type of this digital identifier schema.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "title": "type",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/type",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

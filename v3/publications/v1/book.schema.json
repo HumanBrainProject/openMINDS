@@ -1,0 +1,497 @@
+{
+    "$id": "https://openminds.ebrains.eu/publications/book?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/publications/Book",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/publications/Book",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+            "_instruction": "Enter a URL/IRI at which this creative work is available.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "format": "iri",
+            "title": "IRI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/abstract": {
+            "_instruction": "Enter the abstract of the creative work.",
+            "title": "abstract",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/author": {
+            "_instruction": "Add one or several authors (person or organization) that contributed to the production and publication of this creative work.",
+            "description": "Creator of a literary or creative work, as well as a dataset publication.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Organization"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "author",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/citedPublication": {
+            "_instruction": "Add citations or references from this work to another creative work",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DOI",
+                                "https://openminds.ebrains.eu/core/ISBN"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "citedPublication",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/copyright": {
+            "_type": "https://openminds.ebrains.eu/core/Copyright",
+            "description": "Structured information on the copyright.",
+            "properties": {
+                "holder": {
+                    "_instruction": "Add one or several persons or organisations that hold the copyright.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Person",
+                        "https://openminds.ebrains.eu/core/Organization"
+                    ],
+                    "description": "Legal person in possession of something.",
+                    "minItems": 1,
+                    "title": "holder",
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "year": {
+                    "_instruction": "Enter the year during which the copyright was first asserted.",
+                    "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
+                    "pattern": "([0-9]{4})",
+                    "title": "year",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "holder",
+                "year"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/custodian": {
+            "_instruction": "Enter the person or people responsible for the creative work (e.g. the corresponding author).",
+            "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Organization"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "custodian",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/dateCreated": {
+            "_instruction": "Enter the date on which the creative work was created.",
+            "format": "date",
+            "title": "dateCreated",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/dateModified": {
+            "_instruction": "Enter the date on which the creative work was last modified.",
+            "format": "date",
+            "title": "dateModified",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/datePublished": {
+            "_instruction": "Enter the date when this version of the creative work was published or uploaded to a preprint server.",
+            "format": "date",
+            "title": "datePublished",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this book.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ISBN",
+                            "https://openminds.ebrains.eu/core/DOI"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/editor": {
+            "_instruction": "Add one or more people who edited the creative work.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "editor",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/funding": {
+            "_instruction": "Add all funding information of this creative work version.",
+            "description": "Money provided by a legal person for a particular purpose.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Funding"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "funding",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/keyword": {
+            "_instruction": "Add controlled or suggest new terms as keywords to this creative work",
+            "description": "Significant word or concept that are representative of something or someone.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
+                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/BreedingType",
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "keyword",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/license": {
+            "_instruction": "Add the license for this creative work.",
+            "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/License"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "license",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the full title of this creative work.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/publisher": {
+            "_instruction": "Enter the person or organisation who/which published this version of the creative work.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Person",
+                            "https://openminds.ebrains.eu/core/Organization"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "publisher",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
+            "_instruction": "Enter the version identifier of this creative work.",
+            "description": "Term or code used to identify the version of something.",
+            "title": "versionIdentifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/datePublished",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
+    ],
+    "type": "object"
+}

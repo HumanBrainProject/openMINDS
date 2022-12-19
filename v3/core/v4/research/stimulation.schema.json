@@ -1,0 +1,230 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/stimulation?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Stimulation",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Stimulation",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/customPropertySet": {
+            "_type": "https://openminds.ebrains.eu/core/CustomPropertySet",
+            "properties": {
+                "context": {
+                    "_instruction": "Enter the common context for this custom property set.",
+                    "title": "context",
+                    "type": "string"
+                },
+                "definedIn": {
+                    "_instruction": "Add a file or configuration that specifies the custom property set of the given context.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/File",
+                        "https://openminds.ebrains.eu/core/Configuration",
+                        "https://openminds.ebrains.eu/core/PropertyValueList"
+                    ],
+                    "description": "Reference to a file instance in which something is stored.",
+                    "title": "definedIn"
+                },
+                "relevantFor": {
+                    "_instruction": "Add the technique for which this custom property set is relevant.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/Technique"
+                    ],
+                    "description": "Reference to what or whom something or someone bears siginificance.",
+                    "title": "relevantFor"
+                }
+            },
+            "required": [
+                "context",
+                "relevantFor",
+                "definedIn"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+            "_instruction": "Add all data files containing the stimulus content (e.g. movies, audio files, injected current traces).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "dataLocation",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this stimulation.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this stimulation that may help you to more easily find it again.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/stimulatedWith": {
+            "_instruction": "Add the devices used for this stimulation.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "stimulatedWith",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/stimulationApproach": {
+            "_instruction": "Add the stimulation approach which this stimulation has deployed.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/StimulationApproach"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "stimulationApproach",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/stimulusType": {
+            "_instruction": "Add the type of stimulus that has been used for this stimulation.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/StimulusType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "stimulusType",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/stimulusType",
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/stimulationApproach"
+    ],
+    "type": "object"
+}

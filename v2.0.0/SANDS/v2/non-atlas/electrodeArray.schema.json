@@ -1,0 +1,78 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/electrodeArray?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/ElectrodeArray",
+    "description": "Structured information on an electrode array.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/ElectrodeArray",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/electrodes": {
+            "_instruction": "Add two or more electrodes which build this array.",
+            "description": "Elements in a semiconductor device that emits or collects electrons or holes or controls their movements.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/Electrode"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 2,
+            "title": "electrodes",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier used for this electrode array within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this electrode array that may help you to more easily find it again.",
+            "title": "lookupLabel",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/internalIdentifier",
+        "https://openminds.ebrains.eu/vocab/electrodes"
+    ],
+    "type": "object"
+}
