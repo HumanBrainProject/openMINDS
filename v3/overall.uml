@@ -199,8 +199,11 @@ ExperimentalActivity -d-> "input" FileBundle
 ExperimentalActivity -d-> "input" File
 ExperimentalActivity -d-> "output" FileBundle
 ExperimentalActivity -d-> "output" File
-ExperimentalActivity -d-> "performedBy" SoftwareAgent
 ExperimentalActivity -d-> "performedBy" Person
+ExperimentalActivity -d-> "performedBy" SoftwareAgent
+ExperimentalActivity -d-> "studyTarget" ParcellationEntity
+ExperimentalActivity -d-> "studyTarget" ParcellationEntityVersion
+ExperimentalActivity -d-> "studyTarget" CustomAnatomicalEntity
 ExperimentalActivity -d-> "studyTarget" BiologicalOrder
 ExperimentalActivity -d-> "studyTarget" TermSuggestion
 ExperimentalActivity -d-> "studyTarget" CellCultureType
@@ -216,9 +219,6 @@ ExperimentalActivity -d-> "studyTarget" Handedness
 ExperimentalActivity -d-> "studyTarget" CellType
 ExperimentalActivity -d-> "studyTarget" BreedingType
 ExperimentalActivity -d-> "studyTarget" SubcellularEntity
-ExperimentalActivity -d-> "studyTarget" ParcellationEntity
-ExperimentalActivity -d-> "studyTarget" ParcellationEntityVersion
-ExperimentalActivity -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class ProtocolExecution {
@@ -254,8 +254,11 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "customPropertySet" CustomPropertySet
-ProtocolExecution -d-> "performedBy" SoftwareAgent
 ProtocolExecution -d-> "performedBy" Person
+ProtocolExecution -d-> "performedBy" SoftwareAgent
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" CellCultureType
@@ -271,9 +274,6 @@ ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" SubcellularEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class Stimulation {
@@ -518,8 +518,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" LocalFile
 FileBundle -d-> "descendedFrom" BehavioralProtocol
 FileBundle -d-> "descendedFrom" SubjectGroup
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
@@ -531,6 +529,8 @@ FileBundle -d-> "descendedFrom" TissueSample
 FileBundle -d-> "descendedFrom" TissueSampleCollection
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
+FileBundle -d-> "descendedFrom" LocalFile
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupingType" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -675,6 +675,9 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" ParcellationEntityVersion
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" CellCultureType
@@ -690,9 +693,6 @@ Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" SubcellularEntity
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" ParcellationEntityVersion
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -755,6 +755,9 @@ DatasetVersion -d-> "studiedSpecimen" TissueSample
 DatasetVersion -d-> "studiedSpecimen" TissueSampleCollection
 DatasetVersion -d-> "technique" Technique
 DatasetVersion -d-> "dataType" SemanticDataType
+DatasetVersion -d-> "studyTarget" ParcellationEntity
+DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
+DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "studyTarget" BiologicalOrder
 DatasetVersion -d-> "studyTarget" TermSuggestion
 DatasetVersion -d-> "studyTarget" CellCultureType
@@ -770,9 +773,6 @@ DatasetVersion -d-> "studyTarget" Handedness
 DatasetVersion -d-> "studyTarget" CellType
 DatasetVersion -d-> "studyTarget" BreedingType
 DatasetVersion -d-> "studyTarget" SubcellularEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntity
-DatasetVersion -d-> "studyTarget" ParcellationEntityVersion
-DatasetVersion -d-> "studyTarget" CustomAnatomicalEntity
 DatasetVersion -d-> "accessibility" ProductAccessibility
 DatasetVersion -d-> "copyright" Copyright
 DatasetVersion -d-> "custodian" Person
@@ -1035,10 +1035,8 @@ class Project {
 +shortName
 
 }
-Project -d-> "hasResearchProducts" ValidationTest
-Project -d-> "hasResearchProducts" WorkflowRecipe
-Project -d-> "hasResearchProducts" ValidationTestVersion
-Project -d-> "hasResearchProducts" WorkflowRecipeVersion
+Project -d-> "hasResearchProducts" LivePaperVersion
+Project -d-> "hasResearchProducts" LivePaper
 Project -d-> "hasResearchProducts" Model
 Project -d-> "hasResearchProducts" DatasetVersion
 Project -d-> "hasResearchProducts" WebService
@@ -1049,8 +1047,10 @@ Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" WebServiceVersion
 Project -d-> "hasResearchProducts" SoftwareVersion
 Project -d-> "hasResearchProducts" MetaDataModel
-Project -d-> "hasResearchProducts" LivePaperVersion
-Project -d-> "hasResearchProducts" LivePaper
+Project -d-> "hasResearchProducts" ValidationTest
+Project -d-> "hasResearchProducts" WorkflowRecipe
+Project -d-> "hasResearchProducts" ValidationTestVersion
+Project -d-> "hasResearchProducts" WorkflowRecipeVersion
 Project -d-> "hasResearchProducts" BrainAtlasVersion
 Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "homepage" URL
@@ -1574,10 +1574,8 @@ class Comment {
 
 }
 Comment -d-> "commenter" Person
-Comment -d-> "subject" ValidationTest
-Comment -d-> "subject" WorkflowRecipe
-Comment -d-> "subject" ValidationTestVersion
-Comment -d-> "subject" WorkflowRecipeVersion
+Comment -d-> "subject" LivePaperVersion
+Comment -d-> "subject" LivePaper
 Comment -d-> "subject" Model
 Comment -d-> "subject" DatasetVersion
 Comment -d-> "subject" WebService
@@ -1588,8 +1586,10 @@ Comment -d-> "subject" ModelVersion
 Comment -d-> "subject" WebServiceVersion
 Comment -d-> "subject" SoftwareVersion
 Comment -d-> "subject" MetaDataModel
-Comment -d-> "subject" LivePaperVersion
-Comment -d-> "subject" LivePaper
+Comment -d-> "subject" ValidationTest
+Comment -d-> "subject" WorkflowRecipe
+Comment -d-> "subject" ValidationTestVersion
+Comment -d-> "subject" WorkflowRecipeVersion
 Comment -d-> "subject" BrainAtlasVersion
 Comment -d-> "subject" BrainAtlas
 
@@ -1615,6 +1615,9 @@ ValidationTest -d-> "developer" Organization
 ValidationTest -d-> "digitalIdentifier" DOI
 ValidationTest -d-> "hasVersion" ValidationTestVersion
 ValidationTest -d-> "scope" ModelScope
+ValidationTest -d-> "studyTarget" ParcellationEntity
+ValidationTest -d-> "studyTarget" ParcellationEntityVersion
+ValidationTest -d-> "studyTarget" CustomAnatomicalEntity
 ValidationTest -d-> "studyTarget" BiologicalOrder
 ValidationTest -d-> "studyTarget" TermSuggestion
 ValidationTest -d-> "studyTarget" CellCultureType
@@ -1630,9 +1633,6 @@ ValidationTest -d-> "studyTarget" Handedness
 ValidationTest -d-> "studyTarget" CellType
 ValidationTest -d-> "studyTarget" BreedingType
 ValidationTest -d-> "studyTarget" SubcellularEntity
-ValidationTest -d-> "studyTarget" ParcellationEntity
-ValidationTest -d-> "studyTarget" ParcellationEntityVersion
-ValidationTest -d-> "studyTarget" CustomAnatomicalEntity
 ValidationTest -d-> "experimentalTechnique" Technique
 ValidationTest -d-> "scoreType" DifferenceMeasure
 ValidationTest -d-> "custodian" Person
@@ -1681,8 +1681,11 @@ Visualization -d-> "resourceUsage" QuantitativeValue
 Visualization -d-> "resourceUsage" QuantitativeValueRange
 Visualization -d-> "recipe" WorkflowRecipeVersion
 Visualization -d-> "customPropertySet" CustomPropertySet
-Visualization -d-> "performedBy" SoftwareAgent
 Visualization -d-> "performedBy" Person
+Visualization -d-> "performedBy" SoftwareAgent
+Visualization -d-> "studyTarget" ParcellationEntity
+Visualization -d-> "studyTarget" ParcellationEntityVersion
+Visualization -d-> "studyTarget" CustomAnatomicalEntity
 Visualization -d-> "studyTarget" BiologicalOrder
 Visualization -d-> "studyTarget" TermSuggestion
 Visualization -d-> "studyTarget" CellCultureType
@@ -1698,9 +1701,6 @@ Visualization -d-> "studyTarget" Handedness
 Visualization -d-> "studyTarget" CellType
 Visualization -d-> "studyTarget" BreedingType
 Visualization -d-> "studyTarget" SubcellularEntity
-Visualization -d-> "studyTarget" ParcellationEntity
-Visualization -d-> "studyTarget" ParcellationEntityVersion
-Visualization -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class Optimization {
@@ -1746,8 +1746,11 @@ Optimization -d-> "resourceUsage" QuantitativeValue
 Optimization -d-> "resourceUsage" QuantitativeValueRange
 Optimization -d-> "recipe" WorkflowRecipeVersion
 Optimization -d-> "customPropertySet" CustomPropertySet
-Optimization -d-> "performedBy" SoftwareAgent
 Optimization -d-> "performedBy" Person
+Optimization -d-> "performedBy" SoftwareAgent
+Optimization -d-> "studyTarget" ParcellationEntity
+Optimization -d-> "studyTarget" ParcellationEntityVersion
+Optimization -d-> "studyTarget" CustomAnatomicalEntity
 Optimization -d-> "studyTarget" BiologicalOrder
 Optimization -d-> "studyTarget" TermSuggestion
 Optimization -d-> "studyTarget" CellCultureType
@@ -1763,9 +1766,6 @@ Optimization -d-> "studyTarget" Handedness
 Optimization -d-> "studyTarget" CellType
 Optimization -d-> "studyTarget" BreedingType
 Optimization -d-> "studyTarget" SubcellularEntity
-Optimization -d-> "studyTarget" ParcellationEntity
-Optimization -d-> "studyTarget" ParcellationEntityVersion
-Optimization -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class WorkflowRecipe {
@@ -1831,8 +1831,11 @@ Simulation -d-> "resourceUsage" QuantitativeValue
 Simulation -d-> "resourceUsage" QuantitativeValueRange
 Simulation -d-> "recipe" WorkflowRecipeVersion
 Simulation -d-> "customPropertySet" CustomPropertySet
-Simulation -d-> "performedBy" SoftwareAgent
 Simulation -d-> "performedBy" Person
+Simulation -d-> "performedBy" SoftwareAgent
+Simulation -d-> "studyTarget" ParcellationEntity
+Simulation -d-> "studyTarget" ParcellationEntityVersion
+Simulation -d-> "studyTarget" CustomAnatomicalEntity
 Simulation -d-> "studyTarget" BiologicalOrder
 Simulation -d-> "studyTarget" TermSuggestion
 Simulation -d-> "studyTarget" CellCultureType
@@ -1848,9 +1851,6 @@ Simulation -d-> "studyTarget" Handedness
 Simulation -d-> "studyTarget" CellType
 Simulation -d-> "studyTarget" BreedingType
 Simulation -d-> "studyTarget" SubcellularEntity
-Simulation -d-> "studyTarget" ParcellationEntity
-Simulation -d-> "studyTarget" ParcellationEntityVersion
-Simulation -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class ValidationTestVersion {
@@ -2031,8 +2031,11 @@ ModelValidation -d-> "resourceUsage" QuantitativeValue
 ModelValidation -d-> "resourceUsage" QuantitativeValueRange
 ModelValidation -d-> "recipe" WorkflowRecipeVersion
 ModelValidation -d-> "customPropertySet" CustomPropertySet
-ModelValidation -d-> "performedBy" SoftwareAgent
 ModelValidation -d-> "performedBy" Person
+ModelValidation -d-> "performedBy" SoftwareAgent
+ModelValidation -d-> "studyTarget" ParcellationEntity
+ModelValidation -d-> "studyTarget" ParcellationEntityVersion
+ModelValidation -d-> "studyTarget" CustomAnatomicalEntity
 ModelValidation -d-> "studyTarget" BiologicalOrder
 ModelValidation -d-> "studyTarget" TermSuggestion
 ModelValidation -d-> "studyTarget" CellCultureType
@@ -2048,9 +2051,6 @@ ModelValidation -d-> "studyTarget" Handedness
 ModelValidation -d-> "studyTarget" CellType
 ModelValidation -d-> "studyTarget" BreedingType
 ModelValidation -d-> "studyTarget" SubcellularEntity
-ModelValidation -d-> "studyTarget" ParcellationEntity
-ModelValidation -d-> "studyTarget" ParcellationEntityVersion
-ModelValidation -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class WorkflowRecipeVersion {
@@ -2256,8 +2256,11 @@ DataAnalysis -d-> "resourceUsage" QuantitativeValue
 DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
 DataAnalysis -d-> "recipe" WorkflowRecipeVersion
 DataAnalysis -d-> "customPropertySet" CustomPropertySet
-DataAnalysis -d-> "performedBy" SoftwareAgent
 DataAnalysis -d-> "performedBy" Person
+DataAnalysis -d-> "performedBy" SoftwareAgent
+DataAnalysis -d-> "studyTarget" ParcellationEntity
+DataAnalysis -d-> "studyTarget" ParcellationEntityVersion
+DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
 DataAnalysis -d-> "studyTarget" BiologicalOrder
 DataAnalysis -d-> "studyTarget" TermSuggestion
 DataAnalysis -d-> "studyTarget" CellCultureType
@@ -2273,9 +2276,6 @@ DataAnalysis -d-> "studyTarget" Handedness
 DataAnalysis -d-> "studyTarget" CellType
 DataAnalysis -d-> "studyTarget" BreedingType
 DataAnalysis -d-> "studyTarget" SubcellularEntity
-DataAnalysis -d-> "studyTarget" ParcellationEntity
-DataAnalysis -d-> "studyTarget" ParcellationEntityVersion
-DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class LaunchConfiguration {
@@ -2709,6 +2709,9 @@ Chapter -d-> "citedPublication" ISBN
 Chapter -d-> "copyright" Copyright
 Chapter -d-> "editor" Person
 Chapter -d-> "funding" Funding
+Chapter -d-> "keyword" ParcellationEntity
+Chapter -d-> "keyword" ParcellationEntityVersion
+Chapter -d-> "keyword" CustomAnatomicalEntity
 Chapter -d-> "keyword" BiologicalOrder
 Chapter -d-> "keyword" TermSuggestion
 Chapter -d-> "keyword" CellCultureType
@@ -2724,9 +2727,6 @@ Chapter -d-> "keyword" Handedness
 Chapter -d-> "keyword" CellType
 Chapter -d-> "keyword" BreedingType
 Chapter -d-> "keyword" SubcellularEntity
-Chapter -d-> "keyword" ParcellationEntity
-Chapter -d-> "keyword" ParcellationEntityVersion
-Chapter -d-> "keyword" CustomAnatomicalEntity
 Chapter -d-> "license" License
 Chapter -d-> "publisher" Person
 Chapter -d-> "publisher" Organization
@@ -2766,6 +2766,9 @@ ScholarlyArticle -d-> "copyright" Copyright
 ScholarlyArticle -d-> "digitalIdentifier" DOI
 ScholarlyArticle -d-> "editor" Person
 ScholarlyArticle -d-> "funding" Funding
+ScholarlyArticle -d-> "keyword" ParcellationEntity
+ScholarlyArticle -d-> "keyword" ParcellationEntityVersion
+ScholarlyArticle -d-> "keyword" CustomAnatomicalEntity
 ScholarlyArticle -d-> "keyword" BiologicalOrder
 ScholarlyArticle -d-> "keyword" TermSuggestion
 ScholarlyArticle -d-> "keyword" CellCultureType
@@ -2781,9 +2784,6 @@ ScholarlyArticle -d-> "keyword" Handedness
 ScholarlyArticle -d-> "keyword" CellType
 ScholarlyArticle -d-> "keyword" BreedingType
 ScholarlyArticle -d-> "keyword" SubcellularEntity
-ScholarlyArticle -d-> "keyword" ParcellationEntity
-ScholarlyArticle -d-> "keyword" ParcellationEntityVersion
-ScholarlyArticle -d-> "keyword" CustomAnatomicalEntity
 ScholarlyArticle -d-> "license" License
 ScholarlyArticle -d-> "publisher" Person
 ScholarlyArticle -d-> "publisher" Organization
@@ -2842,6 +2842,9 @@ LearningResource -d-> "copyright" Copyright
 LearningResource -d-> "digitalIdentifier" DOI
 LearningResource -d-> "editor" Person
 LearningResource -d-> "funding" Funding
+LearningResource -d-> "keyword" ParcellationEntity
+LearningResource -d-> "keyword" ParcellationEntityVersion
+LearningResource -d-> "keyword" CustomAnatomicalEntity
 LearningResource -d-> "keyword" BiologicalOrder
 LearningResource -d-> "keyword" TermSuggestion
 LearningResource -d-> "keyword" CellCultureType
@@ -2857,9 +2860,6 @@ LearningResource -d-> "keyword" Handedness
 LearningResource -d-> "keyword" CellType
 LearningResource -d-> "keyword" BreedingType
 LearningResource -d-> "keyword" SubcellularEntity
-LearningResource -d-> "keyword" ParcellationEntity
-LearningResource -d-> "keyword" ParcellationEntityVersion
-LearningResource -d-> "keyword" CustomAnatomicalEntity
 LearningResource -d-> "license" License
 LearningResource -d-> "publisher" Person
 LearningResource -d-> "publisher" Organization
@@ -2926,6 +2926,9 @@ Book -d-> "citedPublication" ISBN
 Book -d-> "copyright" Copyright
 Book -d-> "editor" Person
 Book -d-> "funding" Funding
+Book -d-> "keyword" ParcellationEntity
+Book -d-> "keyword" ParcellationEntityVersion
+Book -d-> "keyword" CustomAnatomicalEntity
 Book -d-> "keyword" BiologicalOrder
 Book -d-> "keyword" TermSuggestion
 Book -d-> "keyword" CellCultureType
@@ -2941,9 +2944,6 @@ Book -d-> "keyword" Handedness
 Book -d-> "keyword" CellType
 Book -d-> "keyword" BreedingType
 Book -d-> "keyword" SubcellularEntity
-Book -d-> "keyword" ParcellationEntity
-Book -d-> "keyword" ParcellationEntityVersion
-Book -d-> "keyword" CustomAnatomicalEntity
 Book -d-> "license" License
 Book -d-> "publisher" Person
 Book -d-> "publisher" Organization
