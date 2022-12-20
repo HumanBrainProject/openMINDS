@@ -54,6 +54,48 @@
             "title": "accessibility",
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/configuration": {
+            "_instruction": "Add any configuration information for this test, for example the arguments to the SciUnit class.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/URL",
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/core/PropertyValueList",
+                            "https://openminds.ebrains.eu/core/Configuration"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "configuration",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/copyright": {
             "_type": "https://openminds.ebrains.eu/core/Copyright",
             "description": "Structured information on the copyright.",
@@ -852,15 +894,15 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/format",
         "@id",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/format",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier"
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "@type"
     ],
     "type": "object"
 }

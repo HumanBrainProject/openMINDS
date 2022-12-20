@@ -16,12 +16,52 @@
             "format": "iri",
             "title": "URL",
             "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the expected content type of the document at this URL.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
         }
     },
     "required": [
+        "@id",
         "https://openminds.ebrains.eu/vocab/URL",
-        "@type",
-        "@id"
+        "@type"
     ],
     "type": "object"
 }
