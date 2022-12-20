@@ -279,18 +279,6 @@ class FileRepositoryType {
 }
 
 
-class CranialWindowType {
-+definition
-+description
-+interlexIdentifier
-+knowledgeSpaceLink
-+name
-+preferredOntologyIdentifier
-+synonym
-
-}
-
-
 class OperatingDevice {
 +definition
 +description
@@ -627,6 +615,18 @@ class SemanticDataType {
 }
 
 
+class CranialWindowConstructionType {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
 class MeasuredQuantity {
 +definition
 +description
@@ -724,6 +724,18 @@ class ModelScope {
 
 
 class ModelAbstractionLevel {
++definition
++description
++interlexIdentifier
++knowledgeSpaceLink
++name
++preferredOntologyIdentifier
++synonym
+
+}
+
+
+class CranialWindowReinforcementType {
 +definition
 +description
 +interlexIdentifier
@@ -1455,6 +1467,8 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" StimulationTechnique
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" SubjectGroupState
@@ -1462,8 +1476,6 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
-FileBundle -d-> "descendedFrom" StimulationTechnique
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -1535,6 +1547,8 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" StimulationTechnique
+File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" SubjectGroupState
@@ -1542,8 +1556,6 @@ File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
-File -d-> "descendedFrom" StimulationTechnique
-File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
