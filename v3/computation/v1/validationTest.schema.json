@@ -43,6 +43,7 @@
                         "@type": {
                             "enum": [
                                 "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Consortium",
                                 "https://openminds.ebrains.eu/core/Organization"
                             ],
                             "format": "iri",
@@ -95,6 +96,7 @@
                         "@type": {
                             "enum": [
                                 "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Consortium",
                                 "https://openminds.ebrains.eu/core/Organization"
                             ],
                             "format": "iri",
@@ -400,9 +402,6 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
                                 "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
@@ -424,7 +423,10 @@
                                 "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/BreedingType",
                                 "https://openminds.ebrains.eu/controlledTerms/ElectericalStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -442,11 +444,11 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/hasVersion",
         "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
         "https://openminds.ebrains.eu/vocab/description",
         "@id",
+        "@type",
         "https://openminds.ebrains.eu/vocab/fullName",
         "https://openminds.ebrains.eu/vocab/developer"
     ],
