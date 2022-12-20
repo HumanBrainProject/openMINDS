@@ -74,7 +74,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/stimulation": {
-            "_instruction": "Add all stimulations used with this behavioral protocol.",
+            "_instruction": "Add all stimulation approaches and/or techniques used within this behavioral protocol.",
             "items": {
                 "else": {
                     "properties": {
@@ -100,7 +100,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/Stimulation"
+                                "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique",
+                                "https://openminds.ebrains.eu/controlledTerms/StimulationApproach"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -115,11 +116,52 @@
             "title": "stimulation",
             "type": "array",
             "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/stimulusType": {
+            "_instruction": "Add all stimulation types used within this behavioral protocol.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "stimulusType",
+            "type": "array",
+            "uniqueItems": true
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/description",
         "@type",
+        "https://openminds.ebrains.eu/vocab/description",
         "@id",
         "https://openminds.ebrains.eu/vocab/name"
     ],
