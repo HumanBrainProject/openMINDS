@@ -105,79 +105,51 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/type": {
-            "_categories": [
-                "keyword"
-            ],
-            "_type": "https://openminds.ebrains.eu/controlledTerms/ChemicalMixtureType",
-            "properties": {
-                "definition": {
-                    "_instruction": "Enter one sentence for defining this term.",
-                    "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
-                    "title": "definition",
-                    "type": "string"
+            "_instruction": "Add the type of the mixture.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
                 },
-                "description": {
-                    "_instruction": "Enter a short text describing this term.",
-                    "description": "Longer statement or account giving the characteristics of someone or something.",
-                    "title": "description",
-                    "type": "string"
-                },
-                "interlexIdentifier": {
-                    "_formats": [
-                        "iri"
-                    ],
-                    "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the integrated ontology entry in the InterLex project.",
-                    "description": "Persistent identifier for a term registered in the InterLex project.",
-                    "title": "interlexIdentifier",
-                    "type": "string"
-                },
-                "knowledgeSpaceLink": {
-                    "_formats": [
-                        "iri"
-                    ],
-                    "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the wiki page of the corresponding term in the KnowledgeSpace.",
-                    "description": "Persistent link to an encyclopedia entry in the Knowledge Space project.",
-                    "title": "knowledgeSpaceLink",
-                    "type": "string"
-                },
-                "name": {
-                    "_instruction": "Controlled term originating from a defined terminology.",
-                    "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
-                    "title": "name",
-                    "type": "string"
-                },
-                "preferredOntologyIdentifier": {
-                    "_formats": [
-                        "iri"
-                    ],
-                    "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the preferred ontological term.",
-                    "description": "Persistent identifier of a preferred ontological term.",
-                    "title": "preferredOntologyIdentifier",
-                    "type": "string"
-                },
-                "synonym": {
-                    "_instruction": "Enter one or several synonyms (inlcuding abbreviations) for this controlled term.",
-                    "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
-                    "items": {
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
                         "type": "string"
                     },
-                    "minItems": 1,
-                    "title": "synonym",
-                    "type": "array",
-                    "uniqueItems": true
-                }
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/ChemicalMixtureType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
             },
-            "required": [
-                "name"
-            ],
+            "title": "type",
             "type": "object"
         }
     },
     "required": [
+        "@type",
         "https://openminds.ebrains.eu/vocab/type",
         "https://openminds.ebrains.eu/vocab/components",
-        "@id",
-        "@type"
+        "@id"
     ],
     "type": "object"
 }
