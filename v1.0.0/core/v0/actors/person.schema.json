@@ -1,0 +1,86 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/person?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Person",
+    "description": "Structured information on a person.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Person",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add one or several globally unique and persistent digital identifier for this person.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "digitalIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/email": {
+            "_instruction": "Enter the email address of this person.",
+            "description": "Address to which or from which an electronic mail can be sent.",
+            "format": "email",
+            "title": "email",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/familyName": {
+            "_instruction": "Enter the family name of this person.",
+            "description": "Name borne in common by members of a family.",
+            "title": "familyName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/givenName": {
+            "_instruction": "Enter the given name of this person.",
+            "description": "Name given to a person, including all potential middle names, but excluding the family name.",
+            "title": "givenName",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/email",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/givenName"
+    ],
+    "type": "object"
+}

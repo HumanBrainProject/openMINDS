@@ -1,0 +1,156 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/person?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "legalPerson"
+    ],
+    "_type": "https://openminds.ebrains.eu/core/Person",
+    "description": "Structured information on a person.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Person",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/affiliation": {
+            "_type": "https://openminds.ebrains.eu/core/Affiliation",
+            "properties": {
+                "endDate": {
+                    "_formats": [
+                        "date"
+                    ],
+                    "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+                    "description": "Date in the Gregorian calendar at which something terminates in time.",
+                    "title": "endDate",
+                    "type": "string"
+                },
+                "organization": {
+                    "_instruction": "Add organization to which a person is or was affiliated.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization"
+                    ],
+                    "description": "Legally accountable, administrative and functional structure.",
+                    "title": "organization"
+                },
+                "startDate": {
+                    "_formats": [
+                        "date"
+                    ],
+                    "_instruction": "Enter the start date of this affiliation.",
+                    "description": "Date in the Gregorian calendar at which something begins in time",
+                    "title": "startDate",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "organization"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/contactInformation": {
+            "_instruction": "Add the contact information of this person.",
+            "description": "Any available way used to contact a person or business (e.g., address, phone number, email address, etc.).",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContactInformation"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "contactInformation",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add one or several globally unique and persistent digital identifier for this person.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/ORCID"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "digitalIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/familyName": {
+            "_instruction": "Enter the family name of this person.",
+            "description": "Name borne in common by members of a family.",
+            "title": "familyName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/givenName": {
+            "_instruction": "Enter the given name of this person.",
+            "description": "Name given to a person, including all potential middle names, but excluding the family name.",
+            "title": "givenName",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/givenName"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,78 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/electrode?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/Electrode",
+    "description": "Structured information on an electrode.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/Electrode",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/electrodeContact": {
+            "_instruction": "Add one or several electrical contacts of this electrode.",
+            "description": "Not shielded part of a conductor that is used to establish electrical contact with a nonmetallic part of a circuit.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ElectrodeContact"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "electrodeContact",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier used for this electrode within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this electrode that may help you to more easily find it again.",
+            "title": "lookupLabel",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/electrodeContact",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/internalIdentifier"
+    ],
+    "type": "object"
+}

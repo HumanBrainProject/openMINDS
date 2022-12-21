@@ -1,0 +1,352 @@
+<html>
+<head>
+    <title>https://openminds.ebrains.eu/sands/BrainAtlas</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}</style>
+</head>
+<body>
+    <h1>BrainAtlas</h1>
+    <h2>https://openminds.ebrains.eu/sands/BrainAtlas</h2>
+    <h4>part of <b>SANDS</b> in version <b>v3</b> - view as <a href="brainAtlas.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
+    <table class="properties">
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">author</span></td>
+            <td>Creator of a literary or creative work, as well as a dataset publication.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                </td>
+            <td>Add one or several authors (person or organization) that contributed to the production and publication of this brain atlas.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">description</span></td>
+            <td>Longer statement or account giving the characteristics of someone or something.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">fullName</span></td>
+            <td>Whole, non-abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a descriptive full name (title) for this research product.  Note that this full name should be fitting for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">hasTerminology</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                
+                
+                <a href="../../../SANDS/v3/atlas/parcellationTerminology.html">ParcellationTerminology</a>
+                </td>
+            <td>Add the parcellation terminology for this brain atlas.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">hasVersion</span></td>
+            <td>Reference to variants of an original.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../SANDS/v3/atlas/brainAtlasVersion.html">BrainAtlasVersion</a>
+                </td>
+            <td>Add one or several brain atlas versions that belong to this brain atlas.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">shortName</span></td>
+            <td>Shortened or fully abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a short name (alias) for this research product that could be used as a shortened title for visualization in cases where there is only little space for display.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >abbreviation</span></td>
+            <td></td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the official abbreviation of this brain atlas.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >custodian</span></td>
+            <td>The &#39;custodian&#39; is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                </td>
+            <td>Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product. Unless specified differently, this custodian will be responsible for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v4/miscellaneous/DOI.html">DOI</a>
+                 OR <br/> 
+                <a href="../../../core/v4/miscellaneous/ISBN.html">ISBN</a>
+                 OR <br/> 
+                <a href="../../../core/v4/miscellaneous/RRID.html">RRID</a>
+                </td>
+            <td>Add the globally unique and persistent digital identifier of this brain atlas.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >homepage</span></td>
+            <td>Main website of something or someone.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v4/miscellaneous/URL.html">URL</a>
+                </td>
+            <td>Add the uniform resource locator (URL) to the homepage of this research product.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >howToCite</span></td>
+            <td>Preferred format for citing a particular object or legal person.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >ontologyIdentifier</span></td>
+            <td>Term or code used to identify something or someone registered within a particular ontology.</td>
+            <td>
+                
+                
+                
+                string (format: iri)</td>
+            <td>Enter the identifier (IRI) of the related ontological term matching this brain atlas.</td>
+        </tr>
+        
+    </table>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+    
+    <div style="margin-top: 3em;">
+         <table class="properties">
+        <tr class="header"><td class="property" colspan="4">instances</td></tr>
+        <tr class="header"><td class="property">name</td><td class="property"></td><td>ID</td>
+            
+            <td></td></tr>
+        
+        <tr>
+            <td class="property nowrap">AAL Atlas 1</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/AAL1</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/AALAtlas1.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Allen Mouse Brain Atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/AMBA</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/AllenMouseBrainAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Aseg Atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/AsegAtlas</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/AsegAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Brodmann Areas (human)</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/BrodmannAreasHuman</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/BrodmannAreasHuman.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Deep White Matter Atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/DeepWhiteMatterAtlas</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/DeepWhiteMatterAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">DK Atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/DKA</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/Desikan-KillianyAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Julich-Brain Atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/Julich-BrainAtlas</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/Julich-BrainAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Schaefer Atlas 400p/7n</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/Schaefer400p7n</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/Schaefer400p7n.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Waxholm Space rat brain atlas</td>
+            <td></td>
+            <td>https://openminds.ebrains.eu/instances/brainAtlas/WHSSD_atlas</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/brainAtlas/WaxHolmSpaceSDRatBrainAtlas.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+    </table>
+    </div>
+    
+
+
+
+
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
+</body>
+
+</html>

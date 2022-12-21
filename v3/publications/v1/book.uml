@@ -1,0 +1,65 @@
+@startuml
+class Book {
++digitalIdentifier
++abstract
++custodian
++author
++citedPublication
++copyright
++dateCreated
++dateModified
++datePublished
++editor
++funding
++name
++keyword
++license
++publisher
++IRI
++versionIdentifier
+
+}
+Book -d-> "digitalIdentifier" ISBN
+Book -d-> "digitalIdentifier" DOI
+Book -d-> "custodian" Person
+Book -d-> "custodian" Consortium
+Book -d-> "custodian" Organization
+Book -d-> "author" Person
+Book -d-> "author" Consortium
+Book -d-> "author" Organization
+Book -d-> "citedPublication" DOI
+Book -d-> "citedPublication" ISBN
+Book -d-> "copyright" Copyright
+Book -d-> "editor" Person
+Book -d-> "funding" Funding
+Book -d-> "keyword" ParcellationEntity
+Book -d-> "keyword" ParcellationEntityVersion
+Book -d-> "keyword" CustomAnatomicalEntity
+Book -d-> "keyword" BiologicalOrder
+Book -d-> "keyword" TermSuggestion
+Book -d-> "keyword" VisualStimulusType
+Book -d-> "keyword" CellCultureType
+Book -d-> "keyword" MolecularEntity
+Book -d-> "keyword" GeneticStrainType
+Book -d-> "keyword" GustatoryStimulusType
+Book -d-> "keyword" Organ
+Book -d-> "keyword" Disease
+Book -d-> "keyword" TactileStimulusType
+Book -d-> "keyword" AuditoryStimulusType
+Book -d-> "keyword" UBERONParcellation
+Book -d-> "keyword" BiologicalSex
+Book -d-> "keyword" Species
+Book -d-> "keyword" OpticalStimulusType
+Book -d-> "keyword" DiseaseModel
+Book -d-> "keyword" OlfactoryStimulusType
+Book -d-> "keyword" Handedness
+Book -d-> "keyword" CellType
+Book -d-> "keyword" BreedingType
+Book -d-> "keyword" ElectericalStimulusType
+Book -d-> "keyword" SubcellularEntity
+Book -d-> "license" License
+Book -d-> "publisher" Person
+Book -d-> "publisher" Consortium
+Book -d-> "publisher" Organization
+
+@enduml
