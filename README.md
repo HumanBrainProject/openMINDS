@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/HumanBrainProject/openMINDS/blob/main/img/dark_openMINDS-logo.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/HumanBrainProject/openMINDS/blob/main/img/light_openMINDS-logo.svg">
-  <img alt="openMINDS controlledTerms logo" src="https://github.com/HumanBrainProject/openMINDS/blob/main/img/dark_openMINDS-logo.svg"  title="openMINDS" align="right" height="70">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/HumanBrainProject/openMINDS/blob/main/img/dark_openMINDS-logo.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/HumanBrainProject/openMINDS/blob/main/img/light_openMINDS-logo.png">
+  <img alt="openMINDS controlledTerms logo" src="https://github.com/HumanBrainProject/openMINDS/blob/main/img/dark_openMINDS-logo.png"  title="openMINDS" align="right" height="70">
 </picture>
 
 # Welcome to openMINDS! <a name="welcome"/>
