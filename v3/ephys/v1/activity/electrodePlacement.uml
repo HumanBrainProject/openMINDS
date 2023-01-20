@@ -16,10 +16,10 @@ class ElectrodePlacement {
 +studyTarget
 
 }
+ElectrodePlacement -d-> "device" SlicingDeviceUsage
 ElectrodePlacement -d-> "device" PipetteUsage
 ElectrodePlacement -d-> "device" ElectrodeUsage
 ElectrodePlacement -d-> "device" ElectrodeArrayUsage
-ElectrodePlacement -d-> "device" SlicingDeviceUsage
 ElectrodePlacement -d-> "input" TissueSampleState
 ElectrodePlacement -d-> "input" SubjectState
 ElectrodePlacement -d-> "output" TissueSampleState
@@ -29,8 +29,11 @@ ElectrodePlacement -d-> "isPartOf" DatasetVersion
 ElectrodePlacement -d-> "preparationDesign" PreparationType
 ElectrodePlacement -d-> "protocol" Protocol
 ElectrodePlacement -d-> "customPropertySet" CustomPropertySet
-ElectrodePlacement -d-> "performedBy" Person
 ElectrodePlacement -d-> "performedBy" SoftwareAgent
+ElectrodePlacement -d-> "performedBy" Person
+ElectrodePlacement -d-> "studyTarget" ParcellationEntity
+ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
+ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
 ElectrodePlacement -d-> "studyTarget" TactileStimulusType
 ElectrodePlacement -d-> "studyTarget" GeneticStrainType
 ElectrodePlacement -d-> "studyTarget" Disease
@@ -53,8 +56,5 @@ ElectrodePlacement -d-> "studyTarget" OlfactoryStimulusType
 ElectrodePlacement -d-> "studyTarget" BiologicalSex
 ElectrodePlacement -d-> "studyTarget" BiologicalOrder
 ElectrodePlacement -d-> "studyTarget" MolecularEntity
-ElectrodePlacement -d-> "studyTarget" ParcellationEntity
-ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
-ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml
