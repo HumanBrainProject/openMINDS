@@ -1,0 +1,685 @@
+<html>
+<head>
+    <title>openMINDS</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}
+
+body{
+position: absolute;
+top:0;
+bottom:0;
+left:0;
+right: 0;
+}
+
+#content{
+ display:flex;
+ height: 100%;
+}
+
+#navig{
+    flex: 20%;
+    max-width: 50em;
+margin: 1em;
+max-height: 100vh;
+overflow: auto;
+}
+
+#frame{
+flex-grow:1;
+width: 100%;
+height: 100%;
+max-height: 90vh;
+margin-top: 3em;
+margin-bottom: 3em;
+}
+
+#frame iframe{
+width: 100%;
+height: 100%;
+border: 0;
+}
+
+#navig h2{
+cursor: pointer;
+}
+
+#version{
+font-size: 1.2em;
+margin: 1em;
+font-weight: bold;
+}
+
+#version select{
+font-size: 1.1em;
+}
+
+#header{
+border-bottom: 1px solid #4a5568;
+text-align: center;
+padding-bottom: 0.5em;
+padding-top: 0.5em;
+}
+
+    </style>
+</head>
+<body>
+<script>
+
+    function toggleCategory(id){
+    let doc = document.getElementById(id)
+    if (doc.style.display == 'none'){
+        doc.style.display = 'block';
+    }
+    else{
+        doc.style.display ='none';
+    }
+    }
+
+</script>
+<div id="content">
+    <div id="navig">
+        <div id="header">
+        <img src="https://github.com/HumanBrainProject/openMINDS/raw/main/img/light_openMINDS-logo.png" style="height: 5em;"/>
+        <div id="version">Version: <select onchange="if (this.value) window.location.href=window.location.href.replaceAll('v3', this.value)">
+            <option disabled>--- stable --</option>
+             
+            <option  value="v2.0.0">v2.0.0</option>
+            
+            <option  value="v1.0.0">v1.0.0</option>
+            
+            <option disabled>--- development --</option>
+            
+            <option selected value="v3">v3-dev</option>
+            
+            <option  value="v2">v2-dev</option>
+            
+            <option  value="v1">v1-dev</option>
+            
+        </select>
+
+        </div>
+                    <div>
+            <a href="../openMINDS-v3.zip">Download specification</a>
+        </div>
+            </div>
+        <div><h2 onclick="toggleCategory('typeschemicals');">chemicals</h2>
+            <div id="typeschemicals" style="display:none;">
+                
+                
+                
+                 <a href="chemicals/v1/amountOfChemical.html" target="innerFrame">AmountOfChemical</a><br/>
+                
+                 <a href="chemicals/v1/chemicalMixture.html" target="innerFrame">ChemicalMixture</a><br/>
+                
+                 <a href="chemicals/v1/chemicalSubstance.html" target="innerFrame">ChemicalSubstance</a><br/>
+                
+                 <a href="chemicals/v1/productSource.html" target="innerFrame">ProductSource</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typescomputation');">computation</h2>
+            <div id="typescomputation" style="display:none;">
+                
+                
+                
+                 <a href="computation/v1/dataAnalysis.html" target="innerFrame">DataAnalysis</a><br/>
+                
+                 <a href="computation/v1/environment.html" target="innerFrame">Environment</a><br/>
+                
+                 <a href="computation/v1/hardwareSystem.html" target="innerFrame">HardwareSystem</a><br/>
+                
+                 <a href="computation/v1/launchConfiguration.html" target="innerFrame">LaunchConfiguration</a><br/>
+                
+                 <a href="computation/v1/localFile.html" target="innerFrame">LocalFile</a><br/>
+                
+                 <a href="computation/v1/modelValidation.html" target="innerFrame">ModelValidation</a><br/>
+                
+                 <a href="computation/v1/optimization.html" target="innerFrame">Optimization</a><br/>
+                
+                 <a href="computation/v1/simulation.html" target="innerFrame">Simulation</a><br/>
+                
+                 <a href="computation/v1/softwareAgent.html" target="innerFrame">SoftwareAgent</a><br/>
+                
+                 <a href="computation/v1/validationTest.html" target="innerFrame">ValidationTest</a><br/>
+                
+                 <a href="computation/v1/validationTestVersion.html" target="innerFrame">ValidationTestVersion</a><br/>
+                
+                 <a href="computation/v1/visualization.html" target="innerFrame">Visualization</a><br/>
+                
+                 <a href="computation/v1/workflowExecution.html" target="innerFrame">WorkflowExecution</a><br/>
+                
+                 <a href="computation/v1/workflowRecipe.html" target="innerFrame">WorkflowRecipe</a><br/>
+                
+                 <a href="computation/v1/workflowRecipeVersion.html" target="innerFrame">WorkflowRecipeVersion</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typescontrolledTerms');">controlledTerms</h2>
+            <div id="typescontrolledTerms" style="display:none;">
+                
+                
+                
+                 <a href="controlledTerms/v1/actionStatusType.html" target="innerFrame">ActionStatusType</a><br/>
+                
+                 <a href="controlledTerms/v1/ageCategory.html" target="innerFrame">AgeCategory</a><br/>
+                
+                 <a href="controlledTerms/v1/anatomicalAxesOrientation.html" target="innerFrame">AnatomicalAxesOrientation</a><br/>
+                
+                 <a href="controlledTerms/v1/anatomicalPlane.html" target="innerFrame">AnatomicalPlane</a><br/>
+                
+                 <a href="controlledTerms/v1/annotationType.html" target="innerFrame">AnnotationType</a><br/>
+                
+                 <a href="controlledTerms/v1/atlasType.html" target="innerFrame">AtlasType</a><br/>
+                
+                 <a href="controlledTerms/v1/auditoryStimulusType.html" target="innerFrame">AuditoryStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/biologicalOrder.html" target="innerFrame">BiologicalOrder</a><br/>
+                
+                 <a href="controlledTerms/v1/biologicalSex.html" target="innerFrame">BiologicalSex</a><br/>
+                
+                 <a href="controlledTerms/v1/bodySystem.html" target="innerFrame">BodySystem</a><br/>
+                
+                 <a href="controlledTerms/v1/breedingType.html" target="innerFrame">BreedingType</a><br/>
+                
+                 <a href="controlledTerms/v1/cellCultureType.html" target="innerFrame">CellCultureType</a><br/>
+                
+                 <a href="controlledTerms/v1/cellType.html" target="innerFrame">CellType</a><br/>
+                
+                 <a href="controlledTerms/v1/chemicalMixtureType.html" target="innerFrame">ChemicalMixtureType</a><br/>
+                
+                 <a href="controlledTerms/v1/contributionType.html" target="innerFrame">ContributionType</a><br/>
+                
+                 <a href="controlledTerms/v1/cranialWindowConstructionType.html" target="innerFrame">CranialWindowConstructionType</a><br/>
+                
+                 <a href="controlledTerms/v1/cranialWindowReinforcementType.html" target="innerFrame">CranialWindowReinforcementType</a><br/>
+                
+                 <a href="controlledTerms/v1/criteriaQualityType.html" target="innerFrame">CriteriaQualityType</a><br/>
+                
+                 <a href="controlledTerms/v1/dataType.html" target="innerFrame">DataType</a><br/>
+                
+                 <a href="controlledTerms/v1/deviceType.html" target="innerFrame">DeviceType</a><br/>
+                
+                 <a href="controlledTerms/v1/differenceMeasure.html" target="innerFrame">DifferenceMeasure</a><br/>
+                
+                 <a href="controlledTerms/v1/disease.html" target="innerFrame">Disease</a><br/>
+                
+                 <a href="controlledTerms/v1/diseaseModel.html" target="innerFrame">DiseaseModel</a><br/>
+                
+                 <a href="controlledTerms/v1/educationalLevel.html" target="innerFrame">EducationalLevel</a><br/>
+                
+                 <a href="controlledTerms/v1/electricalStimulusType.html" target="innerFrame">ElectricalStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/ethicsAssessment.html" target="innerFrame">EthicsAssessment</a><br/>
+                
+                 <a href="controlledTerms/v1/experimentalApproach.html" target="innerFrame">ExperimentalApproach</a><br/>
+                
+                 <a href="controlledTerms/v1/fileBundleGrouping.html" target="innerFrame">FileBundleGrouping</a><br/>
+                
+                 <a href="controlledTerms/v1/fileRepositoryType.html" target="innerFrame">FileRepositoryType</a><br/>
+                
+                 <a href="controlledTerms/v1/fileUsageRole.html" target="innerFrame">FileUsageRole</a><br/>
+                
+                 <a href="controlledTerms/v1/geneticStrainType.html" target="innerFrame">GeneticStrainType</a><br/>
+                
+                 <a href="controlledTerms/v1/gustatoryStimulusType.html" target="innerFrame">GustatoryStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/handedness.html" target="innerFrame">Handedness</a><br/>
+                
+                 <a href="controlledTerms/v1/language.html" target="innerFrame">Language</a><br/>
+                
+                 <a href="controlledTerms/v1/laterality.html" target="innerFrame">Laterality</a><br/>
+                
+                 <a href="controlledTerms/v1/learningResourceType.html" target="innerFrame">LearningResourceType</a><br/>
+                
+                 <a href="controlledTerms/v1/measuredQuantity.html" target="innerFrame">MeasuredQuantity</a><br/>
+                
+                 <a href="controlledTerms/v1/metaDataModelType.html" target="innerFrame">MetaDataModelType</a><br/>
+                
+                 <a href="controlledTerms/v1/modelAbstractionLevel.html" target="innerFrame">ModelAbstractionLevel</a><br/>
+                
+                 <a href="controlledTerms/v1/modelScope.html" target="innerFrame">ModelScope</a><br/>
+                
+                 <a href="controlledTerms/v1/molecularEntity.html" target="innerFrame">MolecularEntity</a><br/>
+                
+                 <a href="controlledTerms/v1/olfactoryStimulusType.html" target="innerFrame">OlfactoryStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/operatingDevice.html" target="innerFrame">OperatingDevice</a><br/>
+                
+                 <a href="controlledTerms/v1/operatingSystem.html" target="innerFrame">OperatingSystem</a><br/>
+                
+                 <a href="controlledTerms/v1/opticalStimulusType.html" target="innerFrame">OpticalStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/organ.html" target="innerFrame">Organ</a><br/>
+                
+                 <a href="controlledTerms/v1/patchClampVariation.html" target="innerFrame">PatchClampVariation</a><br/>
+                
+                 <a href="controlledTerms/v1/preparationType.html" target="innerFrame">PreparationType</a><br/>
+                
+                 <a href="controlledTerms/v1/productAccessibility.html" target="innerFrame">ProductAccessibility</a><br/>
+                
+                 <a href="controlledTerms/v1/programmingLanguage.html" target="innerFrame">ProgrammingLanguage</a><br/>
+                
+                 <a href="controlledTerms/v1/qualitativeOverlap.html" target="innerFrame">QualitativeOverlap</a><br/>
+                
+                 <a href="controlledTerms/v1/semanticDataType.html" target="innerFrame">SemanticDataType</a><br/>
+                
+                 <a href="controlledTerms/v1/service.html" target="innerFrame">Service</a><br/>
+                
+                 <a href="controlledTerms/v1/setupType.html" target="innerFrame">SetupType</a><br/>
+                
+                 <a href="controlledTerms/v1/softwareApplicationCategory.html" target="innerFrame">SoftwareApplicationCategory</a><br/>
+                
+                 <a href="controlledTerms/v1/softwareFeature.html" target="innerFrame">SoftwareFeature</a><br/>
+                
+                 <a href="controlledTerms/v1/species.html" target="innerFrame">Species</a><br/>
+                
+                 <a href="controlledTerms/v1/stimulationApproach.html" target="innerFrame">StimulationApproach</a><br/>
+                
+                 <a href="controlledTerms/v1/stimulationTechnique.html" target="innerFrame">StimulationTechnique</a><br/>
+                
+                 <a href="controlledTerms/v1/subcellularEntity.html" target="innerFrame">SubcellularEntity</a><br/>
+                
+                 <a href="controlledTerms/v1/subjectAttribute.html" target="innerFrame">SubjectAttribute</a><br/>
+                
+                 <a href="controlledTerms/v1/tactileStimulusType.html" target="innerFrame">TactileStimulusType</a><br/>
+                
+                 <a href="controlledTerms/v1/technique.html" target="innerFrame">Technique</a><br/>
+                
+                 <a href="controlledTerms/v1/termSuggestion.html" target="innerFrame">TermSuggestion</a><br/>
+                
+                 <a href="controlledTerms/v1/terminology.html" target="innerFrame">Terminology</a><br/>
+                
+                 <a href="controlledTerms/v1/tissueSampleAttribute.html" target="innerFrame">TissueSampleAttribute</a><br/>
+                
+                 <a href="controlledTerms/v1/tissueSampleType.html" target="innerFrame">TissueSampleType</a><br/>
+                
+                 <a href="controlledTerms/v1/typeOfUncertainty.html" target="innerFrame">TypeOfUncertainty</a><br/>
+                
+                 <a href="controlledTerms/v1/UBERONParcellation.html" target="innerFrame">UBERONParcellation</a><br/>
+                
+                 <a href="controlledTerms/v1/unitOfMeasurement.html" target="innerFrame">UnitOfMeasurement</a><br/>
+                
+                 <a href="controlledTerms/v1/visualStimulusType.html" target="innerFrame">VisualStimulusType</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typescore');">core</h2>
+            <div id="typescore" style="display:none;">
+                
+                <h3>actors</h3>
+                
+                 <a href="core/v4/actors/accountInformation.html" target="innerFrame">AccountInformation</a><br/>
+                
+                 <a href="core/v4/actors/affiliation.html" target="innerFrame">Affiliation</a><br/>
+                
+                 <a href="core/v4/actors/consortium.html" target="innerFrame">Consortium</a><br/>
+                
+                 <a href="core/v4/actors/contactInformation.html" target="innerFrame">ContactInformation</a><br/>
+                
+                 <a href="core/v4/actors/contribution.html" target="innerFrame">Contribution</a><br/>
+                
+                 <a href="core/v4/actors/organization.html" target="innerFrame">Organization</a><br/>
+                
+                 <a href="core/v4/actors/person.html" target="innerFrame">Person</a><br/>
+                
+                
+                <h3>research</h3>
+                
+                 <a href="core/v4/research/behavioralProtocol.html" target="innerFrame">BehavioralProtocol</a><br/>
+                
+                 <a href="core/v4/research/configuration.html" target="innerFrame">Configuration</a><br/>
+                
+                 <a href="core/v4/research/customPropertySet.html" target="innerFrame">CustomPropertySet</a><br/>
+                
+                 <a href="core/v4/research/experimentalActivity.html" target="innerFrame">ExperimentalActivity</a><br/>
+                
+                 <a href="core/v4/research/numericalProperty.html" target="innerFrame">NumericalProperty</a><br/>
+                
+                 <a href="core/v4/research/propertyValueList.html" target="innerFrame">PropertyValueList</a><br/>
+                
+                 <a href="core/v4/research/protocol.html" target="innerFrame">Protocol</a><br/>
+                
+                 <a href="core/v4/research/protocolExecution.html" target="innerFrame">ProtocolExecution</a><br/>
+                
+                 <a href="core/v4/research/strain.html" target="innerFrame">Strain</a><br/>
+                
+                 <a href="core/v4/research/stringProperty.html" target="innerFrame">StringProperty</a><br/>
+                
+                 <a href="core/v4/research/subject.html" target="innerFrame">Subject</a><br/>
+                
+                 <a href="core/v4/research/subjectGroup.html" target="innerFrame">SubjectGroup</a><br/>
+                
+                 <a href="core/v4/research/subjectGroupState.html" target="innerFrame">SubjectGroupState</a><br/>
+                
+                 <a href="core/v4/research/subjectState.html" target="innerFrame">SubjectState</a><br/>
+                
+                 <a href="core/v4/research/tissueSample.html" target="innerFrame">TissueSample</a><br/>
+                
+                 <a href="core/v4/research/tissueSampleCollection.html" target="innerFrame">TissueSampleCollection</a><br/>
+                
+                 <a href="core/v4/research/tissueSampleCollectionState.html" target="innerFrame">TissueSampleCollectionState</a><br/>
+                
+                 <a href="core/v4/research/tissueSampleState.html" target="innerFrame">TissueSampleState</a><br/>
+                
+                
+                <h3>data</h3>
+                
+                 <a href="core/v4/data/contentType.html" target="innerFrame">ContentType</a><br/>
+                
+                 <a href="core/v4/data/contentTypePattern.html" target="innerFrame">ContentTypePattern</a><br/>
+                
+                 <a href="core/v4/data/copyright.html" target="innerFrame">Copyright</a><br/>
+                
+                 <a href="core/v4/data/file.html" target="innerFrame">File</a><br/>
+                
+                 <a href="core/v4/data/fileArchive.html" target="innerFrame">FileArchive</a><br/>
+                
+                 <a href="core/v4/data/fileBundle.html" target="innerFrame">FileBundle</a><br/>
+                
+                 <a href="core/v4/data/filePathPattern.html" target="innerFrame">FilePathPattern</a><br/>
+                
+                 <a href="core/v4/data/fileRepository.html" target="innerFrame">FileRepository</a><br/>
+                
+                 <a href="core/v4/data/fileRepositoryStructure.html" target="innerFrame">FileRepositoryStructure</a><br/>
+                
+                 <a href="core/v4/data/hash.html" target="innerFrame">Hash</a><br/>
+                
+                 <a href="core/v4/data/license.html" target="innerFrame">License</a><br/>
+                
+                 <a href="core/v4/data/measurement.html" target="innerFrame">Measurement</a><br/>
+                
+                 <a href="core/v4/data/serviceLink.html" target="innerFrame">ServiceLink</a><br/>
+                
+                
+                <h3>miscellaneous</h3>
+                
+                 <a href="core/v4/miscellaneous/comment.html" target="innerFrame">Comment</a><br/>
+                
+                 <a href="core/v4/miscellaneous/DOI.html" target="innerFrame">DOI</a><br/>
+                
+                 <a href="core/v4/miscellaneous/funding.html" target="innerFrame">Funding</a><br/>
+                
+                 <a href="core/v4/miscellaneous/GRIDID.html" target="innerFrame">GRIDID</a><br/>
+                
+                 <a href="core/v4/miscellaneous/HANDLE.html" target="innerFrame">HANDLE</a><br/>
+                
+                 <a href="core/v4/miscellaneous/ISBN.html" target="innerFrame">ISBN</a><br/>
+                
+                 <a href="core/v4/miscellaneous/ISSN.html" target="innerFrame">ISSN</a><br/>
+                
+                 <a href="core/v4/miscellaneous/ORCID.html" target="innerFrame">ORCID</a><br/>
+                
+                 <a href="core/v4/miscellaneous/quantitativeValue.html" target="innerFrame">QuantitativeValue</a><br/>
+                
+                 <a href="core/v4/miscellaneous/quantitativeValueArray.html" target="innerFrame">QuantitativeValueArray</a><br/>
+                
+                 <a href="core/v4/miscellaneous/quantitativeValueRange.html" target="innerFrame">QuantitativeValueRange</a><br/>
+                
+                 <a href="core/v4/miscellaneous/RORID.html" target="innerFrame">RORID</a><br/>
+                
+                 <a href="core/v4/miscellaneous/RRID.html" target="innerFrame">RRID</a><br/>
+                
+                 <a href="core/v4/miscellaneous/SWHID.html" target="innerFrame">SWHID</a><br/>
+                
+                 <a href="core/v4/miscellaneous/stockNumber.html" target="innerFrame">StockNumber</a><br/>
+                
+                 <a href="core/v4/miscellaneous/URL.html" target="innerFrame">URL</a><br/>
+                
+                
+                <h3>products</h3>
+                
+                 <a href="core/v4/products/dataset.html" target="innerFrame">Dataset</a><br/>
+                
+                 <a href="core/v4/products/datasetVersion.html" target="innerFrame">DatasetVersion</a><br/>
+                
+                 <a href="core/v4/products/metaDataModel.html" target="innerFrame">MetaDataModel</a><br/>
+                
+                 <a href="core/v4/products/metaDataModelVersion.html" target="innerFrame">MetaDataModelVersion</a><br/>
+                
+                 <a href="core/v4/products/model.html" target="innerFrame">Model</a><br/>
+                
+                 <a href="core/v4/products/modelVersion.html" target="innerFrame">ModelVersion</a><br/>
+                
+                 <a href="core/v4/products/project.html" target="innerFrame">Project</a><br/>
+                
+                 <a href="core/v4/products/setup.html" target="innerFrame">Setup</a><br/>
+                
+                 <a href="core/v4/products/software.html" target="innerFrame">Software</a><br/>
+                
+                 <a href="core/v4/products/softwareVersion.html" target="innerFrame">SoftwareVersion</a><br/>
+                
+                 <a href="core/v4/products/webService.html" target="innerFrame">WebService</a><br/>
+                
+                 <a href="core/v4/products/webServiceVersion.html" target="innerFrame">WebServiceVersion</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typesephys');">ephys</h2>
+            <div id="typesephys" style="display:none;">
+                
+                <h3>activity</h3>
+                
+                 <a href="ephys/v1/activity/cellPatching.html" target="innerFrame">CellPatching</a><br/>
+                
+                 <a href="ephys/v1/activity/electrodePlacement.html" target="innerFrame">ElectrodePlacement</a><br/>
+                
+                 <a href="ephys/v1/activity/recordingActivity.html" target="innerFrame">RecordingActivity</a><br/>
+                
+                
+                <h3>device</h3>
+                
+                 <a href="ephys/v1/device/electrode.html" target="innerFrame">Electrode</a><br/>
+                
+                 <a href="ephys/v1/device/electrodeArray.html" target="innerFrame">ElectrodeArray</a><br/>
+                
+                 <a href="ephys/v1/device/electrodeArrayUsage.html" target="innerFrame">ElectrodeArrayUsage</a><br/>
+                
+                 <a href="ephys/v1/device/electrodeUsage.html" target="innerFrame">ElectrodeUsage</a><br/>
+                
+                 <a href="ephys/v1/device/pipette.html" target="innerFrame">Pipette</a><br/>
+                
+                 <a href="ephys/v1/device/pipetteUsage.html" target="innerFrame">PipetteUsage</a><br/>
+                
+                
+                <h3>entity</h3>
+                
+                 <a href="ephys/v1/entity/channel.html" target="innerFrame">Channel</a><br/>
+                
+                 <a href="ephys/v1/entity/recording.html" target="innerFrame">Recording</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typespublications');">publications</h2>
+            <div id="typespublications" style="display:none;">
+                
+                
+                
+                 <a href="publications/v1/book.html" target="innerFrame">Book</a><br/>
+                
+                 <a href="publications/v1/chapter.html" target="innerFrame">Chapter</a><br/>
+                
+                 <a href="publications/v1/learningResource.html" target="innerFrame">LearningResource</a><br/>
+                
+                 <a href="publications/v1/livePaper.html" target="innerFrame">LivePaper</a><br/>
+                
+                 <a href="publications/v1/livePaperResourceItem.html" target="innerFrame">LivePaperResourceItem</a><br/>
+                
+                 <a href="publications/v1/livePaperSection.html" target="innerFrame">LivePaperSection</a><br/>
+                
+                 <a href="publications/v1/livePaperVersion.html" target="innerFrame">LivePaperVersion</a><br/>
+                
+                 <a href="publications/v1/periodical.html" target="innerFrame">Periodical</a><br/>
+                
+                 <a href="publications/v1/publicationIssue.html" target="innerFrame">PublicationIssue</a><br/>
+                
+                 <a href="publications/v1/publicationVolume.html" target="innerFrame">PublicationVolume</a><br/>
+                
+                 <a href="publications/v1/scholarlyArticle.html" target="innerFrame">ScholarlyArticle</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typesSANDS');">SANDS</h2>
+            <div id="typesSANDS" style="display:none;">
+                
+                <h3>mathematicalShapes</h3>
+                
+                 <a href="SANDS/v3/mathematicalShapes/circle.html" target="innerFrame">Circle</a><br/>
+                
+                 <a href="SANDS/v3/mathematicalShapes/ellipse.html" target="innerFrame">Ellipse</a><br/>
+                
+                 <a href="SANDS/v3/mathematicalShapes/rectangle.html" target="innerFrame">Rectangle</a><br/>
+                
+                
+                <h3>atlas</h3>
+                
+                 <a href="SANDS/v3/atlas/atlasAnnotation.html" target="innerFrame">AtlasAnnotation</a><br/>
+                
+                 <a href="SANDS/v3/atlas/brainAtlas.html" target="innerFrame">BrainAtlas</a><br/>
+                
+                 <a href="SANDS/v3/atlas/brainAtlasVersion.html" target="innerFrame">BrainAtlasVersion</a><br/>
+                
+                 <a href="SANDS/v3/atlas/commonCoordinateSpace.html" target="innerFrame">CommonCoordinateSpace</a><br/>
+                
+                 <a href="SANDS/v3/atlas/parcellationEntity.html" target="innerFrame">ParcellationEntity</a><br/>
+                
+                 <a href="SANDS/v3/atlas/parcellationEntityVersion.html" target="innerFrame">ParcellationEntityVersion</a><br/>
+                
+                 <a href="SANDS/v3/atlas/parcellationTerminology.html" target="innerFrame">ParcellationTerminology</a><br/>
+                
+                 <a href="SANDS/v3/atlas/parcellationTerminologyVersion.html" target="innerFrame">ParcellationTerminologyVersion</a><br/>
+                
+                
+                <h3>miscellaneous</h3>
+                
+                 <a href="SANDS/v3/miscellaneous/anatomicalTargetPosition.html" target="innerFrame">AnatomicalTargetPosition</a><br/>
+                
+                 <a href="SANDS/v3/miscellaneous/coordinatePoint.html" target="innerFrame">CoordinatePoint</a><br/>
+                
+                 <a href="SANDS/v3/miscellaneous/qualitativeRelationAssessment.html" target="innerFrame">QualitativeRelationAssessment</a><br/>
+                
+                 <a href="SANDS/v3/miscellaneous/quantitativeRelationAssessment.html" target="innerFrame">QuantitativeRelationAssessment</a><br/>
+                
+                
+                <h3>non-atlas</h3>
+                
+                 <a href="SANDS/v3/non-atlas/customAnatomicalEntity.html" target="innerFrame">CustomAnatomicalEntity</a><br/>
+                
+                 <a href="SANDS/v3/non-atlas/customAnnotation.html" target="innerFrame">CustomAnnotation</a><br/>
+                
+                 <a href="SANDS/v3/non-atlas/customCoordinateSpace.html" target="innerFrame">CustomCoordinateSpace</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typesspecimenPrep');">specimenPrep</h2>
+            <div id="typesspecimenPrep" style="display:none;">
+                
+                <h3>activity</h3>
+                
+                 <a href="specimenPrep/v1/activity/cranialWindowPreparation.html" target="innerFrame">CranialWindowPreparation</a><br/>
+                
+                 <a href="specimenPrep/v1/activity/tissueCulturePreparation.html" target="innerFrame">TissueCulturePreparation</a><br/>
+                
+                 <a href="specimenPrep/v1/activity/tissueSampleSlicing.html" target="innerFrame">TissueSampleSlicing</a><br/>
+                
+                
+                <h3>device</h3>
+                
+                 <a href="specimenPrep/v1/device/slicingDevice.html" target="innerFrame">SlicingDevice</a><br/>
+                
+                 <a href="specimenPrep/v1/device/slicingDeviceUsage.html" target="innerFrame">SlicingDeviceUsage</a><br/>
+                
+                
+                </div>
+        </div>
+        <div><h2 onclick="toggleCategory('typesstimulation');">stimulation</h2>
+            <div id="typesstimulation" style="display:none;">
+                
+                <h3>stimulus</h3>
+                
+                 <a href="stimulation/v1/stimulus/ephysStimulus.html" target="innerFrame">EphysStimulus</a><br/>
+                
+                
+                <h3>activity</h3>
+                
+                 <a href="stimulation/v1/activity/stimulationActivity.html" target="innerFrame">StimulationActivity</a><br/>
+                
+                
+                </div>
+        </div>
+        
+
+
+    </div>
+    <div id="frame">
+        <iframe name="innerFrame" src="default.html"></iframe>
+    </div>
+</div>
+</body>
+
+</html>

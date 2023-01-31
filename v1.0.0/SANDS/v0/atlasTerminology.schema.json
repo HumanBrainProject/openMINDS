@@ -1,0 +1,131 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/atlasTerminology?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/sands/AtlasTerminology",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/AtlasTerminology",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/anatomicalEntity": {
+            "_instruction": "Add all anatomical entities that belong to this atlas terminology.",
+            "description": "Physical component of a body, organ, or tissue.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "anatomicalEntity",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/definedIn": {
+            "_instruction": "Add one or several files in which this atlas terminology is stored in.",
+            "description": "Reference to a file instance in which something is stored.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/FileInstance"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "definedIn",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+            "_instruction": "Enter a descriptive full name for this atlas terminology.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
+            "title": "fullName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this atlas terminology.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "format": "iri",
+            "title": "ontologyIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter a descriptive short name for this atlas terminology.",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "title": "shortName",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/anatomicalEntity",
+        "https://openminds.ebrains.eu/vocab/shortName"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,216 @@
+{
+    "$id": "https://openminds.ebrains.eu/ephys/electrodeArray?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "setupComponent"
+    ],
+    "_type": "https://openminds.ebrains.eu/ephys/ElectrodeArray",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/ephys/ElectrodeArray",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/conductorMaterial": {
+            "_instruction": "Add the conductor material of this electrode array.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+                            "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+                            "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "conductorMaterial",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/electrodeIdentifier": {
+            "_instruction": "Enter the identifier used for each electrode (contact point) of this electrode array. Number of identifiers should match the 'numberOfElectrodes'.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 2,
+            "title": "electrodeIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/insulatorMaterial": {
+            "_instruction": "Add the insulator material of this electrode array.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+                            "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+                            "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "insulatorMaterial",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier used for this electrode array within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/intrinsicResistance": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the measurement value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "properties": {
+                        "maxValue": {
+                            "_instruction": "Add the maximum value measured for this range.",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
+                            "type": "number"
+                        },
+                        "maxValueUnit": {
+                            "_instruction": "Add the unit of measurement for the maximum value of this quantitative value range.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "maxValueUnit"
+                        },
+                        "minValue": {
+                            "_instruction": "Add the minimum value measured for this range.",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
+                            "type": "number"
+                        },
+                        "minValueUnit": {
+                            "_instruction": "Add the unit of measurement for the minimum value of this quantitative value range.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "minValueUnit"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this electrode array.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/numberOfElectrodes": {
+            "_instruction": "Enter the number of electrodes of this array.",
+            "title": "numberOfElectrodes",
+            "type": "integer"
+        }
+    },
+    "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/electrodeIdentifier",
+        "https://openminds.ebrains.eu/vocab/numberOfElectrodes",
+        "@type"
+    ],
+    "type": "object"
+}

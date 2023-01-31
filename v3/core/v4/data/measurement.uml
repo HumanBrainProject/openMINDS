@@ -1,0 +1,18 @@
+@startuml
+class Measurement {
++value
++timestamp
++measuredQuantity
++measuredWith
++additionalRemarks
+
+}
+Measurement -d-> "value" QuantitativeValue
+Measurement -d-> "value" QuantitativeValueRange
+Measurement -d-> "measuredQuantity" MeasuredQuantity
+Measurement -d-> "measuredWith" PipetteUsage
+Measurement -d-> "measuredWith" ElectrodeUsage
+Measurement -d-> "measuredWith" ElectrodeArrayUsage
+Measurement -d-> "measuredWith" SlicingDeviceUsage
+
+@enduml

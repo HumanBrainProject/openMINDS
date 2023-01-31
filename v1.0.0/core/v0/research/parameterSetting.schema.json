@@ -1,0 +1,128 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/parameterSetting?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/core/ParameterSetting",
+    "description": "Structured information on a used parameter setting.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ParameterSetting",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this parameter setting.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this parameter setting.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relevantFor": {
+            "_instruction": "Add the technique or behavioral task where this parameter setting is used in.",
+            "description": "Reference to what or whom something or someone bears siginificance.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
+                            "https://openminds.ebrains.eu/controlledTerms/Technique"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "relevantFor",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/unit": {
+            "_instruction": "Add the unit of measurement used for the value of this parameter setting.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "unit",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/value": {
+            "_instruction": "Enter the value of this parameter setting.",
+            "description": "Entry for a property.",
+            "title": "value",
+            "type": [
+                "number",
+                "string"
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/description",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/relevantFor",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/value"
+    ],
+    "type": "object"
+}

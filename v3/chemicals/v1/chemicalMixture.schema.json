@@ -1,0 +1,155 @@
+{
+    "$id": "https://openminds.ebrains.eu/chemicals/chemicalMixture?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+            "_instruction": "Enter additional remarks about the chemical substance (pure or within a mixture).",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/components": {
+            "_instruction": "Please indicate all the substances and soultions used in this mixture",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/chemicals/AmountOfChemical"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 2,
+            "title": "components",
+            "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Add an appropriate name for this chemical mixture.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/productSource": {
+            "_instruction": "Add the source of the chemical mixture.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/chemicals/ProductSource"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "productSource",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+            "_instruction": "Add the type of the mixture.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/ChemicalMixtureType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "type",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/components",
+        "https://openminds.ebrains.eu/vocab/type",
+        "@type"
+    ],
+    "type": "object"
+}

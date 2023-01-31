@@ -1,0 +1,291 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/fileRepository?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/FileRepository",
+    "description": "Structured information on a file repository.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/FileRepository",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) of this file repository.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "format": "iri",
+            "title": "IRI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/contentTypePattern": {
+            "_type": "https://openminds.ebrains.eu/core/ContentTypePattern",
+            "properties": {
+                "contentType": {
+                    "_instruction": "Enter the content type that can be defined by the given regular expression for file names/extentions.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/ContentType"
+                    ],
+                    "title": "contentType"
+                },
+                "lookupLabel": {
+                    "_instruction": "Enter a lookup label for this content type pattern.",
+                    "title": "lookupLabel",
+                    "type": "string"
+                },
+                "regex": {
+                    "_formats": [
+                        "ECMA262"
+                    ],
+                    "_instruction": "Enter a regular expression for the file names/extensions that defines the give content type.",
+                    "title": "regex",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contentType",
+                "regex"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "If file instances and bundles within the repository are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hash": {
+            "_type": "https://openminds.ebrains.eu/core/Hash",
+            "description": "Structured information on a hash.",
+            "properties": {
+                "algorithm": {
+                    "_instruction": "Enter the algorithm used to generate this hash.",
+                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                    "title": "algorithm",
+                    "type": "string"
+                },
+                "digest": {
+                    "_instruction": "Enter the digest of this hash.",
+                    "description": "Summation or condensation of a body of information.",
+                    "title": "digest",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "algorithm",
+                "digest"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hostedBy": {
+            "_instruction": "Add the host of this file repository.",
+            "description": "Reference to an organization that provides facilities and services for something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Organization"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "hostedBy",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this file repository.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/repositoryType": {
+            "_instruction": "Add the type of this file repository.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "repositoryType",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/storageSize": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/structurePattern": {
+            "_instruction": "Add a file repository structure which identifies the file path patterns used in this file repository.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileRepositoryStructure"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "structurePattern",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/IRI",
+        "https://openminds.ebrains.eu/vocab/hostedBy"
+    ],
+    "type": "object"
+}
