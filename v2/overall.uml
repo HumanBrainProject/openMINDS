@@ -59,6 +59,8 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" TactileStimulusType
 Protocol -d-> "studyOption" BodySystem
 Protocol -d-> "studyOption" GeneticStrainType
@@ -82,8 +84,6 @@ Protocol -d-> "studyOption" OlfactoryStimulusType
 Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" MolecularEntity
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -293,6 +293,8 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" TactileStimulusType
 ProtocolExecution -d-> "studyTarget" BodySystem
 ProtocolExecution -d-> "studyTarget" GeneticStrainType
@@ -316,8 +318,6 @@ ProtocolExecution -d-> "studyTarget" OlfactoryStimulusType
 ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" MolecularEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class SubjectGroup {
@@ -361,8 +361,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" Technique
-File -d-> "descendedFrom" StimulationTechnique
 File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" SubjectGroupState
@@ -370,6 +368,8 @@ File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" FileBundle
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" StimulationTechnique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -429,8 +429,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" StimulationTechnique
 FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" SubjectGroupState
@@ -438,6 +436,8 @@ FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" FileBundle
+FileBundle -d-> "descendedFrom" Technique
+FileBundle -d-> "descendedFrom" StimulationTechnique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -795,6 +795,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" TactileStimulusType
 Model -d-> "studyTarget" BodySystem
 Model -d-> "studyTarget" GeneticStrainType
@@ -818,8 +820,6 @@ Model -d-> "studyTarget" OlfactoryStimulusType
 Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" MolecularEntity
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
