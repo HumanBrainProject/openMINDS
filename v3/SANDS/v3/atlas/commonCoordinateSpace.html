@@ -73,29 +73,14 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">anatomicalAxesOrientation</span></td>
-            <td>Relation between reference planes used in anatomy and mathematics.</td>
+            <td class="property nowrap"><span style="font-weight:bold">description</span></td>
+            <td>Longer statement or account giving the characteristics of someone or something.</td>
             <td>
                 
-                 linked object
                 
                 
-                <a href="../../../controlledTerms/v1/anatomicalAxesOrientation.html">AnatomicalAxesOrientation</a>
-                </td>
-            <td>Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ) for this common coordinate space.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">axesOrigin</span></td>
-            <td>Special point in a coordinate system used as a fixed point of reference for the geometry of the surrounding space.</td>
-            <td>
-                 embedded object
-                
-                 array (2 - 3) of type:<br/>
-                
-                <a href="../../../core/v4/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
-                </td>
-            <td>Enter the origin of this common coordinate space (central point where axes intersect; 2D: [x, y] or 3D:[x, y, z]).</td>
+                string</td>
+            <td>Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.</td>
         </tr>
         
         <tr>
@@ -106,31 +91,20 @@ table{
                 
                 
                 string</td>
-            <td>Enter a descriptive full name for this common coordinate space.</td>
+            <td>Enter a descriptive full name (title) for this research product.  Note that this full name should be fitting for all attached research product versions.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">nativeUnit</span></td>
-            <td>Determinate quantity used in the original measurement.</td>
+            <td class="property nowrap"><span style="font-weight:bold">hasVersion</span></td>
+            <td>Reference to variants of an original.</td>
             <td>
                 
                  linked object
+                 array (1 - n) of type:<br/>
                 
-                
-                <a href="../../../controlledTerms/v1/unitOfMeasurement.html">UnitOfMeasurement</a>
+                <a href="../../../SANDS/v3/atlas/commonCoordinateSpaceVersion.html">CommonCoordinateSpaceVersion</a>
                 </td>
-            <td>Add the native unit that is used for this common coordinate space.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span style="font-weight:bold">releaseDate</span></td>
-            <td>Fixed date on which a product is due to become or was made available for the general public to see or buy</td>
-            <td>
-                
-                
-                
-                string (format: date)</td>
-            <td>Enter the date of first publication of this common coordinate space.</td>
+            <td>Add one or several versions of this common coordinate space.</td>
         </tr>
         
         <tr>
@@ -141,42 +115,65 @@ table{
                 
                 
                 string</td>
-            <td>Enter a short name (alias) for this common coordinate space that could be used as a shortened title for visualization in cases where there is only little space for display.</td>
+            <td>Enter a short name (alias) for this research product that could be used as a shortened title for visualization in cases where there is only little space for display.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">versionIdentifier</span></td>
-            <td>Term or code used to identify the version of something.</td>
+            <td class="property nowrap"><span style="font-weight:bold">usedSpecies</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../controlledTerms/v1/species.html">Species</a>
+                </td>
+            <td>Add the species of the specimen that were used to create this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >abbreviation</span></td>
+            <td></td>
             <td>
                 
                 
                 
                 string</td>
-            <td>Enter the version identifier of this common coordinate space.</td>
+            <td>Enter the official abbreviation of this common coordinate space.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >defaultImage</span></td>
-            <td>Two or three dimensional image that particluarly represents a specific coordinate space.</td>
+            <td class="property nowrap"><span >author</span></td>
+            <td>Creator of a literary or creative work, as well as a dataset publication.</td>
             <td>
                 
                  linked object
                  array (1 - n) of type:<br/>
                 
-                <a href="../../../core/v4/data/file.html">File</a>
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Add one or several image files used as visual representation of this common coordinate space.</td>
+            <td>If necessary, add one or several authors (person or organization) that contributed to the production and publication of this common coordinate space.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >description</span></td>
-            <td>Longer statement or account giving the characteristics of someone or something.</td>
+            <td class="property nowrap"><span >custodian</span></td>
+            <td>The &#39;custodian&#39; is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.</td>
             <td>
                 
+                 linked object
+                 array (1 - n) of type:<br/>
                 
-                
-                string</td>
-            <td>Enter a description of this common coordinate space.</td>
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                </td>
+            <td>Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product. Unless specified differently, this custodian will be responsible for all attached research product versions.</td>
         </tr>
         
         <tr>
@@ -193,7 +190,7 @@ table{
                  OR <br/> 
                 <a href="../../../core/v4/miscellaneous/RRID.html">RRID</a>
                 </td>
-            <td>Add the globally unique and persistent digital identifier of this common coordinate space.</td>
+            <td>Add the globally unique and persistent digital identifier of this common coordinate space. Note that this digital identifier will be used to reference all attached common coordinate space.</td>
         </tr>
         
         <tr>
@@ -206,7 +203,7 @@ table{
                 
                 <a href="../../../core/v4/miscellaneous/URL.html">URL</a>
                 </td>
-            <td>Add the uniform resource locator (URL) to the homepage of this common coordinate space.</td>
+            <td>Add the uniform resource locator (URL) to the homepage of this research product.</td>
         </tr>
         
         <tr>
@@ -217,7 +214,7 @@ table{
                 
                 
                 string</td>
-            <td>Enter the preferred citation text for this common coordinate space. Leave blank if citation text can be extracted from the assigned digital identifier.</td>
+            <td>Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.</td>
         </tr>
         
         <tr>
@@ -229,25 +226,6 @@ table{
                  array (1 - n) of type:<br/>
                 string (format: iri)</td>
             <td>Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >usedSpecimen</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v4/research/subject.html">Subject</a>
-                 OR <br/> 
-                <a href="../../../core/v4/research/subjectGroup.html">SubjectGroup</a>
-                 OR <br/> 
-                <a href="../../../core/v4/research/tissueSample.html">TissueSample</a>
-                 OR <br/> 
-                <a href="../../../core/v4/research/tissueSampleCollection.html">TissueSampleCollection</a>
-                </td>
-            <td>Add one or several specimen (subjects and/or tissue samples) or specimen sets (subject groups and/or tissue sample collections) that were used to create this common coordinate space.</td>
         </tr>
         
     </table>

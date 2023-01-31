@@ -2,7 +2,8 @@
     "$id": "https://openminds.ebrains.eu/sands/commonCoordinateSpace?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "coordinateSpace"
+        "coordinateSpace",
+        "researchProduct"
     ],
     "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
@@ -15,92 +16,14 @@
             "const": "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation": {
-            "_instruction": "Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ) for this common coordinate space.",
-            "description": "Relation between reference planes used in anatomy and mathematics.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/AnatomicalAxesOrientation"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "anatomicalAxesOrientation",
-            "type": "object"
+        "https://openminds.ebrains.eu/vocab/abbreviation": {
+            "_instruction": "Enter the official abbreviation of this common coordinate space.",
+            "title": "abbreviation",
+            "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/axesOrigin": {
-            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
-            "description": "Structured information on a quantitative value.",
-            "properties": {
-                "typeOfUncertainty": {
-                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
-                    ],
-                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
-                    "title": "typeOfUncertainty"
-                },
-                "uncertainty": {
-                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
-                    "description": "Quantitative value range defining the uncertainty of a measurement.",
-                    "items": {
-                        "type": "number"
-                    },
-                    "maxItems": 2,
-                    "minItems": 2,
-                    "title": "uncertainty",
-                    "type": "array"
-                },
-                "unit": {
-                    "_instruction": "Add the unit of measurement of this quantitative value.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                    ],
-                    "description": "Determinate quantity adopted as a standard of measurement.",
-                    "title": "unit"
-                },
-                "value": {
-                    "_instruction": "Enter the measurement value of this quantitative value.",
-                    "description": "Entry for a property.",
-                    "title": "value",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "value"
-            ],
-            "type": "object"
-        },
-        "https://openminds.ebrains.eu/vocab/defaultImage": {
-            "_instruction": "Add one or several image files used as visual representation of this common coordinate space.",
-            "description": "Two or three dimensional image that particluarly represents a specific coordinate space.",
+        "https://openminds.ebrains.eu/vocab/author": {
+            "_instruction": "If necessary, add one or several authors (person or organization) that contributed to the production and publication of this common coordinate space.",
+            "description": "Creator of a literary or creative work, as well as a dataset publication.",
             "items": {
                 "else": {
                     "properties": {
@@ -126,7 +49,9 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/File"
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Consortium",
+                                "https://openminds.ebrains.eu/core/Person"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -138,18 +63,65 @@
                 }
             },
             "minItems": 1,
-            "title": "defaultImage",
+            "title": "author",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/custodian": {
+            "_instruction": "Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product. Unless specified differently, this custodian will be responsible for all attached research product versions.",
+            "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Consortium",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "custodian",
             "type": "array",
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/description": {
-            "_instruction": "Enter a description of this common coordinate space.",
+            "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references). Note that this description should be fitting for all attached research product versions.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
+            "maxLength": 2000,
             "title": "description",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add the globally unique and persistent digital identifier of this common coordinate space.",
+            "_instruction": "Add the globally unique and persistent digital identifier of this common coordinate space. Note that this digital identifier will be used to reference all attached common coordinate space.",
             "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
@@ -191,13 +163,57 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/fullName": {
-            "_instruction": "Enter a descriptive full name for this common coordinate space.",
+            "_instruction": "Enter a descriptive full name (title) for this research product.  Note that this full name should be fitting for all attached research product versions.",
             "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "fullName",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
+            "_instruction": "Add one or several versions of this common coordinate space.",
+            "description": "Reference to variants of an original.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasVersion",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/homepage": {
-            "_instruction": "Add the uniform resource locator (URL) to the homepage of this common coordinate space.",
+            "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product.",
             "description": "Main website of something or someone.",
             "else": {
                 "properties": {
@@ -237,14 +253,34 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/howToCite": {
-            "_instruction": "Enter the preferred citation text for this common coordinate space. Leave blank if citation text can be extracted from the assigned digital identifier.",
+            "_instruction": "Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.",
             "description": "Preferred format for citing a particular object or legal person.",
             "title": "howToCite",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/nativeUnit": {
-            "_instruction": "Add the native unit that is used for this common coordinate space.",
-            "description": "Determinate quantity used in the original measurement.",
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "ontologyIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter a short name (alias) for this research product that could be used as a shortened title for visualization in cases where there is only little space for display.",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "maxLength": 30,
+            "title": "shortName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/usedSpecies": {
+            "_instruction": "Add the species of the specimen that were used to create this common coordinate space.",
             "else": {
                 "properties": {
                     "@id": {
@@ -269,7 +305,7 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            "https://openminds.ebrains.eu/controlledTerms/Species"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -279,99 +315,18 @@
                     "@id"
                 ]
             },
-            "title": "nativeUnit",
+            "title": "usedSpecies",
             "type": "object"
-        },
-        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.",
-            "description": "Term or code used to identify something or someone registered within a particular ontology.",
-            "items": {
-                "_formats": [
-                    "iri"
-                ],
-                "type": "string"
-            },
-            "minItems": 1,
-            "title": "ontologyIdentifier",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "https://openminds.ebrains.eu/vocab/releaseDate": {
-            "_instruction": "Enter the date of first publication of this common coordinate space.",
-            "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
-            "format": "date",
-            "title": "releaseDate",
-            "type": "string"
-        },
-        "https://openminds.ebrains.eu/vocab/shortName": {
-            "_instruction": "Enter a short name (alias) for this common coordinate space that could be used as a shortened title for visualization in cases where there is only little space for display.",
-            "description": "Shortened or fully abbreviated name of something or somebody.",
-            "title": "shortName",
-            "type": "string"
-        },
-        "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-            "_instruction": "Add one or several specimen (subjects and/or tissue samples) or specimen sets (subject groups and/or tissue sample collections) that were used to create this common coordinate space.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/core/Subject",
-                                "https://openminds.ebrains.eu/core/SubjectGroup",
-                                "https://openminds.ebrains.eu/core/TissueSample",
-                                "https://openminds.ebrains.eu/core/TissueSampleCollection"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "usedSpecimen",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
-            "_instruction": "Enter the version identifier of this common coordinate space.",
-            "description": "Term or code used to identify the version of something.",
-            "title": "versionIdentifier",
-            "type": "string"
         }
     },
     "required": [
-        "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/nativeUnit",
-        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation",
         "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/usedSpecies",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
+        "https://openminds.ebrains.eu/vocab/description",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/axesOrigin"
+        "@id"
     ],
     "type": "object"
 }
