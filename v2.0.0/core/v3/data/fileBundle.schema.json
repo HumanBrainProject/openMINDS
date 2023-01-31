@@ -1,0 +1,222 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/fileBundle?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/FileBundle",
+    "description": "Structured information on a bundle of file instances.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/FileBundle",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/groupedBy": {
+            "_instruction": "Add the concept which was used to group file instances into this file bundle.",
+            "description": "Reference to the aspect used to group something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "groupedBy",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hash": {
+            "_type": "https://openminds.ebrains.eu/core/Hash",
+            "description": "Structured information on a hash.",
+            "properties": {
+                "algorithm": {
+                    "_instruction": "Enter the algorithm used to generate this hash.",
+                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                    "title": "algorithm",
+                    "type": "string"
+                },
+                "digest": {
+                    "_instruction": "Enter the digest of this hash.",
+                    "description": "Summation or condensation of a body of information.",
+                    "title": "digest",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "algorithm",
+                "digest"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileBundle",
+                            "https://openminds.ebrains.eu/core/FileRepository"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isPartOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this file bundle.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/patternOfFilenames": {
+            "_instruction": "Enter a regular expression (syntax: ECMA 262) which is valid for all filenames of the file instances that should be grouped into this file bundle.",
+            "description": "Reliable sample / structure of characters valid for all names in a particular collection of files.",
+            "title": "patternOfFilenames",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/storageSize": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
+    ],
+    "type": "object"
+}

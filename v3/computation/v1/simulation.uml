@@ -1,0 +1,73 @@
+@startuml
+class Simulation {
++input
++output
++environment
++launchConfiguration
++startedBy
++wasInformedBy
++status
++resourceUsage
++tags
++recipe
++customPropertySet
++description
++endedAtTime
++lookupLabel
++performedBy
++startedAtTime
++studyTarget
+
+}
+Simulation -d-> "input" FileBundle
+Simulation -d-> "input" File
+Simulation -d-> "input" LocalFile
+Simulation -d-> "input" SoftwareVersion
+Simulation -d-> "input" ModelVersion
+Simulation -d-> "output" FileBundle
+Simulation -d-> "output" File
+Simulation -d-> "output" LocalFile
+Simulation -d-> "environment" Environment
+Simulation -d-> "launchConfiguration" LaunchConfiguration
+Simulation -d-> "startedBy" Person
+Simulation -d-> "startedBy" SoftwareAgent
+Simulation -d-> "wasInformedBy" Optimization
+Simulation -d-> "wasInformedBy" Visualization
+Simulation -d-> "wasInformedBy" Simulation
+Simulation -d-> "wasInformedBy" DataAnalysis
+Simulation -d-> "wasInformedBy" ModelValidation
+Simulation -d-> "status" ActionStatusType
+Simulation -d-> "resourceUsage" QuantitativeValue
+Simulation -d-> "resourceUsage" QuantitativeValueRange
+Simulation -d-> "recipe" WorkflowRecipeVersion
+Simulation -d-> "customPropertySet" CustomPropertySet
+Simulation -d-> "performedBy" Person
+Simulation -d-> "performedBy" SoftwareAgent
+Simulation -d-> "studyTarget" TactileStimulusType
+Simulation -d-> "studyTarget" BodySystem
+Simulation -d-> "studyTarget" GeneticStrainType
+Simulation -d-> "studyTarget" Disease
+Simulation -d-> "studyTarget" BreedingType
+Simulation -d-> "studyTarget" Organ
+Simulation -d-> "studyTarget" DiseaseModel
+Simulation -d-> "studyTarget" VisualStimulusType
+Simulation -d-> "studyTarget" Species
+Simulation -d-> "studyTarget" ElectricalStimulusType
+Simulation -d-> "studyTarget" SubcellularEntity
+Simulation -d-> "studyTarget" AuditoryStimulusType
+Simulation -d-> "studyTarget" CellType
+Simulation -d-> "studyTarget" GustatoryStimulusType
+Simulation -d-> "studyTarget" CellCultureType
+Simulation -d-> "studyTarget" UBERONParcellation
+Simulation -d-> "studyTarget" Handedness
+Simulation -d-> "studyTarget" TermSuggestion
+Simulation -d-> "studyTarget" OpticalStimulusType
+Simulation -d-> "studyTarget" OlfactoryStimulusType
+Simulation -d-> "studyTarget" BiologicalSex
+Simulation -d-> "studyTarget" BiologicalOrder
+Simulation -d-> "studyTarget" MolecularEntity
+Simulation -d-> "studyTarget" ParcellationEntity
+Simulation -d-> "studyTarget" ParcellationEntityVersion
+Simulation -d-> "studyTarget" CustomAnatomicalEntity
+
+@enduml

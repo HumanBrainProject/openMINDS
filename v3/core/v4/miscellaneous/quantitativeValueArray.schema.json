@@ -1,0 +1,128 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/quantitativeValueArray?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueArray",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/QuantitativeValueArray",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/negativeUncertainties": {
+            "_instruction": "Add an array of negative uncertainties for the measured values. Note that it must have the same length as the array of measured values.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "title": "negativeUncertainties",
+            "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/positiveUncertainties": {
+            "_instruction": "Add an array of positive uncertainties for the measured values. Note that it must have the same length as the array of measured values.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "title": "positiveUncertainties",
+            "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
+            "_instruction": "Add the type of uncertainty used to estimate the negative and positive uncertainties of the measured values.",
+            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "typeOfUncertainty",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/unit": {
+            "_instruction": "Add the unit of measurement for value array and respective uncertainties.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "unit",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/values": {
+            "_instruction": "Add an array of measured values.",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "title": "values",
+            "type": "array"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/values",
+        "@id"
+    ],
+    "type": "object"
+}

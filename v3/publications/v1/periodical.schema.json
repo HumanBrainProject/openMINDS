@@ -1,0 +1,73 @@
+{
+    "$id": "https://openminds.ebrains.eu/publications/periodical?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/publications/Periodical",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/publications/Periodical",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this periodical.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ISSN"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+            "_instruction": "Enter the official full name of the periodical, e.g. Journal of Physiology",
+            "description": "Whole, non-abbreviated name of something or somebody.",
+            "title": "fullName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter the most commonly used abbreviation of the periodical name, e.g. J. Physiol.",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "title": "shortName",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "@id"
+    ],
+    "type": "object"
+}
