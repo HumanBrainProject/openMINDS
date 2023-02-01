@@ -46,6 +46,8 @@
                     },
                     "@type": {
                         "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/Technique",
+                            "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique",
                             "https://openminds.ebrains.eu/core/TissueSampleState",
                             "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
                             "https://openminds.ebrains.eu/core/SubjectGroupState",
@@ -57,9 +59,7 @@
                             "https://openminds.ebrains.eu/core/BehavioralProtocol",
                             "https://openminds.ebrains.eu/core/File",
                             "https://openminds.ebrains.eu/core/FileBundle",
-                            "https://openminds.ebrains.eu/computation/LocalFile",
-                            "https://openminds.ebrains.eu/controlledTerms/Technique",
-                            "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique"
+                            "https://openminds.ebrains.eu/computation/LocalFile"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -266,10 +266,10 @@
         }
     },
     "required": [
-        "@id",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "https://openminds.ebrains.eu/vocab/name",
-        "@type"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@id"
     ],
     "type": "object"
 }
