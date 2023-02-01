@@ -1,22 +1,27 @@
 @startuml
 class AtlasAnnotation {
-+annotationType
-+bestViewPoint
++coordinateSpace
++specification
++criteriaType
++anchorPoint
 +criteria
 +criteriaQualityType
-+displayColor
 +inspiredBy
 +internalIdentifier
 +laterality
-+visualizedIn
++preferredVisualization
++type
 
 }
-AtlasAnnotation -d-> "annotationType" AnnotationType
-AtlasAnnotation -d-> "bestViewPoint" CoordinatePoint
+AtlasAnnotation -d-> "coordinateSpace" CommonCoordinateSpaceVersion
+AtlasAnnotation -d-> "specification" File
+AtlasAnnotation -d-> "criteriaType" AnnotationCriteriaType
+AtlasAnnotation -d-> "anchorPoint" CoordinatePoint
 AtlasAnnotation -d-> "criteria" ProtocolExecution
 AtlasAnnotation -d-> "criteriaQualityType" CriteriaQualityType
 AtlasAnnotation -d-> "inspiredBy" File
 AtlasAnnotation -d-> "laterality" Laterality
-AtlasAnnotation -d-> "visualizedIn" File
+AtlasAnnotation -d-> "preferredVisualization" ViewerSpecification
+AtlasAnnotation -d-> "type" AnnotationType
 
 @enduml
