@@ -43,6 +43,8 @@
                         "@type": {
                             "enum": [
                                 "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
                                 "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/sands/ParcellationEntity",
                                 "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
@@ -202,7 +204,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/origin": {
-            "_instruction": "Add the biogical origin (organ or cell type) of this tissue sample.",
+            "_instruction": "Add the biogical origin of this tissue sample.",
             "description": "Source at which something begins or rises, or from which something derives.",
             "else": {
                 "properties": {
@@ -229,7 +231,8 @@
                     "@type": {
                         "enum": [
                             "https://openminds.ebrains.eu/controlledTerms/CellType",
-                            "https://openminds.ebrains.eu/controlledTerms/Organ"
+                            "https://openminds.ebrains.eu/controlledTerms/Organ",
+                            "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -369,12 +372,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/origin",
-        "https://openminds.ebrains.eu/vocab/species",
         "@id",
-        "https://openminds.ebrains.eu/vocab/studiedState",
-        "@type"
+        "https://openminds.ebrains.eu/vocab/type",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/species",
+        "https://openminds.ebrains.eu/vocab/origin",
+        "https://openminds.ebrains.eu/vocab/studiedState"
     ],
     "type": "object"
 }
