@@ -1,15 +1,15 @@
 @startuml
 class Simulation {
 +input
-+output
 +environment
 +launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
++output
 +recipe
++resourceUsage
++startedBy
++status
++tag
++wasInformedBy
 +customPropertySet
 +description
 +endedAtTime
@@ -24,22 +24,22 @@ Simulation -d-> "input" File
 Simulation -d-> "input" LocalFile
 Simulation -d-> "input" SoftwareVersion
 Simulation -d-> "input" ModelVersion
-Simulation -d-> "output" FileBundle
-Simulation -d-> "output" File
-Simulation -d-> "output" LocalFile
 Simulation -d-> "environment" Environment
 Simulation -d-> "launchConfiguration" LaunchConfiguration
+Simulation -d-> "output" LocalFile
+Simulation -d-> "output" File
+Simulation -d-> "output" FileBundle
+Simulation -d-> "recipe" WorkflowRecipeVersion
+Simulation -d-> "resourceUsage" QuantitativeValue
+Simulation -d-> "resourceUsage" QuantitativeValueRange
 Simulation -d-> "startedBy" Person
 Simulation -d-> "startedBy" SoftwareAgent
+Simulation -d-> "status" ActionStatusType
 Simulation -d-> "wasInformedBy" Optimization
 Simulation -d-> "wasInformedBy" Visualization
 Simulation -d-> "wasInformedBy" Simulation
 Simulation -d-> "wasInformedBy" DataAnalysis
 Simulation -d-> "wasInformedBy" ModelValidation
-Simulation -d-> "status" ActionStatusType
-Simulation -d-> "resourceUsage" QuantitativeValue
-Simulation -d-> "resourceUsage" QuantitativeValueRange
-Simulation -d-> "recipe" WorkflowRecipeVersion
 Simulation -d-> "customPropertySet" CustomPropertySet
 Simulation -d-> "performedBy" Person
 Simulation -d-> "performedBy" SoftwareAgent

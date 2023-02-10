@@ -13,53 +13,57 @@
         },
         "https://openminds.ebrains.eu/vocab/groupingType": {
             "_instruction": "Add the type of grouping that is defined by the given file path pattern.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "groupingType",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/regex": {
-            "_instruction": "Enter the regular expression that defines this file path pattern.",
+            "_instruction": "Enter the regular expression that defines this file path pattern. Note that the number of groups within the regular expression needs to match the number of stated grouping types.",
             "format": "ECMA262",
             "title": "regex",
             "type": "string"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/regex",
         "@id",
+        "https://openminds.ebrains.eu/vocab/regex",
         "https://openminds.ebrains.eu/vocab/groupingType",
         "@type"
     ],

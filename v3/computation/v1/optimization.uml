@@ -4,12 +4,12 @@ class Optimization {
 +output
 +environment
 +launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
 +recipe
++resourceUsage
++startedBy
++status
++tag
++wasInformedBy
 +customPropertySet
 +description
 +endedAtTime
@@ -30,17 +30,17 @@ Optimization -d-> "output" LocalFile
 Optimization -d-> "output" ModelVersion
 Optimization -d-> "environment" Environment
 Optimization -d-> "launchConfiguration" LaunchConfiguration
+Optimization -d-> "recipe" WorkflowRecipeVersion
+Optimization -d-> "resourceUsage" QuantitativeValue
+Optimization -d-> "resourceUsage" QuantitativeValueRange
 Optimization -d-> "startedBy" Person
 Optimization -d-> "startedBy" SoftwareAgent
+Optimization -d-> "status" ActionStatusType
 Optimization -d-> "wasInformedBy" Optimization
 Optimization -d-> "wasInformedBy" Visualization
 Optimization -d-> "wasInformedBy" Simulation
 Optimization -d-> "wasInformedBy" DataAnalysis
 Optimization -d-> "wasInformedBy" ModelValidation
-Optimization -d-> "status" ActionStatusType
-Optimization -d-> "resourceUsage" QuantitativeValue
-Optimization -d-> "resourceUsage" QuantitativeValueRange
-Optimization -d-> "recipe" WorkflowRecipeVersion
 Optimization -d-> "customPropertySet" CustomPropertySet
 Optimization -d-> "performedBy" Person
 Optimization -d-> "performedBy" SoftwareAgent

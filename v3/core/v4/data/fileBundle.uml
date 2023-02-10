@@ -1,7 +1,7 @@
 @startuml
 class FileBundle {
 +contentDescription
-+descendedFrom
++groupedBy
 +format
 +groupingType
 +hash
@@ -10,20 +10,50 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" StimulationTechnique
-FileBundle -d-> "descendedFrom" TissueSampleState
-FileBundle -d-> "descendedFrom" TissueSampleCollectionState
-FileBundle -d-> "descendedFrom" SubjectGroupState
-FileBundle -d-> "descendedFrom" TissueSampleCollection
-FileBundle -d-> "descendedFrom" TissueSample
-FileBundle -d-> "descendedFrom" SubjectState
-FileBundle -d-> "descendedFrom" Subject
-FileBundle -d-> "descendedFrom" SubjectGroup
-FileBundle -d-> "descendedFrom" BehavioralProtocol
-FileBundle -d-> "descendedFrom" File
-FileBundle -d-> "descendedFrom" FileBundle
-FileBundle -d-> "descendedFrom" LocalFile
+FileBundle -d-> "groupedBy" TissueSampleState
+FileBundle -d-> "groupedBy" TissueSampleCollectionState
+FileBundle -d-> "groupedBy" SubjectGroupState
+FileBundle -d-> "groupedBy" TissueSampleCollection
+FileBundle -d-> "groupedBy" TissueSample
+FileBundle -d-> "groupedBy" SubjectState
+FileBundle -d-> "groupedBy" Subject
+FileBundle -d-> "groupedBy" SubjectGroup
+FileBundle -d-> "groupedBy" BehavioralProtocol
+FileBundle -d-> "groupedBy" File
+FileBundle -d-> "groupedBy" FileBundle
+FileBundle -d-> "groupedBy" Technique
+FileBundle -d-> "groupedBy" StimulationTechnique
+FileBundle -d-> "groupedBy" LocalFile
+FileBundle -d-> "groupedBy" ParcellationEntity
+FileBundle -d-> "groupedBy" ParcellationEntityVersion
+FileBundle -d-> "groupedBy" CustomAnatomicalEntity
+FileBundle -d-> "groupedBy" OrganismSubstance
+FileBundle -d-> "groupedBy" TactileStimulusType
+FileBundle -d-> "groupedBy" OrganismSystem
+FileBundle -d-> "groupedBy" GeneticStrainType
+FileBundle -d-> "groupedBy" Disease
+FileBundle -d-> "groupedBy" BreedingType
+FileBundle -d-> "groupedBy" Organ
+FileBundle -d-> "groupedBy" DiseaseModel
+FileBundle -d-> "groupedBy" VisualStimulusType
+FileBundle -d-> "groupedBy" Species
+FileBundle -d-> "groupedBy" ElectricalStimulusType
+FileBundle -d-> "groupedBy" SubcellularEntity
+FileBundle -d-> "groupedBy" AuditoryStimulusType
+FileBundle -d-> "groupedBy" CellType
+FileBundle -d-> "groupedBy" GustatoryStimulusType
+FileBundle -d-> "groupedBy" CellCultureType
+FileBundle -d-> "groupedBy" UBERONParcellation
+FileBundle -d-> "groupedBy" Handedness
+FileBundle -d-> "groupedBy" TermSuggestion
+FileBundle -d-> "groupedBy" OpticalStimulusType
+FileBundle -d-> "groupedBy" OlfactoryStimulusType
+FileBundle -d-> "groupedBy" BiologicalSex
+FileBundle -d-> "groupedBy" BiologicalOrder
+FileBundle -d-> "groupedBy" MolecularEntity
+FileBundle -d-> "groupedBy" CommonCoordinateSpaceVersion
+FileBundle -d-> "groupedBy" CommonCoordinateSpace
+FileBundle -d-> "groupedBy" CustomCoordinateSpace
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupingType" FileBundleGrouping
 FileBundle -d-> "hash" Hash

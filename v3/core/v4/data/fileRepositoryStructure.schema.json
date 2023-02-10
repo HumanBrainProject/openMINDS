@@ -19,13 +19,16 @@
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
                     ],
-                    "title": "groupingType"
+                    "minItems": 1,
+                    "title": "groupingType",
+                    "type": "array",
+                    "uniqueItems": true
                 },
                 "regex": {
                     "_formats": [
                         "ECMA262"
                     ],
-                    "_instruction": "Enter the regular expression that defines this file path pattern.",
+                    "_instruction": "Enter the regular expression that defines this file path pattern. Note that the number of groups within the regular expression needs to match the number of stated grouping types.",
                     "title": "regex",
                     "type": "string"
                 }
@@ -44,8 +47,8 @@
     },
     "required": [
         "https://openminds.ebrains.eu/vocab/filePathPattern",
-        "@id",
-        "@type"
+        "@type",
+        "@id"
     ],
     "type": "object"
 }

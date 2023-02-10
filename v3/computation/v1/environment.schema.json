@@ -13,7 +13,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-            "_instruction": "Add all important settings defining this environment.",
+            "_instruction": "Add the configuration of this computational environment.",
             "else": {
                 "properties": {
                     "@id": {
@@ -52,13 +52,13 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/description": {
-            "_instruction": "Enter a description of this computing environment",
+            "_instruction": "Enter a short text describing this computational environment.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
             "title": "description",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hardware": {
-            "_instruction": "Select the hardware system on which this environment runs",
+            "_instruction": "Add the hardware system on which this computational environment runs.",
             "else": {
                 "properties": {
                     "@id": {
@@ -97,13 +97,13 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter a name/label for this computing environment",
+            "_instruction": "Enter a descriptive name for this computational environment.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/software": {
-            "_instruction": "Add all software versions available in this environment. [Note: this is optional. The Analysis/Simulation schemas allow storing a list of software versions actually _used_ in a computation",
+            "_instruction": "Add all software versions available in this computational environment.",
             "items": {
                 "else": {
                     "properties": {
@@ -147,10 +147,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hardware",
-        "@type",
         "@id",
-        "https://openminds.ebrains.eu/vocab/name"
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/hardware",
+        "@type"
     ],
     "type": "object"
 }

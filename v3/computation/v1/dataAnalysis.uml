@@ -1,15 +1,15 @@
 @startuml
 class DataAnalysis {
-+input
-+output
 +environment
++input
 +launchConfiguration
-+startedBy
-+wasInformedBy
-+status
-+resourceUsage
-+tags
++output
 +recipe
++resourceUsage
++startedBy
++status
++tag
++wasInformedBy
 +customPropertySet
 +description
 +endedAtTime
@@ -19,26 +19,26 @@ class DataAnalysis {
 +studyTarget
 
 }
-DataAnalysis -d-> "input" FileBundle
-DataAnalysis -d-> "input" File
-DataAnalysis -d-> "input" LocalFile
-DataAnalysis -d-> "input" SoftwareVersion
-DataAnalysis -d-> "output" FileBundle
-DataAnalysis -d-> "output" File
-DataAnalysis -d-> "output" LocalFile
 DataAnalysis -d-> "environment" Environment
+DataAnalysis -d-> "input" LocalFile
+DataAnalysis -d-> "input" File
+DataAnalysis -d-> "input" FileBundle
+DataAnalysis -d-> "input" SoftwareVersion
 DataAnalysis -d-> "launchConfiguration" LaunchConfiguration
+DataAnalysis -d-> "output" LocalFile
+DataAnalysis -d-> "output" File
+DataAnalysis -d-> "output" FileBundle
+DataAnalysis -d-> "recipe" WorkflowRecipeVersion
+DataAnalysis -d-> "resourceUsage" QuantitativeValue
+DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
 DataAnalysis -d-> "startedBy" Person
 DataAnalysis -d-> "startedBy" SoftwareAgent
+DataAnalysis -d-> "status" ActionStatusType
 DataAnalysis -d-> "wasInformedBy" Optimization
 DataAnalysis -d-> "wasInformedBy" Visualization
 DataAnalysis -d-> "wasInformedBy" Simulation
 DataAnalysis -d-> "wasInformedBy" DataAnalysis
 DataAnalysis -d-> "wasInformedBy" ModelValidation
-DataAnalysis -d-> "status" ActionStatusType
-DataAnalysis -d-> "resourceUsage" QuantitativeValue
-DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
-DataAnalysis -d-> "recipe" WorkflowRecipeVersion
 DataAnalysis -d-> "customPropertySet" CustomPropertySet
 DataAnalysis -d-> "performedBy" Person
 DataAnalysis -d-> "performedBy" SoftwareAgent
