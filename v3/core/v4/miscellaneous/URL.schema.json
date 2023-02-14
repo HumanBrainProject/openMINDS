@@ -1,0 +1,67 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/uRL?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/URL",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/URL",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/URL": {
+            "_instruction": "Enter a uniform resource locator (URL).",
+            "format": "iri",
+            "title": "URL",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the expected content type of the document at this URL.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/URL",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

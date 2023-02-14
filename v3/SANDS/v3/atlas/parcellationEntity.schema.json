@@ -1,0 +1,194 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/parcellationEntity?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "studyTarget"
+    ],
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/sands/ParcellationEntity",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/ParcellationEntity",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/alternativeName": {
+            "_instruction": "If applicable, enter one or several alternative names, inlcuding abbreviations, for this parcellation entity.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternativeName",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+            "_instruction": "Enter the definition for this parcellation entity.",
+            "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+            "title": "definition",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasParent": {
+            "_instruction": "Add the defined anatomical parent structure for this parcellation entity, or several if required.",
+            "description": "Reference to a parent object or legal person.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasParent",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/hasVersion": {
+            "_instruction": "Add one or several versions of this parcellation entity.",
+            "description": "Reference to variants of an original.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasVersion",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this parcellation entity.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name for this parcellation entity.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation entity.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "ontologyIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
+            "_instruction": "Add the related UBERON parcellation term.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                            "https://openminds.ebrains.eu/controlledTerms/Organ"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "relatedUBERONTerm",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@type"
+    ],
+    "type": "object"
+}
