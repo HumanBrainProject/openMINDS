@@ -12,13 +12,13 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/additionalRemarks": {
-            "_instruction": "Enter additional remarks about the chemical substance (pure or within a mixture).",
+            "_instruction": "Enter any additional remarks concering this chemical mixture.",
             "description": "Mention of what deserves additional attention or notice.",
             "title": "additionalRemarks",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/components": {
-            "_instruction": "Please indicate all the substances and soultions used in this mixture",
+            "_instruction": "Add all components, including other mixtures, that are part of this chemical mixture.",
             "items": {
                 "else": {
                     "properties": {
@@ -57,16 +57,17 @@
             },
             "minItems": 2,
             "title": "components",
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Add an appropriate name for this chemical mixture.",
+            "_instruction": "Enter the name of this chemical mixture.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/productSource": {
-            "_instruction": "Add the source of the chemical mixture.",
+            "_instruction": "Add the source of this chemical mixture.",
             "else": {
                 "properties": {
                     "@id": {
@@ -105,7 +106,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/type": {
-            "_instruction": "Add the type of the mixture.",
+            "_instruction": "Add the type of this mixture.",
             "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
             "else": {
                 "properties": {
@@ -146,8 +147,8 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/type",
         "https://openminds.ebrains.eu/vocab/components",
+        "https://openminds.ebrains.eu/vocab/type",
         "@type",
         "@id"
     ],

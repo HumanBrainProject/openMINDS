@@ -12,7 +12,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add the globally unique identifier for this product (e.g. 'Research Resource Identifier' (RRID)).",
+            "_instruction": "Add the globally unique and persistent digital identifier of this product.",
             "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
@@ -52,18 +52,18 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/identifier": {
-            "_instruction": "Enter one or several identifiers for this product excluding globally unique identifiers such as RRIDs. e.g. catalog number",
+            "_instruction": "Enter the identifier for this product, excluding its RRID (e.g., a catalog number).",
             "description": "Term or code used to identify something or someone.",
             "title": "identifier",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/productName": {
-            "_instruction": "Enter the name of the product as provided by the vendor.",
+            "_instruction": "Enter the name of this product as stated by the 'provider'.",
             "title": "productName",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/provider": {
-            "_instruction": "Add the provider of the product.",
+            "_instruction": "Add the party (private, commercial or industrial) that provided this product.",
             "else": {
                 "properties": {
                     "@id": {
@@ -188,10 +188,10 @@
         }
     },
     "required": [
-        "@id",
-        "https://openminds.ebrains.eu/vocab/provider",
         "https://openminds.ebrains.eu/vocab/productName",
-        "@type"
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/provider"
     ],
     "type": "object"
 }

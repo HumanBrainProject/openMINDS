@@ -104,7 +104,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter the identifier of this specimen that is used within the corresponding data.",
+            "_instruction": "Enter the identifier (or label) of this specimen that is used within the corresponding data files to identify this specimen.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
@@ -199,7 +199,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-            "_instruction": "Enter a lookup label for this specimen that may help you to more easily find it again.",
+            "_instruction": "Enter a lookup label for this specimen that may help you to find this instance more easily.",
             "title": "lookupLabel",
             "type": "string"
         },
@@ -246,7 +246,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/species": {
-            "_instruction": "Add the species or the strain (a sub-type of a genetic variant of species) of this specimen.",
+            "_instruction": "Add the species or strain (a sub-type of a genetic variant of species) of this specimen.",
             "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
             "else": {
                 "properties": {
@@ -372,12 +372,12 @@
         }
     },
     "required": [
-        "@id",
+        "https://openminds.ebrains.eu/vocab/type",
         "https://openminds.ebrains.eu/vocab/species",
+        "https://openminds.ebrains.eu/vocab/origin",
         "https://openminds.ebrains.eu/vocab/studiedState",
         "@type",
-        "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/origin"
+        "@id"
     ],
     "type": "object"
 }

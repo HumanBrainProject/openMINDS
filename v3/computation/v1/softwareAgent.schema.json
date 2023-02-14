@@ -15,7 +15,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/environment": {
-            "_instruction": "Enter the computing environment in which this agent is running/ran.",
+            "_instruction": "Add the computational environment in which this software agent was running.",
             "else": {
                 "properties": {
                     "@id": {
@@ -54,13 +54,13 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter a name for this software agent.",
+            "_instruction": "Enter a descriptive name for this software agent.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/software": {
-            "_instruction": "Enter the software version being run as this agent.",
+            "_instruction": "Add the software version that is being run as this software agent.",
             "else": {
                 "properties": {
                     "@id": {
@@ -100,10 +100,10 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/software",
         "@type",
-        "https://openminds.ebrains.eu/vocab/software"
+        "@id"
     ],
     "type": "object"
 }
