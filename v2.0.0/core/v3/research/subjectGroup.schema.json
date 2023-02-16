@@ -1,0 +1,266 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/subjectGroup?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/SubjectGroup",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/SubjectGroup",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+            "_instruction": "Enter additional remarks about the specimen set.",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/biologicalSex": {
+            "_instruction": "Add the biological sex of all specimen in this set.",
+            "description": "Differentiation of individuals of most species (animals and plants) based on the type of gametes they produce.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "biologicalSex",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier of this specimen set that is used within the corresponding data.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this specimen set that may help you to more easily find it again.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/phenotype": {
+            "_instruction": "Add the phenotype of all specimen in this set.",
+            "description": "Physical expression of one or more genes of an organism.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Phenotype"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "phenotype",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/quantity": {
+            "_instruction": "Enter the number of specimen that belong to this set.",
+            "description": "Total amount or number of things or beings.",
+            "title": "quantity",
+            "type": "integer"
+        },
+        "https://openminds.ebrains.eu/vocab/species": {
+            "_instruction": "Add the species of all specimen in this set.",
+            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Species"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "species",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/strain": {
+            "_instruction": "Add the strain of all specimen in this set.",
+            "description": "Group of presumed common ancestry with physiological but usually not morphological distinctions.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Strain"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "strain",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/studiedState": {
+            "_instruction": "Add all states in which this subject group was studied.",
+            "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/SubjectGroupState"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "studiedState",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/biologicalSex",
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/species",
+        "https://openminds.ebrains.eu/vocab/studiedState"
+    ],
+    "type": "object"
+}

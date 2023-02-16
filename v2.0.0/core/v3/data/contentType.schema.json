@@ -1,0 +1,70 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/contentType?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ContentType",
+    "description": "Structured information on the content type of a file instance, bundle or repository.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ContentType",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/fileExtension": {
+            "_instruction": "Enter one or several file extensions associated with this content type.",
+            "description": "String of characters attached as suffix to the names of files of a particular format.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "fileExtension",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name (iana-inspired convention) of this content type.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relatedMediaType": {
+            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official registered media type (e.g. on IANA.org) matching this content type.",
+            "description": "Reference to an official two-part identifier for file formats and format contents.",
+            "format": "iri",
+            "title": "relatedMediaType",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/specification": {
+            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official specification of this content type. Leave blank and use 'description' to provide some specification if an official specification is not available.",
+            "description": "Detailed and precise presentation of, or proposal for something.",
+            "format": "iri",
+            "title": "specification",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/synonym": {
+            "_instruction": "Enter one or several synonyms of this content type.",
+            "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "synonym",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
+    ],
+    "type": "object"
+}

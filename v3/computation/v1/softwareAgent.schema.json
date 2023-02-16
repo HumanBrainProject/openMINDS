@@ -1,0 +1,109 @@
+{
+    "$id": "https://openminds.ebrains.eu/computation/softwareAgent?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "agent"
+    ],
+    "_type": "https://openminds.ebrains.eu/computation/SoftwareAgent",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/computation/SoftwareAgent",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/environment": {
+            "_instruction": "Add the computational environment in which this software agent was running.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/computation/Environment"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "environment",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a descriptive name for this software agent.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/software": {
+            "_instruction": "Add the software version that is being run as this software agent.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/SoftwareVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "software",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/software",
+        "@type",
+        "@id"
+    ],
+    "type": "object"
+}
