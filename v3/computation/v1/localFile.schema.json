@@ -15,12 +15,12 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentDescription": {
-            "_instruction": "Enter a short content description for this file instance.",
+            "_instruction": "Enter a short content description for this local file instance.",
             "title": "contentDescription",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-            "_instruction": "Add all data types that are specifially represented in this file.",
+            "_instruction": "Add all data types that are specifically represented in this local file instance.",
             "items": {
                 "else": {
                     "properties": {
@@ -63,7 +63,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/format": {
-            "_instruction": "Add the content type of this file instance.",
+            "_instruction": "Add the content type of this local file instance.",
             "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
@@ -126,18 +126,18 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter the name of this single file.",
+            "_instruction": "Enter the name of this local file instance.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/path": {
-            "_instruction": "Enter the file system path to this file, either an absolute path or a path relative to the working directory.",
+            "_instruction": "Enter the file system path (absolute path or relative to the working directory) to this local file instance.",
             "title": "path",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/specialUsageRole": {
-            "_instruction": "Add a special usage role for this single file.",
+            "_instruction": "Add the special usage role of this local file instance.",
             "description": "Particular function of something when it is used.",
             "else": {
                 "properties": {
@@ -221,10 +221,10 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
+        "@type",
         "https://openminds.ebrains.eu/vocab/path",
-        "@type"
+        "@id"
     ],
     "type": "object"
 }
