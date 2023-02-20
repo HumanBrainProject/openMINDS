@@ -1,0 +1,233 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/fileBundle?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/FileBundle",
+    "description": "Structured information on a bundle of file instances.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/FileBundle",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) of this file bundle.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "format": "iri",
+            "title": "IRI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the content type of this file bundle.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/groupedBy": {
+            "_instruction": "Add the concept which was used to group file instances into this file bundle.",
+            "description": "Reference to the aspect used to group something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "groupedBy",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hash": {
+            "_instruction": "Add the hash that was generated for this file bundle.",
+            "description": "Term used for the process of converting any data into a single value. Often also directly refers to the resulting single value.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Hash"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "hash",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileBundle",
+                            "https://openminds.ebrains.eu/core/FileRepository"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isPartOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this file bundle.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/storageSize": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "uncertainty": {
+                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/IRI",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

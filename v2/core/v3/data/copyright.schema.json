@@ -1,0 +1,75 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/copyright?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Copyright",
+    "description": "Structured information on the copyright.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Copyright",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/holder": {
+            "_instruction": "Add one or several persons or organisations that hold the copyright.",
+            "description": "Legal person in possession of something.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "holder",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/year": {
+            "_instruction": "Enter the year during which the copyright was first asserted.",
+            "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
+            "pattern": "([0-9]{4})",
+            "title": "year",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/year",
+        "https://openminds.ebrains.eu/vocab/holder",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}
