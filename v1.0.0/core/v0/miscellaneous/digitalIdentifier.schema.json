@@ -1,0 +1,76 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/digitalIdentifier?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/core/DigitalIdentifier",
+    "description": "Structured information on a digital identifier.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DigitalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/howToCite": {
+            "_instruction": "Enter the preferred citation text for the resource this digital identifier stands for.",
+            "description": "Preferred format for citing a particular object or legal person.",
+            "title": "howToCite",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the digital identifier of a resource.",
+            "description": "Term or code used to identify something or someone.",
+            "title": "identifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifierSchema": {
+            "_instruction": "Add the used schema of this digital identifier.",
+            "description": "Standard for creating a particular identifier for something or someone.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifierSchema"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "identifierSchema",
+            "type": "object"
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/identifierSchema",
+        "https://openminds.ebrains.eu/vocab/identifier"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,51 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/fileRepositoryStructure?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/FileRepositoryStructure",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/FileRepositoryStructure",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/filePathPattern": {
+            "_type": "https://openminds.ebrains.eu/core/FilePathPattern",
+            "properties": {
+                "groupingType": {
+                    "_instruction": "Add the type of grouping that is defined by the given file path pattern.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                    ],
+                    "title": "groupingType"
+                },
+                "regex": {
+                    "_formats": [
+                        "ECMA262"
+                    ],
+                    "_instruction": "Enter the regular expression that defines this file path pattern.",
+                    "title": "regex",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "groupingType",
+                "regex"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this file repository structure.",
+            "title": "lookupLabel",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/filePathPattern",
+        "@id"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,75 @@
+{
+    "$id": "https://openminds.ebrains.eu/controlledTerms/uBERONParcellation?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "studyTarget",
+        "keyword"
+    ],
+    "_type": "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+            "_instruction": "Enter one sentence for defining this term.",
+            "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+            "title": "definition",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a short text describing this term.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/interlexIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the integrated ontology entry in the InterLex project.",
+            "description": "Persistent identifier for a term registered in the InterLex project.",
+            "format": "iri",
+            "title": "interlexIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/knowledgeSpaceLink": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the wiki page of the corresponding term in the KnowledgeSpace.",
+            "description": "Persistent link to an encyclopedia entry in the Knowledge Space project.",
+            "format": "iri",
+            "title": "knowledgeSpaceLink",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Controlled term originating from a defined terminology.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/preferredOntologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the preferred ontological term.",
+            "description": "Persistent identifier of a preferred ontological term.",
+            "format": "iri",
+            "title": "preferredOntologyIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/synonym": {
+            "_instruction": "Enter one or several synonyms (inlcuding abbreviations) for this controlled term.",
+            "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "synonym",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@type"
+    ],
+    "type": "object"
+}

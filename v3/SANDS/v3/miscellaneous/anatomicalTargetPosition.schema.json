@@ -1,0 +1,180 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/anatomicalTargetPosition?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/AnatomicalTargetPosition",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/AnatomicalTargetPosition",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+            "_instruction": "Enter any additional remarks that are needed to interpret the properties of this anatomical target position (e.g., what exatly the coordinates represent: central position, bottom, left corner edge, etc).",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/anatomicalTarget": {
+            "_instruction": "Add the anatomical target(s) for this position.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "anatomicalTarget",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/coordinates": {
+            "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
+            "description": "Structured information on a coordinate point.",
+            "properties": {
+                "coordinateSpace": {
+                    "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
+                        "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
+                    ],
+                    "description": "Two or three dimensional geometric setting.",
+                    "title": "coordinateSpace"
+                },
+                "coordinates": {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "coordinates",
+                "coordinateSpace"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/targetIdentificationType": {
+            "_instruction": "Add the target identification type used to get to this anatomical position.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AnatomicalIdentificationType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "targetIdentificationType",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/targetIdentificationType",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/anatomicalTarget"
+    ],
+    "type": "object"
+}

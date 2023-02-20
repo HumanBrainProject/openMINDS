@@ -1,0 +1,47 @@
+{
+    "$id": "https://openminds.ebrains.eu/controlledTerms/modelAbstractionLevel?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/controlledTerms/ModelAbstractionLevel",
+    "description": "Structured information on abstraction level of the computational model.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/controlledTerms/ModelAbstractionLevel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definition": {
+            "_instruction": "Enter one sentence for defining this term.",
+            "description": "Short, but precise statement of the meaning of a word, word group, sign or a symbol.",
+            "title": "definition",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a short text describing this term.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Controlled term originating from a defined terminology.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) pointing to the related ontological term.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "format": "iri",
+            "title": "ontologyIdentifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
+    ],
+    "type": "object"
+}
