@@ -1,9 +1,9 @@
 @startuml
 class SubjectGroupState {
 +ageCategory
++attribute
 +descendedFrom
 +handedness
-+attribute
 +additionalRemarks
 +age
 +lookupLabel
@@ -13,9 +13,9 @@ class SubjectGroupState {
 
 }
 SubjectGroupState -d-> "ageCategory" AgeCategory
+SubjectGroupState -d-> "attribute" SubjectAttribute
 SubjectGroupState -d-> "descendedFrom" SubjectGroupState
 SubjectGroupState -d-> "handedness" Handedness
-SubjectGroupState -d-> "attribute" SubjectAttribute
 SubjectGroupState -d-> "age" QuantitativeValue
 SubjectGroupState -d-> "age" QuantitativeValueRange
 SubjectGroupState -d-> "pathology" Disease
