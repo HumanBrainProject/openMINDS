@@ -1,0 +1,231 @@
+<html>
+<head>
+    <title>https://openminds.ebrains.eu/sands/CommonCoordinateSpace</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}</style>
+</head>
+<body>
+    <h1>CommonCoordinateSpace</h1>
+    <h2>https://openminds.ebrains.eu/sands/CommonCoordinateSpace</h2>
+    <h4>part of <b>SANDS</b> in version <b>v2</b> - view as <a href="commonCoordinateSpace.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
+    <table class="properties">
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">anatomicalAxesOrientation</span></td>
+            <td>Relation between reference planes used in anatomy and mathematics.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../controlledTerms/v1/anatomicalAxesOrientation.html">AnatomicalAxesOrientation</a>
+                </td>
+            <td>Add the axes orientation denoted in standard anatomical terms of direction (stated as XYZ) for this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">axesOrigin</span></td>
+            <td>Special point in a coordinate system used as a fixed point of reference for the geometry of the surrounding space.</td>
+            <td>
+                 embedded object
+                
+                 array (2 - 3) of type:<br/>
+                
+                <a href="../../../core/v3/miscellaneous/quantitativeValue.html">QuantitativeValue</a>
+                </td>
+            <td>Enter the origin of this common coordinate space (central point where axes intersect; 2D: [x, y] or 3D:[x, y, z]).</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">fullName</span></td>
+            <td>Whole, non-abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a descriptive full name for this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">nativeUnit</span></td>
+            <td>Determinate quantity used in the original measurement.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../controlledTerms/v1/unitOfMeasurement.html">UnitOfMeasurement</a>
+                </td>
+            <td>Add the native unit that is used for this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">releaseDate</span></td>
+            <td>Fixed date on which a product is due to become or was made available for the general public to see or buy</td>
+            <td>
+                
+                
+                
+                string (format: date)</td>
+            <td>Enter the date of first publication of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">shortName</span></td>
+            <td>Shortened or fully abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a descriptive short name for this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">versionIdentifier</span></td>
+            <td>Term or code used to identify the version of something.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the version identifier of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >defaultImage</span></td>
+            <td>Two or three dimensional image that particluarly represents a specific coordinate space.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v3/data/file.html">File</a>
+                </td>
+            <td>Add one or several image files used as visual representation of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v3/miscellaneous/DOI.html">DOI</a>
+                </td>
+            <td>Add the globally unique and persistent digital identifier of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >homepage</span></td>
+            <td>Main website of something or someone.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v3/miscellaneous/URL.html">URL</a>
+                </td>
+            <td>Add the uniform resource locator (URL) to the homepage of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >howToCite</span></td>
+            <td>Preferred format for citing a particular object or legal person.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the preferred citation text for this common coordinate space. Leave blank if citation text can be extracted from the assigned digital identifier.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >ontologyIdentifier</span></td>
+            <td>Term or code used to identify something or someone registered within a particular ontology.</td>
+            <td>
+                
+                
+                
+                string (format: iri)</td>
+            <td>Enter the identifier (IRI) of the related ontological term matching this common coordinate space.</td>
+        </tr>
+        
+    </table>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+    
+
+
+
+
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
+</body>
+
+</html>

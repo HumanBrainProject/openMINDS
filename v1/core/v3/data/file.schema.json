@@ -1,0 +1,326 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/file?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "fileOrigin"
+    ],
+    "_type": "https://openminds.ebrains.eu/core/File",
+    "description": "Structured information on a file instances.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/File",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/IRI": {
+            "_instruction": "Enter the internationalized resource identifier of this single file.",
+            "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
+            "format": "iri",
+            "title": "IRI",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/content": {
+            "_instruction": "Enter a short content description for this file instance.",
+            "description": "Something that is contained.",
+            "title": "content",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/descendedFrom": {
+            "_instruction": "Add all entities that played a role in the production of this single file.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/BehavioralTask",
+                                "https://openminds.ebrains.eu/core/TissueSampleState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique",
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "descendedFrom",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/fileRepository": {
+            "_instruction": "Add the over all repository to which this single file belongs.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileRepository"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "fileRepository",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the content type of this file instance.",
+            "description": "Method of digitally organizing and structuring data or information.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "format",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/hash": {
+            "_type": "https://openminds.ebrains.eu/core/Hash",
+            "description": "Structured information on a hash.",
+            "properties": {
+                "algorithm": {
+                    "_instruction": "Enter the algorithm used to generate this hash.",
+                    "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+                    "title": "algorithm",
+                    "type": "string"
+                },
+                "digest": {
+                    "_instruction": "Enter the digest of this hash.",
+                    "description": "Summation or condensation of a body of information.",
+                    "title": "digest",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "algorithm",
+                "digest"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add one or several bundles in which this single file can be grouped.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "isPartOf",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this single file.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/specialUsageRole": {
+            "_instruction": "Add a special usage role for this single file.",
+            "description": "Particular function of something when it is used.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/FileUsageRole"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "specialUsageRole",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/storageSize": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the measurement value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/IRI",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/isPartOf"
+    ],
+    "type": "object"
+}

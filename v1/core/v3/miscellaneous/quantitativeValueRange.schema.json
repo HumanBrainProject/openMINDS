@@ -1,0 +1,74 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/quantitativeValueRange?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/maxValue": {
+            "_instruction": "Add the maximum value measured for this range.",
+            "description": "Greatest quantity attained or allowed.",
+            "title": "maxValue",
+            "type": "number"
+        },
+        "https://openminds.ebrains.eu/vocab/minValue": {
+            "_instruction": "Add the minimum value measured for this range.",
+            "description": "Smallest quantity attained or allowed.",
+            "title": "minValue",
+            "type": "number"
+        },
+        "https://openminds.ebrains.eu/vocab/unit": {
+            "_instruction": "Add the unit of measurement of this quantitative value range.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "unit",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/maxValue",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/minValue",
+        "@id"
+    ],
+    "type": "object"
+}
