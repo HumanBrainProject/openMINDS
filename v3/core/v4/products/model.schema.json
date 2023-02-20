@@ -16,7 +16,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/abstractionLevel": {
-            "_instruction": "Add the abstraction level of this model version.",
+            "_instruction": "Add the abstraction level of this computational model.",
             "description": "Extent of simplification of physical, spatial, or temporal details or attributes in the study of objects or systems.",
             "else": {
                 "properties": {
@@ -109,7 +109,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "Add one or several developers (person or organization) that contributed to the code implementation of this model.",
+            "_instruction": "Add all parties that developed this computational model.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -202,7 +202,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
-            "_instruction": "Add one or several versions of this computational model.",
+            "_instruction": "Add all versions of this computational model.",
             "description": "Reference to variants of an original.",
             "items": {
                 "else": {
@@ -292,7 +292,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/scope": {
-            "_instruction": "Add the scope of this model version.",
+            "_instruction": "Add the scope of this computational model.",
             "description": "Extent of something.",
             "else": {
                 "properties": {
@@ -339,7 +339,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/studyTarget": {
-            "_instruction": "Add all study targets of this model version.",
+            "_instruction": "Add all study targets of this computational model.",
             "description": "Structure or function that was targeted within a study.",
             "items": {
                 "else": {
@@ -410,16 +410,16 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/studyTarget",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/abstractionLevel",
+        "https://openminds.ebrains.eu/vocab/scope",
+        "@id",
         "https://openminds.ebrains.eu/vocab/description",
         "https://openminds.ebrains.eu/vocab/developer",
-        "https://openminds.ebrains.eu/vocab/scope",
-        "https://openminds.ebrains.eu/vocab/abstractionLevel",
-        "https://openminds.ebrains.eu/vocab/studyTarget",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/hasVersion",
-        "@type"
+        "https://openminds.ebrains.eu/vocab/shortName"
     ],
     "type": "object"
 }
