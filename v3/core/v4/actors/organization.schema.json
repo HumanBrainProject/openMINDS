@@ -51,7 +51,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add one or several globally unique and persistent digital identifier for this organization.",
+            "_instruction": "Add all globally unique and persistent digital identifier of this organization.",
             "description": "Digital handle to identify objects or legal persons.",
             "items": {
                 "else": {
@@ -97,7 +97,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/fullName": {
-            "_instruction": "Enter the full name of the organization.",
+            "_instruction": "Enter the full name of this organization.",
             "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "fullName",
             "type": "string"
@@ -147,56 +147,23 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/homepage": {
-            "_instruction": "Add the uniform resource locator (URL) to the homepage of this organization.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this organization.",
             "description": "Main website of something or someone.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/URL"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
+            "format": "iri",
             "title": "homepage",
-            "type": "object"
+            "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/shortName": {
-            "_instruction": "Enter a short name (alias) for this organization that could be used as a shortened title for visualization in cases where there is only little space for display.",
+            "_instruction": "Enter a short name (or alias) for this organization that could be used as a shortened display title (e.g., for web services with too little space to display the full name).",
             "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/fullName",
-        "@type"
+        "@type",
+        "@id"
     ],
     "type": "object"
 }
