@@ -62,29 +62,11 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/openDataIn": {
-            "_type": "https://openminds.ebrains.eu/core/URL",
-            "properties": {
-                "URL": {
-                    "_formats": [
-                        "iri"
-                    ],
-                    "_instruction": "Enter a uniform resource locator (URL).",
-                    "title": "URL",
-                    "type": "string"
-                },
-                "format": {
-                    "_instruction": "Add the expected content type of the document at this URL.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/ContentType"
-                    ],
-                    "description": "Method of digitally organizing and structuring data or information.",
-                    "title": "format"
-                }
-            },
-            "required": [
-                "URL"
+            "_embeddedTypes": [
+                "https://openminds.ebrains.eu/core/URL"
             ],
-            "type": "object"
+            "_instruction": "Add the uniform resource locator (URL) to open the linked data in the specified service.",
+            "title": "openDataIn"
         },
         "https://openminds.ebrains.eu/vocab/previewImage": {
             "_instruction": "Add a (static) preview image file (URL) that is representative for this service link and could function as an icon.",
@@ -166,11 +148,11 @@
         }
     },
     "required": [
-        "@type",
         "https://openminds.ebrains.eu/vocab/service",
         "https://openminds.ebrains.eu/vocab/dataLocation",
         "https://openminds.ebrains.eu/vocab/openDataIn",
-        "@id"
+        "@id",
+        "@type"
     ],
     "type": "object"
 }
