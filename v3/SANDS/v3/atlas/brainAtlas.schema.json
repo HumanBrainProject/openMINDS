@@ -21,7 +21,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/author": {
-            "_instruction": "Add one or several authors (person or organization) that contributed to the production and publication of this brain atlas.",
+            "_instruction": "Add all parties that contributed to this brain atlas as authors.",
             "description": "Creator of a literary or creative work, as well as a dataset publication.",
             "items": {
                 "else": {
@@ -119,7 +119,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add the globally unique and persistent digital identifier of this brain atlas.",
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product. Note that this digital identifier will be used to reference all attached research product versions.",
             "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
@@ -211,7 +211,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
-            "_instruction": "Add one or several brain atlas versions that belong to this brain atlas.",
+            "_instruction": "Add versions of this brain atlas.",
             "description": "Reference to variants of an original.",
             "items": {
                 "else": {
@@ -268,7 +268,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier (IRI) of the related ontological term matching this brain atlas.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the related ontological term matching this brain atlas.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "format": "iri",
             "title": "ontologyIdentifier",
@@ -282,14 +282,14 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hasTerminology",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/author",
         "https://openminds.ebrains.eu/vocab/hasVersion",
-        "https://openminds.ebrains.eu/vocab/fullName",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasTerminology",
         "https://openminds.ebrains.eu/vocab/shortName",
         "@id",
-        "https://openminds.ebrains.eu/vocab/author",
-        "https://openminds.ebrains.eu/vocab/description"
+        "https://openminds.ebrains.eu/vocab/fullName"
     ],
     "type": "object"
 }
