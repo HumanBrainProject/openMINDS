@@ -12,7 +12,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/input": {
-            "_instruction": "Add the state of the subject(s) or tissue(s) prior to slicing.",
+            "_instruction": "Add the state of the specimen that was sliced during this activity.",
             "description": "Something or someone that is put into or participates in a process or machine.",
             "else": {
                 "properties": {
@@ -54,7 +54,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/output": {
-            "_instruction": "Add the state of the tissue slices after slicing.",
+            "_instruction": "Add the state of the tissue sample slice or collection of slices that resulted from this activity.",
             "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
@@ -81,8 +81,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/TissueSampleState",
-                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState"
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -99,7 +99,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/slicingDevice": {
-            "_instruction": "Add the device used to cut the tissue sample.",
+            "_instruction": "Add the device used to slice the tissue sample.",
             "else": {
                 "properties": {
                     "@id": {
@@ -221,7 +221,7 @@
             ]
         },
         "https://openminds.ebrains.eu/vocab/tissueBathSolution": {
-            "_instruction": "Solution in which the tissue sample was sliced (e.g. Ringer's solution)",
+            "_instruction": "Add the chemical mixture used as bath solution during this activity.",
             "else": {
                 "properties": {
                     "@id": {
@@ -261,10 +261,8 @@
         }
     },
     "required": [
-        "@id",
-        "https://openminds.ebrains.eu/vocab/input",
         "https://openminds.ebrains.eu/vocab/slicingDevice",
-        "https://openminds.ebrains.eu/vocab/output",
+        "@id",
         "@type"
     ],
     "type": "object"
