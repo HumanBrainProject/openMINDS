@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/sands/customAnatomicalEntity?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
+        "anatomicalLocation",
         "studyTarget"
     ],
     "_deprecated": true,
@@ -311,10 +312,10 @@
                 }
             },
             "required": [
-                "criteriaQualityType",
                 "type",
                 "criteriaType",
-                "coordinateSpace"
+                "coordinateSpace",
+                "criteriaQualityType"
             ],
             "type": "object"
         },
@@ -325,7 +326,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
-            "_instruction": "Add the related UBERON parcellation term.",
+            "_instruction": "Add the related anatomical entity as defined by the UBERON ontology.",
             "else": {
                 "properties": {
                     "@id": {
@@ -350,8 +351,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-                            "https://openminds.ebrains.eu/controlledTerms/Organ"
+                            "https://openminds.ebrains.eu/controlledTerms/Organ",
+                            "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
                         ],
                         "format": "iri",
                         "type": "string"
