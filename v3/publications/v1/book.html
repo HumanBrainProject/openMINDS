@@ -73,17 +73,6 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">datePublished</span></td>
-            <td></td>
-            <td>
-                
-                
-                
-                string (format: date)</td>
-            <td>Enter the date when this version of the creative work was published or uploaded to a preprint server.</td>
-        </tr>
-        
-        <tr>
             <td class="property nowrap"><span style="font-weight:bold">name</span></td>
             <td>Word or phrase that constitutes the distinctive designation of a being or thing.</td>
             <td>
@@ -91,7 +80,18 @@ table{
                 
                 
                 string</td>
-            <td>Enter the full title of this creative work.</td>
+            <td>Enter the name (or title) of this creative work.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">publicationDate</span></td>
+            <td></td>
+            <td>
+                
+                
+                
+                string (format: date)</td>
+            <td>Enter the date on which this creative work was published, formatted as &#39;2023-02-07&#39;.</td>
         </tr>
         
         <tr>
@@ -102,7 +102,7 @@ table{
                 
                 
                 string (format: iri)</td>
-            <td>Enter a URL/IRI at which this creative work is available.</td>
+            <td>Enter the internationalized resource identifier (IRI) to this creative work.</td>
         </tr>
         
         <tr>
@@ -113,7 +113,7 @@ table{
                 
                 
                 string</td>
-            <td>Enter the abstract of the creative work.</td>
+            <td>Enter the abstract or a short description of the creative work.</td>
         </tr>
         
         <tr>
@@ -130,7 +130,7 @@ table{
                  OR <br/> 
                 <a href="../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Add one or several authors (person or organization) that contributed to the production and publication of this creative work.</td>
+            <td>Add all parties that contributed to this creative work as authors.</td>
         </tr>
         
         <tr>
@@ -145,7 +145,7 @@ table{
                  OR <br/> 
                 <a href="../../core/v4/miscellaneous/ISBN.html">ISBN</a>
                 </td>
-            <td>Add citations or references from this work to another creative work</td>
+            <td>Add all references this creative work cites.</td>
         </tr>
         
         <tr>
@@ -158,7 +158,18 @@ table{
                 
                 <a href="../../core/v4/data/copyright.html">Copyright</a>
                 </td>
-            <td>Add the copyright information of this creative work.</td>
+            <td>Enter the copyright information of this creative work.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >creationDate</span></td>
+            <td></td>
+            <td>
+                
+                
+                
+                string (format: date)</td>
+            <td>Enter the date on which this creative work was created, formatted as &#39;2023-02-07&#39;.</td>
         </tr>
         
         <tr>
@@ -175,29 +186,7 @@ table{
                  OR <br/> 
                 <a href="../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Enter the person or people responsible for the creative work (e.g. the corresponding author).</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >dateCreated</span></td>
-            <td></td>
-            <td>
-                
-                
-                
-                string (format: date)</td>
-            <td>Enter the date on which the creative work was created.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >dateModified</span></td>
-            <td></td>
-            <td>
-                
-                
-                
-                string (format: date)</td>
-            <td>Enter the date on which the creative work was last modified.</td>
+            <td>Add all parties that fulfill the role of a custodian for this creative work (e.g., a corresponding author). Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the creative work.</td>
         </tr>
         
         <tr>
@@ -208,11 +197,11 @@ table{
                  linked object
                 
                 
-                <a href="../../core/v4/miscellaneous/ISBN.html">ISBN</a>
-                 OR <br/> 
                 <a href="../../core/v4/digitalIdentifier/DOI.html">DOI</a>
+                 OR <br/> 
+                <a href="../../core/v4/miscellaneous/ISBN.html">ISBN</a>
                 </td>
-            <td>Add the globally unique and persistent digital identifier of this book.</td>
+            <td>Add the globally unique and persistent digital identifier of this creative work.</td>
         </tr>
         
         <tr>
@@ -225,7 +214,7 @@ table{
                 
                 <a href="../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Add one or more people who edited the creative work.</td>
+            <td>Add all persons that edited this creative work.</td>
         </tr>
         
         <tr>
@@ -238,7 +227,7 @@ table{
                 
                 <a href="../../core/v4/miscellaneous/funding.html">Funding</a>
                 </td>
-            <td>Add all funding information of this creative work version.</td>
+            <td>Add all funding information of this creative work.</td>
         </tr>
         
         <tr>
@@ -249,61 +238,153 @@ table{
                  linked object
                  array (1 - n) of type:<br/>
                 
-                <a href="../../SANDS/v3/non-atlas/customAnatomicalEntity.html">CustomAnatomicalEntity</a>
-                 OR <br/> 
-                <a href="../../SANDS/v3/atlas/parcellationEntityVersion.html">ParcellationEntityVersion</a>
-                 OR <br/> 
-                <a href="../../SANDS/v3/atlas/parcellationEntity.html">ParcellationEntity</a>
-                 OR <br/> 
                 <a href="../../controlledTerms/v1/organismSystem.html">OrganismSystem</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/anatomicalPlane.html">AnatomicalPlane</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/deviceType.html">DeviceType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/annotationType.html">AnnotationType</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/opticalStimulusType.html">OpticalStimulusType</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/tactileStimulusType.html">TactileStimulusType</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/experimentalApproach.html">ExperimentalApproach</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/cellType.html">CellType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/laterality.html">Laterality</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/metaDataModelType.html">MetaDataModelType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/fileUsageRole.html">FileUsageRole</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/operatingDevice.html">OperatingDevice</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/breedingType.html">BreedingType</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/patchClampVariation.html">PatchClampVariation</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/termSuggestion.html">TermSuggestion</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/annotationCriteriaType.html">AnnotationCriteriaType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/gustatoryStimulusType.html">GustatoryStimulusType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/differenceMeasure.html">DifferenceMeasure</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/unitOfMeasurement.html">UnitOfMeasurement</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/UBERONParcellation.html">UBERONParcellation</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/organismSubstance.html">OrganismSubstance</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/contributionType.html">ContributionType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/olfactoryStimulusType.html">OlfactoryStimulusType</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/species.html">Species</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/qualitativeOverlap.html">QualitativeOverlap</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/cranialWindowReinforcementType.html">CranialWindowReinforcementType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/electricalStimulusType.html">ElectricalStimulusType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/softwareFeature.html">SoftwareFeature</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/handedness.html">Handedness</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/modelAbstractionLevel.html">ModelAbstractionLevel</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/tissueSampleAttribute.html">TissueSampleAttribute</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/language.html">Language</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/anatomicalAxesOrientation.html">AnatomicalAxesOrientation</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/criteriaQualityType.html">CriteriaQualityType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/diseaseModel.html">DiseaseModel</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/educationalLevel.html">EducationalLevel</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/softwareApplicationCategory.html">SoftwareApplicationCategory</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/productAccessibility.html">ProductAccessibility</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/biologicalSex.html">BiologicalSex</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/stimulationTechnique.html">StimulationTechnique</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/modelScope.html">ModelScope</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/geneticStrainType.html">GeneticStrainType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/operatingSystem.html">OperatingSystem</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/dataType.html">DataType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/semanticDataType.html">SemanticDataType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/ethicsAssessment.html">EthicsAssessment</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/molecularEntity.html">MolecularEntity</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/programmingLanguage.html">ProgrammingLanguage</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/learningResourceType.html">LearningResourceType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/cellCultureType.html">CellCultureType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/technique.html">Technique</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/fileBundleGrouping.html">FileBundleGrouping</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/stimulationApproach.html">StimulationApproach</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/visualStimulusType.html">VisualStimulusType</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/atlasType.html">AtlasType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/terminology.html">Terminology</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/subjectAttribute.html">SubjectAttribute</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/tissueSampleType.html">TissueSampleType</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/disease.html">Disease</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/preparationType.html">PreparationType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/measuredQuantity.html">MeasuredQuantity</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/auditoryStimulusType.html">AuditoryStimulusType</a>
                  OR <br/> 
+                <a href="../../controlledTerms/v1/setupType.html">SetupType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/service.html">Service</a>
+                 OR <br/> 
                 <a href="../../controlledTerms/v1/biologicalOrder.html">BiologicalOrder</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/fileRepositoryType.html">FileRepositoryType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/cranialWindowConstructionType.html">CranialWindowConstructionType</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/organ.html">Organ</a>
                  OR <br/> 
                 <a href="../../controlledTerms/v1/subcellularEntity.html">SubcellularEntity</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/actionStatusType.html">ActionStatusType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/ageCategory.html">AgeCategory</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/chemicalMixtureType.html">ChemicalMixtureType</a>
+                 OR <br/> 
+                <a href="../../controlledTerms/v1/typeOfUncertainty.html">TypeOfUncertainty</a>
                 </td>
-            <td>Add controlled or suggest new terms as keywords to this creative work</td>
+            <td>Add all relevant keywords to this creative work either by adding controlled terms or by suggesting new terms.</td>
         </tr>
         
         <tr>
@@ -316,7 +397,18 @@ table{
                 
                 <a href="../../core/v4/data/license.html">License</a>
                 </td>
-            <td>Add the license for this creative work.</td>
+            <td>Add the license of this creative work.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >modificationDate</span></td>
+            <td></td>
+            <td>
+                
+                
+                
+                string (format: date)</td>
+            <td>Enter the date on which this creative work was last modfied, formatted as &#39;2023-02-07&#39;.</td>
         </tr>
         
         <tr>
@@ -333,7 +425,7 @@ table{
                  OR <br/> 
                 <a href="../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Enter the person or organisation who/which published this version of the creative work.</td>
+            <td>Add the party (private or commercial) that published this creative work.</td>
         </tr>
         
         <tr>

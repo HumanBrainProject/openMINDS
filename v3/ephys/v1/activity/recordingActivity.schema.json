@@ -52,7 +52,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/device": {
-            "_instruction": "Add the device used for this recording activity.",
+            "_instruction": "Add all devices used during this recording activity.",
             "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
             "items": {
                 "else": {
@@ -79,9 +79,9 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/ephys/PipetteUsage",
                                 "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
-                                "https://openminds.ebrains.eu/ephys/ElectrodeUsage"
+                                "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
+                                "https://openminds.ebrains.eu/ephys/PipetteUsage"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -94,7 +94,8 @@
             },
             "minItems": 1,
             "title": "device",
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/endTime": {
             "_instruction": "Enter the date and/or time on when this activity ended, formatted as either '2023-02-07T16:00:00+00:00' (date-time) or '16:00:00+00:00' (time).",
@@ -110,7 +111,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/input": {
-            "_instruction": "Add all specimens that were recorded from.",
+            "_instruction": "Add all inputs used by this activity.",
             "description": "Something or someone that is put into or participates in a process or machine.",
             "items": {
                 "else": {
@@ -137,10 +138,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                                "https://openminds.ebrains.eu/core/TissueSampleState",
                                 "https://openminds.ebrains.eu/core/SubjectGroupState",
-                                "https://openminds.ebrains.eu/core/SubjectState"
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -157,7 +158,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter the laboratory identifier of the experiment.",
+            "_instruction": "Enter the identifier (or label) of this recording activity that is used within the corresponding data files to identify this recording activity.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
@@ -464,11 +465,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/output",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
-        "@type",
-        "@id",
         "https://openminds.ebrains.eu/vocab/input",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/output",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
         "https://openminds.ebrains.eu/vocab/protocol"
     ],
     "type": "object"
