@@ -1,0 +1,35 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/hash?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Hash",
+    "description": "Structured information on a hash.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Hash",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/algorithm": {
+            "_instruction": "Enter the algorithm used to generate this hash.",
+            "description": "Procedure for solving a mathematical problem in a finite number of steps. Can involve repetition of an operation.",
+            "title": "algorithm",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digest": {
+            "_instruction": "Enter the digest of this hash.",
+            "description": "Summation or condensation of a body of information.",
+            "title": "digest",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/algorithm",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/digest"
+    ],
+    "type": "object"
+}

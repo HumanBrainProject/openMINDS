@@ -1,0 +1,122 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/parcellationTerminology?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/sands/ParcellationTerminology",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/ParcellationTerminology",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definedIn": {
+            "_instruction": "Add one or several files in which this parcellation terminology is stored in.",
+            "description": "Reference to a file instance in which something is stored.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "definedIn",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/hasEntity": {
+            "_instruction": "Add one or several parcellation entities which belong to this parcellation terminology.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasEntity",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "ontologyIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasEntity"
+    ],
+    "type": "object"
+}

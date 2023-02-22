@@ -1,0 +1,64 @@
+@startuml
+class SoftwareVersion {
++applicationCategory
++device
++hasAlternativeVersion
++hasFeature
++hasRequirement
++hasSupplementVersion
++inputFormat
++isNewVersionOf
++language
++operatingSystem
++outputFormat
++programmingLanguage
++accessibility
++author
++copyright
++custodian
++description
++developer
++digitalIdentifier
++fullDocumentation
++fullName
++funding
++homepage
++keyword
++license
++otherContribution
++relatedPublication
++releaseDate
++repository
++shortName
++versionIdentifier
++versionInnovation
+
+}
+SoftwareVersion -d-> "applicationCategory" SoftwareApplicationCategory
+SoftwareVersion -d-> "device" OperatingDevice
+SoftwareVersion -d-> "hasAlternativeVersion" SoftwareVersion
+SoftwareVersion -d-> "hasFeature" SoftwareFeature
+SoftwareVersion -d-> "hasSupplementVersion" SoftwareVersion
+SoftwareVersion -d-> "inputFormat" ContentType
+SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
+SoftwareVersion -d-> "language" Language
+SoftwareVersion -d-> "operatingSystem" OperatingSystem
+SoftwareVersion -d-> "outputFormat" ContentType
+SoftwareVersion -d-> "programmingLanguage" ProgrammingLanguage
+SoftwareVersion -d-> "accessibility" ProductAccessibility
+SoftwareVersion -d-> "author" Organization
+SoftwareVersion -d-> "author" Person
+SoftwareVersion -d-> "copyright" Copyright
+SoftwareVersion -d-> "custodian" Organization
+SoftwareVersion -d-> "custodian" Person
+SoftwareVersion -d-> "developer" Organization
+SoftwareVersion -d-> "developer" Person
+SoftwareVersion -d-> "digitalIdentifier" DigitalIdentifier
+SoftwareVersion -d-> "fullDocumentation" DigitalIdentifier
+SoftwareVersion -d-> "funding" Funding
+SoftwareVersion -d-> "license" License
+SoftwareVersion -d-> "otherContribution" Contribution
+SoftwareVersion -d-> "relatedPublication" DigitalIdentifier
+SoftwareVersion -d-> "repository" FileRepository
+
+@enduml

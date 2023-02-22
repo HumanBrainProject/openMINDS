@@ -1,0 +1,169 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/organization?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "legalPerson"
+    ],
+    "_type": "https://openminds.ebrains.eu/core/Organization",
+    "description": "Structured information on an organization.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Organization",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/affiliation": {
+            "_type": "https://openminds.ebrains.eu/core/Affiliation",
+            "properties": {
+                "endDate": {
+                    "_formats": [
+                        "date"
+                    ],
+                    "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+                    "description": "Date in the Gregorian calendar at which something terminates in time.",
+                    "title": "endDate",
+                    "type": "string"
+                },
+                "memberOf": {
+                    "_instruction": "Add the organization or consortium to which a person or organization is or was affiliated.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Consortium"
+                    ],
+                    "title": "memberOf"
+                },
+                "startDate": {
+                    "_formats": [
+                        "date"
+                    ],
+                    "_instruction": "Enter the start date of this affiliation.",
+                    "description": "Date in the Gregorian calendar at which something begins in time",
+                    "title": "startDate",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "organization"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add all globally unique and persistent digital identifier of this organization.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/GRIDID",
+                                "https://openminds.ebrains.eu/core/RORID",
+                                "https://openminds.ebrains.eu/core/RRID"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "digitalIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+            "_instruction": "Enter the full name of this organization.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
+            "title": "fullName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasParent": {
+            "_instruction": "Add all parent organizations of this organization.",
+            "description": "Reference to a parent object or legal person.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasParent",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this organization.",
+            "description": "Main website of something or someone.",
+            "format": "iri",
+            "title": "homepage",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter a short name (or alias) for this organization that could be used as a shortened display title (e.g., for web services with too little space to display the full name).",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "title": "shortName",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/fullName"
+    ],
+    "type": "object"
+}

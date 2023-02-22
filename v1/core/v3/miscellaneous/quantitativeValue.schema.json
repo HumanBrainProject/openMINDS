@@ -1,0 +1,119 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/quantitativeValue?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+    "description": "Structured information on a quantitative value.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
+            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "typeOfUncertainty",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/uncertainty": {
+            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+            "description": "Quantitative value range defining the uncertainty of a measurement.",
+            "items": {
+                "type": "number"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "uncertainty",
+            "type": "array"
+        },
+        "https://openminds.ebrains.eu/vocab/unit": {
+            "_instruction": "Add the unit of measurement of this quantitative value.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "unit",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/value": {
+            "_instruction": "Enter the measurement value of this quantitative value.",
+            "description": "Entry for a property.",
+            "title": "value",
+            "type": "number"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/value",
+        "@id"
+    ],
+    "type": "object"
+}

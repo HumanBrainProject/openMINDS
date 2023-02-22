@@ -1,0 +1,158 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/serviceLink?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ServiceLink",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ServiceLink",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+            "_instruction": "Add the file, file bundle, atlas annotatation, or other entity with the data that are linked to the specified service.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/core/FileArchive",
+                            "https://openminds.ebrains.eu/core/FileBundle",
+                            "https://openminds.ebrains.eu/core/ModelVersion",
+                            "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                            "https://openminds.ebrains.eu/publications/LivePaperResourceItem"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "dataLocation",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a name that should be used as preferred display label for this service link.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/openDataIn": {
+            "_embeddedTypes": [
+                "https://openminds.ebrains.eu/core/URL"
+            ],
+            "_instruction": "Add the uniform resource locator (URL) to open the linked data in the specified service.",
+            "title": "openDataIn"
+        },
+        "https://openminds.ebrains.eu/vocab/previewImage": {
+            "_instruction": "Add a (static) preview image file (URL) that is representative for this service link and could function as an icon.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/File"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "previewImage",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/service": {
+            "_instruction": "Add the service in which the specified data can be opened.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/Service"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "service",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/dataLocation",
+        "https://openminds.ebrains.eu/vocab/service",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/openDataIn",
+        "@type"
+    ],
+    "type": "object"
+}

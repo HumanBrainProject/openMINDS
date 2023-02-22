@@ -1,0 +1,32 @@
+@startuml
+class TissueSample {
++isPartOf
++laterality
++origin
++studiedState
++anatomicalLocation
++type
++biologicalSex
++internalIdentifier
++lookupLabel
++species
+
+}
+TissueSample -d-> "isPartOf" TissueSampleCollection
+TissueSample -d-> "laterality" Laterality
+TissueSample -d-> "origin" CellType
+TissueSample -d-> "origin" Organ
+TissueSample -d-> "origin" OrganismSubstance
+TissueSample -d-> "studiedState" TissueSampleState
+TissueSample -d-> "anatomicalLocation" UBERONParcellation
+TissueSample -d-> "anatomicalLocation" OrganismSubstance
+TissueSample -d-> "anatomicalLocation" Organ
+TissueSample -d-> "anatomicalLocation" CustomAnatomicalEntity
+TissueSample -d-> "anatomicalLocation" ParcellationEntity
+TissueSample -d-> "anatomicalLocation" ParcellationEntityVersion
+TissueSample -d-> "type" TissueSampleType
+TissueSample -d-> "biologicalSex" BiologicalSex
+TissueSample -d-> "species" Species
+TissueSample -d-> "species" Strain
+
+@enduml
