@@ -12,7 +12,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/contentType": {
-            "_instruction": "Enter the content type that can be defined by the given regular expression for file names/extentions.",
+            "_instruction": "Add the content type that can be defined by the regular expression of this content type pattern (e.g., for file extensions).",
             "else": {
                 "properties": {
                     "@id": {
@@ -51,21 +51,21 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-            "_instruction": "Enter a lookup label for this content type pattern.",
+            "_instruction": "Enter a lookup label for this content type pattern that may help you to find this instance more easily.",
             "title": "lookupLabel",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/regex": {
-            "_instruction": "Enter a regular expression for the file names/extensions that defines the give content type.",
+            "_instruction": "Enter the regular expression for common elements within the file names (including their file path and/or extension) of the files formatted using the stated 'contentType'.",
             "format": "ECMA262",
             "title": "regex",
             "type": "string"
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/regex",
         "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/regex",
         "https://openminds.ebrains.eu/vocab/contentType"
     ],
     "type": "object"

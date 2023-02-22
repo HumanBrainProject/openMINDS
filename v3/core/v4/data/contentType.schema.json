@@ -56,7 +56,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/description": {
-            "_instruction": "Enter a description of the content type specification. May be left blank if a public specification can be linked in 'specification'.",
+            "_instruction": "Enter a description of the content type specification. Leave blank if an official and public specification is linked under 'specification' for this content type.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
             "title": "description",
             "type": "string"
@@ -67,7 +67,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/fileExtension": {
-            "_instruction": "Enter one or several file extensions associated with this content type.",
+            "_instruction": "Enter all file extensions associated with this content type.",
             "description": "String of characters attached as suffix to the names of files of a particular format.",
             "items": {
                 "type": "string"
@@ -78,27 +78,27 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter the name (iana-inspired convention) of this content type.",
+            "_instruction": "Enter the name of this content type following a IANA.org inspired convention.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/relatedMediaType": {
-            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official registered media type (e.g. on IANA.org) matching this content type.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the official registered media type (e.g., provided on IANA.org) matching this content type.",
             "description": "Reference to an official two-part identifier for file formats and format contents.",
             "format": "iri",
             "title": "relatedMediaType",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/specification": {
-            "_instruction": "Enter the iternationalized resource identifier (IRI) of the official specification of this content type. Leave blank and use 'description' to provide some specification if an official specification is not available.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the offical specification of this content type. If no offical and public specification is available, leave blank and enter the specification under 'description'.",
             "description": "Detailed and precise presentation of, or proposal for something.",
             "format": "iri",
             "title": "specification",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/synonym": {
-            "_instruction": "Enter one or several synonyms of this content type.",
+            "_instruction": "Enter any synonyms of this content type.",
             "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
             "items": {
                 "type": "string"
@@ -110,8 +110,8 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
+        "@id",
         "@type"
     ],
     "type": "object"
