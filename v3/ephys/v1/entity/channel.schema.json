@@ -12,13 +12,14 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter any internal identifier used for this channel.",
+            "_instruction": "Enter the identifier (or label) of this channel that is used within the corresponding data files to identify this channel.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/unitOfMeasurement": {
+        "https://openminds.ebrains.eu/vocab/unit": {
             "_instruction": "Add the unit of measurement for this channel.",
+            "description": "Determinate quantity adopted as a standard of measurement.",
             "else": {
                 "properties": {
                     "@id": {
@@ -53,15 +54,15 @@
                     "@id"
                 ]
             },
-            "title": "unitOfMeasurement",
+            "title": "unit",
             "type": "object"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/internalIdentifier",
-        "https://openminds.ebrains.eu/vocab/unitOfMeasurement",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/unit",
         "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/internalIdentifier"
     ],
     "type": "object"
 }

@@ -21,22 +21,23 @@
             "_type": "https://openminds.ebrains.eu/ephys/Channel",
             "properties": {
                 "internalIdentifier": {
-                    "_instruction": "Enter any internal identifier used for this channel.",
+                    "_instruction": "Enter the identifier (or label) of this channel that is used within the corresponding data files to identify this channel.",
                     "description": "Term or code that identifies someone or something within a particular product.",
                     "title": "internalIdentifier",
                     "type": "string"
                 },
-                "unitOfMeasurement": {
+                "unit": {
                     "_instruction": "Add the unit of measurement for this channel.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                     ],
-                    "title": "unitOfMeasurement"
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
                 }
             },
             "required": [
                 "internalIdentifier",
-                "unitOfMeasurement"
+                "unit"
             ],
             "type": "object"
         },
@@ -218,12 +219,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/dataLocation",
-        "@id",
-        "@type",
         "https://openminds.ebrains.eu/vocab/channel",
         "https://openminds.ebrains.eu/vocab/samplingFrequency",
-        "https://openminds.ebrains.eu/vocab/recordedWith"
+        "https://openminds.ebrains.eu/vocab/dataLocation",
+        "https://openminds.ebrains.eu/vocab/recordedWith",
+        "@type",
+        "@id"
     ],
     "type": "object"
 }

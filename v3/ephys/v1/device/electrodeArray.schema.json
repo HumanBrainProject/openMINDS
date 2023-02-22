@@ -55,13 +55,13 @@
             "title": "conductorMaterial",
             "type": "object"
         },
-        "https://openminds.ebrains.eu/vocab/electrodeIdentifier": {
-            "_instruction": "Enter the identifier used for each electrode (contact point) of this electrode array. Number of identifiers should match the 'numberOfElectrodes'.",
+        "https://openminds.ebrains.eu/vocab/electrodeIdentifiers": {
+            "_instruction": "Enter the identifiers for each electrode of this electrode array. Note that the number of identifiers should match the number of electrodes of the array as stated under 'numberOfElectrodes'.",
             "items": {
                 "type": "string"
             },
             "minItems": 2,
-            "title": "electrodeIdentifier",
+            "title": "electrodeIdentifiers",
             "type": "array",
             "uniqueItems": true
         },
@@ -107,7 +107,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter the identifier used for this electrode array within the file it is stored in.",
+            "_instruction": "Enter the identifier (or label) of this electrode array that is used within the corresponding data files to identify this electrode array.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
@@ -195,22 +195,18 @@
                 }
             ]
         },
-        "https://openminds.ebrains.eu/vocab/lookupLabel": {
-            "_instruction": "Enter a lookup label for this electrode array.",
-            "title": "lookupLabel",
-            "type": "string"
-        },
         "https://openminds.ebrains.eu/vocab/numberOfElectrodes": {
-            "_instruction": "Enter the number of electrodes of this array.",
+            "_instruction": "Enter the number of electrodes that belong to this electrode array.",
+            "minimum": 2,
             "title": "numberOfElectrodes",
             "type": "integer"
         }
     },
     "required": [
         "@type",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/electrodeIdentifier",
-        "https://openminds.ebrains.eu/vocab/numberOfElectrodes"
+        "https://openminds.ebrains.eu/vocab/numberOfElectrodes",
+        "https://openminds.ebrains.eu/vocab/electrodeIdentifiers",
+        "@id"
     ],
     "type": "object"
 }
