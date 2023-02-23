@@ -11,9 +11,8 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationTerminologyVersion",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/definedIn": {
-            "_instruction": "Add one or several files in which this parcellation terminology version is stored in.",
-            "description": "Reference to a file instance in which something is stored.",
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+            "_instruction": "Add the location of all files in which this parcellation terminology version is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,11 +50,11 @@
                 }
             },
             "minItems": 1,
-            "title": "definedIn",
+            "title": "dataLocation",
             "type": "array",
             "uniqueItems": true
         },
-        "https://openminds.ebrains.eu/vocab/hasEntityVersion": {
+        "https://openminds.ebrains.eu/vocab/hasEntity": {
             "_instruction": "Add all parcellation entity versions which belong to this parcellation terminology version.",
             "items": {
                 "else": {
@@ -94,12 +93,12 @@
                 }
             },
             "minItems": 1,
-            "title": "hasEntityVersion",
+            "title": "hasEntity",
             "type": "array",
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology version.",
+            "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this parcellation terminology version.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "items": {
                 "_formats": [
@@ -114,9 +113,9 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hasEntityVersion",
-        "@id",
-        "@type"
+        "https://openminds.ebrains.eu/vocab/hasEntity",
+        "@type",
+        "@id"
     ],
     "type": "object"
 }
