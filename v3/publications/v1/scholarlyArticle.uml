@@ -1,5 +1,6 @@
 @startuml
 class ScholarlyArticle {
++digitalIdentifier
 +isPartOf
 +pagination
 +abstract
@@ -20,6 +21,7 @@ class ScholarlyArticle {
 +versionIdentifier
 
 }
+ScholarlyArticle -d-> "digitalIdentifier" DOI
 ScholarlyArticle -d-> "isPartOf" PublicationIssue
 ScholarlyArticle -d-> "isPartOf" PublicationVolume
 ScholarlyArticle -d-> "author" Consortium

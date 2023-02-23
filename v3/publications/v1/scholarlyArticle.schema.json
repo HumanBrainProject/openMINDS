@@ -196,6 +196,46 @@
             "type": "array",
             "uniqueItems": true
         },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this creative work.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/editor": {
             "_instruction": "Add all persons that edited this creative work.",
             "items": {
@@ -284,7 +324,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
-            "_instruction": "Indicates a CreativeWork that this item is part of.",
+            "_instruction": "Add the publication issue or volume this scholarly article is part of.",
             "description": "Reference to the ensemble of multiple things or beings.",
             "else": {
                 "properties": {
@@ -493,7 +533,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/pagination": {
-            "_instruction": "Enter the page range.",
+            "_instruction": "Enter the page range of this scholarly article.",
             "title": "pagination",
             "type": "string"
         },
@@ -552,11 +592,11 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/publicationDate",
         "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/author",
-        "@id",
         "https://openminds.ebrains.eu/vocab/isPartOf",
-        "https://openminds.ebrains.eu/vocab/datePublished",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/author",
         "@type"
     ],
     "type": "object"

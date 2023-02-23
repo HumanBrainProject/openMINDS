@@ -13,7 +13,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/coordinator": {
-            "_instruction": "Add one or several project coordinators (person or organization).",
+            "_instruction": "Add all parties that coordinate this project.",
             "description": "Legal person who organizes the collaborative work of people or groups.",
             "items": {
                 "else": {
@@ -65,13 +65,13 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/fullName": {
-            "_instruction": "Enter a descriptive full name (title) for this project.",
+            "_instruction": "Enter a descriptive full name (or title) for this project.",
             "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "fullName",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasResearchProducts": {
-            "_instruction": "Add all research products or research product versions that are part of this project.",
+            "_instruction": "Add all research product (versions) that are part of this project.",
             "description": "Reference to subsidiary research products.",
             "items": {
                 "else": {
@@ -98,8 +98,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/publications/LivePaperVersion",
-                                "https://openminds.ebrains.eu/publications/LivePaper",
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
+                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+                                "https://openminds.ebrains.eu/sands/BrainAtlas",
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
                                 "https://openminds.ebrains.eu/core/MetaDataModel",
                                 "https://openminds.ebrains.eu/core/Model",
                                 "https://openminds.ebrains.eu/core/Dataset",
@@ -110,14 +112,12 @@
                                 "https://openminds.ebrains.eu/core/WebServiceVersion",
                                 "https://openminds.ebrains.eu/core/DatasetVersion",
                                 "https://openminds.ebrains.eu/core/SoftwareVersion",
+                                "https://openminds.ebrains.eu/publications/LivePaperVersion",
+                                "https://openminds.ebrains.eu/publications/LivePaper",
                                 "https://openminds.ebrains.eu/computation/WorkflowRecipe",
                                 "https://openminds.ebrains.eu/computation/ValidationTest",
                                 "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
-                                "https://openminds.ebrains.eu/computation/ValidationTestVersion",
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
-                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
-                                "https://openminds.ebrains.eu/sands/BrainAtlas",
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                                "https://openminds.ebrains.eu/computation/ValidationTestVersion"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -134,59 +134,26 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/homepage": {
-            "_instruction": "Add the uniform resource locator (URL) to the homepage of this project.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this project.",
             "description": "Main website of something or someone.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/URL"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
+            "format": "iri",
             "title": "homepage",
-            "type": "object"
+            "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/shortName": {
-            "_instruction": "Enter a short name (alias) for this project that could be used as a shortened title for visualization in cases where there is only little space for display.",
+            "_instruction": "Enter a short name (or alias) for this project that could be used as a shortened display title (e.g., for web services with too little space to display the full name).",
             "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "shortName",
             "type": "string"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/hasResearchProducts",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/description",
         "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/description"
+        "https://openminds.ebrains.eu/vocab/shortName"
     ],
     "type": "object"
 }
