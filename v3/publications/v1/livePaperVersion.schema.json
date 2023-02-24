@@ -658,19 +658,8 @@
             "_type": "https://openminds.ebrains.eu/core/Contribution",
             "description": "Structured information on the contribution made to a research product.",
             "properties": {
-                "contributionType": {
-                    "_instruction": "Add one or several type of contributions made by the stated contributor.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/ContributionType"
-                    ],
-                    "description": "Distinct class of what was given or supplied as a part or share.",
-                    "minItems": 1,
-                    "title": "contributionType",
-                    "type": "array",
-                    "uniqueItems": true
-                },
                 "contributor": {
-                    "_instruction": "Add the contributing person or organization.",
+                    "_instruction": "Add all types of contribution made by the stated 'contributor'.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/Consortium",
                         "https://openminds.ebrains.eu/core/Organization",
@@ -678,11 +667,22 @@
                     ],
                     "description": "Legal person that gave or supplied something as a part or share.",
                     "title": "contributor"
+                },
+                "type": {
+                    "_instruction": "Add the party that performed the contribution.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/ContributionType"
+                    ],
+                    "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+                    "minItems": 1,
+                    "title": "type",
+                    "type": "array",
+                    "uniqueItems": true
                 }
             },
             "required": [
-                "contributionType",
-                "contributor"
+                "contributor",
+                "type"
             ],
             "type": "object"
         },
@@ -815,16 +815,16 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/shortName",
         "@id",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
         "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/digitalIdentifier",
-        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/accessibility"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/releaseDate"
     ],
     "type": "object"
 }
