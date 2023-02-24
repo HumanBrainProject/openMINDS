@@ -16,7 +16,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/IRI": {
-            "_instruction": "Enter the internationalized resource identifier of this single file.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to this file instance.",
             "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
             "format": "iri",
             "title": "IRI",
@@ -28,7 +28,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dataType": {
-            "_instruction": "Add all data types that are specifially represented in this file.",
+            "_instruction": "Add all data types that are specifically represented in this file instance.",
             "items": {
                 "else": {
                     "properties": {
@@ -71,7 +71,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/fileRepository": {
-            "_instruction": "Add the over all repository to which this single file belongs.",
+            "_instruction": "Add the overarching repository to which this file instance belongs.",
             "else": {
                 "properties": {
                     "@id": {
@@ -173,7 +173,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
-            "_instruction": "Add one or several bundles in which this single file can be grouped.",
+            "_instruction": "Add all file bundles in which this file instance is grouped into.",
             "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
@@ -217,13 +217,13 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter the name of this single file.",
+            "_instruction": "Enter the name of this file instance.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/specialUsageRole": {
-            "_instruction": "Add a special usage role for this single file.",
+            "_instruction": "Add the special usage role of this file instance.",
             "description": "Particular function of something when it is used.",
             "else": {
                 "properties": {
@@ -307,10 +307,10 @@
         }
     },
     "required": [
+        "https://openminds.ebrains.eu/vocab/IRI",
         "@id",
-        "@type",
         "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/IRI"
+        "@type"
     ],
     "type": "object"
 }
