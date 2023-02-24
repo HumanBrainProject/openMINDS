@@ -1,0 +1,213 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/customAnatomicalEntity?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "studyTarget"
+    ],
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasAnnotation": {
+            "_instruction": "Add the custom annotation which this custom anatomical entity defines.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/CustomAnnotation"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "hasAnnotation",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a descriptive name for this custom anatomical entity.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/relationAssessment": {
+            "anyOf": [
+                {
+                    "_deprecated": true,
+                    "_type": "https://openminds.ebrains.eu/sands/QualitativeRelationAssessment",
+                    "properties": {
+                        "criteria": {
+                            "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ProtocolExecution"
+                            ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
+                        },
+                        "inRelationTo": {
+                            "_instruction": "Add the anatomical entity to which the relation is described.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
+                        },
+                        "qualitativeOverlap": {
+                            "_instruction": "Add the qualitative overlap that best describes the relation between the two anatomical entities.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
+                            ],
+                            "description": "Semantic characterization of how much two things occupy the same space.",
+                            "title": "qualitativeOverlap"
+                        }
+                    },
+                    "required": [
+                        "inRelationTo",
+                        "qualitativeOverlap"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_deprecated": true,
+                    "_type": "https://openminds.ebrains.eu/sands/QuantitativeRelationAssessment",
+                    "properties": {
+                        "criteria": {
+                            "_instruction": "Add the protocol execution defining the criteria that were applied to determine this relation.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/core/ProtocolExecution"
+                            ],
+                            "description": "Aspects or standards on which a judgement or decision is based.",
+                            "title": "criteria"
+                        },
+                        "inRelationTo": {
+                            "_instruction": "Add the anatomical entity to which the relation is described.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity"
+                            ],
+                            "description": "Reference to a related element.",
+                            "title": "inRelationTo"
+                        },
+                        "quantitativeOverlap": {
+                            "anyOf": [
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                    "description": "Structured information on a quantitative value.",
+                                    "properties": {
+                                        "typeOfUncertainty": {
+                                            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                            ],
+                                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                            "title": "typeOfUncertainty"
+                                        },
+                                        "uncertainty": {
+                                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "title": "uncertainty",
+                                            "type": "array"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
+                                        },
+                                        "value": {
+                                            "_instruction": "Enter the measurement value of this quantitative value.",
+                                            "description": "Entry for a property.",
+                                            "title": "value",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": [
+                                        "value"
+                                    ],
+                                    "type": "object"
+                                },
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                    "properties": {
+                                        "maxValue": {
+                                            "_instruction": "Add the maximum value measured for this range.",
+                                            "description": "Greatest quantity attained or allowed.",
+                                            "title": "maxValue",
+                                            "type": "number"
+                                        },
+                                        "minValue": {
+                                            "_instruction": "Add the minimum value measured for this range.",
+                                            "description": "Smallest quantity attained or allowed.",
+                                            "title": "minValue",
+                                            "type": "number"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value range.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
+                                        }
+                                    },
+                                    "required": [
+                                        "maxValue",
+                                        "minValue"
+                                    ],
+                                    "type": "object"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "inRelationTo",
+                        "quantitativeOverlap"
+                    ],
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
+    ],
+    "type": "object"
+}

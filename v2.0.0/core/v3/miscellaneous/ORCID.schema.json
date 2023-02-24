@@ -1,0 +1,30 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/oRCID?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ORCID",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ORCID",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of the Open Researcher and Contributor ID, Inc.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-([0-9]{3}[A-Z]|[0-9]{4})$",
+            "title": "identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "@id"
+    ],
+    "requires": [
+        "identifier"
+    ],
+    "type": "object"
+}
