@@ -21,7 +21,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/format": {
-            "_instruction": "If file instances within this bundle are organized and formatted according to a formal data structure use the appropriate contentType. Leave blank otherwise.",
+            "_instruction": "If the files within this bundle are organised and formatted according to a formal data structure, add the content type of this file bundle. Leave blank if no formal data structure has been applied to the files within this bundle.",
             "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
@@ -61,7 +61,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/groupedBy": {
-            "_instruction": "Add all entities that defined which file was grouped into this file bundle. Note that the schema types of instances stated here, need to match the once stated under 'grouping type'.",
+            "_instruction": "Add all entities that defined which files were grouped into this file bundle. Note that the schema types of the instances stated here, need to match the ones stated under 'groupingType'.",
             "description": "Reference to the aspect used to group something.",
             "items": {
                 "else": {
@@ -88,6 +88,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/CustomCoordinateSpace",
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
                                 "https://openminds.ebrains.eu/computation/LocalFile",
                                 "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique",
                                 "https://openminds.ebrains.eu/controlledTerms/Technique",
@@ -102,6 +105,8 @@
                                 "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
                                 "https://openminds.ebrains.eu/core/FileBundle",
                                 "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
                                 "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
                                 "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
                                 "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
@@ -125,12 +130,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
                                 "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/CustomCoordinateSpace",
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -147,7 +147,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/groupingType": {
-            "_instruction": "Add all type of grouping that was used to define this file bundle. Note that the grouping types define the schema type of instances stated in 'grouped by'.",
+            "_instruction": "Add all grouping types that were used to define this file bundle. Note that the grouping types define the possible schema type of the instances stated under 'groupedBy'.",
             "items": {
                 "else": {
                     "properties": {
@@ -213,7 +213,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
-            "_instruction": "Add the file bundle or file repository this file bundle is a part of.",
+            "_instruction": "Add the file bundle or file repository this file bundle is part of.",
             "description": "Reference to the ensemble of multiple things or beings.",
             "else": {
                 "properties": {
@@ -304,10 +304,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "@type",
-        "https://openminds.ebrains.eu/vocab/name",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }
