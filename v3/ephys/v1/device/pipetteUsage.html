@@ -73,8 +73,8 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">pipette</span></td>
-            <td></td>
+            <td class="property nowrap"><span style="font-weight:bold">device</span></td>
+            <td>Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.</td>
             <td>
                 
                  linked object
@@ -95,7 +95,7 @@ table{
                 
                 <a href="../../../chemicals/v1/chemicalMixture.html">ChemicalMixture</a>
                 </td>
-            <td>Solution used to fill the pipette</td>
+            <td>Enter the solution with which the pipette was filled during its use.</td>
         </tr>
         
         <tr>
@@ -106,15 +106,9 @@ table{
                  linked object
                 
                 
-                <a href="../../../controlledTerms/v1/UBERONParcellation.html">UBERONParcellation</a>
-                 OR <br/> 
                 <a href="../../../SANDS/v3/non-atlas/customAnatomicalEntity.html">CustomAnatomicalEntity</a>
-                 OR <br/> 
-                <a href="None">Unknown type: https://openminds.ebrains.eu/sands/ParcellationEntity</a>
-                 OR <br/> 
-                <a href="../../../SANDS/v3/atlas/parcellationEntityVersion.html">ParcellationEntityVersion</a>
                 </td>
-            <td>Add the anatomical entity in which the pipette tip is located.</td>
+            <td>Add the anatomical entity that semantically best describes the anatomical location of the pipette tip.</td>
         </tr>
         
         <tr>
@@ -127,7 +121,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>The chloride reversal potential(s) calculated from the intracellular solution(s) of the pipette(s).</td>
+            <td>Enter all chloride reversal potentials for the intracellular solution(s) of the pipette measured during its use.</td>
         </tr>
         
         <tr>
@@ -140,20 +134,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Enter the compensation current for the series resistance.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >coordinatePoint</span></td>
-            <td>Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.</td>
-            <td>
-                 embedded object
-                
-                
-                
-                <a href="../../../SANDS/v3/miscellaneous/coordinatePoint.html">CoordinatePoint</a>
-                </td>
-            <td>Add the central coordinate of the pipette tip.</td>
+            <td>Enter the compensation current for the series resistance of the pipette measured during its use.</td>
         </tr>
         
         <tr>
@@ -166,7 +147,20 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Membrane potential of patched cell at the end of recording</td>
+            <td>Enter the membrane potential of e.g., a patched cell at the end of a recording measured during the use of this pipette.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >holdingPotential</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                
+                
+                <a href="../../../core/v4/data/measurement.html">Measurement</a>
+                </td>
+            <td>Enter the holding membrane potential of e.g., a patched cell measured during the use of this pipette.</td>
         </tr>
         
         <tr>
@@ -179,7 +173,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Enter the input resistance of the patched cell</td>
+            <td>Enter the input resistance of e.g., a patched cell measured during the use of this pipette.</td>
         </tr>
         
         <tr>
@@ -196,7 +190,7 @@ table{
                  OR <br/> 
                 <a href="../../../controlledTerms/v1/molecularEntity.html">MolecularEntity</a>
                 </td>
-            <td>Add the compound used in the pipette to label the cell.</td>
+            <td>Add the used compound for labelling e.g., a patched cell during the use of this pipette. </td>
         </tr>
         
         <tr>
@@ -209,7 +203,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Liquid junction potential of patch</td>
+            <td>Enter the liquid junction potential of e.g., a patched cell measured during the use of this pipette.</td>
         </tr>
         
         <tr>
@@ -220,20 +214,22 @@ table{
                 
                 
                 string</td>
-            <td>Enter a lookup label for this pipette usage.</td>
+            <td>Enter a lookup label for this device usage that may help you to find this instance more easily.</td>
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >measuredHoldingPotential</span></td>
+            <td class="property nowrap"><span >metadataLocation</span></td>
             <td></td>
             <td>
-                 embedded object
                 
+                 linked object
+                 array (1 - n) of type:<br/>
                 
-                
-                <a href="../../../core/v4/data/measurement.html">Measurement</a>
+                <a href="../../../core/v4/data/file.html">File</a>
+                 OR <br/> 
+                <a href="../../../core/v4/data/fileBundle.html">FileBundle</a>
                 </td>
-            <td>Enter the measured holding potential of the patched cell</td>
+            <td>Add all files or file bundles containing additional information about the usage of this device.</td>
         </tr>
         
         <tr>
@@ -248,7 +244,7 @@ table{
                  OR <br/> 
                 <a href="../../../core/v4/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
                 </td>
-            <td>Enter the resistance of the pipette used.</td>
+            <td>Enter the resistance of the pipette during its use.</td>
         </tr>
         
         <tr>
@@ -261,7 +257,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Seal resistance of patch</td>
+            <td>Enter the seal resistance of e.g., a patched cell measured during the use of this pipette.</td>
         </tr>
         
         <tr>
@@ -274,7 +270,20 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Enter the series resistance compensation while patching the cell.</td>
+            <td>Enter the series resistance of the pipette measured during its use.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >spatialLocation</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                
+                
+                <a href="../../../SANDS/v3/miscellaneous/coordinatePoint.html">CoordinatePoint</a>
+                </td>
+            <td>Add the coordinate point that best describes the spatial location of the pipette tip during its use.</td>
         </tr>
         
         <tr>
@@ -287,7 +296,7 @@ table{
                 
                 <a href="../../../core/v4/data/measurement.html">Measurement</a>
                 </td>
-            <td>Membrane potential of patched cell at the beginning of recording</td>
+            <td>Enter the membrane potential of e.g., a patched cell at the beginning of a recording measured during the use of this pipette.</td>
         </tr>
         
         <tr>
@@ -298,11 +307,11 @@ table{
                  linked object
                 
                 
-                <a href="../../../core/v4/research/tissueSampleState.html">TissueSampleState</a>
-                 OR <br/> 
                 <a href="../../../core/v4/research/subjectState.html">SubjectState</a>
+                 OR <br/> 
+                <a href="../../../core/v4/research/tissueSampleState.html">TissueSampleState</a>
                 </td>
-            <td>Add the tissue or subject used with this pipette usage</td>
+            <td>Add the state of the tissue sample or subject that this device was used on.</td>
         </tr>
         
     </table>

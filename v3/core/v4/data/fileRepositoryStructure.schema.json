@@ -15,7 +15,7 @@
             "_type": "https://openminds.ebrains.eu/core/FilePathPattern",
             "properties": {
                 "groupingType": {
-                    "_instruction": "Add the type of grouping that is defined by the given file path pattern.",
+                    "_instruction": "Add all grouping types that are defined by this file path pattern.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
                     ],
@@ -28,7 +28,7 @@
                     "_formats": [
                         "ECMA262"
                     ],
-                    "_instruction": "Enter the regular expression that defines this file path pattern. Note that the number of groups within the regular expression needs to match the number of stated grouping types.",
+                    "_instruction": "Enter the regular expression that defines this file path pattern. Note that it must have the same number of groups as stated under 'groupingType'.",
                     "title": "regex",
                     "type": "string"
                 }
@@ -46,9 +46,9 @@
         }
     },
     "required": [
-        "@type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/filePathPattern",
-        "@id"
+        "@type"
     ],
     "type": "object"
 }
