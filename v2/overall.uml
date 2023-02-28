@@ -1191,8 +1191,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
 ProtocolExecution -d-> "studyTarget" OrganismSystem
 ProtocolExecution -d-> "studyTarget" OpticalStimulusType
 ProtocolExecution -d-> "studyTarget" TactileStimulusType
@@ -1217,6 +1215,8 @@ ProtocolExecution -d-> "studyTarget" AuditoryStimulusType
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" Organ
 ProtocolExecution -d-> "studyTarget" SubcellularEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
 
 
 class SubjectGroupState {
@@ -1246,8 +1246,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" CustomAnatomicalEntity
-Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "studyOption" OrganismSystem
 Protocol -d-> "studyOption" OpticalStimulusType
 Protocol -d-> "studyOption" TactileStimulusType
@@ -1272,6 +1270,8 @@ Protocol -d-> "studyOption" AuditoryStimulusType
 Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" Organ
 Protocol -d-> "studyOption" SubcellularEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
+Protocol -d-> "studyOption" ParcellationEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1668,8 +1668,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" CustomAnatomicalEntity
-Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "studyTarget" OrganismSystem
 Model -d-> "studyTarget" OpticalStimulusType
 Model -d-> "studyTarget" TactileStimulusType
@@ -1694,6 +1692,8 @@ Model -d-> "studyTarget" AuditoryStimulusType
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" Organ
 Model -d-> "studyTarget" SubcellularEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
+Model -d-> "studyTarget" ParcellationEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
