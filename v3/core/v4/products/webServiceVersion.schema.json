@@ -139,7 +139,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the implementation of this version of the web service. Note that these developers will overwrite the ones provided in the web service entry this version belongs to.",
+            "_instruction": "Add all parties that developed this web service version. Note that these developers will overwrite the developer list provided for the overarching web service.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -277,7 +277,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/hasComponent": {
-            "_instruction": "Add software versions that are used in this version of the web service.",
+            "_instruction": "Add all software versions that are components of this web service version.",
             "description": "Reference to an element of a collection.",
             "items": {
                 "else": {
@@ -367,7 +367,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/inputFormat": {
-            "_instruction": "Add the content types of all possible input formats for this web service version.",
+            "_instruction": "Add all content types that can be used as input by this web service version.",
             "description": "Format of data that is put into a process or machine.",
             "items": {
                 "else": {
@@ -411,7 +411,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
-            "_instruction": "Add all web service versions that can be used alternatively to this one.",
+            "_instruction": "Add all web service versions that can be used alternatively to this web service version.",
             "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
@@ -455,7 +455,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-            "_instruction": "Add the web service version preceding this one.",
+            "_instruction": "Add the web service version preceding this web service version.",
             "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
@@ -644,7 +644,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/outputFormat": {
-            "_instruction": "Add the content types of all possible output formats for this web service version.",
+            "_instruction": "Add all content types that can be generated as output by this web service version.",
             "description": "Format of data that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
@@ -816,14 +816,14 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/accessibility",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "@type",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id"
+        "@id",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
 }

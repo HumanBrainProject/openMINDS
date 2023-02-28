@@ -139,7 +139,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this workflow recipe version. Note that these developers will overwrite the ones provided in the workflow recipe this version belongs to.",
+            "_instruction": "Add all parties that developed this workflow recipe version. Note that these developers will overwrite the developer list provided for the overarching workflow recipe.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -225,7 +225,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/format": {
-            "_instruction": "Add the used content type of this workflow recipe version.",
+            "_instruction": "Add the content type of this workflow recipe version.",
             "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
@@ -357,7 +357,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/hasComponent": {
-            "_instruction": "Add all workflow recipe versions that are components of this workflow recipe version, as well as the software and/or scripts used in this workflow",
+            "_instruction": "Add all entities that are components of this workflow recipe version (e.g., other workflow recipe versions or software used in this workflow).",
             "description": "Reference to an element of a collection.",
             "items": {
                 "else": {
@@ -385,9 +385,9 @@
                         "@type": {
                             "enum": [
                                 "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
-                                "https://openminds.ebrains.eu/core/SoftwareVersion",
                                 "https://openminds.ebrains.eu/core/File",
-                                "https://openminds.ebrains.eu/core/FileBundle"
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/SoftwareVersion"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -494,7 +494,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-            "_instruction": "Add the workflow recipe version preceding this one.",
+            "_instruction": "Add the workflow recipe version preceding this workflow recipe version.",
             "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
@@ -651,7 +651,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add at least one license for this workflow recipe version.",
+            "_instruction": "Add all licenses of this workflow recipe version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "items": {
                 "else": {
@@ -855,15 +855,15 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/format",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/accessibility",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "@type",
-        "https://openminds.ebrains.eu/vocab/format",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id"
+        "@id",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
 }
