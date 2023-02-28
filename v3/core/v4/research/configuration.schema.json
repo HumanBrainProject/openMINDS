@@ -1,0 +1,71 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/configuration?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Configuration",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Configuration",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/configuration": {
+            "_instruction": "Enter the configuration in a simple text based format (e.g., JSON, or YAML).",
+            "title": "configuration",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/definitionFormat": {
+            "_instruction": "Add the content type of the defined configuration.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "definitionFormat",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this configuration that may help you to more easily find it again.",
+            "title": "lookupLabel",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/configuration",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/definitionFormat"
+    ],
+    "type": "object"
+}

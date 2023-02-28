@@ -1,0 +1,328 @@
+<html>
+<head>
+    <title>https://openminds.ebrains.eu/sands/CommonCoordinateSpace</title>
+    <style>body {
+    font-family: 'Inter','Source Sans Pro',sans-serif;
+    color: #4a5568;
+    line-height: 1.5;
+    font-size: 87%;
+}
+
+a {
+   color: #4a5568;
+  text-decoration: underline;
+}
+
+
+td.nowrap{
+  white-space: nowrap;
+ }
+
+td {
+vertical-align:top;
+padding-right: 2em;
+    line-height: 1.5;
+}
+
+
+table.properties tr td{
+ border: 1px solid #ddd;
+}
+h4 a{
+font-weight: bold;
+}
+
+h4{
+font-weight: normal;
+}
+h3 {
+    text-transform: uppercase;
+    color: rgb(74, 85, 104);
+     font-size: 100%;
+     margin-bottom: 0.2em;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr.header{
+    background-color: #4a5568;
+    color: white;
+    font-weight:bold;
+    }
+
+tr.header td{
+    text-transform: uppercase;
+    }
+
+table{
+  border-collapse: collapse;
+  }
+
+
+.property{
+}</style>
+</head>
+<body>
+    <h1>CommonCoordinateSpace</h1>
+    <h2>https://openminds.ebrains.eu/sands/CommonCoordinateSpace</h2>
+    <h4>part of <b>SANDS</b> in version <b>v3</b> - view as <a href="commonCoordinateSpace.schema.json">JSON Schema</a></h4>
+    <div>Required properties are highlighted in <span style="font-weight:bold">bold</span></div>
+
+    <table class="properties">
+        <tr class="header"><td class="property" colspan="2">property</td><td colspan="2">value</td></tr>
+        <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">description</span></td>
+            <td>Longer statement or account giving the characteristics of someone or something.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a description (or abstract) of this research product. Note that this should be a suitable description for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">fullName</span></td>
+            <td>Whole, non-abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a descriptive full name (or title) for this research product. Note that this should be a suitable full name for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">hasVersion</span></td>
+            <td>Reference to variants of an original.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../SANDS/v3/atlas/commonCoordinateSpaceVersion.html">CommonCoordinateSpaceVersion</a>
+                </td>
+            <td>Add one or several versions of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">shortName</span></td>
+            <td>Shortened or fully abbreviated name of something or somebody.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter a short name (or alias) for this research product that could be used as a shortened display title (e.g., for web services with too little space to display the full name).</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span style="font-weight:bold">usedSpecies</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../controlledTerms/v1/species.html">Species</a>
+                </td>
+            <td>Add the species of the specimen that were used to create this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >abbreviation</span></td>
+            <td></td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the official abbreviation of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >author</span></td>
+            <td>Creator of a literary or creative work, as well as a dataset publication.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                </td>
+            <td>If necessary, add one or several authors (person or organization) that contributed to the production and publication of this common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >custodian</span></td>
+            <td>The &#39;custodian&#39; is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.</td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/actors/consortium.html">Consortium</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/organization.html">Organization</a>
+                 OR <br/> 
+                <a href="../../../core/v4/actors/person.html">Person</a>
+                </td>
+            <td>Add all parties that fulfill the role of a custodian for this research product (e.g., a research group leader or principle investigator). Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of the research product. Unless specified differently, this custodian will be responsible for all attached research product versions.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >digitalIdentifier</span></td>
+            <td>Digital handle to identify objects or legal persons.</td>
+            <td>
+                
+                 linked object
+                
+                
+                <a href="../../../core/v4/digitalIdentifier/DOI.html">DOI</a>
+                 OR <br/> 
+                <a href="../../../core/v4/digitalIdentifier/ISBN.html">ISBN</a>
+                 OR <br/> 
+                <a href="../../../core/v4/digitalIdentifier/RRID.html">RRID</a>
+                </td>
+            <td>Add the globally unique and persistent digital identifier of this common coordinate space. Note that this digital identifier will be used to reference all attached common coordinate space.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >homepage</span></td>
+            <td>Main website of something or someone.</td>
+            <td>
+                
+                
+                
+                string (format: iri)</td>
+            <td>Enter the internationalized resource identifier (IRI) to the homepage of this research product.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >howToCite</span></td>
+            <td>Preferred format for citing a particular object or legal person.</td>
+            <td>
+                
+                
+                
+                string</td>
+            <td>Enter the preferred citation text for this research product. Leave blank if citation text can be extracted from the assigned digital identifier.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >ontologyIdentifier</span></td>
+            <td>Term or code used to identify something or someone registered within a particular ontology.</td>
+            <td>
+                
+                
+                 array (1 - n) of type:<br/>
+                string (format: iri)</td>
+            <td>Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.</td>
+        </tr>
+        
+    </table>
+
+    <div style="margin-top: 2em;">*This is the simplified property name - within a metadata instance of this schema (JSON-LD) the properties are extended to map to the openMINDS vocabulary namespace (<span style="font-weight: bold">"https://openminds.ebrains.eu/vocab/PROPERTY_NAME"</span>).
+    
+    <div style="margin-top: 3em;">
+         <table class="properties">
+        <tr class="header"><td class="property" colspan="4">instances</td></tr>
+        <tr class="header"><td class="property">name</td><td class="property"></td><td>ID</td>
+            
+            <td></td></tr>
+        
+        <tr>
+            <td class="property nowrap">AMB CCF (v3)</td>
+            <td>v3</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/AMB_CCF_v3</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/AMB_CCF_v3.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">BigBrain model</td>
+            <td>2015</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/BigBrain_v1</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/BigBrain_2015.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Colin27 (1998)</td>
+            <td>original version 1998</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/Colin27_1998</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/Colin27_1998.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">Colin27 (2008)</td>
+            <td>high-resolution version 2008</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/Colin27_2008</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/Colin27_2008.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">MNI ICBM 152 (2009c Nonlin Asym)</td>
+            <td>2009c Nonlinear Asymmetric</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/MNI_ICBM_152_2009c_nonlin_asym</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/MNI_ICBM_152_2009c_nonlin_asym.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">MNI ICBM 152 (Nonlin 6G Sym)</td>
+            <td>Nonlinear 6th Generation Symmetric</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/MNI_ICBM_152_nonlin_6G_sym</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/MNI_ICBM_152_nonlin_6G_sym.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap">WHSSD v1.01</td>
+            <td>v1.01</td>
+            <td>https://openminds.ebrains.eu/instances/commonCoordinateSpace/WHSSD_v1.01</td>
+            
+            <td class="nowrap" style="font-size:0.8em; font-weight: bold;"><a href="https://raw.githubusercontent.com/HumanBrainProject/openMINDS_SANDS/v3/instances/atlas/commonCoordinateSpace/WHSSD_v1-01.jsonld" target="_blank">JSON-LD</a>
+                
+                
+            </td>
+        </tr>
+        
+    </table>
+    </div>
+    
+
+
+
+
+        <!-- To learn more please go to:
+<a href="https://wiki.ebrains.eu/bin/view/Collabs/openminds/openMINDS%20core/Application%20details/" target="_blank">EBRAINS Collaboratory: openMINDS - Documentation/Application details</a>--></div>
+</body>
+
+</html>
