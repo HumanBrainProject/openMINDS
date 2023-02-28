@@ -12,7 +12,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/RRID": {
-            "_instruction": "Add the 'Research Resource Identifiers' (RRID) for this strain.",
+            "_instruction": "Add the 'Research Resource Identifier' (RRID) of this strain.",
             "else": {
                 "properties": {
                     "@id": {
@@ -140,7 +140,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/diseaseModel": {
-            "_instruction": "If applicable, add what human disease(s) or condition(s) this strain is a model for.",
+            "_instruction": "Add all (human) diseases and/or conditions that this strain is a model for.",
             "items": {
                 "else": {
                     "properties": {
@@ -223,7 +223,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/identifier": {
-            "_instruction": "Enter one or several identifiers for this strain excluding ontological identifers or RRIDs (e.g. from Mouse Genome Informatics (MGI) or Rat Genome Database (RGD)).",
+            "_instruction": "Enter all identifiers for this strain, excluding its ontological identifers or RRID (e.g., identifiers from the Mouse Genome Informatics (MGI) database or Rat Genome Database (RGD)).",
             "description": "Term or code used to identify something or someone.",
             "items": {
                 "type": "string"
@@ -234,7 +234,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/laboratoryCode": {
-            "_instruction": "Enter the laboratory code assigned by the Institute of Laboratory Animal Research (ILAR) for the investigator or organization that has created this strain.",
+            "_instruction": "Enter the laboratory code assigned by the Institute of Laboratory Animal Research (ILAR) for the investigator or organization that has created this strain following the defined pattern (e.g., Aaa).",
             "pattern": "^[A-Z]([a-z]?)+$",
             "title": "laboratoryCode",
             "type": "string"
@@ -246,7 +246,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this strain.",
+            "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this strain.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "items": {
                 "_formats": [
@@ -260,7 +260,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/phenotype": {
-            "_instruction": "Enter a short text describing the phenotype of this strain.",
+            "_instruction": "Enter a short description for the phenotype of this strain.",
             "description": "Physical expression of one or more genes of an organism.",
             "title": "phenotype",
             "type": "string"
@@ -329,7 +329,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/synonym": {
-            "_instruction": "Enter one or several synonyms (inlcuding abbreviations) for this strain.",
+            "_instruction": "Enter any synonyms (inlcuding abbreviations) of this strain.",
             "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
             "items": {
                 "type": "string"
@@ -341,11 +341,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/species",
-        "https://openminds.ebrains.eu/vocab/geneticStrainType",
-        "@type",
         "https://openminds.ebrains.eu/vocab/name",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/species",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/geneticStrainType",
+        "@type"
     ],
     "type": "object"
 }
