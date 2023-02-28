@@ -12,12 +12,13 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-            "_instruction": "Enter the configuration in a simple text based format (e.g., JSON, or YAML).",
+            "_instruction": "Enter the configuration in a simple text based format (e.g., JSON or YAML).",
             "title": "configuration",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/definitionFormat": {
-            "_instruction": "Add the content type of the defined configuration.",
+        "https://openminds.ebrains.eu/vocab/format": {
+            "_instruction": "Add the content type of this configuration.",
+            "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
                     "@id": {
@@ -52,20 +53,20 @@
                     "@id"
                 ]
             },
-            "title": "definitionFormat",
+            "title": "format",
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/lookupLabel": {
-            "_instruction": "Enter a lookup label for this configuration that may help you to more easily find it again.",
+            "_instruction": "Enter a lookup label for this configuration that may help you to find this instance more easily.",
             "title": "lookupLabel",
             "type": "string"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/configuration",
         "@id",
-        "https://openminds.ebrains.eu/vocab/definitionFormat",
-        "@type"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/format",
+        "https://openminds.ebrains.eu/vocab/configuration"
     ],
     "type": "object"
 }
