@@ -12,14 +12,14 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/endDate": {
-            "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+            "_instruction": "Enter the end date of this affiliation, formatted as 'YYYY-MM-DD'. Leave blank if this affiliation is still current.",
             "description": "Date in the Gregorian calendar at which something terminates in time.",
             "format": "date",
             "title": "endDate",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/memberOf": {
-            "_instruction": "Add the organization or consortium to which a person or organization is or was affiliated.",
+            "_instruction": "Add the organization or consortium another party was or still is a member of.",
             "else": {
                 "properties": {
                     "@id": {
@@ -44,8 +44,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/Organization",
-                            "https://openminds.ebrains.eu/core/Consortium"
+                            "https://openminds.ebrains.eu/core/Consortium",
+                            "https://openminds.ebrains.eu/core/Organization"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -59,7 +59,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/startDate": {
-            "_instruction": "Enter the start date of this affiliation.",
+            "_instruction": "Enter the start date of this affiliation, formatted as 'YYYY-MM-DD'.",
             "description": "Date in the Gregorian calendar at which something begins in time",
             "format": "date",
             "title": "startDate",
@@ -67,9 +67,9 @@
         }
     },
     "required": [
-        "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/organization"
+        "https://openminds.ebrains.eu/vocab/organization",
+        "@id"
     ],
     "type": "object"
 }

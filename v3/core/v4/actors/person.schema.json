@@ -23,16 +23,16 @@
                     "_formats": [
                         "date"
                     ],
-                    "_instruction": "Enter the end date of this affiliation. Leave blank if the affiliation is still current.",
+                    "_instruction": "Enter the end date of this affiliation, formatted as 'YYYY-MM-DD'. Leave blank if this affiliation is still current.",
                     "description": "Date in the Gregorian calendar at which something terminates in time.",
                     "title": "endDate",
                     "type": "string"
                 },
                 "memberOf": {
-                    "_instruction": "Add the organization or consortium to which a person or organization is or was affiliated.",
+                    "_instruction": "Add the organization or consortium another party was or still is a member of.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/core/Organization",
-                        "https://openminds.ebrains.eu/core/Consortium"
+                        "https://openminds.ebrains.eu/core/Consortium",
+                        "https://openminds.ebrains.eu/core/Organization"
                     ],
                     "title": "memberOf"
                 },
@@ -40,7 +40,7 @@
                     "_formats": [
                         "date"
                     ],
-                    "_instruction": "Enter the start date of this affiliation.",
+                    "_instruction": "Enter the start date of this affiliation, formatted as 'YYYY-MM-DD'.",
                     "description": "Date in the Gregorian calendar at which something begins in time",
                     "title": "startDate",
                     "type": "string"
@@ -192,9 +192,9 @@
         }
     },
     "required": [
-        "@id",
+        "@type",
         "https://openminds.ebrains.eu/vocab/givenName",
-        "@type"
+        "@id"
     ],
     "type": "object"
 }
