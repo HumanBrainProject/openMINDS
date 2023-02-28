@@ -16,7 +16,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-            "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
+            "_instruction": "Add all anatomical entities that describe the anatomical location of this tissue sample.",
             "items": {
                 "else": {
                     "properties": {
@@ -42,12 +42,7 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -110,7 +105,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
-            "_instruction": "Add all tissue sample collections of which this tissue sample is part of.",
+            "_instruction": "Add all tissue sample collections this tissue sample is part of.",
             "description": "Reference to the ensemble of multiple things or beings.",
             "items": {
                 "else": {
@@ -154,7 +149,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/laterality": {
-            "_instruction": "Add one or both hemisphere sides from which this tissue sample originates from.",
+            "_instruction": "Add one or both sides of the body, bilateral organ or bilateral organ part that this tissue sample originates from.",
             "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
@@ -372,12 +367,12 @@
         }
     },
     "required": [
+        "@id",
         "https://openminds.ebrains.eu/vocab/studiedState",
         "https://openminds.ebrains.eu/vocab/type",
-        "@type",
-        "@id",
+        "https://openminds.ebrains.eu/vocab/origin",
         "https://openminds.ebrains.eu/vocab/species",
-        "https://openminds.ebrains.eu/vocab/origin"
+        "@type"
     ],
     "type": "object"
 }
