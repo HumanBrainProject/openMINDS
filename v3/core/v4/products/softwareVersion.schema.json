@@ -2,8 +2,8 @@
     "$id": "https://openminds.ebrains.eu/core/softwareVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "setupComponent",
-        "researchProduct"
+        "researchProduct",
+        "setupComponent"
     ],
     "_type": "https://openminds.ebrains.eu/core/SoftwareVersion",
     "properties": {
@@ -184,7 +184,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this software version. Note that these developers will overwrite the once provided in the software product this version belongs to.",
+            "_instruction": "Add all parties that developed this software version. Note that these developers will overwrite the developer list provided for the overarching software.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -230,7 +230,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/device": {
-            "_instruction": "Add all hardware devices compatible with this software version.",
+            "_instruction": "Add all operating devices compatible with this software version.",
             "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
             "items": {
                 "else": {
@@ -316,7 +316,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/feature": {
-            "_instruction": "Add all distinguishing characteristics of this software version (e.g. performance, portability, or functionality).",
+            "_instruction": "Add all distinguishing characteristics of this software version (e.g., performance, portability or functionality).",
             "description": "Structure, form, or appearance that characterizes something or someone.",
             "items": {
                 "else": {
@@ -498,7 +498,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/inputFormat": {
-            "_instruction": "Add the content types of all possible input formats for this software version.",
+            "_instruction": "Add all content types that can be used as input by this software version.",
             "description": "Format of data that is put into a process or machine.",
             "items": {
                 "else": {
@@ -787,7 +787,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add at least one license for this software version.",
+            "_instruction": "Add all licenses of this software version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "items": {
                 "else": {
@@ -907,7 +907,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/outputFormat": {
-            "_instruction": "Add the content types of all possible input formats for this software version.",
+            "_instruction": "Add all content types that can be generated as output by this software version.",
             "description": "Format of data that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
@@ -951,7 +951,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/programmingLanguage": {
-            "_instruction": "Add all programming languages used for this software version.",
+            "_instruction": "Add all programming languages used to develop this software version.",
             "description": "Distinct set of instructions for computer programs in order to produce various kinds of output.",
             "items": {
                 "else": {
@@ -1134,21 +1134,21 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/device",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/feature",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/language",
-        "https://openminds.ebrains.eu/vocab/shortName",
         "https://openminds.ebrains.eu/vocab/programmingLanguage",
-        "https://openminds.ebrains.eu/vocab/operatingSystem",
+        "https://openminds.ebrains.eu/vocab/applicationCategory",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/feature",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/operatingSystem",
+        "https://openminds.ebrains.eu/vocab/device",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "@type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/applicationCategory"
+        "https://openminds.ebrains.eu/vocab/language",
+        "https://openminds.ebrains.eu/vocab/shortName"
     ],
     "type": "object"
 }
