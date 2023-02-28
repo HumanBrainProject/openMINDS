@@ -21,7 +21,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-            "_instruction": "Add all anatomical entities to which this tissue sample belongs.",
+            "_instruction": "Add all anatomical entities that describe the anatomical location of this tissue sample collection.",
             "items": {
                 "else": {
                     "properties": {
@@ -47,12 +47,7 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -119,7 +114,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/laterality": {
-            "_instruction": "Add one or both hemisphere sides from which the tissue samples in this collection originate from.",
+            "_instruction": "Add one or both sides of the body, bilateral organ or bilateral organ part that this tissue sample collection originates from.",
             "description": "Differentiation between a pair of lateral homologous parts of the body.",
             "items": {
                 "else": {
@@ -167,6 +162,12 @@
             "_instruction": "Enter a lookup label for this specimen set that may help you to more easily find it again.",
             "title": "lookupLabel",
             "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/numberOfTissueSamples": {
+            "_instruction": "Enter the number of tissue samples that belong to this tissue sample collection.",
+            "minimum": 2,
+            "title": "numberOfTissueSamples",
+            "type": "integer"
         },
         "https://openminds.ebrains.eu/vocab/origin": {
             "_instruction": "Add the biogical origin of all tissue samples in this collection.",
@@ -355,11 +356,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/species",
         "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/species",
         "https://openminds.ebrains.eu/vocab/studiedState",
-        "https://openminds.ebrains.eu/vocab/origin",
         "@type",
+        "https://openminds.ebrains.eu/vocab/origin",
         "@id"
     ],
     "type": "object"
