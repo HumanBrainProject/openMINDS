@@ -140,7 +140,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this model version. Note that these developers will overwrite the once provided in the model product this version belongs to.",
+            "_instruction": "Add all parties that developed this computational model version. Note that these developers will overwrite the developer list provided for the overarching computational model.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -227,7 +227,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/format": {
-            "_instruction": "Add the content types used in this model version.",
+            "_instruction": "Add the content type of this computational model version, or the content types of the files composing the model version.",
             "description": "Method of digitally organizing and structuring data or information.",
             "items": {
                 "else": {
@@ -409,7 +409,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/inputData": {
-            "_instruction": "Add the data that was used as input for this model version.",
+            "_instruction": "Add the data that was used as input for this computational model version.",
             "description": "Data that is put into a process or machine.",
             "items": {
                 "else": {
@@ -439,7 +439,7 @@
                                 "https://openminds.ebrains.eu/core/DOI",
                                 "https://openminds.ebrains.eu/core/File",
                                 "https://openminds.ebrains.eu/core/FileBundle",
-                                "https://openminds.ebrains.eu/core/URL"
+                                "https://openminds.ebrains.eu/core/WebResource"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -456,7 +456,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
-            "_instruction": "Add all model versions that can be used alternatively to this model version.",
+            "_instruction": "Add all computational model versions that can be used alternatively to this computational model version.",
             "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
@@ -500,7 +500,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-            "_instruction": "Add the model version preceding this model version.",
+            "_instruction": "Add the computational model version preceding this computational model version.",
             "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
@@ -657,7 +657,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add at least one license for this model version.",
+            "_instruction": "Add all licenses of this computational model version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "items": {
                 "else": {
@@ -733,7 +733,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/outputData": {
-            "_instruction": "Add the data that was generated as output of this model version.",
+            "_instruction": "Add the data that was generated as output by this computational model version.",
             "description": "Data that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
@@ -763,7 +763,7 @@
                                 "https://openminds.ebrains.eu/core/DOI",
                                 "https://openminds.ebrains.eu/core/File",
                                 "https://openminds.ebrains.eu/core/FileBundle",
-                                "https://openminds.ebrains.eu/core/URL"
+                                "https://openminds.ebrains.eu/core/WebResource"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -908,16 +908,16 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/format",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/license",
         "@type",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/accessibility"
+        "https://openminds.ebrains.eu/vocab/format",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
 }
