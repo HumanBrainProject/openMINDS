@@ -12,7 +12,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/additionalRemarks": {
-            "_instruction": "Enter any additional remarks about this recording.",
+            "_instruction": "Enter any additional remarks concerning this recording.",
             "description": "Mention of what deserves additional attention or notice.",
             "title": "additionalRemarks",
             "type": "string"
@@ -82,19 +82,19 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter the identifier used to identify data associated with this recording within the file or file bundle.",
+            "_instruction": "Enter the identifier (or label) of this recording that is used within the corresponding data files to identify this recording.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/name": {
-            "_instruction": "Enter a name for this recording.",
+            "_instruction": "Enter a descriptive name for this recording.",
             "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
             "title": "name",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/previousRecording": {
-            "_instruction": "If this recording is part of a sequence (sweeps, repetitions), enter the previous recording.",
+            "_instruction": "If this recording is part of a sequence of recordings (e.g., multiple repetitions or sweeps), add the recording preceding this recording.",
             "else": {
                 "properties": {
                     "@id": {
@@ -133,7 +133,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/recordedWith": {
-            "_instruction": "Add the device used for this recording.",
+            "_instruction": "Add the device used to generate this recording.",
             "else": {
                 "properties": {
                     "@id": {
@@ -158,10 +158,10 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/ephys/SlicingDeviceUsage",
                             "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
                             "https://openminds.ebrains.eu/ephys/PipetteUsage",
-                            "https://openminds.ebrains.eu/ephys/ElectrodeUsage"
+                            "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
+                            "https://openminds.ebrains.eu/ephys/SlicingDeviceUsage"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -219,12 +219,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/samplingFrequency",
         "https://openminds.ebrains.eu/vocab/channel",
         "https://openminds.ebrains.eu/vocab/dataLocation",
+        "@id",
         "https://openminds.ebrains.eu/vocab/recordedWith",
-        "@type",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/samplingFrequency",
+        "@type"
     ],
     "type": "object"
 }
