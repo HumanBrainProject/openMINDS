@@ -45,10 +45,6 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/computation/WorkflowRecipe",
-                                "https://openminds.ebrains.eu/computation/ValidationTest",
-                                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
-                                "https://openminds.ebrains.eu/computation/ValidationTestVersion",
                                 "https://openminds.ebrains.eu/publications/LivePaperVersion",
                                 "https://openminds.ebrains.eu/publications/LivePaper",
                                 "https://openminds.ebrains.eu/core/MetaDataModel",
@@ -64,7 +60,11 @@
                                 "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
                                 "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
                                 "https://openminds.ebrains.eu/sands/BrainAtlas",
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
+                                "https://openminds.ebrains.eu/computation/WorkflowRecipe",
+                                "https://openminds.ebrains.eu/computation/ValidationTest",
+                                "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+                                "https://openminds.ebrains.eu/computation/ValidationTestVersion"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -603,6 +603,11 @@
             "title": "name",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/order": {
+            "_instruction": "Enter the order in which this resource should appear, relative to other resources with the same topic.",
+            "title": "order",
+            "type": "integer"
+        },
         "https://openminds.ebrains.eu/vocab/prerequisite": {
             "_instruction": "Enter any knowledge, skills, or abilities that are required to be able to use this learning resource.",
             "title": "prerequisite",
@@ -738,6 +743,11 @@
                 }
             ]
         },
+        "https://openminds.ebrains.eu/vocab/topic": {
+            "_instruction": "Enter the name or a short description of the aspect of the research product that is covered by this tutorial",
+            "title": "topic",
+            "type": "string"
+        },
         "https://openminds.ebrains.eu/vocab/type": {
             "_instruction": "Add the type of this learning resource.",
             "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
@@ -786,11 +796,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
-        "@id",
         "https://openminds.ebrains.eu/vocab/about",
+        "https://openminds.ebrains.eu/vocab/publicationDate",
         "@type",
-        "https://openminds.ebrains.eu/vocab/publicationDate"
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }

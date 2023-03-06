@@ -55,7 +55,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/configuration": {
-            "_instruction": "Add any configuration information for this test, for example the arguments to the SciUnit class.",
+            "_instruction": "Add the configuration information for this validation test version (e.g., arguments to the SciUnit class).",
             "else": {
                 "properties": {
                     "@id": {
@@ -80,10 +80,10 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/URL",
+                            "https://openminds.ebrains.eu/core/Configuration",
                             "https://openminds.ebrains.eu/core/File",
                             "https://openminds.ebrains.eu/core/PropertyValueList",
-                            "https://openminds.ebrains.eu/core/Configuration"
+                            "https://openminds.ebrains.eu/core/WebResource"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -186,7 +186,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "If necessary, add one or several developers (person or organization) that contributed to the code implementation of this validation test version. Note that these developers will overwrite the ones provided in the validation test this version belongs to.",
+            "_instruction": "Add all parties that developed this validation test version. Note that these developers will overwrite the developer list provided for the overarching validation test.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -272,12 +272,12 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/entryPoint": {
-            "_instruction": "Add the entry point for this test, for example the Python class name for a SciUnit test.",
+            "_instruction": "Add the entry point for this validation test version (e.g., the Python class name for a SciUnit test).",
             "title": "entryPoint",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/format": {
-            "_instruction": "Add the used content type of this validation test version.",
+            "_instruction": "Add the content type of this validation test version, or the content types of the files composing the validation test version.",
             "description": "Method of digitally organizing and structuring data or information.",
             "else": {
                 "properties": {
@@ -455,7 +455,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/isAlternativeVersionOf": {
-            "_instruction": "Add all validation test versions that can be used alternatively to this one.",
+            "_instruction": "Add all validation test versions that can be used alternatively to this validation test version.",
             "description": "Reference to an original form where the essence was preserved, but presented in an alternative form.",
             "items": {
                 "else": {
@@ -499,7 +499,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
-            "_instruction": "Add the validation test version preceding this one.",
+            "_instruction": "Add the validation test version preceding this validation test version.",
             "description": "Reference to a previous (potentially outdated) particular form of something.",
             "else": {
                 "properties": {
@@ -657,7 +657,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add at least one license for this validation test version.",
+            "_instruction": "Add the license of this validation test version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "items": {
                 "else": {
@@ -733,7 +733,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/referenceData": {
-            "_instruction": "Add the data that define the expected output of this test.",
+            "_instruction": "Add the data that define the expected output of this validation test version.",
             "items": {
                 "else": {
                     "properties": {
@@ -762,7 +762,7 @@
                                 "https://openminds.ebrains.eu/core/DOI",
                                 "https://openminds.ebrains.eu/core/File",
                                 "https://openminds.ebrains.eu/core/FileBundle",
-                                "https://openminds.ebrains.eu/core/URL"
+                                "https://openminds.ebrains.eu/core/WebResource"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -907,13 +907,13 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "@type",
         "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/format",
         "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],

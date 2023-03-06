@@ -2,12 +2,11 @@
 class LivePaperVersion {
 +about
 +author
-+lastModified
 +digitalIdentifier
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
-+relatedPublication
++modificationDate
 +accessibility
 +copyright
 +custodian
@@ -19,6 +18,7 @@ class LivePaperVersion {
 +howToCite
 +keyword
 +otherContribution
++relatedPublication
 +releaseDate
 +repository
 +shortName
@@ -37,9 +37,6 @@ LivePaperVersion -d-> "digitalIdentifier" DOI
 LivePaperVersion -d-> "isAlternativeVersionOf" LivePaperVersion
 LivePaperVersion -d-> "isNewVersionOf" LivePaperVersion
 LivePaperVersion -d-> "license" License
-LivePaperVersion -d-> "relatedPublication" DOI
-LivePaperVersion -d-> "relatedPublication" ISBN
-LivePaperVersion -d-> "relatedPublication" ISSN
 LivePaperVersion -d-> "accessibility" ProductAccessibility
 LivePaperVersion -d-> "copyright" Copyright
 LivePaperVersion -d-> "custodian" Consortium
@@ -125,6 +122,9 @@ LivePaperVersion -d-> "keyword" AgeCategory
 LivePaperVersion -d-> "keyword" ChemicalMixtureType
 LivePaperVersion -d-> "keyword" TypeOfUncertainty
 LivePaperVersion -d-> "otherContribution" Contribution
+LivePaperVersion -d-> "relatedPublication" DOI
+LivePaperVersion -d-> "relatedPublication" ISBN
+LivePaperVersion -d-> "relatedPublication" HANDLE
 LivePaperVersion -d-> "repository" FileRepository
 
 @enduml

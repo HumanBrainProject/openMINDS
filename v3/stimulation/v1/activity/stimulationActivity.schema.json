@@ -67,7 +67,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/input": {
-            "_instruction": "Add all specimens that were stimulated within this stimulation activity.",
+            "_instruction": "Add all states of the specimen(s) that are being stimulated during this activity.",
             "description": "Something or someone that is put into or participates in a process or machine.",
             "items": {
                 "else": {
@@ -94,10 +94,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                                "https://openminds.ebrains.eu/core/TissueSampleState",
                                 "https://openminds.ebrains.eu/core/SubjectGroupState",
-                                "https://openminds.ebrains.eu/core/SubjectState"
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -159,7 +159,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/output": {
-            "_instruction": "Add all specimens that were resulted by this stimulation activity.",
+            "_instruction": "Add all states of the specimen(s) that were stimulated as a result of this activity.",
             "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
             "items": {
                 "else": {
@@ -186,10 +186,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
-                                "https://openminds.ebrains.eu/core/TissueSampleState",
                                 "https://openminds.ebrains.eu/core/SubjectGroupState",
-                                "https://openminds.ebrains.eu/core/SubjectState"
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -232,8 +232,8 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/computation/SoftwareAgent",
-                                "https://openminds.ebrains.eu/core/Person"
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/computation/SoftwareAgent"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -333,7 +333,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/setup": {
-            "_instruction": "Add the setup used for this stimulation.",
+            "_instruction": "Add the setup used during this stimulation activity.",
             "else": {
                 "properties": {
                     "@id": {
@@ -385,7 +385,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/stimulus": {
-            "_instruction": "Add the stimulus used in this activity.",
+            "_instruction": "Add all stimuli used during this activity.",
             "items": {
                 "else": {
                     "properties": {
@@ -422,7 +422,8 @@
             },
             "minItems": 1,
             "title": "stimulus",
-            "type": "array"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/studyTarget": {
             "_instruction": "Add all study targets of this activity.",
@@ -495,12 +496,12 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/stimulus",
+        "@type",
         "@id",
         "https://openminds.ebrains.eu/vocab/output",
-        "https://openminds.ebrains.eu/vocab/stimulus",
         "https://openminds.ebrains.eu/vocab/input",
-        "@type",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
         "https://openminds.ebrains.eu/vocab/protocol"
     ],
     "type": "object"

@@ -1,14 +1,14 @@
 @startuml
 class ValidationTestVersion {
++configuration
 +developer
 +digitalIdentifier
++entryPoint
 +format
 +isAlternativeVersionOf
 +isNewVersionOf
 +license
 +referenceData
-+entryPoint
-+configuration
 +accessibility
 +copyright
 +custodian
@@ -29,6 +29,10 @@ class ValidationTestVersion {
 +versionInnovation
 
 }
+ValidationTestVersion -d-> "configuration" Configuration
+ValidationTestVersion -d-> "configuration" File
+ValidationTestVersion -d-> "configuration" PropertyValueList
+ValidationTestVersion -d-> "configuration" WebResource
 ValidationTestVersion -d-> "developer" Consortium
 ValidationTestVersion -d-> "developer" Organization
 ValidationTestVersion -d-> "developer" Person
@@ -40,11 +44,7 @@ ValidationTestVersion -d-> "license" License
 ValidationTestVersion -d-> "referenceData" DOI
 ValidationTestVersion -d-> "referenceData" File
 ValidationTestVersion -d-> "referenceData" FileBundle
-ValidationTestVersion -d-> "referenceData" URL
-ValidationTestVersion -d-> "configuration" URL
-ValidationTestVersion -d-> "configuration" File
-ValidationTestVersion -d-> "configuration" PropertyValueList
-ValidationTestVersion -d-> "configuration" Configuration
+ValidationTestVersion -d-> "referenceData" WebResource
 ValidationTestVersion -d-> "accessibility" ProductAccessibility
 ValidationTestVersion -d-> "copyright" Copyright
 ValidationTestVersion -d-> "custodian" Consortium

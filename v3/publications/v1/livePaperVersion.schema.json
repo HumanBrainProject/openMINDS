@@ -15,7 +15,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/about": {
-            "_instruction": "Add links to the datasets, models or software contained within or described by this version of the live paper.",
+            "_instruction": "Add all datasets, models and/or software that are part of or are described by this live paper version.",
             "items": {
                 "else": {
                     "properties": {
@@ -100,7 +100,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/author": {
-            "_instruction": "If necessary, add one or several authors (person or organization) that contributed to the production and publication of this live paper version. Note that these authors will overwrite the ones provided in the live paper product this version belongs to.",
+            "_instruction": "Add all parties that contributed to this live paper version as authors. Note that these authors will overwrite the author list provided for the overarching live paper.",
             "description": "Creator of a literary or creative work, as well as a dataset publication.",
             "items": {
                 "else": {
@@ -235,7 +235,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add the globally unique and persistent digital identifier of this live paper version.",
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product version.",
             "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
@@ -614,14 +614,8 @@
             "type": "array",
             "uniqueItems": true
         },
-        "https://openminds.ebrains.eu/vocab/lastModified": {
-            "_instruction": "Enter the date and time at which the live paper was last modified.",
-            "format": "date-time",
-            "title": "lastModified",
-            "type": "string"
-        },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add the license for this live paper version.",
+            "_instruction": "Add the license of this live paper version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "else": {
                 "properties": {
@@ -660,6 +654,12 @@
             "title": "license",
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/modificationDate": {
+            "_instruction": "Enter the date and time on which this live paper version was last modified, formatted as 'YYYY-MM-DDThh:mm:ssTZD' (e.g., '2023-02-07T16:00:00+00:00').",
+            "format": "date-time",
+            "title": "modificationDate",
+            "type": "string"
+        },
         "https://openminds.ebrains.eu/vocab/otherContribution": {
             "_type": "https://openminds.ebrains.eu/core/Contribution",
             "description": "Structured information on the contribution made to a research product.",
@@ -693,7 +693,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/relatedPublication": {
-            "_instruction": "Add an identifier for the book, chapter, article, or preprint for which this live paper provides supplementary material.",
+            "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
             "description": "Reference to something that was made available for the general public to see or buy.",
             "items": {
                 "else": {
@@ -722,7 +722,7 @@
                             "enum": [
                                 "https://openminds.ebrains.eu/core/DOI",
                                 "https://openminds.ebrains.eu/core/ISBN",
-                                "https://openminds.ebrains.eu/core/ISSN"
+                                "https://openminds.ebrains.eu/core/HANDLE"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -821,15 +821,15 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "@type",
         "https://openminds.ebrains.eu/vocab/digitalIdentifier",
         "@id",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/versionInnovation"
     ],
     "type": "object"
