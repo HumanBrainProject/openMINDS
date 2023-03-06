@@ -118,7 +118,7 @@
             "description": "Structured information on the copyright.",
             "properties": {
                 "holder": {
-                    "_instruction": "Add one or several persons or organisations that hold the copyright.",
+                    "_instruction": "Add all parties that hold this copyright.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/Consortium",
                         "https://openminds.ebrains.eu/core/Organization",
@@ -131,11 +131,16 @@
                     "uniqueItems": true
                 },
                 "year": {
-                    "_instruction": "Enter the year during which the copyright was first asserted.",
+                    "_instruction": "Enter the year during which the copyright was first asserted and, optionally, later years during which updated versions were published.",
                     "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
-                    "pattern": "([0-9]{4})",
+                    "items": {
+                        "pattern": "([0-9]{4})",
+                        "type": "string"
+                    },
+                    "minItems": 1,
                     "title": "year",
-                    "type": "string"
+                    "type": "array",
+                    "uniqueItems": true
                 }
             },
             "required": [
@@ -548,10 +553,10 @@
         }
     },
     "required": [
-        "@type",
         "https://openminds.ebrains.eu/vocab/publicationDate",
+        "https://openminds.ebrains.eu/vocab/name",
         "@id",
-        "https://openminds.ebrains.eu/vocab/name"
+        "@type"
     ],
     "type": "object"
 }

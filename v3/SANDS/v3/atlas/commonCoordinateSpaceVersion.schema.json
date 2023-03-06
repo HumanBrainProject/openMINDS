@@ -2,8 +2,8 @@
     "$id": "https://openminds.ebrains.eu/sands/commonCoordinateSpaceVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "coordinateSpace",
-        "researchProduct"
+        "researchProduct",
+        "coordinateSpace"
     ],
     "_type": "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
     "properties": {
@@ -194,7 +194,7 @@
             "description": "Structured information on the copyright.",
             "properties": {
                 "holder": {
-                    "_instruction": "Add one or several persons or organisations that hold the copyright.",
+                    "_instruction": "Add all parties that hold this copyright.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/Consortium",
                         "https://openminds.ebrains.eu/core/Organization",
@@ -207,11 +207,16 @@
                     "uniqueItems": true
                 },
                 "year": {
-                    "_instruction": "Enter the year during which the copyright was first asserted.",
+                    "_instruction": "Enter the year during which the copyright was first asserted and, optionally, later years during which updated versions were published.",
                     "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
-                    "pattern": "([0-9]{4})",
+                    "items": {
+                        "pattern": "([0-9]{4})",
+                        "type": "string"
+                    },
+                    "minItems": 1,
                     "title": "year",
-                    "type": "string"
+                    "type": "array",
+                    "uniqueItems": true
                 }
             },
             "required": [
@@ -1000,17 +1005,17 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation",
-        "https://openminds.ebrains.eu/vocab/nativeUnit",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "@id",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/anatomicalAxesOrientation",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/accessibility",
         "https://openminds.ebrains.eu/vocab/releaseDate",
         "https://openminds.ebrains.eu/vocab/axesOrigin",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/accessibility"
+        "https://openminds.ebrains.eu/vocab/nativeUnit",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation"
     ],
     "type": "object"
 }

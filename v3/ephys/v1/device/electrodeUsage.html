@@ -73,8 +73,8 @@ table{
         <tr class="header"><td class="property">name*</td><td>description</td><td>type</td><td>instruction</td></tr>
         
         <tr>
-            <td class="property nowrap"><span style="font-weight:bold">electrode</span></td>
-            <td></td>
+            <td class="property nowrap"><span style="font-weight:bold">device</span></td>
+            <td>Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.</td>
             <td>
                 
                  linked object
@@ -86,21 +86,6 @@ table{
         </tr>
         
         <tr>
-            <td class="property nowrap"><span >additionalInformation</span></td>
-            <td></td>
-            <td>
-                
-                 linked object
-                 array (1 - n) of type:<br/>
-                
-                <a href="../../../core/v4/data/file.html">File</a>
-                 OR <br/> 
-                <a href="../../../core/v4/data/fileBundle.html">FileBundle</a>
-                </td>
-            <td>Add one or several files containing any additional information about this the electrode.</td>
-        </tr>
-        
-        <tr>
             <td class="property nowrap"><span >anatomicalLocation</span></td>
             <td></td>
             <td>
@@ -108,15 +93,19 @@ table{
                  linked object
                 
                 
+                <a href="../../../controlledTerms/v1/cellType.html">CellType</a>
+                 OR <br/> 
                 <a href="../../../controlledTerms/v1/UBERONParcellation.html">UBERONParcellation</a>
                  OR <br/> 
+                <a href="../../../controlledTerms/v1/organismSubstance.html">OrganismSubstance</a>
+                 OR <br/> 
+                <a href="../../../controlledTerms/v1/organ.html">Organ</a>
+                 OR <br/> 
+                <a href="../../../controlledTerms/v1/subcellularEntity.html">SubcellularEntity</a>
+                 OR <br/> 
                 <a href="../../../SANDS/v3/non-atlas/customAnatomicalEntity.html">CustomAnatomicalEntity</a>
-                 OR <br/> 
-                <a href="None">Unknown type: https://openminds.ebrains.eu/sands/ParcellationEntity</a>
-                 OR <br/> 
-                <a href="../../../SANDS/v3/atlas/parcellationEntityVersion.html">ParcellationEntityVersion</a>
                 </td>
-            <td>Add the anatomical entity in which the electrode contact is located.</td>
+            <td>Add the anatomical entity that semantically best describes the anatomical location of the electrode contact.</td>
         </tr>
         
         <tr>
@@ -131,20 +120,7 @@ table{
                  OR <br/> 
                 <a href="../../../core/v4/miscellaneous/quantitativeValueRange.html">QuantitativeValueRange</a>
                 </td>
-            <td>Enter the resistance of electrode in place.</td>
-        </tr>
-        
-        <tr>
-            <td class="property nowrap"><span >coordinatePoint</span></td>
-            <td>Pair or triplet of numbers defining the position in a particular two- or three dimensional plane or space.</td>
-            <td>
-                 embedded object
-                
-                
-                
-                <a href="../../../SANDS/v3/miscellaneous/coordinatePoint.html">CoordinatePoint</a>
-                </td>
-            <td>Add the central coordinate of this electrode contact.</td>
+            <td>Enter the contact resistance of this electrode during its use.</td>
         </tr>
         
         <tr>
@@ -155,7 +131,35 @@ table{
                 
                 
                 string</td>
-            <td>Enter a lookup label for this electrode usage.</td>
+            <td>Enter a lookup label for this device usage that may help you to find this instance more easily.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >metadataLocation</span></td>
+            <td></td>
+            <td>
+                
+                 linked object
+                 array (1 - n) of type:<br/>
+                
+                <a href="../../../core/v4/data/file.html">File</a>
+                 OR <br/> 
+                <a href="../../../core/v4/data/fileBundle.html">FileBundle</a>
+                </td>
+            <td>Add all files or file bundles containing additional information about the usage of this device.</td>
+        </tr>
+        
+        <tr>
+            <td class="property nowrap"><span >spatialLocation</span></td>
+            <td></td>
+            <td>
+                 embedded object
+                
+                
+                
+                <a href="../../../SANDS/v3/miscellaneous/coordinatePoint.html">CoordinatePoint</a>
+                </td>
+            <td>Add the coordinate point that best describes the spatial location of the electrode contact during its use.</td>
         </tr>
         
         <tr>
@@ -166,11 +170,11 @@ table{
                  linked object
                 
                 
-                <a href="../../../core/v4/research/tissueSampleState.html">TissueSampleState</a>
-                 OR <br/> 
                 <a href="../../../core/v4/research/subjectState.html">SubjectState</a>
+                 OR <br/> 
+                <a href="../../../core/v4/research/tissueSampleState.html">TissueSampleState</a>
                 </td>
-            <td>Add the tissue or subject used with this electrode usage</td>
+            <td>Add the state of the tissue sample or subject that this device was used on.</td>
         </tr>
         
     </table>
