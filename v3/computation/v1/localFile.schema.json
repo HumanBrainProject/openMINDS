@@ -19,6 +19,45 @@
             "title": "contentDescription",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/copyOf": {
+            "_instruction": "Add the file of which this is a copy.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/File"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "copyOf",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/dataType": {
             "_instruction": "Add all data types that are specifically represented in this local file instance.",
             "items": {
@@ -223,8 +262,8 @@
     "required": [
         "https://openminds.ebrains.eu/vocab/path",
         "https://openminds.ebrains.eu/vocab/name",
-        "@type",
-        "@id"
+        "@id",
+        "@type"
     ],
     "type": "object"
 }

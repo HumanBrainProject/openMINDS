@@ -1,6 +1,7 @@
 @startuml
 class LocalFile {
 +contentDescription
++copyOf
 +dataType
 +format
 +hash
@@ -10,6 +11,7 @@ class LocalFile {
 +storageSize
 
 }
+LocalFile -d-> "copyOf" File
 LocalFile -d-> "dataType" DataType
 LocalFile -d-> "format" ContentType
 LocalFile -d-> "hash" Hash

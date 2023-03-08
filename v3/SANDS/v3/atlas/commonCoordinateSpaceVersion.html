@@ -123,9 +123,9 @@ table{
                  OR <br/> 
                 <a href="../../../core/v4/data/file.html">File</a>
                  OR <br/> 
-                <a href="None">Unknown type: https://openminds.ebrains.eu/core/URL</a>
+                <a href="../../../core/v4/miscellaneous/webResource.html">WebResource</a>
                 </td>
-            <td>Add the DOI, file or URL that points to a full documentation of this research product version.</td>
+            <td>Add the publication or file that acts as the full documentation of this research product version.</td>
         </tr>
         
         <tr>
@@ -149,7 +149,7 @@ table{
                 
                 
                 string (format: date)</td>
-            <td>Enter the date (actual or intended) of the first broadcast/publication of this research product version.</td>
+            <td>Enter the date (actual or intended) on which this research product version was first release, formatted as &#39;YYYY-MM-DD&#39;.</td>
         </tr>
         
         <tr>
@@ -160,7 +160,7 @@ table{
                 
                 
                 string</td>
-            <td>Enter a short name (alias) for this research product version that could be used as a shortened title for visualization in cases where there is only little space for display.</td>
+            <td>Enter a short name (or alias) for this research product version that could be used as a shortened display title (e.g., for web services with too little space to display the full name).</td>
         </tr>
         
         <tr>
@@ -182,7 +182,7 @@ table{
                 
                 
                 string</td>
-            <td>Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it&#39;s research product. If this research product version is the first released version, you can enter the following disclaimer &#39;This is the first version of this research product.&#39;</td>
+            <td>Enter a short description (or summary) of the novelties/peculiarities of this research product version in comparison to its preceding versions. If this research product version is the first version, you can enter the following disclaimer &#39;This is the first version of this research product&#39;.</td>
         </tr>
         
         <tr>
@@ -223,7 +223,7 @@ table{
                 
                 <a href="../../../core/v4/data/copyright.html">Copyright</a>
                 </td>
-            <td>Add the copyright information of this research product version.</td>
+            <td>Enter the copyright information of this research product version.</td>
         </tr>
         
         <tr>
@@ -240,7 +240,7 @@ table{
                  OR <br/> 
                 <a href="../../../core/v4/actors/person.html">Person</a>
                 </td>
-            <td>Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product.</td>
+            <td>Add all parties that fulfill the role of a custodian for the research product version (e.g., a research group leader or principle investigator). Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of the research product version.</td>
         </tr>
         
         <tr>
@@ -264,7 +264,7 @@ table{
                 
                 
                 string</td>
-            <td>If necessary, enter a version specific description (abstract) for this research product version (max. 2000 characters, incl. spaces; no references). If left blank, the research product version will inherit the &#39;description&#39; of it&#39;s corresponding research product.</td>
+            <td>Enter a description (or abstract) of this research product version. Note that this version specific description will overwrite the description for the overarching dataset.</td>
         </tr>
         
         <tr>
@@ -292,7 +292,7 @@ table{
                 
                 
                 string</td>
-            <td>If necessary, enter a version specific descriptive full name (title) for this research product version. If left blank, the research product version will inherit the &#39;fullName&#39; of it&#39;s corresponding research product.</td>
+            <td>Enter a descriptive full name (or title) for this research product version. Note that this version specific full name will overwrite the full name for the overarching dataset.</td>
         </tr>
         
         <tr>
@@ -313,12 +313,10 @@ table{
             <td>Main website of something or someone.</td>
             <td>
                 
-                 linked object
                 
                 
-                <a href="None">Unknown type: https://openminds.ebrains.eu/core/URL</a>
-                </td>
-            <td>Add the uniform resource locator (URL) to the homepage of this research product version.</td>
+                string (format: iri)</td>
+            <td>Enter the internationalized resource identifier (IRI) to the homepage of this research product version.</td>
         </tr>
         
         <tr>
@@ -364,7 +362,7 @@ table{
             <td>
                 
                  linked object
-                 array (1 - 5) of type:<br/>
+                 array (1 - n) of type:<br/>
                 
                 <a href="../../../controlledTerms/v1/analysisTechnique.html">AnalysisTechnique</a>
                  OR <br/> 
@@ -514,7 +512,7 @@ table{
                  OR <br/> 
                 <a href="../../../controlledTerms/v1/typeOfUncertainty.html">TypeOfUncertainty</a>
                 </td>
-            <td>Add controlled or suggest new terms as keywords to this research product version.</td>
+            <td>Add all relevant keywords to this research product version either by adding controlled terms or by suggesting new terms.</td>
         </tr>
         
         <tr>
@@ -551,7 +549,7 @@ table{
                 
                 <a href="../../../core/v4/actors/contribution.html">Contribution</a>
                 </td>
-            <td>Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.</td>
+            <td>Add any other contributions to this research product version that are not covered under &#39;author&#39;/&#39;developer&#39; or &#39;custodian&#39;.</td>
         </tr>
         
         <tr>
@@ -564,11 +562,13 @@ table{
                 
                 <a href="../../../core/v4/digitalIdentifier/DOI.html">DOI</a>
                  OR <br/> 
+                <a href="../../../core/v4/digitalIdentifier/HANDLE.html">HANDLE</a>
+                 OR <br/> 
                 <a href="../../../core/v4/digitalIdentifier/ISBN.html">ISBN</a>
                  OR <br/> 
-                <a href="../../../core/v4/digitalIdentifier/HANDLE.html">HANDLE</a>
+                <a href="../../../core/v4/digitalIdentifier/ISSN.html">ISSN</a>
                 </td>
-            <td>Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.</td>
+            <td>Add all further publications besides the full documentation that provide the original context for the production of this research product version (e.g., an original research article that used or produced the data of this research product version).</td>
         </tr>
         
         <tr>
@@ -592,7 +592,7 @@ table{
                 
                  array (1 - n) of type:<br/>
                 string (format: email or iri)</td>
-            <td>Enter all channels through which a user can receive support for handling this research product.</td>
+            <td>Enter all channels through which a user can receive support for handling this research product version.</td>
         </tr>
         
         <tr>

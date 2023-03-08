@@ -2,8 +2,8 @@
     "$id": "https://openminds.ebrains.eu/core/softwareVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "researchProduct",
-        "setupComponent"
+        "setupComponent",
+        "researchProduct"
     ],
     "_type": "https://openminds.ebrains.eu/core/SoftwareVersion",
     "properties": {
@@ -136,7 +136,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/custodian": {
-            "_instruction": "Add one or several person(s) or organization(s) that fulfills the role of a custodian. The role of the custodian is typically fulfilled by a research group leader or principal investigator, but could also be carried out by an organization. Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of a research product.",
+            "_instruction": "Add all parties that fulfill the role of a custodian for the research product version (e.g., a research group leader or principle investigator). Custodians are typically the main contact in case of misconduct, obtain permission from the contributors to publish personal information, and maintain the content and quality of the data, metadata, and/or code of the research product version.",
             "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
             "items": {
                 "else": {
@@ -182,9 +182,8 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/description": {
-            "_instruction": "If necessary, enter a version specific description (abstract) for this research product version (max. 2000 characters, incl. spaces; no references). If left blank, the research product version will inherit the 'description' of it's corresponding research product.",
+            "_instruction": "Enter a description (or abstract) of this research product version. Note that this version specific description will overwrite the description for the overarching dataset.",
             "description": "Longer statement or account giving the characteristics of someone or something.",
-            "maxLength": 2000,
             "title": "description",
             "type": "string"
         },
@@ -365,7 +364,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/fullDocumentation": {
-            "_instruction": "Add the DOI, file or URL that points to a full documentation of this research product version.",
+            "_instruction": "Add the publication or file that acts as the full documentation of this research product version.",
             "description": "Non-abridged instructions, comments, and information for using a particular product.",
             "else": {
                 "properties": {
@@ -393,7 +392,7 @@
                         "enum": [
                             "https://openminds.ebrains.eu/core/DOI",
                             "https://openminds.ebrains.eu/core/File",
-                            "https://openminds.ebrains.eu/core/URL"
+                            "https://openminds.ebrains.eu/core/WebResource"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -407,7 +406,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/fullName": {
-            "_instruction": "If necessary, enter a version specific descriptive full name (title) for this research product version. If left blank, the research product version will inherit the 'fullName' of it's corresponding research product.",
+            "_instruction": "Enter a descriptive full name (or title) for this research product version. Note that this version specific full name will overwrite the full name for the overarching dataset.",
             "description": "Whole, non-abbreviated name of something or somebody.",
             "title": "fullName",
             "type": "string"
@@ -457,44 +456,11 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/homepage": {
-            "_instruction": "Add the uniform resource locator (URL) to the homepage of this research product version.",
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
             "description": "Main website of something or someone.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/URL"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
+            "format": "iri",
             "title": "homepage",
-            "type": "object"
+            "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/howToCite": {
             "_instruction": "Enter the preferred citation text for this research product version. Leave blank if citation text can be extracted from the assigned digital identifier.",
@@ -631,7 +597,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/keyword": {
-            "_instruction": "Add controlled or suggest new terms as keywords to this research product version.",
+            "_instruction": "Add all relevant keywords to this research product version either by adding controlled terms or by suggesting new terms.",
             "description": "Significant word or concept that are representative of something or someone.",
             "items": {
                 "else": {
@@ -742,7 +708,6 @@
                     ]
                 }
             },
-            "maxItems": 5,
             "minItems": 1,
             "title": "keyword",
             "type": "array",
@@ -1001,7 +966,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/relatedPublication": {
-            "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
+            "_instruction": "Add all further publications besides the full documentation that provide the original context for the production of this research product version (e.g., an original research article that used or produced the data of this research product version).",
             "description": "Reference to something that was made available for the general public to see or buy.",
             "items": {
                 "else": {
@@ -1029,8 +994,9 @@
                         "@type": {
                             "enum": [
                                 "https://openminds.ebrains.eu/core/DOI",
+                                "https://openminds.ebrains.eu/core/HANDLE",
                                 "https://openminds.ebrains.eu/core/ISBN",
-                                "https://openminds.ebrains.eu/core/HANDLE"
+                                "https://openminds.ebrains.eu/core/ISSN"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -1047,7 +1013,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/releaseDate": {
-            "_instruction": "Enter the date (actual or intended) of the first broadcast/publication of this research product version.",
+            "_instruction": "Enter the date (actual or intended) on which this research product version was first release, formatted as 'YYYY-MM-DD'.",
             "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
             "format": "date",
             "title": "releaseDate",
@@ -1105,14 +1071,13 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/shortName": {
-            "_instruction": "Enter a short name (alias) for this research product version that could be used as a shortened title for visualization in cases where there is only little space for display.",
+            "_instruction": "Enter a short name (or alias) for this research product version that could be used as a shortened display title (e.g., for web services with too little space to display the full name).",
             "description": "Shortened or fully abbreviated name of something or somebody.",
-            "maxLength": 30,
             "title": "shortName",
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/supportChannel": {
-            "_instruction": "Enter all channels through which a user can receive support for handling this research product.",
+            "_instruction": "Enter all channels through which a user can receive support for handling this research product version.",
             "description": "Way of communication used to interact with users or customers.",
             "items": {
                 "_formats": [
@@ -1133,28 +1098,28 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/versionInnovation": {
-            "_instruction": "Enter a summary/description of the novelties/peculiarities of this research product version in comparison to other versions of it's research product. If this research product version is the first released version, you can enter the following disclaimer 'This is the first version of this research product.'",
+            "_instruction": "Enter a short description (or summary) of the novelties/peculiarities of this research product version in comparison to its preceding versions. If this research product version is the first version, you can enter the following disclaimer 'This is the first version of this research product'.",
             "description": "Documentation on what changed in comparison to a previously published form of something.",
             "title": "versionInnovation",
             "type": "string"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/device",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/programmingLanguage",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/applicationCategory",
-        "https://openminds.ebrains.eu/vocab/feature",
         "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/language",
+        "https://openminds.ebrains.eu/vocab/feature",
         "https://openminds.ebrains.eu/vocab/operatingSystem",
+        "https://openminds.ebrains.eu/vocab/programmingLanguage",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/applicationCategory",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/language",
         "@type",
         "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/releaseDate"
+        "https://openminds.ebrains.eu/vocab/device"
     ],
     "type": "object"
 }
