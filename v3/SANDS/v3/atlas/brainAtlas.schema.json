@@ -169,19 +169,18 @@
         "https://openminds.ebrains.eu/vocab/hasTerminology": {
             "_type": "https://openminds.ebrains.eu/sands/ParcellationTerminology",
             "properties": {
-                "definedIn": {
-                    "_instruction": "Add one or several files in which this parcellation terminology is stored in.",
+                "dataLocation": {
+                    "_instruction": "Add the location of all files in which this parcellation terminology is stored.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/File"
                     ],
-                    "description": "Reference to a file instance in which something is stored.",
                     "minItems": 1,
-                    "title": "definedIn",
+                    "title": "dataLocation",
                     "type": "array",
                     "uniqueItems": true
                 },
                 "hasEntity": {
-                    "_instruction": "Add one or several parcellation entities which belong to this parcellation terminology.",
+                    "_instruction": "Add all parcellation entities which belong to this parcellation terminology.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/sands/ParcellationEntity"
                     ],
@@ -191,7 +190,7 @@
                     "uniqueItems": true
                 },
                 "ontologyIdentifier": {
-                    "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology.",
+                    "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this parcellation terminology.",
                     "description": "Term or code used to identify something or someone registered within a particular ontology.",
                     "items": {
                         "_formats": [
@@ -282,14 +281,14 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hasTerminology",
-        "@id",
+        "https://openminds.ebrains.eu/vocab/author",
         "https://openminds.ebrains.eu/vocab/shortName",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/description",
-        "https://openminds.ebrains.eu/vocab/fullName",
+        "@id",
         "https://openminds.ebrains.eu/vocab/hasVersion",
-        "https://openminds.ebrains.eu/vocab/author"
+        "https://openminds.ebrains.eu/vocab/hasTerminology",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "https://openminds.ebrains.eu/vocab/description"
     ],
     "type": "object"
 }

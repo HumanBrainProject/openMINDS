@@ -36,16 +36,10 @@ class LearningResource {
 +versionIdentifier
 
 }
-LearningResource -d-> "about" LivePaper
-LearningResource -d-> "about" LivePaperVersion
 LearningResource -d-> "about" BrainAtlasVersion
 LearningResource -d-> "about" CommonCoordinateSpace
 LearningResource -d-> "about" BrainAtlas
 LearningResource -d-> "about" CommonCoordinateSpaceVersion
-LearningResource -d-> "about" WorkflowRecipeVersion
-LearningResource -d-> "about" ValidationTest
-LearningResource -d-> "about" ValidationTestVersion
-LearningResource -d-> "about" WorkflowRecipe
 LearningResource -d-> "about" WebService
 LearningResource -d-> "about" ModelVersion
 LearningResource -d-> "about" SoftwareVersion
@@ -56,6 +50,12 @@ LearningResource -d-> "about" MetaDataModel
 LearningResource -d-> "about" DatasetVersion
 LearningResource -d-> "about" MetaDataModelVersion
 LearningResource -d-> "about" Model
+LearningResource -d-> "about" LivePaper
+LearningResource -d-> "about" LivePaperVersion
+LearningResource -d-> "about" WorkflowRecipeVersion
+LearningResource -d-> "about" ValidationTest
+LearningResource -d-> "about" ValidationTestVersion
+LearningResource -d-> "about" WorkflowRecipe
 LearningResource -d-> "digitalIdentifier" DOI
 LearningResource -d-> "educationalLevel" EducationalLevel
 LearningResource -d-> "requiredTime" QuantitativeValue
@@ -686,201 +686,6 @@ class LivePaperSection {
 LivePaperSection -d-> "isPartOf" LivePaperVersion
 
 
-class TissueSampleSlicing {
-+input
-+output
-+slicingDevice
-+temperature
-+tissueBathSolution
-
-}
-TissueSampleSlicing -d-> "input" SubjectState
-TissueSampleSlicing -d-> "input" TissueSampleCollectionState
-TissueSampleSlicing -d-> "input" TissueSampleState
-TissueSampleSlicing -d-> "output" TissueSampleCollectionState
-TissueSampleSlicing -d-> "output" TissueSampleState
-TissueSampleSlicing -d-> "slicingDevice" SlicingDeviceUsage
-TissueSampleSlicing -d-> "temperature" QuantitativeValue
-TissueSampleSlicing -d-> "temperature" QuantitativeValueRange
-TissueSampleSlicing -d-> "tissueBathSolution" ChemicalMixture
-
-
-class CranialWindowPreparation {
-+constructionType
-+dimension
-+input
-+output
-+reinforcementType
-+isPartOf
-+preparationDesign
-+protocol
-+customPropertySet
-+description
-+endTime
-+lookupLabel
-+performedBy
-+startTime
-+studyTarget
-
-}
-CranialWindowPreparation -d-> "constructionType" CranialWindowConstructionType
-CranialWindowPreparation -d-> "input" SubjectState
-CranialWindowPreparation -d-> "output" SubjectState
-CranialWindowPreparation -d-> "reinforcementType" CranialWindowReinforcementType
-CranialWindowPreparation -d-> "isPartOf" DatasetVersion
-CranialWindowPreparation -d-> "preparationDesign" PreparationType
-CranialWindowPreparation -d-> "protocol" Protocol
-CranialWindowPreparation -d-> "customPropertySet" CustomPropertySet
-CranialWindowPreparation -d-> "performedBy" SoftwareAgent
-CranialWindowPreparation -d-> "performedBy" Person
-CranialWindowPreparation -d-> "studyTarget" ParcellationEntityVersion
-CranialWindowPreparation -d-> "studyTarget" CustomAnatomicalEntity
-CranialWindowPreparation -d-> "studyTarget" CellCultureType
-CranialWindowPreparation -d-> "studyTarget" Handedness
-CranialWindowPreparation -d-> "studyTarget" BiologicalSex
-CranialWindowPreparation -d-> "studyTarget" TermSuggestion
-CranialWindowPreparation -d-> "studyTarget" TactileStimulusType
-CranialWindowPreparation -d-> "studyTarget" SubcellularEntity
-CranialWindowPreparation -d-> "studyTarget" OrganismSubstance
-CranialWindowPreparation -d-> "studyTarget" CellType
-CranialWindowPreparation -d-> "studyTarget" UBERONParcellation
-CranialWindowPreparation -d-> "studyTarget" VisualStimulusType
-CranialWindowPreparation -d-> "studyTarget" GustatoryStimulusType
-CranialWindowPreparation -d-> "studyTarget" MolecularEntity
-CranialWindowPreparation -d-> "studyTarget" ElectricalStimulusType
-CranialWindowPreparation -d-> "studyTarget" GeneticStrainType
-CranialWindowPreparation -d-> "studyTarget" Organ
-CranialWindowPreparation -d-> "studyTarget" BreedingType
-CranialWindowPreparation -d-> "studyTarget" DiseaseModel
-CranialWindowPreparation -d-> "studyTarget" OlfactoryStimulusType
-CranialWindowPreparation -d-> "studyTarget" Species
-CranialWindowPreparation -d-> "studyTarget" OrganismSystem
-CranialWindowPreparation -d-> "studyTarget" BiologicalOrder
-CranialWindowPreparation -d-> "studyTarget" OpticalStimulusType
-CranialWindowPreparation -d-> "studyTarget" Disease
-CranialWindowPreparation -d-> "studyTarget" AuditoryStimulusType
-
-
-class TissueCulturePreparation {
-+cultureMedium
-+cultureType
-+input
-+output
-
-}
-TissueCulturePreparation -d-> "cultureMedium" ChemicalMixture
-TissueCulturePreparation -d-> "cultureType" CellCultureType
-TissueCulturePreparation -d-> "input" TissueSampleState
-TissueCulturePreparation -d-> "input" TissueSampleCollectionState
-TissueCulturePreparation -d-> "input" SubjectGroupState
-TissueCulturePreparation -d-> "input" SubjectState
-TissueCulturePreparation -d-> "output" TissueSampleState
-
-
-class SlicingDevice {
-+description
-+deviceType
-+digitalIdentifier
-+lookupLabel
-+manufacturer
-+name
-+owner
-+serialNumber
-
-}
-SlicingDevice -d-> "deviceType" DeviceType
-SlicingDevice -d-> "digitalIdentifier" DOI
-SlicingDevice -d-> "digitalIdentifier" RRID
-SlicingDevice -d-> "manufacturer" Person
-SlicingDevice -d-> "manufacturer" Consortium
-SlicingDevice -d-> "manufacturer" Organization
-SlicingDevice -d-> "owner" Person
-SlicingDevice -d-> "owner" Consortium
-SlicingDevice -d-> "owner" Organization
-
-
-class SlicingDeviceUsage {
-+device
-+oscillationAmplitude
-+sliceThickness
-+slicingAngle
-+slicingPlane
-+slicingSpeed
-+vibrationFrequency
-+metadataLocation
-+lookupLabel
-+usedSpecimen
-
-}
-SlicingDeviceUsage -d-> "device" SlicingDevice
-SlicingDeviceUsage -d-> "oscillationAmplitude" QuantitativeValue
-SlicingDeviceUsage -d-> "sliceThickness" QuantitativeValue
-SlicingDeviceUsage -d-> "sliceThickness" QuantitativeValueRange
-SlicingDeviceUsage -d-> "slicingAngle" QuantitativeValue
-SlicingDeviceUsage -d-> "slicingAngle" NumericalProperty
-SlicingDeviceUsage -d-> "slicingPlane" AnatomicalPlane
-SlicingDeviceUsage -d-> "slicingSpeed" QuantitativeValue
-SlicingDeviceUsage -d-> "vibrationFrequency" QuantitativeValue
-SlicingDeviceUsage -d-> "metadataLocation" File
-SlicingDeviceUsage -d-> "metadataLocation" FileBundle
-SlicingDeviceUsage -d-> "usedSpecimen" SubjectState
-SlicingDeviceUsage -d-> "usedSpecimen" TissueSampleState
-
-
-class ProductSource {
-+digitalIdentifier
-+identifier
-+productName
-+provider
-+purity
-
-}
-ProductSource -d-> "digitalIdentifier" RRID
-ProductSource -d-> "provider" Person
-ProductSource -d-> "provider" Consortium
-ProductSource -d-> "provider" Organization
-ProductSource -d-> "purity" QuantitativeValue
-ProductSource -d-> "purity" QuantitativeValueRange
-
-
-class AmountOfChemical {
-+amount
-+chemicalProduct
-
-}
-AmountOfChemical -d-> "amount" QuantitativeValue
-AmountOfChemical -d-> "chemicalProduct" ChemicalMixture
-AmountOfChemical -d-> "chemicalProduct" ChemicalSubstance
-AmountOfChemical -d-> "chemicalProduct" MolecularEntity
-
-
-class ChemicalSubstance {
-+additionalRemarks
-+lookupLabel
-+molecularEntity
-+productSource
-+purity
-
-}
-ChemicalSubstance -d-> "molecularEntity" MolecularEntity
-ChemicalSubstance -d-> "productSource" ProductSource
-ChemicalSubstance -d-> "purity" QuantitativeValue
-ChemicalSubstance -d-> "purity" QuantitativeValueRange
-
-
-class ChemicalMixture {
-+additionalRemarks
-+components
-+name
-+productSource
-+type
-
-}
-ChemicalMixture -d-> "components" AmountOfChemical
-ChemicalMixture -d-> "productSource" ProductSource
-ChemicalMixture -d-> "type" ChemicalMixtureType
-
-
 class Environment {
 +configuration
 +description
@@ -930,8 +735,8 @@ Simulation -d-> "output" FileBundle
 Simulation -d-> "recipe" WorkflowRecipeVersion
 Simulation -d-> "resourceUsage" QuantitativeValue
 Simulation -d-> "resourceUsage" QuantitativeValueRange
-Simulation -d-> "startedBy" SoftwareAgent
 Simulation -d-> "startedBy" Person
+Simulation -d-> "startedBy" SoftwareAgent
 Simulation -d-> "status" ActionStatusType
 Simulation -d-> "technique" AnalysisTechnique
 Simulation -d-> "wasInformedBy" Simulation
@@ -942,8 +747,8 @@ Simulation -d-> "wasInformedBy" DataAnalysis
 Simulation -d-> "wasInformedBy" DataCopy
 Simulation -d-> "wasInformedBy" Optimization
 Simulation -d-> "customPropertySet" CustomPropertySet
-Simulation -d-> "performedBy" SoftwareAgent
 Simulation -d-> "performedBy" Person
+Simulation -d-> "performedBy" SoftwareAgent
 Simulation -d-> "studyTarget" ParcellationEntityVersion
 Simulation -d-> "studyTarget" CustomAnatomicalEntity
 Simulation -d-> "studyTarget" CellCultureType
@@ -1007,8 +812,8 @@ Visualization -d-> "output" FileBundle
 Visualization -d-> "recipe" WorkflowRecipeVersion
 Visualization -d-> "resourceUsage" QuantitativeValue
 Visualization -d-> "resourceUsage" QuantitativeValueRange
-Visualization -d-> "startedBy" SoftwareAgent
 Visualization -d-> "startedBy" Person
+Visualization -d-> "startedBy" SoftwareAgent
 Visualization -d-> "status" ActionStatusType
 Visualization -d-> "technique" AnalysisTechnique
 Visualization -d-> "wasInformedBy" Simulation
@@ -1019,8 +824,8 @@ Visualization -d-> "wasInformedBy" DataAnalysis
 Visualization -d-> "wasInformedBy" DataCopy
 Visualization -d-> "wasInformedBy" Optimization
 Visualization -d-> "customPropertySet" CustomPropertySet
-Visualization -d-> "performedBy" SoftwareAgent
 Visualization -d-> "performedBy" Person
+Visualization -d-> "performedBy" SoftwareAgent
 Visualization -d-> "studyTarget" ParcellationEntityVersion
 Visualization -d-> "studyTarget" CustomAnatomicalEntity
 Visualization -d-> "studyTarget" CellCultureType
@@ -1086,8 +891,8 @@ ModelValidation -d-> "launchConfiguration" LaunchConfiguration
 ModelValidation -d-> "recipe" WorkflowRecipeVersion
 ModelValidation -d-> "resourceUsage" QuantitativeValue
 ModelValidation -d-> "resourceUsage" QuantitativeValueRange
-ModelValidation -d-> "startedBy" SoftwareAgent
 ModelValidation -d-> "startedBy" Person
+ModelValidation -d-> "startedBy" SoftwareAgent
 ModelValidation -d-> "status" ActionStatusType
 ModelValidation -d-> "technique" AnalysisTechnique
 ModelValidation -d-> "wasInformedBy" Simulation
@@ -1098,8 +903,8 @@ ModelValidation -d-> "wasInformedBy" DataAnalysis
 ModelValidation -d-> "wasInformedBy" DataCopy
 ModelValidation -d-> "wasInformedBy" Optimization
 ModelValidation -d-> "customPropertySet" CustomPropertySet
-ModelValidation -d-> "performedBy" SoftwareAgent
 ModelValidation -d-> "performedBy" Person
+ModelValidation -d-> "performedBy" SoftwareAgent
 ModelValidation -d-> "studyTarget" ParcellationEntityVersion
 ModelValidation -d-> "studyTarget" CustomAnatomicalEntity
 ModelValidation -d-> "studyTarget" CellCultureType
@@ -1150,8 +955,8 @@ WorkflowExecution -d-> "stage" GenericComputation
 WorkflowExecution -d-> "stage" DataAnalysis
 WorkflowExecution -d-> "stage" DataCopy
 WorkflowExecution -d-> "stage" Optimization
-WorkflowExecution -d-> "startedBy" SoftwareAgent
 WorkflowExecution -d-> "startedBy" Person
+WorkflowExecution -d-> "startedBy" SoftwareAgent
 
 
 class WorkflowRecipeVersion {
@@ -1532,8 +1337,8 @@ GenericComputation -d-> "output" FileBundle
 GenericComputation -d-> "recipe" WorkflowRecipeVersion
 GenericComputation -d-> "resourceUsage" QuantitativeValue
 GenericComputation -d-> "resourceUsage" QuantitativeValueRange
-GenericComputation -d-> "startedBy" SoftwareAgent
 GenericComputation -d-> "startedBy" Person
+GenericComputation -d-> "startedBy" SoftwareAgent
 GenericComputation -d-> "status" ActionStatusType
 GenericComputation -d-> "technique" AnalysisTechnique
 GenericComputation -d-> "wasInformedBy" Simulation
@@ -1544,8 +1349,8 @@ GenericComputation -d-> "wasInformedBy" DataAnalysis
 GenericComputation -d-> "wasInformedBy" DataCopy
 GenericComputation -d-> "wasInformedBy" Optimization
 GenericComputation -d-> "customPropertySet" CustomPropertySet
-GenericComputation -d-> "performedBy" SoftwareAgent
 GenericComputation -d-> "performedBy" Person
+GenericComputation -d-> "performedBy" SoftwareAgent
 GenericComputation -d-> "studyTarget" ParcellationEntityVersion
 GenericComputation -d-> "studyTarget" CustomAnatomicalEntity
 GenericComputation -d-> "studyTarget" CellCultureType
@@ -1632,8 +1437,8 @@ DataAnalysis -d-> "output" FileBundle
 DataAnalysis -d-> "recipe" WorkflowRecipeVersion
 DataAnalysis -d-> "resourceUsage" QuantitativeValue
 DataAnalysis -d-> "resourceUsage" QuantitativeValueRange
-DataAnalysis -d-> "startedBy" SoftwareAgent
 DataAnalysis -d-> "startedBy" Person
+DataAnalysis -d-> "startedBy" SoftwareAgent
 DataAnalysis -d-> "status" ActionStatusType
 DataAnalysis -d-> "technique" AnalysisTechnique
 DataAnalysis -d-> "wasInformedBy" Simulation
@@ -1644,8 +1449,8 @@ DataAnalysis -d-> "wasInformedBy" DataAnalysis
 DataAnalysis -d-> "wasInformedBy" DataCopy
 DataAnalysis -d-> "wasInformedBy" Optimization
 DataAnalysis -d-> "customPropertySet" CustomPropertySet
-DataAnalysis -d-> "performedBy" SoftwareAgent
 DataAnalysis -d-> "performedBy" Person
+DataAnalysis -d-> "performedBy" SoftwareAgent
 DataAnalysis -d-> "studyTarget" ParcellationEntityVersion
 DataAnalysis -d-> "studyTarget" CustomAnatomicalEntity
 DataAnalysis -d-> "studyTarget" CellCultureType
@@ -1711,8 +1516,8 @@ DataCopy -d-> "launchConfiguration" LaunchConfiguration
 DataCopy -d-> "recipe" WorkflowRecipeVersion
 DataCopy -d-> "resourceUsage" QuantitativeValue
 DataCopy -d-> "resourceUsage" QuantitativeValueRange
-DataCopy -d-> "startedBy" SoftwareAgent
 DataCopy -d-> "startedBy" Person
+DataCopy -d-> "startedBy" SoftwareAgent
 DataCopy -d-> "status" ActionStatusType
 DataCopy -d-> "technique" AnalysisTechnique
 DataCopy -d-> "wasInformedBy" Simulation
@@ -1723,8 +1528,8 @@ DataCopy -d-> "wasInformedBy" DataAnalysis
 DataCopy -d-> "wasInformedBy" DataCopy
 DataCopy -d-> "wasInformedBy" Optimization
 DataCopy -d-> "customPropertySet" CustomPropertySet
-DataCopy -d-> "performedBy" SoftwareAgent
 DataCopy -d-> "performedBy" Person
+DataCopy -d-> "performedBy" SoftwareAgent
 DataCopy -d-> "studyTarget" ParcellationEntityVersion
 DataCopy -d-> "studyTarget" CustomAnatomicalEntity
 DataCopy -d-> "studyTarget" CellCultureType
@@ -1789,8 +1594,8 @@ Optimization -d-> "launchConfiguration" LaunchConfiguration
 Optimization -d-> "recipe" WorkflowRecipeVersion
 Optimization -d-> "resourceUsage" QuantitativeValue
 Optimization -d-> "resourceUsage" QuantitativeValueRange
-Optimization -d-> "startedBy" SoftwareAgent
 Optimization -d-> "startedBy" Person
+Optimization -d-> "startedBy" SoftwareAgent
 Optimization -d-> "status" ActionStatusType
 Optimization -d-> "technique" AnalysisTechnique
 Optimization -d-> "wasInformedBy" Simulation
@@ -1801,8 +1606,8 @@ Optimization -d-> "wasInformedBy" DataAnalysis
 Optimization -d-> "wasInformedBy" DataCopy
 Optimization -d-> "wasInformedBy" Optimization
 Optimization -d-> "customPropertySet" CustomPropertySet
-Optimization -d-> "performedBy" SoftwareAgent
 Optimization -d-> "performedBy" Person
+Optimization -d-> "performedBy" SoftwareAgent
 Optimization -d-> "studyTarget" ParcellationEntityVersion
 Optimization -d-> "studyTarget" CustomAnatomicalEntity
 Optimization -d-> "studyTarget" CellCultureType
@@ -1851,73 +1656,6 @@ WorkflowRecipe -d-> "hasVersion" WorkflowRecipeVersion
 WorkflowRecipe -d-> "custodian" Person
 WorkflowRecipe -d-> "custodian" Consortium
 WorkflowRecipe -d-> "custodian" Organization
-
-
-class EphysStimulus {
-+type
-
-}
-EphysStimulus -d-> "type" ElectricalStimulusType
-
-
-class StimulationActivity {
-+input
-+output
-+setup
-+stimulus
-+isPartOf
-+preparationDesign
-+protocol
-+customPropertySet
-+description
-+endTime
-+lookupLabel
-+performedBy
-+startTime
-+studyTarget
-
-}
-StimulationActivity -d-> "input" SubjectGroupState
-StimulationActivity -d-> "input" SubjectState
-StimulationActivity -d-> "input" TissueSampleCollectionState
-StimulationActivity -d-> "input" TissueSampleState
-StimulationActivity -d-> "output" SubjectGroupState
-StimulationActivity -d-> "output" SubjectState
-StimulationActivity -d-> "output" TissueSampleCollectionState
-StimulationActivity -d-> "output" TissueSampleState
-StimulationActivity -d-> "setup" Setup
-StimulationActivity -d-> "isPartOf" DatasetVersion
-StimulationActivity -d-> "preparationDesign" PreparationType
-StimulationActivity -d-> "protocol" Protocol
-StimulationActivity -d-> "customPropertySet" CustomPropertySet
-StimulationActivity -d-> "performedBy" SoftwareAgent
-StimulationActivity -d-> "performedBy" Person
-StimulationActivity -d-> "studyTarget" ParcellationEntityVersion
-StimulationActivity -d-> "studyTarget" CustomAnatomicalEntity
-StimulationActivity -d-> "studyTarget" CellCultureType
-StimulationActivity -d-> "studyTarget" Handedness
-StimulationActivity -d-> "studyTarget" BiologicalSex
-StimulationActivity -d-> "studyTarget" TermSuggestion
-StimulationActivity -d-> "studyTarget" TactileStimulusType
-StimulationActivity -d-> "studyTarget" SubcellularEntity
-StimulationActivity -d-> "studyTarget" OrganismSubstance
-StimulationActivity -d-> "studyTarget" CellType
-StimulationActivity -d-> "studyTarget" UBERONParcellation
-StimulationActivity -d-> "studyTarget" VisualStimulusType
-StimulationActivity -d-> "studyTarget" GustatoryStimulusType
-StimulationActivity -d-> "studyTarget" MolecularEntity
-StimulationActivity -d-> "studyTarget" ElectricalStimulusType
-StimulationActivity -d-> "studyTarget" GeneticStrainType
-StimulationActivity -d-> "studyTarget" Organ
-StimulationActivity -d-> "studyTarget" BreedingType
-StimulationActivity -d-> "studyTarget" DiseaseModel
-StimulationActivity -d-> "studyTarget" OlfactoryStimulusType
-StimulationActivity -d-> "studyTarget" Species
-StimulationActivity -d-> "studyTarget" OrganismSystem
-StimulationActivity -d-> "studyTarget" BiologicalOrder
-StimulationActivity -d-> "studyTarget" OpticalStimulusType
-StimulationActivity -d-> "studyTarget" Disease
-StimulationActivity -d-> "studyTarget" AuditoryStimulusType
 
 
 class QualitativeRelationAssessment {
@@ -2158,12 +1896,12 @@ CommonCoordinateSpace -d-> "custodian" Organization
 
 
 class ParcellationTerminology {
-+definedIn
++dataLocation
 +hasEntity
 +ontologyIdentifier
 
 }
-ParcellationTerminology -d-> "definedIn" File
+ParcellationTerminology -d-> "dataLocation" File
 ParcellationTerminology -d-> "hasEntity" ParcellationEntity
 
 
@@ -2474,179 +2212,98 @@ Ellipse -d-> "semiMinorAxis" QuantitativeValue
 Ellipse -d-> "semiMajorAxis" QuantitativeValue
 
 
-class Recording {
-+additionalRemarks
-+channel
-+dataLocation
-+internalIdentifier
-+name
-+previousRecording
-+recordedWith
-+samplingFrequency
-
-}
-Recording -d-> "channel" Channel
-Recording -d-> "dataLocation" File
-Recording -d-> "dataLocation" FileBundle
-Recording -d-> "previousRecording" Recording
-Recording -d-> "recordedWith" ElectrodeArrayUsage
-Recording -d-> "recordedWith" ElectrodeUsage
-Recording -d-> "recordedWith" PipetteUsage
-Recording -d-> "recordedWith" SlicingDeviceUsage
-Recording -d-> "samplingFrequency" QuantitativeValue
-
-
-class Channel {
-+internalIdentifier
-+unit
-
-}
-Channel -d-> "unit" UnitOfMeasurement
-
-
-class ElectrodePlacement {
-+device
+class TissueSampleSlicing {
 +input
 +output
-+targetPosition
-+isPartOf
-+preparationDesign
-+protocol
-+customPropertySet
-+description
-+endTime
-+lookupLabel
-+performedBy
-+startTime
-+studyTarget
-
-}
-ElectrodePlacement -d-> "device" ElectrodeArrayUsage
-ElectrodePlacement -d-> "device" ElectrodeUsage
-ElectrodePlacement -d-> "device" PipetteUsage
-ElectrodePlacement -d-> "device" SlicingDeviceUsage
-ElectrodePlacement -d-> "input" TissueSampleState
-ElectrodePlacement -d-> "input" SubjectState
-ElectrodePlacement -d-> "output" TissueSampleState
-ElectrodePlacement -d-> "output" SubjectState
-ElectrodePlacement -d-> "targetPosition" AnatomicalTargetPosition
-ElectrodePlacement -d-> "isPartOf" DatasetVersion
-ElectrodePlacement -d-> "preparationDesign" PreparationType
-ElectrodePlacement -d-> "protocol" Protocol
-ElectrodePlacement -d-> "customPropertySet" CustomPropertySet
-ElectrodePlacement -d-> "performedBy" SoftwareAgent
-ElectrodePlacement -d-> "performedBy" Person
-ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
-ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
-ElectrodePlacement -d-> "studyTarget" CellCultureType
-ElectrodePlacement -d-> "studyTarget" Handedness
-ElectrodePlacement -d-> "studyTarget" BiologicalSex
-ElectrodePlacement -d-> "studyTarget" TermSuggestion
-ElectrodePlacement -d-> "studyTarget" TactileStimulusType
-ElectrodePlacement -d-> "studyTarget" SubcellularEntity
-ElectrodePlacement -d-> "studyTarget" OrganismSubstance
-ElectrodePlacement -d-> "studyTarget" CellType
-ElectrodePlacement -d-> "studyTarget" UBERONParcellation
-ElectrodePlacement -d-> "studyTarget" VisualStimulusType
-ElectrodePlacement -d-> "studyTarget" GustatoryStimulusType
-ElectrodePlacement -d-> "studyTarget" MolecularEntity
-ElectrodePlacement -d-> "studyTarget" ElectricalStimulusType
-ElectrodePlacement -d-> "studyTarget" GeneticStrainType
-ElectrodePlacement -d-> "studyTarget" Organ
-ElectrodePlacement -d-> "studyTarget" BreedingType
-ElectrodePlacement -d-> "studyTarget" DiseaseModel
-ElectrodePlacement -d-> "studyTarget" OlfactoryStimulusType
-ElectrodePlacement -d-> "studyTarget" Species
-ElectrodePlacement -d-> "studyTarget" OrganismSystem
-ElectrodePlacement -d-> "studyTarget" BiologicalOrder
-ElectrodePlacement -d-> "studyTarget" OpticalStimulusType
-ElectrodePlacement -d-> "studyTarget" Disease
-ElectrodePlacement -d-> "studyTarget" AuditoryStimulusType
-
-
-class RecordingActivity {
-+device
-+input
-+internalIdentifier
-+isPartOf
-+preparationDesign
-+protocol
-+customPropertySet
-+description
-+endTime
-+lookupLabel
-+output
-+performedBy
-+startTime
-+studyTarget
-
-}
-RecordingActivity -d-> "device" ElectrodeArrayUsage
-RecordingActivity -d-> "device" ElectrodeUsage
-RecordingActivity -d-> "device" PipetteUsage
-RecordingActivity -d-> "input" SubjectGroupState
-RecordingActivity -d-> "input" SubjectState
-RecordingActivity -d-> "input" TissueSampleCollectionState
-RecordingActivity -d-> "input" TissueSampleState
-RecordingActivity -d-> "isPartOf" DatasetVersion
-RecordingActivity -d-> "preparationDesign" PreparationType
-RecordingActivity -d-> "protocol" Protocol
-RecordingActivity -d-> "customPropertySet" CustomPropertySet
-RecordingActivity -d-> "output" File
-RecordingActivity -d-> "output" FileBundle
-RecordingActivity -d-> "performedBy" SoftwareAgent
-RecordingActivity -d-> "performedBy" Person
-RecordingActivity -d-> "studyTarget" ParcellationEntityVersion
-RecordingActivity -d-> "studyTarget" CustomAnatomicalEntity
-RecordingActivity -d-> "studyTarget" CellCultureType
-RecordingActivity -d-> "studyTarget" Handedness
-RecordingActivity -d-> "studyTarget" BiologicalSex
-RecordingActivity -d-> "studyTarget" TermSuggestion
-RecordingActivity -d-> "studyTarget" TactileStimulusType
-RecordingActivity -d-> "studyTarget" SubcellularEntity
-RecordingActivity -d-> "studyTarget" OrganismSubstance
-RecordingActivity -d-> "studyTarget" CellType
-RecordingActivity -d-> "studyTarget" UBERONParcellation
-RecordingActivity -d-> "studyTarget" VisualStimulusType
-RecordingActivity -d-> "studyTarget" GustatoryStimulusType
-RecordingActivity -d-> "studyTarget" MolecularEntity
-RecordingActivity -d-> "studyTarget" ElectricalStimulusType
-RecordingActivity -d-> "studyTarget" GeneticStrainType
-RecordingActivity -d-> "studyTarget" Organ
-RecordingActivity -d-> "studyTarget" BreedingType
-RecordingActivity -d-> "studyTarget" DiseaseModel
-RecordingActivity -d-> "studyTarget" OlfactoryStimulusType
-RecordingActivity -d-> "studyTarget" Species
-RecordingActivity -d-> "studyTarget" OrganismSystem
-RecordingActivity -d-> "studyTarget" BiologicalOrder
-RecordingActivity -d-> "studyTarget" OpticalStimulusType
-RecordingActivity -d-> "studyTarget" Disease
-RecordingActivity -d-> "studyTarget" AuditoryStimulusType
-
-
-class CellPatching {
-+bathTemperature
-+device
-+output
++slicingDevice
++temperature
 +tissueBathSolution
-+variation
 
 }
-CellPatching -d-> "bathTemperature" QuantitativeValue
-CellPatching -d-> "bathTemperature" QuantitativeValueRange
-CellPatching -d-> "device" PipetteUsage
-CellPatching -d-> "output" TissueSampleState
-CellPatching -d-> "tissueBathSolution" ChemicalMixture
-CellPatching -d-> "variation" PatchClampVariation
+TissueSampleSlicing -d-> "input" SubjectState
+TissueSampleSlicing -d-> "input" TissueSampleCollectionState
+TissueSampleSlicing -d-> "input" TissueSampleState
+TissueSampleSlicing -d-> "output" TissueSampleCollectionState
+TissueSampleSlicing -d-> "output" TissueSampleState
+TissueSampleSlicing -d-> "slicingDevice" SlicingDeviceUsage
+TissueSampleSlicing -d-> "temperature" QuantitativeValue
+TissueSampleSlicing -d-> "temperature" QuantitativeValueRange
+TissueSampleSlicing -d-> "tissueBathSolution" ChemicalMixture
 
 
-class ElectrodeArray {
-+conductorMaterial
-+electrodeIdentifiers
-+insulatorMaterial
-+internalIdentifier
-+intrinsicResistance
-+numberOfElectrodes
+class CranialWindowPreparation {
++constructionType
++dimension
++input
++output
++reinforcementType
++isPartOf
++preparationDesign
++protocol
++customPropertySet
++description
++endTime
++lookupLabel
++performedBy
++startTime
++studyTarget
+
+}
+CranialWindowPreparation -d-> "constructionType" CranialWindowConstructionType
+CranialWindowPreparation -d-> "input" SubjectState
+CranialWindowPreparation -d-> "output" SubjectState
+CranialWindowPreparation -d-> "reinforcementType" CranialWindowReinforcementType
+CranialWindowPreparation -d-> "isPartOf" DatasetVersion
+CranialWindowPreparation -d-> "preparationDesign" PreparationType
+CranialWindowPreparation -d-> "protocol" Protocol
+CranialWindowPreparation -d-> "customPropertySet" CustomPropertySet
+CranialWindowPreparation -d-> "performedBy" Person
+CranialWindowPreparation -d-> "performedBy" SoftwareAgent
+CranialWindowPreparation -d-> "studyTarget" ParcellationEntityVersion
+CranialWindowPreparation -d-> "studyTarget" CustomAnatomicalEntity
+CranialWindowPreparation -d-> "studyTarget" CellCultureType
+CranialWindowPreparation -d-> "studyTarget" Handedness
+CranialWindowPreparation -d-> "studyTarget" BiologicalSex
+CranialWindowPreparation -d-> "studyTarget" TermSuggestion
+CranialWindowPreparation -d-> "studyTarget" TactileStimulusType
+CranialWindowPreparation -d-> "studyTarget" SubcellularEntity
+CranialWindowPreparation -d-> "studyTarget" OrganismSubstance
+CranialWindowPreparation -d-> "studyTarget" CellType
+CranialWindowPreparation -d-> "studyTarget" UBERONParcellation
+CranialWindowPreparation -d-> "studyTarget" VisualStimulusType
+CranialWindowPreparation -d-> "studyTarget" GustatoryStimulusType
+CranialWindowPreparation -d-> "studyTarget" MolecularEntity
+CranialWindowPreparation -d-> "studyTarget" ElectricalStimulusType
+CranialWindowPreparation -d-> "studyTarget" GeneticStrainType
+CranialWindowPreparation -d-> "studyTarget" Organ
+CranialWindowPreparation -d-> "studyTarget" BreedingType
+CranialWindowPreparation -d-> "studyTarget" DiseaseModel
+CranialWindowPreparation -d-> "studyTarget" OlfactoryStimulusType
+CranialWindowPreparation -d-> "studyTarget" Species
+CranialWindowPreparation -d-> "studyTarget" OrganismSystem
+CranialWindowPreparation -d-> "studyTarget" BiologicalOrder
+CranialWindowPreparation -d-> "studyTarget" OpticalStimulusType
+CranialWindowPreparation -d-> "studyTarget" Disease
+CranialWindowPreparation -d-> "studyTarget" AuditoryStimulusType
+
+
+class TissueCulturePreparation {
++cultureMedium
++cultureType
++input
++output
+
+}
+TissueCulturePreparation -d-> "cultureMedium" ChemicalMixture
+TissueCulturePreparation -d-> "cultureType" CellCultureType
+TissueCulturePreparation -d-> "input" TissueSampleState
+TissueCulturePreparation -d-> "input" TissueSampleCollectionState
+TissueCulturePreparation -d-> "input" SubjectGroupState
+TissueCulturePreparation -d-> "input" SubjectState
+TissueCulturePreparation -d-> "output" TissueSampleState
+
+
+class SlicingDevice {
 +description
 +deviceType
 +digitalIdentifier
@@ -2657,198 +2314,97 @@ class ElectrodeArray {
 +serialNumber
 
 }
-ElectrodeArray -d-> "conductorMaterial" ChemicalMixture
-ElectrodeArray -d-> "conductorMaterial" ChemicalSubstance
-ElectrodeArray -d-> "conductorMaterial" MolecularEntity
-ElectrodeArray -d-> "insulatorMaterial" ChemicalMixture
-ElectrodeArray -d-> "insulatorMaterial" ChemicalSubstance
-ElectrodeArray -d-> "insulatorMaterial" MolecularEntity
-ElectrodeArray -d-> "intrinsicResistance" QuantitativeValue
-ElectrodeArray -d-> "intrinsicResistance" QuantitativeValueRange
-ElectrodeArray -d-> "deviceType" DeviceType
-ElectrodeArray -d-> "digitalIdentifier" DOI
-ElectrodeArray -d-> "digitalIdentifier" RRID
-ElectrodeArray -d-> "manufacturer" Person
-ElectrodeArray -d-> "manufacturer" Consortium
-ElectrodeArray -d-> "manufacturer" Organization
-ElectrodeArray -d-> "owner" Person
-ElectrodeArray -d-> "owner" Consortium
-ElectrodeArray -d-> "owner" Organization
+SlicingDevice -d-> "deviceType" DeviceType
+SlicingDevice -d-> "digitalIdentifier" DOI
+SlicingDevice -d-> "digitalIdentifier" RRID
+SlicingDevice -d-> "manufacturer" Person
+SlicingDevice -d-> "manufacturer" Consortium
+SlicingDevice -d-> "manufacturer" Organization
+SlicingDevice -d-> "owner" Person
+SlicingDevice -d-> "owner" Consortium
+SlicingDevice -d-> "owner" Organization
 
 
-class ElectrodeArrayUsage {
-+anatomicalLocationOfArray
-+anatomicalLocationOfElectrodes
-+contactResistances
+class SlicingDeviceUsage {
 +device
-+spatialLocationOfElectrodes
-+usedElectrode
++oscillationAmplitude
++sliceThickness
++slicingAngle
++slicingPlane
++slicingSpeed
++vibrationFrequency
 +metadataLocation
 +lookupLabel
 +usedSpecimen
 
 }
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CustomAnatomicalEntity
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" SubcellularEntity
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" OrganismSubstance
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CellType
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" UBERONParcellation
-ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" Organ
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CustomAnatomicalEntity
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" SubcellularEntity
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" OrganismSubstance
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CellType
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" UBERONParcellation
-ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" Organ
-ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValue
-ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValueRange
-ElectrodeArrayUsage -d-> "device" ElectrodeArray
-ElectrodeArrayUsage -d-> "spatialLocationOfElectrodes" CoordinatePoint
-ElectrodeArrayUsage -d-> "metadataLocation" File
-ElectrodeArrayUsage -d-> "metadataLocation" FileBundle
-ElectrodeArrayUsage -d-> "usedSpecimen" SubjectState
-ElectrodeArrayUsage -d-> "usedSpecimen" TissueSampleState
+SlicingDeviceUsage -d-> "device" SlicingDevice
+SlicingDeviceUsage -d-> "oscillationAmplitude" QuantitativeValue
+SlicingDeviceUsage -d-> "sliceThickness" QuantitativeValue
+SlicingDeviceUsage -d-> "sliceThickness" QuantitativeValueRange
+SlicingDeviceUsage -d-> "slicingAngle" QuantitativeValue
+SlicingDeviceUsage -d-> "slicingAngle" NumericalProperty
+SlicingDeviceUsage -d-> "slicingPlane" AnatomicalPlane
+SlicingDeviceUsage -d-> "slicingSpeed" QuantitativeValue
+SlicingDeviceUsage -d-> "vibrationFrequency" QuantitativeValue
+SlicingDeviceUsage -d-> "metadataLocation" File
+SlicingDeviceUsage -d-> "metadataLocation" FileBundle
+SlicingDeviceUsage -d-> "usedSpecimen" SubjectState
+SlicingDeviceUsage -d-> "usedSpecimen" TissueSampleState
 
 
-class Electrode {
-+conductorMaterial
-+insulatorMaterial
-+internalIdentifier
-+intrinsicResistance
-+description
-+deviceType
+class ProductSource {
 +digitalIdentifier
++identifier
++productName
++provider
++purity
+
+}
+ProductSource -d-> "digitalIdentifier" RRID
+ProductSource -d-> "provider" Person
+ProductSource -d-> "provider" Consortium
+ProductSource -d-> "provider" Organization
+ProductSource -d-> "purity" QuantitativeValue
+ProductSource -d-> "purity" QuantitativeValueRange
+
+
+class AmountOfChemical {
++amount
++chemicalProduct
+
+}
+AmountOfChemical -d-> "amount" QuantitativeValue
+AmountOfChemical -d-> "chemicalProduct" ChemicalMixture
+AmountOfChemical -d-> "chemicalProduct" ChemicalSubstance
+AmountOfChemical -d-> "chemicalProduct" MolecularEntity
+
+
+class ChemicalSubstance {
++additionalRemarks
 +lookupLabel
-+manufacturer
++molecularEntity
++productSource
++purity
+
+}
+ChemicalSubstance -d-> "molecularEntity" MolecularEntity
+ChemicalSubstance -d-> "productSource" ProductSource
+ChemicalSubstance -d-> "purity" QuantitativeValue
+ChemicalSubstance -d-> "purity" QuantitativeValueRange
+
+
+class ChemicalMixture {
++additionalRemarks
++components
 +name
-+owner
-+serialNumber
++productSource
++type
 
 }
-Electrode -d-> "conductorMaterial" ChemicalMixture
-Electrode -d-> "conductorMaterial" ChemicalSubstance
-Electrode -d-> "conductorMaterial" MolecularEntity
-Electrode -d-> "insulatorMaterial" ChemicalMixture
-Electrode -d-> "insulatorMaterial" ChemicalSubstance
-Electrode -d-> "insulatorMaterial" MolecularEntity
-Electrode -d-> "intrinsicResistance" QuantitativeValue
-Electrode -d-> "intrinsicResistance" QuantitativeValueRange
-Electrode -d-> "deviceType" DeviceType
-Electrode -d-> "digitalIdentifier" DOI
-Electrode -d-> "digitalIdentifier" RRID
-Electrode -d-> "manufacturer" Person
-Electrode -d-> "manufacturer" Consortium
-Electrode -d-> "manufacturer" Organization
-Electrode -d-> "owner" Person
-Electrode -d-> "owner" Consortium
-Electrode -d-> "owner" Organization
-
-
-class ElectrodeUsage {
-+anatomicalLocation
-+contactResistance
-+device
-+spatialLocation
-+metadataLocation
-+lookupLabel
-+usedSpecimen
-
-}
-ElectrodeUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
-ElectrodeUsage -d-> "anatomicalLocation" SubcellularEntity
-ElectrodeUsage -d-> "anatomicalLocation" OrganismSubstance
-ElectrodeUsage -d-> "anatomicalLocation" CellType
-ElectrodeUsage -d-> "anatomicalLocation" UBERONParcellation
-ElectrodeUsage -d-> "anatomicalLocation" Organ
-ElectrodeUsage -d-> "contactResistance" QuantitativeValue
-ElectrodeUsage -d-> "contactResistance" QuantitativeValueRange
-ElectrodeUsage -d-> "device" Electrode
-ElectrodeUsage -d-> "spatialLocation" CoordinatePoint
-ElectrodeUsage -d-> "metadataLocation" File
-ElectrodeUsage -d-> "metadataLocation" FileBundle
-ElectrodeUsage -d-> "usedSpecimen" SubjectState
-ElectrodeUsage -d-> "usedSpecimen" TissueSampleState
-
-
-class Pipette {
-+externalDiameter
-+internalDiameter
-+internalIdentifier
-+material
-+description
-+deviceType
-+digitalIdentifier
-+lookupLabel
-+manufacturer
-+name
-+owner
-+serialNumber
-
-}
-Pipette -d-> "externalDiameter" QuantitativeValue
-Pipette -d-> "internalDiameter" QuantitativeValue
-Pipette -d-> "material" ChemicalMixture
-Pipette -d-> "material" ChemicalSubstance
-Pipette -d-> "material" MolecularEntity
-Pipette -d-> "deviceType" DeviceType
-Pipette -d-> "digitalIdentifier" DOI
-Pipette -d-> "digitalIdentifier" RRID
-Pipette -d-> "manufacturer" Person
-Pipette -d-> "manufacturer" Consortium
-Pipette -d-> "manufacturer" Organization
-Pipette -d-> "owner" Person
-Pipette -d-> "owner" Consortium
-Pipette -d-> "owner" Organization
-
-
-class PipetteUsage {
-+anatomicalLocation
-+chlorideReversalPotential
-+compensationCurrent
-+device
-+endMembranePotential
-+holdingPotential
-+inputResistance
-+labelingCompound
-+liquidJunctionPotential
-+pipetteResistance
-+pipetteSolution
-+sealResistance
-+seriesResistance
-+spatialLocation
-+startMembranePotential
-+metadataLocation
-+lookupLabel
-+usedSpecimen
-
-}
-PipetteUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
-PipetteUsage -d-> "anatomicalLocation" SubcellularEntity
-PipetteUsage -d-> "anatomicalLocation" OrganismSubstance
-PipetteUsage -d-> "anatomicalLocation" CellType
-PipetteUsage -d-> "anatomicalLocation" UBERONParcellation
-PipetteUsage -d-> "anatomicalLocation" Organ
-PipetteUsage -d-> "chlorideReversalPotential" Measurement
-PipetteUsage -d-> "compensationCurrent" Measurement
-PipetteUsage -d-> "device" Pipette
-PipetteUsage -d-> "endMembranePotential" Measurement
-PipetteUsage -d-> "holdingPotential" Measurement
-PipetteUsage -d-> "inputResistance" Measurement
-PipetteUsage -d-> "labelingCompound" ChemicalMixture
-PipetteUsage -d-> "labelingCompound" ChemicalSubstance
-PipetteUsage -d-> "labelingCompound" MolecularEntity
-PipetteUsage -d-> "liquidJunctionPotential" Measurement
-PipetteUsage -d-> "pipetteResistance" QuantitativeValue
-PipetteUsage -d-> "pipetteResistance" QuantitativeValueRange
-PipetteUsage -d-> "pipetteSolution" ChemicalMixture
-PipetteUsage -d-> "sealResistance" Measurement
-PipetteUsage -d-> "seriesResistance" Measurement
-PipetteUsage -d-> "spatialLocation" CoordinatePoint
-PipetteUsage -d-> "startMembranePotential" Measurement
-PipetteUsage -d-> "metadataLocation" File
-PipetteUsage -d-> "metadataLocation" FileBundle
-PipetteUsage -d-> "usedSpecimen" SubjectState
-PipetteUsage -d-> "usedSpecimen" TissueSampleState
+ChemicalMixture -d-> "components" AmountOfChemical
+ChemicalMixture -d-> "productSource" ProductSource
+ChemicalMixture -d-> "type" ChemicalMixtureType
 
 
 class ActionStatusType {
@@ -3742,6 +3298,450 @@ class AuditoryStimulusType {
 }
 
 
+class Recording {
++additionalRemarks
++channel
++dataLocation
++internalIdentifier
++name
++previousRecording
++recordedWith
++samplingFrequency
+
+}
+Recording -d-> "channel" Channel
+Recording -d-> "dataLocation" File
+Recording -d-> "dataLocation" FileBundle
+Recording -d-> "previousRecording" Recording
+Recording -d-> "recordedWith" SlicingDeviceUsage
+Recording -d-> "recordedWith" ElectrodeArrayUsage
+Recording -d-> "recordedWith" ElectrodeUsage
+Recording -d-> "recordedWith" PipetteUsage
+Recording -d-> "samplingFrequency" QuantitativeValue
+
+
+class Channel {
++internalIdentifier
++unit
+
+}
+Channel -d-> "unit" UnitOfMeasurement
+
+
+class ElectrodePlacement {
++device
++input
++output
++targetPosition
++isPartOf
++preparationDesign
++protocol
++customPropertySet
++description
++endTime
++lookupLabel
++performedBy
++startTime
++studyTarget
+
+}
+ElectrodePlacement -d-> "device" SlicingDeviceUsage
+ElectrodePlacement -d-> "device" ElectrodeArrayUsage
+ElectrodePlacement -d-> "device" ElectrodeUsage
+ElectrodePlacement -d-> "device" PipetteUsage
+ElectrodePlacement -d-> "input" TissueSampleState
+ElectrodePlacement -d-> "input" SubjectState
+ElectrodePlacement -d-> "output" TissueSampleState
+ElectrodePlacement -d-> "output" SubjectState
+ElectrodePlacement -d-> "targetPosition" AnatomicalTargetPosition
+ElectrodePlacement -d-> "isPartOf" DatasetVersion
+ElectrodePlacement -d-> "preparationDesign" PreparationType
+ElectrodePlacement -d-> "protocol" Protocol
+ElectrodePlacement -d-> "customPropertySet" CustomPropertySet
+ElectrodePlacement -d-> "performedBy" Person
+ElectrodePlacement -d-> "performedBy" SoftwareAgent
+ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
+ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
+ElectrodePlacement -d-> "studyTarget" CellCultureType
+ElectrodePlacement -d-> "studyTarget" Handedness
+ElectrodePlacement -d-> "studyTarget" BiologicalSex
+ElectrodePlacement -d-> "studyTarget" TermSuggestion
+ElectrodePlacement -d-> "studyTarget" TactileStimulusType
+ElectrodePlacement -d-> "studyTarget" SubcellularEntity
+ElectrodePlacement -d-> "studyTarget" OrganismSubstance
+ElectrodePlacement -d-> "studyTarget" CellType
+ElectrodePlacement -d-> "studyTarget" UBERONParcellation
+ElectrodePlacement -d-> "studyTarget" VisualStimulusType
+ElectrodePlacement -d-> "studyTarget" GustatoryStimulusType
+ElectrodePlacement -d-> "studyTarget" MolecularEntity
+ElectrodePlacement -d-> "studyTarget" ElectricalStimulusType
+ElectrodePlacement -d-> "studyTarget" GeneticStrainType
+ElectrodePlacement -d-> "studyTarget" Organ
+ElectrodePlacement -d-> "studyTarget" BreedingType
+ElectrodePlacement -d-> "studyTarget" DiseaseModel
+ElectrodePlacement -d-> "studyTarget" OlfactoryStimulusType
+ElectrodePlacement -d-> "studyTarget" Species
+ElectrodePlacement -d-> "studyTarget" OrganismSystem
+ElectrodePlacement -d-> "studyTarget" BiologicalOrder
+ElectrodePlacement -d-> "studyTarget" OpticalStimulusType
+ElectrodePlacement -d-> "studyTarget" Disease
+ElectrodePlacement -d-> "studyTarget" AuditoryStimulusType
+
+
+class RecordingActivity {
++device
++input
++internalIdentifier
++isPartOf
++preparationDesign
++protocol
++customPropertySet
++description
++endTime
++lookupLabel
++output
++performedBy
++startTime
++studyTarget
+
+}
+RecordingActivity -d-> "device" ElectrodeArrayUsage
+RecordingActivity -d-> "device" ElectrodeUsage
+RecordingActivity -d-> "device" PipetteUsage
+RecordingActivity -d-> "input" SubjectGroupState
+RecordingActivity -d-> "input" SubjectState
+RecordingActivity -d-> "input" TissueSampleCollectionState
+RecordingActivity -d-> "input" TissueSampleState
+RecordingActivity -d-> "isPartOf" DatasetVersion
+RecordingActivity -d-> "preparationDesign" PreparationType
+RecordingActivity -d-> "protocol" Protocol
+RecordingActivity -d-> "customPropertySet" CustomPropertySet
+RecordingActivity -d-> "output" File
+RecordingActivity -d-> "output" FileBundle
+RecordingActivity -d-> "performedBy" Person
+RecordingActivity -d-> "performedBy" SoftwareAgent
+RecordingActivity -d-> "studyTarget" ParcellationEntityVersion
+RecordingActivity -d-> "studyTarget" CustomAnatomicalEntity
+RecordingActivity -d-> "studyTarget" CellCultureType
+RecordingActivity -d-> "studyTarget" Handedness
+RecordingActivity -d-> "studyTarget" BiologicalSex
+RecordingActivity -d-> "studyTarget" TermSuggestion
+RecordingActivity -d-> "studyTarget" TactileStimulusType
+RecordingActivity -d-> "studyTarget" SubcellularEntity
+RecordingActivity -d-> "studyTarget" OrganismSubstance
+RecordingActivity -d-> "studyTarget" CellType
+RecordingActivity -d-> "studyTarget" UBERONParcellation
+RecordingActivity -d-> "studyTarget" VisualStimulusType
+RecordingActivity -d-> "studyTarget" GustatoryStimulusType
+RecordingActivity -d-> "studyTarget" MolecularEntity
+RecordingActivity -d-> "studyTarget" ElectricalStimulusType
+RecordingActivity -d-> "studyTarget" GeneticStrainType
+RecordingActivity -d-> "studyTarget" Organ
+RecordingActivity -d-> "studyTarget" BreedingType
+RecordingActivity -d-> "studyTarget" DiseaseModel
+RecordingActivity -d-> "studyTarget" OlfactoryStimulusType
+RecordingActivity -d-> "studyTarget" Species
+RecordingActivity -d-> "studyTarget" OrganismSystem
+RecordingActivity -d-> "studyTarget" BiologicalOrder
+RecordingActivity -d-> "studyTarget" OpticalStimulusType
+RecordingActivity -d-> "studyTarget" Disease
+RecordingActivity -d-> "studyTarget" AuditoryStimulusType
+
+
+class CellPatching {
++bathTemperature
++device
++output
++tissueBathSolution
++variation
+
+}
+CellPatching -d-> "bathTemperature" QuantitativeValue
+CellPatching -d-> "bathTemperature" QuantitativeValueRange
+CellPatching -d-> "device" PipetteUsage
+CellPatching -d-> "output" TissueSampleState
+CellPatching -d-> "tissueBathSolution" ChemicalMixture
+CellPatching -d-> "variation" PatchClampVariation
+
+
+class ElectrodeArray {
++conductorMaterial
++electrodeIdentifiers
++insulatorMaterial
++internalIdentifier
++intrinsicResistance
++numberOfElectrodes
++description
++deviceType
++digitalIdentifier
++lookupLabel
++manufacturer
++name
++owner
++serialNumber
+
+}
+ElectrodeArray -d-> "conductorMaterial" ChemicalMixture
+ElectrodeArray -d-> "conductorMaterial" ChemicalSubstance
+ElectrodeArray -d-> "conductorMaterial" MolecularEntity
+ElectrodeArray -d-> "insulatorMaterial" ChemicalMixture
+ElectrodeArray -d-> "insulatorMaterial" ChemicalSubstance
+ElectrodeArray -d-> "insulatorMaterial" MolecularEntity
+ElectrodeArray -d-> "intrinsicResistance" QuantitativeValue
+ElectrodeArray -d-> "intrinsicResistance" QuantitativeValueRange
+ElectrodeArray -d-> "deviceType" DeviceType
+ElectrodeArray -d-> "digitalIdentifier" DOI
+ElectrodeArray -d-> "digitalIdentifier" RRID
+ElectrodeArray -d-> "manufacturer" Person
+ElectrodeArray -d-> "manufacturer" Consortium
+ElectrodeArray -d-> "manufacturer" Organization
+ElectrodeArray -d-> "owner" Person
+ElectrodeArray -d-> "owner" Consortium
+ElectrodeArray -d-> "owner" Organization
+
+
+class ElectrodeArrayUsage {
++anatomicalLocationOfArray
++anatomicalLocationOfElectrodes
++contactResistances
++device
++spatialLocationOfElectrodes
++usedElectrode
++metadataLocation
++lookupLabel
++usedSpecimen
+
+}
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CustomAnatomicalEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" SubcellularEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" OrganismSubstance
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CellType
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" UBERONParcellation
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" Organ
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CustomAnatomicalEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" SubcellularEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" OrganismSubstance
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CellType
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" UBERONParcellation
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" Organ
+ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValue
+ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValueRange
+ElectrodeArrayUsage -d-> "device" ElectrodeArray
+ElectrodeArrayUsage -d-> "spatialLocationOfElectrodes" CoordinatePoint
+ElectrodeArrayUsage -d-> "metadataLocation" File
+ElectrodeArrayUsage -d-> "metadataLocation" FileBundle
+ElectrodeArrayUsage -d-> "usedSpecimen" SubjectState
+ElectrodeArrayUsage -d-> "usedSpecimen" TissueSampleState
+
+
+class Electrode {
++conductorMaterial
++insulatorMaterial
++internalIdentifier
++intrinsicResistance
++description
++deviceType
++digitalIdentifier
++lookupLabel
++manufacturer
++name
++owner
++serialNumber
+
+}
+Electrode -d-> "conductorMaterial" ChemicalMixture
+Electrode -d-> "conductorMaterial" ChemicalSubstance
+Electrode -d-> "conductorMaterial" MolecularEntity
+Electrode -d-> "insulatorMaterial" ChemicalMixture
+Electrode -d-> "insulatorMaterial" ChemicalSubstance
+Electrode -d-> "insulatorMaterial" MolecularEntity
+Electrode -d-> "intrinsicResistance" QuantitativeValue
+Electrode -d-> "intrinsicResistance" QuantitativeValueRange
+Electrode -d-> "deviceType" DeviceType
+Electrode -d-> "digitalIdentifier" DOI
+Electrode -d-> "digitalIdentifier" RRID
+Electrode -d-> "manufacturer" Person
+Electrode -d-> "manufacturer" Consortium
+Electrode -d-> "manufacturer" Organization
+Electrode -d-> "owner" Person
+Electrode -d-> "owner" Consortium
+Electrode -d-> "owner" Organization
+
+
+class ElectrodeUsage {
++anatomicalLocation
++contactResistance
++device
++spatialLocation
++metadataLocation
++lookupLabel
++usedSpecimen
+
+}
+ElectrodeUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
+ElectrodeUsage -d-> "anatomicalLocation" SubcellularEntity
+ElectrodeUsage -d-> "anatomicalLocation" OrganismSubstance
+ElectrodeUsage -d-> "anatomicalLocation" CellType
+ElectrodeUsage -d-> "anatomicalLocation" UBERONParcellation
+ElectrodeUsage -d-> "anatomicalLocation" Organ
+ElectrodeUsage -d-> "contactResistance" QuantitativeValue
+ElectrodeUsage -d-> "contactResistance" QuantitativeValueRange
+ElectrodeUsage -d-> "device" Electrode
+ElectrodeUsage -d-> "spatialLocation" CoordinatePoint
+ElectrodeUsage -d-> "metadataLocation" File
+ElectrodeUsage -d-> "metadataLocation" FileBundle
+ElectrodeUsage -d-> "usedSpecimen" SubjectState
+ElectrodeUsage -d-> "usedSpecimen" TissueSampleState
+
+
+class Pipette {
++externalDiameter
++internalDiameter
++internalIdentifier
++material
++description
++deviceType
++digitalIdentifier
++lookupLabel
++manufacturer
++name
++owner
++serialNumber
+
+}
+Pipette -d-> "externalDiameter" QuantitativeValue
+Pipette -d-> "internalDiameter" QuantitativeValue
+Pipette -d-> "material" ChemicalMixture
+Pipette -d-> "material" ChemicalSubstance
+Pipette -d-> "material" MolecularEntity
+Pipette -d-> "deviceType" DeviceType
+Pipette -d-> "digitalIdentifier" DOI
+Pipette -d-> "digitalIdentifier" RRID
+Pipette -d-> "manufacturer" Person
+Pipette -d-> "manufacturer" Consortium
+Pipette -d-> "manufacturer" Organization
+Pipette -d-> "owner" Person
+Pipette -d-> "owner" Consortium
+Pipette -d-> "owner" Organization
+
+
+class PipetteUsage {
++anatomicalLocation
++chlorideReversalPotential
++compensationCurrent
++device
++endMembranePotential
++holdingPotential
++inputResistance
++labelingCompound
++liquidJunctionPotential
++pipetteResistance
++pipetteSolution
++sealResistance
++seriesResistance
++spatialLocation
++startMembranePotential
++metadataLocation
++lookupLabel
++usedSpecimen
+
+}
+PipetteUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
+PipetteUsage -d-> "anatomicalLocation" SubcellularEntity
+PipetteUsage -d-> "anatomicalLocation" OrganismSubstance
+PipetteUsage -d-> "anatomicalLocation" CellType
+PipetteUsage -d-> "anatomicalLocation" UBERONParcellation
+PipetteUsage -d-> "anatomicalLocation" Organ
+PipetteUsage -d-> "chlorideReversalPotential" Measurement
+PipetteUsage -d-> "compensationCurrent" Measurement
+PipetteUsage -d-> "device" Pipette
+PipetteUsage -d-> "endMembranePotential" Measurement
+PipetteUsage -d-> "holdingPotential" Measurement
+PipetteUsage -d-> "inputResistance" Measurement
+PipetteUsage -d-> "labelingCompound" ChemicalMixture
+PipetteUsage -d-> "labelingCompound" ChemicalSubstance
+PipetteUsage -d-> "labelingCompound" MolecularEntity
+PipetteUsage -d-> "liquidJunctionPotential" Measurement
+PipetteUsage -d-> "pipetteResistance" QuantitativeValue
+PipetteUsage -d-> "pipetteResistance" QuantitativeValueRange
+PipetteUsage -d-> "pipetteSolution" ChemicalMixture
+PipetteUsage -d-> "sealResistance" Measurement
+PipetteUsage -d-> "seriesResistance" Measurement
+PipetteUsage -d-> "spatialLocation" CoordinatePoint
+PipetteUsage -d-> "startMembranePotential" Measurement
+PipetteUsage -d-> "metadataLocation" File
+PipetteUsage -d-> "metadataLocation" FileBundle
+PipetteUsage -d-> "usedSpecimen" SubjectState
+PipetteUsage -d-> "usedSpecimen" TissueSampleState
+
+
+class EphysStimulus {
++type
+
+}
+EphysStimulus -d-> "type" ElectricalStimulusType
+
+
+class StimulationActivity {
++input
++output
++setup
++stimulus
++isPartOf
++preparationDesign
++protocol
++customPropertySet
++description
++endTime
++lookupLabel
++performedBy
++startTime
++studyTarget
+
+}
+StimulationActivity -d-> "input" SubjectGroupState
+StimulationActivity -d-> "input" SubjectState
+StimulationActivity -d-> "input" TissueSampleCollectionState
+StimulationActivity -d-> "input" TissueSampleState
+StimulationActivity -d-> "output" SubjectGroupState
+StimulationActivity -d-> "output" SubjectState
+StimulationActivity -d-> "output" TissueSampleCollectionState
+StimulationActivity -d-> "output" TissueSampleState
+StimulationActivity -d-> "setup" Setup
+StimulationActivity -d-> "isPartOf" DatasetVersion
+StimulationActivity -d-> "preparationDesign" PreparationType
+StimulationActivity -d-> "protocol" Protocol
+StimulationActivity -d-> "customPropertySet" CustomPropertySet
+StimulationActivity -d-> "performedBy" Person
+StimulationActivity -d-> "performedBy" SoftwareAgent
+StimulationActivity -d-> "studyTarget" ParcellationEntityVersion
+StimulationActivity -d-> "studyTarget" CustomAnatomicalEntity
+StimulationActivity -d-> "studyTarget" CellCultureType
+StimulationActivity -d-> "studyTarget" Handedness
+StimulationActivity -d-> "studyTarget" BiologicalSex
+StimulationActivity -d-> "studyTarget" TermSuggestion
+StimulationActivity -d-> "studyTarget" TactileStimulusType
+StimulationActivity -d-> "studyTarget" SubcellularEntity
+StimulationActivity -d-> "studyTarget" OrganismSubstance
+StimulationActivity -d-> "studyTarget" CellType
+StimulationActivity -d-> "studyTarget" UBERONParcellation
+StimulationActivity -d-> "studyTarget" VisualStimulusType
+StimulationActivity -d-> "studyTarget" GustatoryStimulusType
+StimulationActivity -d-> "studyTarget" MolecularEntity
+StimulationActivity -d-> "studyTarget" ElectricalStimulusType
+StimulationActivity -d-> "studyTarget" GeneticStrainType
+StimulationActivity -d-> "studyTarget" Organ
+StimulationActivity -d-> "studyTarget" BreedingType
+StimulationActivity -d-> "studyTarget" DiseaseModel
+StimulationActivity -d-> "studyTarget" OlfactoryStimulusType
+StimulationActivity -d-> "studyTarget" Species
+StimulationActivity -d-> "studyTarget" OrganismSystem
+StimulationActivity -d-> "studyTarget" BiologicalOrder
+StimulationActivity -d-> "studyTarget" OpticalStimulusType
+StimulationActivity -d-> "studyTarget" Disease
+StimulationActivity -d-> "studyTarget" AuditoryStimulusType
+
+
 class SubjectState {
 +ageCategory
 +attribute
@@ -3903,8 +3903,8 @@ ProtocolExecution -d-> "isPartOf" DatasetVersion
 ProtocolExecution -d-> "preparationDesign" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "customPropertySet" CustomPropertySet
-ProtocolExecution -d-> "performedBy" SoftwareAgent
 ProtocolExecution -d-> "performedBy" Person
+ProtocolExecution -d-> "performedBy" SoftwareAgent
 ProtocolExecution -d-> "studyTarget" ParcellationEntityVersion
 ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellCultureType
@@ -4590,12 +4590,12 @@ class Setup {
 +type
 
 }
-Setup -d-> "components" ElectrodeArray
-Setup -d-> "components" Electrode
-Setup -d-> "components" Pipette
 Setup -d-> "components" SlicingDevice
 Setup -d-> "components" SoftwareVersion
 Setup -d-> "components" Setup
+Setup -d-> "components" ElectrodeArray
+Setup -d-> "components" Electrode
+Setup -d-> "components" Pipette
 Setup -d-> "manufacturer" Person
 Setup -d-> "manufacturer" Consortium
 Setup -d-> "manufacturer" Organization
@@ -4614,16 +4614,10 @@ class Project {
 Project -d-> "coordinator" Person
 Project -d-> "coordinator" Consortium
 Project -d-> "coordinator" Organization
-Project -d-> "hasResearchProducts" LivePaper
-Project -d-> "hasResearchProducts" LivePaperVersion
 Project -d-> "hasResearchProducts" BrainAtlasVersion
 Project -d-> "hasResearchProducts" CommonCoordinateSpace
 Project -d-> "hasResearchProducts" BrainAtlas
 Project -d-> "hasResearchProducts" CommonCoordinateSpaceVersion
-Project -d-> "hasResearchProducts" WorkflowRecipeVersion
-Project -d-> "hasResearchProducts" ValidationTest
-Project -d-> "hasResearchProducts" ValidationTestVersion
-Project -d-> "hasResearchProducts" WorkflowRecipe
 Project -d-> "hasResearchProducts" WebService
 Project -d-> "hasResearchProducts" ModelVersion
 Project -d-> "hasResearchProducts" SoftwareVersion
@@ -4634,6 +4628,12 @@ Project -d-> "hasResearchProducts" MetaDataModel
 Project -d-> "hasResearchProducts" DatasetVersion
 Project -d-> "hasResearchProducts" MetaDataModelVersion
 Project -d-> "hasResearchProducts" Model
+Project -d-> "hasResearchProducts" LivePaper
+Project -d-> "hasResearchProducts" LivePaperVersion
+Project -d-> "hasResearchProducts" WorkflowRecipeVersion
+Project -d-> "hasResearchProducts" ValidationTest
+Project -d-> "hasResearchProducts" ValidationTestVersion
+Project -d-> "hasResearchProducts" WorkflowRecipe
 
 
 class Software {
@@ -5099,16 +5099,10 @@ class ResearchProductGroup {
 +researchProduct
 
 }
-ResearchProductGroup -d-> "researchProduct" LivePaper
-ResearchProductGroup -d-> "researchProduct" LivePaperVersion
 ResearchProductGroup -d-> "researchProduct" BrainAtlasVersion
 ResearchProductGroup -d-> "researchProduct" CommonCoordinateSpace
 ResearchProductGroup -d-> "researchProduct" BrainAtlas
 ResearchProductGroup -d-> "researchProduct" CommonCoordinateSpaceVersion
-ResearchProductGroup -d-> "researchProduct" WorkflowRecipeVersion
-ResearchProductGroup -d-> "researchProduct" ValidationTest
-ResearchProductGroup -d-> "researchProduct" ValidationTestVersion
-ResearchProductGroup -d-> "researchProduct" WorkflowRecipe
 ResearchProductGroup -d-> "researchProduct" WebService
 ResearchProductGroup -d-> "researchProduct" ModelVersion
 ResearchProductGroup -d-> "researchProduct" SoftwareVersion
@@ -5119,6 +5113,12 @@ ResearchProductGroup -d-> "researchProduct" MetaDataModel
 ResearchProductGroup -d-> "researchProduct" DatasetVersion
 ResearchProductGroup -d-> "researchProduct" MetaDataModelVersion
 ResearchProductGroup -d-> "researchProduct" Model
+ResearchProductGroup -d-> "researchProduct" LivePaper
+ResearchProductGroup -d-> "researchProduct" LivePaperVersion
+ResearchProductGroup -d-> "researchProduct" WorkflowRecipeVersion
+ResearchProductGroup -d-> "researchProduct" ValidationTest
+ResearchProductGroup -d-> "researchProduct" ValidationTestVersion
+ResearchProductGroup -d-> "researchProduct" WorkflowRecipe
 
 
 class Comment {
@@ -5128,16 +5128,10 @@ class Comment {
 +timestamp
 
 }
-Comment -d-> "about" LivePaper
-Comment -d-> "about" LivePaperVersion
 Comment -d-> "about" BrainAtlasVersion
 Comment -d-> "about" CommonCoordinateSpace
 Comment -d-> "about" BrainAtlas
 Comment -d-> "about" CommonCoordinateSpaceVersion
-Comment -d-> "about" WorkflowRecipeVersion
-Comment -d-> "about" ValidationTest
-Comment -d-> "about" ValidationTestVersion
-Comment -d-> "about" WorkflowRecipe
 Comment -d-> "about" WebService
 Comment -d-> "about" ModelVersion
 Comment -d-> "about" SoftwareVersion
@@ -5148,6 +5142,12 @@ Comment -d-> "about" MetaDataModel
 Comment -d-> "about" DatasetVersion
 Comment -d-> "about" MetaDataModelVersion
 Comment -d-> "about" Model
+Comment -d-> "about" LivePaper
+Comment -d-> "about" LivePaperVersion
+Comment -d-> "about" WorkflowRecipeVersion
+Comment -d-> "about" ValidationTest
+Comment -d-> "about" ValidationTestVersion
+Comment -d-> "about" WorkflowRecipe
 Comment -d-> "commenter" Person
 
 
@@ -5335,10 +5335,10 @@ class Measurement {
 
 }
 Measurement -d-> "measuredQuantity" MeasuredQuantity
+Measurement -d-> "measuredWith" SlicingDeviceUsage
 Measurement -d-> "measuredWith" ElectrodeArrayUsage
 Measurement -d-> "measuredWith" ElectrodeUsage
 Measurement -d-> "measuredWith" PipetteUsage
-Measurement -d-> "measuredWith" SlicingDeviceUsage
 Measurement -d-> "value" QuantitativeValue
 Measurement -d-> "value" QuantitativeValueRange
 
@@ -5404,7 +5404,10 @@ FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" CommonCoordinateSpace
 FileBundle -d-> "groupedBy" CommonCoordinateSpaceVersion
 FileBundle -d-> "groupedBy" CustomCoordinateSpace
-FileBundle -d-> "groupedBy" LocalFile
+FileBundle -d-> "groupedBy" StimulationApproach
+FileBundle -d-> "groupedBy" StimulationTechnique
+FileBundle -d-> "groupedBy" AnalysisTechnique
+FileBundle -d-> "groupedBy" Technique
 FileBundle -d-> "groupedBy" SubjectState
 FileBundle -d-> "groupedBy" BehavioralProtocol
 FileBundle -d-> "groupedBy" TissueSample
@@ -5416,10 +5419,7 @@ FileBundle -d-> "groupedBy" TissueSampleState
 FileBundle -d-> "groupedBy" TissueSampleCollectionState
 FileBundle -d-> "groupedBy" File
 FileBundle -d-> "groupedBy" FileBundle
-FileBundle -d-> "groupedBy" StimulationApproach
-FileBundle -d-> "groupedBy" StimulationTechnique
-FileBundle -d-> "groupedBy" AnalysisTechnique
-FileBundle -d-> "groupedBy" Technique
+FileBundle -d-> "groupedBy" LocalFile
 FileBundle -d-> "groupedBy" ParcellationEntityVersion
 FileBundle -d-> "groupedBy" CustomAnatomicalEntity
 FileBundle -d-> "groupedBy" CellCultureType

@@ -11,9 +11,8 @@
             "const": "https://openminds.ebrains.eu/sands/ParcellationTerminology",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/definedIn": {
-            "_instruction": "Add one or several files in which this parcellation terminology is stored in.",
-            "description": "Reference to a file instance in which something is stored.",
+        "https://openminds.ebrains.eu/vocab/dataLocation": {
+            "_instruction": "Add the location of all files in which this parcellation terminology is stored.",
             "items": {
                 "else": {
                     "properties": {
@@ -51,12 +50,12 @@
                 }
             },
             "minItems": 1,
-            "title": "definedIn",
+            "title": "dataLocation",
             "type": "array",
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/hasEntity": {
-            "_instruction": "Add one or several parcellation entities which belong to this parcellation terminology.",
+            "_instruction": "Add all parcellation entities which belong to this parcellation terminology.",
             "items": {
                 "else": {
                     "properties": {
@@ -99,7 +98,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this parcellation terminology.",
+            "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this parcellation terminology.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "items": {
                 "_formats": [
@@ -114,8 +113,8 @@
         }
     },
     "required": [
-        "@id",
         "@type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/hasEntity"
     ],
     "type": "object"
