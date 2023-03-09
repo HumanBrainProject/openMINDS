@@ -2,16 +2,67 @@
 class CellPatching {
 +bathTemperature
 +device
-+output
 +tissueBathSolution
 +variation
++input
++output
++targetPosition
++isPartOf
++preparationDesign
++protocol
++customPropertySet
++description
++endTime
++lookupLabel
++performedBy
++startTime
++studyTarget
 
 }
 CellPatching -d-> "bathTemperature" QuantitativeValue
 CellPatching -d-> "bathTemperature" QuantitativeValueRange
+CellPatching -d-> "device" SlicingDeviceUsage
+CellPatching -d-> "device" ElectrodeArrayUsage
+CellPatching -d-> "device" ElectrodeUsage
 CellPatching -d-> "device" PipetteUsage
-CellPatching -d-> "output" TissueSampleState
 CellPatching -d-> "tissueBathSolution" ChemicalMixture
 CellPatching -d-> "variation" PatchClampVariation
+CellPatching -d-> "input" TissueSampleState
+CellPatching -d-> "input" SubjectState
+CellPatching -d-> "output" TissueSampleState
+CellPatching -d-> "output" SubjectState
+CellPatching -d-> "targetPosition" AnatomicalTargetPosition
+CellPatching -d-> "isPartOf" DatasetVersion
+CellPatching -d-> "preparationDesign" PreparationType
+CellPatching -d-> "protocol" Protocol
+CellPatching -d-> "customPropertySet" CustomPropertySet
+CellPatching -d-> "performedBy" SoftwareAgent
+CellPatching -d-> "performedBy" Person
+CellPatching -d-> "studyTarget" CellCultureType
+CellPatching -d-> "studyTarget" Handedness
+CellPatching -d-> "studyTarget" BiologicalSex
+CellPatching -d-> "studyTarget" TermSuggestion
+CellPatching -d-> "studyTarget" TactileStimulusType
+CellPatching -d-> "studyTarget" SubcellularEntity
+CellPatching -d-> "studyTarget" OrganismSubstance
+CellPatching -d-> "studyTarget" CellType
+CellPatching -d-> "studyTarget" UBERONParcellation
+CellPatching -d-> "studyTarget" VisualStimulusType
+CellPatching -d-> "studyTarget" GustatoryStimulusType
+CellPatching -d-> "studyTarget" MolecularEntity
+CellPatching -d-> "studyTarget" ElectricalStimulusType
+CellPatching -d-> "studyTarget" GeneticStrainType
+CellPatching -d-> "studyTarget" Organ
+CellPatching -d-> "studyTarget" BreedingType
+CellPatching -d-> "studyTarget" DiseaseModel
+CellPatching -d-> "studyTarget" OlfactoryStimulusType
+CellPatching -d-> "studyTarget" Species
+CellPatching -d-> "studyTarget" OrganismSystem
+CellPatching -d-> "studyTarget" BiologicalOrder
+CellPatching -d-> "studyTarget" OpticalStimulusType
+CellPatching -d-> "studyTarget" Disease
+CellPatching -d-> "studyTarget" AuditoryStimulusType
+CellPatching -d-> "studyTarget" ParcellationEntityVersion
+CellPatching -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml
