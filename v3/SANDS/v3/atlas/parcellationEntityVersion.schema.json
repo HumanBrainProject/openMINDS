@@ -166,7 +166,7 @@
                     "_type": "https://openminds.ebrains.eu/sands/ViewerSpecification",
                     "properties": {
                         "additionalRemarks": {
-                            "_instruction": "Enter any additional remarks that are needed to interpret the properties of the viewer specification.",
+                            "_instruction": "Enter any additional remarks concerning this viewer specification.",
                             "description": "Mention of what deserves additional attention or notice.",
                             "title": "additionalRemarks",
                             "type": "string"
@@ -298,10 +298,9 @@
                             "type": "object"
                         },
                         "preferredDisplayColor": {
-                            "_instruction": "Add the preferred color for the annotation that the viewer should display.",
+                            "_instruction": "Add the preferred color that a viewer should display.",
                             "_linkedTypes": [
-                                "https://openminds.ebrains.eu/sands/SingleColor",
-                                "https://openminds.ebrains.eu/sands/ColorMap"
+                                "https://openminds.ebrains.eu/sands/SingleColor"
                             ],
                             "title": "preferredDisplayColor"
                         }
@@ -329,10 +328,10 @@
                 }
             },
             "required": [
-                "criteriaType",
-                "criteriaQualityType",
                 "type",
-                "coordinateSpace"
+                "coordinateSpace",
+                "criteriaQualityType",
+                "criteriaType"
             ],
             "type": "object"
         },
@@ -571,10 +570,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "@id",
-        "@type"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/name"
     ],
     "type": "object"
 }
