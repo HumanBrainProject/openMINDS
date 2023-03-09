@@ -14,8 +14,8 @@
             "const": "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/additionalInformation": {
-            "_instruction": "Add one or several files containing any additional information about this the electrode array.",
+        "https://openminds.ebrains.eu/vocab/anatomicalLocationOfArray": {
+            "_instruction": "Add all anatomical entities that semantically best describe the overall anatomical location of the electrode array.",
             "items": {
                 "else": {
                     "properties": {
@@ -41,54 +41,12 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/core/File",
-                                "https://openminds.ebrains.eu/core/FileBundle"
-                            ],
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                }
-            },
-            "minItems": 1,
-            "title": "additionalInformation",
-            "type": "array",
-            "uniqueItems": true
-        },
-        "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
-            "_instruction": "Add all anatomical entities in which this electrode array is located.",
-            "items": {
-                "else": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
                                 "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion"
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -100,11 +58,59 @@
                 }
             },
             "minItems": 1,
-            "title": "anatomicalLocation",
+            "title": "anatomicalLocationOfArray",
             "type": "array",
             "uniqueItems": true
         },
-        "https://openminds.ebrains.eu/vocab/contactResistance": {
+        "https://openminds.ebrains.eu/vocab/anatomicalLocationOfElectrodes": {
+            "_instruction": "Add all anatomical entities that semantically best describe the anatomical location of each electrode contact of this array during its use, in the same order that the electrode identifiers for this electrode array have been specified.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 2,
+            "title": "anatomicalLocationOfElectrodes",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/contactResistances": {
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
@@ -187,7 +193,96 @@
                 }
             ]
         },
-        "https://openminds.ebrains.eu/vocab/coordinatePoint": {
+        "https://openminds.ebrains.eu/vocab/device": {
+            "_instruction": "Add the electrode array used.",
+            "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/ephys/ElectrodeArray"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "device",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this device usage that may help you to find this instance more easily.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/metadataLocation": {
+            "_instruction": "Add all files or file bundles containing additional information about the usage of this device.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "metadataLocation",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/spatialLocationOfElectrodes": {
             "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
             "description": "Structured information on a coordinate point.",
             "properties": {
@@ -250,52 +345,8 @@
             ],
             "type": "object"
         },
-        "https://openminds.ebrains.eu/vocab/electrodeArray": {
-            "_instruction": "Add the electrode array used.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/ephys/ElectrodeArray"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "electrodeArray",
-            "type": "object"
-        },
-        "https://openminds.ebrains.eu/vocab/lookupLabel": {
-            "_instruction": "Enter a lookup label for this electrode array usage.",
-            "title": "lookupLabel",
-            "type": "string"
-        },
         "https://openminds.ebrains.eu/vocab/usedElectrode": {
-            "_instruction": "Enter the identifier of all used electrodes.",
+            "_instruction": "Enter the identifiers of all electrodes that are actually in use for this array.",
             "items": {
                 "type": "string"
             },
@@ -305,7 +356,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/usedSpecimen": {
-            "_instruction": "Add the tissue or subject used with this electrode array usage",
+            "_instruction": "Add the state of the tissue sample or subject that this device was used on.",
             "else": {
                 "properties": {
                     "@id": {
@@ -330,8 +381,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/TissueSampleState",
-                            "https://openminds.ebrains.eu/core/SubjectState"
+                            "https://openminds.ebrains.eu/core/SubjectState",
+                            "https://openminds.ebrains.eu/core/TissueSampleState"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -346,9 +397,9 @@
         }
     },
     "required": [
-        "@type",
+        "https://openminds.ebrains.eu/vocab/device",
         "@id",
-        "https://openminds.ebrains.eu/vocab/electrodeArray"
+        "@type"
     ],
     "type": "object"
 }

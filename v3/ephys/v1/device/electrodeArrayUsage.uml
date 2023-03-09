@@ -1,26 +1,35 @@
 @startuml
 class ElectrodeArrayUsage {
-+additionalInformation
-+anatomicalLocation
-+contactResistance
-+coordinatePoint
-+electrodeArray
-+lookupLabel
++anatomicalLocationOfArray
++anatomicalLocationOfElectrodes
++contactResistances
++device
++spatialLocationOfElectrodes
 +usedElectrode
++metadataLocation
++lookupLabel
 +usedSpecimen
 
 }
-ElectrodeArrayUsage -d-> "additionalInformation" File
-ElectrodeArrayUsage -d-> "additionalInformation" FileBundle
-ElectrodeArrayUsage -d-> "anatomicalLocation" UBERONParcellation
-ElectrodeArrayUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
-ElectrodeArrayUsage -d-> "anatomicalLocation" ParcellationEntity
-ElectrodeArrayUsage -d-> "anatomicalLocation" ParcellationEntityVersion
-ElectrodeArrayUsage -d-> "contactResistance" QuantitativeValue
-ElectrodeArrayUsage -d-> "contactResistance" QuantitativeValueRange
-ElectrodeArrayUsage -d-> "coordinatePoint" CoordinatePoint
-ElectrodeArrayUsage -d-> "electrodeArray" ElectrodeArray
-ElectrodeArrayUsage -d-> "usedSpecimen" TissueSampleState
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" SubcellularEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" OrganismSubstance
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CellType
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" UBERONParcellation
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" Organ
+ElectrodeArrayUsage -d-> "anatomicalLocationOfArray" CustomAnatomicalEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" SubcellularEntity
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" OrganismSubstance
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CellType
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" UBERONParcellation
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" Organ
+ElectrodeArrayUsage -d-> "anatomicalLocationOfElectrodes" CustomAnatomicalEntity
+ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValue
+ElectrodeArrayUsage -d-> "contactResistances" QuantitativeValueRange
+ElectrodeArrayUsage -d-> "device" ElectrodeArray
+ElectrodeArrayUsage -d-> "spatialLocationOfElectrodes" CoordinatePoint
+ElectrodeArrayUsage -d-> "metadataLocation" File
+ElectrodeArrayUsage -d-> "metadataLocation" FileBundle
 ElectrodeArrayUsage -d-> "usedSpecimen" SubjectState
+ElectrodeArrayUsage -d-> "usedSpecimen" TissueSampleState
 
 @enduml
