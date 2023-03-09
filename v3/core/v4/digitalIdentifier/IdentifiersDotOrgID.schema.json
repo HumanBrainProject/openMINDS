@@ -1,0 +1,28 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/identifiersDotOrgID?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/IdentifiersDotOrgID",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/IdentifiersDotOrgID",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the resolvable identifier (IRI) of Identifiers.org.",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^https://identifiers.org/([a-zA-Z0-9-_.]+):([a-zA-Z0-9-_.]+)|^https://identifiers.org/([a-zA-Z0-9-_.]+)/([a-zA-Z0-9-_.]+):([a-zA-Z0-9-_.]+)",
+            "title": "identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/identifier",
+        "@id"
+    ],
+    "type": "object"
+}
