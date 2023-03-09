@@ -31,10 +31,10 @@
                 "relevantFor": {
                     "_instruction": "Add the technique for which this custom property set is relevant.",
                     "_linkedTypes": [
-                        "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique",
+                        "https://openminds.ebrains.eu/controlledTerms/StimulationApproach",
                         "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique",
-                        "https://openminds.ebrains.eu/controlledTerms/Technique",
-                        "https://openminds.ebrains.eu/controlledTerms/StimulationApproach"
+                        "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique",
+                        "https://openminds.ebrains.eu/controlledTerms/Technique"
                     ],
                     "description": "Reference to what or whom something or someone bears siginificance.",
                     "title": "relevantFor"
@@ -166,7 +166,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/isPartOf": {
-            "_instruction": "Add the dataset version in which this experimental activity was conducted.",
+            "_instruction": "Add the dataset version in which this activity was conducted.",
             "description": "Reference to the ensemble of multiple things or beings.",
             "else": {
                 "properties": {
@@ -300,7 +300,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/preparationDesign": {
-            "_instruction": "Add the initial preparation type for this experimental activity.",
+            "_instruction": "Add the initial preparation type for this activity.",
             "else": {
                 "properties": {
                     "@id": {
@@ -339,7 +339,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/protocol": {
-            "_instruction": "Add all protocols that were used in this experimental activity.",
+            "_instruction": "Add all protocols used during this activity.",
             "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
             "items": {
                 "else": {
@@ -423,32 +423,32 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
-                                "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/CellType",
-                                "https://openminds.ebrains.eu/controlledTerms/BreedingType",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
                                 "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
-                                "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/BreedingType",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
                                 "https://openminds.ebrains.eu/controlledTerms/OlfactoryStimulusType",
                                 "https://openminds.ebrains.eu/controlledTerms/Species",
-                                "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
-                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
-                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
-                                "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
-                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
-                                "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
-                                "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
-                                "https://openminds.ebrains.eu/controlledTerms/Disease",
-                                "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
                                 "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
-                                "https://openminds.ebrains.eu/controlledTerms/Organ",
-                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -467,10 +467,10 @@
     },
     "required": [
         "@id",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/input",
         "https://openminds.ebrains.eu/vocab/protocol",
         "https://openminds.ebrains.eu/vocab/output",
-        "https://openminds.ebrains.eu/vocab/input",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "@type"
     ],
     "type": "object"
