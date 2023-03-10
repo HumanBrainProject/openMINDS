@@ -236,7 +236,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/inspiredBy": {
-            "_instruction": "Add one or several (source) files that inspired the definition of this annotation.",
+            "_instruction": "Add all (source) files that inspired the definition of this annotation.",
             "description": "Reference to an inspiring element.",
             "items": {
                 "else": {
@@ -280,7 +280,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/internalIdentifier": {
-            "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
+            "_instruction": "Enter the identifier (or label) of this annotation that is used within the corresponding data files to identify this annotation.",
             "description": "Term or code that identifies someone or something within a particular product.",
             "title": "internalIdentifier",
             "type": "string"
@@ -561,12 +561,12 @@
         }
     },
     "required": [
-        "@type",
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
         "https://openminds.ebrains.eu/vocab/coordinateSpace",
         "https://openminds.ebrains.eu/vocab/type",
-        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/criteriaType"
+        "https://openminds.ebrains.eu/vocab/criteriaType",
+        "@type",
+        "@id"
     ],
     "type": "object"
 }

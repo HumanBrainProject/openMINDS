@@ -140,7 +140,7 @@
                     "title": "criteriaType"
                 },
                 "inspiredBy": {
-                    "_instruction": "Add one or several (source) files that inspired the definition of this annotation.",
+                    "_instruction": "Add all (source) files that inspired the definition of this annotation.",
                     "_linkedTypes": [
                         "https://openminds.ebrains.eu/core/File"
                     ],
@@ -151,7 +151,7 @@
                     "uniqueItems": true
                 },
                 "internalIdentifier": {
-                    "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
+                    "_instruction": "Enter the identifier (or label) of this annotation that is used within the corresponding data files to identify this annotation.",
                     "description": "Term or code that identifies someone or something within a particular product.",
                     "title": "internalIdentifier",
                     "type": "string"
@@ -334,10 +334,10 @@
                 }
             },
             "required": [
-                "criteriaType",
                 "criteriaQualityType",
                 "coordinateSpace",
-                "type"
+                "type",
+                "criteriaType"
             ],
             "type": "object"
         },
@@ -576,9 +576,9 @@
         }
     },
     "required": [
-        "@type",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/name",
+        "@type",
         "@id"
     ],
     "type": "object"
