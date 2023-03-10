@@ -1,0 +1,28 @@
+@startuml
+class ElectrodeUsage {
++anatomicalLocation
++contactResistance
++device
++spatialLocation
++metadataLocation
++lookupLabel
++usedSpecimen
+
+}
+ElectrodeUsage -d-> "anatomicalLocation" ParcellationEntityVersion
+ElectrodeUsage -d-> "anatomicalLocation" CustomAnatomicalEntity
+ElectrodeUsage -d-> "anatomicalLocation" SubcellularEntity
+ElectrodeUsage -d-> "anatomicalLocation" OrganismSubstance
+ElectrodeUsage -d-> "anatomicalLocation" CellType
+ElectrodeUsage -d-> "anatomicalLocation" UBERONParcellation
+ElectrodeUsage -d-> "anatomicalLocation" Organ
+ElectrodeUsage -d-> "contactResistance" QuantitativeValue
+ElectrodeUsage -d-> "contactResistance" QuantitativeValueRange
+ElectrodeUsage -d-> "device" Electrode
+ElectrodeUsage -d-> "spatialLocation" CoordinatePoint
+ElectrodeUsage -d-> "metadataLocation" File
+ElectrodeUsage -d-> "metadataLocation" FileBundle
+ElectrodeUsage -d-> "usedSpecimen" SubjectState
+ElectrodeUsage -d-> "usedSpecimen" TissueSampleState
+
+@enduml

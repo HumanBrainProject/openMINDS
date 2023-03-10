@@ -1,0 +1,37 @@
+@startuml
+class ElectrodeArray {
++conductorMaterial
++electrodeIdentifiers
++insulatorMaterial
++internalIdentifier
++intrinsicResistance
++numberOfElectrodes
++description
++deviceType
++digitalIdentifier
++lookupLabel
++manufacturer
++name
++owner
++serialNumber
+
+}
+ElectrodeArray -d-> "conductorMaterial" ChemicalMixture
+ElectrodeArray -d-> "conductorMaterial" ChemicalSubstance
+ElectrodeArray -d-> "conductorMaterial" MolecularEntity
+ElectrodeArray -d-> "insulatorMaterial" ChemicalMixture
+ElectrodeArray -d-> "insulatorMaterial" ChemicalSubstance
+ElectrodeArray -d-> "insulatorMaterial" MolecularEntity
+ElectrodeArray -d-> "intrinsicResistance" QuantitativeValue
+ElectrodeArray -d-> "intrinsicResistance" QuantitativeValueRange
+ElectrodeArray -d-> "deviceType" DeviceType
+ElectrodeArray -d-> "digitalIdentifier" DOI
+ElectrodeArray -d-> "digitalIdentifier" RRID
+ElectrodeArray -d-> "manufacturer" Person
+ElectrodeArray -d-> "manufacturer" Consortium
+ElectrodeArray -d-> "manufacturer" Organization
+ElectrodeArray -d-> "owner" Person
+ElectrodeArray -d-> "owner" Consortium
+ElectrodeArray -d-> "owner" Organization
+
+@enduml

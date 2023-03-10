@@ -1,0 +1,552 @@
+{
+    "$id": "https://openminds.ebrains.eu/specimenPrep/slicingDeviceUsage?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "deviceUsage"
+    ],
+    "_type": "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/device": {
+            "_instruction": "Add the slicing device used.",
+            "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/specimenPrep/SlicingDevice"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "device",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this device usage that may help you to find this instance more easily.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/metadataLocation": {
+            "_instruction": "Add all files or file bundles containing additional information about the usage of this device.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "metadataLocation",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/oscillationAmplitude": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/sliceThickness": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "properties": {
+                        "maxValue": {
+                            "_instruction": "Enter the maximum value.",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
+                            "type": "number"
+                        },
+                        "maxValueUnit": {
+                            "_instruction": "Add the unit of measurement for the maximum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "maxValueUnit"
+                        },
+                        "minValue": {
+                            "_instruction": "Enter the minimum value.",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
+                            "type": "number"
+                        },
+                        "minValueUnit": {
+                            "_instruction": "Add the unit of measurement for the minimum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "minValueUnit"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/slicingAngle": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/NumericalProperty",
+                    "properties": {
+                        "name": {
+                            "_instruction": "Enter a descriptive name for this numerical property.",
+                            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+                            "title": "name",
+                            "type": "string"
+                        },
+                        "value": {
+                            "anyOf": [
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                                    "description": "Structured information on a quantitative value.",
+                                    "properties": {
+                                        "typeOfUncertainty": {
+                                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                            ],
+                                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                            "title": "typeOfUncertainty"
+                                        },
+                                        "uncertainty": {
+                                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                            "items": {
+                                                "type": "number"
+                                            },
+                                            "maxItems": 2,
+                                            "minItems": 2,
+                                            "title": "uncertainty",
+                                            "type": "array"
+                                        },
+                                        "unit": {
+                                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "description": "Determinate quantity adopted as a standard of measurement.",
+                                            "title": "unit"
+                                        },
+                                        "value": {
+                                            "_instruction": "Enter the value of this quantitative value.",
+                                            "description": "Entry for a property.",
+                                            "title": "value",
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": [
+                                        "value"
+                                    ],
+                                    "type": "object"
+                                },
+                                {
+                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                    "properties": {
+                                        "maxValue": {
+                                            "_instruction": "Enter the maximum value.",
+                                            "description": "Greatest quantity attained or allowed.",
+                                            "title": "maxValue",
+                                            "type": "number"
+                                        },
+                                        "maxValueUnit": {
+                                            "_instruction": "Add the unit of measurement for the maximum value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "maxValueUnit"
+                                        },
+                                        "minValue": {
+                                            "_instruction": "Enter the minimum value.",
+                                            "description": "Smallest quantity attained or allowed.",
+                                            "title": "minValue",
+                                            "type": "number"
+                                        },
+                                        "minValueUnit": {
+                                            "_instruction": "Add the unit of measurement for the minimum value.",
+                                            "_linkedTypes": [
+                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                            ],
+                                            "title": "minValueUnit"
+                                        }
+                                    },
+                                    "required": [
+                                        "maxValue",
+                                        "minValue"
+                                    ],
+                                    "type": "object"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "value"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/slicingPlane": {
+            "_instruction": "Add the anatomical plane that best describes the slicing direction of the tissue sample(s) during the use of this slicing device.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/AnatomicalPlane"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "slicingPlane",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/slicingSpeed": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/usedSpecimen": {
+            "_instruction": "Add the state of the tissue sample or subject that this device was used on.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/SubjectState",
+                            "https://openminds.ebrains.eu/core/TissueSampleState"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "usedSpecimen",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/vibrationFrequency": {
+            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+            "description": "Structured information on a quantitative value.",
+            "properties": {
+                "typeOfUncertainty": {
+                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                    ],
+                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                    "title": "typeOfUncertainty"
+                },
+                "uncertainty": {
+                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "maxItems": 2,
+                    "minItems": 2,
+                    "title": "uncertainty",
+                    "type": "array"
+                },
+                "unit": {
+                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                    ],
+                    "description": "Determinate quantity adopted as a standard of measurement.",
+                    "title": "unit"
+                },
+                "value": {
+                    "_instruction": "Enter the value of this quantitative value.",
+                    "description": "Entry for a property.",
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "@type",
+        "https://openminds.ebrains.eu/vocab/sliceThickness",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/slicingPlane",
+        "https://openminds.ebrains.eu/vocab/device"
+    ],
+    "type": "object"
+}
