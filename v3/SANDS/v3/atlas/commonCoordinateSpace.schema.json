@@ -2,8 +2,8 @@
     "$id": "https://openminds.ebrains.eu/sands/commonCoordinateSpace?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "coordinateSpace",
-        "researchProduct"
+        "researchProduct",
+        "coordinateSpace"
     ],
     "_deprecated": true,
     "_type": "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
@@ -22,7 +22,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/author": {
-            "_instruction": "If necessary, add one or several authors (person or organization) that contributed to the production and publication of this common coordinate space.",
+            "_instruction": "Add all parties that contributed to this common coordinate space as authors.",
             "description": "Creator of a literary or creative work, as well as a dataset publication.",
             "items": {
                 "else": {
@@ -120,7 +120,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
-            "_instruction": "Add the globally unique and persistent digital identifier of this common coordinate space. Note that this digital identifier will be used to reference all attached common coordinate space.",
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product. Note that this digital identifier will be used to reference all attached research product versions.",
             "description": "Digital handle to identify objects or legal persons.",
             "else": {
                 "properties": {
@@ -168,7 +168,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
-            "_instruction": "Add one or several versions of this common coordinate space.",
+            "_instruction": "Add all versions of this common coordinate space.",
             "description": "Reference to variants of an original.",
             "items": {
                 "else": {
@@ -225,7 +225,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
-            "_instruction": "Enter the identifier(s) (IRI) of the related ontological term(s) matching this common coordinate space.",
+            "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this common coordinate space.",
             "description": "Term or code used to identify something or someone registered within a particular ontology.",
             "items": {
                 "_formats": [
@@ -245,7 +245,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/usedSpecies": {
-            "_instruction": "Add the species of the specimen that were used to create this common coordinate space.",
+            "_instruction": "Add the species that was used for the creation of this common coordinate space.",
             "else": {
                 "properties": {
                     "@id": {
@@ -285,13 +285,13 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/usedSpecies",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/description",
         "https://openminds.ebrains.eu/vocab/hasVersion",
         "@type",
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "@id"
+        "https://openminds.ebrains.eu/vocab/usedSpecies",
+        "https://openminds.ebrains.eu/vocab/description",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/fullName"
     ],
     "type": "object"
 }
