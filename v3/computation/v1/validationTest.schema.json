@@ -68,7 +68,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/developer": {
-            "_instruction": "Add one or several developers (person or organization) that contributed to this validation test.",
+            "_instruction": "Add all parties that developed this validation test.",
             "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
             "items": {
                 "else": {
@@ -153,45 +153,6 @@
             "title": "digitalIdentifier",
             "type": "object"
         },
-        "https://openminds.ebrains.eu/vocab/experimentalTechnique": {
-            "_instruction": "Add the experimental technique used to obtain the reference data for this validation test.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/controlledTerms/Technique"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "experimentalTechnique",
-            "type": "object"
-        },
         "https://openminds.ebrains.eu/vocab/fullName": {
             "_instruction": "Enter a descriptive full name (or title) for this research product. Note that this should be a suitable full name for all attached research product versions.",
             "description": "Whole, non-abbreviated name of something or somebody.",
@@ -199,7 +160,7 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasVersion": {
-            "_instruction": "Add one or several versions of this validation test.",
+            "_instruction": "Add all versions of this validation test.",
             "description": "Reference to variants of an original.",
             "items": {
                 "else": {
@@ -255,6 +216,49 @@
             "title": "howToCite",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/referenceDataAcquisition": {
+            "_instruction": "Add all acquisition techniques that were used to obtain the reference data for this validation test.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Technique"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "referenceDataAcquisition",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/scope": {
             "_instruction": "Add the scope of this validation test.",
             "description": "Extent of something.",
@@ -296,7 +300,7 @@
             "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/scoreType": {
-            "_instruction": "Add the type of the score calculated in this validation test.",
+            "_instruction": "Add the type of score calculated in this validation test.",
             "else": {
                 "properties": {
                     "@id": {
@@ -411,12 +415,12 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/hasVersion",
-        "@id",
         "https://openminds.ebrains.eu/vocab/developer",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/fullName",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
         "https://openminds.ebrains.eu/vocab/description"
     ],
     "type": "object"

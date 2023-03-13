@@ -94,11 +94,261 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/dimension": {
-            "_embeddedCategories": [
-                "mathematicalShapes"
-            ],
-            "_instruction": "Enter the dimension of the cranial window by defining its mathematical shape.",
-            "title": "dimension"
+            "anyOf": [
+                {
+                    "_categories": [
+                        "mathematicalShapes"
+                    ],
+                    "_type": "https://openminds.ebrains.eu/sands/Circle",
+                    "properties": {
+                        "radius": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "radius"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_categories": [
+                        "mathematicalShapes"
+                    ],
+                    "_type": "https://openminds.ebrains.eu/sands/Rectangle",
+                    "properties": {
+                        "length": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        "width": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "length",
+                        "width"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_categories": [
+                        "mathematicalShapes"
+                    ],
+                    "_type": "https://openminds.ebrains.eu/sands/Ellipse",
+                    "properties": {
+                        "semiMajorAxis": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        },
+                        "semiMinorAxis": {
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
+                            "properties": {
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                                    ],
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
+                                },
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                                    ],
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "value"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "semiMinorAxis",
+                        "semiMajorAxis"
+                    ],
+                    "type": "object"
+                }
+            ]
         },
         "https://openminds.ebrains.eu/vocab/endTime": {
             "_instruction": "Enter the date and/or time on when this activity ended, formatted as either '2023-02-07T16:00:00+00:00' (date-time) or '16:00:00+00:00' (time).",
@@ -496,13 +746,13 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/protocol",
         "https://openminds.ebrains.eu/vocab/constructionType",
+        "https://openminds.ebrains.eu/vocab/output",
         "@id",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/isPartOf",
         "https://openminds.ebrains.eu/vocab/input",
-        "https://openminds.ebrains.eu/vocab/output"
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/protocol"
     ],
     "type": "object"
 }
