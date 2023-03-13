@@ -148,8 +148,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellCultureType
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" BiologicalSex
@@ -174,6 +172,8 @@ ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" OpticalStimulusType
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" AuditoryStimulusType
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class TissueSampleCollection {
@@ -244,8 +244,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" CellCultureType
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" BiologicalSex
@@ -270,6 +268,8 @@ Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" OpticalStimulusType
 Protocol -d-> "studyOption" Disease
 Protocol -d-> "studyOption" AuditoryStimulusType
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -652,8 +652,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" CellCultureType
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" BiologicalSex
@@ -678,6 +676,8 @@ Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" OpticalStimulusType
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" AuditoryStimulusType
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
