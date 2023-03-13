@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/propertyValueList?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/PropertyValueList",
+    "description": "An identifiable list of property-value pairs.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -20,6 +21,7 @@
             "anyOf": [
                 {
                     "_type": "https://openminds.ebrains.eu/core/NumericalProperty",
+                    "description": "Structured information about a property of some entity or process whose value is a number.",
                     "properties": {
                         "name": {
                             "_instruction": "Enter a descriptive name for this numerical property.",
@@ -74,6 +76,7 @@
                                 },
                                 {
                                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                                    "description": "A representation of a range of quantitative values.",
                                     "properties": {
                                         "maxValue": {
                                             "_instruction": "Enter the maximum value.",
@@ -143,9 +146,9 @@
         }
     },
     "required": [
-        "@type",
+        "https://openminds.ebrains.eu/vocab/propertyValuePair",
         "@id",
-        "https://openminds.ebrains.eu/vocab/propertyValuePair"
+        "@type"
     ],
     "type": "object"
 }

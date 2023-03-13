@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/chemicals/chemicalSubstance?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+    "description": "Structured information about a chemical substance.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -147,6 +148,7 @@
                 },
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "description": "A representation of a range of quantitative values.",
                     "properties": {
                         "maxValue": {
                             "_instruction": "Enter the maximum value.",
@@ -185,9 +187,9 @@
         }
     },
     "required": [
-        "@type",
+        "https://openminds.ebrains.eu/vocab/molecularEntity",
         "@id",
-        "https://openminds.ebrains.eu/vocab/molecularEntity"
+        "@type"
     ],
     "type": "object"
 }

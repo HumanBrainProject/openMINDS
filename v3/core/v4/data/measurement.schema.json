@@ -2,6 +2,7 @@
     "$id": "https://openminds.ebrains.eu/core/measurement?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_type": "https://openminds.ebrains.eu/core/Measurement",
+    "description": "Structured information about a measurement performed during a scientific experiment.",
     "properties": {
         "@id": {
             "description": "Metadata node identifier.",
@@ -82,10 +83,10 @@
                     },
                     "@type": {
                         "enum": [
+                            "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage",
                             "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
                             "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
-                            "https://openminds.ebrains.eu/ephys/PipetteUsage",
-                            "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
+                            "https://openminds.ebrains.eu/ephys/PipetteUsage"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -151,6 +152,7 @@
                 },
                 {
                     "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "description": "A representation of a range of quantitative values.",
                     "properties": {
                         "maxValue": {
                             "_instruction": "Enter the maximum value.",
@@ -189,8 +191,8 @@
         }
     },
     "required": [
-        "@id",
         "https://openminds.ebrains.eu/vocab/value",
+        "@id",
         "https://openminds.ebrains.eu/vocab/measuredQuantity",
         "@type"
     ],
