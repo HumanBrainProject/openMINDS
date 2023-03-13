@@ -16,10 +16,10 @@ class ElectrodePlacement {
 +studyTarget
 
 }
+ElectrodePlacement -d-> "device" SlicingDeviceUsage
 ElectrodePlacement -d-> "device" ElectrodeArrayUsage
 ElectrodePlacement -d-> "device" ElectrodeUsage
 ElectrodePlacement -d-> "device" PipetteUsage
-ElectrodePlacement -d-> "device" SlicingDeviceUsage
 ElectrodePlacement -d-> "input" TissueSampleState
 ElectrodePlacement -d-> "input" SubjectState
 ElectrodePlacement -d-> "output" TissueSampleState
@@ -31,8 +31,6 @@ ElectrodePlacement -d-> "protocol" Protocol
 ElectrodePlacement -d-> "customPropertySet" CustomPropertySet
 ElectrodePlacement -d-> "performedBy" SoftwareAgent
 ElectrodePlacement -d-> "performedBy" Person
-ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
-ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
 ElectrodePlacement -d-> "studyTarget" CellCultureType
 ElectrodePlacement -d-> "studyTarget" Handedness
 ElectrodePlacement -d-> "studyTarget" BiologicalSex
@@ -57,5 +55,7 @@ ElectrodePlacement -d-> "studyTarget" BiologicalOrder
 ElectrodePlacement -d-> "studyTarget" OpticalStimulusType
 ElectrodePlacement -d-> "studyTarget" Disease
 ElectrodePlacement -d-> "studyTarget" AuditoryStimulusType
+ElectrodePlacement -d-> "studyTarget" ParcellationEntityVersion
+ElectrodePlacement -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml
