@@ -278,17 +278,56 @@
             "description": "Shortened or fully abbreviated name of something or somebody.",
             "title": "shortName",
             "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/usedSpecies": {
+            "_instruction": "Add the species that was used for the creation of this brain atlas.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/Species"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "usedSpecies",
+            "type": "object"
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/hasVersion",
-        "https://openminds.ebrains.eu/vocab/author",
         "https://openminds.ebrains.eu/vocab/fullName",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/author",
+        "https://openminds.ebrains.eu/vocab/hasVersion",
         "https://openminds.ebrains.eu/vocab/hasTerminology",
-        "@type"
+        "https://openminds.ebrains.eu/vocab/description",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/shortName"
     ],
     "type": "object"
 }
