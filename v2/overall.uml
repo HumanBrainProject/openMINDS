@@ -1292,6 +1292,8 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" ParcellationEntity
+ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellCultureType
 ProtocolExecution -d-> "studyTarget" Handedness
 ProtocolExecution -d-> "studyTarget" BiologicalSex
@@ -1316,8 +1318,6 @@ ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" OpticalStimulusType
 ProtocolExecution -d-> "studyTarget" Disease
 ProtocolExecution -d-> "studyTarget" AuditoryStimulusType
-ProtocolExecution -d-> "studyTarget" ParcellationEntity
-ProtocolExecution -d-> "studyTarget" CustomAnatomicalEntity
 
 
 class TissueSampleCollection {
@@ -1388,6 +1388,8 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" ParcellationEntity
+Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "studyOption" CellCultureType
 Protocol -d-> "studyOption" Handedness
 Protocol -d-> "studyOption" BiologicalSex
@@ -1412,8 +1414,6 @@ Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" OpticalStimulusType
 Protocol -d-> "studyOption" Disease
 Protocol -d-> "studyOption" AuditoryStimulusType
-Protocol -d-> "studyOption" ParcellationEntity
-Protocol -d-> "studyOption" CustomAnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1796,6 +1796,8 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" ParcellationEntity
+Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "studyTarget" CellCultureType
 Model -d-> "studyTarget" Handedness
 Model -d-> "studyTarget" BiologicalSex
@@ -1820,8 +1822,6 @@ Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" OpticalStimulusType
 Model -d-> "studyTarget" Disease
 Model -d-> "studyTarget" AuditoryStimulusType
-Model -d-> "studyTarget" ParcellationEntity
-Model -d-> "studyTarget" CustomAnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -1999,10 +1999,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" StimulationApproach
-File -d-> "descendedFrom" StimulationTechnique
-File -d-> "descendedFrom" AnalysisTechnique
-File -d-> "descendedFrom" Technique
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" SubjectGroupState
@@ -2010,6 +2006,10 @@ File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" FileBundle
+File -d-> "descendedFrom" StimulationApproach
+File -d-> "descendedFrom" StimulationTechnique
+File -d-> "descendedFrom" AnalysisTechnique
+File -d-> "descendedFrom" Technique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -2091,10 +2091,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" StimulationApproach
-FileBundle -d-> "descendedFrom" StimulationTechnique
-FileBundle -d-> "descendedFrom" AnalysisTechnique
-FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" SubjectGroupState
@@ -2102,6 +2098,10 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" FileBundle
+FileBundle -d-> "descendedFrom" StimulationApproach
+FileBundle -d-> "descendedFrom" StimulationTechnique
+FileBundle -d-> "descendedFrom" AnalysisTechnique
+FileBundle -d-> "descendedFrom" Technique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash

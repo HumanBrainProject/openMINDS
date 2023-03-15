@@ -11,44 +11,15 @@
             "const": "https://openminds.ebrains.eu/core/Strain",
             "type": "string"
         },
-        "https://openminds.ebrains.eu/vocab/RRID": {
-            "_instruction": "Add the 'Research Resource Identifier' (RRID) of this strain.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
+        "https://openminds.ebrains.eu/vocab/alternateIdentifier": {
+            "_instruction": "Enter all identifiers for this strain, excluding its ontological identifers or RRID (e.g., identifiers from the Mouse Genome Informatics (MGI) database or Rat Genome Database (RGD)).",
+            "items": {
+                "type": "string"
             },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/RRID"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "RRID",
-            "type": "object"
+            "minItems": 1,
+            "title": "alternateIdentifier",
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/backgroundStrain": {
             "_instruction": "Add the background strain that explains the majority of the genetic background and/or causes the majority of the prominent traits. If two strains contributed equally, state both.",
@@ -139,6 +110,46 @@
             "title": "description",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the 'Research Resource Identifier' (RRID) of this strain.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/RRID"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/diseaseModel": {
             "_instruction": "Add all (human) diseases and/or conditions that this strain is a model for.",
             "items": {
@@ -221,17 +232,6 @@
             },
             "title": "geneticStrainType",
             "type": "object"
-        },
-        "https://openminds.ebrains.eu/vocab/identifier": {
-            "_instruction": "Enter all identifiers for this strain, excluding its ontological identifers or RRID (e.g., identifiers from the Mouse Genome Informatics (MGI) database or Rat Genome Database (RGD)).",
-            "description": "Term or code used to identify something or someone.",
-            "items": {
-                "type": "string"
-            },
-            "minItems": 1,
-            "title": "identifier",
-            "type": "array",
-            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/laboratoryCode": {
             "_instruction": "Enter the laboratory code assigned by the Institute of Laboratory Animal Research (ILAR) for the investigator or organization that has created this strain following the defined pattern (e.g., Aaa).",
@@ -341,11 +341,11 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/name",
-        "@type",
-        "https://openminds.ebrains.eu/vocab/species",
+        "@id",
         "https://openminds.ebrains.eu/vocab/geneticStrainType",
-        "@id"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/species"
     ],
     "type": "object"
 }

@@ -1,6 +1,6 @@
 @startuml
 class Setup {
-+components
++hasPart
 +description
 +location
 +manufacturer
@@ -8,12 +8,12 @@ class Setup {
 +type
 
 }
-Setup -d-> "components" SlicingDevice
-Setup -d-> "components" SoftwareVersion
-Setup -d-> "components" Setup
-Setup -d-> "components" ElectrodeArray
-Setup -d-> "components" Electrode
-Setup -d-> "components" Pipette
+Setup -d-> "hasPart" SlicingDevice
+Setup -d-> "hasPart" ElectrodeArray
+Setup -d-> "hasPart" Electrode
+Setup -d-> "hasPart" Pipette
+Setup -d-> "hasPart" SoftwareVersion
+Setup -d-> "hasPart" Setup
 Setup -d-> "manufacturer" Person
 Setup -d-> "manufacturer" Consortium
 Setup -d-> "manufacturer" Organization
