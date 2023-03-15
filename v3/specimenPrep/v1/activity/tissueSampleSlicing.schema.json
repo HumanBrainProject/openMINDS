@@ -11,6 +11,46 @@
             "const": "https://openminds.ebrains.eu/specimenPrep/TissueSampleSlicing",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/device": {
+            "_instruction": "Add the device used to slice the tissue sample.",
+            "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "device",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/input": {
             "_instruction": "Add the state of the specimen that was sliced during this activity.",
             "description": "Something or someone that is put into or participates in a process or machine.",
@@ -97,45 +137,6 @@
             "title": "output",
             "type": "array",
             "uniqueItems": true
-        },
-        "https://openminds.ebrains.eu/vocab/slicingDevice": {
-            "_instruction": "Add the device used to slice the tissue sample.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "title": "slicingDevice",
-            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/temperature": {
             "anyOf": [
@@ -262,9 +263,9 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/slicingDevice",
         "@id",
-        "@type"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/device"
     ],
     "type": "object"
 }
