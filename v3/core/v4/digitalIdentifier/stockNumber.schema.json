@@ -1,0 +1,67 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/stockNumber?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/StockNumber",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/StockNumber",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the stock number of an item provided by a store or company.",
+            "description": "Term or code used to identify something or someone.",
+            "title": "identifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/vendor": {
+            "_instruction": "Add the vendor that has the item with this identifier in stock.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Organization"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "vendor",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/vendor",
+        "https://openminds.ebrains.eu/vocab/identifier",
+        "@type",
+        "@id"
+    ],
+    "type": "object"
+}

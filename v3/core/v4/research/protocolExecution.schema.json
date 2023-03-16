@@ -1,0 +1,478 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/protocolExecution?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ProtocolExecution",
+    "description": "Structured information on a protocol execution.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ProtocolExecution",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/behavioralProtocol": {
+            "_instruction": "Add all behavioral protocols that were performed during this protocol execution.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/BehavioralProtocol"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "behavioralProtocol",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/customPropertySet": {
+            "_type": "https://openminds.ebrains.eu/core/CustomPropertySet",
+            "description": "Structured information about properties of an entity that are not represented in an openMINDS schema.",
+            "properties": {
+                "context": {
+                    "_instruction": "Enter the common context for this custom property set.",
+                    "title": "context",
+                    "type": "string"
+                },
+                "dataLocation": {
+                    "_instruction": "Add the location of the data that define the custom property set for the given context (e.g., stored as file or other entities such as property-value lists).",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Configuration",
+                        "https://openminds.ebrains.eu/core/File",
+                        "https://openminds.ebrains.eu/core/PropertyValueList"
+                    ],
+                    "title": "dataLocation"
+                },
+                "relevantFor": {
+                    "_instruction": "Add the technique for which this custom property set is relevant.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/controlledTerms/StimulationApproach",
+                        "https://openminds.ebrains.eu/controlledTerms/Technique",
+                        "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique",
+                        "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique"
+                    ],
+                    "description": "Reference to what or whom something or someone bears siginificance.",
+                    "title": "relevantFor"
+                }
+            },
+            "required": [
+                "context",
+                "dataLocation",
+                "relevantFor"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this activity.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/endTime": {
+            "_instruction": "Enter the date and/or time on when this activity ended, formatted as either '2023-02-07T16:00:00+00:00' (date-time) or '16:00:00+00:00' (time).",
+            "anyOf": [
+                {
+                    "format": "date-time"
+                },
+                {
+                    "format": "time"
+                }
+            ],
+            "title": "endTime",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/input": {
+            "_instruction": "Add all inputs used by this activity.",
+            "description": "Something or someone that is put into or participates in a process or machine.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState",
+                                "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "input",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add the dataset version in which this activity was conducted.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DatasetVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isPartOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this activity that may help you to find this instance more easily.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/output": {
+            "_instruction": "Add all outputs generated by this activity.",
+            "description": "Something or someone that comes out of, is delivered or produced by a process or machine.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/FileBundle",
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "output",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/performedBy": {
+            "_instruction": "Add all agents that performed this activity.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/computation/SoftwareAgent"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "performedBy",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/preparationDesign": {
+            "_instruction": "Add the initial preparation type for this activity.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/PreparationType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "preparationDesign",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/protocol": {
+            "_instruction": "Add all protocols used during this activity.",
+            "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Protocol"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "protocol",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/startTime": {
+            "_instruction": "Enter the date and/or time on when this activity started, formatted as either '2023-02-07T16:00:00+00:00' (date-time) or '16:00:00+00:00' (time).",
+            "anyOf": [
+                {
+                    "format": "date-time"
+                },
+                {
+                    "format": "time"
+                }
+            ],
+            "title": "startTime",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/studyTarget": {
+            "_instruction": "Add all study targets of this activity.",
+            "description": "Structure or function that was targeted within a study.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/BreedingType",
+                                "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/Organ",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
+                                "https://openminds.ebrains.eu/controlledTerms/Handedness",
+                                "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
+                                "https://openminds.ebrains.eu/controlledTerms/TermSuggestion",
+                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
+                                "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
+                                "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
+                                "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/Species",
+                                "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/CellType",
+                                "https://openminds.ebrains.eu/controlledTerms/OlfactoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel",
+                                "https://openminds.ebrains.eu/controlledTerms/BiologicalOrder",
+                                "https://openminds.ebrains.eu/controlledTerms/OrganismSystem",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "studyTarget",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@type",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "https://openminds.ebrains.eu/vocab/protocol"
+    ],
+    "type": "object"
+}
