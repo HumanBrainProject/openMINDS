@@ -19,47 +19,66 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/hasPart": {
-            "_instruction": "Add all components, including other mixtures, that are part of this chemical mixture.",
-            "items": {
-                "else": {
+            "_type": "https://openminds.ebrains.eu/chemicals/AmountOfChemical",
+            "description": "Structured information about the amount of a given chemical that was used.",
+            "properties": {
+                "amount": {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
                     "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "@id"
-                    ]
-                },
-                "if": {
-                    "required": [
-                        "@type"
-                    ]
-                },
-                "then": {
-                    "properties": {
-                        "@id": {
-                            "format": "iri",
-                            "type": "string"
-                        },
-                        "@type": {
-                            "enum": [
-                                "https://openminds.ebrains.eu/chemicals/AmountOfChemical"
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "format": "iri",
-                            "type": "string"
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
                         }
                     },
                     "required": [
-                        "@id"
-                    ]
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                "chemicalProduct": {
+                    "_instruction": "Add the chemical product that was used.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/chemicals/ChemicalMixture",
+                        "https://openminds.ebrains.eu/chemicals/ChemicalSubstance",
+                        "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
+                    ],
+                    "title": "chemicalProduct"
                 }
             },
-            "minItems": 2,
-            "title": "hasPart",
-            "type": "array",
-            "uniqueItems": true
+            "required": [
+                "chemicalProduct"
+            ],
+            "type": "object"
         },
         "https://openminds.ebrains.eu/vocab/name": {
             "_instruction": "Enter the name of this chemical mixture.",
@@ -148,9 +167,9 @@
         }
     },
     "required": [
-        "@id",
-        "https://openminds.ebrains.eu/vocab/type",
         "@type",
+        "https://openminds.ebrains.eu/vocab/type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/hasPart"
     ],
     "type": "object"
