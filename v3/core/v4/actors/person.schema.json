@@ -52,6 +52,26 @@
             ],
             "type": "object"
         },
+        "https://openminds.ebrains.eu/vocab/alternateFamilyName": {
+            "_instruction": "Enter any other known family name of this person.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternateFamilyName",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/alternateGivenName": {
+            "_instruction": "Enter any other known given name of this person.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternateGivenName",
+            "type": "array",
+            "uniqueItems": true
+        },
         "https://openminds.ebrains.eu/vocab/associatedAccount": {
             "_instruction": "Add the information about web service accounts held by this person.",
             "items": {
@@ -193,9 +213,9 @@
         }
     },
     "required": [
-        "@type",
+        "@id",
         "https://openminds.ebrains.eu/vocab/givenName",
-        "@id"
+        "@type"
     ],
     "type": "object"
 }
