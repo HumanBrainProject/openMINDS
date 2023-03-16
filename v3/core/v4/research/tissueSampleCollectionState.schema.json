@@ -1,0 +1,426 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/tissueSampleCollectionState?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "fileOrigin"
+    ],
+    "_type": "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/additionalRemarks": {
+            "_instruction": "Enter any additional remarks concering the specimen (set) in this state.",
+            "description": "Mention of what deserves additional attention or notice.",
+            "title": "additionalRemarks",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/age": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "description": "A representation of a range of quantitative values.",
+                    "properties": {
+                        "maxValue": {
+                            "_instruction": "Enter the maximum value.",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
+                            "type": "number"
+                        },
+                        "maxValueUnit": {
+                            "_instruction": "Add the unit of measurement for the maximum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "maxValueUnit"
+                        },
+                        "minValue": {
+                            "_instruction": "Enter the minimum value.",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
+                            "type": "number"
+                        },
+                        "minValueUnit": {
+                            "_instruction": "Add the unit of measurement for the minimum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "minValueUnit"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/attribute": {
+            "_instruction": "Add all attributes that can be ascribed to this tissue sample collection state.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/TissueSampleAttribute"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "attribute",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/descendedFrom": {
+            "_instruction": "Add all specimen states used to produce or obtain this tissue sample collection state.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/SubjectGroupState",
+                                "https://openminds.ebrains.eu/core/SubjectState",
+                                "https://openminds.ebrains.eu/core/TissueSampleCollectionState",
+                                "https://openminds.ebrains.eu/core/TissueSampleState"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "descendedFrom",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier (or label) of this specimen (set) state that is used within the corresponding data files to identify this specimen (set) state.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this specimen (set) state that may help you to find this instance more easily.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/pathology": {
+            "_instruction": "Add all (human) diseases and/or conditions that the specimen (set) in this state has and/or is a model for.",
+            "description": "Structural and functional deviation from the normal that constitutes a disease or characterizes a particular disease.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "pathology",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relativeTimeIndication": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "description": "A representation of a range of quantitative values.",
+                    "properties": {
+                        "maxValue": {
+                            "_instruction": "Enter the maximum value.",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
+                            "type": "number"
+                        },
+                        "maxValueUnit": {
+                            "_instruction": "Add the unit of measurement for the maximum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "maxValueUnit"
+                        },
+                        "minValue": {
+                            "_instruction": "Enter the minimum value.",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
+                            "type": "number"
+                        },
+                        "minValueUnit": {
+                            "_instruction": "Add the unit of measurement for the minimum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "minValueUnit"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        },
+        "https://openminds.ebrains.eu/vocab/weight": {
+            "anyOf": [
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                },
+                {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValueRange",
+                    "description": "A representation of a range of quantitative values.",
+                    "properties": {
+                        "maxValue": {
+                            "_instruction": "Enter the maximum value.",
+                            "description": "Greatest quantity attained or allowed.",
+                            "title": "maxValue",
+                            "type": "number"
+                        },
+                        "maxValueUnit": {
+                            "_instruction": "Add the unit of measurement for the maximum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "maxValueUnit"
+                        },
+                        "minValue": {
+                            "_instruction": "Enter the minimum value.",
+                            "description": "Smallest quantity attained or allowed.",
+                            "title": "minValue",
+                            "type": "number"
+                        },
+                        "minValueUnit": {
+                            "_instruction": "Add the unit of measurement for the minimum value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "title": "minValueUnit"
+                        }
+                    },
+                    "required": [
+                        "maxValue",
+                        "minValue"
+                    ],
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "required": [
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}

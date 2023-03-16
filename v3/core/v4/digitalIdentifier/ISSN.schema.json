@@ -1,0 +1,29 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/iSSN?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ISSN",
+    "description": "An International Standard Serial Number of the ISSN International Centre.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ISSN",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/identifier": {
+            "_instruction": "Enter the serial number for serial publications 'International Standard Serial Number' (ISSN) following the defined pattern (e.g., 1234-5678 or 1234-567X).",
+            "description": "Term or code used to identify something or someone.",
+            "pattern": "^[0-9]{4}-[0-9]{3}[0-9X]$",
+            "title": "identifier",
+            "type": "string"
+        }
+    },
+    "required": [
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/identifier"
+    ],
+    "type": "object"
+}

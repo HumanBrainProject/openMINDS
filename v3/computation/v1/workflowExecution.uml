@@ -1,0 +1,19 @@
+@startuml
+class WorkflowExecution {
++recipe
++stage
++startedBy
+
+}
+WorkflowExecution -d-> "recipe" WorkflowRecipeVersion
+WorkflowExecution -d-> "stage" Visualization
+WorkflowExecution -d-> "stage" GenericComputation
+WorkflowExecution -d-> "stage" Optimization
+WorkflowExecution -d-> "stage" DataCopy
+WorkflowExecution -d-> "stage" DataAnalysis
+WorkflowExecution -d-> "stage" Simulation
+WorkflowExecution -d-> "stage" ModelValidation
+WorkflowExecution -d-> "startedBy" Person
+WorkflowExecution -d-> "startedBy" SoftwareAgent
+
+@enduml

@@ -1,0 +1,87 @@
+{
+    "$id": "https://openminds.ebrains.eu/publications/livePaperSection?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/publications/LivePaperSection",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/publications/LivePaperSection",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this live paper section.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/isPartOf": {
+            "_instruction": "Add the live paper version this live paper section is part of.",
+            "description": "Reference to the ensemble of multiple things or beings.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/publications/LivePaperVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isPartOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name (or title) of this live paper section.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/order": {
+            "_instruction": "Enter an integer that is used to sort this live paper section in ascending order with other live paper sections of the overarching live paper version.",
+            "title": "order",
+            "type": "integer"
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+            "_instruction": "Add the type of this live paper section (e.g., 'custom', 'generic', 'models', 'morphology', or 'traces').",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "title": "type",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/order",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/isPartOf",
+        "@type"
+    ],
+    "type": "object"
+}
