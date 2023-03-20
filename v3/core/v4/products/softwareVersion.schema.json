@@ -2,8 +2,8 @@
     "$id": "https://openminds.ebrains.eu/core/softwareVersion?format=json-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "_categories": [
-        "researchProduct",
-        "setupComponent"
+        "setupComponent",
+        "researchProduct"
     ],
     "_type": "https://openminds.ebrains.eu/core/SoftwareVersion",
     "properties": {
@@ -452,6 +452,49 @@
             },
             "minItems": 1,
             "title": "funding",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/hasPart": {
+            "_instruction": "Add all software versions that supplement this software version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/SoftwareVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasPart",
             "type": "array",
             "uniqueItems": true
         },
@@ -1107,21 +1150,21 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/feature",
-        "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/programmingLanguage",
-        "https://openminds.ebrains.eu/vocab/applicationCategory",
-        "https://openminds.ebrains.eu/vocab/device",
-        "https://openminds.ebrains.eu/vocab/shortName",
-        "https://openminds.ebrains.eu/vocab/operatingSystem",
-        "@id",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
-        "https://openminds.ebrains.eu/vocab/language",
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/license"
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/applicationCategory",
+        "https://openminds.ebrains.eu/vocab/feature",
+        "https://openminds.ebrains.eu/vocab/language",
+        "https://openminds.ebrains.eu/vocab/programmingLanguage",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/operatingSystem",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/device",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation"
     ],
     "type": "object"
 }

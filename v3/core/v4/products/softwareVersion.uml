@@ -5,6 +5,7 @@ class SoftwareVersion {
 +device
 +digitalIdentifier
 +feature
++hasPart
 +inputFormat
 +isAlternativeVersionOf
 +isNewVersionOf
@@ -43,6 +44,7 @@ SoftwareVersion -d-> "digitalIdentifier" DOI
 SoftwareVersion -d-> "digitalIdentifier" SWHID
 SoftwareVersion -d-> "digitalIdentifier" RRID
 SoftwareVersion -d-> "feature" SoftwareFeature
+SoftwareVersion -d-> "hasPart" SoftwareVersion
 SoftwareVersion -d-> "inputFormat" ContentType
 SoftwareVersion -d-> "isAlternativeVersionOf" SoftwareVersion
 SoftwareVersion -d-> "isNewVersionOf" SoftwareVersion
