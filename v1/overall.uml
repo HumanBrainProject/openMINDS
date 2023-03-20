@@ -1036,6 +1036,7 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" BreedingType
 Protocol -d-> "studyOption" AuditoryStimulusType
 Protocol -d-> "studyOption" Organ
@@ -1060,7 +1061,6 @@ Protocol -d-> "studyOption" GustatoryStimulusType
 Protocol -d-> "studyOption" DiseaseModel
 Protocol -d-> "studyOption" BiologicalOrder
 Protocol -d-> "studyOption" OrganismSystem
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -1184,6 +1184,7 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" AuditoryStimulusType
 ProtocolExecution -d-> "studyTarget" Organ
@@ -1208,7 +1209,6 @@ ProtocolExecution -d-> "studyTarget" GustatoryStimulusType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
 ProtocolExecution -d-> "studyTarget" BiologicalOrder
 ProtocolExecution -d-> "studyTarget" OrganismSystem
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class ORCID {
@@ -1565,6 +1565,7 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" AuditoryStimulusType
 Model -d-> "studyTarget" Organ
@@ -1589,7 +1590,6 @@ Model -d-> "studyTarget" GustatoryStimulusType
 Model -d-> "studyTarget" DiseaseModel
 Model -d-> "studyTarget" BiologicalOrder
 Model -d-> "studyTarget" OrganismSystem
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Organization
 Model -d-> "custodian" Person
 Model -d-> "homepage" URL
