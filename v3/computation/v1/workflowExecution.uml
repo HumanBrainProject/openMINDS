@@ -1,10 +1,13 @@
 @startuml
 class WorkflowExecution {
++configuration
 +recipe
 +stage
 +startedBy
 
 }
+WorkflowExecution -d-> "configuration" Configuration
+WorkflowExecution -d-> "configuration" File
 WorkflowExecution -d-> "recipe" WorkflowRecipeVersion
 WorkflowExecution -d-> "stage" Visualization
 WorkflowExecution -d-> "stage" GenericComputation

@@ -12,6 +12,46 @@
             "const": "https://openminds.ebrains.eu/computation/WorkflowExecution",
             "type": "string"
         },
+        "https://openminds.ebrains.eu/vocab/configuration": {
+            "_instruction": "Add the configuration information for this workflow execution.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Configuration",
+                            "https://openminds.ebrains.eu/core/File"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "configuration",
+            "type": "object"
+        },
         "https://openminds.ebrains.eu/vocab/recipe": {
             "_instruction": "Add the workflow recipe version used for this workflow execution.",
             "else": {
@@ -142,9 +182,9 @@
         }
     },
     "required": [
-        "@type",
+        "https://openminds.ebrains.eu/vocab/stages",
         "@id",
-        "https://openminds.ebrains.eu/vocab/stages"
+        "@type"
     ],
     "type": "object"
 }
