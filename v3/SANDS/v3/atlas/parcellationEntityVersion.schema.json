@@ -46,75 +46,47 @@
             "_type": "https://openminds.ebrains.eu/sands/AtlasAnnotation",
             "properties": {
                 "anchorPoint": {
-                    "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
-                    "description": "Structured information on a coordinate point.",
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
                     "properties": {
-                        "coordinateSpace": {
-                            "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
                             "_linkedTypes": [
-                                "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
-                                "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                             ],
-                            "description": "Two or three dimensional geometric setting.",
-                            "title": "coordinateSpace"
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
                         },
-                        "coordinates": {
-                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
-                            "description": "Structured information on a quantitative value.",
-                            "properties": {
-                                "typeOfUncertainty": {
-                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
-                                    "_linkedTypes": [
-                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
-                                    ],
-                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
-                                    "title": "typeOfUncertainty"
-                                },
-                                "uncertainty": {
-                                    "_instruction": "Enter the uncertainty of this quantitative value.",
-                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
-                                    "items": {
-                                        "type": "number"
-                                    },
-                                    "maxItems": 2,
-                                    "minItems": 2,
-                                    "title": "uncertainty",
-                                    "type": "array"
-                                },
-                                "unit": {
-                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
-                                    "_linkedTypes": [
-                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                    ],
-                                    "description": "Determinate quantity adopted as a standard of measurement.",
-                                    "title": "unit"
-                                },
-                                "value": {
-                                    "_instruction": "Enter the value of this quantitative value.",
-                                    "description": "Entry for a property.",
-                                    "title": "value",
-                                    "type": "number"
-                                }
+                        "uncertainty": {
+                            "_instruction": "Enter the uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
                             },
-                            "required": [
-                                "value"
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                             ],
-                            "type": "object"
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
                         }
                     },
                     "required": [
-                        "coordinates",
-                        "coordinateSpace"
+                        "value"
                     ],
                     "type": "object"
-                },
-                "coordinateSpace": {
-                    "_instruction": "Add the common coordinate space version for this annotation.",
-                    "_linkedTypes": [
-                        "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion"
-                    ],
-                    "description": "Two or three dimensional geometric setting.",
-                    "title": "coordinateSpace"
                 },
                 "criteria": {
                     "_instruction": "Add the protocol execution defining the criteria that were applied to produce this annotation.",
@@ -178,65 +150,45 @@
                             "type": "string"
                         },
                         "anchorPoint": {
-                            "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
-                            "description": "Structured information on a coordinate point.",
+                            "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                            "description": "Structured information on a quantitative value.",
                             "properties": {
-                                "coordinateSpace": {
-                                    "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+                                "typeOfUncertainty": {
+                                    "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
                                     "_linkedTypes": [
-                                        "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
-                                        "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
+                                        "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
                                     ],
-                                    "description": "Two or three dimensional geometric setting.",
-                                    "title": "coordinateSpace"
+                                    "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                                    "title": "typeOfUncertainty"
                                 },
-                                "coordinates": {
-                                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
-                                    "description": "Structured information on a quantitative value.",
-                                    "properties": {
-                                        "typeOfUncertainty": {
-                                            "_instruction": "Add the type of uncertainty used to determine the uncertainity for this quantitative value.",
-                                            "_linkedTypes": [
-                                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
-                                            ],
-                                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
-                                            "title": "typeOfUncertainty"
-                                        },
-                                        "uncertainty": {
-                                            "_instruction": "Enter the uncertainty of this quantitative value.",
-                                            "description": "Quantitative value range defining the uncertainty of a measurement.",
-                                            "items": {
-                                                "type": "number"
-                                            },
-                                            "maxItems": 2,
-                                            "minItems": 2,
-                                            "title": "uncertainty",
-                                            "type": "array"
-                                        },
-                                        "unit": {
-                                            "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
-                                            "_linkedTypes": [
-                                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
-                                            ],
-                                            "description": "Determinate quantity adopted as a standard of measurement.",
-                                            "title": "unit"
-                                        },
-                                        "value": {
-                                            "_instruction": "Enter the value of this quantitative value.",
-                                            "description": "Entry for a property.",
-                                            "title": "value",
-                                            "type": "number"
-                                        }
+                                "uncertainty": {
+                                    "_instruction": "Enter the uncertainty of this quantitative value.",
+                                    "description": "Quantitative value range defining the uncertainty of a measurement.",
+                                    "items": {
+                                        "type": "number"
                                     },
-                                    "required": [
-                                        "value"
+                                    "maxItems": 2,
+                                    "minItems": 2,
+                                    "title": "uncertainty",
+                                    "type": "array"
+                                },
+                                "unit": {
+                                    "_instruction": "Add the unit of measurement of this quantitative value and its uncertainty.",
+                                    "_linkedTypes": [
+                                        "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
                                     ],
-                                    "type": "object"
+                                    "description": "Determinate quantity adopted as a standard of measurement.",
+                                    "title": "unit"
+                                },
+                                "value": {
+                                    "_instruction": "Enter the value of this quantitative value.",
+                                    "description": "Entry for a property.",
+                                    "title": "value",
+                                    "type": "number"
                                 }
                             },
                             "required": [
-                                "coordinates",
-                                "coordinateSpace"
+                                "value"
                             ],
                             "type": "object"
                         },
@@ -306,8 +258,8 @@
                         "preferredDisplayColor": {
                             "_instruction": "Add the preferred color that a viewer should display.",
                             "_linkedTypes": [
-                                "https://openminds.ebrains.eu/controlledTerms/Colormap",
-                                "https://openminds.ebrains.eu/sands/SingleColor"
+                                "https://openminds.ebrains.eu/sands/SingleColor",
+                                "https://openminds.ebrains.eu/controlledTerms/Colormap"
                             ],
                             "title": "preferredDisplayColor"
                         }
@@ -335,10 +287,9 @@
                 }
             },
             "required": [
-                "coordinateSpace",
-                "type",
                 "criteriaQualityType",
-                "criteriaType"
+                "criteriaType",
+                "type"
             ],
             "type": "object"
         },
@@ -578,10 +529,10 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "@id",
         "https://openminds.ebrains.eu/vocab/name",
-        "@type"
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/versionIdentifier"
     ],
     "type": "object"
 }
