@@ -1,18 +1,18 @@
 @startuml
 class TissueSampleSlicing {
++device
 +input
 +output
-+device
 +temperature
 +tissueBathSolution
 
 }
+TissueSampleSlicing -d-> "device" SlicingDeviceUsage
 TissueSampleSlicing -d-> "input" SubjectState
 TissueSampleSlicing -d-> "input" TissueSampleCollectionState
 TissueSampleSlicing -d-> "input" TissueSampleState
 TissueSampleSlicing -d-> "output" TissueSampleCollectionState
 TissueSampleSlicing -d-> "output" TissueSampleState
-TissueSampleSlicing -d-> "device" SlicingDeviceUsage
 TissueSampleSlicing -d-> "temperature" QuantitativeValue
 TissueSampleSlicing -d-> "temperature" QuantitativeValueRange
 TissueSampleSlicing -d-> "tissueBathSolution" ChemicalMixture
