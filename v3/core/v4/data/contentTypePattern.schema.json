@@ -1,0 +1,72 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/contentTypePattern?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/ContentTypePattern",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/ContentTypePattern",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/contentType": {
+            "_instruction": "Add the content type that can be defined by the regular expression of this content type pattern (e.g., for file extensions).",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ContentType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "contentType",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/lookupLabel": {
+            "_instruction": "Enter a lookup label for this content type pattern that may help you to find this instance more easily.",
+            "title": "lookupLabel",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/regex": {
+            "_instruction": "Enter the regular expression for common elements within the file names (including their file path and/or extension) of the files formatted using the stated 'contentType'.",
+            "format": "ECMA262",
+            "title": "regex",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/regex",
+        "https://openminds.ebrains.eu/vocab/contentType",
+        "@id",
+        "@type"
+    ],
+    "type": "object"
+}
