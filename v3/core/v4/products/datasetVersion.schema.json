@@ -756,7 +756,7 @@
             "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/license": {
-            "_instruction": "Add the license of this dataset version.",
+            "_instruction": "Add the license or an online available data usage agreement for this dataset version.",
             "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
             "else": {
                 "properties": {
@@ -782,7 +782,8 @@
                     },
                     "@type": {
                         "enum": [
-                            "https://openminds.ebrains.eu/core/License"
+                            "https://openminds.ebrains.eu/core/License",
+                            "https://openminds.ebrains.eu/core/WebResource"
                         ],
                         "format": "iri",
                         "type": "string"
@@ -942,13 +943,13 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/publications/ScholarlyArticle",
-                                "https://openminds.ebrains.eu/publications/Book",
-                                "https://openminds.ebrains.eu/publications/Chapter",
                                 "https://openminds.ebrains.eu/core/HANDLE",
                                 "https://openminds.ebrains.eu/core/DOI",
                                 "https://openminds.ebrains.eu/core/ISSN",
-                                "https://openminds.ebrains.eu/core/ISBN"
+                                "https://openminds.ebrains.eu/core/ISBN",
+                                "https://openminds.ebrains.eu/publications/ScholarlyArticle",
+                                "https://openminds.ebrains.eu/publications/Book",
+                                "https://openminds.ebrains.eu/publications/Chapter"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -1209,20 +1210,20 @@
         }
     },
     "required": [
-        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/dataType",
+        "https://openminds.ebrains.eu/vocab/experimentalApproach",
+        "https://openminds.ebrains.eu/vocab/license",
         "https://openminds.ebrains.eu/vocab/releaseDate",
-        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "https://openminds.ebrains.eu/vocab/technique",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/ethicsAssessment",
         "@id",
         "https://openminds.ebrains.eu/vocab/accessibility",
-        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
         "@type",
-        "https://openminds.ebrains.eu/vocab/license",
-        "https://openminds.ebrains.eu/vocab/experimentalApproach",
+        "https://openminds.ebrains.eu/vocab/versionInnovation",
         "https://openminds.ebrains.eu/vocab/versionIdentifier",
-        "https://openminds.ebrains.eu/vocab/dataType",
-        "https://openminds.ebrains.eu/vocab/fullDocumentation",
-        "https://openminds.ebrains.eu/vocab/ethicsAssessment"
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation"
     ],
     "type": "object"
 }
