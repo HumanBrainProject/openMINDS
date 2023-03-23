@@ -21,10 +21,10 @@ class CellPatching {
 }
 CellPatching -d-> "bathTemperature" QuantitativeValue
 CellPatching -d-> "bathTemperature" QuantitativeValueRange
-CellPatching -d-> "device" SlicingDeviceUsage
 CellPatching -d-> "device" PipetteUsage
 CellPatching -d-> "device" ElectrodeUsage
 CellPatching -d-> "device" ElectrodeArrayUsage
+CellPatching -d-> "device" SlicingDeviceUsage
 CellPatching -d-> "tissueBathSolution" ChemicalMixture
 CellPatching -d-> "variation" PatchClampVariation
 CellPatching -d-> "input" TissueSampleState
@@ -38,6 +38,9 @@ CellPatching -d-> "protocol" Protocol
 CellPatching -d-> "customPropertySet" CustomPropertySet
 CellPatching -d-> "performedBy" Person
 CellPatching -d-> "performedBy" SoftwareAgent
+CellPatching -d-> "studyTarget" ParcellationEntity
+CellPatching -d-> "studyTarget" ParcellationEntityVersion
+CellPatching -d-> "studyTarget" CustomAnatomicalEntity
 CellPatching -d-> "studyTarget" BreedingType
 CellPatching -d-> "studyTarget" AuditoryStimulusType
 CellPatching -d-> "studyTarget" Organ
@@ -62,8 +65,5 @@ CellPatching -d-> "studyTarget" GustatoryStimulusType
 CellPatching -d-> "studyTarget" DiseaseModel
 CellPatching -d-> "studyTarget" BiologicalOrder
 CellPatching -d-> "studyTarget" OrganismSystem
-CellPatching -d-> "studyTarget" ParcellationEntity
-CellPatching -d-> "studyTarget" ParcellationEntityVersion
-CellPatching -d-> "studyTarget" CustomAnatomicalEntity
 
 @enduml
