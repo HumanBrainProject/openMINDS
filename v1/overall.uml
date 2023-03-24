@@ -830,6 +830,10 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" StimulationApproach
+FileBundle -d-> "descendedFrom" Technique
+FileBundle -d-> "descendedFrom" AnalysisTechnique
+FileBundle -d-> "descendedFrom" StimulationTechnique
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" BehavioralTask
@@ -837,10 +841,6 @@ FileBundle -d-> "descendedFrom" TissueSampleState
 FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
-FileBundle -d-> "descendedFrom" StimulationApproach
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" AnalysisTechnique
-FileBundle -d-> "descendedFrom" StimulationTechnique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -879,6 +879,10 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" StimulationApproach
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" AnalysisTechnique
+File -d-> "descendedFrom" StimulationTechnique
 File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" BehavioralTask
@@ -886,10 +890,6 @@ File -d-> "descendedFrom" TissueSampleState
 File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
-File -d-> "descendedFrom" StimulationApproach
-File -d-> "descendedFrom" Technique
-File -d-> "descendedFrom" AnalysisTechnique
-File -d-> "descendedFrom" StimulationTechnique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
