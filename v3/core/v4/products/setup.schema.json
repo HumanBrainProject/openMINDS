@@ -1,0 +1,180 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/setup?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_categories": [
+        "setupComponent"
+    ],
+    "_type": "https://openminds.ebrains.eu/core/Setup",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Setup",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a short text describing this setup.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/hasPart": {
+            "_instruction": "Add all components, including other setups, that are part of this setup. Note that a setup should not be only composed of software.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/ephys/Pipette",
+                                "https://openminds.ebrains.eu/ephys/ElectrodeArray",
+                                "https://openminds.ebrains.eu/ephys/Electrode",
+                                "https://openminds.ebrains.eu/core/Setup",
+                                "https://openminds.ebrains.eu/core/SoftwareVersion",
+                                "https://openminds.ebrains.eu/specimenPrep/SlicingDevice"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 2,
+            "title": "hasPart",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/location": {
+            "_instruction": "Enter the geographic location of this setup. This may include room number, building, institution and/or city.",
+            "title": "location",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/manufacturer": {
+            "_instruction": "Add the manufacturer (private or industrial) that constructed this setup.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person",
+                                "https://openminds.ebrains.eu/core/Consortium"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "manufacturer",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a descriptive name for this setup.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+            "_instruction": "Add all types that describe this setup.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/SetupType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "type",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/description",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/hasPart",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@type"
+    ],
+    "type": "object"
+}

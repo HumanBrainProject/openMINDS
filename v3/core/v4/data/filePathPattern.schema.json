@@ -1,0 +1,71 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/filePathPattern?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/FilePathPattern",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/FilePathPattern",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/groupingType": {
+            "_instruction": "Add all grouping types that are defined by this file path pattern.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "groupingType",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/regex": {
+            "_instruction": "Enter the regular expression that defines this file path pattern. Note that it must have the same number of groups as stated under 'groupingType'.",
+            "format": "ECMA262",
+            "title": "regex",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/regex",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/groupingType"
+    ],
+    "type": "object"
+}

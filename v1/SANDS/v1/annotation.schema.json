@@ -1,0 +1,397 @@
+{
+    "$id": "https://openminds.ebrains.eu/sands/annotation?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_deprecated": true,
+    "_type": "https://openminds.ebrains.eu/sands/Annotation",
+    "description": "Structured information on an image annotation.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/sands/Annotation",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/bestViewPoint": {
+            "_type": "https://openminds.ebrains.eu/sands/CoordinatePoint",
+            "description": "Structured information on a coordinate point.",
+            "properties": {
+                "coordinateSpace": {
+                    "_instruction": "Add the coordinate space in which this coordinate point exists in.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/CoordinateSpace"
+                    ],
+                    "description": "Two or three dimensional geometric setting.",
+                    "title": "coordinateSpace"
+                },
+                "coordinates": {
+                    "_type": "https://openminds.ebrains.eu/core/QuantitativeValue",
+                    "description": "Structured information on a quantitative value.",
+                    "properties": {
+                        "typeOfUncertainty": {
+                            "_instruction": "Add the type of uncertainty used for this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
+                            ],
+                            "description": "Distinct technique used to quantify the uncertainty of a measurement.",
+                            "title": "typeOfUncertainty"
+                        },
+                        "uncertainty": {
+                            "_instruction": "Enter the measurement uncertainty of this quantitative value.",
+                            "description": "Quantitative value range defining the uncertainty of a measurement.",
+                            "items": {
+                                "type": "number"
+                            },
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "title": "uncertainty",
+                            "type": "array"
+                        },
+                        "unit": {
+                            "_instruction": "Add the unit of measurement of this quantitative value.",
+                            "_linkedTypes": [
+                                "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
+                            ],
+                            "description": "Determinate quantity adopted as a standard of measurement.",
+                            "title": "unit"
+                        },
+                        "value": {
+                            "_instruction": "Enter the measurement value of this quantitative value.",
+                            "description": "Entry for a property.",
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "coordinates",
+                "coordinateSpace"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/criteria": {
+            "_instruction": "Add the protocol execution defining the criteria that were applied to produce this annotation.",
+            "description": "Aspects or standards on which a judgement or decision is based.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/ProtocolExecution"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "criteria",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType": {
+            "_instruction": "Add the quality type of the stated criteria used to define this annotation.",
+            "description": "Distinct class that defines how the judgement or decision was made for a particular criteria.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "criteriaQualityType",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/displayColor": {
+            "_instruction": "Enter the preferred display color (HEX) for this annotation.",
+            "description": "Preferred coloring.",
+            "pattern": "^#[0-9A-Fa-f]{6}$",
+            "title": "displayColor",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/inspiredBy": {
+            "_instruction": "Add one or several (source) images that inspired the definition of this annotation.",
+            "description": "Reference to an inspiring element.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/Image"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "inspiredBy",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/internalIdentifier": {
+            "_instruction": "Enter the identifier used for this annotation within the file it is stored in.",
+            "description": "Term or code that identifies someone or something within a particular product.",
+            "title": "internalIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/laterality": {
+            "_instruction": "Add one or both sides of the body or bilateral organ that this annotation is defined in.",
+            "description": "Differentiation between a pair of lateral homologous parts of the body.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Laterality"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "laterality",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/namingTerm": {
+            "_instruction": "Add one or several anatomical entities that name this annotation.",
+            "description": "Word or expression that has a precise meaning within a science, art, profession, or subject.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "namingTerm",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relatedParcellationTerm": {
+            "_instruction": "Add one or several anatomical entities of registered parcellation terminologies to which this annotation is related to.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/sands/AnatomicalEntity"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "relatedParcellationTerm",
+            "type": "array",
+            "unqiueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/visualizedIn": {
+            "_instruction": "Add the image in which this annotation is visualized in.",
+            "description": "Reference to an image in which something is visible.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/sands/Image"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "visualizedIn",
+            "type": "object"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/internalIdentifier",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/criteriaQualityType",
+        "https://openminds.ebrains.eu/vocab/laterality",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/namingTerm"
+    ],
+    "type": "object"
+}

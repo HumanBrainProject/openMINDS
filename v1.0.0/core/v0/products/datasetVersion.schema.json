@@ -1,0 +1,846 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/datasetVersion?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/DatasetVersion",
+    "description": "Structured information on data originating from human/animal studies or simulations (version level).",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/DatasetVersion",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/accessibility": {
+            "_instruction": "Add the accessibility of the data for this research product version.",
+            "description": "Level to which something is accessible to someone or something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/ProductAccessibility"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "accessibility",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/author": {
+            "_instruction": "Add one or several authors (person or organization) that contributed to the production and publication of this research product version.",
+            "description": "Creator of a literary or creative work, as well as a dataset publication.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "author",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/copyright": {
+            "_type": "https://openminds.ebrains.eu/core/Copyright",
+            "description": "Structured information on the copyright.",
+            "properties": {
+                "holder": {
+                    "_instruction": "Add one or several persons or organisations that hold the copyright.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization",
+                        "https://openminds.ebrains.eu/core/Person"
+                    ],
+                    "description": "Legal person in possession of something.",
+                    "minItems": 1,
+                    "title": "holder",
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "year": {
+                    "_instruction": "Enter the year during which the copyright was first asserted.",
+                    "description": "Cycle in the Gregorian calendar specified by a number and comprised of 365 or 366 days divided into 12 months beginning with January and ending with December.",
+                    "pattern": "([0-9]{4}])",
+                    "title": "year",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "holder",
+                "year"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/custodian": {
+            "_instruction": "Add one or several custodians (person or organization) that are responsible for this research product version.",
+            "description": "The 'custodian' is a legal person who is responsible for the content and quality of the data, metadata, and/or code of a research product.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "custodian",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description (abstract) for this research product (max. 2000 characters, incl. spaces; no references).",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "maxLength": 2000,
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/developer": {
+            "_instruction": "Add one or several developers (person or organization) that contributed to the code implementation of this research product version.",
+            "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Organization",
+                                "https://openminds.ebrains.eu/core/Person"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "developer",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the globally unique and persistent digital identifier of this research product version.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/ethicsAssessment": {
+            "_instruction": "Add the result of the ethics assessment of this dataset version.",
+            "description": "Judgment about the applied principles of conduct governing an individual or a group.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/EthicsAssessment"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "ethicsAssessment",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/fullDocumentation": {
+            "_instruction": "Add the globally unique and persistent digital identifier of a full documentation of this research product version.",
+            "description": "Non-abridged instructions, comments, and information for using a particular product.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "fullDocumentation",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/fullName": {
+            "_instruction": "Enter a descriptive full name (title) for this research product version.",
+            "description": "Whole, non-abbreviated name of something or somebody.",
+            "title": "fullName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/funding": {
+            "_instruction": "Add all funding information of this research product version.",
+            "description": "Money provided by a legal person for a particular purpose.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Funding"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "funding",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/hasAlternativeVersion": {
+            "_instruction": "Add all dataset versions that can be used alternatively to this dataset version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DatasetVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasAlternativeVersion",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/hasSupplementVersion": {
+            "_instruction": "Add all dataset versions that supplement this dataset version.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DatasetVersion"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "hasSupplementVersion",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/homepage": {
+            "_instruction": "Enter the internationalized resource identifier (IRI) to the homepage of this research product version.",
+            "description": "Main website of something or someone.",
+            "format": "iri",
+            "title": "homepage",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
+            "_instruction": "Add the dataset version preceding this dataset version.",
+            "description": "Reference to a previous (potentially outdated) particular form of something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DatasetVersion"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "isNewVersionOf",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/keyword": {
+            "_instruction": "Enter custom keywords to this research product version.",
+            "description": "Significant word or concept that are representative of something or someone.",
+            "items": {
+                "type": "string"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "keyword",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/license": {
+            "_instruction": "Add the license of this research product version.",
+            "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/License"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "license",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/modality": {
+            "_instruction": "Add all modalities in which the approaches used in this dataset version can be categorized in.",
+            "description": "Classification according to a logical proposition in which something exists, is experienced or expressed.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Modality"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "modality",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/otherContribution": {
+            "_instruction": "Add the contributions for each involved person or organization going beyond being an author, custodian or developer of this research product version.",
+            "description": "Giving or supplying of something (such as money or time) as a part or share other than what is covered elsewhere.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Contribution"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "otherContribution",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/relatedPublication": {
+            "_instruction": "Add further publications besides the documentation (e.g. an original research article) providing the original context for the production of this research product version.",
+            "description": "Reference to something that was made available for the general public to see or buy.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DigitalIdentifier"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "relatedPublication",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/releaseDate": {
+            "_instruction": "Enter the date (actual or intended) of the first broadcast/publication of this research product version.",
+            "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
+            "format": "date",
+            "title": "releaseDate",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/repository": {
+            "_instruction": "Add the file repository of this research product version.",
+            "description": "Place, room, or container where something is deposited or stored.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/FileRepository"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "repository",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/shortName": {
+            "_instruction": "Enter a short name (alias) for this research product version (max. 30 characters, no space).",
+            "description": "Shortened or fully abbreviated name of something or somebody.",
+            "maxLength": 30,
+            "title": "shortName",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/type": {
+            "_instruction": "Add all data types (raw, derived or simulated) provided in this dataset version.",
+            "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/DatasetType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "type",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/versionIdentifier": {
+            "_instruction": "Enter the version identifier of this research product version.",
+            "description": "Term or code used to identify the version of something.",
+            "title": "versionIdentifier",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/versionInnovation": {
+            "_instruction": "Enter a short summary of the novelties/peculiarities of this research product version.",
+            "description": "Documentation on what changed in comparison to a previously published form of something.",
+            "title": "versionInnovation",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/versionIdentifier",
+        "https://openminds.ebrains.eu/vocab/releaseDate",
+        "https://openminds.ebrains.eu/vocab/shortName",
+        "https://openminds.ebrains.eu/vocab/custodian",
+        "@id",
+        "https://openminds.ebrains.eu/vocab/funding",
+        "https://openminds.ebrains.eu/vocab/description",
+        "https://openminds.ebrains.eu/vocab/author",
+        "https://openminds.ebrains.eu/vocab/fullDocumentation",
+        "https://openminds.ebrains.eu/vocab/repository",
+        "https://openminds.ebrains.eu/vocab/modality",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/license",
+        "https://openminds.ebrains.eu/vocab/accessibility",
+        "https://openminds.ebrains.eu/vocab/ethicsAssessment",
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier",
+        "https://openminds.ebrains.eu/vocab/type",
+        "https://openminds.ebrains.eu/vocab/fullName"
+    ],
+    "type": "object"
+}

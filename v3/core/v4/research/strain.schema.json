@@ -1,0 +1,351 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/strain?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Strain",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Strain",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/alternateIdentifier": {
+            "_instruction": "Enter all identifiers for this strain, excluding its ontological identifers or RRID (e.g., identifiers from the Mouse Genome Informatics (MGI) database or Rat Genome Database (RGD)).",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "alternateIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/backgroundStrain": {
+            "_instruction": "Add the background strain that explains the majority of the genetic background and/or causes the majority of the prominent traits. If two strains contributed equally, state both.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/Strain"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "backgroundStrain",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/breedingType": {
+            "_instruction": "Add the breeding type for this strain.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/BreedingType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "breedingType",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a short text describing this strain.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
+            "_instruction": "Add the 'Research Resource Identifier' (RRID) of this strain.",
+            "description": "Digital handle to identify objects or legal persons.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/RRID"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "digitalIdentifier",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/diseaseModel": {
+            "_instruction": "Add all (human) diseases and/or conditions that this strain is a model for.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/Disease",
+                                "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "diseaseModel",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/geneticStrainType": {
+            "_instruction": "Add the genetic background type of this strain.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "geneticStrainType",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/laboratoryCode": {
+            "_instruction": "Enter the laboratory code assigned by the Institute of Laboratory Animal Research (ILAR) for the investigator or organization that has created this strain following the defined pattern (e.g., Aaa).",
+            "pattern": "^[A-Z]([a-z]?)+$",
+            "title": "laboratoryCode",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter the name of this strain.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/ontologyIdentifier": {
+            "_instruction": "Enter the internationalized resource identifiers (IRIs) to the related ontological terms matching this strain.",
+            "description": "Term or code used to identify something or someone registered within a particular ontology.",
+            "items": {
+                "_formats": [
+                    "iri"
+                ],
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "ontologyIdentifier",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/phenotype": {
+            "_instruction": "Enter a short description for the phenotype of this strain.",
+            "description": "Physical expression of one or more genes of an organism.",
+            "title": "phenotype",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/species": {
+            "_instruction": "Add the species of this strain.",
+            "description": "Category of biological classification comprising related organisms or populations potentially capable of interbreeding, and being designated by a binomial that consists of the name of a genus followed by a Latin or latinized uncapitalized noun or adjective.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/controlledTerms/Species"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "species",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/stockNumber": {
+            "_type": "https://openminds.ebrains.eu/core/StockNumber",
+            "properties": {
+                "identifier": {
+                    "_instruction": "Enter the stock number of an item provided by a store or company.",
+                    "description": "Term or code used to identify something or someone.",
+                    "title": "identifier",
+                    "type": "string"
+                },
+                "vendor": {
+                    "_instruction": "Add the vendor that has the item with this identifier in stock.",
+                    "_linkedTypes": [
+                        "https://openminds.ebrains.eu/core/Organization"
+                    ],
+                    "title": "vendor"
+                }
+            },
+            "required": [
+                "identifier",
+                "vendor"
+            ],
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/synonym": {
+            "_instruction": "Enter any synonyms (inlcuding abbreviations) of this strain.",
+            "description": "Words or expressions used in the same language that have the same or nearly the same meaning in some or all senses.",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "title": "synonym",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "@id",
+        "https://openminds.ebrains.eu/vocab/geneticStrainType",
+        "https://openminds.ebrains.eu/vocab/species",
+        "https://openminds.ebrains.eu/vocab/name",
+        "@type"
+    ],
+    "type": "object"
+}
