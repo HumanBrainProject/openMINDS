@@ -1,0 +1,29 @@
+@startuml
+class SubjectState {
++ageCategory
++attribute
++descendedFrom
++handedness
++additionalRemarks
++age
++internalIdentifier
++lookupLabel
++pathology
++relativeTimeIndication
++weight
+
+}
+SubjectState -d-> "ageCategory" AgeCategory
+SubjectState -d-> "attribute" SubjectAttribute
+SubjectState -d-> "descendedFrom" SubjectState
+SubjectState -d-> "handedness" Handedness
+SubjectState -d-> "age" QuantitativeValue
+SubjectState -d-> "age" QuantitativeValueRange
+SubjectState -d-> "pathology" Disease
+SubjectState -d-> "pathology" DiseaseModel
+SubjectState -d-> "relativeTimeIndication" QuantitativeValue
+SubjectState -d-> "relativeTimeIndication" QuantitativeValueRange
+SubjectState -d-> "weight" QuantitativeValue
+SubjectState -d-> "weight" QuantitativeValueRange
+
+@enduml

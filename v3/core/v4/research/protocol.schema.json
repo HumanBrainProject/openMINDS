@@ -1,0 +1,173 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/protocol?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Protocol",
+    "description": "Structured information on a research project.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Protocol",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/describedIn": {
+            "_instruction": "Add a publication or file in which this behavioral protocol is (originally) described in detail.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/DOI",
+                            "https://openminds.ebrains.eu/core/File",
+                            "https://openminds.ebrains.eu/core/WebResource"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "describedIn",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/description": {
+            "_instruction": "Enter a description of this protocol.",
+            "description": "Longer statement or account giving the characteristics of someone or something.",
+            "title": "description",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/name": {
+            "_instruction": "Enter a descriptive name for this protocol.",
+            "description": "Word or phrase that constitutes the distinctive designation of a being or thing.",
+            "title": "name",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/stimulusType": {
+            "_instruction": "Add all stimulus types used with this protocol.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/AuditoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/TactileStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/VisualStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/ElectricalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/OlfactoryStimulusType",
+                                "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "stimulusType",
+            "type": "array",
+            "uniqueItems": true
+        },
+        "https://openminds.ebrains.eu/vocab/technique": {
+            "_instruction": "Add all techniques (including stimulation approaches and/or techniques) that were used in this protocol.",
+            "description": "Method of accomplishing a desired aim.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                },
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/controlledTerms/StimulationApproach",
+                                "https://openminds.ebrains.eu/controlledTerms/Technique",
+                                "https://openminds.ebrains.eu/controlledTerms/AnalysisTechnique",
+                                "https://openminds.ebrains.eu/controlledTerms/StimulationTechnique"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
+            },
+            "minItems": 1,
+            "title": "technique",
+            "type": "array",
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/description",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/name",
+        "https://openminds.ebrains.eu/vocab/technique"
+    ],
+    "type": "object"
+}

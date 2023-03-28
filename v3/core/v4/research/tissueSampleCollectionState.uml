@@ -1,0 +1,28 @@
+@startuml
+class TissueSampleCollectionState {
++attribute
++descendedFrom
++additionalRemarks
++age
++internalIdentifier
++lookupLabel
++pathology
++relativeTimeIndication
++weight
+
+}
+TissueSampleCollectionState -d-> "attribute" TissueSampleAttribute
+TissueSampleCollectionState -d-> "descendedFrom" SubjectGroupState
+TissueSampleCollectionState -d-> "descendedFrom" SubjectState
+TissueSampleCollectionState -d-> "descendedFrom" TissueSampleCollectionState
+TissueSampleCollectionState -d-> "descendedFrom" TissueSampleState
+TissueSampleCollectionState -d-> "age" QuantitativeValue
+TissueSampleCollectionState -d-> "age" QuantitativeValueRange
+TissueSampleCollectionState -d-> "pathology" Disease
+TissueSampleCollectionState -d-> "pathology" DiseaseModel
+TissueSampleCollectionState -d-> "relativeTimeIndication" QuantitativeValue
+TissueSampleCollectionState -d-> "relativeTimeIndication" QuantitativeValueRange
+TissueSampleCollectionState -d-> "weight" QuantitativeValue
+TissueSampleCollectionState -d-> "weight" QuantitativeValueRange
+
+@enduml

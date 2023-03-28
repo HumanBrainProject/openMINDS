@@ -1,0 +1,133 @@
+{
+    "$id": "https://openminds.ebrains.eu/core/comment?format=json-schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "_type": "https://openminds.ebrains.eu/core/Comment",
+    "description": "Structured information about a short text expressing an opinion on, or giving information about some entity.",
+    "properties": {
+        "@id": {
+            "description": "Metadata node identifier.",
+            "type": "string"
+        },
+        "@type": {
+            "const": "https://openminds.ebrains.eu/core/Comment",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/about": {
+            "_instruction": "Add the research product (version) that this comment is about.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Dataset",
+                            "https://openminds.ebrains.eu/core/MetaDataModel",
+                            "https://openminds.ebrains.eu/core/DatasetVersion",
+                            "https://openminds.ebrains.eu/core/Software",
+                            "https://openminds.ebrains.eu/core/WebServiceVersion",
+                            "https://openminds.ebrains.eu/core/MetaDataModelVersion",
+                            "https://openminds.ebrains.eu/core/WebService",
+                            "https://openminds.ebrains.eu/core/Model",
+                            "https://openminds.ebrains.eu/core/ModelVersion",
+                            "https://openminds.ebrains.eu/core/SoftwareVersion",
+                            "https://openminds.ebrains.eu/computation/ValidationTestVersion",
+                            "https://openminds.ebrains.eu/computation/WorkflowRecipeVersion",
+                            "https://openminds.ebrains.eu/computation/WorkflowRecipe",
+                            "https://openminds.ebrains.eu/computation/ValidationTest",
+                            "https://openminds.ebrains.eu/sands/BrainAtlas",
+                            "https://openminds.ebrains.eu/sands/CommonCoordinateSpace",
+                            "https://openminds.ebrains.eu/sands/CommonCoordinateSpaceVersion",
+                            "https://openminds.ebrains.eu/sands/BrainAtlasVersion",
+                            "https://openminds.ebrains.eu/publications/LivePaperVersion",
+                            "https://openminds.ebrains.eu/publications/LivePaper"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "about",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/comment": {
+            "_instruction": "Enter the comment about the research product (version) stated under 'about'.",
+            "title": "comment",
+            "type": "string"
+        },
+        "https://openminds.ebrains.eu/vocab/commenter": {
+            "_instruction": "Add the person that created this comment.",
+            "else": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "if": {
+                "required": [
+                    "@type"
+                ]
+            },
+            "then": {
+                "properties": {
+                    "@id": {
+                        "format": "iri",
+                        "type": "string"
+                    },
+                    "@type": {
+                        "enum": [
+                            "https://openminds.ebrains.eu/core/Person"
+                        ],
+                        "format": "iri",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "@id"
+                ]
+            },
+            "title": "commenter",
+            "type": "object"
+        },
+        "https://openminds.ebrains.eu/vocab/timestamp": {
+            "_instruction": "Enter the date and time on which this comment was made, formatted as '2023-02-07T16:00:00+00:00'.",
+            "format": "date-time",
+            "title": "timestamp",
+            "type": "string"
+        }
+    },
+    "required": [
+        "https://openminds.ebrains.eu/vocab/about",
+        "https://openminds.ebrains.eu/vocab/comment",
+        "https://openminds.ebrains.eu/vocab/commenter",
+        "@id",
+        "@type",
+        "https://openminds.ebrains.eu/vocab/timestamp"
+    ],
+    "type": "object"
+}
