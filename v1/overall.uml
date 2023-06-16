@@ -12,10 +12,6 @@ class FileBundle {
 +storageSize
 
 }
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" AnalysisTechnique
-FileBundle -d-> "descendedFrom" StimulationTechnique
-FileBundle -d-> "descendedFrom" StimulationApproach
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" BehavioralTask
@@ -23,6 +19,10 @@ FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" SubjectState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" TissueSampleState
+FileBundle -d-> "descendedFrom" Technique
+FileBundle -d-> "descendedFrom" AnalysisTechnique
+FileBundle -d-> "descendedFrom" StimulationTechnique
+FileBundle -d-> "descendedFrom" StimulationApproach
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -68,10 +68,6 @@ class File {
 +storageSize
 
 }
-File -d-> "descendedFrom" Technique
-File -d-> "descendedFrom" AnalysisTechnique
-File -d-> "descendedFrom" StimulationTechnique
-File -d-> "descendedFrom" StimulationApproach
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" BehavioralTask
@@ -79,6 +75,10 @@ File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" SubjectState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" TissueSampleState
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" AnalysisTechnique
+File -d-> "descendedFrom" StimulationTechnique
+File -d-> "descendedFrom" StimulationApproach
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -305,6 +305,7 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" CellCultureType
 Model -d-> "studyTarget" TermSuggestion
 Model -d-> "studyTarget" VisualStimulusType
@@ -329,7 +330,6 @@ Model -d-> "studyTarget" SubcellularEntity
 Model -d-> "studyTarget" OpticalStimulusType
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" DiseaseModel
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -786,6 +786,7 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" CellCultureType
 ProtocolExecution -d-> "studyTarget" TermSuggestion
 ProtocolExecution -d-> "studyTarget" VisualStimulusType
@@ -810,7 +811,6 @@ ProtocolExecution -d-> "studyTarget" SubcellularEntity
 ProtocolExecution -d-> "studyTarget" OpticalStimulusType
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" DiseaseModel
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class Protocol {
@@ -820,6 +820,7 @@ class Protocol {
 +technique
 
 }
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" CellCultureType
 Protocol -d-> "studyOption" TermSuggestion
 Protocol -d-> "studyOption" VisualStimulusType
@@ -844,7 +845,6 @@ Protocol -d-> "studyOption" SubcellularEntity
 Protocol -d-> "studyOption" OpticalStimulusType
 Protocol -d-> "studyOption" BreedingType
 Protocol -d-> "studyOption" DiseaseModel
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 

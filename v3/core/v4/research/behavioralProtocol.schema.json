@@ -16,45 +16,49 @@
             "type": "string"
         },
         "https://openminds.ebrains.eu/vocab/describedIn": {
-            "_instruction": "Add the publication or file in which this behavioral protocol is (originally) described in detail.",
-            "else": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "@id"
-                ]
-            },
-            "if": {
-                "required": [
-                    "@type"
-                ]
-            },
-            "then": {
-                "properties": {
-                    "@id": {
-                        "format": "iri",
-                        "type": "string"
+            "_instruction": "Add all sources in which this behavioral protocol is described in detail.",
+            "items": {
+                "else": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        }
                     },
-                    "@type": {
-                        "enum": [
-                            "https://openminds.ebrains.eu/core/DOI",
-                            "https://openminds.ebrains.eu/core/File",
-                            "https://openminds.ebrains.eu/core/WebResource"
-                        ],
-                        "format": "iri",
-                        "type": "string"
-                    }
+                    "required": [
+                        "@id"
+                    ]
                 },
-                "required": [
-                    "@id"
-                ]
+                "if": {
+                    "required": [
+                        "@type"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "@id": {
+                            "format": "iri",
+                            "type": "string"
+                        },
+                        "@type": {
+                            "enum": [
+                                "https://openminds.ebrains.eu/core/DOI",
+                                "https://openminds.ebrains.eu/core/File",
+                                "https://openminds.ebrains.eu/core/WebResource"
+                            ],
+                            "format": "iri",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "@id"
+                    ]
+                }
             },
+            "minItems": 1,
             "title": "describedIn",
-            "type": "object"
+            "type": "array",
+            "uniqueItems": true
         },
         "https://openminds.ebrains.eu/vocab/description": {
             "_instruction": "Enter a description of this behavioral protocol.",
@@ -170,9 +174,9 @@
     },
     "required": [
         "https://openminds.ebrains.eu/vocab/description",
-        "@id",
         "@type",
-        "https://openminds.ebrains.eu/vocab/name"
+        "https://openminds.ebrains.eu/vocab/name",
+        "@id"
     ],
     "type": "object"
 }
