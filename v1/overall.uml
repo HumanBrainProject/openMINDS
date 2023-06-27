@@ -1,182 +1,5 @@
 @startuml
 
-class BrainAtlas {
-+description
-+digitalIdentifier
-+fullName
-+hasVersion
-+homepage
-+howToCite
-+shortName
-
-}
-BrainAtlas -d-> "digitalIdentifier" DOI
-BrainAtlas -d-> "hasVersion" BrainAtlasVersion
-
-
-class CoordinatePoint {
-+coordinates
-+coordinateSpace
-
-}
-CoordinatePoint -d-> "coordinates" QuantitativeValue
-CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
-
-
-class ElectrodeContact {
-+coordinatePoint
-+definedIn
-+internalIdentifier
-+relatedRecording
-+relatedStimulation
-+visualizedIn
-
-}
-ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
-ElectrodeContact -d-> "definedIn" File
-ElectrodeContact -d-> "relatedRecording" File
-ElectrodeContact -d-> "relatedRecording" FileBundle
-ElectrodeContact -d-> "relatedStimulation" File
-ElectrodeContact -d-> "relatedStimulation" FileBundle
-ElectrodeContact -d-> "visualizedIn" Image
-
-
-class ElectrodeArray {
-+electrodes
-+internalIdentifier
-
-}
-ElectrodeArray -d-> "electrodes" Electrode
-
-
-class BrainAtlasVersion {
-+annotationSet
-+coordinateSpace
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+isAlternativeVersionOf
-+isNewVersionOf
-+ontologyIdentifier
-+releaseDate
-+shortName
-+terminology
-+versionIdentifier
-+versionInnovation
-
-}
-BrainAtlasVersion -d-> "annotationSet" Annotation
-BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
-BrainAtlasVersion -d-> "digitalIdentifier" DOI
-BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
-BrainAtlasVersion -d-> "terminology" ParcellationTerminology
-
-
-class AnatomicalEntityRelation {
-+criteria
-+criteriaQualityType
-+inRelationTo
-+qualitativeOverlap
-+quantitativeOverlap
-
-}
-AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
-AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
-AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
-AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
-AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
-
-
-class AnatomicalEntity {
-+hasParent
-+name
-+ontologyIdentifier
-+otherAnatomicalRelation
-
-}
-AnatomicalEntity -d-> "hasParent" AnatomicalEntity
-AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
-
-
-class ParcellationTerminology {
-+anatomicalEntity
-+definedIn
-+fullName
-+ontologyIdentifier
-+shortName
-
-}
-ParcellationTerminology -d-> "anatomicalEntity" AnatomicalEntity
-ParcellationTerminology -d-> "definedIn" File
-
-
-class Image {
-+coordinateSpace
-+definedIn
-+voxelSize
-
-}
-Image -d-> "coordinateSpace" CoordinateSpace
-Image -d-> "definedIn" File
-Image -d-> "voxelSize" QuantitativeValue
-
-
-class Electrode {
-+electrodeContact
-+internalIdentifier
-
-}
-Electrode -d-> "electrodeContact" ElectrodeContact
-
-
-class Annotation {
-+bestViewPoint
-+criteria
-+criteriaQualityType
-+displayColor
-+inspiredBy
-+internalIdentifier
-+laterality
-+namingTerm
-+relatedParcellationTerm
-+visualizedIn
-
-}
-Annotation -d-> "bestViewPoint" CoordinatePoint
-Annotation -d-> "criteria" ProtocolExecution
-Annotation -d-> "criteriaQualityType" CriteriaQualityType
-Annotation -d-> "inspiredBy" Image
-Annotation -d-> "laterality" Laterality
-Annotation -d-> "namingTerm" AnatomicalEntity
-Annotation -d-> "relatedParcellationTerm" AnatomicalEntity
-Annotation -d-> "visualizedIn" Image
-
-
-class CoordinateSpace {
-+anatomicalAxesOrientation
-+defaultImage
-+digitalIdentifier
-+fullName
-+homepage
-+howToCite
-+nativeUnit
-+ontologyIdentifier
-+axesOrigin
-+releaseDate
-+shortName
-+versionIdentifier
-
-}
-CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
-CoordinateSpace -d-> "defaultImage" Image
-CoordinateSpace -d-> "digitalIdentifier" DOI
-CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
-CoordinateSpace -d-> "axesOrigin" QuantitativeValue
-
-
 class AnnotationCriteriaType {
 +definition
 +description
@@ -1281,7 +1104,6 @@ Model -d-> "digitalIdentifier" DOI
 Model -d-> "digitalIdentifier" SWHID
 Model -d-> "hasVersion" ModelVersion
 Model -d-> "scope" ModelScope
-Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "studyTarget" BreedingType
 Model -d-> "studyTarget" OlfactoryStimulusType
 Model -d-> "studyTarget" GustatoryStimulusType
@@ -1306,6 +1128,7 @@ Model -d-> "studyTarget" CellType
 Model -d-> "studyTarget" BiologicalSex
 Model -d-> "studyTarget" OrganismSubstance
 Model -d-> "studyTarget" TactileStimulusType
+Model -d-> "studyTarget" AnatomicalEntity
 Model -d-> "custodian" Person
 Model -d-> "custodian" Organization
 Model -d-> "homepage" URL
@@ -1488,6 +1311,10 @@ class FileBundle {
 +storageSize
 
 }
+FileBundle -d-> "descendedFrom" Technique
+FileBundle -d-> "descendedFrom" StimulationTechnique
+FileBundle -d-> "descendedFrom" StimulationApproach
+FileBundle -d-> "descendedFrom" AnalysisTechnique
 FileBundle -d-> "descendedFrom" FileBundle
 FileBundle -d-> "descendedFrom" File
 FileBundle -d-> "descendedFrom" SubjectState
@@ -1495,10 +1322,6 @@ FileBundle -d-> "descendedFrom" TissueSampleCollectionState
 FileBundle -d-> "descendedFrom" SubjectGroupState
 FileBundle -d-> "descendedFrom" BehavioralTask
 FileBundle -d-> "descendedFrom" TissueSampleState
-FileBundle -d-> "descendedFrom" Technique
-FileBundle -d-> "descendedFrom" StimulationTechnique
-FileBundle -d-> "descendedFrom" StimulationApproach
-FileBundle -d-> "descendedFrom" AnalysisTechnique
 FileBundle -d-> "format" ContentType
 FileBundle -d-> "groupedBy" FileBundleGrouping
 FileBundle -d-> "hash" Hash
@@ -1583,6 +1406,10 @@ class File {
 +storageSize
 
 }
+File -d-> "descendedFrom" Technique
+File -d-> "descendedFrom" StimulationTechnique
+File -d-> "descendedFrom" StimulationApproach
+File -d-> "descendedFrom" AnalysisTechnique
 File -d-> "descendedFrom" FileBundle
 File -d-> "descendedFrom" File
 File -d-> "descendedFrom" SubjectState
@@ -1590,10 +1417,6 @@ File -d-> "descendedFrom" TissueSampleCollectionState
 File -d-> "descendedFrom" SubjectGroupState
 File -d-> "descendedFrom" BehavioralTask
 File -d-> "descendedFrom" TissueSampleState
-File -d-> "descendedFrom" Technique
-File -d-> "descendedFrom" StimulationTechnique
-File -d-> "descendedFrom" StimulationApproach
-File -d-> "descendedFrom" AnalysisTechnique
 File -d-> "fileRepository" FileRepository
 File -d-> "format" ContentType
 File -d-> "hash" Hash
@@ -1867,7 +1690,6 @@ ProtocolExecution -d-> "output" TissueSampleState
 ProtocolExecution -d-> "preparationType" PreparationType
 ProtocolExecution -d-> "protocol" Protocol
 ProtocolExecution -d-> "parameterSet" ParameterSet
-ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 ProtocolExecution -d-> "studyTarget" BreedingType
 ProtocolExecution -d-> "studyTarget" OlfactoryStimulusType
 ProtocolExecution -d-> "studyTarget" GustatoryStimulusType
@@ -1892,6 +1714,7 @@ ProtocolExecution -d-> "studyTarget" CellType
 ProtocolExecution -d-> "studyTarget" BiologicalSex
 ProtocolExecution -d-> "studyTarget" OrganismSubstance
 ProtocolExecution -d-> "studyTarget" TactileStimulusType
+ProtocolExecution -d-> "studyTarget" AnatomicalEntity
 
 
 class TissueSampleCollectionState {
@@ -1965,7 +1788,6 @@ class Protocol {
 +technique
 
 }
-Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "studyOption" BreedingType
 Protocol -d-> "studyOption" OlfactoryStimulusType
 Protocol -d-> "studyOption" GustatoryStimulusType
@@ -1990,6 +1812,7 @@ Protocol -d-> "studyOption" CellType
 Protocol -d-> "studyOption" BiologicalSex
 Protocol -d-> "studyOption" OrganismSubstance
 Protocol -d-> "studyOption" TactileStimulusType
+Protocol -d-> "studyOption" AnatomicalEntity
 Protocol -d-> "technique" Technique
 
 
@@ -2053,6 +1876,183 @@ TissueSampleState -d-> "pathology" Disease
 TissueSampleState -d-> "pathology" DiseaseModel
 TissueSampleState -d-> "weight" QuantitativeValue
 TissueSampleState -d-> "weight" QuantitativeValueRange
+
+
+class BrainAtlas {
++description
++digitalIdentifier
++fullName
++hasVersion
++homepage
++howToCite
++shortName
+
+}
+BrainAtlas -d-> "digitalIdentifier" DOI
+BrainAtlas -d-> "hasVersion" BrainAtlasVersion
+
+
+class CoordinatePoint {
++coordinates
++coordinateSpace
+
+}
+CoordinatePoint -d-> "coordinates" QuantitativeValue
+CoordinatePoint -d-> "coordinateSpace" CoordinateSpace
+
+
+class ElectrodeContact {
++coordinatePoint
++definedIn
++internalIdentifier
++relatedRecording
++relatedStimulation
++visualizedIn
+
+}
+ElectrodeContact -d-> "coordinatePoint" CoordinatePoint
+ElectrodeContact -d-> "definedIn" File
+ElectrodeContact -d-> "relatedRecording" File
+ElectrodeContact -d-> "relatedRecording" FileBundle
+ElectrodeContact -d-> "relatedStimulation" File
+ElectrodeContact -d-> "relatedStimulation" FileBundle
+ElectrodeContact -d-> "visualizedIn" Image
+
+
+class ElectrodeArray {
++electrodes
++internalIdentifier
+
+}
+ElectrodeArray -d-> "electrodes" Electrode
+
+
+class BrainAtlasVersion {
++annotationSet
++coordinateSpace
++digitalIdentifier
++fullName
++homepage
++howToCite
++isAlternativeVersionOf
++isNewVersionOf
++ontologyIdentifier
++releaseDate
++shortName
++terminology
++versionIdentifier
++versionInnovation
+
+}
+BrainAtlasVersion -d-> "annotationSet" Annotation
+BrainAtlasVersion -d-> "coordinateSpace" CoordinateSpace
+BrainAtlasVersion -d-> "digitalIdentifier" DOI
+BrainAtlasVersion -d-> "isAlternativeVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "isNewVersionOf" BrainAtlasVersion
+BrainAtlasVersion -d-> "terminology" ParcellationTerminology
+
+
+class AnatomicalEntityRelation {
++criteria
++criteriaQualityType
++inRelationTo
++qualitativeOverlap
++quantitativeOverlap
+
+}
+AnatomicalEntityRelation -d-> "criteria" ProtocolExecution
+AnatomicalEntityRelation -d-> "criteriaQualityType" CriteriaQualityType
+AnatomicalEntityRelation -d-> "inRelationTo" AnatomicalEntity
+AnatomicalEntityRelation -d-> "qualitativeOverlap" QualitativeOverlap
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValue
+AnatomicalEntityRelation -d-> "quantitativeOverlap" QuantitativeValueRange
+
+
+class AnatomicalEntity {
++hasParent
++name
++ontologyIdentifier
++otherAnatomicalRelation
+
+}
+AnatomicalEntity -d-> "hasParent" AnatomicalEntity
+AnatomicalEntity -d-> "otherAnatomicalRelation" AnatomicalEntityRelation
+
+
+class ParcellationTerminology {
++anatomicalEntity
++definedIn
++fullName
++ontologyIdentifier
++shortName
+
+}
+ParcellationTerminology -d-> "anatomicalEntity" AnatomicalEntity
+ParcellationTerminology -d-> "definedIn" File
+
+
+class Image {
++coordinateSpace
++definedIn
++voxelSize
+
+}
+Image -d-> "coordinateSpace" CoordinateSpace
+Image -d-> "definedIn" File
+Image -d-> "voxelSize" QuantitativeValue
+
+
+class Electrode {
++electrodeContact
++internalIdentifier
+
+}
+Electrode -d-> "electrodeContact" ElectrodeContact
+
+
+class Annotation {
++bestViewPoint
++criteria
++criteriaQualityType
++displayColor
++inspiredBy
++internalIdentifier
++laterality
++namingTerm
++relatedParcellationTerm
++visualizedIn
+
+}
+Annotation -d-> "bestViewPoint" CoordinatePoint
+Annotation -d-> "criteria" ProtocolExecution
+Annotation -d-> "criteriaQualityType" CriteriaQualityType
+Annotation -d-> "inspiredBy" Image
+Annotation -d-> "laterality" Laterality
+Annotation -d-> "namingTerm" AnatomicalEntity
+Annotation -d-> "relatedParcellationTerm" AnatomicalEntity
+Annotation -d-> "visualizedIn" Image
+
+
+class CoordinateSpace {
++anatomicalAxesOrientation
++defaultImage
++digitalIdentifier
++fullName
++homepage
++howToCite
++nativeUnit
++ontologyIdentifier
++axesOrigin
++releaseDate
++shortName
++versionIdentifier
+
+}
+CoordinateSpace -d-> "anatomicalAxesOrientation" AnatomicalAxesOrientation
+CoordinateSpace -d-> "defaultImage" Image
+CoordinateSpace -d-> "digitalIdentifier" DOI
+CoordinateSpace -d-> "nativeUnit" UnitOfMeasurement
+CoordinateSpace -d-> "axesOrigin" QuantitativeValue
 
 
 @enduml
