@@ -82,10 +82,10 @@
                         },
                         "@type": {
                             "enum": [
-                                "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage",
                                 "https://openminds.ebrains.eu/ephys/PipetteUsage",
                                 "https://openminds.ebrains.eu/ephys/ElectrodeUsage",
-                                "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage"
+                                "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage",
+                                "https://openminds.ebrains.eu/specimenPrep/SlicingDeviceUsage"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -417,6 +417,9 @@
                         },
                         "@type": {
                             "enum": [
+                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/GeneticStrainType",
                                 "https://openminds.ebrains.eu/controlledTerms/TissueSampleType",
                                 "https://openminds.ebrains.eu/controlledTerms/OpticalStimulusType",
@@ -441,10 +444,7 @@
                                 "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
                                 "https://openminds.ebrains.eu/controlledTerms/GustatoryStimulusType",
                                 "https://openminds.ebrains.eu/controlledTerms/CellCultureType",
-                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                                "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                                "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                                "https://openminds.ebrains.eu/controlledTerms/MolecularEntity"
                             ],
                             "format": "iri",
                             "type": "string"
@@ -472,14 +472,14 @@
                 "anatomicalTarget": {
                     "_instruction": "Add all anatomical entities that describe the target position(s).",
                     "_linkedTypes": [
+                        "https://openminds.ebrains.eu/sands/ParcellationEntity",
+                        "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
+                        "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
                         "https://openminds.ebrains.eu/controlledTerms/CellType",
                         "https://openminds.ebrains.eu/controlledTerms/OrganismSubstance",
                         "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
                         "https://openminds.ebrains.eu/controlledTerms/Organ",
-                        "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity",
-                        "https://openminds.ebrains.eu/sands/ParcellationEntity",
-                        "https://openminds.ebrains.eu/sands/ParcellationEntityVersion",
-                        "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity"
+                        "https://openminds.ebrains.eu/controlledTerms/SubcellularEntity"
                     ],
                     "minItems": 1,
                     "title": "anatomicalTarget",
@@ -565,13 +565,13 @@
         }
     },
     "required": [
-        "@type",
-        "https://openminds.ebrains.eu/vocab/input",
-        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/protocol",
         "@id",
-        "https://openminds.ebrains.eu/vocab/device",
         "https://openminds.ebrains.eu/vocab/isPartOf",
-        "https://openminds.ebrains.eu/vocab/protocol"
+        "@type",
+        "https://openminds.ebrains.eu/vocab/output",
+        "https://openminds.ebrains.eu/vocab/input",
+        "https://openminds.ebrains.eu/vocab/device"
     ],
     "type": "object"
 }
