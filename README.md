@@ -1,3 +1,28 @@
+# WARNING: DEPRECATED REPOSITORY
+
+**openMINDS moved now to a new GitHub organization: https://github.com/openMetadataInitiative**  
+
+**This movement led to a couple of changes. SUMMARY OF CHANGES:**
++ ▶️ https://github.com/openMetadataInitiative/openMINDS
+  + branch 'main' contains vocabulary and fully extended openMINDS schemas in openMINDS syntax
+  + fully extended openMINDS schemas in openMINDS syntax use the extension `*.schema.omi.json`
+  + schemas are build for openMINDS versions in dedicated folders in branch 'main'
+  + code for gathering and extending schemas in the main branch is located in branch 'pipeline'
++ ▶️ https://github.com/openMetadataInitiative/openMINDS_json-schema
+  + branch 'main' contains extended openMINDS schemas (per openMINDS version) formatted in JSON-Schema
+  + code for reformmating schemas is located in branch 'pipeline'
++ ▶️ https://github.com/openMetadataInitiative/openMINDS_instances
+  + branch 'main' contains libraries of controlled metadata instances and graph structures for selected schemas across openMINDS metadata models
+  + instances and graph strucutres are build for openMINDS versions in dedicated folders in branch 'main'
++ ▶️ https://github.com/openMetadataInitiative/openMINDS_Python
+  + branch 'main' contains extended openMINDS schemas (per openMINDS version) coded as Python classes plus other code for openMINDS Python package
+  + code for building openMINDS schema classes is located in branch 'pipeline'
++ ▶️ https://github.com/openMetadataInitiative/openMINDS_MATLAB
+  + branch 'main' contains extended openMINDS schemas (per openMINDS version) coded as Python classes plus other code for openMINDS MATLAB package
+  + code for building openMINDS schema classes is located in branch 'pipeline'
++ ▶️ https://github.com/openMetadataInitiative/openMINDS_documentation
+  + builds the documentation for openMINDS on Read-The-Docs (https://openminds-documentation.readthedocs.io)
+
 <a href="/img/light_openMINDS-logo.png">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="/img/dark_openMINDS-logo.png">
