@@ -35,7 +35,7 @@
 
 The **open** **M**etadata **I**nitiative for **N**euroscience **D**ata **S**tructures, short **openMINDS**, is a metadata framework that develops and maintains a set of metadata models as well as libraries of controlled terminologies, brain atlases, and common coordinate spaces for neuroscience graph databases.
 
-Note that this GitHub only hosts a summary of the openMINDS documentation. For a full documenation please navigate to the [**openMINDS Collab**](https://wiki.ebrains.eu/bin/view/Collabs/openminds/). For browsing through schemas and lists of all controlled terminologies, brain atlases, and common coordinate spaces please navigate to the [**openMINDS HTML docu**](https://humanbrainproject.github.io/openMINDS/).
+Note that this GitHub only hosts a summary of the openMINDS documentation. For a full documentation please navigate to the [**openMINDS Collab**](https://wiki.ebrains.eu/bin/view/Collabs/openminds/). For browsing through schemas and lists of all controlled terminologies, brain atlases, and common coordinate spaces please navigate to the [**openMINDS HTML docu**](https://humanbrainproject.github.io/openMINDS/).
 
 **You need help?** Just get in touch via GitHub issue trackers, or our support email: **`openminds@ebrains.eu`**
 
@@ -97,7 +97,7 @@ You can either download one of the release packages, or use `git clone` to be ab
 	
 	git clone https://github.com/HumanBrainProject/openMINDS.git
 
-Once, you cloned the repository, you can list the availabel version branches:
+Once, you cloned the repository, you can list the available version branches:
 
 	git branch -a
 	
