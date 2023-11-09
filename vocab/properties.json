@@ -2,8 +2,9 @@
     "https://openminds.ebrains.eu/vocab/IRI": {
         "description": "Stands for Internationalized Resource Identifier which is an internet protocol standard that builds on the URI protocol, extending the set of permitted characters to include Unicode/ISO 10646.",
         "label": "IRI",
-        "labelForReverseLink": "Is IRI of",
+        "labelForReverseLink": "Identifies",
         "name": "IRI",
+        "nameForReverseLink": "identifies",
         "sameAs": null,
         "schemas": [
             "core/v0/data/fileBundle",
@@ -21,30 +22,47 @@
             "publications/v1/learningResource",
             "publications/v1/livePaperResourceItem",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/RRID": {
         "description": null,
-        "label": "Rrid",
+        "label": "RRID",
+        "labelForReverseLink": "Identifies",
         "linkedTypes": [],
         "name": "RRID",
+        "nameForReverseLink": "identifies",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/URL": {
         "description": null,
-        "label": "Url",
-        "labelForReverseLink": "Is url of",
+        "label": "URL",
+        "labelForReverseLink": "Identifies",
         "name": "URL",
+        "nameForReverseLink": "identifies",
         "schemas": [
             "core/v3/miscellaneous/URL"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/abbreviation": {
         "description": null,
         "label": "Abbreviation",
+        "labelForReverseLink": "Is abbreviation of",
         "linkedTypes": [],
         "name": "abbreviation",
+        "nameForReverseLink": "isAbbreviationOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/brainAtlas",
@@ -54,13 +72,25 @@
             "SANDS/v3/atlas/parcellationEntity",
             "SANDS/v3/atlas/parcellationEntityVersion",
             "publications/v1/periodical"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/about": {
         "description": null,
         "label": "About",
+        "labelForReverseLink": {
+            "https://openminds.ebrains.eu/publications/LearningResource": "Learning resource",
+            "https://openminds.ebrains.eu/core/Comment": "Comment"
+        },
         "linkedTypes": [],
         "name": "about",
+        "nameForReverseLink": {
+            "https://openminds.ebrains.eu/publications/LearningResource": "learningResource",
+            "https://openminds.ebrains.eu/core/Comment": "comment"
+        },
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/comment",
@@ -71,15 +101,21 @@
     "https://openminds.ebrains.eu/vocab/abstract": {
         "description": null,
         "label": "Abstract",
+        "labelForReverseLink": "Abstract of",
         "linkedTypes": [],
         "name": "abstract",
+        "nameForReverseLink": "abstractOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
             "publications/v1/chapter",
             "publications/v1/learningResource",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/abstractionLevel": {
         "description": "Extent of simplification of physical, spatial, or temporal details or attributes in the study of objects or systems.",
@@ -89,6 +125,7 @@
             "https://openminds.ebrains.eu/controlledTerms/ModelAbstractionLevel"
         ],
         "name": "abstractionLevel",
+        "nameForReverseLink": "isAbstractionLevelOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/modelVersion",
@@ -104,6 +141,7 @@
             "https://openminds.ebrains.eu/controlledTerms/ProductAccessibility"
         ],
         "name": "accessibility",
+        "nameForReverseLink": "isAccessibilityOf",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -130,21 +168,27 @@
         "label": "Acknowledgement",
         "labelForReverseLink": "Is acknowledgement of",
         "name": "acknowledgement",
+        "nameForReverseLink": "isAcknowledgementOf",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/funding",
             "core/v3/miscellaneous/funding",
             "core/v4/miscellaneous/funding"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/addExistingTerminology": {
         "description": "Reference to an existing terminology (distinct class to group related terms).",
         "label": "Add existing terminology",
-        "labelForReverseLink": "Is add existing terminology of",
+        "labelForReverseLink": "Suggested in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Terminology"
         ],
         "name": "addExistingTerminology",
+        "nameForReverseLink": "suggestedIn",
         "schemas": [
             "controlledTerms/v1/termSuggestion"
         ]
@@ -152,16 +196,23 @@
     "https://openminds.ebrains.eu/vocab/additionalInformation": {
         "description": null,
         "label": "Additional information",
+        "labelForReverseLink": "Are additional information for",
         "linkedTypes": [],
         "name": "additionalInformation",
+        "nameForReverseLink": "areAdditionalInformationFor",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/additionalRemarks": {
         "description": "Mention of what deserves additional attention or notice.",
         "label": "Additional remarks",
         "labelForReverseLink": "Are additional remarks for",
         "name": "additionalRemarks",
+        "nameForReverseLink": "areAdditionalRemarksFor",
         "schemas": [
             "SANDS/v3/atlas/parcellationEntityVersion",
             "SANDS/v3/miscellaneous/anatomicalTargetPosition",
@@ -186,13 +237,18 @@
             "core/v4/research/tissueSampleCollectionState",
             "core/v4/research/tissueSampleState",
             "ephys/v1/entity/recording"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/affiliation": {
         "description": "Declaration of a person being closely associated to an organization.",
         "label": "Affiliation",
         "labelForReverseLink": "Is affiliation of",
         "name": "affiliation",
+        "nameForReverseLink": "isAffiliationOf",
         "schemas": [
             "core/v3/actors/person",
             "core/v4/actors/organization",
@@ -204,6 +260,7 @@
         "label": "Age",
         "labelForReverseLink": "Is age of",
         "name": "age",
+        "nameForReverseLink": "isAgeOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subjectGroupState",
@@ -228,6 +285,7 @@
             "https://openminds.ebrains.eu/controlledTerms/AgeCategory"
         ],
         "name": "ageCategory",
+        "nameForReverseLink": "isAgeCategoryOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subjectGroupState",
@@ -243,64 +301,101 @@
         "label": "Algorithm",
         "labelForReverseLink": "Is algorithm of",
         "name": "algorithm",
+        "nameForReverseLink": "isAlgorithmOf",
         "sameAs": null,
         "schemas": [
             "core/v0/data/hash",
             "core/v3/data/hash",
             "core/v4/data/hash"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/alternateFamilyName": {
         "description": null,
         "label": "Alternate family name",
+        "labelForReverseLink": "Is family name for",
         "linkedTypes": [],
         "name": "alternateFamilyName",
+        "nameForReverseLink": "isFamilyNamefor",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/alternateGivenName": {
         "description": null,
         "label": "Alternate given name",
+        "labelForReverseLink": "Is given name for",
         "linkedTypes": [],
         "name": "alternateGivenName",
+        "nameForReverseLink": "isGivenNamefor",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/alternateIdentifier": {
         "description": null,
         "label": "Alternate identifier",
+        "labelForReverseLink": "Is alternate identifier for",
         "linkedTypes": [],
         "name": "alternateIdentifier",
+        "nameForReverseLink": "isAlternateIdentifierFor",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/alternateName": {
         "description": null,
         "label": "Alternate name",
+        "labelForReverseLink": "Is alternate name for",
         "linkedTypes": [],
         "name": "alternateName",
+        "nameForReverseLink": "isAlternateNameFor",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/parcellationEntity",
             "SANDS/v3/atlas/parcellationEntityVersion",
             "core/v4/actors/person"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/alternativeName": {
         "description": null,
         "label": "Alternative name",
+        "labelForReverseLink": "Is alternative name for",
         "linkedTypes": [],
         "name": "alternativeName",
+        "nameForReverseLink": "isAlternativeNameFor",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/amount": {
         "description": null,
         "label": "Amount",
+        "labelForReverseLink": "Is amount of",
         "linkedTypes": [],
         "name": "amount",
+        "nameForReverseLink": "isAmountOf",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/amountOfChemical"
@@ -314,6 +409,7 @@
             "https://openminds.ebrains.eu/controlledTerms/AnatomicalAxesOrientation"
         ],
         "name": "anatomicalAxesOrientation",
+        "nameForReverseLink": "isOrientationOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/coordinateSpace",
@@ -330,6 +426,7 @@
         "label": "Anatomical entity",
         "labelForReverseLink": "Is anatomical entity of",
         "name": "anatomicalEntity",
+        "nameForReverseLink": "isAnatomicalEntityOf",
         "schemas": [
             "SANDS/v0/atlasTerminology",
             "SANDS/v1/parcellationTerminology"
@@ -338,12 +435,14 @@
     "https://openminds.ebrains.eu/vocab/anatomicalLocation": {
         "description": null,
         "label": "Anatomical location",
+        "labelForReverseLink": "Is anatomical location of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation",
             "https://openminds.ebrains.eu/sands/CustomAnatomicalEntity",
             "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "anatomicalLocation",
+        "nameForReverseLink": "isLocationOf",
         "schemas": [
             "core/v3/research/tissueSample",
             "core/v4/research/tissueSample",
@@ -355,8 +454,10 @@
     "https://openminds.ebrains.eu/vocab/anatomicalLocationOfArray": {
         "description": null,
         "label": "Anatomical location of array",
+        "labelForReverseLink": "Is anatomical location of",
         "linkedTypes": [],
         "name": "anatomicalLocationOfArray",
+        "nameForReverseLink": "isLocationOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage"
@@ -365,8 +466,10 @@
     "https://openminds.ebrains.eu/vocab/anatomicalLocationOfElectrodes": {
         "description": null,
         "label": "Anatomical location of electrodes",
+        "labelForReverseLink": "Is anatomical location of",
         "linkedTypes": [],
         "name": "anatomicalLocationOfElectrodes",
+        "nameForReverseLink": "isLocationOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage"
@@ -375,8 +478,10 @@
     "https://openminds.ebrains.eu/vocab/anatomicalTarget": {
         "description": null,
         "label": "Anatomical target",
+        "labelForReverseLink": "Is anatomical target of",
         "linkedTypes": [],
         "name": "anatomicalTarget",
+        "nameForReverseLink": "isTargetOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/miscellaneous/anatomicalTargetPosition"
@@ -385,8 +490,10 @@
     "https://openminds.ebrains.eu/vocab/anchorPoint": {
         "description": null,
         "label": "Anchor point",
+        "labelForReverseLink": "Is anchor point of",
         "linkedTypes": [],
         "name": "anchorPoint",
+        "nameForReverseLink": "isAnchorPointOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/atlasAnnotation",
@@ -400,17 +507,24 @@
         "label": "Annotation set",
         "labelForReverseLink": "Is annotation set of",
         "name": "annotationSet",
+        "nameForReverseLink": "isAnnotationSetOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
             "SANDS/v1/brainAtlasVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/annotationType": {
         "description": null,
         "label": "Annotation type",
+        "labelForReverseLink": "Is annotation type of",
         "linkedTypes": [],
         "name": "annotationType",
+        "nameForReverseLink": "isAnnotationTypeOf",
         "sameAs": [],
         "schemas": []
     },
@@ -422,6 +536,7 @@
             "https://openminds.ebrains.eu/controlledTerms/SoftwareApplicationCategory"
         ],
         "name": "applicationCategory",
+        "nameForReverseLink": "isApplicationCategoryOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -432,26 +547,40 @@
     "https://openminds.ebrains.eu/vocab/argument": {
         "description": null,
         "label": "Argument",
+        "labelForReverseLink": "Is argument of",
         "linkedTypes": [],
         "name": "argument",
+        "nameForReverseLink": "isArgumentOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/launchConfiguration"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/arguments": {
         "description": null,
         "label": "Arguments",
+        "labelForReverseLink": "Are arguments of",
         "linkedTypes": [],
         "name": "arguments",
+        "nameForReverseLink": "areArgumentOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/associatedAccount": {
         "description": null,
         "label": "Associated account",
+        "labelForReverseLink": "Belongs to",
         "linkedTypes": [],
         "name": "associatedAccount",
+        "nameForReverseLink": "belongsTo",
         "sameAs": [],
         "schemas": [
             "core/v4/actors/person"
@@ -460,8 +589,10 @@
     "https://openminds.ebrains.eu/vocab/associatedFileExtension": {
         "description": null,
         "label": "Associated file extension",
+        "labelForReverseLink": "Is file extension of",
         "linkedTypes": [],
         "name": "associatedFileExtension",
+        "nameForReverseLink": "isFileExtensionOF",
         "sameAs": [],
         "schemas": [
             "core/v0/data/contentType"
@@ -470,16 +601,20 @@
     "https://openminds.ebrains.eu/vocab/atlasType": {
         "description": null,
         "label": "Atlas type",
+        "labelForReverseLink": "Is atlas type of",
         "linkedTypes": [],
         "name": "atlasType",
+        "nameForReverseLink": "isAtlasTypeOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/attribute": {
         "description": null,
         "label": "Attribute",
+        "labelForReverseLink": "Is attribute of",
         "linkedTypes": [],
         "name": "attribute",
+        "nameForReverseLink": "isAttributeOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/subjectGroupState",
@@ -497,6 +632,7 @@
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "author",
+        "nameForReverseLink": "isAuthorOf",
         "schemas": [
             "SANDS/v3/atlas/brainAtlas",
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -521,32 +657,43 @@
     "https://openminds.ebrains.eu/vocab/awardNumber": {
         "description": "Machine-readable identifier for a benefit that is conferred or bestowed on the basis of merit or need.",
         "label": "Award number",
-        "labelForReverseLink": "Is award number of",
+        "labelForReverseLink": "Is number of",
         "name": "awardNumber",
+        "nameForReverseLink": "isNumberOf",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/funding",
             "core/v3/miscellaneous/funding",
             "core/v4/miscellaneous/funding"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/awardTitle": {
         "description": "Human-readable identifier for a benefit that is conferred or bestowed on the basis of merit or need.",
         "label": "Award title",
-        "labelForReverseLink": "Is award title of",
+        "labelForReverseLink": "Is title of",
         "name": "awardTitle",
+        "nameForReverseLink": "isTitleOf",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/funding",
             "core/v3/miscellaneous/funding",
             "core/v4/miscellaneous/funding"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/axesOrigin": {
         "description": "Special point in a coordinate system used as a fixed point of reference for the geometry of the surrounding space.",
         "label": "Axes origin",
         "labelForReverseLink": "Is axes origin of",
         "name": "axesOrigin",
+        "nameForReverseLink": "isAxesOriginOf",
         "schemas": [
             "SANDS/v0/coordinateSpace",
             "SANDS/v1/coordinateSpace",
@@ -559,8 +706,10 @@
     "https://openminds.ebrains.eu/vocab/backgroundStrain": {
         "description": null,
         "label": "Background strain",
+        "labelForReverseLink": "Is background strain of",
         "linkedTypes": [],
         "name": "backgroundStrain",
+        "nameForReverseLink": "isBackgroundStrainOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
@@ -569,8 +718,10 @@
     "https://openminds.ebrains.eu/vocab/bathTemperature": {
         "description": null,
         "label": "Bath temperature",
+        "labelForReverseLink": "Is temperature of",
         "linkedTypes": [],
         "name": "bathTemperature",
+        "nameForReverseLink": "isTemperatureOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/activity/cellPatching"
@@ -579,8 +730,10 @@
     "https://openminds.ebrains.eu/vocab/behavioralProtocol": {
         "description": null,
         "label": "Behavioral protocol",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "behavioralProtocol",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "core/v4/products/datasetVersion",
@@ -595,6 +748,7 @@
             "https://openminds.ebrains.eu/controlledTerms/BehavioralTask"
         ],
         "name": "behavioralTask",
+        "nameForReverseLink": "usedIn",
         "schemas": [
             "core/v0/research/protocol",
             "core/v3/products/datasetVersion",
@@ -607,6 +761,7 @@
         "label": "Best view point",
         "labelForReverseLink": "Is best view point of",
         "name": "bestViewPoint",
+        "nameForReverseLink": "isBestViewPointOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -623,6 +778,7 @@
             "https://openminds.ebrains.eu/controlledTerms/BiologicalSex"
         ],
         "name": "biologicalSex",
+        "nameForReverseLink": "isBiologicalSexOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subject",
@@ -642,8 +798,10 @@
     "https://openminds.ebrains.eu/vocab/breedingType": {
         "description": null,
         "label": "Breeding type",
+        "labelForReverseLink": "Is breeding type of",
         "linkedTypes": [],
         "name": "breedingType",
+        "nameForReverseLink": "isBreedingTypeOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
@@ -652,8 +810,10 @@
     "https://openminds.ebrains.eu/vocab/cameraPosition": {
         "description": null,
         "label": "Camera position",
+        "labelForReverseLink": "Is camera position of",
         "linkedTypes": [],
         "name": "cameraPosition",
+        "nameForReverseLink": "isCameraPositionOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/miscellaneous/viewerSpecification"
@@ -662,8 +822,10 @@
     "https://openminds.ebrains.eu/vocab/category": {
         "description": null,
         "label": "Category",
+        "labelForReverseLink": "Is category of",
         "linkedTypes": [],
         "name": "category",
+        "nameForReverseLink": "isCategoryOf",
         "sameAs": [],
         "schemas": [
             "core/v0/data/contentType"
@@ -672,8 +834,10 @@
     "https://openminds.ebrains.eu/vocab/channel": {
         "description": null,
         "label": "Channel",
+        "labelForReverseLink": "Belongs to",
         "linkedTypes": [],
         "name": "channel",
+        "nameForReverseLink": "belongsTo",
         "sameAs": [],
         "schemas": [
             "ephys/v1/entity/recording"
@@ -682,8 +846,10 @@
     "https://openminds.ebrains.eu/vocab/chemicalProduct": {
         "description": null,
         "label": "Chemical product",
+        "labelForReverseLink": "Used in amount",
         "linkedTypes": [],
         "name": "chemicalProduct",
+        "nameForReverseLink": "usedInAmount",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/amountOfChemical"
@@ -692,8 +858,10 @@
     "https://openminds.ebrains.eu/vocab/chlorideReversalPotential": {
         "description": null,
         "label": "Chloride reversal potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "chlorideReversalPotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -702,8 +870,10 @@
     "https://openminds.ebrains.eu/vocab/citedPublication": {
         "description": null,
         "label": "Cited publication",
+        "labelForReverseLink": "Cited in",
         "linkedTypes": [],
         "name": "citedPublication",
+        "nameForReverseLink": "citedIn",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
@@ -715,26 +885,40 @@
     "https://openminds.ebrains.eu/vocab/codeSource": {
         "description": null,
         "label": "Code source",
+        "labelForReverseLink": "Is code source of",
         "linkedTypes": [],
         "name": "codeSource",
+        "nameForReverseLink": "isCodeSourceOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/comment": {
         "description": null,
         "label": "Comment",
+        "labelForReverseLink": "Is comment of",
         "linkedTypes": [],
         "name": "comment",
+        "nameForReverseLink": "isCommentOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/comment"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/commenter": {
         "description": null,
         "label": "Commenter",
+        "labelForReverseLink": "comment",
         "linkedTypes": [],
         "name": "commenter",
+        "nameForReverseLink": "comment",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/comment"
@@ -743,8 +927,10 @@
     "https://openminds.ebrains.eu/vocab/compensationCurrent": {
         "description": null,
         "label": "Compensation current",
+        "labelForReverseLink": "Is compensation current of",
         "linkedTypes": [],
         "name": "compensationCurrent",
+        "nameForReverseLink": "isCompensationCurrentOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -753,24 +939,30 @@
     "https://openminds.ebrains.eu/vocab/competencyRequired": {
         "description": null,
         "label": "Competency required",
+        "labelForReverseLink": "Is competency required of",
         "linkedTypes": [],
         "name": "competencyRequired",
+        "nameForReverseLink": "isCompetencyRequiredOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/components": {
         "description": null,
         "label": "Components",
+        "labelForReverseLink": "Is component of",
         "linkedTypes": [],
         "name": "components",
+        "nameForReverseLink": "isComponentOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/conductorMaterial": {
         "description": null,
         "label": "Conductor material",
+        "labelForReverseLink": "Is material of",
         "linkedTypes": [],
         "name": "conductorMaterial",
+        "nameForReverseLink": "isMaterialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
@@ -780,21 +972,29 @@
     "https://openminds.ebrains.eu/vocab/configuration": {
         "description": null,
         "label": "Configuration",
+        "labelForReverseLink": "Is configuration of",
         "linkedTypes": [],
         "name": "configuration",
+        "nameForReverseLink": "isConfigurationOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/environment",
             "computation/v1/validationTestVersion",
             "computation/v1/workflowExecution",
             "core/v4/research/configuration"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/constructionType": {
         "description": null,
         "label": "Construction type",
+        "labelForReverseLink": "Used for",
         "linkedTypes": [],
         "name": "constructionType",
+        "nameForReverseLink": "usedFor",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/cranialWindowPreparation"
@@ -808,17 +1008,24 @@
             "https://openminds.ebrains.eu/core/ContactInformation"
         ],
         "name": "contactInformation",
+        "nameForReverseLink": "isContactInformationOf",
         "schemas": [
             "core/v3/actors/person",
             "core/v4/actors/consortium",
             "core/v4/actors/person"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/contactResistance": {
         "description": null,
         "label": "Contact resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "contactResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeUsage"
@@ -827,8 +1034,10 @@
     "https://openminds.ebrains.eu/vocab/contactResistances": {
         "description": null,
         "label": "Contact resistances",
+        "labelForReverseLink": "Are resistances of",
         "linkedTypes": [],
         "name": "contactResistances",
+        "nameForReverseLink": "AreResistancesOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage"
@@ -839,6 +1048,7 @@
         "label": "Content",
         "labelForReverseLink": "Is content of",
         "name": "content",
+        "nameForReverseLink": "isContentOf",
         "sameAs": null,
         "schemas": [
             "core/v0/data/fileInstance",
@@ -849,21 +1059,29 @@
     "https://openminds.ebrains.eu/vocab/contentDescription": {
         "description": null,
         "label": "Content description",
+        "labelForReverseLink": "Is description of",
         "linkedTypes": [],
         "name": "contentDescription",
+        "nameForReverseLink": "isDescriptionOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/localFile",
             "core/v4/data/file",
             "core/v4/data/fileBundle",
             "core/v4/miscellaneous/webResource"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/contentType": {
         "description": null,
         "label": "Content type",
+        "labelForReverseLink": "Is defined by",
         "linkedTypes": [],
         "name": "contentType",
+        "nameForReverseLink": "isDefinedBy",
         "sameAs": [],
         "schemas": [
             "core/v3/data/contentTypePattern",
@@ -873,8 +1091,10 @@
     "https://openminds.ebrains.eu/vocab/contentTypePattern": {
         "description": null,
         "label": "Content type pattern",
+        "labelForReverseLink": "Identifies content of",
         "linkedTypes": [],
         "name": "contentTypePattern",
+        "nameForReverseLink": "identifiesContentOf",
         "sameAs": [],
         "schemas": [
             "core/v3/data/fileRepository",
@@ -886,11 +1106,16 @@
         "label": "Context",
         "labelForReverseLink": "Is context of",
         "name": "context",
+        "nameForReverseLink": "isContextOf",
         "schemas": [
             "core/v3/research/parameterSet",
             "core/v4/miscellaneous/researchProductGroup",
             "core/v4/research/customPropertySet"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/contributionType": {
         "description": "Distinct class of what was given or supplied as a part or share.",
@@ -900,6 +1125,7 @@
             "https://openminds.ebrains.eu/controlledTerms/ContributionType"
         ],
         "name": "contributionType",
+        "nameForReverseLink": "isContributionTypeOf",
         "sameAs": null,
         "schemas": [
             "core/v0/actors/contribution",
@@ -915,6 +1141,7 @@
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "contributor",
+        "nameForReverseLink": "isContributorOf",
         "sameAs": null,
         "schemas": [
             "core/v0/actors/contribution",
@@ -942,6 +1169,7 @@
             "https://openminds.ebrains.eu/sands/CustomCoordinateSpace"
         ],
         "name": "coordinateSpace",
+        "nameForReverseLink": "isCoordinateSpaceOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -963,6 +1191,7 @@
         "label": "Coordinates",
         "labelForReverseLink": "Are coordinates of",
         "name": "coordinates",
+        "nameForReverseLink": "areCoordinatesOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/coordinatePoint",
@@ -974,12 +1203,13 @@
     "https://openminds.ebrains.eu/vocab/coordinator": {
         "description": "Legal person who organizes the collaborative work of people or groups.",
         "label": "Coordinator",
-        "labelForReverseLink": "Is coordinator of",
+        "labelForReverseLink": "Coordinated project",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization",
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "coordinator",
+        "nameForReverseLink": "coordinatedProject",
         "schemas": [
             "core/v3/products/project",
             "core/v4/products/project"
@@ -988,8 +1218,10 @@
     "https://openminds.ebrains.eu/vocab/copyOf": {
         "description": null,
         "label": "Copy of",
+        "labelForReverseLink": "Has copy",
         "linkedTypes": [],
         "name": "copyOf",
+        "nameForReverseLink": "hasCopy",
         "sameAs": [],
         "schemas": [
             "computation/v1/localFile"
@@ -1000,6 +1232,7 @@
         "label": "Copyright",
         "labelForReverseLink": "Is copyright of",
         "name": "copyright",
+        "nameForReverseLink": "isCopyrightOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -1029,34 +1262,47 @@
     "https://openminds.ebrains.eu/vocab/correctedName": {
         "description": null,
         "label": "Corrected name",
+        "labelForReverseLink": "Is name of",
         "linkedTypes": [],
         "name": "correctedName",
+        "nameForReverseLink": "isNameOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/parcellationEntityVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/creationDate": {
         "description": null,
         "label": "Creation date",
+        "labelForReverseLink": "Is date of",
         "linkedTypes": [],
         "name": "creationDate",
+        "nameForReverseLink": "isDateOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
             "publications/v1/chapter",
             "publications/v1/learningResource",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/criteria": {
         "description": "Aspects or standards on which a judgement or decision is based.",
         "label": "Criteria",
-        "labelForReverseLink": "Is criteria of",
+        "labelForReverseLink": "Based on protocol execution",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/ProtocolExecution"
         ],
         "name": "criteria",
+        "nameForReverseLink": "basedOnProtocolExecution",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/anatomicalEntityRelation",
@@ -1081,6 +1327,7 @@
             "https://openminds.ebrains.eu/controlledTerms/CriteriaQualityType"
         ],
         "name": "criteriaQualityType",
+        "nameForReverseLink": "isCriteriaQualityTypeOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/anatomicalEntityRelation",
@@ -1096,8 +1343,10 @@
     "https://openminds.ebrains.eu/vocab/criteriaType": {
         "description": null,
         "label": "Criteria type",
+        "labelForReverseLink": "usedByAnnotation",
         "linkedTypes": [],
         "name": "criteriaType",
+        "nameForReverseLink": "Used by annotation",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/atlasAnnotation",
@@ -1107,8 +1356,10 @@
     "https://openminds.ebrains.eu/vocab/cultureMedium": {
         "description": null,
         "label": "Culture medium",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "cultureMedium",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/tissueCulturePreparation"
@@ -1117,8 +1368,10 @@
     "https://openminds.ebrains.eu/vocab/cultureType": {
         "description": null,
         "label": "Culture type",
+        "labelForReverseLink": "isTypeOf",
         "linkedTypes": [],
         "name": "cultureType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/tissueCulturePreparation"
@@ -1133,6 +1386,7 @@
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "custodian",
+        "nameForReverseLink": "isCustodianOf",
         "schemas": [
             "SANDS/v3/atlas/brainAtlas",
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -1175,8 +1429,10 @@
     "https://openminds.ebrains.eu/vocab/customPropertySet": {
         "description": null,
         "label": "Custom property set",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "customPropertySet",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -1197,11 +1453,13 @@
     "https://openminds.ebrains.eu/vocab/dataLocation": {
         "description": null,
         "label": "Data location",
+        "labelForReverseLink": "Is location of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "dataLocation",
+        "nameForReverseLink": "IslocationOf",
         "schemas": [
             "SANDS/v3/atlas/parcellationTerminology",
             "SANDS/v3/atlas/parcellationTerminologyVersion",
@@ -1214,8 +1472,10 @@
     "https://openminds.ebrains.eu/vocab/dataType": {
         "description": null,
         "label": "Data type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "dataType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/localFile",
@@ -1227,40 +1487,62 @@
     "https://openminds.ebrains.eu/vocab/dataTypes": {
         "description": null,
         "label": "Data types",
+        "labelForReverseLink": "Are types of",
         "linkedTypes": [],
         "name": "dataTypes",
+        "nameForReverseLink": "areTypesOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/dateCreated": {
         "description": null,
         "label": "Date created",
+        "labelForReverseLink": "Is date of",
         "linkedTypes": [],
         "name": "dateCreated",
+        "nameForReverseLink": "isDateOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/dateModified": {
         "description": null,
         "label": "Date modified",
+        "labelForReverseLink": "Is date of",
         "linkedTypes": [],
         "name": "dateModified",
+        "nameForReverseLink": "isDateOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/datePublished": {
         "description": null,
         "label": "Date published",
+        "labelForReverseLink": "Is date of",
         "linkedTypes": [],
         "name": "datePublished",
+        "nameForReverseLink": "isDateOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/deed": {
         "description": null,
         "label": "Deed",
+        "labelForReverseLink": "Is deed of",
         "linkedTypes": [],
         "name": "deed",
+        "nameForReverseLink": "isdeedOf",
         "sameAs": [],
         "schemas": [
             "core/v0/data/license"
@@ -1274,6 +1556,7 @@
             "https://openminds.ebrains.eu/core/File"
         ],
         "name": "defaultImage",
+        "nameForReverseLink": "isDefaultImageFor",
         "schemas": [
             "SANDS/v0/coordinateSpace",
             "SANDS/v1/coordinateSpace",
@@ -1286,11 +1569,12 @@
     "https://openminds.ebrains.eu/vocab/definedIn": {
         "description": "Reference to a file instance in which something is stored.",
         "label": "Defined in",
-        "labelForReverseLink": "Is defined in of",
+        "labelForReverseLink": "defines",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File"
         ],
         "name": "definedIn",
+        "nameForReverseLink": "defines",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/atlasTerminology",
@@ -1308,6 +1592,7 @@
         "label": "Definition",
         "labelForReverseLink": "Is definition of",
         "name": "definition",
+        "nameForReverseLink": "isDefinitionOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/parcellationEntity",
@@ -1430,21 +1715,29 @@
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement",
             "controlledTerms/v1/visualStimulusType"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/definitionFormat": {
         "description": null,
         "label": "Definition format",
+        "labelForReverseLink": "Is format of",
         "linkedTypes": [],
         "name": "definitionFormat",
+        "nameForReverseLink": "isFormatOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/descendedFrom": {
         "description": null,
         "label": "Descended from",
+        "labelForReverseLink": "Has child",
         "linkedTypes": [],
         "name": "descendedFrom",
+        "nameForReverseLink": "hasChild",
         "sameAs": [],
         "schemas": [
             "core/v3/data/file",
@@ -1458,8 +1751,10 @@
     "https://openminds.ebrains.eu/vocab/describedIn": {
         "description": null,
         "label": "Described in",
+        "labelForReverseLink": "describes",
         "linkedTypes": [],
         "name": "describedIn",
+        "nameForReverseLink": "describes",
         "sameAs": [],
         "schemas": [
             "core/v4/research/behavioralProtocol",
@@ -1471,6 +1766,7 @@
         "label": "Description",
         "labelForReverseLink": "Is description of",
         "name": "description",
+        "nameForReverseLink": "isDescriptionOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlas",
@@ -1667,7 +1963,11 @@
             "specimenPrep/v1/activity/cranialWindowPreparation",
             "specimenPrep/v1/device/slicingDevice",
             "stimulation/v1/activity/stimulationActivity"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/developer": {
         "description": "Legal person that creates or improves products or services (e.g., software, applications, etc.).",
@@ -1678,6 +1978,7 @@
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "developer",
+        "nameForReverseLink": "isDeveloperOf",
         "schemas": [
             "computation/v1/validationTest",
             "computation/v1/validationTestVersion",
@@ -1706,11 +2007,26 @@
     "https://openminds.ebrains.eu/vocab/device": {
         "description": "Piece of equipment or mechanism (hardware) designed to serve a special purpose or perform a special function.",
         "label": "Device",
-        "labelForReverseLink": "Is device of",
+        "labelForReverseLink": {
+            "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage": "Usage",
+            "https://openminds.ebrains.eu/ephys/RecordingActivity": "Used in",
+            "https://openminds.ebrains.eu/ephys/ElectrodePlacement": "Placed by",
+            "https://openminds.ebrains.eu/ephys/CellPatching": "Used in",
+            "https://openminds.ebrains.eu/ephys/Recording": "Used for",
+            "https://openminds.ebrains.eu/core/Measurement": "Used for"
+        },
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/OperatingDevice"
         ],
         "name": "device",
+        "nameForReverseLink": {
+            "https://openminds.ebrains.eu/ephys/ElectrodeArrayUsage": "usage",
+            "https://openminds.ebrains.eu/ephys/RecordingActivity": "usedIn",
+            "https://openminds.ebrains.eu/ephys/ElectrodePlacement": "placedBy",
+            "https://openminds.ebrains.eu/ephys/CellPatching": "usedIn",
+            "https://openminds.ebrains.eu/ephys/Recording": "usedFor",
+            "https://openminds.ebrains.eu/core/Measurement": "usedFor"
+        },
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -1729,8 +2045,10 @@
     "https://openminds.ebrains.eu/vocab/deviceType": {
         "description": null,
         "label": "Device type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "deviceType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
@@ -1744,17 +2062,22 @@
         "label": "Digest",
         "labelForReverseLink": "Is digest of",
         "name": "digest",
+        "nameForReverseLink": "isDigestOf",
         "sameAs": null,
         "schemas": [
             "core/v0/data/hash",
             "core/v3/data/hash",
             "core/v4/data/hash"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/digitalIdentifier": {
         "description": "Digital handle to identify objects or legal persons.",
         "label": "Digital identifier",
-        "labelForReverseLink": "Is digital identifier of",
+        "labelForReverseLink": "Identifies",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/GRIDID",
@@ -1764,6 +2087,7 @@
             "https://openminds.ebrains.eu/core/SWHID"
         ],
         "name": "digitalIdentifier",
+        "nameForReverseLink": "identifies",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -1830,8 +2154,10 @@
     "https://openminds.ebrains.eu/vocab/dimension": {
         "description": null,
         "label": "Dimension",
+        "labelForReverseLink": "Is dimension of",
         "linkedTypes": [],
         "name": "dimension",
+        "nameForReverseLink": "isDimensionOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/cranialWindowPreparation"
@@ -1840,8 +2166,10 @@
     "https://openminds.ebrains.eu/vocab/diseaseModel": {
         "description": null,
         "label": "Disease model",
+        "labelForReverseLink": "is modeled by",
         "linkedTypes": [],
         "name": "diseaseModel",
+        "nameForReverseLink": "isModeledBy",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
@@ -1852,6 +2180,7 @@
         "label": "Display color",
         "labelForReverseLink": "Is display color of",
         "name": "displayColor",
+        "nameForReverseLink": "isDisplayColorOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -1863,19 +2192,27 @@
     "https://openminds.ebrains.eu/vocab/displayLabel": {
         "description": null,
         "label": "Display label",
+        "labelForReverseLink": "Is label of",
         "linkedTypes": [],
         "name": "displayLabel",
+        "nameForReverseLink": "isLabelOf",
         "sameAs": [],
         "schemas": [
             "core/v4/data/contentType",
             "core/v4/data/serviceLink"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/editor": {
         "description": null,
         "label": "Editor",
+        "labelForReverseLink": "Edited",
         "linkedTypes": [],
         "name": "editor",
+        "nameForReverseLink": "edited",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
@@ -1887,8 +2224,10 @@
     "https://openminds.ebrains.eu/vocab/educationalLevel": {
         "description": null,
         "label": "Educational level",
+        "labelForReverseLink": "Is level of",
         "linkedTypes": [],
         "name": "educationalLevel",
+        "nameForReverseLink": "isLevelOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource"
@@ -1897,16 +2236,20 @@
     "https://openminds.ebrains.eu/vocab/electrode": {
         "description": null,
         "label": "Electrode",
+        "labelForReverseLink": "Is electrode of",
         "linkedTypes": [],
         "name": "electrode",
+        "nameForReverseLink": "isElectrodeOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/electrodeArray": {
         "description": null,
         "label": "Electrode array",
+        "labelForReverseLink": "Is electrode array of",
         "linkedTypes": [],
         "name": "electrodeArray",
+        "nameForReverseLink": "isElectrodeArrayOf",
         "sameAs": [],
         "schemas": []
     },
@@ -1918,6 +2261,7 @@
             "https://openminds.ebrains.eu/sands/ElectrodeContact"
         ],
         "name": "electrodeContact",
+        "nameForReverseLink": "isElectrodeContactOf",
         "schemas": [
             "SANDS/v0/electrode",
             "SANDS/v1/electrode",
@@ -1927,8 +2271,10 @@
     "https://openminds.ebrains.eu/vocab/electrodeIdentifier": {
         "description": null,
         "label": "Electrode identifier",
+        "labelForReverseLink": "Identifies",
         "linkedTypes": [],
         "name": "electrodeIdentifier",
+        "nameForReverseLink": "identifies",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArray"
@@ -1937,8 +2283,10 @@
     "https://openminds.ebrains.eu/vocab/electrodeIdentifiers": {
         "description": null,
         "label": "Electrode identifiers",
+        "labelForReverseLink": "Identifies",
         "linkedTypes": [],
         "name": "electrodeIdentifiers",
+        "nameForReverseLink": "identifies",
         "sameAs": [],
         "schemas": []
     },
@@ -1950,6 +2298,7 @@
             "https://openminds.ebrains.eu/sands/Electrode"
         ],
         "name": "electrodes",
+        "nameForReverseLink": "areElectrodesOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/electrodeArray",
@@ -1962,28 +2311,40 @@
         "label": "Email",
         "labelForReverseLink": "Is email of",
         "name": "email",
+        "nameForReverseLink": "isEmailOf",
         "sameAs": null,
         "schemas": [
             "core/v0/actors/person",
             "core/v3/actors/contactInformation",
             "core/v4/actors/contactInformation"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/endDate": {
         "description": "Date in the Gregorian calendar at which something terminates in time.",
         "label": "End date",
-        "labelForReverseLink": "Is end date of",
+        "labelForReverseLink": "Is date of",
         "name": "endDate",
+        "nameForReverseLink": "isDateOf",
         "schemas": [
             "core/v3/actors/affiliation",
             "core/v4/actors/affiliation"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/endMembranePotential": {
         "description": null,
         "label": "End membrane potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "endMembranePotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -1992,8 +2353,10 @@
     "https://openminds.ebrains.eu/vocab/endTime": {
         "description": null,
         "label": "End time",
+        "labelForReverseLink": "Is time of",
         "linkedTypes": [],
         "name": "endTime",
+        "nameForReverseLink": "isTimeOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -2009,21 +2372,33 @@
             "ephys/v1/activity/recordingActivity",
             "specimenPrep/v1/activity/cranialWindowPreparation",
             "stimulation/v1/activity/stimulationActivity"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/endedAtTime": {
         "description": null,
         "label": "Ended at time",
+        "labelForReverseLink": "Is time of",
         "name": "endedAtTime",
+        "nameForReverseLink": "isTimeOf",
         "schemas": [
             "core/v3/research/protocolExecution"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/entryPoint": {
         "description": null,
         "label": "Entry point",
+        "labelForReverseLink": "Is entry point of",
         "linkedTypes": [],
         "name": "entryPoint",
+        "nameForReverseLink": "isEntryPointOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/validationTestVersion"
@@ -2032,8 +2407,10 @@
     "https://openminds.ebrains.eu/vocab/environment": {
         "description": null,
         "label": "Environment",
+        "labelForReverseLink": "Used for",
         "linkedTypes": [],
         "name": "environment",
+        "nameForReverseLink": "usedFor",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -2049,8 +2426,10 @@
     "https://openminds.ebrains.eu/vocab/environmentVariable": {
         "description": null,
         "label": "Environment variable",
+        "labelForReverseLink": "Defines environment of",
         "linkedTypes": [],
         "name": "environmentVariable",
+        "nameForReverseLink": "definesEnvironmentOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/launchConfiguration"
@@ -2059,8 +2438,10 @@
     "https://openminds.ebrains.eu/vocab/environmentVariables": {
         "description": null,
         "label": "Environment variables",
+        "labelForReverseLink": "Define environment of",
         "linkedTypes": [],
         "name": "environmentVariables",
+        "nameForReverseLink": "defineEnvironmentOf",
         "sameAs": [],
         "schemas": []
     },
@@ -2072,6 +2453,7 @@
             "https://openminds.ebrains.eu/controlledTerms/EthicsAssessment"
         ],
         "name": "ethicsAssessment",
+        "nameForReverseLink": "isEthicsAssessmentOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/datasetVersion",
@@ -2082,12 +2464,18 @@
     "https://openminds.ebrains.eu/vocab/executable": {
         "description": null,
         "label": "Executable",
+        "labelForReverseLink": "Executed by",
         "linkedTypes": [],
         "name": "executable",
+        "nameForReverseLink": "executedBy",
         "sameAs": [],
         "schemas": [
             "computation/v1/launchConfiguration"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/experimentalApproach": {
         "description": null,
@@ -2097,6 +2485,7 @@
             "https://openminds.ebrains.eu/controlledTerms/ExperimentalApproach"
         ],
         "name": "experimentalApproach",
+        "nameForReverseLink": "isExperimentalApproachOf",
         "schemas": [
             "core/v3/products/datasetVersion",
             "core/v4/products/datasetVersion"
@@ -2105,16 +2494,20 @@
     "https://openminds.ebrains.eu/vocab/experimentalTechnique": {
         "description": null,
         "label": "Experimental technique",
+        "labelForReverseLink": "Is experimental technique of",
         "linkedTypes": [],
         "name": "experimentalTechnique",
+        "nameForReverseLink": "IsExperimentalTechniqueOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/externalDiameter": {
         "description": null,
         "label": "External diameter",
+        "labelForReverseLink": "Is diameter of",
         "linkedTypes": [],
         "name": "externalDiameter",
+        "nameForReverseLink": "isDiameterOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipette"
@@ -2125,12 +2518,17 @@
         "label": "Family name",
         "labelForReverseLink": "Is family name of",
         "name": "familyName",
+        "nameForReverseLink": "isFamilyNameOf",
         "sameAs": null,
         "schemas": [
             "core/v0/actors/person",
             "core/v3/actors/person",
             "core/v4/actors/person"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/feature": {
         "description": "Structure, form, or appearance that characterizes something or someone.",
@@ -2140,6 +2538,7 @@
             "https://openminds.ebrains.eu/controlledTerms/SoftwareFeature"
         ],
         "name": "feature",
+        "nameForReverseLink": "isFeatureOf",
         "schemas": [
             "core/v3/products/softwareVersion",
             "core/v4/products/softwareVersion"
@@ -2150,6 +2549,7 @@
         "label": "File extension",
         "labelForReverseLink": "Is file extension of",
         "name": "fileExtension",
+        "nameForReverseLink": "isFileExtensionOF",
         "schemas": [
             "core/v3/data/contentType",
             "core/v4/data/contentType"
@@ -2158,8 +2558,10 @@
     "https://openminds.ebrains.eu/vocab/filePathPattern": {
         "description": null,
         "label": "File path pattern",
+        "labelForReverseLink": "Is pattern of",
         "linkedTypes": [],
         "name": "filePathPattern",
+        "nameForReverseLink": "isPatternOf",
         "sameAs": [],
         "schemas": [
             "core/v3/data/fileRepositoryStructure",
@@ -2169,11 +2571,12 @@
     "https://openminds.ebrains.eu/vocab/fileRepository": {
         "description": null,
         "label": "File repository",
-        "labelForReverseLink": "Is file repository of",
+        "labelForReverseLink": "Files",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/FileRepository"
         ],
         "name": "fileRepository",
+        "nameForReverseLink": "files",
         "schemas": [
             "core/v3/data/file",
             "core/v4/data/file"
@@ -2187,6 +2590,7 @@
             "https://openminds.ebrains.eu/core/ContentType"
         ],
         "name": "format",
+        "nameForReverseLink": "isFormatOf",
         "schemas": [
             "computation/v1/localFile",
             "computation/v1/validationTestVersion",
@@ -2211,13 +2615,14 @@
     "https://openminds.ebrains.eu/vocab/fullDocumentation": {
         "description": "Non-abridged instructions, comments, and information for using a particular product.",
         "label": "Full documentation",
-        "labelForReverseLink": "Is full documentation of",
+        "labelForReverseLink": "Fully documents",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/URL"
         ],
         "name": "fullDocumentation",
+        "nameForReverseLink": "fullyDocuments",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -2242,8 +2647,9 @@
     "https://openminds.ebrains.eu/vocab/fullName": {
         "description": "Whole, non-abbreviated name of something or somebody.",
         "label": "Full name",
-        "labelForReverseLink": "Is full name of",
+        "labelForReverseLink": "Is name of",
         "name": "fullName",
+        "nameForReverseLink": "isNameOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/atlasTerminology",
@@ -2305,17 +2711,22 @@
             "core/v4/products/webServiceVersion",
             "publications/v1/livePaper",
             "publications/v1/livePaperVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/funder": {
         "description": "Legal person that provides money for a particular purpose.",
         "label": "Funder",
-        "labelForReverseLink": "Is funder of",
+        "labelForReverseLink": "Funded",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization",
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "funder",
+        "nameForReverseLink": "funded",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/funding",
@@ -2326,11 +2737,12 @@
     "https://openminds.ebrains.eu/vocab/funding": {
         "description": "Money provided by a legal person for a particular purpose.",
         "label": "Funding",
-        "labelForReverseLink": "Is funding of",
+        "labelForReverseLink": "Funded",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Funding"
         ],
         "name": "funding",
+        "nameForReverseLink": "funded",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -2360,8 +2772,10 @@
     "https://openminds.ebrains.eu/vocab/geneticStrainType": {
         "description": null,
         "label": "Genetic strain type",
+        "labelForReverseLink": "Starin",
         "linkedTypes": [],
         "name": "geneticStrainType",
+        "nameForReverseLink": "strain",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
@@ -2373,6 +2787,7 @@
         "label": "Genotype",
         "labelForReverseLink": "Is genotype of",
         "name": "genotype",
+        "nameForReverseLink": "isGenotypeOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subject",
@@ -2384,23 +2799,29 @@
     "https://openminds.ebrains.eu/vocab/givenName": {
         "description": "Name given to a person, including all potential middle names, but excluding the family name.",
         "label": "Given name",
-        "labelForReverseLink": "Is given name of",
+        "labelForReverseLink": "Is name of",
         "name": "givenName",
+        "nameForReverseLink": "isNameOf",
         "sameAs": null,
         "schemas": [
             "core/v0/actors/person",
             "core/v3/actors/person",
             "core/v4/actors/person"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/groupedBy": {
         "description": "Reference to the aspect used to group something.",
         "label": "Grouped by",
-        "labelForReverseLink": "Is grouped by of",
+        "labelForReverseLink": "Is used to group",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/FileBundleGrouping"
         ],
         "name": "groupedBy",
+        "nameForReverseLink": "isUsedToGroup",
         "sameAs": null,
         "schemas": [
             "core/v0/data/fileBundle",
@@ -2411,8 +2832,16 @@
     "https://openminds.ebrains.eu/vocab/groupingType": {
         "description": null,
         "label": "Grouping type",
+        "labelForReverseLink": {
+            "https://openminds.ebrains.eu/core/FileBundle": "Is used to group",
+            "https://openminds.ebrains.eu/core/FilePathPattern": "Is defined by"
+        },
         "linkedTypes": [],
         "name": "groupingType",
+        "nameForReverseLink": {
+            "https://openminds.ebrains.eu/core/FileBundle": "isUsedToGroup",
+            "https://openminds.ebrains.eu/core/FilePathPattern": "isDefinedBy"
+        },
         "sameAs": [],
         "schemas": [
             "core/v3/data/filePathPattern",
@@ -2428,6 +2857,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Handedness"
         ],
         "name": "handedness",
+        "nameForReverseLink": "isHandednessOf",
         "schemas": [
             "core/v0/research/subjectGroupState",
             "core/v0/research/subjectState",
@@ -2440,8 +2870,10 @@
     "https://openminds.ebrains.eu/vocab/hardware": {
         "description": null,
         "label": "Hardware",
+        "labelForReverseLink": "Used by",
         "linkedTypes": [],
         "name": "hardware",
+        "nameForReverseLink": "usedBy",
         "sameAs": [],
         "schemas": [
             "computation/v1/environment"
@@ -2450,8 +2882,10 @@
     "https://openminds.ebrains.eu/vocab/hasAlternativeVersion": {
         "description": null,
         "label": "Has alternative version",
+        "labelForReverseLink": "Is alternate version of",
         "linkedTypes": [],
         "name": "hasAlternativeVersion",
+        "nameForReverseLink": "isAlternativeVersionOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -2470,6 +2904,7 @@
             "https://openminds.ebrains.eu/sands/CustomAnnotation"
         ],
         "name": "hasAnnotation",
+        "nameForReverseLink": "isAnnotationOf",
         "schemas": [
             "SANDS/v2/atlas/parcellationEntity",
             "SANDS/v2/non-atlas/customAnatomicalEntity",
@@ -2480,11 +2915,12 @@
     "https://openminds.ebrains.eu/vocab/hasComponent": {
         "description": "Reference to an element of a collection.",
         "label": "Has component",
-        "labelForReverseLink": "Is component of",
+        "labelForReverseLink": "Is part of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/SoftwareVersion"
         ],
         "name": "hasComponent",
+        "nameForReverseLink": "isPartOf",
         "schemas": [
             "core/v3/products/softwareVersion"
         ]
@@ -2492,8 +2928,10 @@
     "https://openminds.ebrains.eu/vocab/hasEntity": {
         "description": null,
         "label": "Has entity",
+        "labelForReverseLink": "Is part of",
         "linkedTypes": [],
         "name": "hasEntity",
+        "nameForReverseLink": "isPartOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/parcellationTerminology",
@@ -2503,16 +2941,20 @@
     "https://openminds.ebrains.eu/vocab/hasEntityVersion": {
         "description": null,
         "label": "Has entity version",
+        "labelForReverseLink": "Is version of",
         "linkedTypes": [],
         "name": "hasEntityVersion",
+        "nameForReverseLink": "isVersionOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/hasFeature": {
         "description": null,
         "label": "Has feature",
+        "labelForReverseLink": "Is feature of",
         "linkedTypes": [],
         "name": "hasFeature",
+        "nameForReverseLink": "isFeatureOf",
         "sameAs": [],
         "schemas": [
             "core/v0/products/softwareVersion"
@@ -2521,12 +2963,13 @@
     "https://openminds.ebrains.eu/vocab/hasParent": {
         "description": "Reference to a parent object or legal person.",
         "label": "Has parent",
-        "labelForReverseLink": "Is parent of",
+        "labelForReverseLink": "Has child",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization",
             "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "hasParent",
+        "nameForReverseLink": "hasChild",
         "schemas": [
             "SANDS/v0/anatomicalEntity",
             "SANDS/v1/anatomicalEntity",
@@ -2541,8 +2984,10 @@
     "https://openminds.ebrains.eu/vocab/hasPart": {
         "description": null,
         "label": "Has part",
+        "labelForReverseLink": "Is part of",
         "linkedTypes": [],
         "name": "hasPart",
+        "nameForReverseLink": "isPartOf",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/chemicalMixture",
@@ -2557,8 +3002,10 @@
     "https://openminds.ebrains.eu/vocab/hasRequirement": {
         "description": null,
         "label": "Has requirement",
+        "labelForReverseLink": "Is requirement of",
         "linkedTypes": [],
         "name": "hasRequirement",
+        "nameForReverseLink": "isRequirementOf",
         "sameAs": [],
         "schemas": [
             "core/v0/products/softwareVersion"
@@ -2579,6 +3026,7 @@
             "https://openminds.ebrains.eu/core/SoftwareVersion"
         ],
         "name": "hasResearchProducts",
+        "nameForReverseLink": "isResearchProductOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/project",
@@ -2588,8 +3036,10 @@
     "https://openminds.ebrains.eu/vocab/hasSupplementVersion": {
         "description": null,
         "label": "Has supplement version",
+        "labelForReverseLink": "Is version of",
         "linkedTypes": [],
         "name": "hasSupplementVersion",
+        "nameForReverseLink": "isVersionOf",
         "sameAs": [],
         "schemas": [
             "core/v0/products/datasetVersion",
@@ -2606,6 +3056,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "hasTerminology",
+        "nameForReverseLink": "isTerminologyOf",
         "schemas": [
             "SANDS/v2/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/brainAtlas",
@@ -2615,8 +3066,10 @@
     "https://openminds.ebrains.eu/vocab/hasTerminologyVersion": {
         "description": null,
         "label": "Has terminology version",
+        "labelForReverseLink": "Is terminology of",
         "linkedTypes": [],
         "name": "hasTerminologyVersion",
+        "nameForReverseLink": "isTerminologyOf",
         "sameAs": [],
         "schemas": []
     },
@@ -2632,6 +3085,7 @@
             "https://openminds.ebrains.eu/sands/BrainAtlasVersion"
         ],
         "name": "hasVersion",
+        "nameForReverseLink": "isVersionOf",
         "schemas": [
             "SANDS/v0/brainAtlas",
             "SANDS/v1/brainAtlas",
@@ -2662,6 +3116,7 @@
         "label": "Hash",
         "labelForReverseLink": "Is hash of",
         "name": "hash",
+        "nameForReverseLink": "isHashOf",
         "sameAs": null,
         "schemas": [
             "computation/v1/localFile",
@@ -2679,12 +3134,13 @@
     "https://openminds.ebrains.eu/vocab/holder": {
         "description": "Legal person in possession of something.",
         "label": "Holder",
-        "labelForReverseLink": "Is holder of",
+        "labelForReverseLink": "Holds copyright",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization",
             "https://openminds.ebrains.eu/core/Person"
         ],
         "name": "holder",
+        "nameForReverseLink": "holdsCopyright",
         "sameAs": null,
         "schemas": [
             "core/v0/data/copyright",
@@ -2695,8 +3151,10 @@
     "https://openminds.ebrains.eu/vocab/holdingPotential": {
         "description": null,
         "label": "Holding potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "holdingPotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -2710,6 +3168,7 @@
             "https://openminds.ebrains.eu/core/URL"
         ],
         "name": "homepage",
+        "nameForReverseLink": "isHomepageOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlas",
@@ -2769,11 +3228,12 @@
     "https://openminds.ebrains.eu/vocab/hostedBy": {
         "description": "Reference to an organization that provides facilities and services for something.",
         "label": "Hosted by",
-        "labelForReverseLink": "Is hosting",
+        "labelForReverseLink": "Hosts",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Organization"
         ],
         "name": "hostedBy",
+        "nameForReverseLink": "hosts",
         "sameAs": null,
         "schemas": [
             "core/v0/data/fileRepository",
@@ -2785,8 +3245,9 @@
     "https://openminds.ebrains.eu/vocab/howToCite": {
         "description": "Preferred format for citing a particular object or legal person.",
         "label": "How to cite",
-        "labelForReverseLink": "Is how to cite of",
+        "labelForReverseLink": "Is citation of",
         "name": "howToCite",
+        "nameForReverseLink": "IsCitationOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v1/brainAtlas",
@@ -2824,13 +3285,18 @@
             "core/v4/products/webServiceVersion",
             "publications/v1/livePaper",
             "publications/v1/livePaperVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/identifier": {
         "description": "Term or code used to identify something or someone.",
         "label": "Identifier",
         "labelForReverseLink": "Is identifier of",
         "name": "identifier",
+        "nameForReverseLink": "isIdentifierOf",
         "sameAs": null,
         "schemas": [
             "chemicals/v1/productSource",
@@ -2853,38 +3319,53 @@
             "core/v4/digitalIdentifier/RRID",
             "core/v4/digitalIdentifier/SWHID",
             "core/v4/digitalIdentifier/stockNumber"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/identifierPattern": {
         "deprecated": true,
         "description": "Format of a term or code used to identify something or someone.",
         "label": "Identifier pattern",
-        "labelForReverseLink": "Is identifier pattern of",
+        "labelForReverseLink": "Is pattern of",
         "name": "identifierPattern",
+        "nameForReverseLink": "isPatternOf",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/digitalIdentifierSchema"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/identifierSchema": {
         "deprecated": true,
         "description": "Standard for creating a particular identifier for something or someone.",
         "label": "Identifier schema",
-        "labelForReverseLink": "Is identifier schema of",
+        "labelForReverseLink": "Is schema of",
         "name": "identifierSchema",
+        "nameForReverseLink": "isSchemaOf",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/digitalIdentifier"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/inRelationTo": {
         "description": "Reference to a related element.",
         "label": "In relation to",
-        "labelForReverseLink": "Is in relation to of",
+        "labelForReverseLink": "Assessment",
         "linkedTypes": [
             "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "inRelationTo",
+        "nameForReverseLink": "assessment",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/anatomicalEntityRelation",
@@ -2898,7 +3379,7 @@
     "https://openminds.ebrains.eu/vocab/input": {
         "description": "Something or someone that is put into or participates in a process or machine.",
         "label": "Input",
-        "labelForReverseLink": "Is input of",
+        "labelForReverseLink": "Is input to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle",
@@ -2908,6 +3389,7 @@
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "input",
+        "nameForReverseLink": "isInputTo",
         "schemas": [
             "computation/v1/dataAnalysis",
             "computation/v1/dataCopy",
@@ -2931,13 +3413,14 @@
     "https://openminds.ebrains.eu/vocab/inputData": {
         "description": "Data that is put into a process or machine.",
         "label": "Input data",
-        "labelForReverseLink": "Is input data of",
+        "labelForReverseLink": "Is input to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "inputData",
+        "nameForReverseLink": "isInputTo",
         "schemas": [
             "core/v0/products/modelVersion",
             "core/v3/products/datasetVersion",
@@ -2949,11 +3432,12 @@
     "https://openminds.ebrains.eu/vocab/inputFormat": {
         "description": "Format of data that is put into a process or machine.",
         "label": "Input format",
-        "labelForReverseLink": "Is input format of",
+        "labelForReverseLink": "Is format of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/ContentType"
         ],
         "name": "inputFormat",
+        "nameForReverseLink": "isFormatOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -2965,8 +3449,10 @@
     "https://openminds.ebrains.eu/vocab/inputResistance": {
         "description": null,
         "label": "Input resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "inputResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -2975,11 +3461,12 @@
     "https://openminds.ebrains.eu/vocab/inspiredBy": {
         "description": "Reference to an inspiring element.",
         "label": "Inspired by",
-        "labelForReverseLink": "Is inspired by of",
+        "labelForReverseLink": "Inspired",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File"
         ],
         "name": "inspiredBy",
+        "nameForReverseLink": "inspired",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -2993,8 +3480,10 @@
     "https://openminds.ebrains.eu/vocab/insulatorMaterial": {
         "description": null,
         "label": "Insulator material",
+        "labelForReverseLink": "Composes",
         "linkedTypes": [],
         "name": "insulatorMaterial",
+        "nameForReverseLink": "composes",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
@@ -3004,7 +3493,9 @@
     "https://openminds.ebrains.eu/vocab/interlexIdentifier": {
         "description": "Persistent identifier for a term registered in the InterLex project.",
         "label": "Interlex identifier",
+        "labelForReverseLink": "Identifies",
         "name": "interlexIdentifier",
+        "nameForReverseLink": "identifies",
         "schemas": [
             "controlledTerms/v1/UBERONParcellation",
             "controlledTerms/v1/actionStatusType",
@@ -3084,13 +3575,19 @@
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement",
             "controlledTerms/v1/visualStimulusType"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/internalDiameter": {
         "description": null,
         "label": "Internal diameter",
+        "labelForReverseLink": "Is diameter of",
         "linkedTypes": [],
         "name": "internalDiameter",
+        "nameForReverseLink": "isDiameterOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipette"
@@ -3101,6 +3598,7 @@
         "label": "Internal identifier",
         "labelForReverseLink": "Is internal identifier of",
         "name": "internalIdentifier",
+        "nameForReverseLink": "isInternalIdentifierOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -3141,13 +3639,19 @@
             "ephys/v1/device/pipette",
             "ephys/v1/entity/channel",
             "ephys/v1/entity/recording"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/intrinsicResistance": {
         "description": null,
         "label": "Intrinsic resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "intrinsicResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
@@ -3167,6 +3671,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "isAlternativeVersionOf",
+        "nameForReverseLink": "hasAlternativeVersion",
         "schemas": [
             "SANDS/v1/brainAtlasVersion",
             "SANDS/v2/atlas/brainAtlasVersion",
@@ -3190,7 +3695,7 @@
     "https://openminds.ebrains.eu/vocab/isNewVersionOf": {
         "description": "Reference to a previous (potentially outdated) particular form of something.",
         "label": "Is new version of",
-        "labelForReverseLink": "Has new version",
+        "labelForReverseLink": "Is old version of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DatasetVersion",
             "https://openminds.ebrains.eu/core/MetaDataModelVersion",
@@ -3200,6 +3705,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "isNewVersionOf",
+        "nameForReverseLink": "isOldVersionOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -3238,6 +3744,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationTerminology"
         ],
         "name": "isPartOf",
+        "nameForReverseLink": "hasPart",
         "sameAs": null,
         "schemas": [
             "SANDS/v2/atlas/parcellationEntity",
@@ -3269,18 +3776,25 @@
     "https://openminds.ebrains.eu/vocab/issueNumber": {
         "description": null,
         "label": "Issue number",
+        "labelForReverseLink": "Is issue number of",
         "linkedTypes": [],
         "name": "issueNumber",
+        "nameForReverseLink": "isIssueNumberOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/publicationIssue"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/keyword": {
         "description": "Significant word or concept that are representative of something or someone.",
         "label": "Keyword",
-        "labelForReverseLink": "Is keyword of",
+        "labelForReverseLink": "Describes",
         "name": "keyword",
+        "nameForReverseLink": "describes",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -3304,12 +3818,18 @@
             "publications/v1/learningResource",
             "publications/v1/livePaperVersion",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/knowledgeSpaceLink": {
         "description": "Persistent link to an encyclopedia entry in the Knowledge Space project.",
         "label": "Knowledge space link",
+        "labelForReverseLink": "Is knowledge space link of",
         "name": "knowledgeSpaceLink",
+        "nameForReverseLink": "isKnowledgeSpaceLinkOf",
         "schemas": [
             "controlledTerms/v1/UBERONParcellation",
             "controlledTerms/v1/actionStatusType",
@@ -3389,13 +3909,19 @@
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement",
             "controlledTerms/v1/visualStimulusType"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/labelingCompound": {
         "description": null,
         "label": "Labeling compound",
+        "labelForReverseLink": "Labels",
         "linkedTypes": [],
         "name": "labelingCompound",
+        "nameForReverseLink": "labels",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -3404,12 +3930,18 @@
     "https://openminds.ebrains.eu/vocab/laboratoryCode": {
         "description": null,
         "label": "Laboratory code",
+        "labelForReverseLink": "Is code of",
         "linkedTypes": [],
         "name": "laboratoryCode",
+        "nameForReverseLink": "isCodeOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/language": {
         "description": "System of communication (words, their pronunciation, and the methods of combining them) used and understood by a particular community.",
@@ -3419,6 +3951,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Language"
         ],
         "name": "language",
+        "nameForReverseLink": "isLanguageOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -3429,10 +3962,16 @@
     "https://openminds.ebrains.eu/vocab/lastModified": {
         "description": null,
         "label": "Last modified",
+        "labelForReverseLink": "Is last modified of",
         "linkedTypes": [],
         "name": "lastModified",
+        "nameForReverseLink": "isLastModifiedOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/laterality": {
         "description": "Differentiation between a pair of lateral homologous parts of the body.",
@@ -3442,6 +3981,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Laterality"
         ],
         "name": "laterality",
+        "nameForReverseLink": "isLateralityOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -3461,8 +4001,10 @@
     "https://openminds.ebrains.eu/vocab/launchConfiguration": {
         "description": null,
         "label": "Launch configuration",
+        "labelForReverseLink": "Is launch configuartion of",
         "linkedTypes": [],
         "name": "launchConfiguration",
+        "nameForReverseLink": "isLaunchConfigurationOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -3477,18 +4019,26 @@
     "https://openminds.ebrains.eu/vocab/learningOutcome": {
         "description": null,
         "label": "Learning outcome",
+        "labelForReverseLink": "Is outcome of",
         "linkedTypes": [],
         "name": "learningOutcome",
+        "nameForReverseLink": "isOutcomeOF",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/learningResourceType": {
         "description": null,
         "label": "Learning resource type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "learningResourceType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": []
     },
@@ -3497,18 +4047,25 @@
         "label": "Legal code",
         "labelForReverseLink": "Is legal code of",
         "name": "legalCode",
+        "nameForReverseLink": "isLegalCodeOf",
         "sameAs": null,
         "schemas": [
             "core/v0/data/license",
             "core/v3/data/license",
             "core/v4/data/license"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/length": {
         "description": null,
         "label": "Length",
+        "labelForReverseLink": "Is length of",
         "linkedTypes": [],
         "name": "length",
+        "nameForReverseLink": "isLengthOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/mathematicalShapes/rectangle"
@@ -3517,11 +4074,12 @@
     "https://openminds.ebrains.eu/vocab/license": {
         "description": "Grant by a party to another party as an element of an agreement between those parties that permits to do, use, or own something.",
         "label": "License",
-        "labelForReverseLink": "Is license of",
+        "labelForReverseLink": "Is applied to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/License"
         ],
         "name": "license",
+        "nameForReverseLink": "isAppliedTo",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -3550,8 +4108,10 @@
     "https://openminds.ebrains.eu/vocab/liquidJunctionPotential": {
         "description": null,
         "label": "Liquid junction potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "liquidJunctionPotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -3560,18 +4120,25 @@
     "https://openminds.ebrains.eu/vocab/location": {
         "description": null,
         "label": "Location",
+        "labelForReverseLink": "Is location of",
         "linkedTypes": [],
         "name": "location",
+        "nameForReverseLink": "isLocationOf",
         "sameAs": [],
         "schemas": [
             "core/v4/products/setup"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/lookupLabel": {
         "description": null,
         "label": "Lookup label",
-        "labelForReverseLink": "Is lookup label of",
+        "labelForReverseLink": "Is label of",
         "name": "lookupLabel",
+        "nameForReverseLink": "isLabelOf",
         "schemas": [
             "SANDS/v2/atlas/atlasAnnotation",
             "SANDS/v2/non-atlas/customAnnotation",
@@ -3625,23 +4192,35 @@
             "specimenPrep/v1/device/slicingDevice",
             "specimenPrep/v1/device/slicingDeviceUsage",
             "stimulation/v1/activity/stimulationActivity"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/majorVersionIdentifier": {
         "description": null,
         "label": "Major version identifier",
+        "labelForReverseLink": "Identifies",
         "linkedTypes": [],
         "name": "majorVersionIdentifier",
+        "nameForReverseLink": "identifies",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/manufacturer": {
         "description": null,
         "label": "Manufacturer",
+        "labelForReverseLink": "Manufactured",
         "linkedTypes": [],
         "name": "manufacturer",
+        "nameForReverseLink": "manufactured",
         "sameAs": [],
         "schemas": [
             "core/v4/products/setup",
@@ -3654,8 +4233,10 @@
     "https://openminds.ebrains.eu/vocab/material": {
         "description": null,
         "label": "Material",
+        "labelForReverseLink": "Composes",
         "linkedTypes": [],
         "name": "material",
+        "nameForReverseLink": "composes",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipette"
@@ -3664,8 +4245,9 @@
     "https://openminds.ebrains.eu/vocab/maxValue": {
         "description": "Greatest quantity attained or allowed.",
         "label": "Max value",
-        "labelForReverseLink": "Is max value of",
+        "labelForReverseLink": "Range",
         "name": "maxValue",
+        "nameForReverseLink": "range",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/quantitativeValueRange",
@@ -3676,8 +4258,10 @@
     "https://openminds.ebrains.eu/vocab/maxValueUnit": {
         "description": null,
         "label": "Max value unit",
+        "labelForReverseLink": "Is unit of",
         "linkedTypes": [],
         "name": "maxValueUnit",
+        "nameForReverseLink": "isUnitOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/quantitativeValueRange"
@@ -3686,16 +4270,20 @@
     "https://openminds.ebrains.eu/vocab/measuredHoldingPotential": {
         "description": null,
         "label": "Measured holding potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "measuredHoldingPotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/measuredQuantity": {
         "description": null,
         "label": "Measured quantity",
+        "labelForReverseLink": "measurement",
         "linkedTypes": [],
         "name": "measuredQuantity",
+        "nameForReverseLink": "measurement",
         "sameAs": [],
         "schemas": [
             "core/v4/data/measurement"
@@ -3704,8 +4292,10 @@
     "https://openminds.ebrains.eu/vocab/measuredWith": {
         "description": null,
         "label": "Measured with",
+        "labelForReverseLink": "Used to measure",
         "linkedTypes": [],
         "name": "measuredWith",
+        "nameForReverseLink": "usedToMeasure",
         "sameAs": [],
         "schemas": [
             "core/v4/data/measurement"
@@ -3714,8 +4304,10 @@
     "https://openminds.ebrains.eu/vocab/memberOf": {
         "description": null,
         "label": "Member of",
+        "labelForReverseLink": "Has member",
         "linkedTypes": [],
         "name": "memberOf",
+        "nameForReverseLink": "hasMember",
         "sameAs": [],
         "schemas": [
             "core/v4/actors/affiliation"
@@ -3724,8 +4316,10 @@
     "https://openminds.ebrains.eu/vocab/metadataLocation": {
         "description": null,
         "label": "Metadata location",
+        "labelForReverseLink": "Describes",
         "linkedTypes": [],
         "name": "metadataLocation",
+        "nameForReverseLink": "describes",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage",
@@ -3737,8 +4331,9 @@
     "https://openminds.ebrains.eu/vocab/minValue": {
         "description": "Smallest quantity attained or allowed.",
         "label": "Min value",
-        "labelForReverseLink": "Is min value of",
+        "labelForReverseLink": "Range",
         "name": "minValue",
+        "nameForReverseLink": "range",
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/quantitativeValueRange",
@@ -3749,8 +4344,10 @@
     "https://openminds.ebrains.eu/vocab/minValueUnit": {
         "description": null,
         "label": "Min value unit",
+        "labelForReverseLink": "Is unit of",
         "linkedTypes": [],
         "name": "minValueUnit",
+        "nameForReverseLink": "isUnitOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/quantitativeValueRange"
@@ -3779,13 +4376,19 @@
             "publications/v1/learningResource",
             "publications/v1/livePaperVersion",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/molecularEntity": {
         "description": null,
         "label": "Molecular entity",
+        "labelForReverseLink": "Composes",
         "linkedTypes": [],
         "name": "molecularEntity",
+        "nameForReverseLink": "composes",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/chemicalSubstance"
@@ -3796,6 +4399,7 @@
         "label": "label",
         "labelForReverseLink": "Is name of",
         "name": "name",
+        "nameForReverseLink": "isNameOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/anatomicalEntity",
@@ -3970,7 +4574,11 @@
             "publications/v1/periodical",
             "publications/v1/scholarlyArticle",
             "specimenPrep/v1/device/slicingDevice"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/namingTerm": {
         "deprecated": true,
@@ -3978,6 +4586,7 @@
         "label": "Naming term",
         "labelForReverseLink": "Is naming term of",
         "name": "namingTerm",
+        "nameForReverseLink": "isNamingTermOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -3987,11 +4596,12 @@
     "https://openminds.ebrains.eu/vocab/nativeUnit": {
         "description": "Determinate quantity used in the original measurement.",
         "label": "Native unit",
-        "labelForReverseLink": "Is native unit of",
+        "labelForReverseLink": "Used by",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
         ],
         "name": "nativeUnit",
+        "nameForReverseLink": "usedBy",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/coordinateSpace",
@@ -4005,8 +4615,10 @@
     "https://openminds.ebrains.eu/vocab/negativeUncertainties": {
         "description": null,
         "label": "Negative uncertainties",
+        "labelForReverseLink": "Are uncertainties of",
         "linkedTypes": [],
         "name": "negativeUncertainties",
+        "nameForReverseLink": "areUncertaintiesOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/quantitativeValueArray"
@@ -4015,8 +4627,10 @@
     "https://openminds.ebrains.eu/vocab/numberOfElectrodes": {
         "description": null,
         "label": "Number of electrodes",
+        "labelForReverseLink": "Is quantity of",
         "linkedTypes": [],
         "name": "numberOfElectrodes",
+        "nameForReverseLink": "isQuantityOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArray"
@@ -4025,8 +4639,10 @@
     "https://openminds.ebrains.eu/vocab/numberOfSubjects": {
         "description": null,
         "label": "Number of subjects",
+        "labelForReverseLink": "Is quantity of",
         "linkedTypes": [],
         "name": "numberOfSubjects",
+        "nameForReverseLink": "isQuantityOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/subjectGroup"
@@ -4035,8 +4651,10 @@
     "https://openminds.ebrains.eu/vocab/numberOfTissueSamples": {
         "description": null,
         "label": "Number of tissue samples",
+        "labelForReverseLink": "Is quantity of",
         "linkedTypes": [],
         "name": "numberOfTissueSamples",
+        "nameForReverseLink": "isQuantityOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/tissueSampleCollection"
@@ -4047,6 +4665,7 @@
         "label": "Ontology identifier",
         "labelForReverseLink": "Is ontology identifier of",
         "name": "ontologyIdentifier",
+        "nameForReverseLink": "isOntologyIdentifierOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/anatomicalEntity",
@@ -4148,15 +4767,21 @@
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement",
             "core/v4/research/strain"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/openDataIn": {
         "description": null,
         "label": "Open data in",
+        "labelForReverseLink": "Is data of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/URL"
         ],
         "name": "openDataIn",
+        "nameForReverseLink": "isDataOf",
         "schemas": [
             "core/v3/data/serviceLink",
             "core/v4/data/serviceLink"
@@ -4170,6 +4795,7 @@
             "https://openminds.ebrains.eu/controlledTerms/OperatingSystem"
         ],
         "name": "operatingSystem",
+        "nameForReverseLink": "isOperatingSystemOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -4180,13 +4806,19 @@
     "https://openminds.ebrains.eu/vocab/order": {
         "description": null,
         "label": "Order",
+        "labelForReverseLink": "Is order of",
         "linkedTypes": [],
         "name": "order",
+        "nameForReverseLink": "isOrderOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource",
             "publications/v1/livePaperSection"
-        ]
+        ],
+        "formating": {
+            "formattedText": true,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/organization": {
         "description": "Legally accountable, administrative and functional structure.",
@@ -4196,6 +4828,7 @@
             "https://openminds.ebrains.eu/core/Organization"
         ],
         "name": "organization",
+        "nameForReverseLink": "isOrganizationOf",
         "schemas": [
             "core/v3/actors/affiliation"
         ]
@@ -4203,12 +4836,13 @@
     "https://openminds.ebrains.eu/vocab/origin": {
         "description": "Source at which something begins or rises, or from which something derives.",
         "label": "Origin",
-        "labelForReverseLink": "Is origin of",
+        "labelForReverseLink": "Sample",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/CellType",
             "https://openminds.ebrains.eu/controlledTerms/Organ"
         ],
         "name": "origin",
+        "nameForReverseLink": "sample",
         "sameAs": null,
         "schemas": [
             "core/v0/research/tissueSample",
@@ -4222,8 +4856,10 @@
     "https://openminds.ebrains.eu/vocab/oscillationAmplitude": {
         "description": null,
         "label": "Oscillation amplitude",
+        "labelForReverseLink": "Is amplitude Of",
         "linkedTypes": [],
         "name": "oscillationAmplitude",
+        "nameForReverseLink": "isAmplitudeOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -4235,6 +4871,7 @@
         "label": "Other anatomical relation",
         "labelForReverseLink": "Is other anatomical relation of",
         "name": "otherAnatomicalRelation",
+        "nameForReverseLink": "isOtherAnatomicalRelationOf",
         "schemas": [
             "SANDS/v0/anatomicalEntity",
             "SANDS/v1/anatomicalEntity"
@@ -4245,6 +4882,7 @@
         "label": "Other contribution",
         "labelForReverseLink": "Is other contribution of",
         "name": "otherContribution",
+        "nameForReverseLink": "isOtherContributionOf",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -4279,6 +4917,7 @@
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "output",
+        "nameForReverseLink": "isOutputOf",
         "schemas": [
             "computation/v1/dataAnalysis",
             "computation/v1/dataCopy",
@@ -4302,18 +4941,23 @@
     "https://openminds.ebrains.eu/vocab/outputData": {
         "description": "Data that comes out of, is delivered or produced by a process or machine.",
         "label": "Output data",
-        "labelForReverseLink": "Is output data of",
+        "labelForReverseLink": "Is output of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "outputData",
+        "nameForReverseLink": "isOutputOf",
         "schemas": [
             "core/v0/products/modelVersion",
             "core/v3/products/modelVersion",
             "core/v4/products/modelVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/outputFormat": {
         "description": "Format of data that comes out of, is delivered or produced by a process or machine.",
@@ -4323,6 +4967,7 @@
             "https://openminds.ebrains.eu/core/ContentType"
         ],
         "name": "outputFormat",
+        "nameForReverseLink": "isOutputFormatOf",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -4334,8 +4979,10 @@
     "https://openminds.ebrains.eu/vocab/owner": {
         "description": null,
         "label": "Owner",
+        "labelForReverseLink": "Is owner of",
         "linkedTypes": [],
         "name": "owner",
+        "nameForReverseLink": "isOwnerOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
@@ -4347,19 +4994,26 @@
     "https://openminds.ebrains.eu/vocab/pagination": {
         "description": null,
         "label": "Pagination",
+        "labelForReverseLink": "Is pagination of",
         "linkedTypes": [],
         "name": "pagination",
+        "nameForReverseLink": "isPaginationOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/chapter",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/parameter": {
         "description": "Digital or physical property determining a particular function, characteristic or behavior of something.",
         "label": "Parameter",
         "labelForReverseLink": "Is parameter of",
         "name": "parameter",
+        "nameForReverseLink": "isParameterOf",
         "schemas": [
             "core/v3/research/parameterSet"
         ]
@@ -4367,8 +5021,9 @@
     "https://openminds.ebrains.eu/vocab/parameterSet": {
         "description": "Manner, position, or direction in which digital or physical properties are set to determine a particular function, characteristics or behavior of something.",
         "label": "Parameter set",
-        "labelForReverseLink": "Is parameter set of",
+        "labelForReverseLink": "Is parameter of",
         "name": "parameterSet",
+        "nameForReverseLink": "isParameterOf",
         "schemas": [
             "core/v3/research/protocolExecution"
         ]
@@ -4376,8 +5031,10 @@
     "https://openminds.ebrains.eu/vocab/parameterSetting": {
         "description": null,
         "label": "Parameter setting",
+        "labelForReverseLink": "Is parameter of",
         "linkedTypes": [],
         "name": "parameterSetting",
+        "nameForReverseLink": "isParameterOf",
         "sameAs": [],
         "schemas": [
             "core/v0/research/protocolExecution"
@@ -4386,22 +5043,29 @@
     "https://openminds.ebrains.eu/vocab/path": {
         "description": null,
         "label": "Path",
+        "labelForReverseLink": "Is path of",
         "linkedTypes": [],
         "name": "path",
+        "nameForReverseLink": "isPathOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/localFile"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/pathology": {
         "description": "Structural and functional deviation from the normal that constitutes a disease or characterizes a particular disease.",
         "label": "Pathology",
-        "labelForReverseLink": "Is pathology of",
+        "labelForReverseLink": "Specimen state",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Disease",
             "https://openminds.ebrains.eu/controlledTerms/DiseaseModel"
         ],
         "name": "pathology",
+        "nameForReverseLink": "specimenState",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subjectGroupState",
@@ -4421,17 +5085,24 @@
     "https://openminds.ebrains.eu/vocab/patternOfFilenames": {
         "description": "Reliable sample / structure of characters valid for all names in a particular collection of files.",
         "label": "Pattern of filenames",
-        "labelForReverseLink": "Are pattern of filenames of",
+        "labelForReverseLink": "Are pattern of",
         "name": "patternOfFilenames",
+        "nameForReverseLink": "arePatternOf",
         "schemas": [
             "core/v3/data/fileBundle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/performedBy": {
         "description": null,
         "label": "Performed by",
+        "labelForReverseLink": "Activity",
         "linkedTypes": [],
         "name": "performedBy",
+        "nameForReverseLink": "activity",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -4457,6 +5128,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Phenotype"
         ],
         "name": "phenotype",
+        "nameForReverseLink": "isPhenotypeOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subject",
@@ -4473,16 +5145,20 @@
     "https://openminds.ebrains.eu/vocab/pipette": {
         "description": null,
         "label": "Pipette",
+        "labelForReverseLink": "Is pipette of",
         "linkedTypes": [],
         "name": "pipette",
+        "nameForReverseLink": "isPipetteOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/pipetteResistance": {
         "description": null,
         "label": "Pipette resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "pipetteResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -4491,8 +5167,10 @@
     "https://openminds.ebrains.eu/vocab/pipetteSolution": {
         "description": null,
         "label": "Pipette solution",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "pipetteSolution",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -4501,8 +5179,10 @@
     "https://openminds.ebrains.eu/vocab/positiveUncertainties": {
         "description": null,
         "label": "Positive uncertainties",
+        "labelForReverseLink": "Are uncertainties of",
         "linkedTypes": [],
         "name": "positiveUncertainties",
+        "nameForReverseLink": "areUncertaintiesOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/quantitativeValueArray"
@@ -4511,8 +5191,10 @@
     "https://openminds.ebrains.eu/vocab/preferredDisplayColor": {
         "description": null,
         "label": "Preferred display color",
+        "labelForReverseLink": "Preferred by",
         "linkedTypes": [],
         "name": "preferredDisplayColor",
+        "nameForReverseLink": "preferredBy",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/miscellaneous/viewerSpecification"
@@ -4521,7 +5203,9 @@
     "https://openminds.ebrains.eu/vocab/preferredOntologyIdentifier": {
         "description": "Persistent identifier of a preferred ontological term.",
         "label": "Preferred ontology identifier",
+        "labelForReverseLink": "Is preferred ontology identifier for",
         "name": "preferredOntologyIdentifier",
+        "nameForReverseLink": "isPreferredOntologyIdentifierFor",
         "schemas": [
             "controlledTerms/v1/UBERONParcellation",
             "controlledTerms/v1/actionStatusType",
@@ -4601,13 +5285,19 @@
             "controlledTerms/v1/typeOfUncertainty",
             "controlledTerms/v1/unitOfMeasurement",
             "controlledTerms/v1/visualStimulusType"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/preferredVisualization": {
         "description": null,
         "label": "Preferred visualization",
+        "labelForReverseLink": "Preferred by",
         "linkedTypes": [],
         "name": "preferredVisualization",
+        "nameForReverseLink": "preferredBy",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/atlasAnnotation",
@@ -4617,8 +5307,10 @@
     "https://openminds.ebrains.eu/vocab/preparationDesign": {
         "description": null,
         "label": "Preparation design",
+        "labelForReverseLink": "Used for",
         "linkedTypes": [],
         "name": "preparationDesign",
+        "nameForReverseLink": "usedFor",
         "sameAs": [],
         "schemas": [
             "core/v4/products/datasetVersion",
@@ -4638,6 +5330,7 @@
             "https://openminds.ebrains.eu/controlledTerms/PreparationType"
         ],
         "name": "preparationType",
+        "nameForReverseLink": "isPreparationTypeOf",
         "schemas": [
             "core/v0/research/protocolExecution",
             "core/v3/research/protocolExecution"
@@ -4646,18 +5339,26 @@
     "https://openminds.ebrains.eu/vocab/prerequisite": {
         "description": null,
         "label": "Prerequisite",
+        "labelForReverseLink": "Is Prerequisite of",
         "linkedTypes": [],
         "name": "prerequisite",
+        "nameForReverseLink": "isPrerequisiteOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/previewImage": {
         "description": null,
         "label": "Preview image",
+        "labelForReverseLink": "Is preview Of",
         "linkedTypes": [],
         "name": "previewImage",
+        "nameForReverseLink": "isPreviewOf",
         "sameAs": [],
         "schemas": [
             "core/v4/data/serviceLink"
@@ -4666,8 +5367,10 @@
     "https://openminds.ebrains.eu/vocab/previousRecording": {
         "description": null,
         "label": "Previous recording",
+        "labelForReverseLink": "Next recording",
         "linkedTypes": [],
         "name": "previousRecording",
+        "nameForReverseLink": "nextRecording",
         "sameAs": [],
         "schemas": [
             "ephys/v1/entity/recording"
@@ -4676,18 +5379,26 @@
     "https://openminds.ebrains.eu/vocab/productName": {
         "description": null,
         "label": "Product name",
+        "labelForReverseLink": "Is name of",
         "linkedTypes": [],
         "name": "productName",
+        "nameForReverseLink": "isNameOf",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/productSource"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/productSource": {
         "description": null,
         "label": "Product source",
+        "labelForReverseLink": "Is source of",
         "linkedTypes": [],
         "name": "productSource",
+        "nameForReverseLink": "isSourceOf",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/chemicalMixture",
@@ -4697,11 +5408,12 @@
     "https://openminds.ebrains.eu/vocab/programmingLanguage": {
         "description": "Distinct set of instructions for computer programs in order to produce various kinds of output.",
         "label": "Programming language",
-        "labelForReverseLink": "Is programming language of",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/ProgrammingLanguage"
         ],
         "name": "programmingLanguage",
+        "nameForReverseLink": "usedIn",
         "sameAs": null,
         "schemas": [
             "core/v0/products/softwareVersion",
@@ -4712,8 +5424,10 @@
     "https://openminds.ebrains.eu/vocab/projectLeader": {
         "description": null,
         "label": "Project leader",
+        "labelForReverseLink": "Is project leader Of",
         "linkedTypes": [],
         "name": "projectLeader",
+        "nameForReverseLink": "isProjectLeaderOf",
         "sameAs": [],
         "schemas": [
             "core/v0/products/project"
@@ -4722,8 +5436,10 @@
     "https://openminds.ebrains.eu/vocab/propertyValuePair": {
         "description": null,
         "label": "Property value pair",
+        "labelForReverseLink": "Is value pair of",
         "linkedTypes": [],
         "name": "propertyValuePair",
+        "nameForReverseLink": "isValuePairOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/propertyValueList"
@@ -4732,11 +5448,12 @@
     "https://openminds.ebrains.eu/vocab/protocol": {
         "description": "Plan that describes the process of a scientific or medical experiment, treatment, or procedure.",
         "label": "Protocol",
-        "labelForReverseLink": "Is protocol of",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Protocol"
         ],
         "name": "protocol",
+        "nameForReverseLink": "usedIn",
         "sameAs": null,
         "schemas": [
             "core/v0/research/protocolExecution",
@@ -4754,8 +5471,10 @@
     "https://openminds.ebrains.eu/vocab/provider": {
         "description": null,
         "label": "Provider",
+        "labelForReverseLink": "Is provider of",
         "linkedTypes": [],
         "name": "provider",
+        "nameForReverseLink": "isProviderOf",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/productSource"
@@ -4764,21 +5483,29 @@
     "https://openminds.ebrains.eu/vocab/publicationDate": {
         "description": null,
         "label": "Publication date",
+        "labelForReverseLink": "Is date of",
         "linkedTypes": [],
         "name": "publicationDate",
+        "nameForReverseLink": "isDateOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
             "publications/v1/chapter",
             "publications/v1/learningResource",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/publisher": {
         "description": null,
         "label": "Publisher",
+        "labelForReverseLink": "Published",
         "linkedTypes": [],
         "name": "publisher",
+        "nameForReverseLink": "published",
         "sameAs": [],
         "schemas": [
             "publications/v1/book",
@@ -4790,8 +5517,10 @@
     "https://openminds.ebrains.eu/vocab/purity": {
         "description": null,
         "label": "Purity",
+        "labelForReverseLink": "Chemical mixture",
         "linkedTypes": [],
         "name": "purity",
+        "nameForReverseLink": "chemicalMixture",
         "sameAs": [],
         "schemas": [
             "chemicals/v1/chemicalSubstance",
@@ -4801,11 +5530,12 @@
     "https://openminds.ebrains.eu/vocab/qualitativeOverlap": {
         "description": "Semantic characterization of how much two things occupy the same space.",
         "label": "Qualitative overlap",
-        "labelForReverseLink": "Is qualitative overlap of",
+        "labelForReverseLink": "Assessment",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/QualitativeOverlap"
         ],
         "name": "qualitativeOverlap",
+        "nameForReverseLink": "assessment",
         "schemas": [
             "SANDS/v0/anatomicalEntityRelation",
             "SANDS/v1/anatomicalEntityRelation",
@@ -4816,8 +5546,9 @@
     "https://openminds.ebrains.eu/vocab/quantitativeOverlap": {
         "description": "Numerical characterization of how much two things occupy the same space.",
         "label": "Quantitative overlap",
-        "labelForReverseLink": "Is quantitative overlap of",
+        "labelForReverseLink": "Assessment",
         "name": "quantitativeOverlap",
+        "nameForReverseLink": "assessment",
         "schemas": [
             "SANDS/v0/anatomicalEntityRelation",
             "SANDS/v1/anatomicalEntityRelation",
@@ -4830,6 +5561,7 @@
         "label": "Quantity",
         "labelForReverseLink": "Is quantity of",
         "name": "quantity",
+        "nameForReverseLink": "isQuantityOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subjectGroup",
@@ -4841,8 +5573,10 @@
     "https://openminds.ebrains.eu/vocab/radius": {
         "description": null,
         "label": "Radius",
+        "labelForReverseLink": "Is radius of",
         "linkedTypes": [],
         "name": "radius",
+        "nameForReverseLink": "isRadiusOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/mathematicalShapes/circle"
@@ -4851,8 +5585,10 @@
     "https://openminds.ebrains.eu/vocab/recipe": {
         "description": null,
         "label": "Recipe",
+        "labelForReverseLink": "Defined",
         "linkedTypes": [],
         "name": "recipe",
+        "nameForReverseLink": "defined",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -4868,8 +5604,10 @@
     "https://openminds.ebrains.eu/vocab/recordedWith": {
         "description": null,
         "label": "Recorded with",
+        "labelForReverseLink": "Used to record",
         "linkedTypes": [],
         "name": "recordedWith",
+        "nameForReverseLink": "usedToRecord",
         "sameAs": [],
         "schemas": [
             "ephys/v1/entity/recording"
@@ -4878,8 +5616,10 @@
     "https://openminds.ebrains.eu/vocab/referenceData": {
         "description": null,
         "label": "Reference data",
+        "labelForReverseLink": "Is reference for",
         "linkedTypes": [],
         "name": "referenceData",
+        "nameForReverseLink": "isReferenceFor",
         "sameAs": [],
         "schemas": [
             "computation/v1/validationTestVersion"
@@ -4888,8 +5628,10 @@
     "https://openminds.ebrains.eu/vocab/referenceDataAcquisition": {
         "description": null,
         "label": "Reference data acquisition",
+        "labelForReverseLink": "Is reference for",
         "linkedTypes": [],
         "name": "referenceDataAcquisition",
+        "nameForReverseLink": "isReferenceFor",
         "sameAs": [],
         "schemas": [
             "computation/v1/validationTest"
@@ -4898,21 +5640,29 @@
     "https://openminds.ebrains.eu/vocab/regex": {
         "description": null,
         "label": "Regex",
+        "labelForReverseLink": "Is regexp of",
         "linkedTypes": [],
         "name": "regex",
+        "nameForReverseLink": "isRegExpOf",
         "sameAs": [],
         "schemas": [
             "core/v3/data/contentTypePattern",
             "core/v3/data/filePathPattern",
             "core/v4/data/contentTypePattern",
             "core/v4/data/filePathPattern"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/reinforcementType": {
         "description": null,
         "label": "Reinforcement type",
+        "labelForReverseLink": "Used for",
         "linkedTypes": [],
         "name": "reinforcementType",
+        "nameForReverseLink": "usedFor",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/cranialWindowPreparation"
@@ -4922,8 +5672,9 @@
         "deprecated": true,
         "description": "Reference to a related naming term of an anatomical structure that is defined in a particular brain atlas.",
         "label": "Related atlas term",
-        "labelForReverseLink": "Is related atlas term of",
+        "labelForReverseLink": "Related to",
         "name": "relatedAtlasTerm",
+        "nameForReverseLink": "relatedTo",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation"
@@ -4932,8 +5683,9 @@
     "https://openminds.ebrains.eu/vocab/relatedMediaType": {
         "description": "Reference to an official two-part identifier for file formats and format contents.",
         "label": "Related media type",
-        "labelForReverseLink": "Is related media type of",
+        "labelForReverseLink": "Related to",
         "name": "relatedMediaType",
+        "nameForReverseLink": "relatedTo",
         "schemas": [
             "core/v0/data/contentType",
             "core/v3/data/contentType",
@@ -4944,8 +5696,9 @@
         "deprecated": true,
         "description": null,
         "label": "Related parcellation term",
-        "labelForReverseLink": "Is related parcellation term of",
+        "labelForReverseLink": "Related to",
         "name": "relatedParcellationTerm",
+        "nameForReverseLink": "relatedTo",
         "schemas": [
             "SANDS/v1/annotation"
         ]
@@ -4953,12 +5706,13 @@
     "https://openminds.ebrains.eu/vocab/relatedPublication": {
         "description": "Reference to something that was made available for the general public to see or buy.",
         "label": "Related publication",
-        "labelForReverseLink": "Is related publication of",
+        "labelForReverseLink": "Related to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/DOI",
             "https://openminds.ebrains.eu/core/ISBN"
         ],
         "name": "relatedPublication",
+        "nameForReverseLink": "relatedTo",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -4983,12 +5737,13 @@
     "https://openminds.ebrains.eu/vocab/relatedRecording": {
         "description": "Reference to the written, stored evidence of something.",
         "label": "Related recording",
-        "labelForReverseLink": "Is related recording of",
+        "labelForReverseLink": "Related to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "relatedRecording",
+        "nameForReverseLink": "relatedTo",
         "schemas": [
             "SANDS/v0/electrodeContact",
             "SANDS/v1/electrodeContact",
@@ -4998,12 +5753,13 @@
     "https://openminds.ebrains.eu/vocab/relatedStimulation": {
         "description": "Reference to the written, stored function used as a physiological stimulus.",
         "label": "Related stimulation",
-        "labelForReverseLink": "Is related stimulation of",
+        "labelForReverseLink": "Related to",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/File",
             "https://openminds.ebrains.eu/core/FileBundle"
         ],
         "name": "relatedStimulation",
+        "nameForReverseLink": "relatedTo",
         "schemas": [
             "SANDS/v0/electrodeContact",
             "SANDS/v1/electrodeContact",
@@ -5013,11 +5769,12 @@
     "https://openminds.ebrains.eu/vocab/relatedUBERONTerm": {
         "description": null,
         "label": "Related uberonterm",
-        "labelForReverseLink": "Is related uberonterm of",
+        "labelForReverseLink": "Defines",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/UBERONParcellation"
         ],
         "name": "relatedUBERONTerm",
+        "nameForReverseLink": "defines",
         "schemas": [
             "SANDS/v2/atlas/parcellationEntity",
             "SANDS/v3/atlas/parcellationEntity",
@@ -5029,6 +5786,7 @@
         "label": "Relation assessment",
         "labelForReverseLink": "Is relation assessment of",
         "name": "relationAssessment",
+        "nameForReverseLink": "isRelationAssessmentOf",
         "schemas": [
             "SANDS/v2/atlas/parcellationEntity",
             "SANDS/v2/non-atlas/customAnatomicalEntity",
@@ -5039,8 +5797,10 @@
     "https://openminds.ebrains.eu/vocab/relativeTimeIndication": {
         "description": null,
         "label": "Relative time indication",
+        "labelForReverseLink": "Is relative time indication for",
         "linkedTypes": [],
         "name": "relativeTimeIndication",
+        "nameForReverseLink": "isRelativeTimeIndicationFor",
         "sameAs": [],
         "schemas": [
             "core/v4/research/subjectGroupState",
@@ -5052,8 +5812,9 @@
     "https://openminds.ebrains.eu/vocab/releaseDate": {
         "description": "Fixed date on which a product is due to become or was made available for the general public to see or buy",
         "label": "Release date",
-        "labelForReverseLink": "Is release date of",
+        "labelForReverseLink": "Is date of",
         "name": "releaseDate",
+        "nameForReverseLink": "isDateOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -5080,17 +5841,22 @@
             "core/v4/products/softwareVersion",
             "core/v4/products/webServiceVersion",
             "publications/v1/livePaperVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/relevantFor": {
         "description": "Reference to what or whom something or someone bears siginificance.",
         "label": "Relevant for",
-        "labelForReverseLink": "Is relevant for of",
+        "labelForReverseLink": "Has properties",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/BehavioralTask",
             "https://openminds.ebrains.eu/controlledTerms/Technique"
         ],
         "name": "relevantFor",
+        "nameForReverseLink": "hasProperties",
         "schemas": [
             "core/v0/research/parameterSetting",
             "core/v3/research/parameterSet",
@@ -5100,11 +5866,12 @@
     "https://openminds.ebrains.eu/vocab/repository": {
         "description": "Place, room, or container where something is deposited or stored.",
         "label": "Repository",
-        "labelForReverseLink": "Is repository of",
+        "labelForReverseLink": "Contains content of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/FileRepository"
         ],
         "name": "repository",
+        "nameForReverseLink": "containsContentOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -5130,11 +5897,12 @@
     "https://openminds.ebrains.eu/vocab/repositoryType": {
         "description": null,
         "label": "Repository type",
-        "labelForReverseLink": "Is repository type of",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/FileRepositoryType"
         ],
         "name": "repositoryType",
+        "nameForReverseLink": "isTypeOf",
         "schemas": [
             "core/v3/data/fileRepository"
         ]
@@ -5142,8 +5910,10 @@
     "https://openminds.ebrains.eu/vocab/requiredTime": {
         "description": null,
         "label": "Required time",
+        "labelForReverseLink": "Is required time of",
         "linkedTypes": [],
         "name": "requiredTime",
+        "nameForReverseLink": "isRequiredTimeOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource"
@@ -5154,24 +5924,33 @@
         "label": "Requirement",
         "labelForReverseLink": "Is requirement of",
         "name": "requirement",
+        "nameForReverseLink": "isRequirementOf",
         "schemas": [
             "core/v3/products/softwareVersion",
             "core/v4/products/softwareVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/researchProduct": {
         "description": null,
         "label": "Research product",
+        "labelForReverseLink": "Is research product of",
         "linkedTypes": [],
         "name": "researchProduct",
+        "nameForReverseLink": "isResearchProductOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/resourceUsage": {
         "description": null,
         "label": "Resource usage",
+        "labelForReverseLink": "Is resource usage of",
         "linkedTypes": [],
         "name": "resourceUsage",
+        "nameForReverseLink": "IsResourceUsageOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -5186,8 +5965,10 @@
     "https://openminds.ebrains.eu/vocab/samplingFrequency": {
         "description": null,
         "label": "Sampling frequency",
+        "labelForReverseLink": "Is frequency of",
         "linkedTypes": [],
         "name": "samplingFrequency",
+        "nameForReverseLink": "isFrequencyOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/entity/recording"
@@ -5201,6 +5982,7 @@
             "https://openminds.ebrains.eu/controlledTerms/ModelScope"
         ],
         "name": "scope",
+        "nameForReverseLink": "isScopeOf",
         "sameAs": null,
         "schemas": [
             "computation/v1/validationTest",
@@ -5212,8 +5994,10 @@
     "https://openminds.ebrains.eu/vocab/score": {
         "description": null,
         "label": "Score",
+        "labelForReverseLink": "Is score of",
         "linkedTypes": [],
         "name": "score",
+        "nameForReverseLink": "isScoreOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/modelValidation"
@@ -5222,8 +6006,10 @@
     "https://openminds.ebrains.eu/vocab/scoreType": {
         "description": null,
         "label": "Score type",
+        "labelForReverseLink": "Is score type of",
         "linkedTypes": [],
         "name": "scoreType",
+        "nameForReverseLink": "isScoreTypeOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/validationTest"
@@ -5232,8 +6018,10 @@
     "https://openminds.ebrains.eu/vocab/sealResistance": {
         "description": null,
         "label": "Seal resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "sealResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -5242,8 +6030,10 @@
     "https://openminds.ebrains.eu/vocab/sectionType": {
         "description": null,
         "label": "Section type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "sectionType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": []
     },
@@ -5251,8 +6041,9 @@
         "deprecated": true,
         "description": "Reference to a related anatomical structure without providing a quantitative proof of the claimed relation.",
         "label": "Semantically anchored to",
-        "labelForReverseLink": "Is semantically anchored to of",
+        "labelForReverseLink": "Is semantically anchor for",
         "name": "semanticallyAnchoredTo",
+        "nameForReverseLink": "isSemanticallyAnchorFor",
         "sameAs": null,
         "schemas": [
             "core/v0/research/protocolExecution",
@@ -5262,8 +6053,10 @@
     "https://openminds.ebrains.eu/vocab/semiMajorAxis": {
         "description": null,
         "label": "Semi major axis",
+        "labelForReverseLink": "Is axis of",
         "linkedTypes": [],
         "name": "semiMajorAxis",
+        "nameForReverseLink": "isAxisOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/mathematicalShapes/ellipse"
@@ -5272,8 +6065,10 @@
     "https://openminds.ebrains.eu/vocab/semiMinorAxis": {
         "description": null,
         "label": "Semi minor axis",
+        "labelForReverseLink": "Is axis of",
         "linkedTypes": [],
         "name": "semiMinorAxis",
+        "nameForReverseLink": "isAxisOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/mathematicalShapes/ellipse"
@@ -5282,15 +6077,21 @@
     "https://openminds.ebrains.eu/vocab/serialNumber": {
         "description": null,
         "label": "Serial number",
+        "labelForReverseLink": "Is serial number of",
         "linkedTypes": [],
         "name": "serialNumber",
+        "nameForReverseLink": "isSerialNumberOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrode",
             "ephys/v1/device/electrodeArray",
             "ephys/v1/device/pipette",
             "specimenPrep/v1/device/slicingDevice"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/serializationFormat": {
         "description": "Form in which a particular data structure or object state is translated to for storage.",
@@ -5300,6 +6101,7 @@
             "https://openminds.ebrains.eu/core/ContentType"
         ],
         "name": "serializationFormat",
+        "nameForReverseLink": "isSerializationFormatOf",
         "schemas": [
             "core/v0/products/metaDataModelVersion",
             "core/v3/products/metaDataModelVersion",
@@ -5309,8 +6111,10 @@
     "https://openminds.ebrains.eu/vocab/seriesResistance": {
         "description": null,
         "label": "Series resistance",
+        "labelForReverseLink": "Is resistance of",
         "linkedTypes": [],
         "name": "seriesResistance",
+        "nameForReverseLink": "IsResistanceOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -5319,10 +6123,18 @@
     "https://openminds.ebrains.eu/vocab/service": {
         "description": null,
         "label": "Service",
+        "labelForReverseLink": {
+            "https://openminds.ebrains.eu/core/ServiceLink": "Linked from",
+            "https://openminds.ebrains.eu/core/AccountInformation": "Has account"
+        },
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Service"
         ],
         "name": "service",
+        "nameForReverseLink": {
+            "https://openminds.ebrains.eu/core/ServiceLink": "linkedFrom",
+            "https://openminds.ebrains.eu/core/AccountInformation": "hasAccount"
+        },
         "schemas": [
             "core/v3/data/serviceLink",
             "core/v4/actors/accountInformation",
@@ -5332,8 +6144,10 @@
     "https://openminds.ebrains.eu/vocab/setup": {
         "description": null,
         "label": "Setup",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "setup",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "stimulation/v1/activity/stimulationActivity"
@@ -5342,8 +6156,10 @@
     "https://openminds.ebrains.eu/vocab/setupType": {
         "description": null,
         "label": "Setup type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "setupType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": []
     },
@@ -5352,6 +6168,7 @@
         "label": "Short name",
         "labelForReverseLink": "Is short name of",
         "name": "shortName",
+        "nameForReverseLink": "isShortNameOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/atlasTerminology",
@@ -5413,13 +6230,19 @@
             "core/v4/products/webServiceVersion",
             "publications/v1/livePaper",
             "publications/v1/livePaperVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/sliceThickness": {
         "description": null,
         "label": "Slice thickness",
+        "labelForReverseLink": "Is thickness of",
         "linkedTypes": [],
         "name": "sliceThickness",
+        "nameForReverseLink": "isThicknessOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -5428,8 +6251,10 @@
     "https://openminds.ebrains.eu/vocab/slicingAngle": {
         "description": null,
         "label": "Slicing angle",
+        "labelForReverseLink": "Is angle for",
         "linkedTypes": [],
         "name": "slicingAngle",
+        "nameForReverseLink": "isAngleFor",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -5438,16 +6263,20 @@
     "https://openminds.ebrains.eu/vocab/slicingDevice": {
         "description": null,
         "label": "Slicing device",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "slicingDevice",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/slicingPlane": {
         "description": null,
         "label": "Slicing plane",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "slicingPlane",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -5456,8 +6285,10 @@
     "https://openminds.ebrains.eu/vocab/slicingSpeed": {
         "description": null,
         "label": "Slicing speed",
+        "labelForReverseLink": "Is speed of",
         "linkedTypes": [],
         "name": "slicingSpeed",
+        "nameForReverseLink": "isSpeedOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -5466,8 +6297,10 @@
     "https://openminds.ebrains.eu/vocab/software": {
         "description": null,
         "label": "Software",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "software",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "computation/v1/environment",
@@ -5477,8 +6310,10 @@
     "https://openminds.ebrains.eu/vocab/sourceData": {
         "description": null,
         "label": "Source data",
+        "labelForReverseLink": "Is source data of",
         "linkedTypes": [],
         "name": "sourceData",
+        "nameForReverseLink": "isSourceDataOf",
         "sameAs": [],
         "schemas": [
             "core/v4/data/fileArchive"
@@ -5487,8 +6322,10 @@
     "https://openminds.ebrains.eu/vocab/spatialLocation": {
         "description": null,
         "label": "Spatial location",
+        "labelForReverseLink": "Is location of",
         "linkedTypes": [],
         "name": "spatialLocation",
+        "nameForReverseLink": "isLocationOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/miscellaneous/anatomicalTargetPosition",
@@ -5499,8 +6336,10 @@
     "https://openminds.ebrains.eu/vocab/spatialLocationOfElectrodes": {
         "description": null,
         "label": "Spatial location of electrodes",
+        "labelForReverseLink": "Is location of",
         "linkedTypes": [],
         "name": "spatialLocationOfElectrodes",
+        "nameForReverseLink": "isLocationOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage"
@@ -5509,11 +6348,12 @@
     "https://openminds.ebrains.eu/vocab/specialUsageRole": {
         "description": "Particular function of something when it is used.",
         "label": "Special usage role",
-        "labelForReverseLink": "Is special usage role of",
+        "labelForReverseLink": "File",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/FileUsageRole"
         ],
         "name": "specialUsageRole",
+        "nameForReverseLink": "file",
         "schemas": [
             "computation/v1/localFile",
             "core/v0/data/fileInstance",
@@ -5529,6 +6369,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Species"
         ],
         "name": "species",
+        "nameForReverseLink": "isSpeciesOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subject",
@@ -5549,14 +6390,19 @@
     "https://openminds.ebrains.eu/vocab/specification": {
         "description": "Detailed and precise presentation of, or proposal for something.",
         "label": "Specification",
-        "labelForReverseLink": "Is specification of",
+        "labelForReverseLink": "Specifies",
         "name": "specification",
+        "nameForReverseLink": "specifies",
         "schemas": [
             "SANDS/v3/atlas/atlasAnnotation",
             "SANDS/v3/non-atlas/customAnnotation",
             "core/v3/data/contentType",
             "core/v4/data/contentType"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/specificationFormat": {
         "description": "Form in which a particular data structure or object state is specified in.",
@@ -5566,6 +6412,7 @@
             "https://openminds.ebrains.eu/core/ContentType"
         ],
         "name": "specificationFormat",
+        "nameForReverseLink": "isSpecificationFormatOf",
         "schemas": [
             "core/v0/products/metaDataModelVersion",
             "core/v3/products/metaDataModelVersion",
@@ -5575,8 +6422,10 @@
     "https://openminds.ebrains.eu/vocab/stage": {
         "description": null,
         "label": "Stage",
+        "labelForReverseLink": "Is part of",
         "linkedTypes": [],
         "name": "stage",
+        "nameForReverseLink": "isPartOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/workflowExecution"
@@ -5585,26 +6434,35 @@
     "https://openminds.ebrains.eu/vocab/stages": {
         "description": null,
         "label": "Stages",
+        "labelForReverseLink": "Are part of",
         "linkedTypes": [],
         "name": "stages",
+        "nameForReverseLink": "arePartsOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/startDate": {
         "description": "Date in the Gregorian calendar at which something begins in time",
         "label": "Start date",
-        "labelForReverseLink": "Is start date of",
+        "labelForReverseLink": "Is date of",
         "name": "startDate",
+        "nameForReverseLink": "isDateOf",
         "schemas": [
             "core/v3/actors/affiliation",
             "core/v4/actors/affiliation"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/startMembranePotential": {
         "description": null,
         "label": "Start membrane potential",
+        "labelForReverseLink": "Is potential of",
         "linkedTypes": [],
         "name": "startMembranePotential",
+        "nameForReverseLink": "isPotentialOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/pipetteUsage"
@@ -5613,8 +6471,10 @@
     "https://openminds.ebrains.eu/vocab/startTime": {
         "description": null,
         "label": "Start time",
+        "labelForReverseLink": "Is time of",
         "linkedTypes": [],
         "name": "startTime",
+        "nameForReverseLink": "isTimeOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -5630,21 +6490,33 @@
             "ephys/v1/activity/recordingActivity",
             "specimenPrep/v1/activity/cranialWindowPreparation",
             "stimulation/v1/activity/stimulationActivity"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/startedAtTime": {
         "description": null,
         "label": "Started at time",
+        "labelForReverseLink": "Is time of",
         "name": "startedAtTime",
+        "nameForReverseLink": "isTimeOf",
         "schemas": [
             "core/v3/research/protocolExecution"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/startedBy": {
         "description": null,
         "label": "Started by",
+        "labelForReverseLink": "Started",
         "linkedTypes": [],
         "name": "startedBy",
+        "nameForReverseLink": "started",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -5660,8 +6532,10 @@
     "https://openminds.ebrains.eu/vocab/status": {
         "description": null,
         "label": "Status",
+        "labelForReverseLink": "Is status of",
         "linkedTypes": [],
         "name": "status",
+        "nameForReverseLink": "isStatusOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -5676,16 +6550,20 @@
     "https://openminds.ebrains.eu/vocab/stimulatedWith": {
         "description": null,
         "label": "Stimulated with",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "stimulatedWith",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/stimulation": {
         "description": null,
         "label": "Stimulation",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "stimulation",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "core/v4/research/behavioralProtocol"
@@ -5694,16 +6572,20 @@
     "https://openminds.ebrains.eu/vocab/stimulationApproach": {
         "description": null,
         "label": "Stimulation approach",
+        "labelForReverseLink": "Is stimulation approach  of",
         "linkedTypes": [],
         "name": "stimulationApproach",
+        "nameForReverseLink": "isStimulationApproachOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/stimulus": {
         "description": null,
         "label": "Stimulus",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "stimulus",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "stimulation/v1/activity/stimulationActivity"
@@ -5712,8 +6594,10 @@
     "https://openminds.ebrains.eu/vocab/stimulusType": {
         "description": null,
         "label": "Stimulus type",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "stimulusType",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "core/v4/research/behavioralProtocol",
@@ -5723,18 +6607,25 @@
     "https://openminds.ebrains.eu/vocab/stockNumber": {
         "description": null,
         "label": "Stock number",
+        "labelForReverseLink": "Is stock number of",
         "linkedTypes": [],
         "name": "stockNumber",
+        "nameForReverseLink": "isStockNumberOf",
         "sameAs": [],
         "schemas": [
             "core/v4/research/strain"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/storageSize": {
         "description": "Quantitative value defining how much disk space is used by an object on a computer system.",
         "label": "Storage size",
-        "labelForReverseLink": "Is storage size of",
+        "labelForReverseLink": "Is size of",
         "name": "storageSize",
+        "nameForReverseLink": "isSizeOf",
         "sameAs": null,
         "schemas": [
             "computation/v1/localFile",
@@ -5757,6 +6648,7 @@
             "https://openminds.ebrains.eu/controlledTerms/Strain"
         ],
         "name": "strain",
+        "nameForReverseLink": "isStarinOf",
         "sameAs": null,
         "schemas": [
             "core/v0/research/subject",
@@ -5772,8 +6664,10 @@
     "https://openminds.ebrains.eu/vocab/structurePattern": {
         "description": null,
         "label": "Structure pattern",
+        "labelForReverseLink": "Structures",
         "linkedTypes": [],
         "name": "structurePattern",
+        "nameForReverseLink": "structures",
         "sameAs": [],
         "schemas": [
             "core/v3/data/fileRepository",
@@ -5783,7 +6677,7 @@
     "https://openminds.ebrains.eu/vocab/studiedSpecimen": {
         "description": null,
         "label": "Studied specimen",
-        "labelForReverseLink": "Is studied specimen of",
+        "labelForReverseLink": "Has study results in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/Subject",
             "https://openminds.ebrains.eu/core/SubjectGroup",
@@ -5791,6 +6685,7 @@
             "https://openminds.ebrains.eu/core/TissueSampleCollection"
         ],
         "name": "studiedSpecimen",
+        "nameForReverseLink": "hasStudyResultsIn",
         "schemas": [
             "core/v3/products/datasetVersion",
             "core/v4/products/datasetVersion"
@@ -5799,7 +6694,7 @@
     "https://openminds.ebrains.eu/vocab/studiedState": {
         "description": "Reference to a point in time at which something or someone was studied in a particular mode or condition.",
         "label": "Studied state",
-        "labelForReverseLink": "Is studied state of",
+        "labelForReverseLink": "Is state of",
         "linkedTypes": [
             "https://openminds.ebrains.eu/core/SubjectGroupState",
             "https://openminds.ebrains.eu/core/SubjectState",
@@ -5807,6 +6702,7 @@
             "https://openminds.ebrains.eu/core/TissueSampleState"
         ],
         "name": "studiedState",
+        "nameForReverseLink": "isStateOf",
         "schemas": [
             "core/v0/research/subject",
             "core/v0/research/subjectGroup",
@@ -5841,6 +6737,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "studyOption",
+        "nameForReverseLink": "isStudyOptionOf",
         "schemas": [
             "core/v3/research/protocol"
         ]
@@ -5848,7 +6745,7 @@
     "https://openminds.ebrains.eu/vocab/studyTarget": {
         "description": "Structure or function that was targeted within a study.",
         "label": "Study target",
-        "labelForReverseLink": "Is study target of",
+        "labelForReverseLink": "Studied in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/BiologicalSex",
             "https://openminds.ebrains.eu/controlledTerms/CellType",
@@ -5864,6 +6761,7 @@
             "https://openminds.ebrains.eu/sands/ParcellationEntity"
         ],
         "name": "studyTarget",
+        "nameForReverseLink": "studiedIn",
         "sameAs": null,
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -5892,25 +6790,33 @@
     "https://openminds.ebrains.eu/vocab/subject": {
         "description": null,
         "label": "Subject",
+        "labelForReverseLink": "Is subject of",
         "linkedTypes": [],
         "name": "subject",
+        "nameForReverseLink": "isSubjectOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/suggestNewTerminology": {
         "description": "Proposal of a new distinct class to group related terms.",
         "label": "Suggest new terminology",
-        "labelForReverseLink": "Is suggest new terminology of",
+        "labelForReverseLink": "Suggested in",
         "name": "suggestNewTerminology",
+        "nameForReverseLink": "suggestedIn",
         "schemas": [
             "controlledTerms/v1/termSuggestion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/supportChannel": {
         "description": "Way of communication used to interact with users or customers.",
         "label": "Support channel",
         "labelForReverseLink": "Is support channel of",
         "name": "supportChannel",
+        "nameForReverseLink": "isSupportChannelOf",
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
             "SANDS/v3/atlas/commonCoordinateSpaceVersion",
@@ -5933,6 +6839,7 @@
         "label": "Synonym",
         "labelForReverseLink": "Is synonym of",
         "name": "synonym",
+        "nameForReverseLink": "isSynonymOf",
         "schemas": [
             "controlledTerms/v1/UBERONParcellation",
             "controlledTerms/v1/actionStatusType",
@@ -6016,13 +6923,19 @@
             "core/v3/data/contentType",
             "core/v4/data/contentType",
             "core/v4/research/strain"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/tag": {
         "description": null,
         "label": "Tag",
+        "labelForReverseLink": "Is tag of",
         "linkedTypes": [],
         "name": "tag",
+        "nameForReverseLink": "isTagOf",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -6032,21 +6945,29 @@
             "computation/v1/optimization",
             "computation/v1/simulation",
             "computation/v1/visualization"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/tags": {
         "description": null,
         "label": "Tags",
+        "labelForReverseLink": "Are tags of",
         "linkedTypes": [],
         "name": "tags",
+        "nameForReverseLink": "areTagsOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/targetIdentificationType": {
         "description": null,
         "label": "Target identification type",
+        "labelForReverseLink": "Is type of",
         "linkedTypes": [],
         "name": "targetIdentificationType",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/miscellaneous/anatomicalTargetPosition"
@@ -6055,8 +6976,10 @@
     "https://openminds.ebrains.eu/vocab/targetPosition": {
         "description": null,
         "label": "Target position",
+        "labelForReverseLink": "Is position of",
         "linkedTypes": [],
         "name": "targetPosition",
+        "nameForReverseLink": "isPositionOf",
         "sameAs": [],
         "schemas": [
             "ephys/v1/activity/cellPatching",
@@ -6066,19 +6989,26 @@
     "https://openminds.ebrains.eu/vocab/teaches": {
         "description": null,
         "label": "Teaches",
+        "labelForReverseLink": "Is subject of",
         "linkedTypes": [],
         "name": "teaches",
+        "nameForReverseLink": "isSubjectOf",
         "sameAs": [],
-        "schemas": []
+        "schemas": [],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/technique": {
         "description": "Method of accomplishing a desired aim.",
         "label": "Technique",
-        "labelForReverseLink": "Is technique of",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/Technique"
         ],
         "name": "technique",
+        "nameForReverseLink": "usedIn",
         "schemas": [
             "computation/v1/dataAnalysis",
             "computation/v1/dataCopy",
@@ -6097,8 +7027,10 @@
     "https://openminds.ebrains.eu/vocab/temperature": {
         "description": null,
         "label": "Temperature",
+        "labelForReverseLink": "Is temperature of",
         "linkedTypes": [],
         "name": "temperature",
+        "nameForReverseLink": "isTemperatureOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/activity/tissueSampleSlicing"
@@ -6110,6 +7042,7 @@
         "label": "Terminology",
         "labelForReverseLink": "Is terminology of",
         "name": "terminology",
+        "nameForReverseLink": "isTerminologyOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -6120,27 +7053,37 @@
     "https://openminds.ebrains.eu/vocab/timeRequired": {
         "description": null,
         "label": "Time required",
+        "labelForReverseLink": "Is time of",
         "linkedTypes": [],
         "name": "timeRequired",
+        "nameForReverseLink": "isTimeOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/timestamp": {
         "description": null,
         "label": "Timestamp",
+        "labelForReverseLink": "Is timestamp of",
         "linkedTypes": [],
         "name": "timestamp",
+        "nameForReverseLink": "isTimestampOf",
         "sameAs": [],
         "schemas": [
             "core/v4/data/measurement",
             "core/v4/miscellaneous/comment"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/tissueBathSolution": {
         "description": null,
         "label": "Tissue bath solution",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "tissueBathSolution",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "ephys/v1/activity/cellPatching",
@@ -6150,12 +7093,18 @@
     "https://openminds.ebrains.eu/vocab/topic": {
         "description": null,
         "label": "Topic",
+        "labelForReverseLink": "Is topic of",
         "linkedTypes": [],
         "name": "topic",
+        "nameForReverseLink": "isTopicOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/learningResource"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/type": {
         "description": "Distinct class to which a group of entities or concepts with similar characteristics or attributes belong to.",
@@ -6167,6 +7116,7 @@
             "https://openminds.ebrains.eu/controlledTerms/TissueSampleType"
         ],
         "name": "type",
+        "nameForReverseLink": "isTypeOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/atlas/atlasAnnotation",
@@ -6196,11 +7146,12 @@
     "https://openminds.ebrains.eu/vocab/typeOfUncertainty": {
         "description": "Distinct technique used to quantify the uncertainty of a measurement.",
         "label": "Type of uncertainty",
-        "labelForReverseLink": "Is type of uncertainty of",
+        "labelForReverseLink": "Value",
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/TypeOfUncertainty"
         ],
         "name": "typeOfUncertainty",
+        "nameForReverseLink": "value",
         "schemas": [
             "core/v3/miscellaneous/quantitativeValue",
             "core/v4/miscellaneous/quantitativeValue",
@@ -6210,8 +7161,10 @@
     "https://openminds.ebrains.eu/vocab/uncertainties": {
         "description": null,
         "label": "Uncertainties",
+        "labelForReverseLink": "Are uncertainties of",
         "linkedTypes": [],
         "name": "uncertainties",
+        "nameForReverseLink": "areUncertaintiesOf",
         "sameAs": [],
         "schemas": []
     },
@@ -6220,6 +7173,7 @@
         "label": "Uncertainty",
         "labelForReverseLink": "Is uncertainty of",
         "name": "uncertainty",
+        "nameForReverseLink": "isUncertaintyOf",
         "schemas": [
             "core/v0/miscellaneous/quantitativeValue",
             "core/v3/miscellaneous/quantitativeValue",
@@ -6229,11 +7183,20 @@
     "https://openminds.ebrains.eu/vocab/unit": {
         "description": "Determinate quantity adopted as a standard of measurement.",
         "label": "Unit",
-        "labelForReverseLink": "Is unit of",
+        "labelForReverseLink": {
+            "https://openminds.ebrains.eu/ephys/Channel": "Used in",
+            "https://openminds.ebrains.eu/core/QuantitativeValue": "Value",
+            "https://openminds.ebrains.eu/core/QuantitativeValueArray": "Value"
+        },
         "linkedTypes": [
             "https://openminds.ebrains.eu/controlledTerms/UnitOfMeasurement"
         ],
         "name": "unit",
+        "nameForReverseLink": {
+            "https://openminds.ebrains.eu/ephys/Channel": "usedIn",
+            "https://openminds.ebrains.eu/core/QuantitativeValue": "value",
+            "https://openminds.ebrains.eu/core/QuantitativeValueArray": "value"
+        },
         "sameAs": null,
         "schemas": [
             "core/v0/miscellaneous/quantitativeValue",
@@ -6248,16 +7211,20 @@
     "https://openminds.ebrains.eu/vocab/unitOfMeasurement": {
         "description": null,
         "label": "Unit of measurement",
+        "labelForReverseLink": "Unit of",
         "linkedTypes": [],
         "name": "unitOfMeasurement",
+        "nameForReverseLink": "unitOf",
         "sameAs": [],
         "schemas": []
     },
     "https://openminds.ebrains.eu/vocab/usedElectrode": {
         "description": null,
         "label": "Used electrode",
+        "labelForReverseLink": "Used by",
         "linkedTypes": [],
         "name": "usedElectrode",
+        "nameForReverseLink": "usedBy",
         "sameAs": [],
         "schemas": [
             "ephys/v1/device/electrodeArrayUsage"
@@ -6266,8 +7233,10 @@
     "https://openminds.ebrains.eu/vocab/usedSpecies": {
         "description": null,
         "label": "Used species",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "usedSpecies",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/brainAtlas",
@@ -6277,8 +7246,10 @@
     "https://openminds.ebrains.eu/vocab/usedSpecimen": {
         "description": null,
         "label": "Used specimen",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "usedSpecimen",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/atlas/brainAtlasVersion",
@@ -6292,18 +7263,25 @@
     "https://openminds.ebrains.eu/vocab/userName": {
         "description": null,
         "label": "User name",
+        "labelForReverseLink": "Is user name of",
         "linkedTypes": [],
         "name": "userName",
+        "nameForReverseLink": "isUserNameOf",
         "sameAs": [],
         "schemas": [
             "core/v4/actors/accountInformation"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/value": {
         "description": "Entry for a property.",
         "label": "Value",
         "labelForReverseLink": "Is value of",
         "name": "value",
+        "nameForReverseLink": "isValueOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v3/miscellaneous/singleColor",
@@ -6316,13 +7294,19 @@
             "core/v4/miscellaneous/quantitativeValue",
             "core/v4/research/numericalProperty",
             "core/v4/research/stringProperty"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/values": {
         "description": null,
         "label": "Values",
+        "labelForReverseLink": "Are values of",
         "linkedTypes": [],
         "name": "values",
+        "nameForReverseLink": "areValuesOf",
         "sameAs": [],
         "schemas": [
             "core/v4/miscellaneous/quantitativeValueArray"
@@ -6331,8 +7315,10 @@
     "https://openminds.ebrains.eu/vocab/variation": {
         "description": null,
         "label": "Variation",
+        "labelForReverseLink": "Used in",
         "linkedTypes": [],
         "name": "variation",
+        "nameForReverseLink": "usedIn",
         "sameAs": [],
         "schemas": [
             "ephys/v1/activity/cellPatching"
@@ -6341,8 +7327,10 @@
     "https://openminds.ebrains.eu/vocab/vendor": {
         "description": null,
         "label": "Vendor",
+        "labelForReverseLink": "stocks",
         "linkedTypes": [],
         "name": "vendor",
+        "nameForReverseLink": "stocks",
         "sameAs": [],
         "schemas": [
             "core/v4/digitalIdentifier/stockNumber"
@@ -6351,8 +7339,10 @@
     "https://openminds.ebrains.eu/vocab/version": {
         "description": null,
         "label": "Version",
+        "labelForReverseLink": "Is version of",
         "linkedTypes": [],
         "name": "version",
+        "nameForReverseLink": "isVersionOf",
         "sameAs": [],
         "schemas": []
     },
@@ -6361,6 +7351,7 @@
         "label": "Version identifier",
         "labelForReverseLink": "Is version identifier of",
         "name": "versionIdentifier",
+        "nameForReverseLink": "isVersionIdentifierOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -6396,13 +7387,18 @@
             "publications/v1/learningResource",
             "publications/v1/livePaperVersion",
             "publications/v1/scholarlyArticle"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/versionInnovation": {
         "description": "Documentation on what changed in comparison to a previously published form of something.",
         "label": "Version innovation",
         "labelForReverseLink": "Is version innovation of",
         "name": "versionInnovation",
+        "nameForReverseLink": "isVersionInnovationOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/brainAtlasVersion",
@@ -6430,13 +7426,19 @@
             "core/v4/products/softwareVersion",
             "core/v4/products/webServiceVersion",
             "publications/v1/livePaperVersion"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": true
+        }
     },
     "https://openminds.ebrains.eu/vocab/vibrationFrequency": {
         "description": null,
         "label": "Vibration frequency",
+        "labelForReverseLink": "Is frequency of",
         "linkedTypes": [],
         "name": "vibrationFrequency",
+        "nameForReverseLink": "isFrequencyOf",
         "sameAs": [],
         "schemas": [
             "specimenPrep/v1/device/slicingDeviceUsage"
@@ -6450,6 +7452,7 @@
             "https://openminds.ebrains.eu/core/File"
         ],
         "name": "visualizedIn",
+        "nameForReverseLink": "Visualizes",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/annotation",
@@ -6464,12 +7467,18 @@
     "https://openminds.ebrains.eu/vocab/volumeNumber": {
         "description": null,
         "label": "Volume number",
+        "labelForReverseLink": "Is volume number of",
         "linkedTypes": [],
         "name": "volumeNumber",
+        "nameForReverseLink": "isVolumeNumberOf",
         "sameAs": [],
         "schemas": [
             "publications/v1/publicationVolume"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/voxelSize": {
         "deprecated": true,
@@ -6477,6 +7486,7 @@
         "label": "Voxel size",
         "labelForReverseLink": "Is voxel size of",
         "name": "voxelSize",
+        "nameForReverseLink": "isVoxelOf",
         "sameAs": null,
         "schemas": [
             "SANDS/v0/image",
@@ -6486,8 +7496,10 @@
     "https://openminds.ebrains.eu/vocab/wasInformedBy": {
         "description": null,
         "label": "Was informed by",
+        "labelForReverseLink": "informed",
         "linkedTypes": [],
         "name": "wasInformedBy",
+        "nameForReverseLink": "informed",
         "sameAs": [],
         "schemas": [
             "computation/v1/dataAnalysis",
@@ -6504,16 +7516,22 @@
         "label": "Webpage",
         "labelForReverseLink": "Is webpage of",
         "name": "webpage",
+        "nameForReverseLink": "isWebpageOf",
         "schemas": [
             "core/v3/data/license",
             "core/v4/data/license"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     },
     "https://openminds.ebrains.eu/vocab/weight": {
         "description": "Amount that a thing or being weighs.",
         "label": "Weight",
         "labelForReverseLink": "Is weight of",
         "name": "weight",
+        "nameForReverseLink": "isWeightOf",
         "schemas": [
             "core/v0/research/subjectGroupState",
             "core/v0/research/subjectState",
@@ -6532,8 +7550,10 @@
     "https://openminds.ebrains.eu/vocab/width": {
         "description": null,
         "label": "Width",
+        "labelForReverseLink": "Is width of",
         "linkedTypes": [],
         "name": "width",
+        "nameForReverseLink": "isWidthOf",
         "sameAs": [],
         "schemas": [
             "SANDS/v3/mathematicalShapes/rectangle"
@@ -6544,11 +7564,16 @@
         "label": "Year",
         "labelForReverseLink": "Is year of",
         "name": "year",
+        "nameForReverseLink": "isYearOf",
         "sameAs": null,
         "schemas": [
             "core/v0/data/copyright",
             "core/v3/data/copyright",
             "core/v4/data/copyright"
-        ]
+        ],
+        "formating": {
+            "formattedText": false,
+            "multilineText": false
+        }
     }
 }
